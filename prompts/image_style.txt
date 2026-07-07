@@ -1,0 +1,25 @@
+MAIN CHARACTER - Time-Traveling Rabbit Scientist:
+- Anthropomorphic rabbit standing upright
+- Wearing a worn steampunk-style space suit with brass goggles on forehead
+- Has a leather satchel with scientific instruments
+- Expressive, wise eyes with a hint of mystery
+- Fur color: warm grey with white chest
+- Height: human-proportioned (not cute/chibi)
+- Style: hyper-realistic digital art, NOT cartoon
+- Mood: intelligent, adventurous, slightly weathered
+
+SCENE VISUAL STYLE:
+- Cinematic wide shots with dramatic lighting
+- Color palette: deep blues, warm ambers, cosmic purples
+- 16:9 aspect ratio
+- Photorealistic quality, 8K detail
+- Atmospheric effects: volumetric lighting, particle effects, lens flares
+- NO text overlays in images
+- Each scene should feel like a frame from a high-budget documentary
+
+CONSISTENCY RULES:
+- Character's facial features MUST remain identical across all frames
+- Use IP-Adapter with face_id_plus_v2 for character consistency
+- Reference image must be provided with every generation
+- Do NOT allow the AI to "beautify" or generalize the character's features
+- Eye shape, nose structure, ear proportions must match reference exactly

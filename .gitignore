@@ -1,0 +1,21 @@
+# API Anahtarları - ASLA paylaşılmamalı
+.env
+
+# Geçici dosyalar
+temp/
+__pycache__/
+*.pyc
+
+# Üretilen videolar (büyük dosyalar)
+output/
+
+# n8n verileri
+n8n_data/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+Thumbs.db
+.DS_Store
