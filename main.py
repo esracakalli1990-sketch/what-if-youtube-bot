@@ -53,6 +53,9 @@ def run_pipeline(
         mode: "long" (10 dk yatay) veya "shorts" (45-60 sn dikey)
         privacy: YouTube gizlilik (private/unlisted/public)
         publish_at: Planlı yayın zamanı (datetime, opsiyonel)
+
+    Returns:
+        str | None: Final video yolu (başarılıysa) veya None
     """
     start_time = time.time()
     is_shorts = mode == "shorts"
@@ -212,9 +215,11 @@ def run_pipeline(
 
         # Checkpoint temizle
         checkpoint.clear()
+        return final_video
     else:
         print_error("Video üretimi başarısız oldu.")
         logger.error("Pipeline başarısız: video montaj aşamasında hata.")
+        return None
 
 
 def run_system_check():

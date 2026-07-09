@@ -314,7 +314,77 @@ Output format: JSON array of strings only. Example: ["What would happen if ...",
     return added
 
 
-def run_batch(count: int = 1, delay_minutes: int = 5, with_shorts: bool = False):
+def get_next_short_topic() -> str | None:
+    """
+    Short üretilmemiş sıradaki konuyu döndür.
+
+    Uzun video durumundan bağımsız çalışır: bir konu hem uzun video
+    hem Short alabilir (Short'tan gelen izleyici uzun videoya akar).
+    """
+    data = load_topics()
+    for t in data.get("topics", []):
+        if t.get("status") == "failed":
+            continue
+        if not t.get("short_at"):
+            return t["topic"]
+    return None
+
+
+def mark_short_done(topic: str):
+    """Konuyu 'Short üretildi' olarak işaretle."""
+    data = load_topics()
+    for t in data.get("topics", []):
+        if t["topic"] == topic:
+            t["short_at"] = datetime.now().isoformat()
+            break
+    save_topics(data)
+    logger.info("Short üretildi: '%s'", topic)
+
+
+def run_short(privacy: str = "public") -> bool:
+    """
+    Havuzdan sıradaki konuyla bir YouTube Short üret (günlük otomasyon komutu).
+
+    Konu kalmadıysa havuzu Gemini ile doldurmayı dener.
+
+    Returns:
+        bool: Başarılı mı?
+    """
+    # Lazy import — circular dependency önle
+    from main import run_pipeline
+
+    topic = get_next_short_topic()
+    if not topic:
+        print_warning("Short için konu kalmadı, havuz dolduruluyor...")
+        if refill_topics(10) == 0:
+            print_error("Konu havuzu doldurulamadı.")
+            return False
+        topic = get_next_short_topic()
+        if not topic:
+            return False
+
+    print_header(f"📱 GÜNLÜK SHORT — {topic}")
+
+    try:
+        result = run_pipeline(topic, mode="shorts", privacy=privacy)
+    except Exception as e:
+        print_error(f"Short pipeline hatası: {e}")
+        logger.error("Short pipeline hatası: %s — %s", topic, e)
+        return False
+
+    if result:
+        mark_short_done(topic)
+        return True
+    return False
+
+
+def run_batch(
+    count: int = 1,
+    delay_minutes: int = 5,
+    with_shorts: bool = False,
+    privacy: str = "private",
+    publish_auto: bool = False,
+):
     """
     Toplu video üretimi — birden fazla konu için sırayla pipeline çalıştır.
 
@@ -322,6 +392,9 @@ def run_batch(count: int = 1, delay_minutes: int = 5, with_shorts: bool = False)
         count: Üretilecek video sayısı
         delay_minutes: Videolar arasındaki bekleme süresi (dakika)
         with_shorts: True ise her uzun videodan sonra aynı konudan bir Short üret
+        privacy: YouTube gizlilik durumu
+        publish_auto: True ise her video bir sonraki optimal saate planlanır
+                      (birden fazla videoda ardışık günlere dağıtılır)
     """
     # Lazy import — circular dependency önle
     from main import run_pipeline
@@ -338,18 +411,28 @@ def run_batch(count: int = 1, delay_minutes: int = 5, with_shorts: bool = False)
         console.print(f"  📌 Video {i + 1}/{count}: [bold cyan]{topic}[/bold cyan]")
         console.print(f"{'═' * 50}")
 
+        publish_at = None
+        if publish_auto:
+            from scripts.youtube_uploader import next_optimal_publish_time
+            publish_at = next_optimal_publish_time() + timedelta(days=i)
+
         try:
-            run_pipeline(topic)
-            # Episode numarası
-            from scripts.utils import get_episode_number
-            ep_num = get_episode_number() - 1  # Son üretilen
-            mark_topic_completed(topic, ep_num)
+            result = run_pipeline(topic, privacy=privacy, publish_at=publish_at)
+            if result:
+                # Episode numarası
+                from scripts.utils import get_episode_number
+                ep_num = get_episode_number() - 1  # Son üretilen
+                mark_topic_completed(topic, ep_num)
+            else:
+                mark_topic_failed(topic, "pipeline tamamlanamadı")
+                continue
 
             # Aynı konudan Short üret (keşif trafiği için)
             if with_shorts:
                 console.print(f"\n  📱 Aynı konudan Short üretiliyor...")
                 try:
-                    run_pipeline(topic, mode="shorts")
+                    if run_pipeline(topic, mode="shorts", privacy=privacy):
+                        mark_short_done(topic)
                 except Exception as e:
                     print_warning(f"Shorts üretimi başarısız (uzun video tamamlandı): {e}")
                     logger.warning("Batch shorts hatası: %s — %s", topic, e)
@@ -393,9 +476,15 @@ if __name__ == "__main__":
     parser.add_argument("--next", action="store_true", help="Sıradaki konuyu göster")
     parser.add_argument("--add", metavar="TOPIC", help="Yeni konu ekle")
     parser.add_argument("--batch", type=int, metavar="N", help="N video üret")
+    parser.add_argument("--short", action="store_true",
+                        help="Havuzdan sıradaki konuyla tek bir Short üret (günlük otomasyon)")
     parser.add_argument("--delay", type=int, default=5, help="Videolar arası bekleme (dakika)")
     parser.add_argument("--with-shorts", action="store_true",
                         help="Batch'te her uzun videodan sonra aynı konudan Short üret")
+    parser.add_argument("--privacy", choices=["private", "unlisted", "public"],
+                        help="YouTube gizlilik (varsayılan: batch=private, short=public)")
+    parser.add_argument("--publish-auto", action="store_true",
+                        help="Batch videoları optimal saatlere planla (ardışık günler)")
     parser.add_argument("--reset-failed", action="store_true", help="Başarısız konuları sıfırla")
     parser.add_argument("--refill", type=int, metavar="N",
                         help="Gemini ile havuza N yeni viral konu ekle")
@@ -413,7 +502,13 @@ if __name__ == "__main__":
     elif args.add:
         add_topic(args.add)
     elif args.batch:
-        run_batch(count=args.batch, delay_minutes=args.delay, with_shorts=args.with_shorts)
+        run_batch(
+            count=args.batch, delay_minutes=args.delay, with_shorts=args.with_shorts,
+            privacy=args.privacy or "private", publish_auto=args.publish_auto,
+        )
+    elif args.short:
+        ok = run_short(privacy=args.privacy or "public")
+        sys.exit(0 if ok else 1)
     elif args.reset_failed:
         reset_failed()
     elif args.refill:

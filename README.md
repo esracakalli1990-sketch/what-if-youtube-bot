@@ -96,8 +96,39 @@ what-if-youtube-bot/
 | `python scripts/scheduler.py --list` | Konu havuzunu listele |
 | `python scripts/scheduler.py --refill 10` | Gemini ile havuza 10 yeni viral konu ekle |
 | `python scripts/scheduler.py --batch 3 --with-shorts` | 3 uzun video + her birinden Short üret |
+| `python scripts/scheduler.py --short` | Havuzdan sıradaki konuyla 1 Short üret + yükle (otomasyon komutu) |
+| `python scripts/scheduler.py --batch 1 --publish-auto` | 1 uzun video üret, optimal saate planla |
 | `python scripts/analytics.py --report` | Kanal performans raporu |
 | `pytest tests/` | Test paketini çalıştır |
+
+## 🤖 Tam Otomasyon (GitHub Actions)
+
+Repo'da hazır iki iş akışı var:
+
+- **CI** (`.github/workflows/ci.yml`): her push/PR'da test paketini çalıştırır.
+- **Otonom Video Üretimi** (`.github/workflows/daily-video.yml`): bilgisayarınız kapalıyken bile kanal kendi kendine çalışır:
+  - Her gün 09:00 UTC → 1 public **Short**
+  - Pazartesi & Perşembe → 1 **uzun video** (bir sonraki 15:00 UTC'ye planlı yayın)
+  - Pazar → konu havuzu Gemini ile doldurulur
+  - Elle tetikleme: Actions sekmesi → "Otonom Video Üretimi" → Run workflow (tip ve istediğiniz konuyu seçebilirsiniz)
+
+### Kurulum (bir kere)
+
+GitHub → repo → **Settings → Secrets and variables → Actions** altına şu secret'ları ekleyin:
+
+| Secret | Değer |
+|--------|-------|
+| `GEMINI_API_KEY` | Gemini API anahtarınız |
+| `ELEVENLABS_API_KEY` | ElevenLabs API anahtarınız |
+| `CHARACTER_VOICE_ID` | ElevenLabs ses ID'si |
+| `REPLICATE_API_TOKEN` | Replicate token'ınız |
+| `YOUTUBE_CLIENT_SECRETS_B64` | `base64 -w0 client_secrets.json` çıktısı |
+| `YOUTUBE_TOKEN_B64` | Lokal `--auth` sonrası `base64 -w0 youtube_token.pickle` çıktısı |
+| `YOUTUBE_PLAYLIST_ID` | (Opsiyonel) uzun videoların ekleneceği playlist |
+
+> YouTube secret'ları eksikse video yine üretilir ve Actions **artifact**'ı olarak 5 gün saklanır — sadece yükleme atlanır. Windows'ta base64 için: `certutil -encode dosya out.txt` (başlık/son satırları silin) veya Git Bash kullanın.
+
+Bot, üretim durumunu (`topics.json`, `output/uploads.json`) her çalışmadan sonra repoya commit'leyerek kaldığı yeri hatırlar.
 
 ## 📈 Büyüme Stratejisi (Önerilen Kadans)
 

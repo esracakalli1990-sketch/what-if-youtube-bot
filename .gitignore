@@ -9,10 +9,12 @@ youtube_token.pickle
 
 # Geçici dosyalar ve çıktılar
 temp/
-output/
 logs/
 character/reference/
-topics.json
+# NOT: topics.json ve output/uploads.json bilerek takip edilebilir —
+# GitHub Actions otomasyonu bu durum dosyalarını commit'leyerek kalıcılaştırır.
+output/*
+!output/uploads.json
 
 # Python cache
 __pycache__/

@@ -185,6 +185,11 @@ def authenticate() -> object | None:
 
     # Yeni yetkilendirme gerekli
     if not credentials or not credentials.valid:
+        # CI/otomasyon ortamında tarayıcı açılamaz — asılı kalmak yerine hata ver
+        if os.getenv("CI") or os.getenv("GITHUB_ACTIONS"):
+            print_error("Token geçersiz ve CI ortamında interaktif yetkilendirme yapılamaz.")
+            print_error("Lokal makinede --auth çalıştırıp YOUTUBE_TOKEN_B64 secret'ını güncelleyin.")
+            return None
         try:
             flow = InstalledAppFlow.from_client_secrets_file(
                 str(CLIENT_SECRETS_FILE), SCOPES
