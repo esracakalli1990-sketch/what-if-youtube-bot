@@ -138,6 +138,38 @@ def get_top_performers(n: int = 5, kind: str | None = None) -> list[dict]:
     return sorted(stats, key=lambda s: s.get("views", 0), reverse=True)[:n]
 
 
+def format_report_text() -> str:
+    """
+    Kanal performans raporunu düz metin olarak üret (Telegram için).
+    """
+    stats = fetch_video_stats()
+    if not stats:
+        return ("📊 <b>Kanal Raporu</b>\n\n"
+                "Henüz istatistik yok — ilk videolar yüklendikten sonra rapor oluşacak.")
+
+    stats.sort(key=lambda s: s.get("views", 0), reverse=True)
+    total_views = sum(s["views"] for s in stats)
+    total_likes = sum(s["likes"] for s in stats)
+    shorts = [s for s in stats if s["kind"] == "short"]
+    longs = [s for s in stats if s["kind"] == "long"]
+
+    lines = [
+        "📊 <b>Kanal Performans Raporu</b>",
+        "",
+        f"🎬 Video: {len(longs)} uzun + {len(shorts)} Short",
+        f"👁 Toplam izlenme: {total_views:,}",
+        f"👍 Toplam beğeni: {total_likes:,}",
+        "",
+        "<b>En iyi 5:</b>",
+    ]
+    for i, s in enumerate(stats[:5], 1):
+        icon = "📱" if s["kind"] == "short" else "🎬"
+        lines.append(f"{i}. {icon} {s['title'][:60]}")
+        lines.append(f"    👁 {s['views']:,} | 👍 {s['likes']:,} | 💬 {s['comments']:,}")
+
+    return "\n".join(lines)
+
+
 def print_report():
     """Kanal performans tablosunu yazdır."""
     from rich.table import Table

@@ -1,0 +1,93 @@
+name: Telegram Komut İşleyici
+
+# Telegram'dan gelen komutları (/durum, /rapor, /short, /video, /konu)
+# saatte bir okuyup çalıştırır. Sunucu gerektirmez.
+#
+# Gerekli ek secrets: TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID
+# (video komutları için daily-video.yml'deki secrets da gerekli)
+
+on:
+  schedule:
+    - cron: "30 * * * *"  # her saat :30'da (video üretimiyle çakışmasın)
+  workflow_dispatch:
+
+concurrency:
+  group: video-bot  # üretim workflow'uyla aynı grup — state commit çakışmasını önler
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  poll:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+      CHARACTER_VOICE_ID: ${{ secrets.CHARACTER_VOICE_ID }}
+      REPLICATE_API_TOKEN: ${{ secrets.REPLICATE_API_TOKEN }}
+      YOUTUBE_PLAYLIST_ID: ${{ secrets.YOUTUBE_PLAYLIST_ID }}
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: FFmpeg kur (video komutları için)
+        run: sudo apt-get update -q && sudo apt-get install -y -q ffmpeg
+
+      - name: Bağımlılıkları kur
+        run: pip install -r requirements.txt
+
+      - name: YouTube kimlik dosyalarını hazırla
+        env:
+          CLIENT_SECRETS_B64: ${{ secrets.YOUTUBE_CLIENT_SECRETS_B64 }}
+          TOKEN_B64: ${{ secrets.YOUTUBE_TOKEN_B64 }}
+        run: |
+          if [ -n "$CLIENT_SECRETS_B64" ] && [ -n "$TOKEN_B64" ]; then
+            echo "$CLIENT_SECRETS_B64" | base64 -d > client_secrets.json
+            echo "$TOKEN_B64" | base64 -d > youtube_token.pickle
+          fi
+
+      - name: Bekleyen komutları işle
+        run: python scripts/telegram_bot.py --poll
+
+      - name: Durum dosyalarını commit'le
+        if: always()
+        run: |
+          git config user.name "what-if-bot"
+          git config user.email "actions@github.com"
+          git add -f telegram_state.json topics.json output/uploads.json 2>/dev/null || true
+          if ! git diff --cached --quiet; then
+            git commit -m "bot: telegram komut durumu güncellendi [skip ci]"
+            git pull --rebase origin "${GITHUB_REF_NAME}" || true
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
+
+      - name: Üretilen videoyu artifact olarak sakla
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: telegram-komut-${{ github.run_number }}
+          path: |
+            output/*.mp4
+            output/*.png
+          retention-days: 3
+          if-no-files-found: ignore
+
+      - name: Hata bildirimi (Telegram)
+        if: failure()
+        run: |
+          if [ -n "$TELEGRAM_BOT_TOKEN" ] && [ -n "$TELEGRAM_CHAT_ID" ]; then
+            curl -s "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+              -d chat_id="${TELEGRAM_CHAT_ID}" \
+              -d parse_mode="HTML" \
+              --data-urlencode text="🚨 <b>Telegram komut işleyici hatası</b>
+
+Detay: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" || true
+          fi

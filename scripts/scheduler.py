@@ -311,6 +311,15 @@ Output format: JSON array of strings only. Example: ["What would happen if ...",
     save_topics(data)
     print_success(f"{added} yeni konu havuza eklendi.")
     logger.info("Konu havuzu dolduruldu: %d yeni konu", added)
+
+    if added:
+        try:
+            from scripts.notifier import notify_topics_refilled
+            pending = sum(1 for t in data["topics"] if t.get("status") == "pending")
+            notify_topics_refilled(added, pending)
+        except Exception:
+            pass
+
     return added
 
 

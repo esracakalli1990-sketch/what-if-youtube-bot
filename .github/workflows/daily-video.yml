@@ -46,6 +46,8 @@ jobs:
       CHARACTER_VOICE_ID: ${{ secrets.CHARACTER_VOICE_ID }}
       REPLICATE_API_TOKEN: ${{ secrets.REPLICATE_API_TOKEN }}
       YOUTUBE_PLAYLIST_ID: ${{ secrets.YOUTUBE_PLAYLIST_ID }}
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
     steps:
       - uses: actions/checkout@v4
 
@@ -75,7 +77,6 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: YouTube kimlik dosyalarını hazırla
-        if: steps.type.outputs.job_type != 'refill'
         env:
           CLIENT_SECRETS_B64: ${{ secrets.YOUTUBE_CLIENT_SECRETS_B64 }}
           TOKEN_B64: ${{ secrets.YOUTUBE_TOKEN_B64 }}
@@ -88,9 +89,11 @@ jobs:
             echo "::warning::YouTube secret'ları tanımlı değil — video üretilecek ama yüklenmeyecek."
           fi
 
-      - name: Konu havuzunu doldur
+      - name: Konu havuzunu doldur + haftalık rapor
         if: steps.type.outputs.job_type == 'refill'
-        run: python scripts/scheduler.py --refill 15
+        run: |
+          python scripts/scheduler.py --refill 15
+          python scripts/notifier.py --report || true
 
       - name: Short üret
         if: steps.type.outputs.job_type == 'short'
@@ -135,3 +138,15 @@ jobs:
             output/*.srt
           retention-days: 5
           if-no-files-found: warn
+
+      - name: Hata bildirimi (Telegram)
+        if: failure()
+        run: |
+          if [ -n "$TELEGRAM_BOT_TOKEN" ] && [ -n "$TELEGRAM_CHAT_ID" ]; then
+            curl -s "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+              -d chat_id="${TELEGRAM_CHAT_ID}" \
+              -d parse_mode="HTML" \
+              --data-urlencode text="🚨 <b>Otomasyon hatası</b> — ${{ steps.type.outputs.job_type }} işi başarısız oldu.
+
+Detay: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" || true
+          fi

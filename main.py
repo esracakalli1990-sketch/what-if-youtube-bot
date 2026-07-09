@@ -28,6 +28,7 @@ from scripts.tts_engine import generate_audio, list_available_voices
 from scripts.image_generator import generate_images, generate_character_reference, generate_thumbnail
 from scripts.video_assembler import assemble_video, check_ffmpeg
 from scripts.youtube_uploader import upload_video, check_youtube_setup
+from scripts.notifier import notify_video_completed, notify_error
 
 
 def run_pipeline(
@@ -99,11 +100,13 @@ def run_pipeline(
 
     if not scenario:
         print_error("Pipeline durdu: Senaryo üretilemedi.")
+        notify_error(f"Senaryo üretimi ({topic})", "Gemini senaryo üretemedi — API anahtarını ve kotayı kontrol edin.")
         return
 
     scenes = scenario.get("scenes", [])
     if not scenes:
         print_error("Pipeline durdu: Senaryoda sahne bulunamadı.")
+        notify_error(f"Senaryo üretimi ({topic})", "Senaryoda sahne bulunamadı.")
         return
 
     title = scenario.get("title", "Untitled Episode")
@@ -124,6 +127,7 @@ def run_pipeline(
 
     if not audio_results:
         print_error("Pipeline durdu: Seslendirme yapılamadı.")
+        notify_error(f"Seslendirme ({topic})", "TTS üretimi başarısız — ElevenLabs/edge-tts kontrol edin.")
         return
 
     if not checkpoint.is_step_completed("audio"):
@@ -142,6 +146,7 @@ def run_pipeline(
 
     if not image_results:
         print_error("Pipeline durdu: Görseller üretilemedi.")
+        notify_error(f"Görsel üretimi ({topic})", "Hiçbir görsel üretilemedi — Replicate/Pollinations kontrol edin.")
         return
 
     if not checkpoint.is_step_completed("images"):
@@ -181,10 +186,11 @@ def run_pipeline(
         # ═══════════════════════════════════
         # ADIM 6: YOUTUBE YÜKLEME
         # ═══════════════════════════════════
+        video_id = None
         if not no_upload:
             youtube_status = check_youtube_setup()
             if youtube_status.get("authenticated"):
-                upload_video(
+                video_id = upload_video(
                     video_path=final_video,
                     title=title,
                     thumbnail_path=str(thumb_output) if thumb_output else None,
@@ -200,6 +206,17 @@ def run_pipeline(
         elapsed = time.time() - start_time
         minutes = int(elapsed // 60)
         seconds = int(elapsed % 60)
+
+        # Telegram bildirimi
+        notify_video_completed(
+            title=scenario.get("clickbait_title", title),
+            mode=mode,
+            video_path=final_video,
+            duration_text=f"{minutes}dk {seconds}sn",
+            video_id=video_id,
+            publish_at=publish_at,
+            thumbnail_path=str(thumb_output) if thumb_output else None,
+        )
 
         console.print()
         print_header("🎉 VİDEO ÜRETİMİ TAMAMLANDI!")
@@ -219,6 +236,7 @@ def run_pipeline(
     else:
         print_error("Video üretimi başarısız oldu.")
         logger.error("Pipeline başarısız: video montaj aşamasında hata.")
+        notify_error(f"Video montaj ({topic})", "FFmpeg montaj aşamasında hata — loglara bakın.")
         return None
 
 
