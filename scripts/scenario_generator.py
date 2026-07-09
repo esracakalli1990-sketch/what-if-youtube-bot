@@ -1,8 +1,14 @@
 """
-scenario_generator.py - Gemini Pro API ile Senaryo Üretim Motoru.
+scenario_generator.py - Gemini API ile Senaryo Üretim Motoru.
 
-Konu alır, PDF'teki ritim kurallarına uygun yapılandırılmış JSON senaryo üretir.
+Konu alır, ritim kurallarına uygun yapılandırılmış JSON senaryo üretir.
 Her sahne: hook/twist/outro mantığıyla kurgulanır.
+
+Özellikler:
+- Senaryo JSON validation
+- Retry with exponential backoff
+- Fallback model desteği
+- Detaylı loglama
 """
 
 import json
@@ -12,23 +18,174 @@ from google import genai
 from google.genai import types
 
 from scripts.utils import (
-    load_env, read_prompt, save_json, print_header,
-    print_step, print_success, print_error, console, TEMP_DIR
+    load_env, read_prompt, save_json, load_json, print_header,
+    print_step, print_success, print_error, print_warning,
+    console, logger, retry, TEMP_DIR
 )
 
+# Gerekli sahne alanları
+REQUIRED_SCENE_FIELDS = {"scene_number", "narration", "visual_prompt"}
+OPTIONAL_SCENE_FIELDS = {"scene_type", "duration_seconds", "twist_element"}
 
-def generate_scenario(topic: str) -> dict:
+
+def validate_scenario(scenario: dict) -> tuple[bool, list[str]]:
+    """
+    Senaryo JSON yapısını doğrula.
+
+    Returns:
+        tuple: (geçerli_mi, hata_listesi)
+    """
+    errors = []
+
+    if not isinstance(scenario, dict):
+        return False, ["Senaryo bir dict olmalı."]
+
+    if "title" not in scenario:
+        errors.append("'title' alanı eksik.")
+
+    scenes = scenario.get("scenes", [])
+    if not scenes:
+        errors.append("'scenes' listesi boş veya eksik.")
+        return False, errors
+
+    if not isinstance(scenes, list):
+        errors.append("'scenes' bir liste olmalı.")
+        return False, errors
+
+    for i, scene in enumerate(scenes):
+        if not isinstance(scene, dict):
+            errors.append(f"Sahne {i + 1}: dict olmalı.")
+            continue
+
+        for field in REQUIRED_SCENE_FIELDS:
+            if field not in scene:
+                errors.append(f"Sahne {i + 1}: '{field}' alanı eksik.")
+            elif field in ("narration", "visual_prompt") and not scene[field].strip():
+                errors.append(f"Sahne {i + 1}: '{field}' boş olamaz.")
+
+    # Sahne numarası sıralaması
+    scene_numbers = [s.get("scene_number", 0) for s in scenes if isinstance(s, dict)]
+    if scene_numbers != sorted(scene_numbers):
+        errors.append("Sahne numaraları sıralı değil.")
+
+    is_valid = len(errors) == 0
+    return is_valid, errors
+
+
+def fix_scenario(scenario: dict) -> dict:
+    """
+    Eksik alanları otomatik tamamla.
+    Gemini bazen bazı alanları atlarsa düzeltmeye çalış.
+    """
+    scenes = scenario.get("scenes", [])
+
+    for i, scene in enumerate(scenes):
+        if not isinstance(scene, dict):
+            continue
+
+        # Sahne numarası yoksa ekle
+        if "scene_number" not in scene:
+            scene["scene_number"] = i + 1
+
+        # Sahne tipi yoksa tahmin et
+        if "scene_type" not in scene:
+            if i == 0:
+                scene["scene_type"] = "hook"
+            elif i == len(scenes) - 1:
+                scene["scene_type"] = "outro"
+            else:
+                scene["scene_type"] = "development"
+
+        # Süre yoksa varsayılan ekle
+        if "duration_seconds" not in scene:
+            if scene.get("scene_type") == "hook":
+                scene["duration_seconds"] = 30
+            else:
+                scene["duration_seconds"] = 120
+
+    scenario["scenes"] = scenes
+    return scenario
+
+
+def _extract_json(raw_text: str) -> dict:
+    """
+    Gemini yanıtından JSON'ı çıkar.
+    Markdown code block içinde gelebilir.
+    """
+    text = raw_text.strip()
+
+    # ```json ... ``` formatını temizle
+    if text.startswith("```"):
+        lines = text.split("\n")
+        # İlk satırı (```json) ve son satırı (```) kaldır
+        start = 1
+        end = len(lines)
+        for j in range(len(lines) - 1, 0, -1):
+            if lines[j].strip() == "```":
+                end = j
+                break
+        text = "\n".join(lines[start:end]).strip()
+
+    return json.loads(text)
+
+
+def _call_gemini(
+    client: genai.Client,
+    system_prompt: str,
+    user_prompt: str,
+    model: str = "gemini-2.5-flash",
+    temperature: float = 0.8,
+) -> dict:
+    """
+    Gemini API çağrısı yap ve JSON parse et.
+    retry dekoratörü dışarıda uygulanacak.
+    """
+    logger.info("Gemini API çağrısı: model=%s, temp=%.1f", model, temperature)
+
+    response = client.models.generate_content(
+        model=model,
+        contents=user_prompt,
+        config=types.GenerateContentConfig(
+            system_instruction=system_prompt,
+            temperature=temperature,
+            max_output_tokens=8000,
+            response_mime_type="application/json",
+        ),
+    )
+
+    raw_text = response.text.strip()
+    logger.debug("Gemini ham yanıt uzunluğu: %d karakter", len(raw_text))
+
+    scenario = _extract_json(raw_text)
+    return scenario
+
+
+def generate_scenario(topic: str, force_new: bool = False) -> dict:
     """
     Verilen konuya göre yapılandırılmış video senaryosu üretir.
 
     Args:
-        topic: Video konusu (örn: "What would happen if the Sun suddenly went out?")
+        topic: Video konusu
+        force_new: True ise cached senaryo varsa bile yeniden üret
 
     Returns:
         dict: Sahne bazlı JSON senaryo
     """
     print_header("🧠 SENARYO ÜRETİM MOTORU")
-    print_step(1, "Gemini Pro API'ye bağlanılıyor...")
+
+    # Cached senaryo kontrolü
+    cached_path = TEMP_DIR / "scenario.json"
+    if not force_new and cached_path.exists():
+        try:
+            cached = load_json(cached_path)
+            if cached.get("_topic") == topic:
+                print_success("Önceden üretilmiş senaryo bulundu, tekrar kullanılıyor.")
+                logger.info("Cached senaryo kullanılıyor: %s", topic)
+                return cached
+        except (json.JSONDecodeError, IOError):
+            pass
+
+    print_step(1, "Gemini API'ye bağlanılıyor...")
 
     # API anahtarını yükle
     keys = load_env()
@@ -62,59 +219,104 @@ Requirements:
 - Each scene visual prompt must be detailed enough for AI image generation
 - The time-traveling rabbit scientist character narrates and appears in key scenes
 - Output valid JSON only, no extra text
+
+ADDITIONAL REQUIRED FIELDS (add these to the root JSON):
+- "clickbait_title": A curiosity-gap YouTube title (max 70 chars). Use CAPS for emphasis. Examples: "What If You Could BREATHE Underwater? (It's Terrifying)", "I Simulated Humans With GILLS... It Got DARK"
+- "youtube_tags": Array of 15-20 topic-specific tags for YouTube SEO. Include long-tail keywords. Example: ["what if humans could breathe underwater", "underwater breathing", "human gills", "aquatic humans", "evolution", ...]
+- "seo_description": First 2 lines of YouTube description, packed with search keywords (max 200 chars). This appears in search results.
+- "thumbnail_headline": 2-4 word SHOCKING phrase for thumbnail text overlay. ALL CAPS. Examples: "BREATHE UNDERWATER?!", "GRAVITY DOUBLED?!"
 """
 
-    try:
-        # Gemini API çağrısı
-        response = client.models.generate_content(
-            model="gemini-2.5-flash",
-            contents=user_prompt,
-            config=types.GenerateContentConfig(
-                system_instruction=system_prompt,
-                temperature=0.8,
-                max_output_tokens=8000,
-                response_mime_type="application/json",
-            ),
-        )
+    # Modeller — ilk başarısız olursa fallback dene
+    models_to_try = [
+        ("gemini-2.5-flash", 0.8),
+        ("gemini-2.0-flash", 0.8),
+    ]
 
-        # JSON yanıtını parse et
-        raw_text = response.text.strip()
+    scenario = None
+    last_error = None
 
-        # JSON bloğunu çıkar (bazen markdown code block içinde gelir)
-        if raw_text.startswith("```"):
-            raw_text = raw_text.split("```")[1]
-            if raw_text.startswith("json"):
-                raw_text = raw_text[4:]
-            raw_text = raw_text.strip()
+    for model_name, temp in models_to_try:
+        console.print(f"  🤖 Model: [bold]{model_name}[/bold]")
 
-        scenario = json.loads(raw_text)
+        for attempt in range(1, 4):  # 3 deneme
+            try:
+                scenario = _call_gemini(
+                    client=client,
+                    system_prompt=system_prompt,
+                    user_prompt=user_prompt,
+                    model=model_name,
+                    temperature=temp,
+                )
+                break  # Başarılı
+            except json.JSONDecodeError as e:
+                last_error = e
+                logger.warning(
+                    "JSON parse hatası (model=%s, deneme=%d/3): %s",
+                    model_name, attempt, e
+                )
+                console.print(f"  [yellow]⚠ JSON parse hatası (deneme {attempt}/3)[/yellow]")
+                if attempt < 3:
+                    import time
+                    time.sleep(2 ** attempt)
+            except Exception as e:
+                last_error = e
+                logger.warning(
+                    "API hatası (model=%s, deneme=%d/3): %s",
+                    model_name, attempt, e
+                )
+                console.print(f"  [yellow]⚠ API hatası (deneme {attempt}/3): {e}[/yellow]")
+                if attempt < 3:
+                    import time
+                    time.sleep(2 ** attempt)
 
-        # Senaryoyu kaydet
-        output_path = TEMP_DIR / "scenario.json"
-        save_json(scenario, output_path)
+        if scenario:
+            break
+        else:
+            console.print(f"  [red]✗ {model_name} başarısız, sonraki model deneniyor...[/red]")
 
-        # Özet bilgi yazdır
-        scene_count = len(scenario.get("scenes", []))
-        title = scenario.get("title", "Başlıksız")
-
-        print_success(f"Senaryo üretildi!")
-        console.print(f"  📝 Başlık: [bold]{title}[/bold]")
-        console.print(f"  🎬 Sahne sayısı: [bold]{scene_count}[/bold]")
-        console.print(f"  💾 Kaydedildi: {output_path}")
-
-        return scenario
-
-    except json.JSONDecodeError as e:
-        print_error(f"JSON parse hatası: {e}")
-        # Ham yanıtı yine de kaydet (debug için)
-        debug_path = TEMP_DIR / "scenario_raw.txt"
-        debug_path.write_text(raw_text, encoding="utf-8")
-        console.print(f"  Ham yanıt kaydedildi: {debug_path}")
+    if not scenario:
+        print_error(f"Senaryo üretilemedi! Son hata: {last_error}")
         return {}
 
-    except Exception as e:
-        print_error(f"Gemini API hatası: {e}")
-        return {}
+    # Validation
+    is_valid, errors = validate_scenario(scenario)
+    if not is_valid:
+        logger.warning("Senaryo validation hataları: %s", errors)
+        console.print("  [yellow]⚠ Senaryo düzeltiliyor...[/yellow]")
+        for err in errors:
+            console.print(f"    → {err}")
+        scenario = fix_scenario(scenario)
+        is_valid, errors = validate_scenario(scenario)
+        if not is_valid:
+            print_error("Senaryo düzeltilemedi!")
+            for err in errors:
+                print_error(f"  → {err}")
+
+            # Ham veriyi debug için kaydet
+            debug_path = TEMP_DIR / "scenario_debug.json"
+            save_json(scenario, debug_path)
+            return {}
+
+    # Metadata ekle
+    scenario["_topic"] = topic
+    scenario["_generated_at"] = __import__("datetime").datetime.now().isoformat()
+
+    # Senaryoyu kaydet
+    save_json(scenario, cached_path)
+
+    # Özet bilgi yazdır
+    scene_count = len(scenario.get("scenes", []))
+    title = scenario.get("title", "Başlıksız")
+
+    print_success("Senaryo üretildi!")
+    console.print(f"  📝 Başlık: [bold]{title}[/bold]")
+    console.print(f"  🎬 Sahne sayısı: [bold]{scene_count}[/bold]")
+    console.print(f"  💾 Kaydedildi: {cached_path}")
+
+    logger.info("Senaryo üretildi: '%s' — %d sahne", title, scene_count)
+
+    return scenario
 
 
 def load_scenario() -> dict:
@@ -124,8 +326,11 @@ def load_scenario() -> dict:
         print_error("Kaydedilmiş senaryo bulunamadı. Önce generate_scenario() çalıştırın.")
         return {}
 
-    with open(path, "r", encoding="utf-8") as f:
-        return json.load(f)
+    try:
+        return load_json(path)
+    except (json.JSONDecodeError, IOError) as e:
+        print_error(f"Senaryo yüklenemedi: {e}")
+        return {}
 
 
 # Doğrudan çalıştırma testi

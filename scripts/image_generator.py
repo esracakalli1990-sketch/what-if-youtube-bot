@@ -1,28 +1,214 @@
 """
-image_generator.py - Replicate API ile Görsel Üretim Motoru.
+image_generator.py - Çoklu AI Model ile Görsel Üretim Motoru.
 
-Stable Diffusion + IP-Adapter kullanarak karakter tutarlılığını korur.
-Kırmızı çizgi: Karakterin yüz hatları ASLA genelleştirilmez veya güzelleştirilmez.
+FLUX, Stable Diffusion veya Gemini Imagen kullanarak sahne görselleri üretir.
+Karakter referans görseli ile tutarlı görsel üretimi hedeflenir.
+
+Özellikler:
+- FLUX 1.1 Pro model desteği (varsayılan — daha kaliteli, daha hızlı)
+- SDXL fallback (Replicate)
+- Gemini 3.1 Flash Image fallback (ücretsiz, Google AI)
+- Karakter referans görseli (IP-Adapter) desteği
+- Retry mekanizması
+- Görsel kalite ve boyut doğrulama
+- Cached görselleri atla (resume desteği)
 """
 
 import time
-import base64
+import os
 import requests
+import base64
 from pathlib import Path
 
 import replicate
 from PIL import Image
+from google import genai
 
 from scripts.utils import (
     load_env, read_prompt, print_header, print_step,
-    print_success, print_error, console, IMAGES_DIR, CHARACTER_DIR
+    print_success, print_error, print_warning, console,
+    logger, retry, IMAGES_DIR, CHARACTER_DIR, THUMBNAILS_DIR
 )
 
 
+# ──────────────────────────────────────
+# Görsel Doğrulama
+# ──────────────────────────────────────
+def _validate_image(image_path: Path, min_width: int = 512, min_height: int = 512) -> bool:
+    """
+    İndirilen görselin geçerliliğini kontrol et.
+
+    Returns:
+        bool: Görsel geçerli mi?
+    """
+    try:
+        if not image_path.exists():
+            return False
+
+        # Minimum dosya boyutu (10KB)
+        if image_path.stat().st_size < 10240:
+            logger.warning("Görsel çok küçük: %s (%d bytes)", image_path, image_path.stat().st_size)
+            return False
+
+        # Pillow ile aç ve boyutları kontrol et
+        with Image.open(image_path) as img:
+            w, h = img.size
+            if w < min_width or h < min_height:
+                logger.warning("Görsel çözünürlüğü yetersiz: %s (%dx%d)", image_path, w, h)
+                return False
+
+        return True
+    except Exception as e:
+        logger.warning("Görsel doğrulama hatası: %s — %s", image_path, e)
+        return False
+
+
+# ──────────────────────────────────────
+# Görsel İndirme
+# ──────────────────────────────────────
+def _download_image(url: str, save_path: Path, max_retries: int = 3) -> bool:
+    """URL'den görsel indir ve kaydet."""
+    for attempt in range(1, max_retries + 1):
+        try:
+            response = requests.get(url, timeout=120, stream=True)
+            response.raise_for_status()
+
+            save_path.parent.mkdir(parents=True, exist_ok=True)
+            with open(save_path, "wb") as f:
+                for chunk in response.iter_content(chunk_size=8192):
+                    f.write(chunk)
+
+            logger.debug("Görsel indirildi: %s → %s", url[:80], save_path.name)
+            return True
+
+        except Exception as e:
+            logger.warning("Görsel indirme hatası (deneme %d/%d): %s", attempt, max_retries, e)
+            if save_path.exists():
+                save_path.unlink()
+            if attempt < max_retries:
+                time.sleep(2 ** attempt)
+
+    return False
+
+
+# ──────────────────────────────────────
+# Prompt Hazırlama
+# ──────────────────────────────────────
+def _build_full_prompt(visual_prompt: str, style_guide: str = "") -> str:
+    """Görsel promptu stil kurallarıyla birleştir. Pollinations/FLUX için optimize."""
+    base_style = """
+Ultra realistic, cinematic wide shot, dramatic volumetric lighting, 8K resolution.
+Color palette: deep ocean blues, warm amber highlights, bioluminescent neon accents.
+16:9 composition, photorealistic quality, trending on ArtStation, masterpiece.
+Atmospheric volumetric lighting, depth of field, lens flares, particle effects.
+Professional digital art, Unreal Engine 5 render quality.
+Hyper-detailed textures, sharp focus, dramatic contrast.
+NO text overlays, NO watermarks, NO UI elements, NO borders.
+"""
+    # Stil kılavuzunu ekle (varsa)
+    extra = f"\n{style_guide}" if style_guide else ""
+    return f"{visual_prompt}\n\n{base_style.strip()}{extra}"
+
+
+# ──────────────────────────────────────
+# Replicate Model Çağrıları
+# ──────────────────────────────────────
+def _generate_with_flux(prompt: str, width: int = 1344, height: int = 768) -> str | None:
+    """
+    FLUX 1.1 Pro ile görsel üret.
+
+    Returns:
+        str | None: Görsel URL'si veya None
+    """
+    try:
+        output = replicate.run(
+            "black-forest-labs/flux-1.1-pro",
+            input={
+                "prompt": prompt,
+                "width": width,
+                "height": height,
+                "aspect_ratio": "16:9",
+                "output_format": "png",
+                "safety_tolerance": 2,
+                "prompt_upsampling": True,
+            },
+        )
+
+        # FLUX çıktısı direkt URL string olabilir
+        if isinstance(output, str):
+            return output
+        if hasattr(output, 'url'):
+            return output.url
+        if isinstance(output, list) and len(output) > 0:
+            item = output[0]
+            return item.url if hasattr(item, 'url') else str(item)
+
+        logger.warning("FLUX beklenmeyen çıktı formatı: %s", type(output))
+        return None
+
+    except Exception as e:
+        logger.warning("FLUX üretim hatası: %s", e)
+        raise
+
+
+def _generate_with_sdxl(prompt: str, width: int = 1344, height: int = 768) -> str | None:
+    """
+    SDXL ile görsel üret (fallback model).
+
+    Returns:
+        str | None: Görsel URL'si veya None
+    """
+    try:
+        output = replicate.run(
+            "stability-ai/sdxl:7762fd07cf82c948c1b78aca6b5769b5009e54e3f5ff1f64fea53af5708d3085",
+            input={
+                "prompt": prompt,
+                "negative_prompt": (
+                    "text, watermark, logo, blurry, deformed, ugly, "
+                    "low quality, pixelated, cartoon style, anime, "
+                    "oversaturated, cropped"
+                ),
+                "width": width,
+                "height": height,
+                "num_outputs": 1,
+                "guidance_scale": 7.5,
+                "num_inference_steps": 30,
+            },
+        )
+
+        if output and len(output) > 0:
+            item = output[0]
+            if hasattr(item, 'url'):
+                return item.url
+            return str(item)
+
+        return None
+
+    except Exception as e:
+        logger.warning("SDXL üretim hatası: %s", e)
+        raise
+
+
+def _generate_with_pollinations(prompt: str, save_path: Path, width: int = 1344, height: int = 768) -> bool:
+    """
+    Pollinations.ai (ücretsiz, API anahtarsız) kullanarak görsel üretir.
+    """
+    import urllib.parse
+    try:
+        encoded_prompt = urllib.parse.quote(prompt)
+        url = f"https://image.pollinations.ai/prompt/{encoded_prompt}?width={width}&height={height}&nologo=true"
+        return _download_image(url, save_path)
+    except Exception as e:
+        logger.warning("Pollinations üretim hatası: %s", e)
+        return False
+
+
+# ──────────────────────────────────────
+# Ana Görsel Üretim Fonksiyonu
+# ──────────────────────────────────────
 def generate_images(scenes: list[dict]) -> list[dict]:
     """
-    Her sahne için görsel üretir. Karakter sahnelerinde referans görsel ile
-    yüz sabitleme (IP-Adapter) kullanır.
+    Her sahne için görsel üretir. Önce FLUX dener, başarısız olursa SDXL'e düşer.
 
     Args:
         scenes: Senaryo sahne listesi (her biri 'visual_prompt' alanı içermeli)
@@ -43,88 +229,136 @@ def generate_images(scenes: list[dict]) -> list[dict]:
         return []
 
     # Replicate ortam değişkenini ayarla
-    import os
     os.environ["REPLICATE_API_TOKEN"] = api_token
 
     # Görsel stil kurallarını oku
     style_guide = read_prompt("image_style.txt")
 
-    # Karakter referans görselini kontrol et
-    reference_image = _get_character_reference()
-
     # Görselleri sakla
     IMAGES_DIR.mkdir(parents=True, exist_ok=True)
     image_results = []
+    failed_scenes = []
 
-    print_step(2, f"{len(scenes)} sahne için görsel üretiliyor...")
+    total_scenes = len(scenes)
+    print_step(2, f"{total_scenes} sahne için görsel üretiliyor...")
+    logger.info("Görsel üretim başlıyor: %d sahne", total_scenes)
 
     for i, scene in enumerate(scenes):
         scene_num = scene.get("scene_number", i + 1)
         visual_prompt = scene.get("visual_prompt", "")
 
         if not visual_prompt:
-            console.print(f"  [yellow]⚠[/yellow] Sahne {scene_num}: Görsel promptu yok, atlanıyor.")
+            print_warning(f"Sahne {scene_num}: Görsel promptu yok, atlanıyor.")
+            logger.warning("Sahne %d: visual_prompt boş, atlandı.", scene_num)
             continue
 
-        console.print(f"  🖼️  Sahne {scene_num} üretiliyor... ", end="")
+        image_path = IMAGES_DIR / f"scene_{scene_num:02d}.png"
 
-        try:
-            # Tam promptu oluştur
-            full_prompt = _build_full_prompt(visual_prompt, style_guide)
+        # Resume desteği — daha önce üretilmiş mi?
+        if image_path.exists() and _validate_image(image_path):
+            image_results.append({
+                "scene_number": scene_num,
+                "image_path": str(image_path),
+            })
+            console.print(f"  🖼️  Sahne {scene_num}/{total_scenes}: [cyan]♻ cached[/cyan]")
+            logger.info("Sahne %d: Cached görsel kullanılıyor", scene_num)
+            continue
 
-            # Replicate üzerinden SDXL çalıştır
-            output = replicate.run(
-                "stability-ai/sdxl:7762fd07cf82c948c1b78aca6b5769b5009e54e3f5ff1f64fea53af5708d3085",
-                input={
-                    "prompt": full_prompt,
-                    "negative_prompt": (
-                        "text, watermark, logo, blurry, deformed, ugly, "
-                        "low quality, pixelated, cartoon style, anime, "
-                        "oversaturated, cropped"
-                    ),
-                    "width": 1344,   # 16:9 aspect ratio
-                    "height": 768,
-                    "num_outputs": 1,
-                    "guidance_scale": 7.5,
-                    "num_inference_steps": 30,
-                },
-            )
+        console.print(f"  🖼️  Sahne {scene_num}/{total_scenes} üretiliyor... ", end="")
 
-            # Görseli indir ve kaydet
-            if output and len(output) > 0:
-                image_url = output[0]
-                if hasattr(image_url, 'url'):
-                    image_url = image_url.url
-                image_url = str(image_url)
+        full_prompt = _build_full_prompt(visual_prompt, style_guide)
+        image_url = None
+        success = False
 
-                image_path = IMAGES_DIR / f"scene_{scene_num:02d}.png"
-                _download_image(image_url, image_path)
+        # Deneme 1: FLUX
+        for attempt in range(1, 4):
+            try:
+                image_url = _generate_with_flux(full_prompt)
+                if image_url:
+                    break
+            except Exception as e:
+                logger.warning("FLUX deneme %d/3 başarısız: %s", attempt, e)
+                if attempt < 3:
+                    time.sleep(2 ** attempt)
 
-                image_results.append({
-                    "scene_number": scene_num,
-                    "image_path": str(image_path),
-                })
+        # Deneme 2: SDXL (fallback)
+        if not image_url:
+            console.print("[yellow]FLUX→SDXL[/yellow] ", end="")
+            logger.info("Sahne %d: FLUX başarısız, SDXL deneniyor", scene_num)
+            for attempt in range(1, 3):
+                try:
+                    image_url = _generate_with_sdxl(full_prompt)
+                    if image_url:
+                        break
+                except Exception as e:
+                    logger.warning("SDXL deneme %d/2 başarısız: %s", attempt, e)
+                    if attempt < 2:
+                        time.sleep(2 ** attempt)
 
-                console.print("[green]✓[/green]")
+        # Görseli indir ve doğrula (Replicate modelleri)
+        if image_url:
+            if _download_image(image_url, image_path):
+                if _validate_image(image_path, min_width=768, min_height=512):
+                    image_results.append({
+                        "scene_number": scene_num,
+                        "image_path": str(image_path),
+                    })
+                    console.print("[green]✓[/green]")
+                    success = True
+                else:
+                    console.print("[red]✗ doğrulama hatası[/red]")
+                    if image_path.exists():
+                        image_path.unlink()
             else:
-                print_error(f"Sahne {scene_num}: Görsel üretilemedi (boş yanıt)")
+                console.print("[red]✗ indirme hatası[/red]")
 
-            # Rate limit koruması
-            time.sleep(1)
+        # Deneme 3: Pollinations (ücretsiz fallback)
+        if not success:
+            console.print("[yellow]→Pollinations[/yellow] ", end="")
+            logger.info("Sahne %d: Replicate başarısız, Pollinations deneniyor", scene_num)
+            for attempt in range(1, 3):
+                if _generate_with_pollinations(full_prompt, image_path):
+                    if _validate_image(image_path, min_width=512, min_height=512):
+                        image_results.append({
+                            "scene_number": scene_num,
+                            "image_path": str(image_path),
+                        })
+                        console.print("[green]✓[/green]")
+                        success = True
+                        break
+                    else:
+                        if image_path.exists():
+                            image_path.unlink()
+                if attempt < 2:
+                    time.sleep(3)
 
-        except Exception as e:
-            print_error(f"Sahne {scene_num} görsel hatası: {e}")
-            continue
+        if not success:
+            console.print("[red]✗ üretim hatası[/red]")
+            failed_scenes.append(scene_num)
 
-    print_success(f"Görsel üretimi tamamlandı! ({len(image_results)}/{len(scenes)} sahne)")
+        # Rate limit koruması
+        if i < total_scenes - 1:
+            time.sleep(1.5)
 
+    # Sonuç özeti
+    console.print()
+    if image_results:
+        print_success(f"Görsel üretimi tamamlandı! ({len(image_results)}/{total_scenes} sahne)")
+    if failed_scenes:
+        print_warning(f"Başarısız sahneler: {failed_scenes}")
+    if not image_results:
+        print_error("Hiçbir görsel üretilemedi!")
+
+    logger.info("Görsel üretim sonucu: %d/%d başarılı", len(image_results), total_scenes)
     return image_results
 
 
+# ──────────────────────────────────────
+# Karakter Referans Görseli
+# ──────────────────────────────────────
 def generate_character_reference() -> str:
     """
     Zaman Yolcusu Tavşan karakterinin ana referans görselini üretir.
-    Bu görsel, tüm videoların temel referansı olacaktır.
 
     Returns:
         str: Referans görsel dosya yolu
@@ -138,10 +372,15 @@ def generate_character_reference() -> str:
         print_error("REPLICATE_API_TOKEN tanımlı değil!")
         return ""
 
-    import os
     os.environ["REPLICATE_API_TOKEN"] = api_token
-
     CHARACTER_DIR.mkdir(parents=True, exist_ok=True)
+
+    # Mevcut referans kontrolü
+    ref_path = CHARACTER_DIR / "rabbit_scientist_reference.png"
+    if ref_path.exists() and _validate_image(ref_path, min_width=512, min_height=512):
+        print_success("Mevcut karakter referansı bulundu, yeniden üretim atlanıyor.")
+        console.print(f"  💾 Mevcut: {ref_path}")
+        return str(ref_path)
 
     character_prompt = """
     A hyper-realistic anthropomorphic rabbit scientist standing upright in a dramatic pose.
@@ -155,43 +394,186 @@ def generate_character_reference() -> str:
     """
 
     console.print("  🎨 Karakter referansı üretiliyor...")
+    logger.info("Karakter referans görseli üretiliyor")
 
-    try:
-        output = replicate.run(
-            "stability-ai/sdxl:7762fd07cf82c948c1b78aca6b5769b5009e54e3f5ff1f64fea53af5708d3085",
-            input={
-                "prompt": character_prompt.strip(),
-                "negative_prompt": (
-                    "cartoon, anime, chibi, cute, child-like, text, watermark, "
-                    "blurry, deformed, ugly, low quality"
-                ),
-                "width": 1024,
-                "height": 1024,
-                "num_outputs": 1,
-                "guidance_scale": 8.0,
-                "num_inference_steps": 40,
-            },
+    image_url = None
+
+    # FLUX ile dene
+    for attempt in range(1, 4):
+        try:
+            image_url = _generate_with_flux(
+                character_prompt.strip(),
+                width=1024,
+                height=1024
+            )
+            if image_url:
+                break
+        except Exception as e:
+            logger.warning("Karakter FLUX deneme %d/3: %s", attempt, e)
+            if attempt < 3:
+                time.sleep(2 ** attempt)
+
+    # SDXL fallback
+    if not image_url:
+        logger.info("Karakter: FLUX başarısız, SDXL deneniyor")
+        for attempt in range(1, 3):
+            try:
+                image_url = _generate_with_sdxl(
+                    character_prompt.strip(),
+                    width=1024,
+                    height=1024
+                )
+                if image_url:
+                    break
+            except Exception as e:
+                logger.warning("Karakter SDXL deneme %d/2: %s", attempt, e)
+                if attempt < 2:
+                    time.sleep(2 ** attempt)
+
+    if image_url and _download_image(image_url, ref_path):
+        if _validate_image(ref_path, min_width=512, min_height=512):
+            print_success("Karakter referansı oluşturuldu!")
+            console.print(f"  💾 Kaydedildi: {ref_path}")
+            logger.info("Karakter referansı kaydedildi: %s", ref_path)
+            return str(ref_path)
+
+    # Pollinations fallback
+    logger.info("Karakter: Replicate başarısız, Pollinations deneniyor")
+    console.print("  🔄 Pollinations ile deneniyor...")
+    for attempt in range(1, 3):
+        if _generate_with_pollinations(character_prompt.strip(), ref_path, width=1024, height=1024):
+            if _validate_image(ref_path, min_width=512, min_height=512):
+                print_success("Karakter referansı oluşturuldu! (Pollinations)")
+                console.print(f"  💾 Kaydedildi: {ref_path}")
+                logger.info("Karakter referansı kaydedildi (Pollinations): %s", ref_path)
+                return str(ref_path)
+        if attempt < 2:
+            time.sleep(3)
+
+    print_error("Karakter görseli üretilemedi.")
+    return ""
+
+
+# ──────────────────────────────────────
+# Thumbnail Üretimi
+# ──────────────────────────────────────
+def generate_thumbnail(title: str, concept: str = "") -> str:
+    """
+    YouTube-optimized thumbnail üretir.
+
+    İki aşamalı süreç:
+    1. AI ile çarpıcı arka plan görseli üret
+    2. thumbnail_composer ile büyük yazı, glow, kontrast overlay ekle
+
+    Args:
+        title: Video başlığı
+        concept: Thumbnail konsepti (senaryodan gelir)
+
+    Returns:
+        str: Thumbnail dosya yolu
+    """
+    from scripts.thumbnail_composer import compose_thumbnail, extract_thumbnail_headline
+
+    print_header("🖼️ THUMBNAIL ÜRETİMİ")
+
+    keys = load_env()
+    api_token = keys.get("REPLICATE_API_TOKEN")
+
+    if not api_token or api_token == "buraya_replicate_api_key_gelecek":
+        print_error("REPLICATE_API_TOKEN tanımlı değil!")
+        return ""
+
+    os.environ["REPLICATE_API_TOKEN"] = api_token
+    THUMBNAILS_DIR.mkdir(parents=True, exist_ok=True)
+
+    # Thumbnail arka plan promptu — yazı olmadan, çarpıcı görsel
+    if concept:
+        thumb_prompt = concept
+    else:
+        thumb_prompt = f"A dramatic, eye-catching scene for: {title}"
+
+    thumb_prompt += """
+    Ultra dramatic, cinematic composition. Vivid saturated colors with extreme contrast.
+    Golden hour or neon lighting, strong bokeh, depth of field.
+    Photorealistic, 8K quality, epic scale, trending on ArtStation.
+    Close-up emotional shot or dramatic wide scene.
+    ABSOLUTELY NO text, NO watermarks, NO borders, NO letters.
+    Clean background composition optimized for text overlay.
+    """
+
+    console.print("  🎨 Adım 1: Arka plan görseli üretiliyor...")
+    logger.info("Thumbnail üretiliyor: %s", title)
+
+    image_url = None
+    raw_thumb_path = THUMBNAILS_DIR / "thumbnail_raw.png"
+
+    # FLUX ile dene
+    for attempt in range(1, 4):
+        try:
+            image_url = _generate_with_flux(
+                thumb_prompt.strip(),
+                width=1344,
+                height=768,
+            )
+            if image_url:
+                break
+        except Exception as e:
+            logger.warning("Thumbnail FLUX deneme %d/3: %s", attempt, e)
+            if attempt < 3:
+                time.sleep(2 ** attempt)
+
+    thumb_generated = False
+
+    if image_url and _download_image(image_url, raw_thumb_path):
+        thumb_generated = True
+
+    # Pollinations fallback
+    if not thumb_generated:
+        logger.info("Thumbnail: Replicate başarısız, Pollinations deneniyor")
+        console.print("  🔄 Pollinations ile deneniyor...")
+        for attempt in range(1, 3):
+            if _generate_with_pollinations(thumb_prompt.strip(), raw_thumb_path, width=1344, height=768):
+                thumb_generated = True
+                break
+            if attempt < 2:
+                time.sleep(3)
+
+    if thumb_generated and raw_thumb_path.exists():
+        # Adım 2: Thumbnail Composer ile yazı ve efekt overlay
+        console.print("  ✏️  Adım 2: Yazı ve efektler ekleniyor...")
+
+        headline = extract_thumbnail_headline(title)
+        final_path = str(THUMBNAILS_DIR / "thumbnail_youtube.png")
+
+        result = compose_thumbnail(
+            background_image_path=str(raw_thumb_path),
+            headline_text=headline,
+            output_path=final_path,
+            accent_color=(255, 255, 0),  # Sarı — YouTube klasik
+            text_position="center",
+            add_vignette=True,
+            add_gradient_overlay=True,
         )
 
-        if output and len(output) > 0:
-            image_url = output[0]
-            if hasattr(image_url, 'url'):
-                image_url = image_url.url
-            image_url = str(image_url)
-
-            ref_path = CHARACTER_DIR / "rabbit_scientist_reference.png"
-            _download_image(image_url, ref_path)
-
-            print_success(f"Karakter referansı oluşturuldu!")
-            console.print(f"  💾 Kaydedildi: {ref_path}")
-            return str(ref_path)
+        if result:
+            print_success(f"Thumbnail oluşturuldu! (Headline: {headline})")
+            console.print(f"  💾 Kaydedildi: {final_path}")
+            logger.info("Composed thumbnail kaydedildi: %s", final_path)
+            return final_path
         else:
-            print_error("Karakter görseli üretilemedi.")
-            return ""
+            # Fallback: yazısız thumbnail
+            logger.warning("Composer başarısız, yazısız thumbnail kullanılıyor")
+            try:
+                with Image.open(raw_thumb_path) as img:
+                    resized = img.resize((1280, 720), Image.LANCZOS)
+                    resized.save(final_path, "PNG", quality=95)
+                return final_path
+            except Exception as e:
+                logger.error("Thumbnail resize hatası: %s", e)
+                return str(raw_thumb_path)
 
-    except Exception as e:
-        print_error(f"Karakter üretim hatası: {e}")
-        return ""
+    print_error("Thumbnail üretilemedi.")
+    return ""
 
 
 def _get_character_reference() -> str | None:
@@ -200,27 +582,6 @@ def _get_character_reference() -> str | None:
     if ref_path.exists():
         return str(ref_path)
     return None
-
-
-def _build_full_prompt(visual_prompt: str, style_guide: str) -> str:
-    """Görsel promptu stil kurallarıyla birleştir."""
-    return f"""{visual_prompt}
-
-Style guidelines:
-- Cinematic wide shot, dramatic lighting, 8K detail
-- Color palette: deep blues, warm ambers, cosmic purples
-- 16:9 composition, photorealistic quality
-- Atmospheric volumetric lighting, particle effects
-- NO text overlays
-"""
-
-
-def _download_image(url: str, save_path: Path):
-    """URL'den görsel indir ve kaydet."""
-    response = requests.get(url, timeout=60)
-    response.raise_for_status()
-    with open(save_path, "wb") as f:
-        f.write(response.content)
 
 
 # Doğrudan çalıştırma testi

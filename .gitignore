@@ -1,21 +1,27 @@
-# API Anahtarları - ASLA paylaşılmamalı
-.env
+# ============================================
+# WHAT-IF YOUTUBE BOT - IGNORE LIST
+# ============================================
 
-# Geçici dosyalar
+# Ortam değişkenleri ve anahtarlar
+.env
+client_secrets.json
+youtube_token.pickle
+
+# Geçici dosyalar ve çıktılar
 temp/
+output/
+logs/
+character/reference/
+
+# Python cache
 __pycache__/
 *.pyc
+.pytest_cache/
 
-# Üretilen videolar (büyük dosyalar)
-output/
-
-# n8n verileri
+# N8N verisi
+.n8n/
 n8n_data/
 
-# IDE
-.vscode/
-.idea/
-
-# OS
-Thumbs.db
-.DS_Store
+# Deneme ciktilari
+thumbnail_option_*.png
+test_*.png
