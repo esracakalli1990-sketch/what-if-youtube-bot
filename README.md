@@ -130,6 +130,40 @@ GitHub → repo → **Settings → Secrets and variables → Actions** altına �
 
 Bot, üretim durumunu (`topics.json`, `output/uploads.json`) her çalışmadan sonra repoya commit'leyerek kaldığı yeri hatırlar.
 
+## 💬 Telegram ile Takip ve Kontrol
+
+Bot her olayı Telegram'dan size bildirir ve komutlarla kontrol edilebilir — sunucu gerekmez.
+
+### Kurulum (5 dakika)
+
+1. Telegram'da **@BotFather**'a `/newbot` yazın, bir isim verin → size bir **token** verir
+2. Oluşan botunuza Telegram'dan herhangi bir mesaj gönderin
+3. Chat ID'nizi öğrenin: `.env`'e token'ı ekledikten sonra `python scripts/notifier.py --chat-id`
+4. İki değeri hem `.env` dosyanıza hem GitHub secrets'a ekleyin: `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`
+5. Test: `python scripts/notifier.py --test`
+
+### Neler bildirilir?
+
+- ✅ Video üretildi (thumbnail önizlemesiyle) + YouTube linki + planlı yayın saati
+- 🚨 Her türlü pipeline/workflow hatası (hangi adımda, neden)
+- 💡 Konu havuzu güncellemeleri
+- 📊 Haftalık performans raporu (her Pazar, izlenme/beğeni/yorum)
+
+### Telegram komutları
+
+Komutlar saatte bir (her saat :30'da) işlenir:
+
+| Komut | Ne yapar |
+|-------|----------|
+| `/durum` | Konu havuzu + son yüklemeler |
+| `/rapor` | Anlık kanal performans raporu |
+| `/konular` | Bekleyen konu listesi |
+| `/konu <metin>` | Havuza yeni konu ekle |
+| `/short` | Hemen 1 Short üret ve yayınla |
+| `/video` | Hemen 1 uzun video üret (havuzdan konu seçer) |
+| `/video <konu>` | Bu konudan uzun video üret |
+| `/yardim` | Komut listesi |
+
 ## 📈 Büyüme Stratejisi (Önerilen Kadans)
 
 Yeni bir kanal için en hızlı keşif kaynağı Shorts'tur — algoritma Shorts'u abonesi olmayan kanallara da dağıtır. Önerilen ritim:
