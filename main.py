@@ -30,7 +30,14 @@ from scripts.video_assembler import assemble_video, check_ffmpeg
 from scripts.youtube_uploader import upload_video, check_youtube_setup
 
 
-def run_pipeline(topic: str, resume: bool = False, no_upload: bool = False, mode: str = "long"):
+def run_pipeline(
+    topic: str,
+    resume: bool = False,
+    no_upload: bool = False,
+    mode: str = "long",
+    privacy: str = "private",
+    publish_at=None,
+):
     """
     Tam video üretim pipeline'ını çalıştır.
 
@@ -44,6 +51,8 @@ def run_pipeline(topic: str, resume: bool = False, no_upload: bool = False, mode
         topic: Video konusu
         resume: True ise checkpoint'tan devam et
         mode: "long" (10 dk yatay) veya "shorts" (45-60 sn dikey)
+        privacy: YouTube gizlilik (private/unlisted/public)
+        publish_at: Planlı yayın zamanı (datetime, opsiyonel)
     """
     start_time = time.time()
     is_shorts = mode == "shorts"
@@ -176,7 +185,8 @@ def run_pipeline(topic: str, resume: bool = False, no_upload: bool = False, mode
                     video_path=final_video,
                     title=title,
                     thumbnail_path=str(thumb_output) if thumb_output else None,
-                    privacy="private",  # Bot yüklemeleri güvenlik için gizli kalsın
+                    privacy=privacy,
+                    publish_at=publish_at,
                     scenario=scenario,
                     audio_results=audio_results,
                     is_short=is_shorts,
@@ -355,8 +365,39 @@ def main():
         action="store_true",
         help="YouTube Shorts modu: 45-60 sn dikey (9:16) video üret"
     )
+    parser.add_argument(
+        "--privacy",
+        choices=["private", "unlisted", "public"],
+        default="private",
+        help="YouTube gizlilik durumu (varsayılan: private)"
+    )
+    parser.add_argument(
+        "--publish-at",
+        metavar="WHEN",
+        help="Planlı yayın: 'auto' (bir sonraki 15:00 UTC) veya ISO tarih (2026-07-10T15:00)"
+    )
 
     args = parser.parse_args()
+
+    # Planlı yayın zamanını çöz
+    publish_at = None
+    if args.publish_at:
+        from datetime import datetime, timezone
+        from scripts.youtube_uploader import next_optimal_publish_time
+        if args.publish_at.lower() == "auto":
+            publish_at = next_optimal_publish_time()
+        else:
+            try:
+                publish_at = datetime.fromisoformat(args.publish_at)
+                if publish_at.tzinfo is None:
+                    publish_at = publish_at.replace(tzinfo=timezone.utc)
+            except ValueError:
+                print_error(f"Geçersiz --publish-at değeri: {args.publish_at}")
+                print_error("Örnek: --publish-at auto  veya  --publish-at 2026-07-10T15:00")
+                sys.exit(1)
+        # publishAt yalnızca private videolarda çalışır (YouTube kuralı)
+        if args.privacy != "private":
+            print_warning("--publish-at kullanıldığında video 'private' yüklenir, YouTube zamanı gelince yayınlar.")
 
     if args.test:
         run_system_check()
@@ -380,7 +421,10 @@ def main():
             mode = checkpoint.data.get("mode", "long")
             console.print(f"  📌 Devam edilen konu: [bold cyan]{topic}[/bold cyan]")
             console.print(f"  📊 {checkpoint.get_resume_info()}")
-            run_pipeline(topic, resume=True, no_upload=args.no_upload, mode=mode)
+            run_pipeline(
+                topic, resume=True, no_upload=args.no_upload, mode=mode,
+                privacy=args.privacy, publish_at=publish_at,
+            )
         else:
             print_error("Devam edilebilir checkpoint bulunamadı.")
             print_error("Yeni pipeline başlatmak için: python main.py \"konu\"")
@@ -389,6 +433,8 @@ def main():
             args.topic,
             no_upload=args.no_upload,
             mode="shorts" if args.shorts else "long",
+            privacy=args.privacy,
+            publish_at=publish_at,
         )
     else:
         parser.print_help()

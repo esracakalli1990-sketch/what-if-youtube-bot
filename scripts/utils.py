@@ -98,6 +98,7 @@ def load_env() -> dict:
         "ELEVENLABS_API_KEY": os.getenv("ELEVENLABS_API_KEY", ""),
         "CHARACTER_VOICE_ID": os.getenv("CHARACTER_VOICE_ID", ""),
         "REPLICATE_API_TOKEN": os.getenv("REPLICATE_API_TOKEN", ""),
+        "YOUTUBE_PLAYLIST_ID": os.getenv("YOUTUBE_PLAYLIST_ID", ""),
     }
 
     logger.info("Env yüklendi — key durumları: %s",
