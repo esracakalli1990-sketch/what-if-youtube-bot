@@ -94,12 +94,16 @@ def _download_image(url: str, save_path: Path, max_retries: int = 3) -> bool:
 # ──────────────────────────────────────
 # Prompt Hazırlama
 # ──────────────────────────────────────
-def _build_full_prompt(visual_prompt: str, style_guide: str = "") -> str:
+def _build_full_prompt(visual_prompt: str, style_guide: str = "", vertical: bool = False) -> str:
     """Görsel promptu stil kurallarıyla birleştir. Pollinations/FLUX için optimize."""
-    base_style = """
+    composition = (
+        "9:16 vertical portrait composition, subject centered for mobile fullscreen"
+        if vertical else "16:9 composition"
+    )
+    base_style = f"""
 Ultra realistic, cinematic wide shot, dramatic volumetric lighting, 8K resolution.
 Color palette: deep ocean blues, warm amber highlights, bioluminescent neon accents.
-16:9 composition, photorealistic quality, trending on ArtStation, masterpiece.
+{composition}, photorealistic quality, trending on ArtStation, masterpiece.
 Atmospheric volumetric lighting, depth of field, lens flares, particle effects.
 Professional digital art, Unreal Engine 5 render quality.
 Hyper-detailed textures, sharp focus, dramatic contrast.
@@ -121,13 +125,14 @@ def _generate_with_flux(prompt: str, width: int = 1344, height: int = 768) -> st
         str | None: Görsel URL'si veya None
     """
     try:
+        aspect_ratio = "9:16" if height > width else "16:9"
         output = replicate.run(
             "black-forest-labs/flux-1.1-pro",
             input={
                 "prompt": prompt,
                 "width": width,
                 "height": height,
-                "aspect_ratio": "16:9",
+                "aspect_ratio": aspect_ratio,
                 "output_format": "png",
                 "safety_tolerance": 2,
                 "prompt_upsampling": True,
@@ -206,17 +211,20 @@ def _generate_with_pollinations(prompt: str, save_path: Path, width: int = 1344,
 # ──────────────────────────────────────
 # Ana Görsel Üretim Fonksiyonu
 # ──────────────────────────────────────
-def generate_images(scenes: list[dict]) -> list[dict]:
+def generate_images(scenes: list[dict], vertical: bool = False) -> list[dict]:
     """
     Her sahne için görsel üretir. Önce FLUX dener, başarısız olursa SDXL'e düşer.
 
     Args:
         scenes: Senaryo sahne listesi (her biri 'visual_prompt' alanı içermeli)
+        vertical: True ise Shorts için 9:16 dikey görsel üretilir
 
     Returns:
         list[dict]: Her sahne için görsel dosyası yolu
     """
-    print_header("🎨 GÖRSEL ÜRETİM MOTORU")
+    print_header("🎨 GÖRSEL ÜRETİM MOTORU" + (" — DİKEY 9:16" if vertical else ""))
+
+    img_width, img_height = (768, 1344) if vertical else (1344, 768)
     print_step(1, "Replicate API'ye bağlanılıyor...")
 
     # API anahtarını yükle
@@ -252,7 +260,9 @@ def generate_images(scenes: list[dict]) -> list[dict]:
             logger.warning("Sahne %d: visual_prompt boş, atlandı.", scene_num)
             continue
 
-        image_path = IMAGES_DIR / f"scene_{scene_num:02d}.png"
+        # Dikey görseller ayrı dosya adı kullanır (yatay cache ile çakışmasın)
+        suffix = "_vertical" if vertical else ""
+        image_path = IMAGES_DIR / f"scene_{scene_num:02d}{suffix}.png"
 
         # Resume desteği — daha önce üretilmiş mi?
         if image_path.exists() and _validate_image(image_path):
@@ -266,14 +276,14 @@ def generate_images(scenes: list[dict]) -> list[dict]:
 
         console.print(f"  🖼️  Sahne {scene_num}/{total_scenes} üretiliyor... ", end="")
 
-        full_prompt = _build_full_prompt(visual_prompt, style_guide)
+        full_prompt = _build_full_prompt(visual_prompt, style_guide, vertical=vertical)
         image_url = None
         success = False
 
         # Deneme 1: FLUX
         for attempt in range(1, 4):
             try:
-                image_url = _generate_with_flux(full_prompt)
+                image_url = _generate_with_flux(full_prompt, width=img_width, height=img_height)
                 if image_url:
                     break
             except Exception as e:
@@ -287,7 +297,7 @@ def generate_images(scenes: list[dict]) -> list[dict]:
             logger.info("Sahne %d: FLUX başarısız, SDXL deneniyor", scene_num)
             for attempt in range(1, 3):
                 try:
-                    image_url = _generate_with_sdxl(full_prompt)
+                    image_url = _generate_with_sdxl(full_prompt, width=img_width, height=img_height)
                     if image_url:
                         break
                 except Exception as e:
@@ -296,9 +306,10 @@ def generate_images(scenes: list[dict]) -> list[dict]:
                         time.sleep(2 ** attempt)
 
         # Görseli indir ve doğrula (Replicate modelleri)
+        min_w, min_h = (512, 768) if vertical else (768, 512)
         if image_url:
             if _download_image(image_url, image_path):
-                if _validate_image(image_path, min_width=768, min_height=512):
+                if _validate_image(image_path, min_width=min_w, min_height=min_h):
                     image_results.append({
                         "scene_number": scene_num,
                         "image_path": str(image_path),
@@ -317,7 +328,7 @@ def generate_images(scenes: list[dict]) -> list[dict]:
             console.print("[yellow]→Pollinations[/yellow] ", end="")
             logger.info("Sahne %d: Replicate başarısız, Pollinations deneniyor", scene_num)
             for attempt in range(1, 3):
-                if _generate_with_pollinations(full_prompt, image_path):
+                if _generate_with_pollinations(full_prompt, image_path, width=img_width, height=img_height):
                     if _validate_image(image_path, min_width=512, min_height=512):
                         image_results.append({
                             "scene_number": scene_num,

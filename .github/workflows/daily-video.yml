@@ -1,0 +1,137 @@
+name: Otonom Video Üretimi
+
+# Kanal kadansı:
+#   - Her gün 09:00 UTC → 1 YouTube Short (public)
+#   - Pazartesi & Perşembe 08:00 UTC → 1 uzun video (bir sonraki 15:00 UTC'ye planlı)
+#   - Pazar 07:00 UTC → konu havuzunu Gemini ile doldur
+#
+# Gerekli repository secrets (Settings → Secrets and variables → Actions):
+#   GEMINI_API_KEY, ELEVENLABS_API_KEY, CHARACTER_VOICE_ID, REPLICATE_API_TOKEN
+#   YOUTUBE_CLIENT_SECRETS_B64  → base64 -w0 client_secrets.json
+#   YOUTUBE_TOKEN_B64           → base64 -w0 youtube_token.pickle
+#   YOUTUBE_PLAYLIST_ID (opsiyonel)
+# YouTube secret'ları yoksa video yine üretilir ve Actions artifact'ı olarak saklanır,
+# sadece yükleme adımı atlanır.
+
+on:
+  schedule:
+    - cron: "0 9 * * *"    # günlük Short
+    - cron: "0 8 * * 1,4"  # Pzt & Per uzun video
+    - cron: "0 7 * * 0"    # Pazar konu doldurma
+  workflow_dispatch:
+    inputs:
+      job_type:
+        description: "Üretim tipi"
+        type: choice
+        options: [short, long, refill]
+        default: short
+      topic:
+        description: "Konu (boşsa havuzdan seçilir; sadece short/long)"
+        required: false
+
+concurrency:
+  group: video-bot
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  produce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+      CHARACTER_VOICE_ID: ${{ secrets.CHARACTER_VOICE_ID }}
+      REPLICATE_API_TOKEN: ${{ secrets.REPLICATE_API_TOKEN }}
+      YOUTUBE_PLAYLIST_ID: ${{ secrets.YOUTUBE_PLAYLIST_ID }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Üretim tipini belirle
+        id: type
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "job_type=${{ inputs.job_type }}" >> "$GITHUB_OUTPUT"
+          elif [ "${{ github.event.schedule }}" = "0 8 * * 1,4" ]; then
+            echo "job_type=long" >> "$GITHUB_OUTPUT"
+          elif [ "${{ github.event.schedule }}" = "0 7 * * 0" ]; then
+            echo "job_type=refill" >> "$GITHUB_OUTPUT"
+          else
+            echo "job_type=short" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: FFmpeg kur
+        if: steps.type.outputs.job_type != 'refill'
+        run: sudo apt-get update -q && sudo apt-get install -y -q ffmpeg
+
+      - name: Bağımlılıkları kur
+        run: pip install -r requirements.txt
+
+      - name: YouTube kimlik dosyalarını hazırla
+        if: steps.type.outputs.job_type != 'refill'
+        env:
+          CLIENT_SECRETS_B64: ${{ secrets.YOUTUBE_CLIENT_SECRETS_B64 }}
+          TOKEN_B64: ${{ secrets.YOUTUBE_TOKEN_B64 }}
+        run: |
+          if [ -n "$CLIENT_SECRETS_B64" ] && [ -n "$TOKEN_B64" ]; then
+            echo "$CLIENT_SECRETS_B64" | base64 -d > client_secrets.json
+            echo "$TOKEN_B64" | base64 -d > youtube_token.pickle
+            echo "YouTube kimlik dosyaları hazır — otomatik yükleme aktif."
+          else
+            echo "::warning::YouTube secret'ları tanımlı değil — video üretilecek ama yüklenmeyecek."
+          fi
+
+      - name: Konu havuzunu doldur
+        if: steps.type.outputs.job_type == 'refill'
+        run: python scripts/scheduler.py --refill 15
+
+      - name: Short üret
+        if: steps.type.outputs.job_type == 'short'
+        run: |
+          if [ -n "${{ inputs.topic }}" ]; then
+            python main.py --shorts "${{ inputs.topic }}" --privacy public
+          else
+            python scripts/scheduler.py --short --privacy public
+          fi
+
+      - name: Uzun video üret
+        if: steps.type.outputs.job_type == 'long'
+        run: |
+          if [ -n "${{ inputs.topic }}" ]; then
+            python main.py "${{ inputs.topic }}" --publish-at auto
+          else
+            python scripts/scheduler.py --batch 1 --publish-auto
+          fi
+
+      - name: Durum dosyalarını commit'le
+        if: always()
+        run: |
+          git config user.name "what-if-bot"
+          git config user.email "actions@github.com"
+          git add -f topics.json output/uploads.json 2>/dev/null || true
+          if ! git diff --cached --quiet; then
+            git commit -m "bot: üretim durumu güncellendi [skip ci]"
+            git pull --rebase origin "${GITHUB_REF_NAME}" || true
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          else
+            echo "Durum değişikliği yok."
+          fi
+
+      - name: Videoyu artifact olarak sakla
+        if: steps.type.outputs.job_type != 'refill'
+        uses: actions/upload-artifact@v4
+        with:
+          name: video-${{ steps.type.outputs.job_type }}-${{ github.run_number }}
+          path: |
+            output/*.mp4
+            output/*.png
+            output/*.srt
+          retention-days: 5
+          if-no-files-found: warn

@@ -72,12 +72,14 @@ def validate_scenario(scenario: dict) -> tuple[bool, list[str]]:
     return is_valid, errors
 
 
-def fix_scenario(scenario: dict) -> dict:
+def fix_scenario(scenario: dict, mode: str = "long") -> dict:
     """
     Eksik alanları otomatik tamamla.
     Gemini bazen bazı alanları atlarsa düzeltmeye çalış.
     """
     scenes = scenario.get("scenes", [])
+    hook_duration = 10 if mode == "shorts" else 30
+    default_duration = 15 if mode == "shorts" else 120
 
     for i, scene in enumerate(scenes):
         if not isinstance(scene, dict):
@@ -99,9 +101,9 @@ def fix_scenario(scenario: dict) -> dict:
         # Süre yoksa varsayılan ekle
         if "duration_seconds" not in scene:
             if scene.get("scene_type") == "hook":
-                scene["duration_seconds"] = 30
+                scene["duration_seconds"] = hook_duration
             else:
-                scene["duration_seconds"] = 120
+                scene["duration_seconds"] = default_duration
 
     scenario["scenes"] = scenes
     return scenario
@@ -160,21 +162,27 @@ def _call_gemini(
     return scenario
 
 
-def generate_scenario(topic: str, force_new: bool = False) -> dict:
+def _scenario_cache_path(mode: str) -> Path:
+    """Moda göre senaryo cache dosyası (uzun video ve shorts çakışmasın)."""
+    return TEMP_DIR / ("scenario_shorts.json" if mode == "shorts" else "scenario.json")
+
+
+def generate_scenario(topic: str, force_new: bool = False, mode: str = "long") -> dict:
     """
     Verilen konuya göre yapılandırılmış video senaryosu üretir.
 
     Args:
         topic: Video konusu
         force_new: True ise cached senaryo varsa bile yeniden üret
+        mode: "long" (10 dk video) veya "shorts" (45-60 sn dikey video)
 
     Returns:
         dict: Sahne bazlı JSON senaryo
     """
-    print_header("🧠 SENARYO ÜRETİM MOTORU")
+    print_header("🧠 SENARYO ÜRETİM MOTORU" + (" — SHORTS" if mode == "shorts" else ""))
 
     # Cached senaryo kontrolü
-    cached_path = TEMP_DIR / "scenario.json"
+    cached_path = _scenario_cache_path(mode)
     if not force_new and cached_path.exists():
         try:
             cached = load_json(cached_path)
@@ -200,15 +208,36 @@ def generate_scenario(topic: str, force_new: bool = False) -> dict:
     client = genai.Client(api_key=api_key)
 
     # Sistem promptunu oku
-    system_prompt = read_prompt("system_prompt.txt")
+    prompt_file = "shorts_prompt.txt" if mode == "shorts" else "system_prompt.txt"
+    system_prompt = read_prompt(prompt_file)
     if not system_prompt:
-        print_error("system_prompt.txt bulunamadı!")
+        print_error(f"{prompt_file} bulunamadı!")
         return {}
 
     print_step(2, f"Senaryo üretiliyor: '{topic}'")
 
     # Kullanıcı promptu
-    user_prompt = f"""Create a complete 10-minute "What If" documentary script for the following topic:
+    if mode == "shorts":
+        user_prompt = f"""Create a complete 45-60 second "What If" YouTube Shorts script for the following topic:
+
+TOPIC: {topic}
+
+Requirements:
+- Follow ALL rhythm rules in your system instructions
+- The first sentence must hook within 2 seconds — start with the most shocking consequence
+- Exactly 3-4 scenes, ONE big twist at the 60-70% mark, loop-bait ending
+- Each scene visual prompt must be detailed enough for AI image generation in VERTICAL 9:16 format
+- The time-traveling rabbit scientist character narrates and appears in at least one scene
+- Output valid JSON only, no extra text
+
+ADDITIONAL REQUIRED FIELDS (add these to the root JSON):
+- "clickbait_title": A curiosity-gap YouTube title (max 70 chars). Use CAPS for emphasis. Examples: "Gravity DOUBLED for 24 Hours... (You Wouldn't Survive)", "The Sun Went Out. Here's Minute One."
+- "youtube_tags": Array of 15-20 topic-specific tags for YouTube SEO. Include long-tail keywords.
+- "seo_description": First 2 lines of YouTube description, packed with search keywords (max 200 chars).
+- "thumbnail_headline": 2-4 word SHOCKING phrase for thumbnail text overlay. ALL CAPS.
+"""
+    else:
+        user_prompt = f"""Create a complete 10-minute "What If" documentary script for the following topic:
 
 TOPIC: {topic}
 
@@ -286,7 +315,7 @@ ADDITIONAL REQUIRED FIELDS (add these to the root JSON):
         console.print("  [yellow]⚠ Senaryo düzeltiliyor...[/yellow]")
         for err in errors:
             console.print(f"    → {err}")
-        scenario = fix_scenario(scenario)
+        scenario = fix_scenario(scenario, mode=mode)
         is_valid, errors = validate_scenario(scenario)
         if not is_valid:
             print_error("Senaryo düzeltilemedi!")
@@ -300,6 +329,7 @@ ADDITIONAL REQUIRED FIELDS (add these to the root JSON):
 
     # Metadata ekle
     scenario["_topic"] = topic
+    scenario["_mode"] = mode
     scenario["_generated_at"] = __import__("datetime").datetime.now().isoformat()
 
     # Senaryoyu kaydet
@@ -319,9 +349,9 @@ ADDITIONAL REQUIRED FIELDS (add these to the root JSON):
     return scenario
 
 
-def load_scenario() -> dict:
+def load_scenario(mode: str = "long") -> dict:
     """Daha önce üretilmiş senaryoyu dosyadan yükle."""
-    path = TEMP_DIR / "scenario.json"
+    path = _scenario_cache_path(mode)
     if not path.exists():
         print_error("Kaydedilmiş senaryo bulunamadı. Önce generate_scenario() çalıştırın.")
         return {}
