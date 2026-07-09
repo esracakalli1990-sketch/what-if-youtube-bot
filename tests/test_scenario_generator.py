@@ -1,0 +1,122 @@
+"""scenario_generator saf fonksiyon testleri (API gerektirmez)."""
+
+import json
+
+import pytest
+
+from scripts.scenario_generator import (
+    validate_scenario, fix_scenario, _extract_json, _scenario_cache_path
+)
+
+
+def _valid_scenario():
+    return {
+        "title": "Test Episode",
+        "scenes": [
+            {"scene_number": 1, "narration": "Hook text.", "visual_prompt": "A dramatic scene."},
+            {"scene_number": 2, "narration": "More text.", "visual_prompt": "Another scene."},
+        ],
+    }
+
+
+class TestValidateScenario:
+    def test_valid_scenario_passes(self):
+        is_valid, errors = validate_scenario(_valid_scenario())
+        assert is_valid
+        assert errors == []
+
+    def test_missing_title(self):
+        scenario = _valid_scenario()
+        del scenario["title"]
+        is_valid, errors = validate_scenario(scenario)
+        assert not is_valid
+        assert any("title" in e for e in errors)
+
+    def test_empty_scenes(self):
+        is_valid, errors = validate_scenario({"title": "X", "scenes": []})
+        assert not is_valid
+
+    def test_missing_narration(self):
+        scenario = _valid_scenario()
+        del scenario["scenes"][0]["narration"]
+        is_valid, errors = validate_scenario(scenario)
+        assert not is_valid
+
+    def test_blank_visual_prompt(self):
+        scenario = _valid_scenario()
+        scenario["scenes"][1]["visual_prompt"] = "   "
+        is_valid, errors = validate_scenario(scenario)
+        assert not is_valid
+
+    def test_unsorted_scene_numbers(self):
+        scenario = _valid_scenario()
+        scenario["scenes"][0]["scene_number"] = 5
+        is_valid, errors = validate_scenario(scenario)
+        assert not is_valid
+
+    def test_non_dict_input(self):
+        is_valid, _ = validate_scenario([])
+        assert not is_valid
+
+
+class TestFixScenario:
+    def test_adds_missing_scene_numbers(self):
+        scenario = {"title": "X", "scenes": [
+            {"narration": "a", "visual_prompt": "b"},
+            {"narration": "c", "visual_prompt": "d"},
+        ]}
+        fixed = fix_scenario(scenario)
+        assert fixed["scenes"][0]["scene_number"] == 1
+        assert fixed["scenes"][1]["scene_number"] == 2
+
+    def test_infers_scene_types(self):
+        scenario = {"title": "X", "scenes": [
+            {"narration": "a", "visual_prompt": "b"},
+            {"narration": "c", "visual_prompt": "d"},
+            {"narration": "e", "visual_prompt": "f"},
+        ]}
+        fixed = fix_scenario(scenario)
+        types = [s["scene_type"] for s in fixed["scenes"]]
+        assert types == ["hook", "development", "outro"]
+
+    def test_long_mode_default_durations(self):
+        scenario = {"title": "X", "scenes": [
+            {"narration": "a", "visual_prompt": "b"},
+            {"narration": "c", "visual_prompt": "d"},
+        ]}
+        fixed = fix_scenario(scenario, mode="long")
+        assert fixed["scenes"][0]["duration_seconds"] == 30   # hook
+        assert fixed["scenes"][1]["duration_seconds"] == 120  # outro/development
+
+    def test_shorts_mode_default_durations(self):
+        scenario = {"title": "X", "scenes": [
+            {"narration": "a", "visual_prompt": "b"},
+            {"narration": "c", "visual_prompt": "d"},
+        ]}
+        fixed = fix_scenario(scenario, mode="shorts")
+        assert fixed["scenes"][0]["duration_seconds"] == 10
+        assert fixed["scenes"][1]["duration_seconds"] == 15
+
+
+class TestExtractJson:
+    def test_plain_json(self):
+        assert _extract_json('{"a": 1}') == {"a": 1}
+
+    def test_markdown_code_block(self):
+        raw = '```json\n{"a": 1}\n```'
+        assert _extract_json(raw) == {"a": 1}
+
+    def test_code_block_without_language(self):
+        raw = '```\n{"b": [1, 2]}\n```'
+        assert _extract_json(raw) == {"b": [1, 2]}
+
+    def test_invalid_json_raises(self):
+        with pytest.raises(json.JSONDecodeError):
+            _extract_json("not json at all")
+
+
+class TestCachePath:
+    def test_modes_use_separate_caches(self):
+        assert _scenario_cache_path("long") != _scenario_cache_path("shorts")
+        assert _scenario_cache_path("shorts").name == "scenario_shorts.json"
+        assert _scenario_cache_path("long").name == "scenario.json"

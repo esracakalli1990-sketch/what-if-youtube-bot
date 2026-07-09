@@ -12,11 +12,15 @@ Konu havuzundan sırayla konu çekip pipeline'ı çalıştırır.
 - Webhook entegrasyonu (n8n ile)
 """
 
+import sys
 import json
 import time
 import random
 from pathlib import Path
 from datetime import datetime, timedelta
+
+# Doğrudan çalıştırma desteği: python scripts/scheduler.py
+sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from scripts.utils import (
     print_header, print_step, print_success, print_error,

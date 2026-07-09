@@ -10,9 +10,13 @@ Kullanım:
     python scripts/analytics.py --top 5       # En iyi 5 video
 """
 
+import sys
 import json
 from datetime import datetime, timezone
 from pathlib import Path
+
+# Doğrudan çalıştırma desteği: python scripts/analytics.py
+sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from scripts.utils import (
     print_header, print_success, print_error, print_warning,

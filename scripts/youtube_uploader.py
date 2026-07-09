@@ -20,12 +20,16 @@ OAuth 2.0 kimlik doğrulaması kullanır.
 """
 
 import os
+import sys
 import json
 import time
 import pickle
 import httplib2
 from pathlib import Path
 from datetime import datetime, timedelta, timezone
+
+# Doğrudan çalıştırma desteği: python scripts/youtube_uploader.py
+sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from scripts.utils import (
     print_header, print_step, print_success, print_error,

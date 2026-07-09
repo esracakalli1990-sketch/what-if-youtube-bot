@@ -12,6 +12,7 @@ temp/
 output/
 logs/
 character/reference/
+topics.json
 
 # Python cache
 __pycache__/
