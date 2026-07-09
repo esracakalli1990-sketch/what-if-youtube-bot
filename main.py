@@ -30,7 +30,7 @@ from scripts.video_assembler import assemble_video, check_ffmpeg
 from scripts.youtube_uploader import upload_video, check_youtube_setup
 
 
-def run_pipeline(topic: str, resume: bool = False, no_upload: bool = False):
+def run_pipeline(topic: str, resume: bool = False, no_upload: bool = False, mode: str = "long"):
     """
     Tam video üretim pipeline'ını çalıştır.
 
@@ -38,15 +38,20 @@ def run_pipeline(topic: str, resume: bool = False, no_upload: bool = False):
     2. Seslendirme (ElevenLabs)
     3. Görsel üretimi (FLUX/SDXL via Replicate)
     4. Video montaj (FFmpeg)
-    5. Thumbnail üretimi
+    5. Thumbnail üretimi (sadece uzun video)
 
     Args:
         topic: Video konusu
         resume: True ise checkpoint'tan devam et
+        mode: "long" (10 dk yatay) veya "shorts" (45-60 sn dikey)
     """
     start_time = time.time()
+    is_shorts = mode == "shorts"
 
-    print_header("🚀 WHAT-IF YOUTUBE BOT - OTONOM VİDEO ÜRETİM")
+    header = "🚀 WHAT-IF YOUTUBE BOT - OTONOM VİDEO ÜRETİM"
+    if is_shorts:
+        header += " (SHORTS)"
+    print_header(header)
     console.print(f"  📌 Konu: [bold cyan]{topic}[/bold cyan]")
     console.print(f"  ⏰ Başlangıç: {time.strftime('%H:%M:%S')}")
     console.print()
@@ -60,10 +65,14 @@ def run_pipeline(topic: str, resume: bool = False, no_upload: bool = False):
     if resume and checkpoint.can_resume(topic):
         console.print(f"  [cyan]♻ Resume modu: {checkpoint.get_resume_info()}[/cyan]")
         logger.info("Pipeline resume edildi: %s", checkpoint.get_resume_info())
+        mode = checkpoint.data.get("mode", mode)
+        is_shorts = mode == "shorts"
     else:
         if not resume:
             clean_temp()
         checkpoint.start(topic)
+        checkpoint.data["mode"] = mode
+        checkpoint._save()
 
     # ═══════════════════════════════════════
     # ADIM 1: SENARYO ÜRETİMİ
@@ -71,10 +80,10 @@ def run_pipeline(topic: str, resume: bool = False, no_upload: bool = False):
     scenario = None
     if checkpoint.is_step_completed("scenario"):
         console.print("\n  [cyan]♻ Senaryo: Checkpoint'tan yükleniyor...[/cyan]")
-        scenario = load_scenario()
+        scenario = load_scenario(mode=mode)
     else:
         checkpoint.set_current_step("scenario")
-        scenario = generate_scenario(topic)
+        scenario = generate_scenario(topic, mode=mode)
 
     if not scenario:
         print_error("Pipeline durdu: Senaryo üretilemedi.")
@@ -117,7 +126,7 @@ def run_pipeline(topic: str, resume: bool = False, no_upload: bool = False):
         image_results = checkpoint.data.get("image_results", [])
     else:
         checkpoint.set_current_step("images")
-        image_results = generate_images(scenes)
+        image_results = generate_images(scenes, vertical=is_shorts)
 
     if not image_results:
         print_error("Pipeline durdu: Görseller üretilemedi.")
@@ -130,30 +139,32 @@ def run_pipeline(topic: str, resume: bool = False, no_upload: bool = False):
     # ADIM 4: VİDEO MONTAJ
     # ═══════════════════════════════════════
     checkpoint.set_current_step("video")
-    final_video = assemble_video(scenes, audio_results, image_results, title)
+    final_video = assemble_video(scenes, audio_results, image_results, title, vertical=is_shorts)
 
     if final_video:
         checkpoint.complete_step("video", final_video=final_video)
 
         # ═══════════════════════════════════
-        # ADIM 5: THUMBNAIL ÜRETİMİ
+        # ADIM 5: THUMBNAIL ÜRETİMİ (sadece uzun video — Shorts ilk kareyi kullanır)
         # ═══════════════════════════════════
-        thumbnail_concept = scenario.get("thumbnail_concept", "")
-        # Clickbait başlık varsa onu kullan
-        display_title = scenario.get("clickbait_title", title)
-        thumbnail = generate_thumbnail(display_title, thumbnail_concept)
-
-        # Thumbnail'i output'a kopyala
+        thumbnail = None
         thumb_output = None
-        if thumbnail:
-            import shutil
-            ep_num_str = Path(final_video).stem.split("_")[1]
-            thumb_output = OUTPUT_DIR / f"episode_{ep_num_str}_thumbnail.png"
-            try:
-                shutil.copy2(thumbnail, str(thumb_output))
-                console.print(f"  🖼️  Thumbnail: {thumb_output}")
-            except Exception:
-                pass
+        if not is_shorts:
+            thumbnail_concept = scenario.get("thumbnail_concept", "")
+            # Clickbait başlık varsa onu kullan
+            display_title = scenario.get("clickbait_title", title)
+            thumbnail = generate_thumbnail(display_title, thumbnail_concept)
+
+            # Thumbnail'i output'a kopyala
+            if thumbnail:
+                import shutil
+                ep_num_str = Path(final_video).stem.split("_")[1]
+                thumb_output = OUTPUT_DIR / f"episode_{ep_num_str}_thumbnail.png"
+                try:
+                    shutil.copy2(thumbnail, str(thumb_output))
+                    console.print(f"  🖼️  Thumbnail: {thumb_output}")
+                except Exception:
+                    pass
 
         # ═══════════════════════════════════
         # ADIM 6: YOUTUBE YÜKLEME
@@ -168,6 +179,7 @@ def run_pipeline(topic: str, resume: bool = False, no_upload: bool = False):
                     privacy="private",  # Bot yüklemeleri güvenlik için gizli kalsın
                     scenario=scenario,
                     audio_results=audio_results,
+                    is_short=is_shorts,
                 )
             else:
                 print_warning("YouTube yetkilendirmesi yok. Otomatik yükleme atlandı.")
@@ -294,6 +306,7 @@ def main():
         epilog="""
 Örnekler:
   python main.py "What would happen if the Sun suddenly went out?"
+  python main.py --shorts "What if gravity doubled?"
   python main.py --resume
   python main.py --test
   python main.py --character
@@ -337,6 +350,11 @@ def main():
         action="store_true",
         help="Video üretilir ancak YouTube'a yüklenmez"
     )
+    parser.add_argument(
+        "--shorts",
+        action="store_true",
+        help="YouTube Shorts modu: 45-60 sn dikey (9:16) video üret"
+    )
 
     args = parser.parse_args()
 
@@ -359,14 +377,19 @@ def main():
         checkpoint = PipelineCheckpoint()
         if checkpoint.data and checkpoint.data.get("topic"):
             topic = checkpoint.data["topic"]
+            mode = checkpoint.data.get("mode", "long")
             console.print(f"  📌 Devam edilen konu: [bold cyan]{topic}[/bold cyan]")
             console.print(f"  📊 {checkpoint.get_resume_info()}")
-            run_pipeline(topic, resume=True, no_upload=args.no_upload)
+            run_pipeline(topic, resume=True, no_upload=args.no_upload, mode=mode)
         else:
             print_error("Devam edilebilir checkpoint bulunamadı.")
             print_error("Yeni pipeline başlatmak için: python main.py \"konu\"")
     elif args.topic:
-        run_pipeline(args.topic, no_upload=args.no_upload)
+        run_pipeline(
+            args.topic,
+            no_upload=args.no_upload,
+            mode="shorts" if args.shorts else "long",
+        )
     else:
         parser.print_help()
         console.print()

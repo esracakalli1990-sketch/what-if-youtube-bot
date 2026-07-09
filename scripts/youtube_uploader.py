@@ -161,6 +161,7 @@ def upload_video(
     playlist_id: str | None = None,
     scenario: dict | None = None,
     audio_results: list[dict] | None = None,
+    is_short: bool = False,
 ) -> str | None:
     """
     Videoyu YouTube'a yükle.
@@ -175,11 +176,12 @@ def upload_video(
         thumbnail_path: Thumbnail dosya yolu (opsiyonel)
         publish_at: Planlı yayın tarihi (opsiyonel)
         playlist_id: Eklenecek oynatma listesi ID'si (opsiyonel)
+        is_short: True ise YouTube Shorts (başlık/açıklamaya #Shorts eklenir)
 
     Returns:
         str | None: YouTube video ID'si veya None
     """
-    print_header("📤 YOUTUBE YÜKLEME")
+    print_header("📤 YOUTUBE YÜKLEME" + (" — SHORTS" if is_short else ""))
 
     if not GOOGLE_API_AVAILABLE:
         print_error("YouTube API paketleri kurulu değil!")
@@ -231,6 +233,15 @@ def upload_video(
     if not description:
         seo_desc = scenario.get("seo_description", "") if scenario else ""
         description = _generate_description(title, tags, seo_desc, audio_results)
+
+    # Shorts: #Shorts hashtag'i keşif için kritik (dikey + ≤60sn video otomatik Short sayılır)
+    if is_short:
+        if "#shorts" not in title.lower() and len(title) <= 91:
+            title = f"{title} #Shorts"
+        if "#shorts" not in description.lower():
+            description = f"{description}\n#Shorts"
+        if "shorts" not in [t.lower() for t in tags]:
+            tags.insert(0, "shorts")
 
     body = {
         "snippet": {

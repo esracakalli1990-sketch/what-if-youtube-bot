@@ -87,7 +87,8 @@ def create_scene_clip(
     audio_path: str,
     output_path: str,
     duration: float,
-    effect: str = "zoom_in"
+    effect: str = "zoom_in",
+    resolution: tuple[int, int] = (1920, 1080),
 ) -> bool:
     """
     Tek bir sahne klibi oluşturur: görsel + Ken Burns efekti + ses.
@@ -98,34 +99,39 @@ def create_scene_clip(
         output_path: Çıktı klip dosyası yolu
         duration: Klip süresi (saniye)
         effect: Ken Burns efekt tipi
+        resolution: (genişlik, yükseklik) — Shorts için (1080, 1920)
 
     Returns:
         bool: Başarılı mı?
     """
     frames = int(duration * 25)
+    width, height = resolution
+    size = f"{width}x{height}"
+    # Dikey görsellerde ön-ölçekleme yüksekliğe göre yapılmalı (zoompan kalitesi için)
+    prescale = "scale=-1:8000" if height > width else "scale=8000:-1"
 
     # Ken Burns efekt filtreleri
     effects = {
         "zoom_in": (
-            f"scale=8000:-1,zoompan=z='min(zoom+0.0015,1.5)':x='iw/2-(iw/zoom/2)'"
-            f":y='ih/2-(ih/zoom/2)':d={frames}:s=1920x1080:fps=25"
+            f"{prescale},zoompan=z='min(zoom+0.0015,1.5)':x='iw/2-(iw/zoom/2)'"
+            f":y='ih/2-(ih/zoom/2)':d={frames}:s={size}:fps=25"
         ),
         "zoom_out": (
-            f"scale=8000:-1,zoompan=z='if(lte(zoom,1.0),1.5,max(1.001,zoom-0.0015))'"
+            f"{prescale},zoompan=z='if(lte(zoom,1.0),1.5,max(1.001,zoom-0.0015))'"
             f":x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)'"
-            f":d={frames}:s=1920x1080:fps=25"
+            f":d={frames}:s={size}:fps=25"
         ),
         "pan_left": (
-            f"scale=8000:-1,zoompan=z='1.2':x='if(lte(on,1),(iw-iw/zoom)/2,x-1)'"
-            f":y='(ih-ih/zoom)/2':d={frames}:s=1920x1080:fps=25"
+            f"{prescale},zoompan=z='1.2':x='if(lte(on,1),(iw-iw/zoom)/2,x-1)'"
+            f":y='(ih-ih/zoom)/2':d={frames}:s={size}:fps=25"
         ),
         "pan_right": (
-            f"scale=8000:-1,zoompan=z='1.2':x='if(lte(on,1),0,x+1)'"
-            f":y='(ih-ih/zoom)/2':d={frames}:s=1920x1080:fps=25"
+            f"{prescale},zoompan=z='1.2':x='if(lte(on,1),0,x+1)'"
+            f":y='(ih-ih/zoom)/2':d={frames}:s={size}:fps=25"
         ),
         "slow_zoom": (
-            f"scale=8000:-1,zoompan=z='min(zoom+0.0008,1.25)':x='iw/2-(iw/zoom/2)'"
-            f":y='ih/2-(ih/zoom/2)':d={frames}:s=1920x1080:fps=25"
+            f"{prescale},zoompan=z='min(zoom+0.0008,1.25)':x='iw/2-(iw/zoom/2)'"
+            f":y='ih/2-(ih/zoom/2)':d={frames}:s={size}:fps=25"
         ),
     }
 
@@ -157,13 +163,14 @@ def create_scene_clip(
 # ──────────────────────────────────────
 # SRT Altyazı Üretimi
 # ──────────────────────────────────────
-def generate_srt(scenes: list[dict], audio_results: list[dict]) -> Path:
+def generate_srt(scenes: list[dict], audio_results: list[dict], max_chars: int = 80) -> Path:
     """
     SRT altyazı dosyası üretir.
 
     Args:
         scenes: Senaryo sahne listesi
         audio_results: Ses üretim sonuçları (süre bilgileri için)
+        max_chars: Altyazı satırı başına maksimum karakter (dikey videoda daha kısa)
 
     Returns:
         Path: SRT dosya yolu
@@ -186,7 +193,7 @@ def generate_srt(scenes: list[dict], audio_results: list[dict]) -> Path:
         duration = audio_info["duration_seconds"]
 
         # Metni cümlelere böl
-        sentences = _split_into_subtitle_chunks(narration, max_chars=80)
+        sentences = _split_into_subtitle_chunks(narration, max_chars=max_chars)
 
         # Her cümleye eşit süre dağıt
         time_per_chunk = duration / max(len(sentences), 1)
@@ -406,7 +413,7 @@ def add_background_music(
 # ──────────────────────────────────────
 # SRT Altyazı Gömme (Hardsub)
 # ──────────────────────────────────────
-def burn_subtitles(video_path: str, srt_path: str, output_path: str) -> bool:
+def burn_subtitles(video_path: str, srt_path: str, output_path: str, vertical: bool = False) -> bool:
     """
     SRT altyazıyı videoya göm (hardsub).
 
@@ -414,6 +421,7 @@ def burn_subtitles(video_path: str, srt_path: str, output_path: str) -> bool:
         video_path: Kaynak video
         srt_path: SRT altyazı dosyası
         output_path: Çıktı video
+        vertical: True ise Shorts stili (büyük font, ekran ortası)
 
     Returns:
         bool: Başarılı mı?
@@ -421,16 +429,26 @@ def burn_subtitles(video_path: str, srt_path: str, output_path: str) -> bool:
     # Windows yollarını düzelt (FFmpeg subtitles filter'ı için)
     safe_srt = srt_path.replace("\\", "/").replace(":", "\\:")
 
+    if vertical:
+        # Shorts: büyük font, ekrana ortalanmış (mobilde altyazı ana odak)
+        style = (
+            "FontSize=15,FontName=Arial,Bold=1,"
+            "PrimaryColour=&HFFFFFF&,OutlineColour=&H000000&,"
+            "BorderStyle=3,Outline=3,Shadow=1,"
+            "MarginV=80,Alignment=2"
+        )
+    else:
+        style = (
+            "FontSize=22,FontName=Arial,"
+            "PrimaryColour=&HFFFFFF&,OutlineColour=&H000000&,"
+            "BorderStyle=3,Outline=2,Shadow=1,"
+            "MarginV=40,Alignment=2"
+        )
+
     cmd = [
         "ffmpeg", "-y",
         "-i", video_path,
-        "-vf", (
-            f"subtitles='{safe_srt}'"
-            f":force_style='FontSize=22,FontName=Arial,"
-            f"PrimaryColour=&HFFFFFF&,OutlineColour=&H000000&,"
-            f"BorderStyle=3,Outline=2,Shadow=1,"
-            f"MarginV=40,Alignment=2'"
-        ),
+        "-vf", f"subtitles='{safe_srt}':force_style='{style}'",
         "-c:v", "libx264",
         "-preset", "medium",
         "-crf", "22",
@@ -448,7 +466,8 @@ def assemble_video(
     scenes: list[dict],
     audio_results: list[dict],
     image_results: list[dict],
-    episode_title: str = ""
+    episode_title: str = "",
+    vertical: bool = False,
 ) -> str:
     """
     Tüm parçaları birleştirerek final videoyu oluşturur.
@@ -459,10 +478,16 @@ def assemble_video(
     3. SRT altyazı üret ve göm
     4. Arka plan müziği ekle (varsa)
 
+    Args:
+        vertical: True ise 1080x1920 dikey Shorts videosu üretilir
+
     Returns:
         str: Final video dosya yolu
     """
-    print_header("🎬 VİDEO MONTAJ MOTORU")
+    print_header("🎬 VİDEO MONTAJ MOTORU" + (" — SHORTS (9:16)" if vertical else ""))
+
+    resolution = (1080, 1920) if vertical else (1920, 1080)
+    clip_prefix = "short_clip" if vertical else "clip"
 
     # FFmpeg kontrolü
     if not check_ffmpeg():
@@ -498,7 +523,7 @@ def assemble_video(
             continue
 
         effect = effect_cycle[i % len(effect_cycle)]
-        clip_path = str(CLIPS_DIR / f"clip_{scene_num:02d}.mp4")
+        clip_path = str(CLIPS_DIR / f"{clip_prefix}_{scene_num:02d}.mp4")
 
         # Resume desteği
         if Path(clip_path).exists() and Path(clip_path).stat().st_size > 10240:
@@ -514,6 +539,7 @@ def assemble_video(
             output_path=clip_path,
             duration=audio_info["duration_seconds"],
             effect=effect,
+            resolution=resolution,
         )
 
         if success:
@@ -531,7 +557,7 @@ def assemble_video(
     # Klipleri birleştir
     # ═══════════════════════════════════
     print_step(3, "Klipler birleştiriliyor...")
-    raw_video_path = str(CLIPS_DIR / "raw_combined.mp4")
+    raw_video_path = str(CLIPS_DIR / f"{clip_prefix}_raw_combined.mp4")
     success = concatenate_clips_simple(clip_paths, raw_video_path)
 
     if not success:
@@ -544,10 +570,10 @@ def assemble_video(
     # SRT altyazı üret ve göm
     # ═══════════════════════════════════
     print_step(4, "Altyazı ekleniyor...")
-    srt_path = generate_srt(scenes, audio_results)
+    srt_path = generate_srt(scenes, audio_results, max_chars=32 if vertical else 80)
 
-    subtitled_path = str(CLIPS_DIR / "with_subtitles.mp4")
-    if burn_subtitles(current_video, str(srt_path), subtitled_path):
+    subtitled_path = str(CLIPS_DIR / f"{clip_prefix}_with_subtitles.mp4")
+    if burn_subtitles(current_video, str(srt_path), subtitled_path, vertical=vertical):
         current_video = subtitled_path
         console.print("  [green]✓[/green] SRT altyazı gömüldü")
     else:
@@ -559,7 +585,7 @@ def assemble_video(
     music_files = list(ASSETS_DIR.glob("*.mp3")) + list(ASSETS_DIR.glob("*.wav"))
     if music_files:
         print_step(5, "Arka plan müziği ekleniyor...")
-        music_path = str(CLIPS_DIR / "with_music.mp4")
+        music_path = str(CLIPS_DIR / f"{clip_prefix}_with_music.mp4")
         if add_background_music(current_video, music_path):
             current_video = music_path
             console.print("  [green]✓[/green] Müzik eklendi")
@@ -569,8 +595,9 @@ def assemble_video(
     # ═══════════════════════════════════
     # Final dosyayı taşı
     # ═══════════════════════════════════
-    episode_num = get_episode_number()
-    final_path = str(OUTPUT_DIR / f"episode_{episode_num:02d}.mp4")
+    output_prefix = "short" if vertical else "episode"
+    episode_num = get_episode_number(prefix=output_prefix)
+    final_path = str(OUTPUT_DIR / f"{output_prefix}_{episode_num:02d}.mp4")
 
     try:
         shutil.copy2(current_video, final_path)
@@ -580,7 +607,7 @@ def assemble_video(
 
     # SRT'yi de output'a kopyala
     try:
-        srt_output = OUTPUT_DIR / f"episode_{episode_num:02d}.srt"
+        srt_output = OUTPUT_DIR / f"{output_prefix}_{episode_num:02d}.srt"
         shutil.copy2(str(srt_path), str(srt_output))
         logger.info("SRT altyazı kopyalandı: %s", srt_output)
     except Exception:
@@ -592,7 +619,7 @@ def assemble_video(
     print_success("Final video hazır!")
     console.print(f"  📹 Video: {final_path}")
     console.print(f"  💾 Boyut: {size_mb:.1f} MB")
-    console.print(f"  🎬 Bölüm: Episode {episode_num}")
+    console.print(f"  🎬 Bölüm: {'Short' if vertical else 'Episode'} {episode_num}")
 
     logger.info(
         "Final video oluşturuldu: %s (%.1f MB, Episode %d)",

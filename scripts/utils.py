@@ -203,10 +203,14 @@ def print_warning(message: str):
 # ──────────────────────────────────────
 # Episode Numarası
 # ──────────────────────────────────────
-def get_episode_number() -> int:
-    """output/ klasöründeki son bölüm numarasını bul ve bir sonrakini döndür."""
+def get_episode_number(prefix: str = "episode") -> int:
+    """output/ klasöründeki son bölüm numarasını bul ve bir sonrakini döndür.
+
+    Args:
+        prefix: Dosya öneki — "episode" (uzun video) veya "short" (Shorts)
+    """
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    existing = list(OUTPUT_DIR.glob("episode_*.mp4"))
+    existing = list(OUTPUT_DIR.glob(f"{prefix}_*.mp4"))
     if not existing:
         return 1
     numbers = []
