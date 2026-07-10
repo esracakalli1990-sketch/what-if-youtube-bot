@@ -84,10 +84,10 @@ jobs:
         if: failure()
         run: |
           if [ -n "$TELEGRAM_BOT_TOKEN" ] && [ -n "$TELEGRAM_CHAT_ID" ]; then
+            MSG=$(printf '🚨 <b>Telegram komut işleyici hatası</b>\n\nDetay: %s' \
+              "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}")
             curl -s "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
               -d chat_id="${TELEGRAM_CHAT_ID}" \
               -d parse_mode="HTML" \
-              --data-urlencode text="🚨 <b>Telegram komut işleyici hatası</b>
-
-Detay: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" || true
+              --data-urlencode text="$MSG" || true
           fi
