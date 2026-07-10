@@ -127,7 +127,11 @@ jobs:
         run: |
           git config user.name "what-if-bot"
           git config user.email "actions@github.com"
-          git add -f topics.json output/uploads.json pending_production.json 2>/dev/null || true
+          # Dosyalar tek tek eklenir: git add, listedeki TEK bir dosya yoksa
+          # hiçbirini eklemeden ölür (bu hata topics.json'ın kalıcılaşmasını engelliyordu)
+          for f in topics.json output/uploads.json pending_production.json telegram_state.json; do
+            git add -f "$f" 2>/dev/null || true
+          done
           if ! git diff --cached --quiet; then
             git commit -m "bot: üretim durumu güncellendi [skip ci]"
             git pull --rebase origin "${GITHUB_REF_NAME}" || true

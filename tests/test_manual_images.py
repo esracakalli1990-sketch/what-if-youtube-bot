@@ -45,6 +45,18 @@ class TestPendingLifecycle:
         assert "9:16 DİKEY" in isolated_state[0]
         assert "Görsel 1/4" in isolated_state[1]
         assert "Visual 0" in isolated_state[1]
+        # Prompt'lar yalın olmalı — API'ye özgü teknik satırlar sızmamalı
+        for msg in isolated_state[1:]:
+            assert "IP-Adapter" not in msg
+            assert "CONSISTENCY RULES" not in msg
+            assert "9:16" in msg  # yön talimatı her prompt'ta
+
+    def test_character_brief_added_when_rabbit_in_prompt(self, isolated_state):
+        scenario = _scenario(2)
+        scenario["scenes"][0]["visual_prompt"] = "A rabbit scientist observing deep-sea vents"
+        mi.start_pending("Test topic", "shorts", scenario)
+        assert "steampunk space suit" in isolated_state[1]   # tavşanlı sahne
+        assert "steampunk space suit" not in isolated_state[2]  # tavşansız sahne
 
     def test_start_pending_long_includes_thumbnail(self, isolated_state):
         assert mi.start_pending("Test topic", "long", _scenario(5))
