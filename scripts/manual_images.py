@@ -81,19 +81,40 @@ def images_ready(scenes: list[dict], vertical: bool) -> bool:
     return bool(scenes)
 
 
-def _build_prompts(scenario: dict, mode: str) -> list[str]:
-    """Sahne prompt'larını (uzun videoda + thumbnail) hazırla."""
-    from scripts.image_generator import _build_full_prompt
-    from scripts.utils import read_prompt
+# Kısa karakter tarifi — sahnede tavşan geçiyorsa prompt'a eklenir
+_CHARACTER_BRIEF = (
+    "The character: a photorealistic anthropomorphic rabbit scientist, "
+    "human-proportioned, warm grey fur with white chest, wearing a worn "
+    "steampunk space suit with brass goggles on forehead and a leather satchel."
+)
 
+
+def _build_prompts(scenario: dict, mode: str) -> list[str]:
+    """
+    Sahne prompt'larını (uzun videoda + thumbnail) hazırla.
+
+    Manuel akış için YALIN şablon: kullanıcı bunu Flow/Gemini'ye yapıştırır —
+    API'ye özgü teknik satırlar (IP-Adapter vb.) eklenmez.
+    """
     vertical = mode == "shorts"
-    style_guide = read_prompt("image_style.txt")
+    orientation = (
+        "Vertical 9:16 portrait format, subject centered for mobile fullscreen."
+        if vertical else "Widescreen 16:9 cinematic format."
+    )
+    base_style = (
+        "Photorealistic, cinematic lighting, 8K detail, dramatic atmosphere. "
+        "No text, no watermarks, no borders."
+    )
 
     prompts = []
     for scene in scenario.get("scenes", []):
-        visual = scene.get("visual_prompt", "")
-        if visual:
-            prompts.append(_build_full_prompt(visual, style_guide, vertical=vertical))
+        visual = scene.get("visual_prompt", "").strip()
+        if not visual:
+            continue
+        parts = [visual, orientation, base_style]
+        if "rabbit" in visual.lower():
+            parts.append(_CHARACTER_BRIEF)
+        prompts.append("\n\n".join(parts))
 
     # Uzun videoda son görsel: thumbnail arka planı
     if mode == "long":
@@ -101,12 +122,10 @@ def _build_prompts(scenario: dict, mode: str) -> list[str]:
             f"A dramatic, eye-catching scene for: {scenario.get('title', '')}"
         )
         prompts.append(
-            f"{concept}\n"
-            "Ultra dramatic, cinematic composition. Vivid saturated colors with extreme contrast. "
-            "Golden hour or neon lighting, strong bokeh, depth of field. "
-            "Photorealistic, 8K quality, epic scale. "
-            "ABSOLUTELY NO text, NO watermarks, NO borders, NO letters. "
-            "Clean background composition optimized for text overlay."
+            f"{concept}\n\n"
+            "Widescreen 16:9 format. Ultra dramatic, vivid saturated colors with "
+            "extreme contrast, golden hour or neon lighting, photorealistic, 8K. "
+            "Absolutely no text or watermarks — clean composition for text overlay."
         )
 
     return prompts
