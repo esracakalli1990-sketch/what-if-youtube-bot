@@ -66,11 +66,22 @@ def _validate_image(image_path: Path, min_width: int = 512, min_height: int = 51
 # ──────────────────────────────────────
 # Görsel İndirme
 # ──────────────────────────────────────
+
+# Bazı CDN'ler (Pollinations dahil) python-requests kimliğini engelliyor
+_BROWSER_HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+        "(KHTML, like Gecko) Chrome/126.0 Safari/537.36"
+    )
+}
+
+
 def _download_image(url: str, save_path: Path, max_retries: int = 3) -> bool:
     """URL'den görsel indir ve kaydet."""
+    last_error = None
     for attempt in range(1, max_retries + 1):
         try:
-            response = requests.get(url, timeout=120, stream=True)
+            response = requests.get(url, timeout=120, stream=True, headers=_BROWSER_HEADERS)
             response.raise_for_status()
 
             save_path.parent.mkdir(parents=True, exist_ok=True)
@@ -82,12 +93,16 @@ def _download_image(url: str, save_path: Path, max_retries: int = 3) -> bool:
             return True
 
         except Exception as e:
+            last_error = e
             logger.warning("Görsel indirme hatası (deneme %d/%d): %s", attempt, max_retries, e)
             if save_path.exists():
                 save_path.unlink()
             if attempt < max_retries:
                 time.sleep(2 ** attempt)
 
+    # Actions logunda görünsün — teşhis için
+    if last_error:
+        console.print(f"[dim]indirme: {str(last_error)[:120]}[/dim] ", end="")
     return False
 
 
@@ -208,6 +223,59 @@ def _generate_with_pollinations(prompt: str, save_path: Path, width: int = 1344,
         return False
 
 
+def _generate_with_gemini_image(prompt: str, save_path: Path, vertical: bool = False) -> bool:
+    """
+    Gemini görsel modeli (gemini-2.5-flash-image) ile görsel üret.
+
+    Replicate'in aksine ücretsiz katmanda çalışır — Replicate faturalandırması
+    kapalıyken ana yedek görevi görür.
+    """
+    keys = load_env()
+    api_key = keys.get("GEMINI_API_KEY", "")
+    if not api_key or "buraya" in api_key:
+        return False
+
+    try:
+        from google.genai import types as genai_types
+
+        client = genai.Client(api_key=api_key)
+
+        # aspect_ratio destekleyen SDK'larda dikey/yatay iste; desteklemiyorsa düz config
+        try:
+            config = genai_types.GenerateContentConfig(
+                response_modalities=["IMAGE"],
+                image_config=genai_types.ImageConfig(
+                    aspect_ratio="9:16" if vertical else "16:9"
+                ),
+            )
+        except Exception:
+            config = genai_types.GenerateContentConfig(response_modalities=["IMAGE"])
+
+        response = client.models.generate_content(
+            model="gemini-2.5-flash-image",
+            contents=prompt,
+            config=config,
+        )
+
+        for candidate in response.candidates or []:
+            for part in candidate.content.parts or []:
+                inline = getattr(part, "inline_data", None)
+                if inline and inline.data:
+                    save_path.parent.mkdir(parents=True, exist_ok=True)
+                    with open(save_path, "wb") as f:
+                        f.write(inline.data)
+                    logger.info("Gemini görsel üretildi: %s", save_path.name)
+                    return True
+
+        logger.warning("Gemini görsel yanıtında resim yok.")
+        return False
+
+    except Exception as e:
+        logger.warning("Gemini görsel üretim hatası: %s", e)
+        console.print(f"[dim]{str(e)[:100]}[/dim] ", end="")
+        return False
+
+
 # ──────────────────────────────────────
 # Ana Görsel Üretim Fonksiyonu
 # ──────────────────────────────────────
@@ -281,12 +349,14 @@ def generate_images(scenes: list[dict], vertical: bool = False) -> list[dict]:
         success = False
 
         # Deneme 1: FLUX
+        last_replicate_error = None
         for attempt in range(1, 4):
             try:
                 image_url = _generate_with_flux(full_prompt, width=img_width, height=img_height)
                 if image_url:
                     break
             except Exception as e:
+                last_replicate_error = e
                 logger.warning("FLUX deneme %d/3 başarısız: %s", attempt, e)
                 if attempt < 3:
                     time.sleep(2 ** attempt)
@@ -301,9 +371,14 @@ def generate_images(scenes: list[dict], vertical: bool = False) -> list[dict]:
                     if image_url:
                         break
                 except Exception as e:
+                    last_replicate_error = e
                     logger.warning("SDXL deneme %d/2 başarısız: %s", attempt, e)
                     if attempt < 2:
                         time.sleep(2 ** attempt)
+
+        # Replicate tamamen başarısızsa nedenini Actions logunda göster
+        if not image_url and last_replicate_error:
+            console.print(f"[dim]Replicate: {str(last_replicate_error)[:120]}[/dim] ", end="")
 
         # Görseli indir ve doğrula (Replicate modelleri)
         min_w, min_h = (512, 768) if vertical else (768, 512)
@@ -323,10 +398,30 @@ def generate_images(scenes: list[dict], vertical: bool = False) -> list[dict]:
             else:
                 console.print("[red]✗ indirme hatası[/red]")
 
-        # Deneme 3: Pollinations (ücretsiz fallback)
+        # Deneme 3: Gemini görsel modeli (ücretsiz — Replicate faturasız hesaplarda ana yedek)
+        if not success:
+            console.print("[yellow]→Gemini[/yellow] ", end="")
+            logger.info("Sahne %d: Replicate başarısız, Gemini görsel deneniyor", scene_num)
+            for attempt in range(1, 3):
+                if _generate_with_gemini_image(full_prompt, image_path, vertical=vertical):
+                    if _validate_image(image_path, min_width=512, min_height=512):
+                        image_results.append({
+                            "scene_number": scene_num,
+                            "image_path": str(image_path),
+                        })
+                        console.print("[green]✓[/green]")
+                        success = True
+                        break
+                    else:
+                        if image_path.exists():
+                            image_path.unlink()
+                if attempt < 2:
+                    time.sleep(3)
+
+        # Deneme 4: Pollinations (ücretsiz fallback)
         if not success:
             console.print("[yellow]→Pollinations[/yellow] ", end="")
-            logger.info("Sahne %d: Replicate başarısız, Pollinations deneniyor", scene_num)
+            logger.info("Sahne %d: Gemini başarısız, Pollinations deneniyor", scene_num)
             for attempt in range(1, 3):
                 if _generate_with_pollinations(full_prompt, image_path, width=img_width, height=img_height):
                     if _validate_image(image_path, min_width=512, min_height=512):
@@ -538,9 +633,16 @@ def generate_thumbnail(title: str, concept: str = "") -> str:
     if image_url and _download_image(image_url, raw_thumb_path):
         thumb_generated = True
 
+    # Gemini fallback (ücretsiz)
+    if not thumb_generated:
+        logger.info("Thumbnail: Replicate başarısız, Gemini deneniyor")
+        console.print("  🔄 Gemini ile deneniyor...")
+        if _generate_with_gemini_image(thumb_prompt.strip(), raw_thumb_path, vertical=False):
+            thumb_generated = True
+
     # Pollinations fallback
     if not thumb_generated:
-        logger.info("Thumbnail: Replicate başarısız, Pollinations deneniyor")
+        logger.info("Thumbnail: Gemini başarısız, Pollinations deneniyor")
         console.print("  🔄 Pollinations ile deneniyor...")
         for attempt in range(1, 3):
             if _generate_with_pollinations(thumb_prompt.strip(), raw_thumb_path, width=1344, height=768):
