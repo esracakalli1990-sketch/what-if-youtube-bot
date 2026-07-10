@@ -71,7 +71,12 @@ jobs:
 
       - name: FFmpeg kur
         if: steps.type.outputs.job_type != 'refill'
-        run: sudo apt-get update -q && sudo apt-get install -y -q ffmpeg
+        timeout-minutes: 8
+        run: |
+          # apt/dpkg kilidi bekleyen süreçlere karşı kilit zaman aşımı + tek deneme tekrarı
+          sudo apt-get -o DPkg::Lock::Timeout=180 update -q || true
+          sudo apt-get -o DPkg::Lock::Timeout=180 install -y -q ffmpeg \
+            || (sleep 20 && sudo apt-get -o DPkg::Lock::Timeout=180 install -y -q ffmpeg)
 
       - name: Bağımlılıkları kur
         run: pip install -r requirements.txt
