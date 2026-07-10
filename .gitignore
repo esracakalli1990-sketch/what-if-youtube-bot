@@ -6,6 +6,7 @@
 .env
 client_secrets.json
 youtube_token.pickle
+github_secrets.txt
 
 # Geçici dosyalar ve çıktılar
 temp/
