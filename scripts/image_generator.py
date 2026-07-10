@@ -638,8 +638,13 @@ def generate_thumbnail(title: str, concept: str = "") -> str:
     raw_thumb_path = THUMBNAILS_DIR / "thumbnail_raw.png"
     thumb_generated = False
 
+    # Hazır arka plan varsa (manuel akış / resume) yeniden üretme
+    if _validate_image(raw_thumb_path, min_width=512, min_height=512):
+        console.print("  ♻ Mevcut thumbnail arka planı kullanılıyor.")
+        thumb_generated = True
+
     # Gemini birincil ise önce onu dene
-    if gemini_first:
+    if not thumb_generated and gemini_first:
         console.print("  🍌 Gemini ile üretiliyor...")
         if _generate_with_gemini_image(thumb_prompt.strip(), raw_thumb_path, vertical=False):
             thumb_generated = True

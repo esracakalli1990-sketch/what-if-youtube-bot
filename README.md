@@ -141,6 +141,19 @@ GitHub → repo → **Settings → Secrets and variables → Actions** altına �
 
 Bot, üretim durumunu (`topics.json`, `output/uploads.json`) her çalışmadan sonra repoya commit'leyerek kaldığı yeri hatırlar.
 
+## 🍌 Manuel Görsel Akışı (Nano Banana Pro ile Sıfır Maliyet)
+
+Görselleri API yerine **kendiniz** üretmek isterseniz (ör. Gemini Pro üyeliğinizle Google Flow / Nano Banana Pro):
+
+1. GitHub → repo → Settings → Secrets and variables → Actions → **Variables** → `IMAGE_MODE` = `manual` ekleyin
+2. Bot her üretimde senaryoyu yazar ve **kopyala-yapıştıra hazır görsel prompt'larını Telegram'dan gönderir** (Short: 4 dikey görsel, uzun video: 6-7 yatay + 1 thumbnail)
+3. Prompt'ları Flow/Gemini'ye yapıştırıp çıkan görselleri **sırayla** bota fotoğraf olarak gönderirsiniz
+4. Saatlik işleyici görselleri alır, doğru orana kırpar ve videoyu tamamlayıp kanala yükler
+
+Görseller gelene kadar bot bekler (24 saatte bir hatırlatır); `/iptal` ile vazgeçebilirsiniz. `/durum` bekleyen üretimi gösterir. Görsel API maliyeti: **0 TL** — karşılığında video başına ~5 dakika emeğiniz gerekir. Karakter tutarlılığı için Flow'da aynı tavşan bilim insanı görselini referans olarak kullanabilirsiniz.
+
+> API moduna dönmek için `IMAGE_MODE` variable'ını silmeniz yeterli.
+
 ## 💬 Telegram ile Takip ve Kontrol
 
 Bot her olayı Telegram'dan size bildirir ve komutlarla kontrol edilebilir — sunucu gerekmez.
