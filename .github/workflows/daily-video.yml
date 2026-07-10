@@ -48,6 +48,9 @@ jobs:
       YOUTUBE_PLAYLIST_ID: ${{ secrets.YOUTUBE_PLAYLIST_ID }}
       TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
       TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      # Görsel sağlayıcı seçimi (Settings → Secrets and variables → Actions → Variables)
+      IMAGE_PRIMARY: ${{ vars.IMAGE_PRIMARY }}
+      GEMINI_IMAGE_MODEL: ${{ vars.GEMINI_IMAGE_MODEL }}
     steps:
       - uses: actions/checkout@v4
 

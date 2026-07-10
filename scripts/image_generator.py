@@ -225,15 +225,19 @@ def _generate_with_pollinations(prompt: str, save_path: Path, width: int = 1344,
 
 def _generate_with_gemini_image(prompt: str, save_path: Path, vertical: bool = False) -> bool:
     """
-    Gemini görsel modeli (gemini-2.5-flash-image) ile görsel üret.
+    Gemini görsel modeliyle görsel üret (varsayılan: Nano Banana).
 
-    Replicate'in aksine ücretsiz katmanda çalışır — Replicate faturalandırması
-    kapalıyken ana yedek görevi görür.
+    Model .env/secret ile seçilebilir: GEMINI_IMAGE_MODEL
+      - gemini-2.5-flash-image  → Nano Banana (hızlı, ~$0.04/görsel)
+      - gemini-3-pro-image      → Nano Banana Pro (en yüksek kalite)
+    Not: Görsel modelleri API faturalandırması gerektirir (ücretsiz katmanda kota 0).
     """
     keys = load_env()
     api_key = keys.get("GEMINI_API_KEY", "")
     if not api_key or "buraya" in api_key:
         return False
+
+    model = os.getenv("GEMINI_IMAGE_MODEL", "").strip() or "gemini-2.5-flash-image"
 
     try:
         from google.genai import types as genai_types
@@ -252,7 +256,7 @@ def _generate_with_gemini_image(prompt: str, save_path: Path, vertical: bool = F
             config = genai_types.GenerateContentConfig(response_modalities=["IMAGE"])
 
         response = client.models.generate_content(
-            model="gemini-2.5-flash-image",
+            model=model,
             contents=prompt,
             config=config,
         )
@@ -293,19 +297,22 @@ def generate_images(scenes: list[dict], vertical: bool = False) -> list[dict]:
     print_header("🎨 GÖRSEL ÜRETİM MOTORU" + (" — DİKEY 9:16" if vertical else ""))
 
     img_width, img_height = (768, 1344) if vertical else (1344, 768)
-    print_step(1, "Replicate API'ye bağlanılıyor...")
+    print_step(1, "Görsel sağlayıcıları hazırlanıyor...")
 
     # API anahtarını yükle
     keys = load_env()
-    api_token = keys.get("REPLICATE_API_TOKEN")
+    api_token = keys.get("REPLICATE_API_TOKEN", "")
+    has_replicate = bool(api_token) and "buraya" not in api_token
 
-    if not api_token or api_token == "buraya_replicate_api_key_gelecek":
-        print_error("REPLICATE_API_TOKEN .env dosyasında tanımlı değil!")
-        print_error("Lütfen https://replicate.com adresinden API token alın.")
-        return []
+    if has_replicate:
+        os.environ["REPLICATE_API_TOKEN"] = api_token
+    else:
+        print_warning("REPLICATE_API_TOKEN tanımlı değil — Replicate atlanacak, Gemini/Pollinations kullanılacak.")
 
-    # Replicate ortam değişkenini ayarla
-    os.environ["REPLICATE_API_TOKEN"] = api_token
+    # IMAGE_PRIMARY=gemini → Gemini (Nano Banana) birincil sağlayıcı olur
+    gemini_first = os.getenv("IMAGE_PRIMARY", "").strip().lower() == "gemini"
+    if gemini_first:
+        console.print(f"  🍌 Birincil sağlayıcı: Gemini ({os.getenv('GEMINI_IMAGE_MODEL', 'gemini-2.5-flash-image')})")
 
     # Görsel stil kurallarını oku
     style_guide = read_prompt("image_style.txt")
@@ -347,41 +354,59 @@ def generate_images(scenes: list[dict], vertical: bool = False) -> list[dict]:
         full_prompt = _build_full_prompt(visual_prompt, style_guide, vertical=vertical)
         image_url = None
         success = False
+        min_w, min_h = (512, 768) if vertical else (768, 512)
+
+        # Deneme 0: Gemini birincil sağlayıcıysa önce onu dene
+        if gemini_first:
+            for attempt in range(1, 3):
+                if _generate_with_gemini_image(full_prompt, image_path, vertical=vertical):
+                    if _validate_image(image_path, min_width=512, min_height=512):
+                        image_results.append({
+                            "scene_number": scene_num,
+                            "image_path": str(image_path),
+                        })
+                        console.print("[green]✓ (Gemini)[/green]")
+                        success = True
+                        break
+                    elif image_path.exists():
+                        image_path.unlink()
+                if attempt < 2:
+                    time.sleep(3)
 
         # Deneme 1: FLUX
         last_replicate_error = None
-        for attempt in range(1, 4):
-            try:
-                image_url = _generate_with_flux(full_prompt, width=img_width, height=img_height)
-                if image_url:
-                    break
-            except Exception as e:
-                last_replicate_error = e
-                logger.warning("FLUX deneme %d/3 başarısız: %s", attempt, e)
-                if attempt < 3:
-                    time.sleep(2 ** attempt)
-
-        # Deneme 2: SDXL (fallback)
-        if not image_url:
-            console.print("[yellow]FLUX→SDXL[/yellow] ", end="")
-            logger.info("Sahne %d: FLUX başarısız, SDXL deneniyor", scene_num)
-            for attempt in range(1, 3):
+        if not success and has_replicate:
+            for attempt in range(1, 4):
                 try:
-                    image_url = _generate_with_sdxl(full_prompt, width=img_width, height=img_height)
+                    image_url = _generate_with_flux(full_prompt, width=img_width, height=img_height)
                     if image_url:
                         break
                 except Exception as e:
                     last_replicate_error = e
-                    logger.warning("SDXL deneme %d/2 başarısız: %s", attempt, e)
-                    if attempt < 2:
+                    logger.warning("FLUX deneme %d/3 başarısız: %s", attempt, e)
+                    if attempt < 3:
                         time.sleep(2 ** attempt)
 
-        # Replicate tamamen başarısızsa nedenini Actions logunda göster
-        if not image_url and last_replicate_error:
-            console.print(f"[dim]Replicate: {str(last_replicate_error)[:120]}[/dim] ", end="")
+            # Deneme 2: SDXL (fallback)
+            if not image_url:
+                console.print("[yellow]FLUX→SDXL[/yellow] ", end="")
+                logger.info("Sahne %d: FLUX başarısız, SDXL deneniyor", scene_num)
+                for attempt in range(1, 3):
+                    try:
+                        image_url = _generate_with_sdxl(full_prompt, width=img_width, height=img_height)
+                        if image_url:
+                            break
+                    except Exception as e:
+                        last_replicate_error = e
+                        logger.warning("SDXL deneme %d/2 başarısız: %s", attempt, e)
+                        if attempt < 2:
+                            time.sleep(2 ** attempt)
+
+            # Replicate tamamen başarısızsa nedenini Actions logunda göster
+            if not image_url and last_replicate_error:
+                console.print(f"[dim]Replicate: {str(last_replicate_error)[:120]}[/dim] ", end="")
 
         # Görseli indir ve doğrula (Replicate modelleri)
-        min_w, min_h = (512, 768) if vertical else (768, 512)
         if image_url:
             if _download_image(image_url, image_path):
                 if _validate_image(image_path, min_width=min_w, min_height=min_h):
@@ -398,8 +423,8 @@ def generate_images(scenes: list[dict], vertical: bool = False) -> list[dict]:
             else:
                 console.print("[red]✗ indirme hatası[/red]")
 
-        # Deneme 3: Gemini görsel modeli (ücretsiz — Replicate faturasız hesaplarda ana yedek)
-        if not success:
+        # Deneme 3: Gemini görsel modeli (birincil olarak zaten denenmediyse)
+        if not success and not gemini_first:
             console.print("[yellow]→Gemini[/yellow] ", end="")
             logger.info("Sahne %d: Replicate başarısız, Gemini görsel deneniyor", scene_num)
             for attempt in range(1, 3):
@@ -583,13 +608,12 @@ def generate_thumbnail(title: str, concept: str = "") -> str:
     print_header("🖼️ THUMBNAIL ÜRETİMİ")
 
     keys = load_env()
-    api_token = keys.get("REPLICATE_API_TOKEN")
+    api_token = keys.get("REPLICATE_API_TOKEN", "")
+    has_replicate = bool(api_token) and "buraya" not in api_token
+    if has_replicate:
+        os.environ["REPLICATE_API_TOKEN"] = api_token
 
-    if not api_token or api_token == "buraya_replicate_api_key_gelecek":
-        print_error("REPLICATE_API_TOKEN tanımlı değil!")
-        return ""
-
-    os.environ["REPLICATE_API_TOKEN"] = api_token
+    gemini_first = os.getenv("IMAGE_PRIMARY", "").strip().lower() == "gemini"
     THUMBNAILS_DIR.mkdir(parents=True, exist_ok=True)
 
     # Thumbnail arka plan promptu — yazı olmadan, çarpıcı görsel
@@ -612,29 +636,35 @@ def generate_thumbnail(title: str, concept: str = "") -> str:
 
     image_url = None
     raw_thumb_path = THUMBNAILS_DIR / "thumbnail_raw.png"
-
-    # FLUX ile dene
-    for attempt in range(1, 4):
-        try:
-            image_url = _generate_with_flux(
-                thumb_prompt.strip(),
-                width=1344,
-                height=768,
-            )
-            if image_url:
-                break
-        except Exception as e:
-            logger.warning("Thumbnail FLUX deneme %d/3: %s", attempt, e)
-            if attempt < 3:
-                time.sleep(2 ** attempt)
-
     thumb_generated = False
 
-    if image_url and _download_image(image_url, raw_thumb_path):
-        thumb_generated = True
+    # Gemini birincil ise önce onu dene
+    if gemini_first:
+        console.print("  🍌 Gemini ile üretiliyor...")
+        if _generate_with_gemini_image(thumb_prompt.strip(), raw_thumb_path, vertical=False):
+            thumb_generated = True
 
-    # Gemini fallback (ücretsiz)
-    if not thumb_generated:
+    # FLUX ile dene
+    if not thumb_generated and has_replicate:
+        for attempt in range(1, 4):
+            try:
+                image_url = _generate_with_flux(
+                    thumb_prompt.strip(),
+                    width=1344,
+                    height=768,
+                )
+                if image_url:
+                    break
+            except Exception as e:
+                logger.warning("Thumbnail FLUX deneme %d/3: %s", attempt, e)
+                if attempt < 3:
+                    time.sleep(2 ** attempt)
+
+        if image_url and _download_image(image_url, raw_thumb_path):
+            thumb_generated = True
+
+    # Gemini fallback (birincil olarak denenmediyse)
+    if not thumb_generated and not gemini_first:
         logger.info("Thumbnail: Replicate başarısız, Gemini deneniyor")
         console.print("  🔄 Gemini ile deneniyor...")
         if _generate_with_gemini_image(thumb_prompt.strip(), raw_thumb_path, vertical=False):
