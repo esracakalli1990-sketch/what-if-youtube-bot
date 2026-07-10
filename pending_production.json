@@ -1,0 +1,73 @@
+{
+  "topic": "What would happen if the Sun suddenly went out?",
+  "mode": "shorts",
+  "privacy": "public",
+  "scenario": {
+    "title": "What If The Sun Suddenly Vanished?",
+    "thumbnail_concept": "A dramatic vertical image showing half of Earth plunged into total darkness and rapidly frosting over, with a sliver of the remaining half still dimly lit. A small, steampunk-clad rabbit figure observes from a futuristic device in the foreground.",
+    "total_duration_minutes": 1,
+    "clickbait_title": "THE SUN JUST WENT OUT. Here's What Happens NEXT.",
+    "youtube_tags": [
+      "what if the sun went out",
+      "sun goes out",
+      "what if",
+      "science shorts",
+      "youtube shorts",
+      "space facts",
+      "astronomy",
+      "earth without sun",
+      "end of the world",
+      "cosmic events",
+      "gravitational pull",
+      "rogue planet",
+      "freezing earth",
+      "survival scenarios",
+      "deep space",
+      "time travel rabbit",
+      "science explained",
+      "universe mysteries",
+      "sci-fi concepts",
+      "viral shorts"
+    ],
+    "seo_description": "What if the Sun suddenly vanished? In this mind-bending YouTube Short, we explore the shocking consequences for Earth and humanity. Discover the immediate effects, from darkness and freezing temperatures to our planet becoming a rogue ice ball. The science will amaze you!",
+    "thumbnail_headline": "SUN GONE. CHAOS.",
+    "scenes": [
+      {
+        "scene_number": 1,
+        "scene_type": "hook",
+        "duration_seconds": 12,
+        "narration": "For eight minutes, you wouldn't know. Then, pure darkness. Earth instantly begins freezing, dropping over 20 degrees Celsius in one week. Photosynthesis halts. Plants die, then herbivores starve. Surface life? Gone, faster than you think.",
+        "visual_prompt": "Cinematic lighting, vertical composition: POV from Earth, watching the Sun abruptly vanish, replaced by an inky black void. Rapid onset of frost and ice dramatically spreading across cities and landscapes. A time-traveling rabbit scientist in steampunk gear looks through a brass telescope, eyes wide with shock. 8K detail, photorealistic.",
+        "twist_element": "The 8-minute delay before darkness, followed by rapid, irreversible freezing."
+      },
+      {
+        "scene_number": 2,
+        "scene_type": "development",
+        "duration_seconds": 13,
+        "narration": "Within a year, your world's surface hits -100°C. But worse? Without the Sun's massive gravitational pull, Earth becomes a rogue ice ball. We'd hurtle off into interstellar space at 30 kilometers per second. A lonely, frozen journey.",
+        "visual_prompt": "Dramatic atmosphere, vertical composition: A photorealistic, dark Earth, now a frozen sphere, drifting majestically but ominously into the deep void of space. Thousands of distant, cold stars glitter against the absolute blackness. No sun visible. 8K detail, cinematic lighting."
+      },
+      {
+        "scene_number": 3,
+        "scene_type": "twist",
+        "duration_seconds": 14,
+        "narration": "Here's the mind-bender: light travels at a finite speed. So does gravity! For eight terrifying minutes, Earth would still orbit a 'ghost' Sun. Then, suddenly, we'd hurtle off into the void. Utter cosmic chaos. Your world's fate changes in an instant.",
+        "visual_prompt": "Dynamic, vertical composition: A conceptual rendering of Earth orbiting an empty, black space where the Sun should be, then abruptly veering off at high speed into the vast, dark cosmos. The time-traveling rabbit scientist is shown on a small, steampunk-styled observation platform, holding onto a railing, looking distressed as Earth spins away. Cinematic lighting, 8K detail."
+      },
+      {
+        "scene_number": 4,
+        "scene_type": "loop_bait_ending",
+        "duration_seconds": 13,
+        "narration": "Deep ocean vents might sustain some extremophiles, but surface life? Gone. You'd freeze solid, a lonely space traveler, under a sky where stars offer no warmth. Just a silent, eternal night. Remember those first eight minutes?",
+        "visual_prompt": "Highly detailed, vertical composition: A desolate, frozen landscape of Earth under an intensely starry, black sky. A single, small, frozen human figure is visible in the foreground, looking up in despair. Dramatic atmosphere, cinematic lighting, photorealistic."
+      }
+    ],
+    "_topic": "What would happen if the Sun suddenly went out?",
+    "_mode": "shorts",
+    "_generated_at": "2026-07-10T19:31:59.949102"
+  },
+  "expected_images": 4,
+  "image_file_ids": [],
+  "prompts_sent_at": "2026-07-10T19:32:01.741611+00:00",
+  "last_reminder_at": "2026-07-10T19:32:01.741626+00:00"
+}
