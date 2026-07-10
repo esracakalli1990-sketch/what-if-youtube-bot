@@ -115,6 +115,30 @@ def run_pipeline(
         checkpoint.complete_step("scenario", episode_title=title)
 
     # ═══════════════════════════════════════
+    # MANUEL GÖRSEL AKIŞI (IMAGE_MODE=manual)
+    # Görseller hazır değilse prompt'ları Telegram'a gönder ve bekle
+    # ═══════════════════════════════════════
+    from scripts.manual_images import (
+        is_manual_mode, images_ready, start_pending, load_pending
+    )
+    if is_manual_mode() and not images_ready(scenes, vertical=is_shorts):
+        pending = load_pending()
+        if pending:
+            if pending.get("topic") == topic:
+                console.print("  🎨 [cyan]Görseller Telegram'dan bekleniyor "
+                              f"({len(pending['image_file_ids'])}/{pending['expected_images']} geldi)[/cyan]")
+            else:
+                print_warning(f"Başka bir üretim görsel bekliyor: '{pending.get('topic')}' — "
+                              "önce onu tamamlayın veya Telegram'dan /iptal yazın.")
+            return "pending"
+        if start_pending(topic, mode, scenario, privacy=privacy):
+            console.print("  🎨 [cyan]Görsel prompt'ları Telegram'a gönderildi — "
+                          "görseller gelince üretim otomatik devam edecek.[/cyan]")
+            return "pending"
+        print_error("Manuel görsel akışı başlatılamadı (Telegram yapılandırmasını kontrol edin).")
+        return None
+
+    # ═══════════════════════════════════════
     # ADIM 2: SESLENDİRME
     # ═══════════════════════════════════════
     audio_results = None

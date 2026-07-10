@@ -40,16 +40,18 @@ STATE_FILE = PROJECT_ROOT / "telegram_state.json"
 
 HELP_TEXT = """🐰 <b>What-If Bot Komutları</b>
 
-/durum — konu havuzu + son yüklemeler
+/durum — konu havuzu + son yüklemeler + bekleyen görseller
 /rapor — kanal performans raporu
 /konular — bekleyen konular
 /konu &lt;metin&gt; — havuza yeni konu ekle
 /short — hemen 1 Short üret ve yükle
 /video — hemen 1 uzun video üret (havuzdan)
 /video &lt;konu&gt; — bu konudan uzun video üret
+/iptal — görsel bekleyen üretimi iptal et
 /yardim — bu liste
 
-Komutlar saatte bir işlenir; video üretimi ~15-45 dk sürer, bitince bildirim gelir."""
+Manuel görsel modunda bot size prompt'ları gönderir; görselleri sırayla bu sohbete
+yollarsınız, video otomatik tamamlanır. Komutlar saatte bir işlenir."""
 
 
 def _load_offset() -> int:
@@ -118,6 +120,10 @@ def _cmd_durum() -> str:
             lines.append(f"    https://youtu.be/{u.get('video_id')}")
     else:
         lines += ["", "Henüz yükleme yok."]
+
+    # Görsel bekleyen üretim varsa göster
+    from scripts.manual_images import get_pending_status_text
+    lines.append(get_pending_status_text())
 
     return "\n".join(lines)
 
@@ -194,6 +200,9 @@ def _cmd_video(topic: str) -> str:
             mark_topic_failed(topic, str(e))
         return f"🚨 Video üretimi hatası: <code>{str(e)[:300]}</code>"
 
+    if result == "pending":
+        return ""  # Manuel görsel akışı — prompt'lar gönderildi
+
     if result and from_pool:
         from scripts.utils import get_episode_number
         mark_topic_completed(topic, get_episode_number() - 1)
@@ -226,6 +235,11 @@ def handle_command(text: str) -> str:
         return _cmd_short()
     if command == "/video":
         return _cmd_video(arg)
+    if command == "/iptal":
+        from scripts.manual_images import cancel_pending
+        if cancel_pending():
+            return "🗑 Görsel bekleyen üretim iptal edildi. Konu havuzda kaldı, istediğinizde tekrar üretebilirsiniz."
+        return "İptal edilecek bekleyen üretim yok."
 
     return "❓ Bilinmeyen komut. /yardim yazarak komutları görebilirsiniz."
 
@@ -248,8 +262,15 @@ def process_pending_commands() -> int:
     offset = _load_offset()
     updates = get_updates(token, offset)
 
+    # Manuel görsel akışı: hatırlatma + (önceki koşuda indirilemeyen) tamamlama denemesi
+    from scripts import manual_images
+    manual_images.send_reminder_if_due()
+
     if not updates:
-        console.print("  💤 Bekleyen komut yok.")
+        if manual_images.is_complete():
+            manual_images.complete_production()
+        else:
+            console.print("  💤 Bekleyen komut yok.")
         return 0
 
     processed = 0
@@ -259,13 +280,25 @@ def process_pending_commands() -> int:
         message = update.get("message") or {}
         chat_id = str(message.get("chat", {}).get("id", ""))
         text = message.get("text", "")
-
-        if not text or not text.startswith("/"):
-            continue
+        photos = message.get("photo") or []
 
         # Güvenlik: yalnızca yetkili kullanıcı
         if chat_id != authorized_chat:
-            logger.warning("Yetkisiz Telegram mesajı yok sayıldı: chat=%s", chat_id)
+            if text or photos:
+                logger.warning("Yetkisiz Telegram mesajı yok sayıldı: chat=%s", chat_id)
+            continue
+
+        # Fotoğraf — manuel görsel akışına ekle (en büyük boyutun file_id'si)
+        if photos:
+            _save_offset(offset)
+            from scripts.manual_images import add_photo
+            reply = add_photo(photos[-1]["file_id"])
+            if reply:
+                send_message(reply)
+            processed += 1
+            continue
+
+        if not text or not text.startswith("/"):
             continue
 
         console.print(f"  📨 Komut: [bold cyan]{text}[/bold cyan]")
@@ -286,6 +319,11 @@ def process_pending_commands() -> int:
         processed += 1
 
     _save_offset(offset)
+
+    # Tüm görseller geldiyse videoyu tamamla (uzun sürer — offset zaten kayıtlı)
+    if manual_images.is_complete():
+        manual_images.complete_production()
+
     print_success(f"{processed} komut işlendi.")
     return processed
 

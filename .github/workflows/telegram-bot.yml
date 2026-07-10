@@ -33,6 +33,7 @@ jobs:
       # Görsel sağlayıcı seçimi (Settings → Secrets and variables → Actions → Variables)
       IMAGE_PRIMARY: ${{ vars.IMAGE_PRIMARY }}
       GEMINI_IMAGE_MODEL: ${{ vars.GEMINI_IMAGE_MODEL }}
+      IMAGE_MODE: ${{ vars.IMAGE_MODE }}
     steps:
       - uses: actions/checkout@v4
 
@@ -69,7 +70,7 @@ jobs:
         run: |
           git config user.name "what-if-bot"
           git config user.email "actions@github.com"
-          git add -f telegram_state.json topics.json output/uploads.json 2>/dev/null || true
+          git add -f telegram_state.json topics.json output/uploads.json pending_production.json 2>/dev/null || true
           if ! git diff --cached --quiet; then
             git commit -m "bot: telegram komut durumu güncellendi [skip ci]"
             git pull --rebase origin "${GITHUB_REF_NAME}" || true

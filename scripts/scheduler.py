@@ -381,6 +381,10 @@ def run_short(privacy: str = "public") -> bool:
         logger.error("Short pipeline hatası: %s — %s", topic, e)
         return False
 
+    if result == "pending":
+        # Manuel görsel akışı — prompt'lar gönderildi, görseller bekleniyor.
+        # Konu işaretlenmez; tamamlama telegram işleyicisinde olur.
+        return True
     if result:
         mark_short_done(topic)
         return True
@@ -427,6 +431,10 @@ def run_batch(
 
         try:
             result = run_pipeline(topic, privacy=privacy, publish_at=publish_at)
+            if result == "pending":
+                # Manuel görsel akışı — aynı anda tek bekleyen üretim desteklenir
+                print_warning("Görseller Telegram'dan bekleniyor; batch burada duruyor.")
+                break
             if result:
                 # Episode numarası
                 from scripts.utils import get_episode_number
