@@ -16,6 +16,17 @@ Konu Girişi → Gemini (Senaryo) → ElevenLabs (Ses) → Replicate (Görsel) �
 
 ## 🚀 Hızlı Başlangıç
 
+### ⚡ Tek Komutla Kurulum (Önerilen)
+
+```bash
+pip install -r requirements.txt
+python setup_wizard.py
+```
+
+Sihirbaz tüm kurulumu adım adım yürütür: API anahtarlarını ister ve anında test eder, YouTube yetkilendirmesini çalıştırır, Telegram botunuzu bağlar (chat ID'yi otomatik bulur) ve GitHub'a eklenecek secret değerlerini hazır olarak verir. Yarıda kalırsa tekrar çalıştırın — kaldığı yerden devam eder.
+
+Elle kurulum tercih ederseniz aşağıdaki adımları izleyin:
+
 ### 1. Bağımlılıkları Kur
 ```bash
 pip install -r requirements.txt
