@@ -131,6 +131,78 @@ def _build_prompts(scenario: dict, mode: str) -> list[str]:
     return prompts
 
 
+def build_turkish_brief(scenario: dict) -> str:
+    """
+    Senaryodan Türkçe bilgi notu üret (Gemini ile çeviri/özet).
+
+    Kullanıcının hangi videoyu ürettiğini ve her sahnenin/görselin ne anlattığını
+    Türkçe bilmesini sağlar. Gemini erişilemezse boş string döner (not atlanır).
+    """
+    from google import genai
+    from scripts.scenario_generator import _call_gemini
+
+    keys = load_env()
+    api_key = keys.get("GEMINI_API_KEY", "")
+    if not api_key or "buraya" in api_key:
+        return ""
+
+    scenes = scenario.get("scenes", [])
+    if not scenes:
+        return ""
+
+    title = scenario.get("clickbait_title", scenario.get("title", ""))
+    scene_texts = "\n".join(
+        f"Scene {i + 1}: {s.get('narration', '')}" for i, s in enumerate(scenes)
+    )
+
+    system_prompt = (
+        "You translate and summarize a video script into TURKISH so the channel "
+        "owner knows what each scene is about. Output ONLY valid JSON, no extra text."
+    )
+    user_prompt = f"""Summarize this video in Turkish for the channel owner.
+
+TITLE: {title}
+
+SCENES:
+{scene_texts}
+
+Output valid JSON exactly in this shape:
+{{
+  "konu": "Videonun ana konusu tek cümlede, Türkçe",
+  "sahneler": ["1. sahnede ne anlatılıyor - kısa Türkçe", "2. sahne...", ...]
+}}
+Rules: one 'sahneler' entry per scene, each max 15 Turkish words, plain and clear."""
+
+    try:
+        client = genai.Client(api_key=api_key)
+        result = _call_gemini(client, system_prompt, user_prompt, temperature=0.3)
+    except Exception as e:
+        logger.warning("Türkçe bilgi notu üretilemedi: %s", e)
+        return ""
+
+    if not isinstance(result, dict):
+        return ""
+
+    konu = result.get("konu", "").strip()
+    sahneler = result.get("sahneler", [])
+
+    nums = ["1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣", "7️⃣", "8️⃣"]
+    lines = ["📋 <b>BU VİDEO NE ANLATIYOR?</b> (Türkçe bilgi notu)", ""]
+    if konu:
+        lines.append(f"🎬 <b>Konu:</b> {konu}")
+    lines.append(f"📌 <b>Başlık:</b> {title}")
+    lines.append("")
+    lines.append("<b>Görsel → Sahne eşleşmesi:</b>")
+    for i, s in enumerate(sahneler):
+        marker = nums[i] if i < len(nums) else f"{i + 1}."
+        lines.append(f"{marker} <b>Görsel {i + 1}:</b> {s}")
+    lines.append("")
+    lines.append("💡 Böylece her görselin hangi sahneye ait olduğunu bilerek üretebilir, "
+                 "sonucu karşılaştırabilirsiniz.")
+
+    return "\n".join(lines)
+
+
 def start_pending(topic: str, mode: str, scenario: dict, privacy: str = "public") -> bool:
     """
     Faz 1: Bekleyen üretimi kaydet ve prompt'ları Telegram'a gönder.
@@ -158,6 +230,11 @@ def start_pending(topic: str, mode: str, scenario: dict, privacy: str = "public"
     if not send_message(intro):
         print_error("Telegram'a ulaşılamadı — manuel görsel akışı başlatılamadı.")
         return False
+
+    # Türkçe bilgi notu — kullanıcı ne ürettiğini bilerek görselleri hazırlasın
+    brief = build_turkish_brief(scenario)
+    if brief:
+        send_message(brief)
 
     for i, prompt in enumerate(prompts, 1):
         label = f"📸 Görsel {i}/{len(prompts)}"

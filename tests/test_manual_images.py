@@ -64,6 +64,46 @@ class TestPendingLifecycle:
         assert pending["expected_images"] == 6  # 5 sahne + thumbnail
         assert "THUMBNAIL" in isolated_state[-1]
 
+
+class TestTurkishBrief:
+    def test_brief_from_gemini(self, monkeypatch):
+        monkeypatch.setattr(mi, "load_env", lambda: {"GEMINI_API_KEY": "test-key"})
+        import scripts.scenario_generator as sg
+        monkeypatch.setattr(sg, "_call_gemini", lambda *a, **k: {
+            "konu": "Güneş aniden yok olsaydı ne olurdu",
+            "sahneler": ["Şehir karanlığa gömülür", "Dünya donar"],
+        })
+        brief = mi.build_turkish_brief(_scenario(2))
+        assert "BU VİDEO NE ANLATIYOR" in brief
+        assert "Güneş aniden yok" in brief
+        assert "Görsel 1" in brief and "Şehir karanlığa" in brief
+        assert "Görsel 2" in brief and "Dünya donar" in brief
+
+    def test_brief_empty_without_gemini_key(self, monkeypatch):
+        monkeypatch.setattr(mi, "load_env", lambda: {"GEMINI_API_KEY": ""})
+        assert mi.build_turkish_brief(_scenario(2)) == ""
+
+    def test_brief_gemini_failure_returns_empty(self, monkeypatch):
+        monkeypatch.setattr(mi, "load_env", lambda: {"GEMINI_API_KEY": "test-key"})
+        import scripts.scenario_generator as sg
+
+        def boom(*a, **k):
+            raise RuntimeError("api down")
+
+        monkeypatch.setattr(sg, "_call_gemini", boom)
+        assert mi.build_turkish_brief(_scenario(2)) == ""
+
+    def test_start_pending_sends_brief(self, monkeypatch, isolated_state):
+        monkeypatch.setattr(mi, "load_env", lambda: {"GEMINI_API_KEY": "test-key"})
+        import scripts.scenario_generator as sg
+        monkeypatch.setattr(sg, "_call_gemini", lambda *a, **k: {
+            "konu": "Test konu", "sahneler": ["Sahne bir", "Sahne iki"],
+        })
+        mi.start_pending("Test topic", "shorts", _scenario(2))
+        # intro + brief + 2 prompt = 4 mesaj
+        assert len(isolated_state) == 4
+        assert any("BU VİDEO NE ANLATIYOR" in m for m in isolated_state)
+
     def test_add_photo_progress_and_complete(self, isolated_state):
         mi.start_pending("Test topic", "shorts", _scenario(2))
 
