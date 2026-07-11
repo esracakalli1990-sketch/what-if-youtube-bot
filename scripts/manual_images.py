@@ -70,13 +70,23 @@ def cancel_pending() -> bool:
     return False
 
 
-def images_ready(scenes: list[dict], vertical: bool) -> bool:
-    """Tüm sahne görselleri pipeline cache'inde hazır mı?"""
+def scene_asset_path(scene_num: int, vertical: bool) -> Path | None:
+    """Sahne varlığının cache yolunu döndür (görsel .png veya video .mp4); yoksa None."""
     suffix = "_vertical" if vertical else ""
+    img_path = IMAGES_DIR / f"scene_{scene_num:02d}{suffix}.png"
+    vid_path = IMAGES_DIR / f"scene_{scene_num:02d}{suffix}.mp4"
+    if img_path.exists() and img_path.stat().st_size >= 10240:
+        return img_path
+    if vid_path.exists() and vid_path.stat().st_size >= 10240:
+        return vid_path
+    return None
+
+
+def images_ready(scenes: list[dict], vertical: bool) -> bool:
+    """Tüm sahne varlıkları (görsel veya video) pipeline cache'inde hazır mı?"""
     for i, scene in enumerate(scenes):
         scene_num = scene.get("scene_number", i + 1)
-        path = IMAGES_DIR / f"scene_{scene_num:02d}{suffix}.png"
-        if not path.exists() or path.stat().st_size < 10240:
+        if scene_asset_path(scene_num, vertical) is None:
             return False
     return bool(scenes)
 
@@ -249,6 +259,7 @@ def start_pending(topic: str, mode: str, scenario: dict, privacy: str = "public"
         "scenario": scenario,
         "expected_images": len(prompts),
         "image_file_ids": [],
+        "asset_kinds": [],
         "prompts_sent_at": datetime.now(timezone.utc).isoformat(),
         "last_reminder_at": datetime.now(timezone.utc).isoformat(),
     })
@@ -258,29 +269,46 @@ def start_pending(topic: str, mode: str, scenario: dict, privacy: str = "public"
     return True
 
 
-def add_photo(file_id: str) -> str:
+def _add_asset(file_id: str, kind: str) -> str:
     """
-    Kullanıcıdan gelen fotoğrafı bekleyen üretime ekle.
+    Kullanıcıdan gelen varlığı (foto/video) bekleyen üretime ekle.
+
+    Args:
+        file_id: Telegram dosya kimliği
+        kind: "photo" veya "video"
 
     Returns:
         str: Kullanıcıya yanıt metni ("" ise sessiz kal)
     """
+    noun = "video" if kind == "video" else "görsel"
     pending = load_pending()
     if not pending:
-        return ("📷 Fotoğraf aldım ama bekleyen bir video üretimi yok. "
+        return (f"📷 {noun.capitalize()} aldım ama bekleyen bir video üretimi yok. "
                 "/short veya /video ile üretim başlatabilirsiniz.")
 
     pending["image_file_ids"].append(file_id)
+    # Varlık türünü pozisyonla eşleşecek şekilde kaydet (indirmede foto/video ayrımı için)
+    pending.setdefault("asset_kinds", []).append(kind)
     _save_pending(pending)
 
     received = len(pending["image_file_ids"])
     expected = pending["expected_images"]
 
     if received < expected:
-        return f"✅ Görsel {received}/{expected} alındı — {expected - received} görsel daha bekliyorum."
+        return f"✅ Dosya {received}/{expected} alındı — {expected - received} dosya daha bekliyorum."
     if received == expected:
         return ""  # Tamamlama mesajını complete_production akışı yönetir
-    return f"⚠️ Beklenenden fazla görsel geldi ({received}/{expected}) — fazlalıkları yok sayacağım."
+    return f"⚠️ Beklenenden fazla dosya geldi ({received}/{expected}) — fazlalıkları yok sayacağım."
+
+
+def add_photo(file_id: str) -> str:
+    """Kullanıcıdan gelen fotoğrafı bekleyen üretime ekle."""
+    return _add_asset(file_id, "photo")
+
+
+def add_video(file_id: str) -> str:
+    """Kullanıcıdan gelen video klibini bekleyen üretime ekle."""
+    return _add_asset(file_id, "video")
 
 
 def is_complete() -> bool:
@@ -314,8 +342,8 @@ def send_reminder_if_due():
     _save_pending(pending)
 
 
-def _download_telegram_photo(token: str, file_id: str) -> bytes | None:
-    """Telegram'dan fotoğrafı indir."""
+def _download_telegram_file(token: str, file_id: str) -> bytes | None:
+    """Telegram'dan dosyayı indir (foto veya video)."""
     try:
         r = requests.get(
             f"{TELEGRAM_API}/bot{token}/getFile",
@@ -395,29 +423,44 @@ def complete_production() -> bool:
     scenes = scenario.get("scenes", [])
     scene_count = len(scenes)
     file_ids = pending["image_file_ids"][:pending["expected_images"]]
+    asset_kinds = pending.get("asset_kinds") or []
 
     thumbnail_path = None
     for i, file_id in enumerate(file_ids):
-        data = _download_telegram_photo(token, file_id)
+        kind = asset_kinds[i] if i < len(asset_kinds) else "photo"
+        data = _download_telegram_file(token, file_id)
         if not data:
             # Sıra bozulmasın diye liste korunur; bir sonraki saatlik koşuda
             # baştan denenir (geçici Telegram hatalarında kendini toparlar)
-            send_message(f"⚠️ Görsel {i + 1} indirilemedi — bir sonraki kontrolde tekrar deneyeceğim.")
-            logger.warning("Manuel görsel indirme başarısız (sıra %d), sonraki koşuda denenecek.", i + 1)
+            send_message(f"⚠️ Dosya {i + 1} indirilemedi — bir sonraki kontrolde tekrar deneyeceğim.")
+            logger.warning("Manuel varlık indirme başarısız (sıra %d), sonraki koşuda denenecek.", i + 1)
             return False
 
         if i < scene_count:
             scene_num = scenes[i].get("scene_number", i + 1)
-            out_path = IMAGES_DIR / f"scene_{scene_num:02d}{suffix}.png"
-            center_crop_to_aspect(data, target_w, target_h).save(out_path, "PNG")
-            logger.info("Manuel görsel kaydedildi: %s", out_path.name)
-        else:
+            png_path = IMAGES_DIR / f"scene_{scene_num:02d}{suffix}.png"
+            mp4_path = IMAGES_DIR / f"scene_{scene_num:02d}{suffix}.mp4"
+            if kind == "video":
+                # Video klip: ham kaydet (montaj ölçekleme/kırpmayı kendi yapıyor)
+                mp4_path.write_bytes(data)
+                if png_path.exists():
+                    png_path.unlink()  # Aynı sahnenin eski görseli varsa temizle
+                logger.info("Manuel video klip kaydedildi: %s", mp4_path.name)
+            else:
+                center_crop_to_aspect(data, target_w, target_h).save(png_path, "PNG")
+                if mp4_path.exists():
+                    mp4_path.unlink()  # Aynı sahnenin eski videosu varsa temizle
+                logger.info("Manuel görsel kaydedildi: %s", png_path.name)
+        elif kind != "video":
             # Uzun videoda fazladan gelen görsel = thumbnail arka planı
             from scripts.utils import THUMBNAILS_DIR
             THUMBNAILS_DIR.mkdir(parents=True, exist_ok=True)
             thumbnail_path = THUMBNAILS_DIR / "thumbnail_raw.png"
             center_crop_to_aspect(data, 1344, 768).save(thumbnail_path, "PNG")
             logger.info("Manuel thumbnail arka planı kaydedildi.")
+        else:
+            # Thumbnail slotuna video gelmesi beklenmez — atla, thumbnail fallback devrede
+            logger.warning("Thumbnail slotuna video geldi, atlandı (sıra %d).", i + 1)
 
     # 3) Pipeline'ı çalıştır — senaryo + görseller cache'ten okunur.
     # resume=True ile çağrılır; aksi halde clean_temp() az önce yazdığımız

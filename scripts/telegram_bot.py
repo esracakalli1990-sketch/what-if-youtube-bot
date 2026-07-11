@@ -281,10 +281,14 @@ def process_pending_commands() -> int:
         chat_id = str(message.get("chat", {}).get("id", ""))
         text = message.get("text", "")
         photos = message.get("photo") or []
+        video = message.get("video") or {}
+        document = message.get("document") or {}
+        # Flow klibi "video" ya da video mime'lı "document" olarak gelebilir
+        is_video_doc = str(document.get("mime_type", "")).startswith("video/")
 
         # Güvenlik: yalnızca yetkili kullanıcı
         if chat_id != authorized_chat:
-            if text or photos:
+            if text or photos or video or document:
                 logger.warning("Yetkisiz Telegram mesajı yok sayıldı: chat=%s", chat_id)
             continue
 
@@ -293,6 +297,17 @@ def process_pending_commands() -> int:
             _save_offset(offset)
             from scripts.manual_images import add_photo
             reply = add_photo(photos[-1]["file_id"])
+            if reply:
+                send_message(reply)
+            processed += 1
+            continue
+
+        # Video klip — manuel akışa ekle ("video" mesajı veya video mime'lı belge)
+        if video or is_video_doc:
+            _save_offset(offset)
+            from scripts.manual_images import add_video
+            file_id = video.get("file_id") or document.get("file_id")
+            reply = add_video(file_id)
             if reply:
                 send_message(reply)
             processed += 1
