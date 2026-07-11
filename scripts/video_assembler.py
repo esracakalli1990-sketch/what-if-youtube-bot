@@ -195,12 +195,21 @@ def generate_srt(scenes: list[dict], audio_results: list[dict], max_chars: int =
         # Metni cümlelere böl
         sentences = _split_into_subtitle_chunks(narration, max_chars=max_chars)
 
-        # Her cümleye eşit süre dağıt
-        time_per_chunk = duration / max(len(sentences), 1)
+        # Süreyi parça UZUNLUĞUNA orantılı dağıt (eşit dağıtım değil).
+        # Kısa parça ("Gone.") ile uzun parça aynı süreyi almasın; böylece
+        # altyazı konuşmayla senkron kalır. Ağırlık = boşluksuz karakter sayısı
+        # (konuşma süresinin iyi bir yaklaşığı).
+        weights = [max(len(s.replace(" ", "")), 1) for s in sentences]
+        total_weight = sum(weights)
+        # Sahne bitişini birikimli hatadan koru: son parçayı tam sahne sonuna sabitle
+        scene_end = current_time + duration
 
-        for sentence in sentences:
+        for idx, (sentence, weight) in enumerate(zip(sentences, weights)):
             start = current_time
-            end = current_time + time_per_chunk
+            if idx == len(sentences) - 1:
+                end = scene_end
+            else:
+                end = current_time + duration * (weight / total_weight)
 
             srt_entries.append(
                 f"{entry_num}\n"
