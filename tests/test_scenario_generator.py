@@ -136,15 +136,26 @@ class TestSelectVideoScenes:
         ]
         assert select_video_scene_numbers(scenes) == []
 
-    def test_trailing_rabbit_mention_still_video(self):
-        """Tavşan yalnızca sonda geçiyorsa sahne atmosfer/video sayılmalı."""
+    def test_any_rabbit_mention_stays_image(self):
+        """Karakter geçen sahne (sonda bile) GÖRSEL kalır — video'ya girmez."""
         scenes = [
             {"scene_number": 1, "visual_prompt": (
                 "A desolate frozen Earth landscape at night, giant cracks in a vast "
                 "icy ocean, skeletal frost-covered trees, as the rabbit scientist watches."
             )},
+            {"scene_number": 2, "visual_prompt": "A pure frozen wasteland, no characters."},
         ]
-        assert select_video_scene_numbers(scenes) == [1]
+        assert select_video_scene_numbers(scenes) == [2]
+
+    def test_roli_by_name_stays_image(self):
+        """Karakter yalnızca 'Roli' ismiyle anılsa (rabbit kelimesi olmadan) da görsel kalır."""
+        scenes = [
+            {"scene_number": 1, "visual_prompt": (
+                "Roli stands on a dark frozen Earth looking at a rogue planet."
+            )},
+            {"scene_number": 2, "visual_prompt": "Bioluminescent creatures glowing in the deep sea."},
+        ]
+        assert select_video_scene_numbers(scenes) == [2]
 
 
 class TestMarkVideoScenes:

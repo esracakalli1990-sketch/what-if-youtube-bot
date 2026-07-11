@@ -28,6 +28,10 @@ on:
       topic:
         description: "Konu (boşsa havuzdan seçilir; sadece short/long)"
         required: false
+      force:
+        description: "Bekleyen üretimi iptal edip yeniden başlat (short/long)"
+        type: boolean
+        default: false
 
 concurrency:
   group: video-bot
@@ -103,6 +107,11 @@ jobs:
         run: |
           python scripts/scheduler.py --refill 15
           python scripts/notifier.py --report || true
+
+      - name: Bekleyen üretimi iptal et (force)
+        if: inputs.force == true && steps.type.outputs.job_type != 'refill'
+        run: |
+          python -c "from scripts.manual_images import cancel_pending; print('Bekleyen iptal edildi:', cancel_pending())"
 
       - name: Short üret
         if: steps.type.outputs.job_type == 'short'

@@ -91,9 +91,9 @@ def images_ready(scenes: list[dict], vertical: bool) -> bool:
     return bool(scenes)
 
 
-# Kısa karakter tarifi — sahnede tavşan geçiyorsa prompt'a eklenir
+# Kısa karakter tarifi — sahnede karakter (Roli) geçiyorsa prompt'a eklenir
 _CHARACTER_BRIEF = (
-    "The character: a photorealistic anthropomorphic rabbit scientist, "
+    "The character 'Roli': a photorealistic anthropomorphic rabbit scientist, "
     "human-proportioned, warm grey fur with white chest, wearing a worn "
     "steampunk space suit with brass goggles on forehead and a leather satchel."
 )
@@ -141,7 +141,8 @@ def _build_prompts(scenario: dict, mode: str) -> tuple[list[str], list[str]]:
             kinds.append("video")
         else:
             parts = [visual, orientation, base_style]
-            if "rabbit" in visual.lower():
+            from scripts.scenario_generator import mentions_character
+            if mentions_character(visual):
                 parts.append(_CHARACTER_BRIEF)
             prompts.append("\n\n".join(parts))
             kinds.append("photo")
