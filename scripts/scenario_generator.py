@@ -116,30 +116,25 @@ def fix_scenario(scenario: dict, mode: str = "long") -> dict:
     return scenario
 
 
-# Tavşanın "baş özne" sayıldığı eşik: görsel prompt'un ilk bu kadar karakteri
-_CHARACTER_FOCAL_HEAD = 80
+# Karaktere işaret eden anahtar kelimeler (isim SABİT: "Roli").
+# Prompt'lar Roli'yi 1-2 sahnede baş özne yapar, kalan sahnelerde hiç anmaz.
+CHARACTER_KEYWORDS = ("roli", "rabbit")
 
 
-def _is_character_focal(visual: str) -> bool:
-    """
-    Tavşan bu sahnenin ASIL öznesi mi?
-
-    'rabbit' kelimesinin prompt'un başında (ilk _CHARACTER_FOCAL_HEAD karakter)
-    geçmesi karakter sahnesi sayılır. Sonda geçmesi (ör. "...tavşan izlerken")
-    sahneyi atmosfer sahnesi olmaktan çıkarmaz.
-    """
-    head = visual.strip().lower()[:_CHARACTER_FOCAL_HEAD]
-    return "rabbit" in head
+def mentions_character(visual: str) -> bool:
+    """Sahne görselinde karakter (Roli/tavşan) anılıyor mu?"""
+    text = visual.lower()
+    return any(kw in text for kw in CHARACTER_KEYWORDS)
 
 
 def select_video_scene_numbers(scenes: list[dict], max_videos: int = MAX_VIDEO_SCENES) -> list[int]:
     """
     Long videoda hangi sahnelerin gerçek video klip olacağını seç.
 
-    Kural:
-    - Tavşanın BAŞ ÖZNE olduğu sahneler GÖRSEL kalır (karakter tutarlılığı için).
-    - Kalan sahneler (atmosfer/olay anları — tavşan yoksa ya da sadece geçerken
-      anılıyorsa) video adayıdır.
+    Kural (muhafazakâr — karakter asla video'ya girmesin):
+    - Karakteri (Roli/tavşan) ANAN her sahne GÖRSEL kalır (tutarlılık +
+      Veo karakter kayması riski yok).
+    - Karakter geçmeyen sahneler (saf atmosfer/olay) video adayıdır.
     - En fazla `max_videos` sahne seçilir (kota ve emek koruması).
 
     Returns:
@@ -149,7 +144,7 @@ def select_video_scene_numbers(scenes: list[dict], max_videos: int = MAX_VIDEO_S
     for i, scene in enumerate(scenes):
         if not isinstance(scene, dict):
             continue
-        if _is_character_focal(scene.get("visual_prompt", "")):
+        if mentions_character(scene.get("visual_prompt", "")):
             continue  # Karakter sahnesi → görsel kalır
         candidates.append(scene.get("scene_number", i + 1))
     return candidates[:max_videos]

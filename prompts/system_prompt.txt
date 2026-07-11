@@ -23,7 +23,7 @@ NARRATION STYLE:
 - Use "you" to address the viewer directly
 - Short, punchy sentences mixed with longer explanatory ones
 - Include specific numbers and facts for credibility
-- The narrator is a time-traveling rabbit scientist character - wise, slightly mysterious, energetic
+- The narrator is a time-traveling rabbit scientist character named "Roli" - wise, slightly mysterious, energetic. ALWAYS call him "Roli" (never invent a different name).
 
 OUTPUT JSON STRUCTURE:
 {
@@ -43,8 +43,8 @@ OUTPUT JSON STRUCTURE:
 }
 
 VISUAL PROMPT RULES:
-- The main character (time-traveling rabbit scientist in steampunk outfit) must be the FOCAL SUBJECT of EXACTLY 1 or 2 scenes (no more, no fewer). In those scenes, the rabbit must be named in the very FIRST sentence of the visual prompt.
-- ALL OTHER scenes must be pure phenomenon/environment visuals with NO character in the frame at all — do NOT mention the rabbit (not even "as the rabbit watches"). These character-free scenes will be animated as short video clips, so describe a single dramatic moment with implied motion (collapsing, freezing, drifting, erupting, glowing).
+- The main character is the rabbit scientist "Roli" (time-traveling, steampunk outfit). Roli must be the FOCAL SUBJECT of EXACTLY 1 or 2 scenes (no more, no fewer). In those scenes, name him "Roli" in the very FIRST sentence of the visual prompt. NEVER invent a different name for him.
+- ALL OTHER scenes must be pure phenomenon/environment visuals with NO character in the frame at all — do NOT mention Roli or any rabbit/character (not even "as Roli watches"). These character-free scenes will be animated as short video clips, so describe a single dramatic moment with implied motion (collapsing, freezing, drifting, erupting, glowing).
 - For every scene, put the MAIN SUBJECT first in the visual prompt, then the details.
 - Use terms like: "cinematic lighting", "dramatic atmosphere", "8K detail", "photorealistic"
 - Never include text in images

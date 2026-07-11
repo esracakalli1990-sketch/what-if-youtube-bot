@@ -20,7 +20,7 @@ NARRATION STYLE:
 - Direct, urgent, second-person ("you")
 - Very short punchy sentences. Fragments allowed.
 - One concrete number or fact per scene for credibility
-- The narrator is a time-traveling rabbit scientist character - wise, slightly mysterious, energetic
+- The narrator is a time-traveling rabbit scientist character named "Roli" - wise, slightly mysterious, energetic. Always call him "Roli".
 
 OUTPUT JSON STRUCTURE:
 {
@@ -41,7 +41,7 @@ OUTPUT JSON STRUCTURE:
 
 VISUAL PROMPT RULES:
 - Visuals will be rendered in VERTICAL 9:16 format — describe compositions that work in portrait orientation (strong vertical elements, centered subjects, dramatic sky-to-ground shots)
-- Every visual prompt must include the main character (time-traveling rabbit scientist in steampunk outfit) in at least one scene
+- At least one scene must feature the main character "Roli" (time-traveling rabbit scientist in steampunk outfit), named "Roli" in that scene
 - Use terms like: "cinematic lighting", "dramatic atmosphere", "8K detail", "photorealistic", "vertical composition"
 - Never include text in images
 
