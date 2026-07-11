@@ -1,0 +1,75 @@
+{
+  "topic": "What would happen if gravity doubled overnight?",
+  "mode": "shorts",
+  "privacy": "public",
+  "scenario": {
+    "title": "What If Gravity Doubled Overnight?",
+    "clickbait_title": "GRAVITY DOUBLED? You Wouldn't Survive 5 Minutes!",
+    "thumbnail_concept": "A terrified person collapsing under an invisible immense weight, with cracking ground and a slightly distorted, heavy atmosphere. The rabbit scientist observes from a corner with a grave expression. Strong vertical composition, dramatic lighting, 8K detail.",
+    "thumbnail_headline": "GRAVITY CRUSHES ALL",
+    "total_duration_minutes": 1,
+    "seo_description": "What if gravity doubled overnight? Your bones would shatter, mountains would crumble, and Earth's orbit would spiral! Explore this terrifying 'What If' scenario in our latest science short. #Gravity #WhatIf #Science",
+    "youtube_tags": [
+      "what if",
+      "gravity doubled",
+      "science fiction",
+      "physics",
+      "earth science",
+      "apocalypse",
+      "doomsday scenario",
+      "space",
+      "solar system",
+      "astronomy",
+      "science short",
+      "youtube shorts",
+      "educational",
+      "viral video",
+      "what if scenario",
+      "gravitational pull",
+      "planet earth",
+      "end of the world",
+      "survival"
+    ],
+    "scenes": [
+      {
+        "scene_number": 1,
+        "scene_type": "hook",
+        "duration_seconds": 12,
+        "narration": "Your bones would shatter instantly. Your body, suddenly twice as heavy, would collapse. Trees would snap. Buildings would buckle. Everyday life? Impossible. This new Earth crushes everything.",
+        "visual_prompt": "A person collapsing to their knees in slow motion, face contorted in pain, as trees in the background visibly crack and bend. A skyscraper in the distance shows large structural fissures. The time-traveling rabbit scientist in steampunk attire is observing this with a worried expression. Cinematic lighting, dramatic atmosphere, 8K detail, photorealistic, vertical composition.",
+        "twist_element": "The immediate, visceral impact on human life and infrastructure."
+      },
+      {
+        "scene_number": 2,
+        "scene_type": "escalation",
+        "duration_seconds": 15,
+        "narration": "Mountains would become unstable, triggering massive landslides. Oceans would recede from coasts, pulled deeper, revealing new land. But the air? It gets denser. Breathing becomes a struggle, like being underwater.",
+        "visual_prompt": "A majestic mountain range experiencing colossal landslides, dust clouds billowing. In the foreground, a coastline where the ocean has dramatically pulled back, exposing a vast, muddy seabed. A person in the foreground struggles to breathe, clutching their chest, in a visibly denser, hazy atmosphere. Vertical composition, epic scale, 8K detail.",
+        "twist_element": "The widespread environmental and atmospheric changes beyond immediate collapse."
+      },
+      {
+        "scene_number": 3,
+        "scene_type": "big_twist",
+        "duration_seconds": 18,
+        "narration": "Here's the kicker: Earth's orbit shrinks. It spirals closer to the Sun, pulled in by the sun's now 'doubled' gravitational influence. Our year shortens drastically, days become scorching. The planet itself becomes a hot, fast-spinning rock.",
+        "visual_prompt": "An animated visualization of Earth's orbital path rapidly shrinking and spiraling inwards towards a dramatically larger and more intense sun, spewing solar flares. The Earth itself appears superheated and visibly deforming. The time-traveling rabbit scientist is seen through a futuristic telescope, looking at this cosmic event with a look of awe and concern. Vertical composition, vibrant nebulae in background, 8K detail, scientific visualization style.",
+        "twist_element": "The shift from terrestrial effects to a catastrophic cosmic re-alignment, making previous problems seem secondary."
+      },
+      {
+        "scene_number": 4,
+        "scene_type": "loop_bait_ending",
+        "duration_seconds": 15,
+        "narration": "Our moon, too, would be ripped from its orbit, crashing or drifting away. The entire solar system would be thrown into chaos. So, if gravity just *doubled* overnight, your bones wouldn't just shatter; our world would literally fall apart.",
+        "visual_prompt": "The Moon dramatically breaking apart into fragments or being flung out of Earth's orbit, with debris scattering across the blackness of space. Then, a quick transition back to a high-angle shot of a single person collapsing to the ground under immense pressure, mirroring the opening scene's theme. Cinematic lighting, dramatic atmosphere, 8K detail, photorealistic, vertical composition.",
+        "twist_element": "Connects back to the initial hook, emphasizing the totality of the disaster, encouraging re-watch."
+      }
+    ],
+    "_topic": "What would happen if gravity doubled overnight?",
+    "_mode": "shorts",
+    "_generated_at": "2026-07-11T11:40:32.954533"
+  },
+  "expected_images": 4,
+  "image_file_ids": [],
+  "prompts_sent_at": "2026-07-11T11:40:38.562524+00:00",
+  "last_reminder_at": "2026-07-11T11:40:38.562537+00:00"
+}
