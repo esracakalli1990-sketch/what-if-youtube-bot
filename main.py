@@ -217,6 +217,7 @@ def run_pipeline(
         # ADIM 6: YOUTUBE YÜKLEME
         # ═══════════════════════════════════
         video_id = None
+        upload_failed = False
         if not no_upload:
             youtube_status = check_youtube_setup()
             if youtube_status.get("authenticated"):
@@ -230,6 +231,8 @@ def run_pipeline(
                     audio_results=audio_results,
                     is_short=is_shorts,
                 )
+                if not video_id:
+                    upload_failed = True
             else:
                 print_warning("YouTube yetkilendirmesi yok. Otomatik yükleme atlandı.")
 
@@ -238,15 +241,22 @@ def run_pipeline(
         seconds = int(elapsed % 60)
 
         # Telegram bildirimi
-        notify_video_completed(
-            title=scenario.get("clickbait_title", title),
-            mode=mode,
-            video_path=final_video,
-            duration_text=f"{minutes}dk {seconds}sn",
-            video_id=video_id,
-            publish_at=publish_at,
-            thumbnail_path=str(thumb_output) if thumb_output else None,
-        )
+        if upload_failed:
+            notify_error(
+                f"YouTube yükleme ({topic})",
+                "Video başarıyla üretildi ama YouTube'a yüklenemedi (loglara bakın). "
+                "Konu 'tamamlandı' sayılmadı — tekrar denenebilir.",
+            )
+        else:
+            notify_video_completed(
+                title=scenario.get("clickbait_title", title),
+                mode=mode,
+                video_path=final_video,
+                duration_text=f"{minutes}dk {seconds}sn",
+                video_id=video_id,
+                publish_at=publish_at,
+                thumbnail_path=str(thumb_output) if thumb_output else None,
+            )
 
         console.print()
         print_header("🎉 VİDEO ÜRETİMİ TAMAMLANDI!")
@@ -262,6 +272,15 @@ def run_pipeline(
 
         # Checkpoint temizle
         checkpoint.clear()
+
+        if upload_failed:
+            # Video başarıyla üretildi ama YouTube'a yüklenemedi (ör. geçersiz
+            # etiket/metadata). Konuyu "tamamlandı" SAYMA — aksi halde bir daha
+            # asla denenmez ve kanalda o bölüm hiç yayınlanmaz.
+            print_error("YouTube yüklemesi başarısız — konu tamamlanmadı sayılacak (tekrar denenebilir).")
+            logger.error("Pipeline: video üretildi ama YouTube yüklemesi başarısız: %s", topic)
+            return None
+
         return final_video
     else:
         print_error("Video üretimi başarısız oldu.")

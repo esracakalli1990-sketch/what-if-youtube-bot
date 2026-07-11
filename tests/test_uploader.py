@@ -4,9 +4,32 @@ from datetime import datetime, timedelta, timezone
 
 import scripts.youtube_uploader as uploader
 from scripts.youtube_uploader import (
-    _generate_timestamps, _generate_description,
+    _generate_timestamps, _generate_description, _sanitize_tags,
     next_optimal_publish_time, record_upload, load_uploads,
+    YOUTUBE_TAGS_MAX_CHARS,
 )
+
+
+class TestSanitizeTags:
+    def test_deduplicates_case_insensitive(self):
+        result = _sanitize_tags(["Science", "science", "SCIENCE", "what if"])
+        assert result == ["Science", "what if"]
+
+    def test_drops_empty_and_invalid_chars(self):
+        result = _sanitize_tags(["ok", "", "  ", "bad<tag>", "fine"])
+        assert result == ["ok", "fine"]
+
+    def test_enforces_total_char_limit_not_count(self):
+        """Gerçek hata: 30 uzun etiket kolayca 500 karakteri aşıyordu (invalidTags)."""
+        long_tags = [f"what if scenario keyword number {i} explained" for i in range(30)]
+        result = _sanitize_tags(long_tags)
+        total_len = sum(len(t) + 1 for t in result)
+        assert total_len <= YOUTUBE_TAGS_MAX_CHARS
+        assert len(result) < 30  # hepsi sığmaz, kesilmeli
+
+    def test_short_tags_all_kept(self):
+        tags = ["a", "b", "c"]
+        assert _sanitize_tags(tags) == tags
 
 
 class TestTimestamps:
