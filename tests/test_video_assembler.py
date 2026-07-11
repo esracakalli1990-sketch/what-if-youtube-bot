@@ -1,8 +1,20 @@
 """video_assembler saf fonksiyon testleri (FFmpeg gerektirmez)."""
 
 from scripts.video_assembler import (
-    _split_into_subtitle_chunks, _format_srt_time, generate_srt
+    _split_into_subtitle_chunks, _format_srt_time, generate_srt, is_video_asset
 )
+
+
+class TestIsVideoAsset:
+    def test_video_extensions(self):
+        assert is_video_asset("scene_03.mp4")
+        assert is_video_asset("/tmp/clip.MOV")
+        assert is_video_asset("a.webm")
+
+    def test_image_extensions(self):
+        assert not is_video_asset("scene_03.png")
+        assert not is_video_asset("/tmp/thumb.JPG")
+        assert not is_video_asset("noext")
 
 
 class TestSubtitleChunks:
