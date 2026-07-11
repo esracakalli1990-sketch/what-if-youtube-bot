@@ -6,7 +6,7 @@ import pytest
 
 from scripts.scenario_generator import (
     validate_scenario, fix_scenario, _extract_json, _scenario_cache_path,
-    select_video_scene_numbers,
+    select_video_scene_numbers, mark_video_scenes,
 )
 
 
@@ -135,6 +135,25 @@ class TestSelectVideoScenes:
             {"scene_number": 2, "visual_prompt": "A RABBIT in a lab."},
         ]
         assert select_video_scene_numbers(scenes) == []
+
+
+class TestMarkVideoScenes:
+    def test_long_marks_non_character_scenes_video(self):
+        scenario = {"scenes": [
+            {"scene_number": 1, "visual_prompt": "A rabbit scientist intro."},
+            {"scene_number": 2, "visual_prompt": "A frozen wasteland."},
+        ]}
+        mark_video_scenes(scenario, mode="long")
+        types = [s["asset_type"] for s in scenario["scenes"]]
+        assert types == ["image", "video"]  # tavşan görsel, diğeri video
+
+    def test_shorts_all_image(self):
+        scenario = {"scenes": [
+            {"scene_number": 1, "visual_prompt": "A frozen wasteland."},
+            {"scene_number": 2, "visual_prompt": "A burning sky."},
+        ]}
+        mark_video_scenes(scenario, mode="shorts")
+        assert all(s["asset_type"] == "image" for s in scenario["scenes"])
 
 
 class TestExtractJson:

@@ -99,12 +99,16 @@ _CHARACTER_BRIEF = (
 )
 
 
-def _build_prompts(scenario: dict, mode: str) -> list[str]:
+def _build_prompts(scenario: dict, mode: str) -> tuple[list[str], list[str]]:
     """
     Sahne prompt'larını (uzun videoda + thumbnail) hazırla.
 
     Manuel akış için YALIN şablon: kullanıcı bunu Flow/Gemini'ye yapıştırır —
     API'ye özgü teknik satırlar (IP-Adapter vb.) eklenmez.
+
+    Returns:
+        tuple: (prompt listesi, tür listesi) — tür "video" veya "photo",
+        pozisyonlar birebir eşleşir. Thumbnail her zaman "photo".
     """
     vertical = mode == "shorts"
     orientation = (
@@ -117,16 +121,30 @@ def _build_prompts(scenario: dict, mode: str) -> list[str]:
     )
 
     prompts = []
+    kinds = []
     for scene in scenario.get("scenes", []):
         visual = scene.get("visual_prompt", "").strip()
         if not visual:
             continue
-        parts = [visual, orientation, base_style]
-        if "rabbit" in visual.lower():
-            parts.append(_CHARACTER_BRIEF)
-        prompts.append("\n\n".join(parts))
 
-    # Uzun videoda son görsel: thumbnail arka planı
+        if scene.get("asset_type") == "video":
+            # Hareket odaklı video klip prompt'u (Flow/Omniflash için)
+            prompts.append(
+                f"{visual}\n\n"
+                "5-6 SECOND VIDEO CLIP. Cinematic slow camera motion (gentle "
+                "push-in or drift) with natural movement in the scene — drifting "
+                "particles, flowing light, shifting atmosphere. "
+                f"{orientation}\n\n{base_style}"
+            )
+            kinds.append("video")
+        else:
+            parts = [visual, orientation, base_style]
+            if "rabbit" in visual.lower():
+                parts.append(_CHARACTER_BRIEF)
+            prompts.append("\n\n".join(parts))
+            kinds.append("photo")
+
+    # Uzun videoda son görsel: thumbnail arka planı (her zaman görsel)
     if mode == "long":
         concept = scenario.get("thumbnail_concept", "") or (
             f"A dramatic, eye-catching scene for: {scenario.get('title', '')}"
@@ -137,8 +155,9 @@ def _build_prompts(scenario: dict, mode: str) -> list[str]:
             "extreme contrast, golden hour or neon lighting, photorealistic, 8K. "
             "Absolutely no text or watermarks — clean composition for text overlay."
         )
+        kinds.append("photo")
 
-    return prompts
+    return prompts, kinds
 
 
 def build_turkish_brief(scenario: dict) -> str:
@@ -202,13 +221,15 @@ Rules: one 'sahneler' entry per scene, each max 15 Turkish words, plain and clea
         lines.append(f"🎬 <b>Konu:</b> {konu}")
     lines.append(f"📌 <b>Başlık:</b> {title}")
     lines.append("")
-    lines.append("<b>Görsel → Sahne eşleşmesi:</b>")
+    lines.append("<b>Sahne eşleşmesi:</b>")
     for i, s in enumerate(sahneler):
         marker = nums[i] if i < len(nums) else f"{i + 1}."
-        lines.append(f"{marker} <b>Görsel {i + 1}:</b> {s}")
+        asset = scenes[i].get("asset_type", "image") if i < len(scenes) else "image"
+        tur = "🎬 VİDEO" if asset == "video" else "🖼 GÖRSEL"
+        lines.append(f"{marker} <b>{tur} {i + 1}:</b> {s}")
     lines.append("")
-    lines.append("💡 Böylece her görselin hangi sahneye ait olduğunu bilerek üretebilir, "
-                 "sonucu karşılaştırabilirsiniz.")
+    lines.append("💡 Her üretimin hangi sahneye ait olduğunu ve video mu görsel mi "
+                 "olacağını böylece bilerek hazırlayabilirsiniz.")
 
     return "\n".join(lines)
 
@@ -220,20 +241,30 @@ def start_pending(topic: str, mode: str, scenario: dict, privacy: str = "public"
     Returns:
         bool: Prompt'lar gönderildi mi?
     """
-    prompts = _build_prompts(scenario, mode)
+    prompts, kinds = _build_prompts(scenario, mode)
     if not prompts:
         print_error("Senaryoda görsel promptu yok!")
         return False
 
     orientation = "9:16 DİKEY" if mode == "shorts" else "16:9 YATAY"
     kind = "Short" if mode == "shorts" else "uzun video"
+    video_count = kinds.count("video")
+
+    video_note = ""
+    if video_count:
+        video_note = (
+            f"\n\n🎬 Bunların <b>{video_count} tanesi VİDEO</b> (5-6 sn klip), "
+            f"kalanı GÖRSEL. Her mesajda hangisi olduğu yazacak — video "
+            f"isteyenleri Flow'da <b>video</b>, görsel isteyenleri <b>görsel</b> "
+            f"olarak üretip yine <b>sırayla</b> gönderin (video da olur, foto da)."
+        )
 
     intro = (
-        f"🎨 <b>Görsel zamanı!</b> Yeni {kind} hazır:\n"
+        f"🎨 <b>Üretim zamanı!</b> Yeni {kind} hazır:\n"
         f"<i>{scenario.get('clickbait_title', scenario.get('title', topic))}</i>\n\n"
-        f"Aşağıda {len(prompts)} görsel promptu göndereceğim. Her birini "
+        f"Aşağıda {len(prompts)} prompt göndereceğim. Her birini "
         f"Flow/Gemini'ye yapıştırıp <b>{orientation}</b> formatta üretin ve "
-        f"çıkan görselleri <b>sırayla</b> bu sohbete gönderin.\n\n"
+        f"çıktıları <b>sırayla</b> bu sohbete gönderin.{video_note}\n\n"
         f"Hepsi gelince videoyu otomatik tamamlayıp kanala yükleyeceğim. "
         f"Vazgeçmek için: /iptal"
     )
@@ -246,10 +277,13 @@ def start_pending(topic: str, mode: str, scenario: dict, privacy: str = "public"
     if brief:
         send_message(brief)
 
-    for i, prompt in enumerate(prompts, 1):
-        label = f"📸 Görsel {i}/{len(prompts)}"
+    for i, (prompt, kind_i) in enumerate(zip(prompts, kinds), 1):
+        if kind_i == "video":
+            label = f"🎬 VİDEO {i}/{len(prompts)} (5-6 sn klip)"
+        else:
+            label = f"🖼 GÖRSEL {i}/{len(prompts)}"
         if mode == "long" and i == len(prompts):
-            label += " (THUMBNAIL arka planı)"
+            label = f"🖼 GÖRSEL {i}/{len(prompts)} (THUMBNAIL arka planı)"
         send_message(f"{label}:\n\n<code>{prompt[:3900]}</code>")
 
     _save_pending({

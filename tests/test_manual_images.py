@@ -43,7 +43,7 @@ class TestPendingLifecycle:
         # 1 giriş mesajı + 4 prompt mesajı
         assert len(isolated_state) == 5
         assert "9:16 DİKEY" in isolated_state[0]
-        assert "Görsel 1/4" in isolated_state[1]
+        assert "GÖRSEL 1/4" in isolated_state[1]
         assert "Visual 0" in isolated_state[1]
         # Prompt'lar yalın olmalı — API'ye özgü teknik satırlar sızmamalı
         for msg in isolated_state[1:]:
@@ -65,6 +65,32 @@ class TestPendingLifecycle:
         assert "THUMBNAIL" in isolated_state[-1]
 
 
+class TestBuildPromptsVideo:
+    def test_video_scene_labeled_and_motion_prompt(self):
+        scenario = _scenario(2)
+        scenario["scenes"][0]["asset_type"] = "image"
+        scenario["scenes"][1]["asset_type"] = "video"
+        prompts, kinds = mi._build_prompts(scenario, "long")
+        # 2 sahne + thumbnail = 3, ikinci sahne video
+        assert kinds == ["photo", "video", "photo"]
+        assert "VIDEO CLIP" in prompts[1]
+        assert "VIDEO CLIP" not in prompts[0]
+
+    def test_shorts_never_video(self):
+        scenario = _scenario(3)
+        for s in scenario["scenes"]:
+            s["asset_type"] = "image"
+        prompts, kinds = mi._build_prompts(scenario, "shorts")
+        assert kinds == ["photo", "photo", "photo"]
+
+    def test_start_pending_long_labels_video(self, isolated_state):
+        scenario = _scenario(2)
+        scenario["scenes"][1]["asset_type"] = "video"
+        mi.start_pending("T", "long", scenario)
+        joined = "\n".join(isolated_state)
+        assert "🎬 VİDEO" in joined
+
+
 class TestTurkishBrief:
     def test_brief_from_gemini(self, monkeypatch):
         monkeypatch.setattr(mi, "load_env", lambda: {"GEMINI_API_KEY": "test-key"})
@@ -76,8 +102,8 @@ class TestTurkishBrief:
         brief = mi.build_turkish_brief(_scenario(2))
         assert "BU VİDEO NE ANLATIYOR" in brief
         assert "Güneş aniden yok" in brief
-        assert "Görsel 1" in brief and "Şehir karanlığa" in brief
-        assert "Görsel 2" in brief and "Dünya donar" in brief
+        assert "GÖRSEL 1" in brief and "Şehir karanlığa" in brief
+        assert "GÖRSEL 2" in brief and "Dünya donar" in brief
 
     def test_brief_empty_without_gemini_key(self, monkeypatch):
         monkeypatch.setattr(mi, "load_env", lambda: {"GEMINI_API_KEY": ""})

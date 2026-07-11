@@ -139,6 +139,23 @@ def select_video_scene_numbers(scenes: list[dict], max_videos: int = MAX_VIDEO_S
     return candidates[:max_videos]
 
 
+def mark_video_scenes(scenario: dict, mode: str = "long") -> dict:
+    """
+    Sahnelerin asset_type'ını belirle: long videoda seçili sahneler 'video',
+    kalanı 'image'. Shorts'ta tümü 'image' (video kullanılmaz).
+
+    Her sahneye asset_type garanti edilir.
+    """
+    scenes = scenario.get("scenes", [])
+    video_nums = set(select_video_scene_numbers(scenes)) if mode == "long" else set()
+    for i, scene in enumerate(scenes):
+        if not isinstance(scene, dict):
+            continue
+        num = scene.get("scene_number", i + 1)
+        scene["asset_type"] = "video" if num in video_nums else "image"
+    return scenario
+
+
 def _extract_json(raw_text: str) -> dict:
     """
     Gemini yanıtından JSON'ı çıkar.
@@ -356,6 +373,9 @@ ADDITIONAL REQUIRED FIELDS (add these to the root JSON):
             debug_path = TEMP_DIR / "scenario_debug.json"
             save_json(scenario, debug_path)
             return {}
+
+    # Hibrit video: long videoda seçili sahneleri 'video' olarak işaretle
+    scenario = mark_video_scenes(scenario, mode=mode)
 
     # Metadata ekle
     scenario["_topic"] = topic
