@@ -588,7 +588,10 @@ def generate_character_reference() -> str:
 # ──────────────────────────────────────
 # Thumbnail Üretimi
 # ──────────────────────────────────────
-def generate_thumbnail(title: str, concept: str = "", background_image: str | None = None) -> str:
+def generate_thumbnail(
+    title: str, concept: str = "", background_image: str | None = None,
+    headline: str = "",
+) -> str:
     """
     YouTube-optimized thumbnail üretir.
 
@@ -601,6 +604,9 @@ def generate_thumbnail(title: str, concept: str = "", background_image: str | No
         concept: Thumbnail konsepti (senaryodan gelir)
         background_image: Hazır arka plan görseli yolu (ör. Short'un ilk sahnesi).
                           Verilirse AI üretimi atlanır, bu görsel 16:9'a kırpılır.
+        headline: Senaryonun Gemini'den gelen özel thumbnail_headline'ı (2-4
+                  kelime, şok etkisi için özenle yazılmış). Verilirse title'dan
+                  kaba çıkarım yapan extract_thumbnail_headline'a tercih edilir.
 
     Returns:
         str: Thumbnail dosya yolu
@@ -636,11 +642,11 @@ def generate_thumbnail(title: str, concept: str = "", background_image: str | No
                     bg = bg.crop((0, top, w, top + new_h))
                 bg.resize((1280, 720), Image.LANCZOS).save(raw_thumb_path, "PNG")
             console.print("  ♻ Sahne görselinden thumbnail arka planı hazırlandı.")
-            headline = extract_thumbnail_headline(title)
+            final_headline = headline.strip().upper() if headline.strip() else extract_thumbnail_headline(title)
             final_path = str(THUMBNAILS_DIR / "thumbnail_youtube.png")
             result = compose_thumbnail(
                 background_image_path=str(raw_thumb_path),
-                headline_text=headline,
+                headline_text=final_headline,
                 output_path=final_path,
                 accent_color=(255, 255, 0),
                 text_position="center",
@@ -648,7 +654,7 @@ def generate_thumbnail(title: str, concept: str = "", background_image: str | No
                 add_gradient_overlay=True,
             )
             if result:
-                print_success(f"Thumbnail oluşturuldu! (Headline: {headline})")
+                print_success(f"Thumbnail oluşturuldu! (Headline: {final_headline})")
                 logger.info("Short thumbnail sahne görselinden oluşturuldu: %s", final_path)
                 return final_path
         except Exception as e:
@@ -729,12 +735,12 @@ def generate_thumbnail(title: str, concept: str = "", background_image: str | No
         # Adım 2: Thumbnail Composer ile yazı ve efekt overlay
         console.print("  ✏️  Adım 2: Yazı ve efektler ekleniyor...")
 
-        headline = extract_thumbnail_headline(title)
+        final_headline = headline.strip().upper() if headline.strip() else extract_thumbnail_headline(title)
         final_path = str(THUMBNAILS_DIR / "thumbnail_youtube.png")
 
         result = compose_thumbnail(
             background_image_path=str(raw_thumb_path),
-            headline_text=headline,
+            headline_text=final_headline,
             output_path=final_path,
             accent_color=(255, 255, 0),  # Sarı — YouTube klasik
             text_position="center",
@@ -743,7 +749,7 @@ def generate_thumbnail(title: str, concept: str = "", background_image: str | No
         )
 
         if result:
-            print_success(f"Thumbnail oluşturuldu! (Headline: {headline})")
+            print_success(f"Thumbnail oluşturuldu! (Headline: {final_headline})")
             console.print(f"  💾 Kaydedildi: {final_path}")
             logger.info("Composed thumbnail kaydedildi: %s", final_path)
             return final_path

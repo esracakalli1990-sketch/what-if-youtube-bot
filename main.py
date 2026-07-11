@@ -194,12 +194,17 @@ def run_pipeline(
         thumbnail_concept = scenario.get("thumbnail_concept", "")
         display_title = scenario.get("clickbait_title", title)
 
+        thumbnail_headline = scenario.get("thumbnail_headline", "")
+
         if is_shorts:
             # Short: kullanıcı ayrı thumbnail görseli göndermez — ilk sahneyi kullan
             first_scene = image_results[0]["image_path"] if image_results else None
-            thumbnail = generate_thumbnail(display_title, thumbnail_concept, background_image=first_scene)
+            thumbnail = generate_thumbnail(
+                display_title, thumbnail_concept,
+                background_image=first_scene, headline=thumbnail_headline,
+            )
         else:
-            thumbnail = generate_thumbnail(display_title, thumbnail_concept)
+            thumbnail = generate_thumbnail(display_title, thumbnail_concept, headline=thumbnail_headline)
 
         # Thumbnail'i output'a kopyala
         if thumbnail:
