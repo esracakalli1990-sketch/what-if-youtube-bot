@@ -83,3 +83,32 @@ class TestGenerateSrt:
         content = srt_path.read_text(encoding="utf-8")
         assert "Has audio." in content
         assert "No audio." not in content
+
+    def test_time_proportional_to_chunk_length(self, tmp_path, monkeypatch):
+        """Uzun altyazı parçası, kısa parçadan daha uzun ekran süresi almalı."""
+        import scripts.video_assembler as va
+        monkeypatch.setattr(va, "TEMP_DIR", tmp_path)
+
+        # Kısa bir ilk cümle, çok daha uzun bir ikinci cümle
+        scenes = [{
+            "scene_number": 1,
+            "narration": (
+                "Gone. Every single coastal city on the entire planet "
+                "vanishes beneath the churning, unstoppable waves forever."
+            ),
+        }]
+        audio_results = [{"scene_number": 1, "duration_seconds": 10.0}]
+
+        srt_path = generate_srt(scenes, audio_results)
+        content = srt_path.read_text(encoding="utf-8")
+
+        # Parça bölme kontrolü: iki ayrı giriş olmalı
+        assert "Gone." in content
+        # İlk parçanın bitişi 10 sn'lik sahnenin ortasından ÖNCE olmalı (kısa parça)
+        # Bloklar: "idx\nstart --> end\ntext\n"
+        blocks = [b for b in content.split("\n\n") if b.strip()]
+        first_end = blocks[0].split("\n")[1].split(" --> ")[1]
+        # "Gone." çok kısa → 5 sn'den (ortadan) çok önce bitmeli
+        assert first_end < "00:00:05,000"
+        # Sahne tam 10 sn'de bitmeli (birikimli hata olmamalı)
+        assert "00:00:10,000" in content
