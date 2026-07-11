@@ -5,7 +5,8 @@ import json
 import pytest
 
 from scripts.scenario_generator import (
-    validate_scenario, fix_scenario, _extract_json, _scenario_cache_path
+    validate_scenario, fix_scenario, _extract_json, _scenario_cache_path,
+    select_video_scene_numbers,
 )
 
 
@@ -96,6 +97,44 @@ class TestFixScenario:
         fixed = fix_scenario(scenario, mode="shorts")
         assert fixed["scenes"][0]["duration_seconds"] == 10
         assert fixed["scenes"][1]["duration_seconds"] == 15
+
+    def test_defaults_asset_type_to_image(self):
+        scenario = {"title": "X", "scenes": [
+            {"narration": "a", "visual_prompt": "b"},
+            {"narration": "c", "visual_prompt": "d"},
+        ]}
+        fixed = fix_scenario(scenario)
+        assert all(s["asset_type"] == "image" for s in fixed["scenes"])
+
+    def test_preserves_existing_asset_type(self):
+        scenario = {"title": "X", "scenes": [
+            {"narration": "a", "visual_prompt": "b", "asset_type": "video"},
+        ]}
+        fixed = fix_scenario(scenario)
+        assert fixed["scenes"][0]["asset_type"] == "video"
+
+
+class TestSelectVideoScenes:
+    def test_character_scenes_stay_image(self):
+        scenes = [
+            {"scene_number": 1, "visual_prompt": "A steampunk rabbit scientist waves."},
+            {"scene_number": 2, "visual_prompt": "A frozen city under heavy snow."},
+        ]
+        assert select_video_scene_numbers(scenes) == [2]
+
+    def test_caps_at_max_videos(self):
+        scenes = [
+            {"scene_number": n, "visual_prompt": f"Dramatic scene {n}."}
+            for n in range(1, 8)
+        ]
+        assert select_video_scene_numbers(scenes, max_videos=3) == [1, 2, 3]
+
+    def test_all_character_scenes_returns_empty(self):
+        scenes = [
+            {"scene_number": 1, "visual_prompt": "The rabbit scientist smiles."},
+            {"scene_number": 2, "visual_prompt": "A RABBIT in a lab."},
+        ]
+        assert select_video_scene_numbers(scenes) == []
 
 
 class TestExtractJson:

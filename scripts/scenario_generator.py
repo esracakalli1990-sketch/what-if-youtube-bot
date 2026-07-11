@@ -25,7 +25,10 @@ from scripts.utils import (
 
 # Gerekli sahne alanları
 REQUIRED_SCENE_FIELDS = {"scene_number", "narration", "visual_prompt"}
-OPTIONAL_SCENE_FIELDS = {"scene_type", "duration_seconds", "twist_element"}
+OPTIONAL_SCENE_FIELDS = {"scene_type", "duration_seconds", "twist_element", "asset_type"}
+
+# Bir long videoda kaç sahnenin gerçek video klip olacağı (üst sınır)
+MAX_VIDEO_SCENES = 5
 
 
 def validate_scenario(scenario: dict) -> tuple[bool, list[str]]:
@@ -105,8 +108,35 @@ def fix_scenario(scenario: dict, mode: str = "long") -> dict:
             else:
                 scene["duration_seconds"] = default_duration
 
+        # Varlık tipi yoksa varsayılan: görsel. Video seçimi ayrı adımda yapılır.
+        if "asset_type" not in scene:
+            scene["asset_type"] = "image"
+
     scenario["scenes"] = scenes
     return scenario
+
+
+def select_video_scene_numbers(scenes: list[dict], max_videos: int = MAX_VIDEO_SCENES) -> list[int]:
+    """
+    Long videoda hangi sahnelerin gerçek video klip olacağını seç.
+
+    Kural:
+    - Karakter (tavşan) geçen sahneler GÖRSEL kalır (karakter tutarlılığı için).
+    - Kalan sahneler (atmosfer/olay anları) video adayıdır.
+    - En fazla `max_videos` sahne seçilir (kota ve emek koruması).
+
+    Returns:
+        list[int]: Video olacak sahnelerin scene_number listesi.
+    """
+    candidates = []
+    for i, scene in enumerate(scenes):
+        if not isinstance(scene, dict):
+            continue
+        visual = scene.get("visual_prompt", "").lower()
+        if "rabbit" in visual:
+            continue  # Karakter sahnesi → görsel kalır
+        candidates.append(scene.get("scene_number", i + 1))
+    return candidates[:max_videos]
 
 
 def _extract_json(raw_text: str) -> dict:
