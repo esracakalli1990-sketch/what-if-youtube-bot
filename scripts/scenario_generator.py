@@ -116,13 +116,30 @@ def fix_scenario(scenario: dict, mode: str = "long") -> dict:
     return scenario
 
 
+# Tavşanın "baş özne" sayıldığı eşik: görsel prompt'un ilk bu kadar karakteri
+_CHARACTER_FOCAL_HEAD = 80
+
+
+def _is_character_focal(visual: str) -> bool:
+    """
+    Tavşan bu sahnenin ASIL öznesi mi?
+
+    'rabbit' kelimesinin prompt'un başında (ilk _CHARACTER_FOCAL_HEAD karakter)
+    geçmesi karakter sahnesi sayılır. Sonda geçmesi (ör. "...tavşan izlerken")
+    sahneyi atmosfer sahnesi olmaktan çıkarmaz.
+    """
+    head = visual.strip().lower()[:_CHARACTER_FOCAL_HEAD]
+    return "rabbit" in head
+
+
 def select_video_scene_numbers(scenes: list[dict], max_videos: int = MAX_VIDEO_SCENES) -> list[int]:
     """
     Long videoda hangi sahnelerin gerçek video klip olacağını seç.
 
     Kural:
-    - Karakter (tavşan) geçen sahneler GÖRSEL kalır (karakter tutarlılığı için).
-    - Kalan sahneler (atmosfer/olay anları) video adayıdır.
+    - Tavşanın BAŞ ÖZNE olduğu sahneler GÖRSEL kalır (karakter tutarlılığı için).
+    - Kalan sahneler (atmosfer/olay anları — tavşan yoksa ya da sadece geçerken
+      anılıyorsa) video adayıdır.
     - En fazla `max_videos` sahne seçilir (kota ve emek koruması).
 
     Returns:
@@ -132,8 +149,7 @@ def select_video_scene_numbers(scenes: list[dict], max_videos: int = MAX_VIDEO_S
     for i, scene in enumerate(scenes):
         if not isinstance(scene, dict):
             continue
-        visual = scene.get("visual_prompt", "").lower()
-        if "rabbit" in visual:
+        if _is_character_focal(scene.get("visual_prompt", "")):
             continue  # Karakter sahnesi → görsel kalır
         candidates.append(scene.get("scene_number", i + 1))
     return candidates[:max_videos]
