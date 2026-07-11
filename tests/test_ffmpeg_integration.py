@@ -9,7 +9,9 @@ import subprocess
 import pytest
 from PIL import Image
 
-from scripts.video_assembler import check_ffmpeg, create_scene_clip, burn_subtitles
+from scripts.video_assembler import (
+    check_ffmpeg, create_scene_clip, create_scene_clip_from_video, burn_subtitles,
+)
 
 pytestmark = pytest.mark.skipif(not check_ffmpeg(), reason="FFmpeg kurulu değil")
 
@@ -25,6 +27,25 @@ def _make_audio(path, duration=2):
          "-c:a", "libmp3lame", str(path)],
         capture_output=True, check=True,
     )
+
+
+def _make_video(path, width, height, duration=1):
+    """Test deseniyle kısa sessiz video klip üret."""
+    subprocess.run(
+        ["ffmpeg", "-y", "-f", "lavfi",
+         "-i", f"testsrc=size={width}x{height}:rate=30:duration={duration}",
+         "-pix_fmt", "yuv420p", str(path)],
+        capture_output=True, check=True,
+    )
+
+
+def _probe_duration(path) -> float:
+    result = subprocess.run(
+        ["ffprobe", "-v", "quiet", "-print_format", "json",
+         "-show_format", str(path)],
+        capture_output=True, text=True, check=True,
+    )
+    return float(json.loads(result.stdout)["format"]["duration"])
 
 
 def _probe_dimensions(path) -> tuple[int, int]:
@@ -60,6 +81,37 @@ class TestSceneClip:
             duration=2.0, resolution=(1080, 1920),
         )
         assert _probe_dimensions(output) == (1080, 1920)
+
+
+class TestSceneClipFromVideo:
+    def test_video_clip_filled_to_resolution(self, tmp_path):
+        """Kaynak klip farklı oranda olsa da çıktı tam çözünürlükte olmalı."""
+        video = tmp_path / "src.mp4"
+        audio = tmp_path / "scene.mp3"
+        output = tmp_path / "clip.mp4"
+        _make_video(video, 1280, 720, duration=1)
+        _make_audio(audio, duration=2)
+
+        assert create_scene_clip_from_video(
+            str(video), str(audio), str(output),
+            duration=2.0, resolution=(1920, 1080),
+        )
+        assert _probe_dimensions(output) == (1920, 1080)
+
+    def test_short_clip_loops_to_narration_length(self, tmp_path):
+        """1 sn'lik klip, 3 sn'lik anlatımı doldurmak için döngülenmeli."""
+        video = tmp_path / "src.mp4"
+        audio = tmp_path / "scene.mp3"
+        output = tmp_path / "clip.mp4"
+        _make_video(video, 1920, 1080, duration=1)
+        _make_audio(audio, duration=3)
+
+        assert create_scene_clip_from_video(
+            str(video), str(audio), str(output),
+            duration=3.0, resolution=(1920, 1080),
+        )
+        # Uzunluk sahne anlatımına (~3 sn) sabitlenmeli, 1 sn'de kalmamalı
+        assert abs(_probe_duration(output) - 3.0) < 0.4
 
 
 class TestBurnSubtitles:

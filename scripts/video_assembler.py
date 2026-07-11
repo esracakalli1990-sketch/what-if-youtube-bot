@@ -160,6 +160,72 @@ def create_scene_clip(
     return _run_ffmpeg(cmd, f"scene clip ({effect})", timeout=300)
 
 
+# Video varlığı olarak kabul edilen uzantılar (manuel akışta kullanıcı klip gönderir)
+VIDEO_ASSET_EXTS = (".mp4", ".mov", ".webm", ".mkv", ".m4v")
+
+
+def is_video_asset(path: str) -> bool:
+    """Verilen dosya bir video klip mi (görsel değil)?"""
+    return str(path).lower().endswith(VIDEO_ASSET_EXTS)
+
+
+def create_scene_clip_from_video(
+    video_path: str,
+    audio_path: str,
+    output_path: str,
+    duration: float,
+    resolution: tuple[int, int] = (1920, 1080),
+) -> bool:
+    """
+    Kullanıcının ürettiği kısa video klibinden sahne klibi oluşturur.
+
+    Görsel + Ken Burns yerine gerçek videoyu kullanır:
+    - Kaynak klibi çözünürlüğü DOLDURACAK şekilde ölçekler ve merkez-kırpar.
+    - Klip anlatımdan kısaysa DÖNGÜLENİR (onaylanan davranış), uzunsa kırpılır;
+      uzunluk sahne anlatımına (ses süresine) sabitlenir.
+    - Ses, sahne anlatımıyla değiştirilir.
+    - 25fps + libx264/aac ile üretilir (görsel klipleriyle sorunsuz birleşsin).
+
+    Args:
+        video_path: Kaynak video klip yolu
+        audio_path: Sahne ses (anlatım) dosyası
+        output_path: Çıktı klip yolu
+        duration: Hedef süre (saniye) — sahne anlatım süresi
+        resolution: (genişlik, yükseklik)
+
+    Returns:
+        bool: Başarılı mı?
+    """
+    width, height = resolution
+    # Çözünürlüğü doldur (kenar boşluğu bırakma), sonra tam boyuta kırp
+    vfilter = (
+        f"scale={width}:{height}:force_original_aspect_ratio=increase,"
+        f"crop={width}:{height},fps=25,setsar=1"
+    )
+
+    cmd = [
+        "ffmpeg", "-y",
+        "-stream_loop", "-1",   # Kısa klip anlatımı doldurana dek döngülensin
+        "-i", video_path,
+        "-i", audio_path,
+        "-filter_complex", f"[0:v]{vfilter}[v]",
+        "-map", "[v]",
+        "-map", "1:a",
+        "-t", f"{duration:.3f}",  # Uzunluğu sahne anlatımına sabitle
+        "-c:v", "libx264",
+        "-preset", "medium",
+        "-crf", "18",
+        "-c:a", "aac",
+        "-b:a", "192k",
+        "-ac", "2",
+        "-ar", "44100",
+        "-pix_fmt", "yuv420p",
+        output_path,
+    ]
+
+    return _run_ffmpeg(cmd, "scene clip (video)", timeout=300)
+
+
 # ──────────────────────────────────────
 # SRT Altyazı Üretimi
 # ──────────────────────────────────────
@@ -540,16 +606,28 @@ def assemble_video(
             console.print(f"  🎥 Sahne {scene_num}: [cyan]♻ cached[/cyan]")
             continue
 
-        console.print(f"  🎥 Sahne {scene_num} montajlanıyor ({effect})... ", end="")
+        asset_path = image_info["image_path"]
 
-        success = create_scene_clip(
-            image_path=image_info["image_path"],
-            audio_path=audio_info["audio_path"],
-            output_path=clip_path,
-            duration=audio_info["duration_seconds"],
-            effect=effect,
-            resolution=resolution,
-        )
+        # Varlık bir video klip ise Ken Burns yerine klibi doğrudan kullan
+        if is_video_asset(asset_path):
+            console.print(f"  🎥 Sahne {scene_num} montajlanıyor (video klip)... ", end="")
+            success = create_scene_clip_from_video(
+                video_path=asset_path,
+                audio_path=audio_info["audio_path"],
+                output_path=clip_path,
+                duration=audio_info["duration_seconds"],
+                resolution=resolution,
+            )
+        else:
+            console.print(f"  🎥 Sahne {scene_num} montajlanıyor ({effect})... ", end="")
+            success = create_scene_clip(
+                image_path=asset_path,
+                audio_path=audio_info["audio_path"],
+                output_path=clip_path,
+                duration=audio_info["duration_seconds"],
+                effect=effect,
+                resolution=resolution,
+            )
 
         if success:
             clip_paths.append(clip_path)
