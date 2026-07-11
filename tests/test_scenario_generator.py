@@ -136,6 +136,16 @@ class TestSelectVideoScenes:
         ]
         assert select_video_scene_numbers(scenes) == []
 
+    def test_trailing_rabbit_mention_still_video(self):
+        """Tavşan yalnızca sonda geçiyorsa sahne atmosfer/video sayılmalı."""
+        scenes = [
+            {"scene_number": 1, "visual_prompt": (
+                "A desolate frozen Earth landscape at night, giant cracks in a vast "
+                "icy ocean, skeletal frost-covered trees, as the rabbit scientist watches."
+            )},
+        ]
+        assert select_video_scene_numbers(scenes) == [1]
+
 
 class TestMarkVideoScenes:
     def test_long_marks_non_character_scenes_video(self):

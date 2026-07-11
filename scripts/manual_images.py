@@ -128,12 +128,14 @@ def _build_prompts(scenario: dict, mode: str) -> tuple[list[str], list[str]]:
             continue
 
         if scene.get("asset_type") == "video":
-            # Hareket odaklı video klip prompt'u (Flow/Omniflash için)
+            # Hareket odaklı video klip prompt'u (Flow/Omniflash için).
+            # Karede karakter olmasın — atmosfer/olay odaklı, temiz klip.
             prompts.append(
                 f"{visual}\n\n"
                 "5-6 SECOND VIDEO CLIP. Cinematic slow camera motion (gentle "
                 "push-in or drift) with natural movement in the scene — drifting "
-                "particles, flowing light, shifting atmosphere. "
+                "particles, flowing light, shifting atmosphere. Environment/"
+                "phenomenon only, NO characters or people in the frame. "
                 f"{orientation}\n\n{base_style}"
             )
             kinds.append("video")
