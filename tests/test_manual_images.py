@@ -223,6 +223,72 @@ class TestCenterCrop:
         assert out.size == (1344, 768)
 
 
+class TestCompleteProductionImagesCheckpoint:
+    """
+    Regresyon testi: manuel modda 'images' checkpoint adımı doğru
+    işaretlenmezse main.py ücretli API'yi tekrar çağırır — bu da yalnızca
+    .png'yi 'cached' sayıp .mp4 (video) sahnelerini tanımadığı için o
+    sahneleri videodan tamamen düşürür (ilk hibrit üretimde yaşanan hata).
+    """
+
+    def _png_bytes(self, w=200, h=200):
+        import os as _os
+        buf = io.BytesIO()
+        # Gürültülü içerik: düz renk PNG'si 10KB minimum boyut eşiğinin altında sıkışır
+        Image.frombytes("RGB", (w, h), _os.urandom(w * h * 3)).save(buf, "PNG")
+        return buf.getvalue()
+
+    def test_images_step_includes_video_and_image_assets(self, tmp_path, monkeypatch, isolated_state):
+        monkeypatch.setattr(mi, "IMAGES_DIR", tmp_path / "images")
+        monkeypatch.setattr(mi, "TEMP_DIR", tmp_path / "temp")
+        mi.IMAGES_DIR.mkdir(parents=True, exist_ok=True)
+
+        scenario = _scenario(2)
+        scenario["scenes"][0]["asset_type"] = "image"
+        scenario["scenes"][1]["asset_type"] = "video"
+        mi.start_pending("T", "long", scenario)
+
+        pending = mi.load_pending()
+        pending["image_file_ids"] = ["file_a", "clip_b", "thumb_c"]
+        pending["asset_kinds"] = ["photo", "video", "photo"]
+        mi._save_pending(pending)
+
+        monkeypatch.setattr(mi, "load_env", lambda: {"TELEGRAM_BOT_TOKEN": "tok"})
+
+        png_bytes = self._png_bytes()
+        video_bytes = b"\x00" * 20000
+
+        def fake_download(token, file_id):
+            return video_bytes if file_id == "clip_b" else png_bytes
+
+        monkeypatch.setattr(mi, "_download_telegram_file", fake_download)
+
+        captured = {}
+
+        class FakeCheckpoint:
+            def start(self, topic):
+                pass
+
+            def __init__(self):
+                self.data = {}
+
+            def complete_step(self, step, **extra):
+                captured[step] = extra
+
+        import scripts.utils as utils_module
+        monkeypatch.setattr(utils_module, "PipelineCheckpoint", FakeCheckpoint)
+
+        import main as main_module
+        monkeypatch.setattr(main_module, "run_pipeline", lambda *a, **k: None)
+
+        mi.complete_production()
+
+        assert "images" in captured
+        results = {r["scene_number"]: r["image_path"] for r in captured["images"]["image_results"]}
+        assert results[1].endswith(".png")
+        assert results[2].endswith(".mp4")
+
+
 class TestReminder:
     def test_no_reminder_before_interval(self, isolated_state):
         mi.start_pending("Test topic", "shorts", _scenario(2))

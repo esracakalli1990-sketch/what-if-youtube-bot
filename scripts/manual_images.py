@@ -510,6 +510,19 @@ def complete_production() -> bool:
     checkpoint.data["mode"] = mode
     checkpoint.complete_step("scenario", episode_title=scenario.get("title", ""))
 
+    # "images" adımını da tamamlanmış işaretle. Manuel modda görseller/videolar
+    # zaten kaydedildi; işaretlenmezse main.py ücretli API'yi (generate_images)
+    # tekrar çağırır — o da yalnızca .png'yi "cached" sayıp .mp4 (video) sahnelerini
+    # tanımadığı için API'yi dener, kota/limit hatası alır ve o sahneler videodan
+    # tamamen düşer. (İlk hibrit üretimde tam bu yüzden 4 video sahnesi kayboldu.)
+    image_results = []
+    for i, scene in enumerate(scenes):
+        scene_num = scene.get("scene_number", i + 1)
+        asset_path = scene_asset_path(scene_num, vertical)
+        if asset_path:
+            image_results.append({"scene_number": scene_num, "image_path": str(asset_path)})
+    checkpoint.complete_step("images", image_results=image_results)
+
     # Uzun videolar bir sonraki optimal saate planlanır; Short'lar hemen yayınlanır
     publish_at = None
     if mode == "long":

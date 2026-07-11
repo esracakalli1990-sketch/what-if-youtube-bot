@@ -211,6 +211,38 @@ def authenticate() -> object | None:
     return credentials
 
 
+# YouTube'un gerçek kısıtı: etiket SAYISI değil, TÜM etiketlerin toplam
+# karakter uzunluğu (500'ü aşarsa API "invalidTags" ile reddeder).
+YOUTUBE_TAGS_MAX_CHARS = 500
+
+
+def _sanitize_tags(tags: list[str]) -> list[str]:
+    """
+    Etiketleri YouTube API kurallarına uygun hale getir:
+    - Boş/geçersiz karakterli (< >) etiketler atılır
+    - Tekrarlar temizlenir (büyük/küçük harf duyarsız)
+    - Toplam karakter uzunluğu YOUTUBE_TAGS_MAX_CHARS'ı aşmayacak şekilde kesilir
+    """
+    seen = set()
+    unique_tags = []
+    for t in tags:
+        t = t.strip()
+        if not t or "<" in t or ">" in t:
+            continue
+        if t.lower() not in seen:
+            seen.add(t.lower())
+            unique_tags.append(t)
+
+    result = []
+    total_len = 0
+    for t in unique_tags:
+        total_len += len(t) + 1  # etiketler arası ayraç payı
+        if total_len > YOUTUBE_TAGS_MAX_CHARS:
+            break
+        result.append(t)
+    return result
+
+
 def upload_video(
     video_path: str,
     title: str,
@@ -280,14 +312,7 @@ def upload_video(
     if tags is None:
         tags = DEFAULT_TAGS.copy()
 
-    # Duplikat etiketleri temizle
-    seen = set()
-    unique_tags = []
-    for t in tags:
-        if t.lower() not in seen:
-            seen.add(t.lower())
-            unique_tags.append(t)
-    tags = unique_tags[:30]  # YouTube max 500 karakter
+    tags = _sanitize_tags(tags)
 
     category_id = CATEGORY_IDS.get(category, "28")
 
@@ -303,13 +328,13 @@ def upload_video(
         if "#shorts" not in description.lower():
             description = f"{description}\n#Shorts"
         if "shorts" not in [t.lower() for t in tags]:
-            tags.insert(0, "shorts")
+            tags = _sanitize_tags(["shorts"] + tags)
 
     body = {
         "snippet": {
             "title": title[:100],  # YouTube max 100 karakter
             "description": description[:5000],  # YouTube max 5000
-            "tags": tags[:500],  # Max 500 etiket
+            "tags": tags,  # Toplam karakter uzunluğu _sanitize_tags'ta sınırlanır
             "categoryId": category_id,
             "defaultLanguage": "en",
         },
