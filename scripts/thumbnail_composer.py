@@ -66,15 +66,17 @@ def compose_thumbnail(
         txt_layer = Image.new("RGBA", (1280, 720), (0, 0, 0, 0))
         draw = ImageDraw.Draw(txt_layer)
 
-        # Font yükle (sistem fontu)
-        font = _get_best_font(size=90)
-        small_font = _get_best_font(size=40)
-
-        # Metni hazırla
-        lines = _prepare_headline(headline_text)
+        # Metni canvas'a göre otomatik boyutlandır — her zaman DEV ve okunaklı,
+        # asla taşmaz (sabit 90px önceden hem çok küçük hem taşabiliyordu)
+        margin = 60
+        max_text_width = 1280 - 2 * margin
+        font, lines = _fit_headline(draw, headline_text, max_width=max_text_width)
 
         # Metin konumunu hesapla
         y_offset = _calculate_y_offset(text_position, lines, font, draw)
+
+        # Okunabilirlik için metin bloğunun arkasına yarı saydam koyu panel
+        _draw_text_backdrop(txt_layer, draw, lines, font, y_offset, margin=margin)
 
         # Her satır için glow + outline + text çiz
         for line in lines:
@@ -83,16 +85,16 @@ def compose_thumbnail(
             x = (1280 - text_width) // 2
 
             # 1. Glow efekti (büyük bulanık gölge)
-            _draw_glow(draw, x, y_offset, line, font, glow_color=(0, 0, 0), glow_size=8)
+            _draw_glow(draw, x, y_offset, line, font, glow_color=(0, 0, 0), glow_size=10)
 
             # 2. Kalın outline (siyah kenar)
-            _draw_outline(draw, x, y_offset, line, font, outline_color=(0, 0, 0), thickness=5)
+            _draw_outline(draw, x, y_offset, line, font, outline_color=(0, 0, 0), thickness=7)
 
             # 3. Ana metin (parlak renk)
             draw.text((x, y_offset), line, font=font, fill=accent_color)
 
             line_height = bbox[3] - bbox[1]
-            y_offset += line_height + 10
+            y_offset += line_height + 14
 
         # Katmanları birleştir
         result = Image.alpha_composite(bg, txt_layer)
@@ -159,13 +161,28 @@ def _apply_gradient_overlay(image: Image.Image) -> Image.Image:
 
 
 def _get_best_font(size: int = 80) -> ImageFont.FreeTypeFont:
-    """Sistemde mevcut en iyi kalın fontu bul."""
+    """
+    Sistemde mevcut en iyi kalın fontu bul.
+
+    Üretim ortamı Linux (GitHub Actions) — bu yollar ÖNCE denenir. Daha önce
+    yalnızca Windows yolları vardı; Linux'ta hiçbiri bulunamayıp PIL'in
+    ölçeklenmeyen minik varsayılan bitmap fontuna sessizce düşülüyordu (bu
+    yüzden thumbnail yazısı görünmez kadar küçük çıkıyordu).
+    """
     font_paths = [
+        # Linux (CI/production)
+        "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+        "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf",
+        "/usr/share/fonts/truetype/freefont/FreeSansBold.ttf",
+        # Windows (yerel geliştirme)
         "C:/Windows/Fonts/impact.ttf",         # Impact — YouTube klasik
         "C:/Windows/Fonts/arialbd.ttf",         # Arial Bold
         "C:/Windows/Fonts/calibrib.ttf",        # Calibri Bold
         "C:/Windows/Fonts/verdanab.ttf",        # Verdana Bold
         "C:/Windows/Fonts/arial.ttf",           # Arial
+        # macOS (yerel geliştirme)
+        "/System/Library/Fonts/Supplemental/Arial Bold.ttf",
+        "/System/Library/Fonts/Helvetica.ttc",
     ]
 
     for path in font_paths:
@@ -174,33 +191,56 @@ def _get_best_font(size: int = 80) -> ImageFont.FreeTypeFont:
         except (OSError, IOError):
             continue
 
-    # Fallback: default font
-    logger.warning("Kalın font bulunamadı, varsayılan kullanılıyor")
-    return ImageFont.load_default()
+    # Son çare: ölçeklenebilir varsayılan (Pillow ≥10.1); yoksa sabit boyutlu bitmap
+    logger.warning("Kalın TrueType font bulunamadı, varsayılan kullanılıyor")
+    try:
+        return ImageFont.load_default(size=size)
+    except TypeError:
+        return ImageFont.load_default()
 
 
-def _prepare_headline(text: str) -> list[str]:
+def _wrap_words(words: list[str], n_lines: int) -> list[str]:
+    """Kelime listesini n_lines satıra olabildiğince eşit böl."""
+    if n_lines <= 1 or len(words) <= 1:
+        return [" ".join(words)]
+    per_line = -(-len(words) // n_lines)  # yukarı yuvarlama
+    lines = []
+    for i in range(0, len(words), per_line):
+        lines.append(" ".join(words[i:i + per_line]))
+    return lines
+
+
+def _fit_headline(
+    draw, text: str, max_width: int,
+    max_lines: int = 2, max_size: int = 170, min_size: int = 60,
+) -> tuple[ImageFont.FreeTypeFont, list[str]]:
     """
-    Headline metnini YouTube thumbnail'a uygun satırlara böl.
-    Maks 2 satır, kelime başı büyük harf.
-    """
-    # Büyük harfe çevir
-    text = text.upper()
+    Headline'ı canvas'a göre EN BÜYÜK okunaklı boyutta, taşmadan yerleştir.
 
-    # Çok uzunsa kısalt
+    Önceden font boyutu sabit 90px'ti — hem çok küçük kalabiliyor (uzun
+    metinde taşma riski hiç kontrol edilmiyordu) hem de kısa metinde
+    gereksiz küçük duruyordu. Burada büyükten küçüğe deneyerek canvas
+    genişliğine sığan en büyük boyut seçilir — çarpıcı, dev, pro görünüm.
+    """
+    text = text.upper().strip()
     words = text.split()
     if len(words) > 6:
         words = words[:6]
-    text = " ".join(words)
 
-    # 2 satıra böl
-    if len(text) > 20:
-        mid = len(words) // 2
-        line1 = " ".join(words[:mid])
-        line2 = " ".join(words[mid:])
-        return [line1, line2]
+    for size in range(max_size, min_size - 1, -6):
+        font = _get_best_font(size)
+        for n_lines in (1, 2) if max_lines >= 2 else (1,):
+            lines = _wrap_words(words, n_lines)
+            widest = max(
+                draw.textbbox((0, 0), line, font=font)[2] for line in lines
+            )
+            if widest <= max_width:
+                return font, lines
 
-    return [text]
+    # Son çare: minimum boyutta iki satıra böl (yine de taşarsa en azından
+    # en küçük fontla en okunaklı hali budur)
+    font = _get_best_font(min_size)
+    return font, _wrap_words(words, min(2, max_lines))
 
 
 def _calculate_y_offset(position: str, lines: list, font, draw) -> int:
@@ -216,6 +256,33 @@ def _calculate_y_offset(position: str, lines: list, font, draw) -> int:
         return 720 - total_height - 60
     else:  # center
         return (720 - total_height) // 2
+
+
+def _draw_text_backdrop(layer, draw, lines, font, y_offset, margin=60):
+    """
+    Metin bloğunun arkasına yarı saydam koyu bir panel çizer.
+
+    Parlak/karışık arka planlarda dahi yazının okunaklılığını garanti eder —
+    büyük kanalların "pro" thumbnail'lerinde standart bir teknik. Panel
+    ayrıca Gaussian blur ile yumuşatılıp doğal bir vinyet gibi görünür.
+    """
+    if not lines:
+        return
+    widest = max(draw.textbbox((0, 0), line, font=font)[2] for line in lines)
+    total_height = sum(
+        draw.textbbox((0, 0), line, font=font)[3] + 14 for line in lines
+    )
+    pad_x, pad_y = 36, 22
+    x0 = (1280 - widest) // 2 - pad_x
+    x1 = (1280 + widest) // 2 + pad_x
+    y0 = y_offset - pad_y
+    y1 = y_offset + total_height + pad_y
+
+    panel = Image.new("RGBA", (1280, 720), (0, 0, 0, 0))
+    panel_draw = ImageDraw.Draw(panel)
+    panel_draw.rounded_rectangle([x0, y0, x1, y1], radius=24, fill=(0, 0, 0, 130))
+    panel = panel.filter(ImageFilter.GaussianBlur(radius=2))
+    layer.alpha_composite(panel)
 
 
 def _draw_glow(draw, x, y, text, font, glow_color=(0, 0, 0), glow_size=6):
@@ -254,6 +321,11 @@ def extract_thumbnail_headline(title: str) -> str:
         "what would happen when ", "what if the ", "what if a ",
         "what would ", "i simulated ",
     ]
+
+    # Parantezli ek kanca varsa ("...? (It's worse than you think)") önce onu at —
+    # aksi halde kelime bazlı kesme parantezin ortasında durup "(IT'S" gibi
+    # yarım/çirkin bir headline üretiyordu.
+    title = title.split("(")[0].strip()
 
     lower = title.lower().strip().rstrip("?").rstrip("!")
     for c in cleaners:
