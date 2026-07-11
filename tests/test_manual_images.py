@@ -118,6 +118,20 @@ class TestTurkishBrief:
     def test_add_photo_without_pending(self):
         assert "bekleyen" in mi.add_photo("file_x").lower()
 
+    def test_add_video_records_kind(self, isolated_state):
+        mi.start_pending("Test topic", "shorts", _scenario(2))
+
+        mi.add_photo("file_a")
+        mi.add_video("clip_b")
+
+        pending = mi.load_pending()
+        assert pending["image_file_ids"] == ["file_a", "clip_b"]
+        assert pending["asset_kinds"] == ["photo", "video"]
+        assert mi.is_complete()
+
+    def test_add_video_without_pending(self):
+        assert "bekleyen" in mi.add_video("clip_x").lower()
+
     def test_cancel(self):
         mi.start_pending("Test topic", "shorts", _scenario(2))
         assert mi.cancel_pending()
@@ -144,6 +158,20 @@ class TestImagesReady:
     def test_empty_scene_list_not_ready(self, tmp_path, monkeypatch):
         monkeypatch.setattr(mi, "IMAGES_DIR", tmp_path)
         assert not mi.images_ready([], vertical=True)
+
+    def test_video_asset_counts_as_ready(self, tmp_path, monkeypatch):
+        """Sahne varlığı .mp4 olarak gelmişse de hazır sayılmalı."""
+        monkeypatch.setattr(mi, "IMAGES_DIR", tmp_path)
+        scenes = _scenario(2)["scenes"]
+
+        # Sahne 1 görsel, sahne 2 video klip
+        import os as _os
+        Image.frombytes("RGB", (768, 1344), _os.urandom(768 * 1344 * 3)).save(
+            tmp_path / "scene_01_vertical.png"
+        )
+        (tmp_path / "scene_02_vertical.mp4").write_bytes(_os.urandom(20000))
+
+        assert mi.images_ready(scenes, vertical=True)
 
 
 class TestCenterCrop:
