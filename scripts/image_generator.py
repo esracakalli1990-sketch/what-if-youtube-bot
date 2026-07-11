@@ -588,17 +588,19 @@ def generate_character_reference() -> str:
 # ──────────────────────────────────────
 # Thumbnail Üretimi
 # ──────────────────────────────────────
-def generate_thumbnail(title: str, concept: str = "") -> str:
+def generate_thumbnail(title: str, concept: str = "", background_image: str | None = None) -> str:
     """
     YouTube-optimized thumbnail üretir.
 
     İki aşamalı süreç:
-    1. AI ile çarpıcı arka plan görseli üret
+    1. Arka plan görseli hazırla (verilen görselden 16:9 kırp veya AI ile üret)
     2. thumbnail_composer ile büyük yazı, glow, kontrast overlay ekle
 
     Args:
         title: Video başlığı
         concept: Thumbnail konsepti (senaryodan gelir)
+        background_image: Hazır arka plan görseli yolu (ör. Short'un ilk sahnesi).
+                          Verilirse AI üretimi atlanır, bu görsel 16:9'a kırpılır.
 
     Returns:
         str: Thumbnail dosya yolu
@@ -615,6 +617,43 @@ def generate_thumbnail(title: str, concept: str = "") -> str:
 
     gemini_first = os.getenv("IMAGE_PRIMARY", "").strip().lower() == "gemini"
     THUMBNAILS_DIR.mkdir(parents=True, exist_ok=True)
+
+    # Hazır arka plan görseli verildiyse (Short akışı) 16:9'a kırpıp kullan — AI atlanır
+    if background_image and Path(background_image).exists():
+        raw_thumb_path = THUMBNAILS_DIR / "thumbnail_raw.png"
+        try:
+            with Image.open(background_image) as bg:
+                bg = bg.convert("RGB")
+                w, h = bg.size
+                target_ratio = 16 / 9
+                if w / h > target_ratio:
+                    new_w = int(h * target_ratio)
+                    left = (w - new_w) // 2
+                    bg = bg.crop((left, 0, left + new_w, h))
+                else:
+                    new_h = int(w / target_ratio)
+                    top = (h - new_h) // 2
+                    bg = bg.crop((0, top, w, top + new_h))
+                bg.resize((1280, 720), Image.LANCZOS).save(raw_thumb_path, "PNG")
+            console.print("  ♻ Sahne görselinden thumbnail arka planı hazırlandı.")
+            headline = extract_thumbnail_headline(title)
+            final_path = str(THUMBNAILS_DIR / "thumbnail_youtube.png")
+            result = compose_thumbnail(
+                background_image_path=str(raw_thumb_path),
+                headline_text=headline,
+                output_path=final_path,
+                accent_color=(255, 255, 0),
+                text_position="center",
+                add_vignette=True,
+                add_gradient_overlay=True,
+            )
+            if result:
+                print_success(f"Thumbnail oluşturuldu! (Headline: {headline})")
+                logger.info("Short thumbnail sahne görselinden oluşturuldu: %s", final_path)
+                return final_path
+        except Exception as e:
+            logger.warning("Sahne görselinden thumbnail üretilemedi: %s", e)
+            # AI yoluna düş
 
     # Thumbnail arka plan promptu — yazı olmadan, çarpıcı görsel
     if concept:

@@ -186,26 +186,32 @@ def run_pipeline(
         checkpoint.complete_step("video", final_video=final_video)
 
         # ═══════════════════════════════════
-        # ADIM 5: THUMBNAIL ÜRETİMİ (sadece uzun video — Shorts ilk kareyi kullanır)
+        # ADIM 5: THUMBNAIL ÜRETİMİ
+        # Uzun video: AI/manuel arka plandan. Short: ilk sahne görselinden 16:9.
         # ═══════════════════════════════════
         thumbnail = None
         thumb_output = None
-        if not is_shorts:
-            thumbnail_concept = scenario.get("thumbnail_concept", "")
-            # Clickbait başlık varsa onu kullan
-            display_title = scenario.get("clickbait_title", title)
+        thumbnail_concept = scenario.get("thumbnail_concept", "")
+        display_title = scenario.get("clickbait_title", title)
+
+        if is_shorts:
+            # Short: kullanıcı ayrı thumbnail görseli göndermez — ilk sahneyi kullan
+            first_scene = image_results[0]["image_path"] if image_results else None
+            thumbnail = generate_thumbnail(display_title, thumbnail_concept, background_image=first_scene)
+        else:
             thumbnail = generate_thumbnail(display_title, thumbnail_concept)
 
-            # Thumbnail'i output'a kopyala
-            if thumbnail:
-                import shutil
-                ep_num_str = Path(final_video).stem.split("_")[1]
-                thumb_output = OUTPUT_DIR / f"episode_{ep_num_str}_thumbnail.png"
-                try:
-                    shutil.copy2(thumbnail, str(thumb_output))
-                    console.print(f"  🖼️  Thumbnail: {thumb_output}")
-                except Exception:
-                    pass
+        # Thumbnail'i output'a kopyala
+        if thumbnail:
+            import shutil
+            prefix = "short" if is_shorts else "episode"
+            ep_num_str = Path(final_video).stem.split("_")[1]
+            thumb_output = OUTPUT_DIR / f"{prefix}_{ep_num_str}_thumbnail.png"
+            try:
+                shutil.copy2(thumbnail, str(thumb_output))
+                console.print(f"  🖼️  Thumbnail: {thumb_output}")
+            except Exception:
+                pass
 
         # ═══════════════════════════════════
         # ADIM 6: YOUTUBE YÜKLEME
