@@ -181,6 +181,96 @@
       "status": "pending",
       "episode": null,
       "completed_at": null
+    },
+    {
+      "topic": "What if human bones were made of graphene?",
+      "status": "pending",
+      "episode": null,
+      "completed_at": null
+    },
+    {
+      "topic": "What if the Earth's atmosphere was made of pure helium?",
+      "status": "pending",
+      "episode": null,
+      "completed_at": null
+    },
+    {
+      "topic": "What if everyone instantly knew the exact date and time of their death?",
+      "status": "pending",
+      "episode": null,
+      "completed_at": null
+    },
+    {
+      "topic": "What if a second Moon appeared in Earth's orbit?",
+      "status": "pending",
+      "episode": null,
+      "completed_at": null
+    },
+    {
+      "topic": "What if water lost its surface tension entirely?",
+      "status": "pending",
+      "episode": null,
+      "completed_at": null
+    },
+    {
+      "topic": "What if humans could only communicate telepathically, losing the ability to speak?",
+      "status": "pending",
+      "episode": null,
+      "completed_at": null
+    },
+    {
+      "topic": "What if all sound instantly turned into light?",
+      "status": "pending",
+      "episode": null,
+      "completed_at": null
+    },
+    {
+      "topic": "What if the sky was permanently cloudy, blocking out the sun and stars for a year?",
+      "status": "pending",
+      "episode": null,
+      "completed_at": null
+    },
+    {
+      "topic": "What if friction suddenly vanished from Earth?",
+      "status": "pending",
+      "episode": null,
+      "completed_at": null
+    },
+    {
+      "topic": "What if human lifespan was capped at 30 years?",
+      "status": "pending",
+      "episode": null,
+      "completed_at": null
+    },
+    {
+      "topic": "What if a black hole the size of a golf ball appeared on Earth's surface?",
+      "status": "pending",
+      "episode": null,
+      "completed_at": null
+    },
+    {
+      "topic": "What if all metal on Earth instantly rusted away?",
+      "status": "pending",
+      "episode": null,
+      "completed_at": null
+    },
+    {
+      "topic": "What if the concept of 'yesterday' ceased to exist for everyone?",
+      "status": "pending",
+      "episode": null,
+      "completed_at": null
+    },
+    {
+      "topic": "What if humans developed gills and could breathe underwater, but lost the ability to breathe air?",
+      "status": "pending",
+      "episode": null,
+      "completed_at": null
+    },
+    {
+      "topic": "What if the universe suddenly became transparent, revealing all stars and galaxies perfectly clear, day and night?",
+      "status": "pending",
+      "episode": null,
+      "completed_at": null
     }
   ],
   "settings": {
