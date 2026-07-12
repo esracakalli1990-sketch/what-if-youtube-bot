@@ -276,16 +276,17 @@ def generate_scenario(topic: str, force_new: bool = False, mode: str = "long") -
 
     # Kullanıcı promptu
     if mode == "shorts":
-        user_prompt = f"""Create a complete 45-60 second "What If" YouTube Shorts script for the following topic:
+        user_prompt = f"""Create a complete 30-45 second "What If" YouTube Shorts script for the following topic:
 
 TOPIC: {topic}
 
 Requirements:
-- Follow ALL rhythm rules in your system instructions
-- The first sentence must hook within 2 seconds — start with the most shocking consequence
-- Exactly 3-4 scenes, ONE big twist at the 60-70% mark, loop-bait ending
-- Each scene visual prompt must be detailed enough for AI image generation in VERTICAL 9:16 format
-- The time-traveling rabbit scientist character narrates and appears in at least one scene
+- Follow ALL rhythm/retention rules in your system instructions to the letter
+- SCENE 1 IS EVERYTHING: hook in the first 1 second, first word must shock, start mid-catastrophe. FORBIDDEN in scene 1: "What if", "Imagine", greetings, setup, or the rabbit character. Pure visceral consequence, happening now.
+- Exactly 3 scenes (4 only if truly necessary). Each scene 18-35 words, present tense, second person.
+- Every scene must ESCALATE ("but it gets worse") and end scenes 1-2 on an open loop; ONE big twist at ~60-70%; final line loops back into the opening line
+- Roli (the rabbit scientist) may appear in scene 2 or 3 only, never in the hook
+- Each scene visual prompt must be detailed enough for AI image generation in VERTICAL 9:16 format; scene 1's visual is the single most striking image, instantly readable on a phone
 - Output valid JSON only, no extra text
 
 ADDITIONAL REQUIRED FIELDS (add these to the root JSON):
