@@ -1,0 +1,80 @@
+{
+  "topic": "What would happen if the Earth stopped spinning?",
+  "mode": "shorts",
+  "privacy": "public",
+  "scenario": {
+    "title": "What If Earth Stopped Spinning? (You Wouldn't Survive!)",
+    "clickbait_title": "EARTH STOPS SPINNING: YOU WON'T BELIEVE What Happens!",
+    "youtube_tags": [
+      "whatif",
+      "earthstopsspinning",
+      "apocalypse",
+      "sciencedaily",
+      "roliscientist",
+      "catastrophe",
+      "globaldisaster",
+      "magneticfield",
+      "solarradiation",
+      "endofworld",
+      "planetaryscience",
+      "spacefacts",
+      "youtubeshorts",
+      "viralshorts",
+      "sciencefacts",
+      "whatifscenario",
+      "planetearth",
+      "doomsday",
+      "survival"
+    ],
+    "seo_description": "What if the Earth stopped spinning? Roli the rabbit scientist reveals the terrifying truth: from 1000 mph winds to magnetic field collapse. This what-if scenario explores Earth's catastrophic end.",
+    "thumbnail_headline": "INSTANT CHAOS!",
+    "thumbnail_concept": "A dramatic vertical image of a city skyline being ripped apart by an invisible force, with objects flying into the sky. A giant, cracked Earth in the background. Cinematic lighting, dark and urgent tone.",
+    "total_duration_minutes": 1,
+    "scenes": [
+      {
+        "scene_number": 1,
+        "scene_type": "hook",
+        "duration_seconds": 12,
+        "narration": "You'd be instantly flung eastward at 1,000 miles per hour! Buildings, trees, unanchored objects – all ripped from the ground. A catastrophic global projectile storm. This isn't a gentle halt; it's an immediate, violent stop for the solid Earth beneath you.",
+        "visual_prompt": "Cinematic lighting, vertical composition, hyper-realistic POV shot of a person being violently flung from the Earth's surface. Buildings shatter, cars fly into the sky, ground cracks dramatically. Dust and debris fill the air. 8K detail, dramatic atmosphere, photorealistic.",
+        "twist_element": "The sheer violence and speed of the initial impact sets a terrifying tone.",
+        "asset_type": "image"
+      },
+      {
+        "scene_number": 2,
+        "scene_type": "progression",
+        "duration_seconds": 15,
+        "narration": "The atmosphere, still spinning, creates winds faster than any hurricane – 1,000 mph. Mega-tsunamis, miles high, would scour continents clean. Oceans would reshape, flowing towards the poles, leaving new land exposed at the equator. Roli says, Earth's geography would be unrecognizable.",
+        "visual_prompt": "Vertical composition showing a massive, mile-high tsunami wave engulfing a coastal city. In the foreground, Roli, the time-traveling rabbit scientist in a steampunk outfit, stands on a small, stable outcrop, observing the destruction with a concerned expression. Winds tear at the landscape. Dramatic atmosphere, 8K detail, photorealistic.",
+        "twist_element": "The scale of environmental change and the complete reshaping of the planet.",
+        "asset_type": "image"
+      },
+      {
+        "scene_number": 3,
+        "scene_type": "big_twist",
+        "duration_seconds": 15,
+        "narration": "But that's not the biggest problem. Without spin, Earth's molten core convection stops. No more magnetic field. You'd be exposed to solar radiation, cancer rates soaring. Half the planet would bake under perpetual sun, the other half freeze in eternal night. Survival becomes impossible.",
+        "visual_prompt": "Split vertical screen. Left side: a scorching, desolate desert under a giant, unmoving, red sun, with heat haze. Right side: a frozen, barren wasteland under a permanent starry night sky. Subtle, eerie radiation waves visibly shimmering across both sides. Cinematic lighting, 8K detail, photorealistic, dramatic contrast.",
+        "twist_element": "The hidden, long-term existential threat of losing the magnetic field, superseding the initial physical destruction.",
+        "asset_type": "image"
+      },
+      {
+        "scene_number": 4,
+        "scene_type": "loop_bait",
+        "duration_seconds": 13,
+        "narration": "Life as we know it would cease. The atmosphere, slowly bleeding into space. Eventually, our blue marble would become a barren, irradiated rock, silently orbiting the sun. All that initial chaos would just be a prelude to an uninhabitable grave. Better keep that spin going, huh?",
+        "visual_prompt": "Vertical composition of Earth, now a desolate, red-brown sphere, slowly orbiting a distant, unmoving sun in the cold blackness of space. Faint, purple-red aurora-like radiation visible around the planet. No signs of life. Ominous, silent atmosphere, 8K detail, photorealistic space render.",
+        "twist_element": "Connects back to the initial destruction, emphasizing the ultimate futility and the necessity of Earth's spin for life.",
+        "asset_type": "image"
+      }
+    ],
+    "_topic": "What would happen if the Earth stopped spinning?",
+    "_mode": "shorts",
+    "_generated_at": "2026-07-12T12:09:31.819895"
+  },
+  "expected_images": 4,
+  "image_file_ids": [],
+  "asset_kinds": [],
+  "prompts_sent_at": "2026-07-12T12:09:38.094023+00:00",
+  "last_reminder_at": "2026-07-12T12:09:38.094040+00:00"
+}
