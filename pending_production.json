@@ -1,0 +1,72 @@
+{
+  "topic": "What would happen if all ice on Earth melted instantly?",
+  "mode": "shorts",
+  "privacy": "public",
+  "scenario": {
+    "title": "Instant Ice Melt: Earth's Deadly Transformation",
+    "clickbait_title": "ALL ICE MELTS INSTANTLY: This Is Your Last Day.",
+    "thumbnail_concept": "A partially submerged, iconic skyscraper (e.g., Empire State Building or Burj Khalifa) with turbulent, dark green water reaching halfway up, under a chaotic, storm-filled sky. Focus on the vertical composition, with debris floating. High contrast, cinematic lighting.",
+    "thumbnail_headline": "EARTH DROWNS NOW",
+    "youtube_tags": [
+      "WhatIf",
+      "IceMelt",
+      "SeaLevelRise",
+      "GlobalWarming",
+      "ClimateChange",
+      "EarthDisaster",
+      "ScienceFiction",
+      "WhatWouldHappen",
+      "YouTubeShorts",
+      "ViralVideo",
+      "ScienceFacts",
+      "NaturalDisaster",
+      "ExtremeWeather",
+      "Geology",
+      "EarthsRotation",
+      "OceanCurrents",
+      "PolarIceCaps",
+      "GreenlandIce",
+      "AntarcticIce",
+      "Apocalypse"
+    ],
+    "seo_description": "What if all ice on Earth melted instantly? Explore the terrifying consequences: massive sea level rise, cities drowning, and unexpected planetary shifts. Roli the scientist reveals the shocking truth...",
+    "total_duration_minutes": 0.5,
+    "scenes": [
+      {
+        "scene_number": 1,
+        "scene_type": "hook",
+        "duration_seconds": 10,
+        "narration": "Water erupts. Your city's tallest buildings vanish in minutes. A 200-foot tsunami slams inland, swallowing everything. You're underwater, fighting currents. But this isn't the worst threat you face.",
+        "visual_prompt": "VERTICAL 9:16. A dramatic, cinematic shot of an iconic, massive skyscraper (like the Empire State Building or Burj Khalifa) with its lower half violently submerged under turbulent, dark green ocean water. Debris and struggling fragments of buildings float around. A chaotic, storm-filled sky with dark, fast-moving clouds looms overhead. Photorealistic, 8K detail, high contrast, dramatic atmosphere.",
+        "twist_element": "The open loop that the physical drowning is not the 'worst threat'.",
+        "asset_type": "image"
+      },
+      {
+        "scene_number": 2,
+        "scene_type": "escalation",
+        "duration_seconds": 10,
+        "narration": "Then Roli calculates: Earth's tilt shifts. Global weather systems collapse. Weeks of superstorms and droughts begin. But the oceans themselves start dying. The real danger isn't just the water level.",
+        "visual_prompt": "VERTICAL 9:16. Roli, the time-traveling rabbit scientist in a steampunk outfit, stands in a severely damaged, futuristic laboratory. He points urgently at a flickering holographic globe, which displays chaotic, swirling superstorms and extreme weather patterns. Debris and broken machinery surround him. Cinematic lighting, dramatic atmosphere, 8K detail, photorealistic.",
+        "twist_element": "The open loop that the 'real danger' is something beyond water level, hinting at a deeper, stranger consequence.",
+        "asset_type": "image"
+      },
+      {
+        "scene_number": 3,
+        "scene_type": "loop-bait",
+        "duration_seconds": 10,
+        "narration": "Actually, the melting also redistributes Earth's mass. This slows our rotation. Days become longer. The planet itself lurches, triggering unprecedented earthquakes and volcanic eruptions. Your city is gone, but the Earth itself shifts.",
+        "visual_prompt": "VERTICAL 9:16. An extreme close-up, highly detailed shot of the Earth's surface fracturing violently. Massive tectonic plates grind against each other, with molten lava erupting from deep fissures. The scene is bathed in an ominous, fiery glow against a dark, star-filled space backdrop. Illustrates the raw power of geological forces. Photorealistic, 8K detail, dramatic, vertical composition.",
+        "twist_element": "The big twist of Earth's mass redistribution and its effect on rotation and geology, leading to a looping re-watch by connecting 'Earth itself shifts' back to the initial catastrophe.",
+        "asset_type": "image"
+      }
+    ],
+    "_topic": "What would happen if all ice on Earth melted instantly?",
+    "_mode": "shorts",
+    "_generated_at": "2026-07-12T21:51:10.393065"
+  },
+  "expected_images": 3,
+  "image_file_ids": [],
+  "asset_kinds": [],
+  "prompts_sent_at": "2026-07-12T21:51:17.340397+00:00",
+  "last_reminder_at": "2026-07-12T21:51:17.340409+00:00"
+}
