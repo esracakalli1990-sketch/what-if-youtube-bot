@@ -339,6 +339,30 @@ def get_next_short_topic() -> str | None:
     return None
 
 
+def get_next_short_topics(count: int, exclude: set | None = None) -> list[str]:
+    """
+    Short üretilmemiş sıradaki `count` konuyu döndür (kuyruğa toplu ekleme için).
+
+    Args:
+        count: İstenen konu sayısı
+        exclude: Hariç tutulacak konular (ör. zaten kuyrukta olanlar)
+    """
+    exclude = set(exclude or [])
+    data = load_topics()
+    out = []
+    for t in data.get("topics", []):
+        if t.get("status") == "failed":
+            continue
+        if t.get("short_at"):
+            continue
+        if t["topic"] in exclude:
+            continue
+        out.append(t["topic"])
+        if len(out) >= count:
+            break
+    return out
+
+
 def mark_short_done(topic: str):
     """Konuyu 'Short üretildi' olarak işaretle."""
     data = load_topics()
@@ -350,11 +374,14 @@ def mark_short_done(topic: str):
     logger.info("Short üretildi: '%s'", topic)
 
 
-def run_short(privacy: str = "public") -> bool:
+def run_short(privacy: str = "public", topic: str | None = None) -> bool:
     """
-    Havuzdan sıradaki konuyla bir YouTube Short üret (günlük otomasyon komutu).
+    Bir YouTube Short üret.
 
-    Konu kalmadıysa havuzu Gemini ile doldurmayı dener.
+    Args:
+        privacy: YouTube gizlilik durumu
+        topic: Belirli bir konu (kuyruktan gelir). None ise havuzdan sıradaki
+               seçilir; konu kalmadıysa havuz Gemini ile doldurulur.
 
     Returns:
         bool: Başarılı mı?
@@ -362,17 +389,18 @@ def run_short(privacy: str = "public") -> bool:
     # Lazy import — circular dependency önle
     from main import run_pipeline
 
-    topic = get_next_short_topic()
     if not topic:
-        print_warning("Short için konu kalmadı, havuz dolduruluyor...")
-        if refill_topics(10) == 0:
-            print_error("Konu havuzu doldurulamadı.")
-            return False
         topic = get_next_short_topic()
         if not topic:
-            return False
+            print_warning("Short için konu kalmadı, havuz dolduruluyor...")
+            if refill_topics(10) == 0:
+                print_error("Konu havuzu doldurulamadı.")
+                return False
+            topic = get_next_short_topic()
+            if not topic:
+                return False
 
-    print_header(f"📱 GÜNLÜK SHORT — {topic}")
+    print_header(f"📱 SHORT — {topic}")
 
     try:
         result = run_pipeline(topic, mode="shorts", privacy=privacy)

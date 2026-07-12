@@ -138,7 +138,7 @@ jobs:
           git config user.email "actions@github.com"
           # Dosyalar tek tek eklenir: git add, listedeki TEK bir dosya yoksa
           # hiçbirini eklemeden ölür (bu hata topics.json'ın kalıcılaşmasını engelliyordu)
-          for f in topics.json output/uploads.json pending_production.json telegram_state.json; do
+          for f in topics.json output/uploads.json pending_production.json telegram_state.json shorts_queue.json; do
             git add -f "$f" 2>/dev/null || true
           done
           if ! git diff --cached --quiet; then
