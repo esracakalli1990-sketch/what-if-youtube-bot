@@ -2,9 +2,9 @@
   "topics": [
     {
       "topic": "What would happen if the Sun suddenly went out?",
-      "status": "pending",
-      "episode": null,
-      "completed_at": null,
+      "status": "completed",
+      "episode": 1,
+      "completed_at": "2026-07-12T00:14:17.049029",
       "short_at": "2026-07-10T21:39:59.244482"
     },
     {
