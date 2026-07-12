@@ -83,6 +83,42 @@ class TestShortTopics:
         assert scheduler.get_next_short_topic() == scheduler.DEFAULT_TOPICS[1]
 
 
+class TestGetNextShortTopics:
+    def test_returns_distinct_topics(self):
+        scheduler.load_topics()
+        topics = scheduler.get_next_short_topics(3)
+        assert topics == scheduler.DEFAULT_TOPICS[:3]
+        assert len(set(topics)) == 3
+
+    def test_respects_exclude(self):
+        scheduler.load_topics()
+        first_two = set(scheduler.DEFAULT_TOPICS[:2])
+        topics = scheduler.get_next_short_topics(2, exclude=first_two)
+        assert first_two.isdisjoint(topics)
+        assert topics == scheduler.DEFAULT_TOPICS[2:4]
+
+    def test_skips_already_shorted(self):
+        scheduler.mark_short_done(scheduler.DEFAULT_TOPICS[0])
+        topics = scheduler.get_next_short_topics(1)
+        assert topics == [scheduler.DEFAULT_TOPICS[1]]
+
+    def test_count_larger_than_pool_returns_what_exists(self):
+        scheduler.load_topics()
+        topics = scheduler.get_next_short_topics(9999)
+        # Havuzdaki tüm short'suz konular kadar döner, patlamaz
+        assert len(topics) >= 1
+
+
+class TestRunShortWithExplicitTopic:
+    def test_uses_given_topic(self, monkeypatch):
+        import main
+        calls = {}
+        monkeypatch.setattr(main, "run_pipeline",
+                            lambda topic, **kw: calls.setdefault("topic", topic) or "output/short_01.mp4")
+        assert scheduler.run_short(topic="Custom short topic")
+        assert calls["topic"] == "Custom short topic"
+
+
 class TestRunShort:
     def test_success_marks_short_done(self, monkeypatch):
         import main

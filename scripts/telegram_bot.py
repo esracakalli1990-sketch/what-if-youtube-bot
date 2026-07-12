@@ -44,14 +44,19 @@ HELP_TEXT = """🐰 <b>What-If Bot Komutları</b>
 /rapor — kanal performans raporu
 /konular — bekleyen konular
 /konu &lt;metin&gt; — havuza yeni konu ekle
-/short — hemen 1 Short üret ve yükle
+/short — 1 Short'u kuyruğa ekle
+/short &lt;sayı&gt; — bu kadar Short'u kuyruğa ekle (ör. /short 5)
+/short &lt;konu&gt; — bu konuyu Short olarak kuyruğa ekle
+/kuyruk — Short kuyruğunda kaç konu var
+/kuyruk temizle — kuyruğu boşalt
 /video — hemen 1 uzun video üret (havuzdan)
 /video &lt;konu&gt; — bu konudan uzun video üret
 /iptal — görsel bekleyen üretimi iptal et
 /yardim — bu liste
 
-Manuel görsel modunda bot size prompt'ları gönderir; görselleri sırayla bu sohbete
-yollarsınız, video otomatik tamamlanır. Komutlar saatte bir işlenir."""
+Kaç Short istersen kuyruğa at; bot boştaysa hemen başlar, değilse sırayla
+otomatik ilerler. Her Short için bot prompt'ları gönderir, görselleri sırayla
+bu sohbete yollarsın, video otomatik tamamlanır. Komutlar saatte bir işlenir."""
 
 
 def _load_offset() -> int:
@@ -102,12 +107,16 @@ def _cmd_durum() -> str:
     failed = sum(1 for t in topics if t.get("status") == "failed")
     shorts_done = sum(1 for t in topics if t.get("short_at"))
 
+    from scripts import shorts_queue
+    queued = shorts_queue.length()
+
     lines = [
         "📋 <b>Bot Durumu</b>",
         "",
         f"⏳ Bekleyen konu: {pending}",
         f"✅ Tamamlanan uzun video: {completed}",
         f"📱 Üretilen Short: {shorts_done}",
+        f"📥 Short kuyruğunda: {queued}",
         f"❌ Başarısız: {failed}",
     ]
 
@@ -168,14 +177,72 @@ def _cmd_konu_ekle(topic: str) -> str:
     return f"⚠️ Bu konu zaten havuzda var:\n<i>{topic}</i>"
 
 
-def _cmd_short() -> str:
-    """Hemen bir Short üret (uzun süren işlem — önce onay mesajı gönderilir)."""
-    send_message("📱 Short üretimi başladı... (~15 dk, bitince bildirim gelecek)")
+def _cmd_short(arg: str = "") -> str:
+    """
+    Short(lar)ı kuyruğa ekle. Kullanım:
+      /short           → havuzdan 1 Short kuyruğa ekle
+      /short 5         → havuzdan 5 Short kuyruğa ekle
+      /short <konu>    → bu konuyu Short olarak kuyruğa ekle
 
+    Bot boştaysa sıradaki hemen başlar; değilse mevcut üretim bitince
+    otomatik sıraya geçer. Her Short için görselleri sırayla gönderirsiniz.
+    """
+    from scripts import shorts_queue
+    from scripts.scheduler import get_next_short_topics
+
+    arg = arg.strip()
+    if arg.isdigit():
+        count = max(1, min(int(arg), 50))  # makul üst sınır
+        already = set(shorts_queue.load_queue())
+        topics = get_next_short_topics(count, exclude=already)
+        if not topics:
+            return "⏳ Havuzda Short üretilmemiş konu kalmadı. /konu ile ekleyin veya Pazar otomatik doldurmayı bekleyin."
+        added = shorts_queue.enqueue(topics)
+    elif arg:
+        added = shorts_queue.enqueue([arg])
+        if not added:
+            return "Bu konu zaten kuyrukta."
+    else:
+        already = set(shorts_queue.load_queue())
+        topics = get_next_short_topics(1, exclude=already)
+        if not topics:
+            return "⏳ Havuzda Short üretilmemiş konu kalmadı. /konu ile ekleyebilirsiniz."
+        added = shorts_queue.enqueue(topics)
+
+    total = shorts_queue.length()
+    started = _advance_shorts_queue()
+    if started:
+        return (f"✅ {added} Short kuyruğa eklendi (kuyrukta {total}).\n"
+                f"İlkinin promptlarını gönderiyorum — görselleri sırayla yollayın. "
+                f"Her biri bitince sıradaki otomatik başlar.")
+    return (f"✅ {added} Short kuyruğa eklendi (kuyrukta {total}).\n"
+            f"Şu an bekleyen bir üretim var; o bitince sıradaki otomatik başlayacak.")
+
+
+def _advance_shorts_queue() -> bool:
+    """
+    Bekleyen üretim yoksa kuyruktaki sıradaki Short'u başlat (prompt'ları gönderir).
+
+    Returns:
+        bool: Yeni bir Short başlatıldı mı?
+    """
+    from scripts import manual_images, shorts_queue
     from scripts.scheduler import run_short
-    ok = run_short(privacy="public")
-    # Başarı bildirimi pipeline içinden gelir; hata durumunu burada raporla
-    return "" if ok else "🚨 Short üretimi başarısız oldu — loglara bakın."
+
+    # Zaten görsel bekleyen bir üretim varsa dokunma (tek slot — çakışma olmasın)
+    if manual_images.load_pending() is not None:
+        return False
+    topic = shorts_queue.pop_next()
+    if not topic:
+        return False
+    try:
+        run_short(privacy="public", topic=topic)
+        return True
+    except Exception as e:
+        logger.error("Kuyruktan Short başlatma hatası: %s — %s", topic, e)
+        send_message(f"🚨 Kuyruktaki Short başlatılamadı ('{topic[:50]}'): "
+                     f"<code>{str(e)[:200]}</code>")
+        return False
 
 
 def _cmd_video(topic: str) -> str:
@@ -232,7 +299,7 @@ def handle_command(text: str) -> str:
     if command == "/konu":
         return _cmd_konu_ekle(arg)
     if command == "/short":
-        return _cmd_short()
+        return _cmd_short(arg)
     if command == "/video":
         return _cmd_video(arg)
     if command == "/iptal":
@@ -240,6 +307,14 @@ def handle_command(text: str) -> str:
         if cancel_pending():
             return "🗑 Görsel bekleyen üretim iptal edildi. Konu havuzda kaldı, istediğinizde tekrar üretebilirsiniz."
         return "İptal edilecek bekleyen üretim yok."
+    if command == "/kuyruk":
+        from scripts import shorts_queue
+        n = shorts_queue.length()
+        if arg.strip().lower() in ("temizle", "sil", "iptal"):
+            cleared = shorts_queue.clear()
+            return f"🗑 Short kuyruğu temizlendi ({cleared} konu çıkarıldı)."
+        return (f"📋 Short kuyruğunda {n} konu bekliyor." if n
+                else "📋 Short kuyruğu boş. /short <sayı> ile ekleyebilirsiniz.")
 
     return "❓ Bilinmeyen komut. /yardim yazarak komutları görebilirsiniz."
 
@@ -271,6 +346,8 @@ def process_pending_commands() -> int:
             manual_images.complete_production()
         else:
             console.print("  💤 Bekleyen komut yok.")
+        # Boşta isek kuyruktaki sıradaki Short'u başlat
+        _advance_shorts_queue()
         return 0
 
     processed = 0
@@ -338,6 +415,9 @@ def process_pending_commands() -> int:
     # Tüm görseller geldiyse videoyu tamamla (uzun sürer — offset zaten kayıtlı)
     if manual_images.is_complete():
         manual_images.complete_production()
+
+    # Üretim bittiyse (veya hiç yoksa) kuyruktaki sıradaki Short'u başlat
+    _advance_shorts_queue()
 
     print_success(f"{processed} komut işlendi.")
     return processed
