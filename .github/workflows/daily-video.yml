@@ -126,9 +126,9 @@ jobs:
         if: steps.type.outputs.job_type == 'long'
         run: |
           if [ -n "${{ inputs.topic }}" ]; then
-            python main.py "${{ inputs.topic }}" --publish-at auto
+            python main.py "${{ inputs.topic }}" --privacy public
           else
-            python scripts/scheduler.py --batch 1 --publish-auto
+            python scripts/scheduler.py --batch 1 --privacy public
           fi
 
       - name: Durum dosyalarını commit'le

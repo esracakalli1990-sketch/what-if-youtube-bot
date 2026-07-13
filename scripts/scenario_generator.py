@@ -309,7 +309,7 @@ Requirements:
 - Output valid JSON only, no extra text
 
 ADDITIONAL REQUIRED FIELDS (add these to the root JSON):
-- "clickbait_title": A curiosity-gap YouTube title (max 70 chars). Use CAPS for emphasis. Examples: "What If You Could BREATHE Underwater? (It's Terrifying)", "I Simulated Humans With GILLS... It Got DARK"
+- "clickbait_title": A curiosity-gap YouTube title (max 70 chars). Use CAPS for emphasis. Examples: "What If You Could BREATHE Underwater? (It's Terrifying)", "I Simulated Humans With GILLS... It Got DARK". NEVER put a specific duration or minute/second count in the title (NO "8-Minute", "10-Minute", "in 60 Seconds", "The 8-Minute Truth", etc.) — the real video length varies and a mismatched claim misleads viewers and hurts retention.
 - "youtube_tags": Array of 15-20 topic-specific tags for YouTube SEO. Include long-tail keywords. Example: ["what if humans could breathe underwater", "underwater breathing", "human gills", "aquatic humans", "evolution", ...]
 - "seo_description": First 2 lines of YouTube description, packed with search keywords (max 200 chars). This appears in search results.
 - "thumbnail_headline": 2-4 word SHOCKING phrase for thumbnail text overlay. ALL CAPS. Examples: "BREATHE UNDERWATER?!", "GRAVITY DOUBLED?!"

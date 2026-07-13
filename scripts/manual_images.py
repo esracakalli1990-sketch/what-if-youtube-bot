@@ -523,16 +523,17 @@ def complete_production() -> bool:
             image_results.append({"scene_number": scene_num, "image_path": str(asset_path)})
     checkpoint.complete_step("images", image_results=image_results)
 
-    # Uzun videolar bir sonraki optimal saate planlanır; Short'lar hemen yayınlanır
+    # Uzun ve Short videolar HEMEN public yayınlanır. Daha önce uzun videolar
+    # "bir sonraki optimal saate" planlanıyordu; bu, videoyu publishAt'e kadar
+    # private tutuyordu ve otoritesiz (yeni) bir kanalda YouTube videoyu hiç
+    # dağıtıma sokmadan bekletiyordu (canlı veride 0 gösterim'in sebebi buydu).
+    # Artık video anında dağıtım sistemine girsin diye planlama kaldırıldı.
     publish_at = None
-    if mode == "long":
-        from scripts.youtube_uploader import next_optimal_publish_time
-        publish_at = next_optimal_publish_time()
 
     try:
         result = run_pipeline(
             topic, resume=True, mode=mode,
-            privacy=pending.get("privacy", "public"), publish_at=publish_at,
+            privacy="public", publish_at=publish_at,
         )
     except Exception as e:
         logger.error("Manuel üretim pipeline hatası: %s", e)
