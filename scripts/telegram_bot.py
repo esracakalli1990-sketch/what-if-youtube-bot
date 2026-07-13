@@ -251,7 +251,6 @@ def _cmd_video(topic: str) -> str:
 
     from main import run_pipeline
     from scripts.scheduler import get_next_topic, mark_topic_completed, mark_topic_failed
-    from scripts.youtube_uploader import next_optimal_publish_time
 
     from_pool = False
     if not topic:
@@ -261,7 +260,7 @@ def _cmd_video(topic: str) -> str:
             return "⏳ Havuzda bekleyen konu yok. /konu ile ekleyin veya /video <konu> deneyin."
 
     try:
-        result = run_pipeline(topic, publish_at=next_optimal_publish_time())
+        result = run_pipeline(topic, privacy="public")
     except Exception as e:
         if from_pool:
             mark_topic_failed(topic, str(e))
