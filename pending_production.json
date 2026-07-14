@@ -1,0 +1,68 @@
+{
+  "topic": "What would happen if all insects vanished from Earth?",
+  "mode": "shorts",
+  "privacy": "public",
+  "scenario": {
+    "title": "What If ALL Insects Vanished?",
+    "clickbait_title": "The Earth Just LOST ALL Insects... Here's What Happens FIRST",
+    "thumbnail_concept": "A barren, cracked earth with a single wilted plant in the foreground, against a dramatic, desolate sky. High contrast, vertical composition, focus on emptiness.",
+    "thumbnail_headline": "NO INSECTS. NO FOOD.",
+    "total_duration_minutes": 0.5,
+    "seo_description": "What if every insect on Earth suddenly vanished? This shocking short film reveals the terrifying domino effect, from your dinner plate to total ecosystem collapse. Discover the hidden impact of insect extinction.",
+    "youtube_tags": [
+      "what if",
+      "insects gone",
+      "earth without insects",
+      "insect extinction",
+      "ecosystem collapse",
+      "food chain",
+      "environmental disaster",
+      "climate change",
+      "science fiction",
+      "youtube shorts",
+      "viral shorts",
+      "roli science",
+      "what if explained",
+      "biology",
+      "planet earth",
+      "nature explained",
+      "ecological disaster"
+    ],
+    "scenes": [
+      {
+        "scene_number": 1,
+        "scene_type": "hook",
+        "duration_seconds": 10,
+        "narration": "Your plate just went empty. Every fruit, every vegetable, gone. Within 90 days, 75% of your food supply vanishes. But starvation isn't the first killer. What is?",
+        "visual_prompt": "A jarring, high-contrast, vertical shot of a grocery store aisle utterly bare, shelves completely empty. Focus on the desolate emptiness where fresh produce should be. Cinematic lighting, dramatic atmosphere, 8K detail, photorealistic.",
+        "twist_element": "The implied immediate threat being worse than starvation itself.",
+        "asset_type": "image"
+      },
+      {
+        "scene_number": 2,
+        "scene_type": "escalation",
+        "duration_seconds": 10,
+        "narration": "Roli warns: the world chokes. Without insects, 90% of waste decomposition stops. Disease spreads fast. Forests become silent graveyards. But that's not the twist. Your very oxygen supply is next.",
+        "visual_prompt": "Roli, the time-traveling rabbit scientist in a detailed steampunk outfit, standing in a desolate, decaying urban park. He points towards massive piles of un-decomposed organic waste and dead, skeletal trees. Vertical composition, dramatic lighting, 8K detail, photorealistic.",
+        "twist_element": "The unexpected threat to the global oxygen supply.",
+        "asset_type": "image"
+      },
+      {
+        "scene_number": 3,
+        "scene_type": "twist_and_loop",
+        "duration_seconds": 10,
+        "narration": "Actually, it's not oxygen directly. It's the silent collapse of 80% of all life. Birds, bats, frogs – they starve. The food web shatters. You're alone. Your plate just went empty.",
+        "visual_prompt": "A lonely, silent landscape shot from a low angle, emphasizing a vast, empty expanse under a heavy, grey sky. A single, desolate human figure (from behind, emphasizing solitude) stands dwarfed by the environment. Vertical composition, cinematic, 8K detail, photorealistic.",
+        "asset_type": "image"
+      }
+    ],
+    "_topic": "What would happen if all insects vanished from Earth?",
+    "_mode": "shorts",
+    "_generated_at": "2026-07-14T03:44:14.659112"
+  },
+  "expected_images": 3,
+  "image_file_ids": [],
+  "asset_kinds": [],
+  "prompts_sent_at": "2026-07-14T03:44:19.655435+00:00",
+  "last_reminder_at": "2026-07-14T03:44:19.655450+00:00"
+}
