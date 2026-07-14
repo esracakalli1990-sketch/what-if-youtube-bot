@@ -324,10 +324,28 @@ ADDITIONAL REQUIRED FIELDS (add these to the root JSON):
     scenario = None
     last_error = None
 
+    import time
+
+    # Gemini ücretsiz katmanı dakika başına istek (RPM) sınırlar. Sınıra
+    # takılınca pencere ~1 dakikada sıfırlanır; kısa backoff (2-4sn) aynı dolu
+    # pencerede kalıp 6 denemeyi de ~12sn'de tüketiyordu (kullanıcı canlıda tam
+    # bunu yaşadı: patladı, 1dk sonra elle deneyince çalıştı). Rate-limit
+    # hatalarında uzun backoff ile pencerenin sıfırlanmasını yakalıyoruz.
+    RATE_LIMIT_BACKOFF = [10, 20, 40]  # saniye (deneme 1, 2, 3...)
+    MAX_ATTEMPTS = 4
+
+    def _is_rate_limit(err) -> bool:
+        s = str(err).lower()
+        return any(k in s for k in (
+            "429", "quota", "rate limit", "rate_limit", "ratelimit",
+            "resource_exhausted", "resourceexhausted", "exhausted",
+            "too many requests",
+        ))
+
     for model_name, temp in models_to_try:
         console.print(f"  🤖 Model: [bold]{model_name}[/bold]")
 
-        for attempt in range(1, 4):  # 3 deneme
+        for attempt in range(1, MAX_ATTEMPTS + 1):
             try:
                 scenario = _call_gemini(
                     client=client,
@@ -340,23 +358,33 @@ ADDITIONAL REQUIRED FIELDS (add these to the root JSON):
             except json.JSONDecodeError as e:
                 last_error = e
                 logger.warning(
-                    "JSON parse hatası (model=%s, deneme=%d/3): %s",
-                    model_name, attempt, e
+                    "JSON parse hatası (model=%s, deneme=%d/%d): %s",
+                    model_name, attempt, MAX_ATTEMPTS, e
                 )
-                console.print(f"  [yellow]⚠ JSON parse hatası (deneme {attempt}/3)[/yellow]")
-                if attempt < 3:
-                    import time
+                console.print(f"  [yellow]⚠ JSON parse hatası (deneme {attempt}/{MAX_ATTEMPTS})[/yellow]")
+                if attempt < MAX_ATTEMPTS:
                     time.sleep(2 ** attempt)
             except Exception as e:
                 last_error = e
+                is_rl = _is_rate_limit(e)
+                # Rate-limit ise dakikalık pencere sıfırlansın diye uzun bekle;
+                # diğer geçici API hatalarında kısa backoff yeterli.
+                if is_rl:
+                    wait = RATE_LIMIT_BACKOFF[min(attempt - 1, len(RATE_LIMIT_BACKOFF) - 1)]
+                    label = "kota/rate-limit"
+                else:
+                    wait = 2 ** attempt
+                    label = "API"
                 logger.warning(
-                    "API hatası (model=%s, deneme=%d/3): %s",
-                    model_name, attempt, e
+                    "%s hatası (model=%s, deneme=%d/%d): %s",
+                    label, model_name, attempt, MAX_ATTEMPTS, e
                 )
-                console.print(f"  [yellow]⚠ API hatası (deneme {attempt}/3): {e}[/yellow]")
-                if attempt < 3:
-                    import time
-                    time.sleep(2 ** attempt)
+                console.print(
+                    f"  [yellow]⚠ {label} hatası (deneme {attempt}/{MAX_ATTEMPTS}) — "
+                    f"{wait}sn bekleniyor[/yellow]"
+                )
+                if attempt < MAX_ATTEMPTS:
+                    time.sleep(wait)
 
         if scenario:
             break
