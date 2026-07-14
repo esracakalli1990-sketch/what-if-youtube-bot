@@ -100,7 +100,13 @@ def run_pipeline(
 
     if not scenario:
         print_error("Pipeline durdu: Senaryo üretilemedi.")
-        notify_error(f"Senaryo üretimi ({topic})", "Gemini senaryo üretemedi — API anahtarını ve kotayı kontrol edin.")
+        notify_error(
+            f"Senaryo üretimi ({topic})",
+            "Senaryo üretilemedi — büyük olasılıkla geçici Gemini kota/rate-limit'i "
+            "(uzun backoff'a rağmen dakikalık pencere açılmadı). Konu kaybolmadı; "
+            "genelde birkaç dakika sonra yeniden denemek (/video, /short) yeterli. "
+            "Sürekli oluyorsa Gemini kotasını kontrol edin.",
+        )
         return
 
     scenes = scenario.get("scenes", [])
