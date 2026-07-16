@@ -65,6 +65,9 @@ jobs:
       - name: Bekleyen komutları işle
         run: python scripts/telegram_bot.py --poll
 
+      - name: Analitik anlık görüntüyü güncelle (sohbet için git köprüsü)
+        run: python scripts/analytics.py --snapshot || true
+
       - name: Durum dosyalarını commit'le
         if: always()
         run: |
@@ -72,7 +75,7 @@ jobs:
           git config user.email "actions@github.com"
           # Dosyalar tek tek eklenir: git add, listedeki TEK bir dosya yoksa
           # hiçbirini eklemeden ölür (bu hata durum dosyalarının kalıcılaşmasını engelliyordu)
-          for f in telegram_state.json topics.json output/uploads.json pending_production.json shorts_queue.json; do
+          for f in telegram_state.json topics.json output/uploads.json pending_production.json shorts_queue.json output/analytics_snapshot.json; do
             git add -f "$f" 2>/dev/null || true
           done
           if ! git diff --cached --quiet; then

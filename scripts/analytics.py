@@ -30,6 +30,10 @@ from scripts.youtube_uploader import (
 STATS_FILE = OUTPUT_DIR / "video_stats.json"
 STATS_MAX_AGE_HOURS = 6
 
+# Analitik anlık görüntü — bot çekip commit'ler, sohbette (Claude) git'ten okur.
+# Böylece "analitik verilerini incele" dendiğinde canlı veri yorumlanabilir.
+SNAPSHOT_FILE = OUTPUT_DIR / "analytics_snapshot.json"
+
 
 def _load_cached_stats() -> dict | None:
     """Taze cache varsa oku (STATS_MAX_AGE_HOURS'tan eski değilse)."""
@@ -382,6 +386,77 @@ def build_deep_report(days: int = 28) -> str:
 
 
 # ──────────────────────────────────────
+# Analitik anlık görüntü — git köprüsü (bot yazar, Claude sohbette okur)
+# ──────────────────────────────────────
+def build_snapshot(days: int = 28) -> dict:
+    """
+    Yapısal analitik anlık görüntüsü üret.
+
+    Bot bunu output/analytics_snapshot.json'a yazıp commit'ler; sohbette
+    "analitik verilerini incele" dendiğinde git'ten okunup yorumlanır.
+    Yetki/scope yoksa `error` alanı dolar (dosya yine yazılır).
+    """
+    snap = {
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "period_days": days,
+        "error": None,
+        "channel": {},
+        "videos": [],
+    }
+
+    service = _analytics_service()
+    if service is None:
+        snap["error"] = ("yt-analytics.readonly yetkisi yok — "
+                         "python scripts/youtube_uploader.py --auth ile yeniden "
+                         "yetkilendirip YOUTUBE_TOKEN_B64 secret'ını güncelleyin.")
+        return snap
+
+    try:
+        summary = channel_summary(service, days=days)
+        vids = top_videos_analytics(service, days=days, limit=20)
+    except Exception as e:
+        snap["error"] = str(e)[:300]
+        logger.warning("Snapshot analitik hatası: %s", e)
+        return snap
+
+    id_map = {u.get("video_id"): u for u in load_uploads()}
+    snap["channel"] = {
+        "views": int(_num(summary.get("views"))),
+        "watch_minutes": round(_num(summary.get("estimatedMinutesWatched")), 1),
+        "avg_view_duration_sec": round(_num(summary.get("averageViewDuration")), 1),
+        "avg_view_percentage": round(_num(summary.get("averageViewPercentage")), 1),
+        "subscribers_gained": int(_num(summary.get("subscribersGained"))),
+        "subscribers_lost": int(_num(summary.get("subscribersLost"))),
+        "likes": int(_num(summary.get("likes"))),
+        "comments": int(_num(summary.get("comments"))),
+    }
+    for v in vids:
+        vid = v.get("video", "")
+        rec = id_map.get(vid, {})
+        snap["videos"].append({
+            "video_id": vid,
+            "title": rec.get("title", ""),
+            "kind": rec.get("kind", ""),
+            "views": int(_num(v.get("views"))),
+            "avg_view_percentage": round(_num(v.get("averageViewPercentage")), 1),
+            "avg_view_duration_sec": round(_num(v.get("averageViewDuration")), 1),
+            "watch_minutes": round(_num(v.get("estimatedMinutesWatched")), 1),
+        })
+    return snap
+
+
+def write_snapshot(days: int = 28) -> Path:
+    """Anlık görüntüyü SNAPSHOT_FILE'a yaz (bot her çalıştığında)."""
+    snap = build_snapshot(days=days)
+    SNAPSHOT_FILE.parent.mkdir(parents=True, exist_ok=True)
+    with open(SNAPSHOT_FILE, "w", encoding="utf-8") as f:
+        json.dump(snap, f, ensure_ascii=False, indent=2)
+    logger.info("Analitik anlık görüntü yazıldı: %s (error=%s)",
+                SNAPSHOT_FILE, snap.get("error"))
+    return SNAPSHOT_FILE
+
+
+# ──────────────────────────────────────
 # Doğrudan çalıştırma
 # ──────────────────────────────────────
 if __name__ == "__main__":
@@ -395,6 +470,8 @@ if __name__ == "__main__":
                         help="Derin analitik raporu (retention/izlenme süresi/abone)")
     parser.add_argument("--deep-send", action="store_true",
                         help="Derin analitik raporunu Telegram'a gönder")
+    parser.add_argument("--snapshot", action="store_true",
+                        help="Yapısal analitik anlık görüntüsünü JSON'a yaz (git köprüsü)")
     parser.add_argument("--days", type=int, default=28, help="Derin rapor dönemi (gün)")
 
     args = parser.parse_args()
@@ -413,5 +490,8 @@ if __name__ == "__main__":
         if args.deep_send:
             from scripts.notifier import send_message
             send_message(text)
+    elif args.snapshot:
+        path = write_snapshot(days=args.days)
+        console.print(f"  📸 Analitik anlık görüntü: {path}")
     elif not args.refresh:
         parser.print_help()

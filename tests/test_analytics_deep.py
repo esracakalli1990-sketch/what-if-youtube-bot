@@ -111,3 +111,50 @@ class TestBuildDeepReport:
 
         out = analytics.build_deep_report()
         assert "retention" in out.lower()
+
+
+class TestSnapshot:
+    def test_no_service_writes_error_field(self, monkeypatch):
+        monkeypatch.setattr(analytics, "_analytics_service", lambda: None)
+        snap = analytics.build_snapshot(days=14)
+        assert snap["error"] and "yt-analytics" in snap["error"]
+        assert snap["channel"] == {}
+        assert snap["videos"] == []
+        assert snap["period_days"] == 14
+        assert "generated_at" in snap
+
+    def test_structured_snapshot(self, monkeypatch):
+        monkeypatch.setattr(analytics, "_analytics_service", lambda: object())
+        monkeypatch.setattr(analytics, "channel_summary", lambda *a, **k: {
+            "views": 200, "estimatedMinutesWatched": 150,
+            "averageViewDuration": 50, "averageViewPercentage": 48.7,
+            "subscribersGained": 6, "subscribersLost": 2, "likes": 9,
+            "comments": 3,
+        })
+        monkeypatch.setattr(analytics, "top_videos_analytics", lambda *a, **k: [
+            {"video": "vid1", "views": 120, "averageViewPercentage": 60.2,
+             "averageViewDuration": 55, "estimatedMinutesWatched": 100},
+        ])
+        monkeypatch.setattr(analytics, "load_uploads", lambda: [
+            {"video_id": "vid1", "title": "MOON GONE", "kind": "short"},
+        ])
+
+        snap = analytics.build_snapshot(days=28)
+        assert snap["error"] is None
+        assert snap["channel"]["views"] == 200
+        assert snap["channel"]["avg_view_percentage"] == 48.7
+        assert snap["channel"]["subscribers_gained"] == 6
+        assert len(snap["videos"]) == 1
+        v = snap["videos"][0]
+        assert v["title"] == "MOON GONE" and v["kind"] == "short"
+        assert v["views"] == 120 and v["avg_view_percentage"] == 60.2
+
+    def test_write_snapshot_creates_file(self, monkeypatch, tmp_path):
+        monkeypatch.setattr(analytics, "SNAPSHOT_FILE", tmp_path / "snap.json")
+        monkeypatch.setattr(analytics, "_analytics_service", lambda: None)
+        path = analytics.write_snapshot(days=7)
+        assert path.exists()
+        import json
+        data = json.loads(path.read_text(encoding="utf-8"))
+        assert data["period_days"] == 7
+        assert data["error"]
