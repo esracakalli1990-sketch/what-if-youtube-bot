@@ -51,11 +51,13 @@ except ImportError:
 # OAuth konfigürasyon
 CLIENT_SECRETS_FILE = PROJECT_ROOT / "client_secrets.json"
 TOKEN_FILE = PROJECT_ROOT / "youtube_token.pickle"
-# NOT: force-ssl scope'u yorum atabilmek için gerekli. Scope değiştiği için
-# mevcut token'ı silip yeniden yetkilendirme gerekir: python scripts/youtube_uploader.py --auth
+# NOT: force-ssl scope'u yorum atabilmek için, yt-analytics.readonly ise
+# /analitik raporu için gerekli. Scope değiştiği için mevcut token'ı silip
+# yeniden yetkilendirme gerekir: python scripts/youtube_uploader.py --auth
 SCOPES = ["https://www.googleapis.com/auth/youtube.upload",
           "https://www.googleapis.com/auth/youtube",
-          "https://www.googleapis.com/auth/youtube.force-ssl"]
+          "https://www.googleapis.com/auth/youtube.force-ssl",
+          "https://www.googleapis.com/auth/yt-analytics.readonly"]
 
 # Yükleme kaydı — analytics geri besleme döngüsünün veri kaynağı
 UPLOADS_FILE = OUTPUT_DIR / "uploads.json"
