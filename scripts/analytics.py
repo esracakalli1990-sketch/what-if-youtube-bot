@@ -12,7 +12,7 @@ Kullanım:
 
 import sys
 import json
-from datetime import datetime, timezone
+from datetime import datetime, timezone, date, timedelta
 from pathlib import Path
 
 # Doğrudan çalıştırma desteği: python scripts/analytics.py
@@ -29,6 +29,10 @@ from scripts.youtube_uploader import (
 # İstatistik cache dosyası — API kotasını korumak için
 STATS_FILE = OUTPUT_DIR / "video_stats.json"
 STATS_MAX_AGE_HOURS = 6
+
+# Analitik anlık görüntü — bot çekip commit'ler, sohbette (Claude) git'ten okur.
+# Böylece "analitik verilerini incele" dendiğinde canlı veri yorumlanabilir.
+SNAPSHOT_FILE = OUTPUT_DIR / "analytics_snapshot.json"
 
 
 def _load_cached_stats() -> dict | None:
@@ -217,6 +221,242 @@ def print_report():
 
 
 # ──────────────────────────────────────
+# Derin analitik — YouTube Analytics API (retention, izlenme süresi, abone)
+# Data API'nin veremediği metrikler; yt-analytics.readonly scope'u gerektirir.
+# ──────────────────────────────────────
+def _analytics_service():
+    """youtubeAnalytics v2 servisi (yt-analytics.readonly scope gerektirir)."""
+    if not GOOGLE_API_AVAILABLE:
+        return None
+    try:
+        credentials = authenticate()
+    except Exception as e:  # pragma: no cover - yetki akışı
+        logger.warning("Analytics yetkilendirme hatası: %s", e)
+        return None
+    if not credentials:
+        return None
+    from googleapiclient.discovery import build
+    return build("youtubeAnalytics", "v2", credentials=credentials)
+
+
+def _analytics_query(service, *, start, end, metrics,
+                     dimensions=None, sort=None, max_results=None):
+    """youtubeAnalytics.reports().query çağrısını sar."""
+    params = {
+        "ids": "channel==MINE",
+        "startDate": start,
+        "endDate": end,
+        "metrics": metrics,
+    }
+    if dimensions:
+        params["dimensions"] = dimensions
+    if sort:
+        params["sort"] = sort
+    if max_results:
+        params["maxResults"] = max_results
+    return service.reports().query(**params).execute()
+
+
+def channel_summary(service, days: int = 28) -> dict:
+    """Kanal geneli toplamlar (son `days` gün)."""
+    end = date.today()
+    start = end - timedelta(days=days)
+    metrics = ("views,estimatedMinutesWatched,averageViewDuration,"
+               "averageViewPercentage,subscribersGained,subscribersLost,"
+               "likes,comments")
+    resp = _analytics_query(service, start=start.isoformat(),
+                            end=end.isoformat(), metrics=metrics)
+    headers = [h["name"] for h in resp.get("columnHeaders", [])]
+    rows = resp.get("rows", [])
+    if not rows:
+        return {h: 0 for h in headers}
+    return dict(zip(headers, rows[0]))
+
+
+def top_videos_analytics(service, days: int = 28, limit: int = 8) -> list[dict]:
+    """En çok izlenen videolar + retention (son `days` gün)."""
+    end = date.today()
+    start = end - timedelta(days=days)
+    metrics = ("views,estimatedMinutesWatched,averageViewDuration,"
+               "averageViewPercentage")
+    resp = _analytics_query(service, start=start.isoformat(),
+                            end=end.isoformat(), metrics=metrics,
+                            dimensions="video", sort="-views",
+                            max_results=limit)
+    headers = [h["name"] for h in resp.get("columnHeaders", [])]
+    return [dict(zip(headers, row)) for row in resp.get("rows", [])]
+
+
+def _fmt_duration(seconds) -> str:
+    """Saniyeyi d:ss biçimine çevir."""
+    try:
+        s = int(round(float(seconds)))
+    except (TypeError, ValueError):
+        return "0:00"
+    return f"{s // 60}:{s % 60:02d}"
+
+
+def _num(v) -> float:
+    try:
+        return float(v or 0)
+    except (TypeError, ValueError):
+        return 0.0
+
+
+def _reauth_hint() -> str:
+    """Analitik scope'u eksikse tek seferlik kurulum talimatı."""
+    return (
+        "📊 <b>Derin analitik için ek yetki gerekli</b>\n\n"
+        "Mevcut YouTube token'ı analitik okuma izni (yt-analytics.readonly) "
+        "içermiyor. Tek seferlik kurulum:\n\n"
+        "1️⃣ Lokal makinede: <code>python scripts/youtube_uploader.py --auth</code>\n"
+        "2️⃣ Açılan tarayıcıda izin ver (analitik dahil)\n"
+        "3️⃣ <code>base64 -w0 youtube_token.pickle</code> çıktısını GitHub'da "
+        "<b>YOUTUBE_TOKEN_B64</b> secret'ına yapıştır\n\n"
+        "Sonra /analitik yeniden çalışır. (Bu arada /rapor temel izlenme "
+        "sayılarını yetki olmadan da gösterir.)"
+    )
+
+
+def build_deep_report(days: int = 28) -> str:
+    """Kanal + video derin analitiğini çekip Telegram için HTML metin döndür."""
+    service = _analytics_service()
+    if service is None:
+        return _reauth_hint()
+
+    try:
+        summary = channel_summary(service, days=days)
+        videos = top_videos_analytics(service, days=days, limit=8)
+    except Exception as e:
+        msg = str(e)
+        logger.warning("Derin analitik sorgu hatası: %s", msg)
+        low = msg.lower()
+        if any(k in low for k in ("insufficient", "scope", "403",
+                                  "forbidden", "permission")):
+            return _reauth_hint()
+        return f"📊 Analitik çekilemedi: <code>{msg[:200]}</code>"
+
+    id_map = {u.get("video_id"): u for u in load_uploads()}
+
+    views = int(_num(summary.get("views")))
+    watch_min = _num(summary.get("estimatedMinutesWatched"))
+    avg_dur = summary.get("averageViewDuration", 0)
+    avg_pct = _num(summary.get("averageViewPercentage"))
+    subs_gained = int(_num(summary.get("subscribersGained")))
+    subs_lost = int(_num(summary.get("subscribersLost")))
+    likes = int(_num(summary.get("likes")))
+
+    lines = [
+        f"📊 <b>Derin Analitik — son {days} gün</b>",
+        "",
+        f"👁 İzlenme: <b>{views}</b>",
+        f"⏱ İzlenme süresi: <b>{watch_min:.0f} dk</b> ({watch_min / 60:.1f} saat)",
+        f"📈 Ort. izlenme: {_fmt_duration(avg_dur)} (%{avg_pct:.0f} tamamlanma)",
+        f"➕ Abone: +{subs_gained} / −{subs_lost} "
+        f"(net {subs_gained - subs_lost:+d})",
+        f"👍 Beğeni: {likes}",
+        "",
+        f"🎬 <b>En çok izlenen ({len(videos)}):</b>",
+    ]
+
+    if not videos:
+        lines.append("— Bu dönemde izlenme verisi yok.")
+    for v in videos:
+        vid = v.get("video", "")
+        rec = id_map.get(vid, {})
+        title = (rec.get("title") or vid)[:42]
+        icon = "📱" if rec.get("kind") == "short" else "🎞"
+        vv = int(_num(v.get("views")))
+        vpct = _num(v.get("averageViewPercentage"))
+        lines.append(f"{icon} {vv} izlenme · %{vpct:.0f} tamamlanma — {title}")
+
+    # Kısa otomatik nabız — derin yorum sohbette yapılır
+    lines.append("")
+    if views == 0:
+        lines.append("💡 Bu dönemde kanal dağıtım almadı: yeni-kanal soğuk "
+                     "başlangıcı. Kaldıraç = tamamlanma oranı + hacim.")
+    elif avg_pct and avg_pct < 30:
+        lines.append("💡 Tamamlanma düşük. Asıl darboğaz retention — "
+                     "ilk 1-3 saniye kancası kritik.")
+    else:
+        lines.append("💡 Dağıtım var. Tamamlanma oranı yüksek kalan "
+                     "videoları çoğaltmaya odaklan.")
+
+    return "\n".join(lines)
+
+
+# ──────────────────────────────────────
+# Analitik anlık görüntü — git köprüsü (bot yazar, Claude sohbette okur)
+# ──────────────────────────────────────
+def build_snapshot(days: int = 28) -> dict:
+    """
+    Yapısal analitik anlık görüntüsü üret.
+
+    Bot bunu output/analytics_snapshot.json'a yazıp commit'ler; sohbette
+    "analitik verilerini incele" dendiğinde git'ten okunup yorumlanır.
+    Yetki/scope yoksa `error` alanı dolar (dosya yine yazılır).
+    """
+    snap = {
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "period_days": days,
+        "error": None,
+        "channel": {},
+        "videos": [],
+    }
+
+    service = _analytics_service()
+    if service is None:
+        snap["error"] = ("yt-analytics.readonly yetkisi yok — "
+                         "python scripts/youtube_uploader.py --auth ile yeniden "
+                         "yetkilendirip YOUTUBE_TOKEN_B64 secret'ını güncelleyin.")
+        return snap
+
+    try:
+        summary = channel_summary(service, days=days)
+        vids = top_videos_analytics(service, days=days, limit=20)
+    except Exception as e:
+        snap["error"] = str(e)[:300]
+        logger.warning("Snapshot analitik hatası: %s", e)
+        return snap
+
+    id_map = {u.get("video_id"): u for u in load_uploads()}
+    snap["channel"] = {
+        "views": int(_num(summary.get("views"))),
+        "watch_minutes": round(_num(summary.get("estimatedMinutesWatched")), 1),
+        "avg_view_duration_sec": round(_num(summary.get("averageViewDuration")), 1),
+        "avg_view_percentage": round(_num(summary.get("averageViewPercentage")), 1),
+        "subscribers_gained": int(_num(summary.get("subscribersGained"))),
+        "subscribers_lost": int(_num(summary.get("subscribersLost"))),
+        "likes": int(_num(summary.get("likes"))),
+        "comments": int(_num(summary.get("comments"))),
+    }
+    for v in vids:
+        vid = v.get("video", "")
+        rec = id_map.get(vid, {})
+        snap["videos"].append({
+            "video_id": vid,
+            "title": rec.get("title", ""),
+            "kind": rec.get("kind", ""),
+            "views": int(_num(v.get("views"))),
+            "avg_view_percentage": round(_num(v.get("averageViewPercentage")), 1),
+            "avg_view_duration_sec": round(_num(v.get("averageViewDuration")), 1),
+            "watch_minutes": round(_num(v.get("estimatedMinutesWatched")), 1),
+        })
+    return snap
+
+
+def write_snapshot(days: int = 28) -> Path:
+    """Anlık görüntüyü SNAPSHOT_FILE'a yaz (bot her çalıştığında)."""
+    snap = build_snapshot(days=days)
+    SNAPSHOT_FILE.parent.mkdir(parents=True, exist_ok=True)
+    with open(SNAPSHOT_FILE, "w", encoding="utf-8") as f:
+        json.dump(snap, f, ensure_ascii=False, indent=2)
+    logger.info("Analitik anlık görüntü yazıldı: %s (error=%s)",
+                SNAPSHOT_FILE, snap.get("error"))
+    return SNAPSHOT_FILE
+
+
+# ──────────────────────────────────────
 # Doğrudan çalıştırma
 # ──────────────────────────────────────
 if __name__ == "__main__":
@@ -226,6 +466,13 @@ if __name__ == "__main__":
     parser.add_argument("--report", action="store_true", help="Performans tablosu göster")
     parser.add_argument("--top", type=int, metavar="N", help="En iyi N videoyu listele")
     parser.add_argument("--refresh", action="store_true", help="Cache'i atla, taze veri çek")
+    parser.add_argument("--deep", action="store_true",
+                        help="Derin analitik raporu (retention/izlenme süresi/abone)")
+    parser.add_argument("--deep-send", action="store_true",
+                        help="Derin analitik raporunu Telegram'a gönder")
+    parser.add_argument("--snapshot", action="store_true",
+                        help="Yapısal analitik anlık görüntüsünü JSON'a yaz (git köprüsü)")
+    parser.add_argument("--days", type=int, default=28, help="Derin rapor dönemi (gün)")
 
     args = parser.parse_args()
 
@@ -237,5 +484,14 @@ if __name__ == "__main__":
     elif args.top:
         for i, s in enumerate(get_top_performers(args.top), 1):
             console.print(f"  {i}. {s['title']} — {s['views']:,} izlenme")
+    elif args.deep or args.deep_send:
+        text = build_deep_report(days=args.days)
+        print(text)
+        if args.deep_send:
+            from scripts.notifier import send_message
+            send_message(text)
+    elif args.snapshot:
+        path = write_snapshot(days=args.days)
+        console.print(f"  📸 Analitik anlık görüntü: {path}")
     elif not args.refresh:
         parser.print_help()

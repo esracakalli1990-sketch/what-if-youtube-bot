@@ -41,7 +41,9 @@ STATE_FILE = PROJECT_ROOT / "telegram_state.json"
 HELP_TEXT = """🐰 <b>What-If Bot Komutları</b>
 
 /durum — konu havuzu + son yüklemeler + bekleyen görseller
-/rapor — kanal performans raporu
+/rapor — video başına izlenme/beğeni/yorum (yetki gerekmez)
+/analitik — derin analitik: retention, izlenme süresi, abone (son 28 gün)
+/analitik &lt;gün&gt; — bu kadar günlük dönem (ör. /analitik 7)
 /konular — bekleyen konular
 /konu &lt;metin&gt; — havuza yeni konu ekle
 /short — 1 Short'u kuyruğa ekle
@@ -293,6 +295,11 @@ def handle_command(text: str) -> str:
         return _cmd_durum()
     if command == "/rapor":
         return _cmd_rapor()
+    if command == "/analitik":
+        from scripts.analytics import build_deep_report
+        days = int(arg.strip()) if arg.strip().isdigit() else 28
+        days = max(1, min(days, 365))
+        return build_deep_report(days=days)
     if command == "/konular":
         return _cmd_konular()
     if command == "/konu":
