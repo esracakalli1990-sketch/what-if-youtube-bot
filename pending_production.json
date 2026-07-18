@@ -65,8 +65,16 @@
     "_generated_at": "2026-07-16T23:29:16.697817"
   },
   "expected_images": 3,
-  "image_file_ids": [],
-  "asset_kinds": [],
+  "image_file_ids": [
+    "AgACAgQAAxkBAAPualvWqDHpfi6swFuHHmTVs47s_asAArgOaxufK-FSymkdJWuRBhIBAAMCAAN5AAM9BA",
+    "AgACAgQAAxkBAAPvalvW1oQJpz6XoesF8wTw6hVaDYsAArkOaxufK-FSdEv__Wzx4VQBAAMCAAN5AAM9BA",
+    "AgACAgQAAxkBAAPwalvXFe8nC1WpKWwrBKfXQj-EMN8AAroOaxufK-FS-6rYtftom0QBAAMCAAN5AAM9BA"
+  ],
+  "asset_kinds": [
+    "photo",
+    "photo",
+    "photo"
+  ],
   "prompts_sent_at": "2026-07-16T23:29:22.454539+00:00",
   "last_reminder_at": "2026-07-18T00:53:09.879599+00:00"
 }
