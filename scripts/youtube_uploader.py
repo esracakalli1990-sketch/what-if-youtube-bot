@@ -472,6 +472,38 @@ def _upload_thumbnail(youtube, video_id: str, thumbnail_path: str):
         logger.warning("Thumbnail yükleme hatası: %s", e)
 
 
+# Kişisel-bahisli, cevaplaması kolay etkileşim soruları — "yeni konu öner" gibi
+# açık isteklerden çok daha fazla yorum çeker (analitik: 0 yorum → sinyal boşluğu).
+_ENGAGEMENT_QUESTIONS = [
+    "Be honest — how long would YOU last? 👇",
+    "Would you rather know it's coming... or not? 👇",
+    "On a scale of 1-10, how doomed are we? 👇",
+    "Quick — what's your FIRST move? 👇",
+    "Could you survive this? Yes or no 👇",
+    "Tag someone who wouldn't make it 😅👇",
+]
+
+
+def _build_first_comment(scenario: dict | None, video_id: str) -> str:
+    """
+    İlk yorum metnini üret: senaryonun şok tohumu + kişisel etkileşim sorusu.
+
+    Soru video_id'ye göre deterministik seçilir (videolar arası çeşitlilik,
+    aynı video için sabit).
+    """
+    twist = None
+    if scenario:
+        scenes = scenario.get("scenes", [])
+        if scenes:
+            twist = (scenes[-1].get("twist_element") or "").strip() or None
+
+    idx = sum(bytearray(video_id.encode("utf-8"))) % len(_ENGAGEMENT_QUESTIONS)
+    question = _ENGAGEMENT_QUESTIONS[idx]
+
+    lead = f"🐰 {twist}\n\n" if twist else "🐰 "
+    return f"{lead}{question}"
+
+
 def _post_first_comment(youtube, video_id: str, scenario: dict | None = None):
     """
     Videoya etkileşim odaklı ilk yorumu at.
@@ -479,16 +511,7 @@ def _post_first_comment(youtube, video_id: str, scenario: dict | None = None):
     İlk yorum algoritma için erken etkileşim sinyali üretir; kanal sahibi
     YouTube Studio'dan bu yorumu sabitleyebilir.
     """
-    question = None
-    if scenario:
-        # Senaryonun outro'daki merak tohumunu kullanmayı dene
-        scenes = scenario.get("scenes", [])
-        if scenes:
-            question = scenes[-1].get("twist_element")
-
-    comment_text = (
-        f"🐰 {question}\n\n" if question else "🐰 "
-    ) + "What \"What If\" scenario should we explore next? Drop it below 👇"
+    comment_text = _build_first_comment(scenario, video_id)
 
     try:
         youtube.commentThreads().insert(

@@ -86,73 +86,71 @@ def _generate_single_audio(
     narration: str,
     audio_path: Path,
     max_retries: int = 3,
+    force_engine: str | None = None,
 ) -> dict | None:
     """
     Tek bir sahne için seslendirme üret (retry mekanizmalı).
 
+    Args:
+        force_engine: None → otomatik (ElevenLabs, olmazsa edge-tts).
+            "elevenlabs" → ElevenLabs dene (olmazsa son çare edge).
+            "edge" → doğrudan edge-tts (ElevenLabs hiç denenmez).
+            Marka sesi tutarlılığı için: ilk sahne motoru seçer, gerisi ona
+            sabitlenir (tek videoda ses değişmesin).
+
     Returns:
-        dict | None: Başarılı ise ses bilgisi, değilse None
+        dict | None: {audio_path, duration_seconds, engine} veya None
     """
-    for attempt in range(1, max_retries + 1):
-        try:
-            # ElevenLabs TTS çağrısı
-            audio_generator = client.text_to_speech.convert(
-                voice_id=voice_id,
-                text=narration,
-                model_id="eleven_multilingual_v2",
-                output_format="mp3_44100_128",
-            )
+    def _result(engine: str) -> dict:
+        duration_seconds = MP3(str(audio_path)).info.length
+        logger.info("Ses üretildi (%s): %s (%.1fs)", engine, audio_path.name, duration_seconds)
+        return {
+            "audio_path": str(audio_path),
+            "duration_seconds": round(duration_seconds, 2),
+            "engine": engine,
+        }
 
-            # Ses dosyasını kaydet
-            with open(audio_path, "wb") as f:
-                for chunk in audio_generator:
-                    f.write(chunk)
+    # ElevenLabs — force_engine "edge" değilse denenir
+    if force_engine in (None, "elevenlabs"):
+        for attempt in range(1, max_retries + 1):
+            try:
+                audio_generator = client.text_to_speech.convert(
+                    voice_id=voice_id,
+                    text=narration,
+                    model_id="eleven_multilingual_v2",
+                    output_format="mp3_44100_128",
+                )
+                with open(audio_path, "wb") as f:
+                    for chunk in audio_generator:
+                        f.write(chunk)
 
-            # Bütünlük kontrolü
-            if not _validate_audio_file(audio_path):
-                raise ValueError(f"Ses dosyası bütünlük kontrolünden geçemedi: {audio_path}")
+                if not _validate_audio_file(audio_path):
+                    raise ValueError(f"Ses dosyası bütünlük kontrolünden geçemedi: {audio_path}")
 
-            # Süre bilgisini al
-            audio_info = MP3(str(audio_path))
-            duration_seconds = audio_info.info.length
+                return _result("elevenlabs")
 
-            logger.info("Ses üretildi: %s (%.1fs)", audio_path.name, duration_seconds)
-            return {
-                "audio_path": str(audio_path),
-                "duration_seconds": round(duration_seconds, 2),
-            }
+            except Exception as e:
+                logger.warning(
+                    "Ses üretim hatası (deneme %d/%d): %s — %s",
+                    attempt, max_retries, audio_path.name, e
+                )
+                if audio_path.exists():
+                    audio_path.unlink()
+                if attempt < max_retries:
+                    delay = 2 ** attempt
+                    console.print(f"  [yellow]⚠ Deneme {attempt}/{max_retries} başarısız. "
+                                  f"{delay}s bekleniyor...[/yellow]")
+                    time.sleep(delay)
+                else:
+                    logger.warning("ElevenLabs %d denemeden sonra başarısız: %s",
+                                   max_retries, audio_path.name)
 
-        except Exception as e:
-            logger.warning(
-                "Ses üretim hatası (deneme %d/%d): %s — %s",
-                attempt, max_retries, audio_path.name, e
-            )
-
-            # Bozuk dosyayı temizle
-            if audio_path.exists():
-                audio_path.unlink()
-
-            if attempt < max_retries:
-                delay = 2 ** attempt
-                console.print(f"  [yellow]⚠ Deneme {attempt}/{max_retries} başarısız. "
-                              f"{delay}s bekleniyor...[/yellow]")
-                time.sleep(delay)
-            else:
-                logger.warning("ElevenLabs %d denemeden sonra başarısız: %s",
-                             max_retries, audio_path.name)
-                
-    # Fallback: edge-tts
-    logger.info("ElevenLabs başarısız, edge-tts (ücretsiz) deneniyor: %s", audio_path.name)
-    console.print("  🔄 edge-tts (ücretsiz) ile deneniyor...")
+    # edge-tts — otomatik/edge modunda birincil, ElevenLabs takıldıysa son çare
+    logger.info("edge-tts (ücretsiz) ile üretiliyor: %s", audio_path.name)
+    console.print("  🔄 edge-tts (ücretsiz) ile üretiliyor...")
     if _generate_with_edge_tts(narration, audio_path):
         if _validate_audio_file(audio_path):
-            audio_info = MP3(str(audio_path))
-            duration_seconds = audio_info.info.length
-            logger.info("Ses üretildi (edge-tts): %s (%.1fs)", audio_path.name, duration_seconds)
-            return {
-                "audio_path": str(audio_path),
-                "duration_seconds": round(duration_seconds, 2),
-            }
+            return _result("edge")
 
     logger.error("Tüm ses üretim yöntemleri başarısız oldu: %s", audio_path.name)
     return None
@@ -199,6 +197,11 @@ def generate_audio(scenes: list[dict]) -> list[dict]:
     print_step(2, f"{total_scenes} sahne için seslendirme üretiliyor...")
     logger.info("Seslendirme başlıyor: %d sahne", total_scenes)
 
+    # Marka sesi tutarlılığı: ilk başarılı sahne motoru belirler, gerisi ona
+    # sabitlenir. Böylece kota bittiğinde tüm video baştan edge-tts olur (tek
+    # ses), yarısı ElevenLabs yarısı edge-tts karışık çıkmaz.
+    chosen_engine = None
+
     for i, scene in enumerate(scenes):
         scene_num = scene.get("scene_number", i + 1)
         narration = scene.get("narration", "")
@@ -230,9 +233,13 @@ def generate_audio(scenes: list[dict]) -> list[dict]:
             voice_id=voice_id,
             narration=narration,
             audio_path=audio_path,
+            force_engine=chosen_engine,
         )
 
         if result:
+            # İlk başarılı sahnenin motorunu tüm videoya kilitle
+            if chosen_engine is None:
+                chosen_engine = result.get("engine")
             result["scene_number"] = scene_num
             audio_results.append(result)
             console.print(f"[green]✓[/green] ({result['duration_seconds']:.1f}s)")
@@ -252,6 +259,10 @@ def generate_audio(scenes: list[dict]) -> list[dict]:
         print_success(f"Seslendirme tamamlandı! ({len(audio_results)}/{total_scenes} sahne)")
         console.print(f"  ⏱️  Toplam ses süresi: [bold]{total_duration:.1f}[/bold] saniye "
                       f"({total_duration / 60:.1f} dakika)")
+        if chosen_engine == "edge":
+            print_warning("Bu video ücretsiz edge-tts sesiyle üretildi (ElevenLabs "
+                          "erişilemedi). Marka sesi için ElevenLabs kota/anahtarını kontrol edin.")
+            logger.warning("Video tamamen edge-tts ile üretildi (ElevenLabs kullanılamadı).")
 
     if failed_scenes:
         print_warning(f"Başarısız sahneler: {failed_scenes}")

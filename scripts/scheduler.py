@@ -260,23 +260,31 @@ def refill_topics(count: int = 10) -> int:
     existing_block = "\n".join(f"- {t}" for t in existing[-60:])
 
     system_prompt = (
-        "You are a YouTube growth strategist for a science channel that makes "
-        "\"What If\" thought-experiment videos. You know exactly which hypothetical "
-        "scenarios trigger mass curiosity: personal stakes, apocalyptic scale, "
-        "counterintuitive physics, body horror, time, money, space. "
+        "You are a YouTube growth strategist for a Shorts-first \"What If\" science "
+        "channel. Our DATA shows the winning pattern clearly: the videos that break "
+        "out are EXISTENTIAL + IMMEDIATE + PERSONAL — a sudden catastrophe that "
+        "happens to the viewer's own body/city RIGHT NOW and could kill them in "
+        "minutes (e.g. 'the Sun just went out', 'gravity doubled', 'all ice melts "
+        "instantly'). These crush topics that are abstract, slow, or far away. "
         "Output ONLY a valid JSON array of topic strings, no extra text."
     )
 
-    user_prompt = f"""Generate exactly {count} NEW "What If" video topics with maximum viral potential.
+    user_prompt = f"""Generate exactly {count} NEW "What If" video topics engineered for our PROVEN winning pattern.
+
+WINNING PATTERN (prioritize this — it's what actually performed):
+- EXISTENTIAL + SUDDEN: a catastrophe that strikes without warning, NOW.
+- PERSONAL DEATH STAKES: it threatens the viewer's own body/survival ("you", minutes to live).
+- INSTANTLY PICTURABLE: the shock is visible in the first second (a viewer sees it before they read it).
+- Prefer: sky/sun/gravity/oxygen/time/temperature/the human body suddenly breaking.
+- AVOID: slow, abstract, economic, or "someday" scenarios — they underperform.
 
 Rules:
 - Each topic starts with "What would happen if" or "What if"
-- Concrete, visual, high-stakes scenarios (a viewer must instantly picture it)
-- Mix scales: personal body, city, planet, universe
+- Keep ~60% at personal/planetary survival scale; the rest can stretch to cosmic
 - NO duplicates of these existing topics:
 {existing_block}
 {performance_hint}
-Output format: JSON array of strings only. Example: ["What would happen if ...", ...]"""
+Output format: JSON array of strings only. Example: ["What would happen if the Sun suddenly went out?", ...]"""
 
     topics_json = None
     for model_name in ("gemini-2.5-flash", "gemini-2.0-flash"):
