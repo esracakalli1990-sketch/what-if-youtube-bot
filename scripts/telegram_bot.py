@@ -54,6 +54,7 @@ HELP_TEXT = """🐰 <b>What-If Bot Komutları</b>
 /video — hemen 1 uzun video üret (havuzdan)
 /video &lt;konu&gt; — bu konudan uzun video üret
 /iptal — görsel bekleyen üretimi iptal et
+/devam — yükleme hatasıyla duraklatılan üretimi sürdür
 /yardim — bu liste
 
 Kaç Short istersen kuyruğa at; bot boştaysa hemen başlar, değilse sırayla
@@ -313,6 +314,9 @@ def handle_command(text: str) -> str:
         if cancel_pending():
             return "🗑 Görsel bekleyen üretim iptal edildi. Konu havuzda kaldı, istediğinizde tekrar üretebilirsiniz."
         return "İptal edilecek bekleyen üretim yok."
+    if command == "/devam":
+        from scripts.manual_images import resume_pending
+        return resume_pending()
     if command == "/kuyruk":
         from scripts import shorts_queue
         n = shorts_queue.length()
