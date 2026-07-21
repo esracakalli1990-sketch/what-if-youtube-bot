@@ -38,6 +38,7 @@ def run_pipeline(
     mode: str = "long",
     privacy: str = "private",
     publish_at=None,
+    notify_on_upload_fail: bool = True,
 ):
     """
     Tam video üretim pipeline'ını çalıştır.
@@ -253,11 +254,15 @@ def run_pipeline(
 
         # Telegram bildirimi
         if upload_failed:
-            notify_error(
-                f"YouTube yükleme ({topic})",
-                "Video başarıyla üretildi ama YouTube'a yüklenemedi (loglara bakın). "
-                "Konu 'tamamlandı' sayılmadı — tekrar denenebilir.",
-            )
+            # notify_on_upload_fail=False iken bildirimi çağıran yönetir
+            # (manuel akış: complete_production döngü-kırıcı mesajını atar,
+            # böylece her saat tekrarlanan spam yerine tek net uyarı gider).
+            if notify_on_upload_fail:
+                notify_error(
+                    f"YouTube yükleme ({topic})",
+                    "Video başarıyla üretildi ama YouTube'a yüklenemedi (loglara bakın). "
+                    "Konu 'tamamlandı' sayılmadı — tekrar denenebilir.",
+                )
         else:
             notify_video_completed(
                 title=scenario.get("clickbait_title", title),

@@ -62,6 +62,39 @@ SCOPES = ["https://www.googleapis.com/auth/youtube.upload",
 # Yükleme kaydı — analytics geri besleme döngüsünün veri kaynağı
 UPLOADS_FILE = OUTPUT_DIR / "uploads.json"
 
+# Son yükleme hatası — döngü-kırıcı/duraklat mantığı (manual_images) buradan
+# okur: yükleme mi patladı yoksa üretim mi, ve hata giderilebilir mi (auth)?
+_LAST_UPLOAD_ERROR = {"message": "", "auth": False}
+
+# Bu işaretlerden biri hatada geçiyorsa sorun kimlik/yetkidir — tekrar denemek
+# İŞE YARAMAZ, kullanıcı yeniden yetkilendirmeli (ör. token'ın süresi dolmuş).
+_AUTH_ERROR_MARKERS = (
+    "invalid_grant", "expired or revoked", "token has been expired",
+    "revoked", "invalid_client", "unauthorized", "deauthenticated",
+    "invalid credentials", "access_denied", "insufficient authentication",
+)
+
+
+def _is_auth_error(message: str) -> bool:
+    """Hata mesajı kimlik/yetki kaynaklı mı (tekrar denemek çözmez)?"""
+    m = (message or "").lower()
+    return any(k in m for k in _AUTH_ERROR_MARKERS)
+
+
+def last_upload_error() -> dict:
+    """En son upload_video çağrısının hata bilgisi: {message, auth}."""
+    return dict(_LAST_UPLOAD_ERROR)
+
+
+def _reset_upload_error():
+    _LAST_UPLOAD_ERROR["message"] = ""
+    _LAST_UPLOAD_ERROR["auth"] = False
+
+
+def _set_upload_error(message: str):
+    _LAST_UPLOAD_ERROR["message"] = str(message)[:400]
+    _LAST_UPLOAD_ERROR["auth"] = _is_auth_error(str(message))
+
 # YouTube kategori ID'leri
 CATEGORY_IDS = {
     "science": "28",
@@ -278,10 +311,12 @@ def upload_video(
         str | None: YouTube video ID'si veya None
     """
     print_header("📤 YOUTUBE YÜKLEME" + (" — SHORTS" if is_short else ""))
+    _reset_upload_error()
 
     if not GOOGLE_API_AVAILABLE:
         print_error("YouTube API paketleri kurulu değil!")
         print_error("Kurun: pip install google-api-python-client google-auth-oauthlib")
+        _set_upload_error("YouTube API paketleri kurulu değil")
         return None
 
     # Video dosyası kontrolü
@@ -297,6 +332,8 @@ def upload_video(
     print_step(1, "YouTube kimlik doğrulama...")
     credentials = authenticate()
     if not credentials:
+        _set_upload_error("invalid_grant: YouTube kimlik doğrulaması başarısız "
+                          "(token geçersiz/süresi dolmuş veya yetki yok).")
         return None
 
     # YouTube API istemcisi
@@ -411,10 +448,12 @@ def upload_video(
     except HttpError as e:
         print_error(f"YouTube API hatası: {e}")
         logger.error("YouTube yükleme hatası: %s", e)
+        _set_upload_error(str(e))
         return None
     except Exception as e:
         print_error(f"Yükleme hatası: {e}")
         logger.error("YouTube yükleme hatası: %s", e)
+        _set_upload_error(str(e))
         return None
 
 

@@ -38,6 +38,11 @@ PENDING_FILE = PROJECT_ROOT / "pending_production.json"
 # Hatırlatma aralığı (saat)
 REMINDER_INTERVAL_HOURS = 24
 
+# Yükleme bu kadar kez başarısız olursa üretim DURAKLATILIR (döngü kırıcı).
+# Auth hatası (token süresi dolmuş vb.) tek denemede duraklatır — tekrar
+# denemek işe yaramaz. Böylece video her saat boşuna yeniden üretilmez.
+MAX_UPLOAD_RETRIES = 2
+
 
 def is_manual_mode() -> bool:
     """Manuel görsel akışı aktif mi?"""
@@ -360,6 +365,11 @@ def send_reminder_if_due():
     if not pending:
         return
 
+    # Duraklatılmış üretim için görsel-hatırlatması gönderme (görseller zaten
+    # gelmiş, sorun yüklemede) — ayrı bir duraklatma mesajı zaten atıldı.
+    if pending.get("paused"):
+        return
+
     try:
         last = datetime.fromisoformat(pending.get("last_reminder_at", ""))
     except ValueError:
@@ -432,6 +442,14 @@ def complete_production() -> bool:
     """
     pending = load_pending()
     if not pending or not is_complete():
+        return False
+
+    # DÖNGÜ KIRICI: üretim duraklatıldıysa (tekrarlanan yükleme hatası) otomatik
+    # tekrar deneme — kullanıcı sorunu çözüp /devam yazana kadar bekle. Bu,
+    # videonun her saat boşuna yeniden üretilmesini (kota/dakika yangını) önler.
+    if pending.get("paused"):
+        logger.info("Üretim duraklatılmış, otomatik tekrar atlanıyor: %s",
+                    pending.get("topic"))
         return False
 
     topic = pending["topic"]
@@ -530,10 +548,13 @@ def complete_production() -> bool:
     # Artık video anında dağıtım sistemine girsin diye planlama kaldırıldı.
     publish_at = None
 
+    # notify_on_upload_fail=False: yükleme-hatası mesajını burada (döngü kırıcı)
+    # yönetiyoruz; run_pipeline'ın her saat tekrarlanan bildirimini bastırıyoruz.
     try:
         result = run_pipeline(
             topic, resume=True, mode=mode,
             privacy="public", publish_at=publish_at,
+            notify_on_upload_fail=False,
         )
     except Exception as e:
         logger.error("Manuel üretim pipeline hatası: %s", e)
@@ -552,8 +573,78 @@ def complete_production() -> bool:
         cancel_pending()
         return True
 
-    send_message("🚨 Video üretimi başarısız oldu — loglara bakın. Görseller kayıtlı, /iptal ile sıfırlayabilirsiniz.")
+    # Başarısız — üretim mi patladı, yükleme mi? (döngü kırıcı ayrımı)
+    from scripts import youtube_uploader
+    up_err = youtube_uploader.last_upload_error()
+
+    if up_err.get("message"):
+        # Video ÜRETİLDİ ama YÜKLEME patladı. Konu 'tamamlandı' sayılmadı.
+        failures = int(pending.get("upload_failures", 0)) + 1
+        pending["upload_failures"] = failures
+        pending["last_upload_error"] = up_err["message"][:200]
+        _save_pending(pending)
+
+        if up_err.get("auth"):
+            # Kimlik/yetki hatası: tekrar denemek çözmez → HEMEN duraklat.
+            _pause_pending(
+                pending,
+                "⏸️ <b>Üretim duraklatıldı — YouTube yetkisi geçersiz.</b>\n\n"
+                "Video üretildi ama yüklenemedi: giriş anahtarının süresi dolmuş "
+                "veya iptal edilmiş (<code>invalid_grant</code>). Her saat boşuna "
+                "yeniden üretmeyi <b>durdurdum</b>.\n\n"
+                "🔧 Yeniden yetkilendirdikten sonra <b>/devam</b> yazın — videoyu "
+                "yeniden üretip yükleyeceğim. Vazgeçmek için /iptal.",
+            )
+            return False
+
+        if failures >= MAX_UPLOAD_RETRIES:
+            _pause_pending(
+                pending,
+                f"⏸️ <b>Üretim duraklatıldı</b> — yükleme {failures} kez başarısız "
+                f"oldu.\n\n<code>{up_err['message'][:150]}</code>\n\n"
+                "Her saat tekrar denemeyi durdurdum. Sorun çözülünce <b>/devam</b> "
+                "yazın, yeniden deneyeceğim. Vazgeçmek için /iptal.",
+            )
+            return False
+
+        # Geçici olabilir — sınırlı sayıda bir sonraki saatlik koşuda tekrar dene.
+        send_message(
+            f"⚠️ Video üretildi ama yükleme başarısız ({failures}/{MAX_UPLOAD_RETRIES}) "
+            "— bir sonraki kontrolde tekrar deneyeceğim."
+        )
+        return False
+
+    # Gerçek üretim hatası (yükleme aşamasına hiç gelinemedi).
+    send_message("🚨 Video üretimi başarısız oldu — loglara bakın. Görseller "
+                 "kayıtlı, /iptal ile sıfırlayabilirsiniz.")
     return False
+
+
+def _pause_pending(pending: dict, message: str):
+    """Bekleyen üretimi duraklat (otomatik tekrar durur) ve tek mesaj gönder."""
+    pending["paused"] = True
+    _save_pending(pending)
+    send_message(message)
+    logger.warning("Üretim duraklatıldı: %s (yükleme hatası)", pending.get("topic"))
+
+
+def resume_pending() -> str:
+    """
+    Duraklatılmış üretimi sürdür (/devam). Sayaç sıfırlanır; bir sonraki
+    saatlik kontrolde video yeniden üretilip yüklenmeyi dener.
+    """
+    pending = load_pending()
+    if not pending:
+        return "Sürdürülecek bekleyen üretim yok."
+    if not pending.get("paused"):
+        return "Bekleyen üretim zaten aktif — sıradaki kontrolde denenecek."
+    pending["paused"] = False
+    pending["upload_failures"] = 0
+    _save_pending(pending)
+    logger.info("Üretim sürdürüldü (/devam): %s", pending.get("topic"))
+    return ("▶️ <b>Üretim sürdürülüyor.</b> Bir sonraki saatlik kontrolde videoyu "
+            "yeniden üretip yüklemeyi deneyeceğim. (Görseller kayıtlı; yeniden "
+            "göndermenize gerek yok.)")
 
 
 def get_pending_status_text() -> str:
