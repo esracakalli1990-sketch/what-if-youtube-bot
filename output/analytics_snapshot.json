@@ -1,7 +1,80 @@
 {
-  "generated_at": "2026-07-21T20:26:58.830707+00:00",
+  "generated_at": "2026-07-21T20:37:05.791630+00:00",
   "period_days": 28,
-  "error": "<HttpError 403 when requesting https://youtubeanalytics.googleapis.com/v2/reports?ids=channel%3D%3DMINE&startDate=2026-06-23&endDate=2026-07-21&metrics=views%2CestimatedMinutesWatched%2CaverageViewDuration%2CaverageViewPercentage%2CsubscribersGained%2CsubscribersLost%2Clikes%2Ccomments&alt=json retu",
-  "channel": {},
-  "videos": []
+  "error": null,
+  "channel": {
+    "views": 446,
+    "watch_minutes": 182.0,
+    "avg_view_duration_sec": 43.0,
+    "avg_view_percentage": 55.3,
+    "subscribers_gained": 2,
+    "subscribers_lost": 1,
+    "likes": 19,
+    "comments": 0
+  },
+  "videos": [
+    {
+      "video_id": "sMPuRXHU6ko",
+      "title": "THE SUN JUST WENT OUT. Here's What Happens NEXT. #Shorts",
+      "kind": "short",
+      "views": 269,
+      "avg_view_percentage": 53.9,
+      "avg_view_duration_sec": 41.0,
+      "watch_minutes": 113.0
+    },
+    {
+      "video_id": "Sq7OfSkNnaw",
+      "title": "ALL ICE MELTS INSTANTLY: This Is Your Last Day. #Shorts",
+      "kind": "short",
+      "views": 49,
+      "avg_view_percentage": 126.4,
+      "avg_view_duration_sec": 63.0,
+      "watch_minutes": 19.0
+    },
+    {
+      "video_id": "kOQbzDDl-wA",
+      "title": "EARTH STOPS SPINNING: YOU WON'T BELIEVE What Happens! #Shorts",
+      "kind": "short",
+      "views": 36,
+      "avg_view_percentage": 33.5,
+      "avg_view_duration_sec": 27.0,
+      "watch_minutes": 11.0
+    },
+    {
+      "video_id": "l0olB6EIyyg",
+      "title": "SPEED OF LIGHT just became 100 KM/H! (You're Already DEAD) #Shorts",
+      "kind": "short",
+      "views": 34,
+      "avg_view_percentage": 73.3,
+      "avg_view_duration_sec": 35.0,
+      "watch_minutes": 8.0
+    },
+    {
+      "video_id": "m6vCnp0gyN8",
+      "title": "YOU PHOTOSYNTHESIZE. But There's a TERRIBLE Catch. #Shorts",
+      "kind": "short",
+      "views": 32,
+      "avg_view_percentage": 123.0,
+      "avg_view_duration_sec": 76.0,
+      "watch_minutes": 16.0
+    },
+    {
+      "video_id": "imAkMPIB6R0",
+      "title": "GRAVITY DOUBLED? You Wouldn't Survive 5 Minutes! #Shorts",
+      "kind": "short",
+      "views": 12,
+      "avg_view_percentage": 54.7,
+      "avg_view_duration_sec": 36.0,
+      "watch_minutes": 4.0
+    },
+    {
+      "video_id": "TfD9muAjcFg",
+      "title": "WHAT IF THE SUN VANISHED? (The Terrifying 8-Minute Truth)",
+      "kind": "long",
+      "views": 5,
+      "avg_view_percentage": 23.5,
+      "avg_view_duration_sec": 61.0,
+      "watch_minutes": 5.0
+    }
+  ]
 }
