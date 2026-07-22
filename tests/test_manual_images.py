@@ -55,8 +55,8 @@ class TestPendingLifecycle:
         scenario = _scenario(2)
         scenario["scenes"][0]["visual_prompt"] = "A rabbit scientist observing deep-sea vents"
         mi.start_pending("Test topic", "shorts", scenario)
-        assert "steampunk space suit" in isolated_state[1]   # tavşanlı sahne
-        assert "steampunk space suit" not in isolated_state[2]  # tavşansız sahne
+        assert "steampunk spacesuit" in isolated_state[1]   # tavşanlı sahne
+        assert "steampunk spacesuit" not in isolated_state[2]  # tavşansız sahne
 
     def test_start_pending_long_includes_thumbnail(self, isolated_state):
         assert mi.start_pending("Test topic", "long", _scenario(5))

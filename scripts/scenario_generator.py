@@ -285,7 +285,7 @@ Requirements:
 - SCENE 1 IS EVERYTHING: hook in the first 1 second, first word must shock, start mid-catastrophe. FORBIDDEN in scene 1: "What if", "Imagine", greetings, setup, or the rabbit character. Pure visceral consequence, happening now.
 - Exactly 3 scenes (4 only if truly necessary). Each scene 18-35 words, present tense, second person.
 - Every scene must ESCALATE ("but it gets worse") and end scenes 1-2 on an open loop; ONE big twist at ~60-70%; final line loops back into the opening line
-- Roli (the rabbit scientist) may appear in scene 2 or 3 only, never in the hook
+- Roli (the time-traveling rabbit scientist) appears in scene 2 or 3 only, never in the hook, and it is ROLI who delivers the big twist — as someone who has already witnessed this timeline (his signature "I've seen how this ends" tone)
 - Each scene visual prompt must be detailed enough for AI image generation in VERTICAL 9:16 format; scene 1's visual is the single most striking image, instantly readable on a phone
 - Output valid JSON only, no extra text
 
@@ -305,7 +305,7 @@ Requirements:
 - The hook (first 30 seconds) must be IMPOSSIBLE to skip
 - Include exactly 5-6 scenes with twists at each transition
 - Each scene visual prompt must be detailed enough for AI image generation
-- The time-traveling rabbit scientist character narrates and appears in key scenes
+- Roli (the time-traveling rabbit scientist) narrates and PERSONALLY delivers the biggest reveal, as someone who has already witnessed this timeline — his signature recurring moment
 - Output valid JSON only, no extra text
 
 ADDITIONAL REQUIRED FIELDS (add these to the root JSON):

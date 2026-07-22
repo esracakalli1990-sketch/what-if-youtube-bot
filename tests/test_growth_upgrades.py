@@ -4,6 +4,17 @@ import pytest
 
 import scripts.youtube_uploader as yt
 import scripts.tts_engine as tts
+import scripts.manual_images as mi
+
+
+# ── Roli marka çıpası (kanonik görünüm korunuyor mu?) ────────────────────
+class TestRoliBrand:
+    def test_character_brief_has_signature_look(self):
+        brief = mi._CHARACTER_BRIEF.lower()
+        assert "roli" in brief
+        assert "glowing blue pocket-watch" in brief  # imza aksesuar
+        assert "amber eyes" in brief
+        assert "steampunk" in brief
 
 
 # ── İlk yorum (etkileşim sorusu) ─────────────────────────────────────────

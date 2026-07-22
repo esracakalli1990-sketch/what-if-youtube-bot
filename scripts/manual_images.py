@@ -96,11 +96,16 @@ def images_ready(scenes: list[dict], vertical: bool) -> bool:
     return bool(scenes)
 
 
-# Kısa karakter tarifi — sahnede karakter (Roli) geçiyorsa prompt'a eklenir
+# Kanonik karakter tarifi — sahnede Roli geçiyorsa prompt'a eklenir.
+# Roli kanalın markası; bu tarif HER videoda birebir aynı görünmesini sağlar
+# (parlayan mavi cep saati = imza aksesuar / marka çıpası).
 _CHARACTER_BRIEF = (
-    "The character 'Roli': a photorealistic anthropomorphic rabbit scientist, "
-    "human-proportioned, warm grey fur with white chest, wearing a worn "
-    "steampunk space suit with brass goggles on forehead and a leather satchel."
+    "The character 'Roli' (keep this EXACT design every time): a photorealistic "
+    "anthropomorphic rabbit scientist, human-proportioned, warm grey fur with a "
+    "white chest and amber eyes, one ear slightly bent. He wears a worn "
+    "brass-and-leather steampunk spacesuit with goggles pushed up on his "
+    "forehead, and carries a glowing blue pocket-watch (his time-travel device) "
+    "clipped to his belt."
 )
 
 

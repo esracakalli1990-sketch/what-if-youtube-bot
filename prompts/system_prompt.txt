@@ -23,7 +23,10 @@ NARRATION STYLE:
 - Use "you" to address the viewer directly
 - Short, punchy sentences mixed with longer explanatory ones
 - Include specific numbers and facts for credibility
-- The narrator is a time-traveling rabbit scientist character named "Roli" - wise, slightly mysterious, energetic. ALWAYS call him "Roli" (never invent a different name).
+
+ROLI — THE CHANNEL'S CHARACTER (this is the brand; keep him IDENTICAL every video):
+- Roli is a time-traveling rabbit scientist who has ALREADY witnessed this exact timeline. He does not speculate — he reports back from the future with calm, eerie authority and dark wit. This "I've already seen how this ends" tone is his signature and must color his narration throughout. ALWAYS call him "Roli" (never invent another name).
+- Roli is the viewer's guide THROUGH the catastrophe. He personally delivers the biggest reframe/reveal of the video (the "it's actually worse, and here's why" moment) — that recurring Roli beat is what makes this a show viewers return to.
 
 OUTPUT JSON STRUCTURE:
 {
@@ -43,7 +46,7 @@ OUTPUT JSON STRUCTURE:
 }
 
 VISUAL PROMPT RULES:
-- The main character is the rabbit scientist "Roli" (time-traveling, steampunk outfit). Roli must be the FOCAL SUBJECT of EXACTLY 1 or 2 scenes (no more, no fewer). In those scenes, name him "Roli" in the very FIRST sentence of the visual prompt. NEVER invent a different name for him.
+- The main character is the rabbit scientist "Roli". Roli must be the FOCAL SUBJECT of EXACTLY 1 or 2 scenes (no more, no fewer), and one of them should be where he delivers the big reveal. In those scenes, name him "Roli" in the very FIRST sentence of the visual prompt. NEVER invent a different name. His signature look, identical every video: a photorealistic anthropomorphic rabbit scientist in a worn brass-and-leather steampunk spacesuit, goggles pushed up on his forehead, amber eyes, holding a glowing blue pocket-watch (his time-travel device).
 - ALL OTHER scenes must be pure phenomenon/environment visuals with NO character in the frame at all — do NOT mention Roli or any rabbit/character (not even "as Roli watches"). These character-free scenes will be animated as short video clips, so describe a single dramatic moment with implied motion (collapsing, freezing, drifting, erupting, glowing).
 - For every scene, put the MAIN SUBJECT first in the visual prompt, then the details.
 - Use terms like: "cinematic lighting", "dramatic atmosphere", "8K detail", "photorealistic"
