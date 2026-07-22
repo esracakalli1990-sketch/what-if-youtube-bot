@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-07-22T18:39:47.240008+00:00",
+  "generated_at": "2026-07-22T20:36:22.286945+00:00",
   "period_days": 28,
   "error": null,
   "channel": {
-    "views": 446,
+    "views": 448,
     "watch_minutes": 182.0,
     "avg_view_duration_sec": 43.0,
-    "avg_view_percentage": 55.3,
+    "avg_view_percentage": 55.1,
     "subscribers_gained": 2,
     "subscribers_lost": 1,
     "likes": 19,
@@ -32,6 +32,15 @@
       "watch_minutes": 19.0
     },
     {
+      "video_id": "l0olB6EIyyg",
+      "title": "SPEED OF LIGHT just became 100 KM/H! (You're Already DEAD) #Shorts",
+      "kind": "short",
+      "views": 36,
+      "avg_view_percentage": 68.8,
+      "avg_view_duration_sec": 33.0,
+      "watch_minutes": 8.0
+    },
+    {
       "video_id": "kOQbzDDl-wA",
       "title": "EARTH STOPS SPINNING: YOU WON'T BELIEVE What Happens! #Shorts",
       "kind": "short",
@@ -39,15 +48,6 @@
       "avg_view_percentage": 33.5,
       "avg_view_duration_sec": 27.0,
       "watch_minutes": 11.0
-    },
-    {
-      "video_id": "l0olB6EIyyg",
-      "title": "SPEED OF LIGHT just became 100 KM/H! (You're Already DEAD) #Shorts",
-      "kind": "short",
-      "views": 34,
-      "avg_view_percentage": 73.3,
-      "avg_view_duration_sec": 35.0,
-      "watch_minutes": 8.0
     },
     {
       "video_id": "m6vCnp0gyN8",
