@@ -1,0 +1,71 @@
+{
+  "topic": "What would happen if time moved backward for 24 hours?",
+  "mode": "shorts",
+  "privacy": "public",
+  "scenario": {
+    "title": "What If Time Moved BACKWARDS for 24 Hours?",
+    "clickbait_title": "Time Just Reversed 24 HOURS. Here's What Happens.",
+    "thumbnail_concept": "A person's face contorted in terror and confusion, floating slightly upwards, while objects around them (like a coffee cup shattering) are visibly reversing in mid-air. A clock in the background spins backward rapidly. High contrast, dramatic lighting, vertical composition.",
+    "thumbnail_headline": "TIME REVERSED!",
+    "total_duration_minutes": 0.58,
+    "youtube_tags": [
+      "time travel",
+      "time reverse",
+      "what if",
+      "sci-fi",
+      "science fiction",
+      "physics",
+      "paradox",
+      "reverse time",
+      "time paradox",
+      "what if shorts",
+      "youtube shorts",
+      "mind bending",
+      "reality",
+      "causality",
+      "future past",
+      "existential crisis",
+      "short film",
+      "viral shorts",
+      "dramatic what if",
+      "roli rabbit"
+    ],
+    "seo_description": "Ever wondered what happens if time moves backward? Brace yourself for a mind-bending journey as we explore the terrifying consequences if time reversed for 24 hours. Your body, your memories, and even physics would break. What if reality itself began to unravel? Find out in this shocking short!",
+    "scenes": [
+      {
+        "scene_number": 1,
+        "scene_type": "hook",
+        "duration_seconds": 12,
+        "narration": "Your last breath just vanished. Food un-digests. Every step you took reverses. You're *un-living* the last 24 hours. But that's not the horrifying part.",
+        "visual_prompt": "CLOSE-UP: A person's terrified face, eyes wide, as a single tear reverses back into their eye. Around them, objects like a glass of water shatter upwards, re-forming. People in the background are seen floating subtly upwards. Cinematic lighting, dramatic atmosphere, photorealistic, 8K detail, vertical composition with the person centered.",
+        "twist_element": "The immediate physical reversal of daily life and the hint that something even worse is coming.",
+        "asset_type": "image"
+      },
+      {
+        "scene_number": 2,
+        "scene_type": "escalation",
+        "duration_seconds": 13,
+        "narration": "Roli here. You remember events that *haven't happened yet*. Buildings un-collapse. People un-die. Your brain processes forward. The future is past. Can your mind survive this paradox?",
+        "visual_prompt": "A time-traveling rabbit scientist, Roli, in a detailed steampunk outfit, stands in the foreground, looking distressed. Behind him, a massive skyscraper is rapidly un-collapsing, its debris flying upwards to re-form. Cars are seen driving backward on a street below. Vertical composition, cinematic lighting, 8K detail.",
+        "twist_element": "The cognitive dissonance of forward-moving memory in a reverse-moving world, questioning mental survival.",
+        "asset_type": "image"
+      },
+      {
+        "scene_number": 3,
+        "scene_type": "twist_and_loop",
+        "duration_seconds": 10,
+        "narration": "Actually, the real horror isn't un-living. Your consciousness still moves forward. You're witnessing your past as your future, helpless. And then, your last breath just vanishes.",
+        "visual_prompt": "CLOSE-UP: A human eye, reflecting distorted, rapidly reversing images of their own life (e.g., a hand typing, a person laughing, a car driving). The eye shows extreme fear and confusion. A subtle glitching effect around the edges of the frame. Vertical composition, very tight crop on the eye, intense dramatic lighting, photorealistic, 8K detail.",
+        "asset_type": "image"
+      }
+    ],
+    "_topic": "What would happen if time moved backward for 24 hours?",
+    "_mode": "shorts",
+    "_generated_at": "2026-07-22T00:45:08.152278"
+  },
+  "expected_images": 3,
+  "image_file_ids": [],
+  "asset_kinds": [],
+  "prompts_sent_at": "2026-07-22T00:45:12.634034+00:00",
+  "last_reminder_at": "2026-07-22T00:45:12.634050+00:00"
+}
