@@ -1,8 +1,35 @@
 """video_assembler saf fonksiyon testleri (FFmpeg gerektirmez)."""
 
+import scripts.video_assembler as va
 from scripts.video_assembler import (
-    _split_into_subtitle_chunks, _format_srt_time, generate_srt, is_video_asset
+    _split_into_subtitle_chunks, _format_srt_time, generate_srt, is_video_asset,
+    create_scene_clip_from_video,
 )
+
+
+class TestVideoSceneClipNoLoop:
+    """Video sahne klibi: kısa klip döngülenmez, son kare dondurulur."""
+
+    def test_uses_freeze_not_stream_loop(self, monkeypatch, tmp_path):
+        captured = {}
+
+        def fake_run(cmd, *a, **k):
+            captured["cmd"] = cmd
+            return True
+
+        monkeypatch.setattr(va, "_run_ffmpeg", fake_run)
+        create_scene_clip_from_video(
+            "in.mp4", "a.mp3", str(tmp_path / "out.mp4"),
+            duration=8.5, resolution=(1080, 1920),
+        )
+        cmd = captured["cmd"]
+        # Döngü kaldırıldı
+        assert "-stream_loop" not in cmd
+        joined = " ".join(cmd)
+        # Son kare dondurma filtresi var
+        assert "tpad=stop_mode=clone" in joined
+        # Süre anlatıma sabitleniyor
+        assert "-t" in cmd and "8.500" in cmd
 
 
 class TestIsVideoAsset:

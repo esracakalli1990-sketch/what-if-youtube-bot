@@ -294,9 +294,9 @@ TOPIC: {topic}
 Requirements:
 - Follow ALL rhythm/retention rules in your system instructions to the letter
 - SCENE 1 IS EVERYTHING: hook in the first 1 second, first word must shock, start mid-catastrophe. FORBIDDEN in scene 1: "What if", "Imagine", greetings, setup, or the rabbit character. Pure visceral consequence, happening now.
-- Exactly 3 scenes (4 only if truly necessary). Each scene 18-35 words, present tense, second person.
-- Every scene must ESCALATE ("but it gets worse") and end scenes 1-2 on an open loop; ONE big twist at ~60-70%; final line loops back into the opening line
-- Roli (the time-traveling rabbit scientist) appears in scene 2 or 3 only, never in the hook, and it is ROLI who delivers the big twist — as someone who has already witnessed this timeline (his signature "I've seen how this ends" tone)
+- 4 or 5 scenes. Each scene = ONE ~10-second video clip, so each scene's narration MUST be 18-24 words MAX (fits ~9 seconds spoken, so the clip never has to freeze or repeat). Present tense, second person.
+- Every scene must ESCALATE ("but it gets worse") and end each scene except the last on an open loop; the ONE big twist lands in the second-to-last scene; final line loops back into the opening line
+- Roli (the time-traveling rabbit scientist) appears only in the twist scene (the second-to-last), never in the hook, and it is ROLI who delivers the big twist — as someone who has already witnessed this timeline (his signature "I've seen how this ends" tone)
 - Each scene visual prompt must be detailed enough for AI image generation in VERTICAL 9:16 format; scene 1's visual is the single most striking image, instantly readable on a phone
 - Output valid JSON only, no extra text
 
