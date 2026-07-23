@@ -5,7 +5,7 @@ video_assembler.py - FFmpeg ile Video Montaj Motoru.
 
 Özellikler:
 - Ken Burns efektleri (zoom, pan)
-- Sahneler arası crossfade geçiş
+- Sahneler arası dip-to-black geçiş (sert kesme + renk sıçramasını yumuşatır)
 - SRT altyazı dosyası üretimi
 - Arka plan müziği ekleme (varsa)
 - Intro/outro kartları
@@ -82,6 +82,48 @@ def _run_ffmpeg(cmd: list[str], description: str = "", timeout: int = 600) -> bo
 # ──────────────────────────────────────
 # Sahne Klip Oluşturma
 # ──────────────────────────────────────
+# Sahneler arası karartma (dip-to-black) geçiş süresi (saniye).
+# Sahne sonu karartılır + sonraki sahne karadan açılır → sert kesme ve
+# beyaz↔siyah renk sıçraması yumuşar, araya görsel bir "nefes" girer.
+SCENE_FADE_DURATION = 0.3
+
+
+def _scene_fade_filter(
+    duration: float,
+    fade_in: bool,
+    fade_out: bool,
+    fade_d: float = SCENE_FADE_DURATION,
+) -> str:
+    """
+    Sahne klibi için karartma (dip-to-black) geçiş filtresi üretir.
+
+    Sahne sonunda video karartılır, bir sonraki sahne karadan açılır; böylece
+    sahneler arası sert kesme ve beyaz↔siyah renk sıçraması yumuşar, araya
+    görsel bir "nefes" girer. Klip SÜRESİNİ DEĞİŞTİRMEZ (fade, mevcut karelerin
+    üstüne uygulanır) → altyazı ve ses senkronu bozulmaz. Çok kısa kliplerde
+    fade süresi otomatik küçülür.
+
+    Args:
+        duration: Klip süresi (saniye)
+        fade_in:  Baştan karadan-açılma uygulansın mı (ilk sahnede kapalı — hook
+                  anında vursun)
+        fade_out: Sonda karartma uygulansın mı (son sahnede kapalı — final kare
+                  kalsın, döngü/loop temiz olsun)
+        fade_d:   Geçiş süresi (saniye)
+
+    Returns:
+        str: Virgülle birleştirilebilir fade filtre parçası ("" olabilir)
+    """
+    # Kısa klip güvenliği: giriş + çıkış fade'i klibin ~1/3'ünü geçmesin
+    d = max(0.05, min(fade_d, duration / 3.0))
+    parts = []
+    if fade_in:
+        parts.append(f"fade=t=in:st=0:d={d:.3f}")
+    if fade_out:
+        parts.append(f"fade=t=out:st={max(0.0, duration - d):.3f}:d={d:.3f}")
+    return ",".join(parts)
+
+
 def create_scene_clip(
     image_path: str,
     audio_path: str,
@@ -89,6 +131,8 @@ def create_scene_clip(
     duration: float,
     effect: str = "zoom_in",
     resolution: tuple[int, int] = (1920, 1080),
+    fade_in: bool = True,
+    fade_out: bool = True,
 ) -> bool:
     """
     Tek bir sahne klibi oluşturur: görsel + Ken Burns efekti + ses.
@@ -137,6 +181,11 @@ def create_scene_clip(
 
     filter_str = effects.get(effect, effects["zoom_in"])
 
+    # Sahneler arası dip-to-black geçiş (sert kesme + renk sıçramasını yumuşatır)
+    fade = _scene_fade_filter(duration, fade_in, fade_out)
+    if fade:
+        filter_str = f"{filter_str},{fade}"
+
     cmd = [
         "ffmpeg", "-y",
         "-loop", "1",
@@ -175,6 +224,8 @@ def create_scene_clip_from_video(
     output_path: str,
     duration: float,
     resolution: tuple[int, int] = (1920, 1080),
+    fade_in: bool = True,
+    fade_out: bool = True,
 ) -> bool:
     """
     Kullanıcının ürettiği kısa video klibinden sahne klibi oluşturur.
@@ -207,6 +258,13 @@ def create_scene_clip_from_video(
         f"crop={width}:{height},fps=25,setsar=1,"
         f"tpad=stop_mode=clone:stop_duration=30"
     )
+
+    # Sahneler arası dip-to-black geçiş — sert kesme ve beyaz↔siyah renk
+    # sıçramasını yumuşatır. -t ile kırpma öncesi uygulanır; fade-out tam
+    # sahne sonunda (duration) biter → altyazı/ses senkronu bozulmaz.
+    fade = _scene_fade_filter(duration, fade_in, fade_out)
+    if fade:
+        vfilter = f"{vfilter},{fade}"
 
     cmd = [
         "ffmpeg", "-y",
@@ -604,6 +662,13 @@ def assemble_video(
         effect = effect_cycle[i % len(effect_cycle)]
         clip_path = str(CLIPS_DIR / f"{clip_prefix}_{scene_num:02d}.mp4")
 
+        # Sahneler arası dip-to-black geçiş bayrakları: ilk sahne karadan
+        # AÇILMAZ (hook ilk karede anında vursun); son sahne karartmaZ (final
+        # kare kalsın — loop/kapanış temiz). Aradaki her sahne iki taraftan
+        # karartılır → sert kesme ve renk sıçraması yumuşar, araya nefes girer.
+        is_first = i == 0
+        is_last = i == len(scenes) - 1
+
         # Resume desteği
         if Path(clip_path).exists() and Path(clip_path).stat().st_size > 10240:
             clip_paths.append(clip_path)
@@ -621,6 +686,8 @@ def assemble_video(
                 output_path=clip_path,
                 duration=audio_info["duration_seconds"],
                 resolution=resolution,
+                fade_in=not is_first,
+                fade_out=not is_last,
             )
         else:
             console.print(f"  🎥 Sahne {scene_num} montajlanıyor ({effect})... ", end="")
@@ -631,6 +698,8 @@ def assemble_video(
                 duration=audio_info["duration_seconds"],
                 effect=effect,
                 resolution=resolution,
+                fade_in=not is_first,
+                fade_out=not is_last,
             )
 
         if success:

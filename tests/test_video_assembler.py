@@ -3,7 +3,7 @@
 import scripts.video_assembler as va
 from scripts.video_assembler import (
     _split_into_subtitle_chunks, _format_srt_time, generate_srt, is_video_asset,
-    create_scene_clip_from_video,
+    create_scene_clip_from_video, _scene_fade_filter,
 )
 
 
@@ -30,6 +30,52 @@ class TestVideoSceneClipNoLoop:
         assert "tpad=stop_mode=clone" in joined
         # Süre anlatıma sabitleniyor
         assert "-t" in cmd and "8.500" in cmd
+
+
+class TestSceneFadeTransition:
+    """Sahneler arası dip-to-black geçiş: sert kesme + renk sıçraması yumuşar."""
+
+    def test_fade_filter_both_sides(self):
+        f = _scene_fade_filter(8.0, fade_in=True, fade_out=True)
+        assert "fade=t=in:st=0:" in f
+        # Çıkış fade'i sahne sonuna (duration - d) yakın başlar
+        assert "fade=t=out:st=7.700:d=0.300" in f
+
+    def test_first_scene_no_fade_in(self):
+        """İlk sahne karadan AÇILMAZ (hook ilk karede anında vursun)."""
+        f = _scene_fade_filter(8.0, fade_in=False, fade_out=True)
+        assert "t=in" not in f
+        assert "t=out" in f
+
+    def test_last_scene_no_fade_out(self):
+        """Son sahne karartmaZ (final kare kalsın, loop temiz)."""
+        f = _scene_fade_filter(8.0, fade_in=True, fade_out=False)
+        assert "t=in" in f
+        assert "t=out" not in f
+
+    def test_short_clip_shrinks_fade(self):
+        """Çok kısa klipte fade süresi küçülür (giriş+çıkış klibi yutmasın)."""
+        f = _scene_fade_filter(0.6, fade_in=True, fade_out=True)
+        # d = min(0.3, 0.6/3) = 0.2
+        assert "d=0.200" in f
+
+    def test_applied_in_video_clip_command(self, monkeypatch, tmp_path):
+        captured = {}
+
+        def fake_run(cmd, *a, **k):
+            captured["cmd"] = cmd
+            return True
+
+        monkeypatch.setattr(va, "_run_ffmpeg", fake_run)
+        create_scene_clip_from_video(
+            "in.mp4", "a.mp3", str(tmp_path / "out.mp4"),
+            duration=8.0, resolution=(1080, 1920),
+            fade_in=True, fade_out=True,
+        )
+        joined = " ".join(captured["cmd"])
+        assert "fade=t=out" in joined
+        # tpad'den SONRA gelmeli (dondurulmuş son kare de karartılsın)
+        assert joined.index("tpad") < joined.index("fade=t=out")
 
 
 class TestIsVideoAsset:
