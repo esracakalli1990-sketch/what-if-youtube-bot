@@ -248,7 +248,9 @@ def authenticate() -> object | None:
 
 # YouTube'un gerçek kısıtı: etiket SAYISI değil, TÜM etiketlerin toplam
 # karakter uzunluğu (500'ü aşarsa API "invalidTags" ile reddeder).
-YOUTUBE_TAGS_MAX_CHARS = 500
+# YouTube toplam etiket sınırı 500 karakter; boşluklu etiketleri tırnakla
+# saydığı için güvenli marjla 450'de tutuyoruz (invalidTags 400 hatası önlenir).
+YOUTUBE_TAGS_MAX_CHARS = 450
 
 
 def _sanitize_tags(tags: list[str]) -> list[str]:
@@ -271,7 +273,10 @@ def _sanitize_tags(tags: list[str]) -> list[str]:
     result = []
     total_len = 0
     for t in unique_tags:
-        total_len += len(t) + 1  # etiketler arası ayraç payı
+        # YouTube boşluklu etiketleri tırnak içine alıp öyle sayar → +2;
+        # ayraç payı → +1. (Eskiden sadece +1 sayılıyordu; çok-kelimeli
+        # etiketlerde gerçek toplam 500'ü aşıp invalidTags 400 veriyordu.)
+        total_len += len(t) + (2 if " " in t else 0) + 1
         if total_len > YOUTUBE_TAGS_MAX_CHARS:
             break
         result.append(t)
