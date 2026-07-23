@@ -138,16 +138,27 @@ def _build_prompts(scenario: dict, mode: str) -> tuple[list[str], list[str]]:
             continue
 
         if scene.get("asset_type") == "video":
-            # Hareket odaklı video klip prompt'u (Flow/Omniflash için).
-            # Karede karakter olmasın — atmosfer/olay odaklı, temiz klip.
-            prompts.append(
-                f"{visual}\n\n"
-                "5-6 SECOND VIDEO CLIP. Cinematic slow camera motion (gentle "
-                "push-in or drift) with natural movement in the scene — drifting "
-                "particles, flowing light, shifting atmosphere. Environment/"
-                "phenomenon only, NO characters or people in the frame. "
-                f"{orientation}\n\n{base_style}"
-            )
+            from scripts.scenario_generator import mentions_character
+            if mentions_character(visual):
+                # Roli'li video klip (short'ta Roli de video). Karakter DAHİL,
+                # tutarlı tasarım + doğal karakter hareketi.
+                prompts.append(
+                    f"{visual}\n\n"
+                    "5-8 SECOND VIDEO CLIP featuring the character. Subtle "
+                    "natural character motion (breathing, a small gesture, a "
+                    "glance at the camera) with gentle cinematic camera "
+                    f"movement. {orientation}\n\n{base_style}\n\n{_CHARACTER_BRIEF}"
+                )
+            else:
+                # Atmosfer/olay video klibi — karakter yok, hareket odaklı.
+                prompts.append(
+                    f"{visual}\n\n"
+                    "5-8 SECOND VIDEO CLIP. Cinematic camera motion with "
+                    "natural movement in the scene — drifting particles, "
+                    "flowing light, shifting atmosphere. Environment/phenomenon "
+                    f"only, NO characters or people in the frame. {orientation}"
+                    f"\n\n{base_style}"
+                )
             kinds.append("video")
         else:
             parts = [visual, orientation, base_style]

@@ -152,13 +152,24 @@ def select_video_scene_numbers(scenes: list[dict], max_videos: int = MAX_VIDEO_S
 
 def mark_video_scenes(scenario: dict, mode: str = "long") -> dict:
     """
-    Sahnelerin asset_type'ını belirle: long videoda seçili sahneler 'video',
-    kalanı 'image'. Shorts'ta tümü 'image' (video kullanılmaz).
+    Sahnelerin asset_type'ını belirle.
+
+    - SHORTS: TÜM sahneler 'video' (Roli dahil). Kullanıcı 3-4 kısa klibi
+      Omni Flash'ta üretir; tam-video short en profesyonel/hareketli formattır.
+    - LONG: hibrit — karakter (Roli) sahneleri 'image' (tutarlılık/kayma riski),
+      seçili atmosfer sahneleri 'video'. Uzun videoda çok klip gerektiği için
+      hibrit kalır.
 
     Her sahneye asset_type garanti edilir.
     """
     scenes = scenario.get("scenes", [])
-    video_nums = set(select_video_scene_numbers(scenes)) if mode == "long" else set()
+    if mode == "shorts":
+        for i, scene in enumerate(scenes):
+            if isinstance(scene, dict):
+                scene["asset_type"] = "video"
+        return scenario
+
+    video_nums = set(select_video_scene_numbers(scenes))
     for i, scene in enumerate(scenes):
         if not isinstance(scene, dict):
             continue
