@@ -71,8 +71,20 @@
     "_generated_at": "2026-07-23T02:30:47.595697"
   },
   "expected_images": 4,
-  "image_file_ids": [],
-  "asset_kinds": [],
+  "image_file_ids": [
+    "BAACAgQAAxkBAAIBNWphfjmVAm25bMvIguh4uCB1tVyYAAKiHAAChfsIUzGbJnaRR9hDPQQ",
+    "BAACAgQAAxkBAAIBNmphf6QE4qiFN6Zb0xtokcO8k-YCAAKjHAAChfsIU_cM5tsaZ24dPQQ",
+    "BAACAgQAAxkBAAIBN2phgBofSgyVCC6yCedLEN4X19voAAKkHAAChfsIU4IqXKeZoq5rPQQ",
+    "BAACAgQAAxkBAAIBOGphgIdfvy82SnS2lBMTU2dav4_AAAKlHAAChfsIUzZfdncFmR4iPQQ"
+  ],
+  "asset_kinds": [
+    "video",
+    "video",
+    "video",
+    "video"
+  ],
   "prompts_sent_at": "2026-07-23T02:30:54.668894+00:00",
-  "last_reminder_at": "2026-07-23T02:30:54.668903+00:00"
+  "last_reminder_at": "2026-07-23T02:30:54.668903+00:00",
+  "upload_failures": 1,
+  "last_upload_error": "<HttpError 400 when requesting None returned \"The request metadata specifies invalid video keywords.\". Details: \"[{'message': 'The request metadata specifies invalid video keywords.', 'domain': 'youtu"
 }
