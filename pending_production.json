@@ -1,0 +1,78 @@
+{
+  "topic": "What would happen if all oceans turned to freshwater?",
+  "mode": "shorts",
+  "privacy": "public",
+  "scenario": {
+    "clickbait_title": "ALL OCEANS TURNED FRESHWATER. Your City DIES FIRST.",
+    "thumbnail_headline": "OCEANS DIE.",
+    "youtube_tags": [
+      "what if all oceans turn to freshwater",
+      "freshwater ocean disaster",
+      "ocean life collapse",
+      "climate change what if",
+      "global catastrophe scenario",
+      "earth science shorts",
+      "science fiction scenario",
+      "future earth what if",
+      "shorts viral video",
+      "short form content",
+      "deep sea creatures",
+      "marine biology disaster",
+      "ocean currents stop",
+      "global freezing",
+      "sea level drop",
+      "extreme weather events",
+      "post apocalyptic earth",
+      "hypothetical scenarios",
+      "environmental disaster",
+      "water cycle change"
+    ],
+    "seo_description": "What if ALL oceans turned to freshwater? Your city's marine life would instantly burst. Dive into a terrifying scenario where ocean currents vanish, global climates collapse, and Earth faces an unprecedented freshwater shock.",
+    "title": "When Oceans Turn Fresh: A Global Collapse",
+    "thumbnail_concept": "A massive, photorealistic pile of dead, bloated fish covering a city beach, with skyscrapers in the background, under a dramatic, stormy sky. Vertical composition, high contrast, immediate shock.",
+    "total_duration_minutes": 0.75,
+    "scenes": [
+      {
+        "scene_number": 1,
+        "scene_type": "hook",
+        "duration_seconds": 10,
+        "narration": "Your city's marine life just started dying. Millions of fish cells, overloaded with freshwater, simply burst. Coastal cities are choked with mountains of dead, rotting sea creatures.",
+        "visual_prompt": "VERTICAL COMPOSITION. Extreme close-up of a massive, bloated, dead fish (e.g., a tuna or shark) on a dark, wet city beach, its skin visibly ruptured. Behind it, a blur of countless more dead fish stretching to the horizon, with a dark, storm-laden sky above a coastal city skyline. Cinematic lighting, dramatic atmosphere, 8K detail, photorealistic.",
+        "twist_element": "The visceral shock of immediate mass marine death.",
+        "asset_type": "video"
+      },
+      {
+        "scene_number": 2,
+        "scene_type": "escalation",
+        "duration_seconds": 10,
+        "narration": "But the dying fish are just the beginning. Without salt, ocean currents vanish. Global heat redistribution grinds to a halt, triggering instant superstorms and climate chaos.",
+        "visual_prompt": "VERTICAL COMPOSITION. A terrifying, towering supercell thunderstorm, glowing with internal lightning, churning over a vast, unnaturally still, dark ocean. Debris from distant storms floats on the surface. Camera pushes into the eye of the storm. Cinematic lighting, dramatic atmosphere, 8K detail, photorealistic.",
+        "asset_type": "video"
+      },
+      {
+        "scene_number": 3,
+        "scene_type": "twist",
+        "duration_seconds": 10,
+        "narration": "Think storms are the problem? Roli here. I've seen this timeline. Freshwater oceans freeze far easier. Massive ice sheets rapidly spread, consuming vast coastal cities.",
+        "visual_prompt": "VERTICAL COMPOSITION. Roli, the photorealistic anthropomorphic rabbit scientist in a worn brass-and-leather steampunk spacesuit with goggles on his forehead and amber eyes, stands calmly in the foreground. He holds a glowing blue pocket-watch. Behind him, a massive, rapidly advancing wall of jagged, blue-white ice consumes a partially submerged modern cityscape. Cinematic lighting, dramatic atmosphere, 8K detail, photorealistic.",
+        "asset_type": "video"
+      },
+      {
+        "scene_number": 4,
+        "scene_type": "loop_bait",
+        "duration_seconds": 10,
+        "narration": "Cities vanish under glaciers. Sea levels plummet globally. Remaining water evaporates, accelerating a deadly cycle of freezing and floods, endlessly repeating the initial shock.",
+        "visual_prompt": "VERTICAL COMPOSITION. A desolate, frozen landscape. Towering, jagged glaciers loom over the ruins of a once-bustling coastal city, now almost entirely encased in ice. A thin, vaporous mist rises from cracks in the ice. Camera slowly pans over the frozen expanse. Cinematic lighting, dramatic atmosphere, 8K detail, photorealistic.",
+        "asset_type": "video"
+      }
+    ],
+    "_topic": "What would happen if all oceans turned to freshwater?",
+    "_mode": "shorts",
+    "_generated_at": "2026-07-23T02:30:47.595697"
+  },
+  "expected_images": 4,
+  "image_file_ids": [],
+  "asset_kinds": [],
+  "prompts_sent_at": "2026-07-23T02:30:54.668894+00:00",
+  "last_reminder_at": "2026-07-23T02:30:54.668903+00:00"
+}
