@@ -17,6 +17,35 @@ class TestRoliBrand:
         assert "steampunk" in brief
 
 
+class TestShortsVideoPrompts:
+    """Short'ta tüm sahneler video: Roli klibi karakter DAHİL, atmosfer klibi hariç."""
+
+    def test_video_scene_with_roli_includes_character(self):
+        scenario = {"scenes": [
+            {"scene_number": 1, "visual_prompt": "A city street lifting into the sky.",
+             "asset_type": "video"},
+            {"scene_number": 2, "visual_prompt": "Roli the rabbit scientist floats and reveals the twist.",
+             "asset_type": "video"},
+        ]}
+        prompts, kinds = mi._build_prompts(scenario, "shorts")
+        assert kinds == ["video", "video"]
+        # Sahne 1: atmosfer klibi — karakter yok
+        assert "VIDEO CLIP" in prompts[0]
+        assert "NO characters" in prompts[0]
+        assert "glowing blue pocket-watch" not in prompts[0]
+        # Sahne 2: Roli klibi — karakter dahil + kanonik tarif
+        assert "featuring the character" in prompts[1]
+        assert "glowing blue pocket-watch" in prompts[1]  # kanonik Roli
+
+    def test_shorts_have_no_thumbnail_prompt(self):
+        # Short'ta thumbnail promptu eklenmez (yalnızca long'da)
+        scenario = {"scenes": [
+            {"scene_number": 1, "visual_prompt": "A burning sky.", "asset_type": "video"},
+        ]}
+        prompts, kinds = mi._build_prompts(scenario, "shorts")
+        assert len(prompts) == 1 and kinds == ["video"]
+
+
 # ── İlk yorum (etkileşim sorusu) ─────────────────────────────────────────
 class TestFirstComment:
     def test_includes_twist_and_question(self):

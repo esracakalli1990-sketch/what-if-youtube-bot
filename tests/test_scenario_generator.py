@@ -168,13 +168,25 @@ class TestMarkVideoScenes:
         types = [s["asset_type"] for s in scenario["scenes"]]
         assert types == ["image", "video"]  # tavşan görsel, diğeri video
 
-    def test_shorts_all_image(self):
+    def test_shorts_all_video_including_character(self):
+        # Short: TÜM sahneler video (Roli dahil) — tam-video format
         scenario = {"scenes": [
-            {"scene_number": 1, "visual_prompt": "A frozen wasteland."},
-            {"scene_number": 2, "visual_prompt": "A burning sky."},
+            {"scene_number": 1, "visual_prompt": "A burning sky."},
+            {"scene_number": 2, "visual_prompt": "A frozen wasteland."},
+            {"scene_number": 3, "visual_prompt": "Roli the rabbit scientist reveals the twist."},
         ]}
         mark_video_scenes(scenario, mode="shorts")
-        assert all(s["asset_type"] == "image" for s in scenario["scenes"])
+        assert all(s["asset_type"] == "video" for s in scenario["scenes"])
+
+    def test_long_keeps_character_scene_as_image(self):
+        # Long: Roli sahnesi görsel kalır (hibrit korunur)
+        scenario = {"scenes": [
+            {"scene_number": 1, "visual_prompt": "Roli the rabbit scientist intro."},
+            {"scene_number": 2, "visual_prompt": "A collapsing city."},
+        ]}
+        mark_video_scenes(scenario, mode="long")
+        types = [s["asset_type"] for s in scenario["scenes"]]
+        assert types == ["image", "video"]
 
 
 class TestExtractJson:
