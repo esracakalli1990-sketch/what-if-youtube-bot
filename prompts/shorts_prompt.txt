@@ -6,7 +6,7 @@ FORMAT RULES:
 - Output MUST be valid JSON.
 - Total video length: 40-50 seconds. NEVER exceed 50 seconds.
 - 4 or 5 SCENES. Each scene becomes ONE single ~10-second video clip.
-- CRITICAL: each scene's narration MUST fit inside ~9 seconds when spoken — so keep every scene to 18-24 words MAX. A scene that runs longer than its 10-second clip forces the clip to freeze/repeat, which looks cheap. One scene = one clip = one ~9-second beat. If a word can be cut, cut it.
+- CRITICAL TIMING: each scene's narration MUST fit inside ~8 seconds when spoken — so keep every scene to 15-20 words MAX. The video clip for the scene is a FULL ~10 seconds, so a ~8-second narration always fits comfortably inside it with margin to spare. If the narration ever runs longer than the clip, the clip freezes on its last frame (looks cheap) — so err SHORT. One scene = one ~10s clip = one ~8-second spoken beat. If a word can be cut, cut it.
 
 THE HOOK — SCENE 1 (this is 90% of your job):
 - The viewer decides to stay or swipe in the FIRST 1 SECOND. The first spoken WORD and the first visual frame must both be shocking.
@@ -53,7 +53,7 @@ OUTPUT JSON STRUCTURE:
 }
 
 VISUAL PROMPT RULES:
-- Every scene becomes a 5-8 SECOND VIDEO CLIP (motion, not a still). Describe a DYNAMIC MOMENT with something actively happening/moving (rising, collapsing, drifting, erupting, glowing, the camera pushing in) — never a frozen pose.
+- Every scene becomes a FULL ~10 SECOND VIDEO CLIP (motion, not a still) — the clip must keep moving for the whole 10 seconds so it always covers the ~8-second narration without ever freezing. Describe a DYNAMIC MOMENT with something actively and CONTINUOUSLY happening/moving (rising, collapsing, drifting, erupting, glowing, the camera pushing in the entire time) — never a frozen pose, never a motion that finishes early.
 - Visuals will be rendered in VERTICAL 9:16 format — describe compositions that work in portrait orientation (strong vertical elements, centered subjects, dramatic sky-to-ground shots).
 - Scene 1's visual must be the single most striking MOMENT of the whole video — the catastrophe visibly happening, instantly readable at a glance on a phone, high contrast, one clear focal subject.
 - The LATER scene where Roli delivers the twist (scene 2 or 3) must feature him as the focal subject, named "Roli" in the FIRST sentence of that visual prompt. Never put Roli in scene 1. Describe him consistently: a photorealistic anthropomorphic rabbit scientist in a worn brass-and-leather steampunk spacesuit, goggles on his forehead, amber eyes, holding a glowing blue pocket-watch (his time-travel device) — his signature look, identical every video.

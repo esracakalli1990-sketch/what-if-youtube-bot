@@ -144,17 +144,21 @@ def _build_prompts(scenario: dict, mode: str) -> tuple[list[str], list[str]]:
                 # tutarlı tasarım + doğal karakter hareketi.
                 prompts.append(
                     f"{visual}\n\n"
-                    "5-8 SECOND VIDEO CLIP featuring the character. Subtle "
-                    "natural character motion (breathing, a small gesture, a "
-                    "glance at the camera) with gentle cinematic camera "
-                    f"movement. {orientation}\n\n{base_style}\n\n{_CHARACTER_BRIEF}"
+                    "FULL 10 SECOND VIDEO CLIP featuring the character (make it "
+                    "the maximum ~10 seconds — it must be at least as long as the "
+                    "narration so it never freezes). Subtle natural character "
+                    "motion (breathing, a small gesture, a glance at the camera) "
+                    "with gentle cinematic camera movement that keeps evolving for "
+                    f"the whole 10 seconds. {orientation}\n\n{base_style}\n\n{_CHARACTER_BRIEF}"
                 )
             else:
                 # Atmosfer/olay video klibi — karakter yok, hareket odaklı.
                 prompts.append(
                     f"{visual}\n\n"
-                    "5-8 SECOND VIDEO CLIP. Cinematic camera motion with "
-                    "natural movement in the scene — drifting particles, "
+                    "FULL 10 SECOND VIDEO CLIP (make it the maximum ~10 seconds — "
+                    "it must be at least as long as the narration so it never "
+                    "freezes). Cinematic camera motion with continuous natural "
+                    "movement throughout the whole 10 seconds — drifting particles, "
                     "flowing light, shifting atmosphere. Environment/phenomenon "
                     f"only, NO characters or people in the frame. {orientation}"
                     f"\n\n{base_style}"
@@ -277,10 +281,12 @@ def start_pending(topic: str, mode: str, scenario: dict, privacy: str = "public"
     video_note = ""
     if video_count:
         video_note = (
-            f"\n\n🎬 Bunların <b>{video_count} tanesi VİDEO</b> (5-6 sn klip), "
-            f"kalanı GÖRSEL. Her mesajda hangisi olduğu yazacak — video "
-            f"isteyenleri Flow'da <b>video</b>, görsel isteyenleri <b>görsel</b> "
-            f"olarak üretip yine <b>sırayla</b> gönderin (video da olur, foto da)."
+            f"\n\n🎬 Bunların <b>{video_count} tanesi VİDEO</b> — her birini "
+            f"<b>tam ~10 saniye</b> yapın (yapabildiğiniz en uzun süre). "
+            f"⚠️ Klip anlatımdan kısa olursa son kare 1-2 sn donar; 10 sn "
+            f"yaparsanız donma olmaz. Kalanı GÖRSEL. Her mesajda hangisi olduğu "
+            f"yazacak — video isteyenleri Flow'da <b>video</b>, görsel "
+            f"isteyenleri <b>görsel</b> olarak üretip <b>sırayla</b> gönderin."
         )
 
     intro = (
@@ -303,7 +309,7 @@ def start_pending(topic: str, mode: str, scenario: dict, privacy: str = "public"
 
     for i, (prompt, kind_i) in enumerate(zip(prompts, kinds), 1):
         if kind_i == "video":
-            label = f"🎬 VİDEO {i}/{len(prompts)} (5-6 sn klip)"
+            label = f"🎬 VİDEO {i}/{len(prompts)} (tam ~10 sn klip)"
         else:
             label = f"🖼 GÖRSEL {i}/{len(prompts)}"
         if mode == "long" and i == len(prompts):
