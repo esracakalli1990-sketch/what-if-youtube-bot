@@ -181,8 +181,9 @@ def create_scene_clip_from_video(
 
     Görsel + Ken Burns yerine gerçek videoyu kullanır:
     - Kaynak klibi çözünürlüğü DOLDURACAK şekilde ölçekler ve merkez-kırpar.
-    - Klip anlatımdan kısaysa DÖNGÜLENİR (onaylanan davranış), uzunsa kırpılır;
-      uzunluk sahne anlatımına (ses süresine) sabitlenir.
+    - Klip anlatımdan KISAYSA son kare DONDURULUR (döngü değil — aynı sahnenin
+      baştan tekrar oynaması "kalitesiz" görünüyordu; artık son karede beklenir).
+      Uzunsa kırpılır. Uzunluk sahne anlatımına (ses süresine) sabitlenir.
     - Ses, sahne anlatımıyla değiştirilir.
     - 25fps + libx264/aac ile üretilir (görsel klipleriyle sorunsuz birleşsin).
 
@@ -197,15 +198,18 @@ def create_scene_clip_from_video(
         bool: Başarılı mı?
     """
     width, height = resolution
-    # Çözünürlüğü doldur (kenar boşluğu bırakma), sonra tam boyuta kırp
+    # Çözünürlüğü doldur (kenar boşluğu bırakma), tam boyuta kırp, ve klip
+    # anlatımdan kısaysa SON KAREYİ DONDUR (tpad clone) — döngü yerine. Sonra
+    # -t ile süre anlatıma sabitlenir: klip uzunsa kırpılır, kısaysa son kare
+    # kalan süre boyunca donuk durur (aynı sahne tekrar oynamaz).
     vfilter = (
         f"scale={width}:{height}:force_original_aspect_ratio=increase,"
-        f"crop={width}:{height},fps=25,setsar=1"
+        f"crop={width}:{height},fps=25,setsar=1,"
+        f"tpad=stop_mode=clone:stop_duration=30"
     )
 
     cmd = [
         "ffmpeg", "-y",
-        "-stream_loop", "-1",   # Kısa klip anlatımı doldurana dek döngülensin
         "-i", video_path,
         "-i", audio_path,
         "-filter_complex", f"[0:v]{vfilter}[v]",
