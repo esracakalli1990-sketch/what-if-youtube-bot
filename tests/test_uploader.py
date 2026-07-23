@@ -19,13 +19,16 @@ class TestSanitizeTags:
         result = _sanitize_tags(["ok", "", "  ", "bad<tag>", "fine"])
         assert result == ["ok", "fine"]
 
-    def test_enforces_total_char_limit_not_count(self):
-        """Gerçek hata: 30 uzun etiket kolayca 500 karakteri aşıyordu (invalidTags)."""
+    def test_enforces_youtube_real_char_limit_with_quotes(self):
+        """Canlı hata (invalidTags 400): çok-kelimeli etiketler YouTube'da TIRNAK
+        içinde sayılır; gerçek toplam 500'ü aşıyordu. Artık tırnak payıyla kesilir."""
         long_tags = [f"what if scenario keyword number {i} explained" for i in range(30)]
         result = _sanitize_tags(long_tags)
-        total_len = sum(len(t) + 1 for t in result)
-        assert total_len <= YOUTUBE_TAGS_MAX_CHARS
-        assert len(result) < 30  # hepsi sığmaz, kesilmeli
+        # YouTube'un gerçek sayımı: boşluklu etiket = uzunluk + 2 (tırnak) + ayraç
+        real_total = sum(len(t) + (2 if " " in t else 0) + 1 for t in result)
+        assert real_total <= 500          # YouTube'un sert sınırı — asla aşılmamalı
+        assert real_total <= YOUTUBE_TAGS_MAX_CHARS
+        assert len(result) < 30           # hepsi sığmaz, kesilmeli
 
     def test_short_tags_all_kept(self):
         tags = ["a", "b", "c"]
