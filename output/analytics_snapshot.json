@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-07-24T18:55:12.786410+00:00",
+  "generated_at": "2026-07-24T20:45:45.248709+00:00",
   "period_days": 28,
   "error": null,
   "channel": {
-    "views": 449,
-    "watch_minutes": 182.0,
+    "views": 457,
+    "watch_minutes": 185.0,
     "avg_view_duration_sec": 43.0,
-    "avg_view_percentage": 55.1,
+    "avg_view_percentage": 55.5,
     "subscribers_gained": 2,
     "subscribers_lost": 1,
     "likes": 19,
@@ -66,6 +66,15 @@
       "avg_view_percentage": 54.7,
       "avg_view_duration_sec": 36.0,
       "watch_minutes": 4.0
+    },
+    {
+      "video_id": "thaeo3YtSqo",
+      "title": "DOUBLE OXYGEN: Your Lungs WILL FAIL in Seconds! #Shorts",
+      "kind": "short",
+      "views": 5,
+      "avg_view_percentage": 111.8,
+      "avg_view_duration_sec": 49.0,
+      "watch_minutes": 0.0
     },
     {
       "video_id": "TfD9muAjcFg",
