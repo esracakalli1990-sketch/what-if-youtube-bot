@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-07-26T17:31:23.395180+00:00",
+  "generated_at": "2026-07-26T19:42:46.280532+00:00",
   "period_days": 28,
   "error": null,
   "channel": {
-    "views": 460,
-    "watch_minutes": 185.0,
+    "views": 461,
+    "watch_minutes": 186.0,
     "avg_view_duration_sec": 42.0,
-    "avg_view_percentage": 55.3,
+    "avg_view_percentage": 55.2,
     "subscribers_gained": 2,
     "subscribers_lost": 1,
     "likes": 19,
@@ -35,9 +35,9 @@
       "video_id": "l0olB6EIyyg",
       "title": "SPEED OF LIGHT just became 100 KM/H! (You're Already DEAD) #Shorts",
       "kind": "short",
-      "views": 38,
-      "avg_view_percentage": 64.5,
-      "avg_view_duration_sec": 31.0,
+      "views": 39,
+      "avg_view_percentage": 61.1,
+      "avg_view_duration_sec": 29.0,
       "watch_minutes": 8.0
     },
     {
