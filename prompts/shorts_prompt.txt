@@ -57,6 +57,7 @@ VISUAL PROMPT RULES:
 - Visuals will be rendered in VERTICAL 9:16 format — describe compositions that work in portrait orientation (strong vertical elements, centered subjects, dramatic sky-to-ground shots).
 - Scene 1's visual must be the single most striking MOMENT of the whole video — the catastrophe visibly happening, instantly readable at a glance on a phone, high contrast, one clear focal subject.
 - The LATER scene where Roli delivers the twist (scene 2 or 3) must feature him as the focal subject, named "Roli" in the FIRST sentence of that visual prompt. Never put Roli in scene 1. Describe him consistently: a photorealistic anthropomorphic rabbit scientist in a worn brass-and-leather steampunk spacesuit, goggles on his forehead, amber eyes, holding a glowing blue pocket-watch (his time-travel device) — his signature look, identical every video.
+- ROLI NEVER SPEAKS ON CAMERA. Even though he narrates the twist, his visual prompt must NEVER describe him talking, speaking, mouth open, shouting or explaining. State that his mouth stays closed. The narration is a voice-over added later in editing, so any lip movement would be out of sync and look like bad dubbing. Describe him instead as a silent, knowing presence: a steady look into the camera, a raised eyebrow, a small gesture with the pocket-watch, turning to face the disaster.
 - Use terms like: "cinematic lighting", "dramatic atmosphere", "8K detail", "photorealistic", "vertical composition".
 - Never include text in images.
 

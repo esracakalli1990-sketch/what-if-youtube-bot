@@ -76,6 +76,34 @@ class TestBuildPromptsVideo:
         assert "VIDEO CLIP" in prompts[1]
         assert "VIDEO CLIP" not in prompts[0]
 
+    def test_roli_video_clip_forbids_lip_movement(self):
+        """Roli'li VİDEO klibinde konuşma yasaklanmalı.
+
+        Canlı sorun: kullanıcının ürettiği Roli klibinde Roli konuşuyordu; montajda
+        klibin sesi atılıp TTS anlatımı bindiği için dudaklar sözlerle tutmuyor
+        (kötü dublaj görüntüsü). Prompt artık ağzın KAPALI kalmasını şart koşar.
+        """
+        scenario = _scenario(1)
+        scenario["scenes"][0]["asset_type"] = "video"
+        scenario["scenes"][0]["visual_prompt"] = "Roli the rabbit scientist on the ice"
+        prompts, kinds = mi._build_prompts(scenario, "shorts")
+        assert kinds == ["video"]
+        p = prompts[0]
+        assert "MUST NOT SPEAK" in p
+        assert "mouth stays" in p and "CLOSED" in p
+        assert "no lip movement" in p
+        # Karakter tarifi yine de gelmeli (marka tutarlılığı)
+        assert "steampunk spacesuit" in p
+
+    def test_non_character_video_clip_has_no_speech_rule(self):
+        """Karaktersiz atmosfer klibinde konuşma kuralına gerek yok."""
+        scenario = _scenario(1)
+        scenario["scenes"][0]["asset_type"] = "video"
+        scenario["scenes"][0]["visual_prompt"] = "A collapsing glacier wall"
+        prompts, _ = mi._build_prompts(scenario, "shorts")
+        assert "MUST NOT SPEAK" not in prompts[0]
+        assert "NO characters or people" in prompts[0]
+
     def test_shorts_never_video(self):
         scenario = _scenario(3)
         for s in scenario["scenes"]:

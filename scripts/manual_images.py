@@ -149,7 +149,14 @@ def _build_prompts(scenario: dict, mode: str) -> tuple[list[str], list[str]]:
                     "narration so it never freezes). Subtle natural character "
                     "motion (breathing, a small gesture, a glance at the camera) "
                     "with gentle cinematic camera movement that keeps evolving for "
-                    f"the whole 10 seconds. {orientation}\n\n{base_style}\n\n{_CHARACTER_BRIEF}"
+                    "the whole 10 seconds.\n\n"
+                    "CRITICAL — THE CHARACTER MUST NOT SPEAK: his mouth stays "
+                    "CLOSED the entire clip. No talking, no lip movement, no "
+                    "mouth opening, no dialogue. The voice-over narration is added "
+                    "separately in editing, so any lip movement would be out of "
+                    "sync and look like bad dubbing. He communicates only through "
+                    "his eyes, posture and a small hand gesture — a silent, "
+                    f"knowing presence. {orientation}\n\n{base_style}\n\n{_CHARACTER_BRIEF}"
                 )
             else:
                 # Atmosfer/olay video klibi — karakter yok, hareket odaklı.
