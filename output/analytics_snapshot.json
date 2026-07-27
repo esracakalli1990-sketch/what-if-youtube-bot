@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-27T15:58:40.661610+00:00",
+  "generated_at": "2026-07-27T18:01:42.368906+00:00",
   "period_days": 28,
   "error": null,
   "channel": {
@@ -68,15 +68,6 @@
       "watch_minutes": 4.0
     },
     {
-      "video_id": "thaeo3YtSqo",
-      "title": "DOUBLE OXYGEN: Your Lungs WILL FAIL in Seconds! #Shorts",
-      "kind": "short",
-      "views": 5,
-      "avg_view_percentage": 111.8,
-      "avg_view_duration_sec": 49.0,
-      "watch_minutes": 0.0
-    },
-    {
       "video_id": "TfD9muAjcFg",
       "title": "WHAT IF THE SUN VANISHED? (The Terrifying 8-Minute Truth)",
       "kind": "long",
@@ -84,6 +75,15 @@
       "avg_view_percentage": 23.5,
       "avg_view_duration_sec": 61.0,
       "watch_minutes": 5.0
+    },
+    {
+      "video_id": "thaeo3YtSqo",
+      "title": "DOUBLE OXYGEN: Your Lungs WILL FAIL in Seconds! #Shorts",
+      "kind": "short",
+      "views": 5,
+      "avg_view_percentage": 111.8,
+      "avg_view_duration_sec": 49.0,
+      "watch_minutes": 0.0
     },
     {
       "video_id": "lYaByHDACuc",
