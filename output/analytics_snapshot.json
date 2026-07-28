@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-28T03:46:17.105753+00:00",
+  "generated_at": "2026-07-28T07:09:41.248992+00:00",
   "period_days": 28,
   "error": null,
   "channel": {
@@ -84,6 +84,15 @@
       "avg_view_percentage": 23.5,
       "avg_view_duration_sec": 61.0,
       "watch_minutes": 5.0
+    },
+    {
+      "video_id": "lYaByHDACuc",
+      "title": "You'd NEVER Survive 48 Hours Without Sleep. Here's Why. #Shorts",
+      "kind": "short",
+      "views": 2,
+      "avg_view_percentage": 41.5,
+      "avg_view_duration_sec": 21.0,
+      "watch_minutes": 0.0
     }
   ]
 }
