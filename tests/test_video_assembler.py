@@ -78,6 +78,65 @@ class TestSceneFadeTransition:
         assert joined.index("tpad") < joined.index("fade=t=out")
 
 
+class TestVideoThenImageScene:
+    """Uzun sahne: klip bitince görselden devam (donma yerine hareket+Ken Burns)."""
+
+    def _capture(self, monkeypatch):
+        calls = []
+        monkeypatch.setattr(va, "_run_ffmpeg", lambda cmd, *a, **k: calls.append(cmd) or True)
+        return calls
+
+    def test_builds_video_then_image_segments(self, monkeypatch, tmp_path):
+        calls = self._capture(monkeypatch)
+        monkeypatch.setattr(va, "probe_duration", lambda p: 10.0)
+        monkeypatch.setattr(va, "TEMP_DIR", tmp_path)
+
+        ok = va.create_scene_clip_video_then_image(
+            "clip.mp4", "still.png", "a.mp3", str(tmp_path / "out.mp4"),
+            duration=40.0, resolution=(1920, 1080),
+        )
+        assert ok
+        assert len(calls) == 3                      # video bölümü, görsel bölümü, birleştirme
+        vcmd, icmd, final = (" ".join(c) for c in calls)
+
+        # 1) Video bölümü klibin kendi uzunluğunda ve sessiz
+        assert "clip.mp4" in vcmd and "-an" in vcmd and "10.000" in vcmd
+        # 2) Görsel bölümü kalan süreyi kaplar (40 - 10 = 30 sn) ve Ken Burns uygular
+        assert "still.png" in icmd and "zoompan" in icmd and "30.000" in icmd
+        # 3) Birleştirme anlatım sesini bindirir ve toplam süreyi sahneye sabitler
+        assert "concat" in final and "a.mp3" in final and "40.000" in final
+
+    def test_transition_between_segments(self, monkeypatch, tmp_path):
+        """Klip kararak biter, görsel karadan açılır — sert kesme olmasın."""
+        calls = self._capture(monkeypatch)
+        monkeypatch.setattr(va, "probe_duration", lambda p: 10.0)
+        monkeypatch.setattr(va, "TEMP_DIR", tmp_path)
+
+        va.create_scene_clip_video_then_image(
+            "clip.mp4", "still.png", "a.mp3", str(tmp_path / "out.mp4"),
+            duration=40.0, resolution=(1920, 1080), fade_in=False, fade_out=False,
+        )
+        vcmd, icmd, _ = (" ".join(c) for c in calls)
+        assert "fade=t=out" in vcmd      # klip sonunda karar
+        assert "fade=t=in" in icmd       # görsel karadan açılır
+
+    def test_falls_back_when_clip_covers_narration(self, monkeypatch, tmp_path):
+        """Klip anlatımı zaten karşılıyorsa görsele geçmeye gerek yok."""
+        monkeypatch.setattr(va, "probe_duration", lambda p: 12.0)
+        called = {}
+
+        def fake_from_video(*a, **k):
+            called["used"] = True
+            return True
+
+        monkeypatch.setattr(va, "create_scene_clip_from_video", fake_from_video)
+        ok = va.create_scene_clip_video_then_image(
+            "clip.mp4", "still.png", "a.mp3", str(tmp_path / "out.mp4"),
+            duration=9.0, resolution=(1080, 1920),
+        )
+        assert ok and called.get("used")
+
+
 class TestIsVideoAsset:
     def test_video_extensions(self):
         assert is_video_asset("scene_03.mp4")

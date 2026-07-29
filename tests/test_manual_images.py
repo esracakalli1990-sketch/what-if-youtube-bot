@@ -104,6 +104,89 @@ class TestBuildPromptsVideo:
         assert "MUST NOT SPEAK" not in prompts[0]
         assert "NO characters or people" in prompts[0]
 
+class TestLongVideoAssetPlan:
+    """Uzun videoda sahne başına HEM klip HEM devam görseli istenir.
+
+    Uzun video sahneleri 30-60 sn sürüyor; kullanıcı en fazla ~10 sn klip
+    üretebiliyor. Tek klip verilirse kalan süre donuk kare olurdu.
+    """
+
+    def _long_scenario(self):
+        return {
+            "title": "T", "clickbait_title": "T!", "thumbnail_concept": "C",
+            "scenes": [
+                {"scene_number": 1, "narration": "n", "visual_prompt": "A collapsing city",
+                 "asset_type": "video"},
+                {"scene_number": 2, "narration": "n", "visual_prompt": "Roli the rabbit watches",
+                 "asset_type": "image"},
+                {"scene_number": 3, "narration": "n", "visual_prompt": "Oceans boiling",
+                 "asset_type": "video"},
+            ],
+        }
+
+    def test_video_scenes_get_paired_image(self):
+        plan = mi.build_asset_plan(self._long_scenario(), "long")
+        # 2 video sahnesi ×2 + 1 görsel sahnesi + thumbnail = 6
+        assert len(plan) == 6
+        assert [(p["scene_number"], p["role"]) for p in plan] == [
+            (1, "video"), (1, "image"),
+            (2, "image"),
+            (3, "video"), (3, "image"),
+            (None, "thumbnail"),
+        ]
+
+    def test_paired_image_prompt_is_still_and_matches_clip(self):
+        plan = mi.build_asset_plan(self._long_scenario(), "long")
+        pair = plan[1]                       # sahne 1'in devam görseli
+        assert pair["kind"] == "photo"
+        assert "STILL IMAGE" in pair["prompt"]
+        assert "after the video clip ends" in pair["prompt"]
+        assert "A collapsing city" in pair["prompt"]   # aynı sahne tarifi
+
+    def test_paired_image_keeps_character_brief(self):
+        sc = {"scenes": [{"scene_number": 1, "narration": "n",
+                          "visual_prompt": "Roli the rabbit scientist on ice",
+                          "asset_type": "video"}]}
+        plan = mi.build_asset_plan(sc, "long")
+        assert "steampunk spacesuit" in plan[1]["prompt"]
+
+    def test_shorts_get_no_paired_image(self):
+        """Short sahneleri ~8 sn; tek klip yeter, çift varlık istenmez."""
+        sc = {"scenes": [
+            {"scene_number": i + 1, "narration": "n", "visual_prompt": f"V{i}",
+             "asset_type": "video"} for i in range(4)
+        ]}
+        plan = mi.build_asset_plan(sc, "shorts")
+        assert len(plan) == 4
+        assert all(p["role"] == "video" for p in plan)
+
+    def test_start_pending_stores_slots(self, isolated_state):
+        mi.start_pending("T", "long", self._long_scenario())
+        pending = mi.load_pending()
+        assert pending["expected_images"] == 6
+        assert pending["asset_slots"][0] == {"scene_number": 1, "role": "video"}
+        assert pending["asset_slots"][1] == {"scene_number": 1, "role": "image"}
+        assert pending["asset_slots"][-1]["role"] == "thumbnail"
+
+
+class TestSceneAssetPriority:
+    def test_video_wins_when_both_exist(self, tmp_path, monkeypatch):
+        """Sahnede hem klip hem görsel varsa VİDEO döndürülmeli.
+
+        Görsel önce döndürülürse montaj klibi hiç kullanmaz.
+        """
+        monkeypatch.setattr(mi, "IMAGES_DIR", tmp_path)
+        (tmp_path / "scene_01.png").write_bytes(b"x" * 20000)
+        (tmp_path / "scene_01.mp4").write_bytes(b"y" * 20000)
+        assert mi.scene_asset_path(1, vertical=False).suffix == ".mp4"
+
+    def test_image_used_when_no_video(self, tmp_path, monkeypatch):
+        monkeypatch.setattr(mi, "IMAGES_DIR", tmp_path)
+        (tmp_path / "scene_02.png").write_bytes(b"x" * 20000)
+        assert mi.scene_asset_path(2, vertical=False).suffix == ".png"
+
+
+class TestBuildPromptsVideoExtra:
     def test_shorts_never_video(self):
         scenario = _scenario(3)
         for s in scenario["scenes"]:
@@ -276,9 +359,12 @@ class TestCompleteProductionImagesCheckpoint:
         scenario["scenes"][1]["asset_type"] = "video"
         mi.start_pending("T", "long", scenario)
 
+        # Uzun videoda sahne 2 (video) için klip + devam görseli istenir:
+        # [s1 görsel, s2 klip, s2 devam görseli, thumbnail] = 4 varlık
         pending = mi.load_pending()
-        pending["image_file_ids"] = ["file_a", "clip_b", "thumb_c"]
-        pending["asset_kinds"] = ["photo", "video", "photo"]
+        assert pending["expected_images"] == 4
+        pending["image_file_ids"] = ["file_a", "clip_b", "still_b", "thumb_c"]
+        pending["asset_kinds"] = ["photo", "video", "photo", "photo"]
         mi._save_pending(pending)
 
         monkeypatch.setattr(mi, "load_env", lambda: {"TELEGRAM_BOT_TOKEN": "tok"})
@@ -314,7 +400,10 @@ class TestCompleteProductionImagesCheckpoint:
         assert "images" in captured
         results = {r["scene_number"]: r["image_path"] for r in captured["images"]["image_results"]}
         assert results[1].endswith(".png")
+        # Sahne 2'de hem klip hem devam görseli var → montaja VİDEO yolu gitmeli
+        # (montaj yanındaki .png'yi kendisi bulup klip bitince ona geçer)
         assert results[2].endswith(".mp4")
+        assert (mi.IMAGES_DIR / "scene_02.png").exists()   # devam görseli kaydedildi
 
 
 class TestReminder:

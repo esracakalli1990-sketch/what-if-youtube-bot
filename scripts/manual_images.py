@@ -80,10 +80,13 @@ def scene_asset_path(scene_num: int, vertical: bool) -> Path | None:
     suffix = "_vertical" if vertical else ""
     img_path = IMAGES_DIR / f"scene_{scene_num:02d}{suffix}.png"
     vid_path = IMAGES_DIR / f"scene_{scene_num:02d}{suffix}.mp4"
-    if img_path.exists() and img_path.stat().st_size >= 10240:
-        return img_path
+    # VİDEO ÖNCELİKLİ: uzun videoda bir sahnenin hem klibi hem devam görseli
+    # bulunur. Montaj, video yolunu alıp yanındaki .png'yi kendisi bulur ve
+    # klip bitince ona geçer. Görsel önce döndürülürse klip hiç kullanılmaz.
     if vid_path.exists() and vid_path.stat().st_size >= 10240:
         return vid_path
+    if img_path.exists() and img_path.stat().st_size >= 10240:
+        return img_path
     return None
 
 
@@ -107,6 +110,61 @@ _CHARACTER_BRIEF = (
     "forehead, and carries a glowing blue pocket-watch (his time-travel device) "
     "clipped to his belt."
 )
+
+
+def build_asset_plan(scenario: dict, mode: str) -> list[dict]:
+    """
+    Üretilecek varlıkların planı: her biri bir Telegram prompt'una karşılık gelir.
+
+    Her kayıt: {"prompt", "kind" ("video"/"photo"), "scene_number" (veya None),
+    "role" ("video"/"image"/"thumbnail")}.
+
+    UZUN VİDEODA ÇİFT VARLIK: uzun video sahnelerinin anlatımı 30-60 saniye
+    sürüyor ama kullanıcı en fazla ~10 saniyelik klip üretebiliyor. Tek klip
+    verilirse geri kalan 20-50 saniye donuk kare olarak kalır. Bu yüzden video
+    sahneleri için HEM klip HEM görsel istenir: montaj klibi baştaki ~10 saniyede
+    oynatır, kalan süreyi Ken Burns'lü görselle sürdürür.
+
+    Short'ta sahneler zaten ~8 saniye olduğu için tek klip yeter — orada çift
+    varlık istenmez.
+    """
+    prompts, kinds = _build_prompts(scenario, mode)
+    scenes = scenario.get("scenes", [])
+    # _build_prompts sahneleri sırayla üretir (visual_prompt'u boş olanı atlar)
+    scene_seq = [s for s in scenes if (s.get("visual_prompt") or "").strip()]
+
+    plan: list[dict] = []
+    for i, (prompt, kind) in enumerate(zip(prompts, kinds)):
+        if i >= len(scene_seq):
+            plan.append({"prompt": prompt, "kind": kind,
+                         "scene_number": None, "role": "thumbnail"})
+            continue
+
+        scene = scene_seq[i]
+        num = scene.get("scene_number", i + 1)
+        role = "video" if kind == "video" else "image"
+        plan.append({"prompt": prompt, "kind": kind,
+                     "scene_number": num, "role": role})
+
+        # Uzun videoda video sahnesine EK görsel iste (klip bitince devam etsin)
+        if mode == "long" and kind == "video":
+            visual = (scene.get("visual_prompt") or "").strip()
+            parts = [
+                visual,
+                "STILL IMAGE (not a video) of this same moment — it continues "
+                "the scene after the video clip ends, so keep the same setting, "
+                "lighting and colour palette as the clip.",
+                "Widescreen 16:9 cinematic format.",
+                "Photorealistic, cinematic lighting, 8K detail, dramatic "
+                "atmosphere. No text, no watermarks, no borders.",
+            ]
+            from scripts.scenario_generator import mentions_character
+            if mentions_character(visual):
+                parts.append(_CHARACTER_BRIEF)
+            plan.append({"prompt": "\n\n".join(parts), "kind": "photo",
+                         "scene_number": num, "role": "image"})
+
+    return plan
 
 
 def _build_prompts(scenario: dict, mode: str) -> tuple[list[str], list[str]]:
@@ -276,17 +334,30 @@ def start_pending(topic: str, mode: str, scenario: dict, privacy: str = "public"
     Returns:
         bool: Prompt'lar gönderildi mi?
     """
-    prompts, kinds = _build_prompts(scenario, mode)
-    if not prompts:
+    plan = build_asset_plan(scenario, mode)
+    if not plan:
         print_error("Senaryoda görsel promptu yok!")
         return False
+
+    prompts = [p["prompt"] for p in plan]
+    kinds = [p["kind"] for p in plan]
 
     orientation = "9:16 DİKEY" if mode == "shorts" else "16:9 YATAY"
     kind = "Short" if mode == "shorts" else "uzun video"
     video_count = kinds.count("video")
 
     video_note = ""
-    if video_count:
+    if video_count and mode == "long":
+        video_note = (
+            f"\n\n🎬 Bu uzun videoda <b>{video_count} sahne için İKİ varlık</b> "
+            f"isteniyor: önce <b>~10 sn VİDEO</b>, hemen ardından <b>aynı sahnenin "
+            f"GÖRSELİ</b>. Sebebi: uzun video sahneleri 30-60 saniye sürüyor, "
+            f"klip tek başına yetmiyor. Montaj klibi baştaki 10 saniyede oynatıp "
+            f"kalan süreyi görselle (yavaş zoom) sürdürecek — böylece donma olmaz."
+            f"\n\n⚠️ Sıra çok önemli: her mesajda hangisinin istendiği yazıyor, "
+            f"<b>aynı sırayla</b> gönderin."
+        )
+    elif video_count:
         video_note = (
             f"\n\n🎬 Bunların <b>{video_count} tanesi VİDEO</b> — her birini "
             f"<b>tam ~10 saniye</b> yapın (yapabildiğiniz en uzun süre). "
@@ -314,23 +385,31 @@ def start_pending(topic: str, mode: str, scenario: dict, privacy: str = "public"
     if brief:
         send_message(brief)
 
-    for i, (prompt, kind_i) in enumerate(zip(prompts, kinds), 1):
-        if kind_i == "video":
-            label = f"🎬 VİDEO {i}/{len(prompts)} (tam ~10 sn klip)"
+    total = len(plan)
+    for i, item in enumerate(plan, 1):
+        num = item.get("scene_number")
+        if item["role"] == "thumbnail":
+            label = f"🖼 GÖRSEL {i}/{total} (THUMBNAIL arka planı)"
+        elif item["kind"] == "video":
+            label = f"🎬 VİDEO {i}/{total} — Sahne {num} (tam ~10 sn klip)"
+        elif mode == "long":
+            label = f"🖼 GÖRSEL {i}/{total} — Sahne {num} (klipten sonrası)"
         else:
-            label = f"🖼 GÖRSEL {i}/{len(prompts)}"
-        if mode == "long" and i == len(prompts):
-            label = f"🖼 GÖRSEL {i}/{len(prompts)} (THUMBNAIL arka planı)"
-        send_message(f"{label}:\n\n<code>{prompt[:3900]}</code>")
+            label = f"🖼 GÖRSEL {i}/{total}"
+        send_message(f"{label}:\n\n<code>{item['prompt'][:3900]}</code>")
 
     _save_pending({
         "topic": topic,
         "mode": mode,
         "privacy": privacy,
         "scenario": scenario,
-        "expected_images": len(prompts),
+        "expected_images": total,
         "image_file_ids": [],
         "asset_kinds": [],
+        # Hangi dosyanın hangi sahneye/role ait olduğunu konumdan bağımsız tutar
+        "asset_slots": [
+            {"scene_number": p.get("scene_number"), "role": p["role"]} for p in plan
+        ],
         "prompts_sent_at": datetime.now(timezone.utc).isoformat(),
         "last_reminder_at": datetime.now(timezone.utc).isoformat(),
     })
@@ -508,6 +587,7 @@ def complete_production() -> bool:
     scene_count = len(scenes)
     file_ids = pending["image_file_ids"][:pending["expected_images"]]
     asset_kinds = pending.get("asset_kinds") or []
+    slots = pending.get("asset_slots") or []
 
     thumbnail_path = None
     for i, file_id in enumerate(file_ids):
@@ -520,20 +600,41 @@ def complete_production() -> bool:
             logger.warning("Manuel varlık indirme başarısız (sıra %d), sonraki koşuda denenecek.", i + 1)
             return False
 
-        if i < scene_count:
+        # Slot planı varsa dosyayı ona göre yönlendir (uzun videoda bir sahnenin
+        # HEM klibi HEM görseli gelebildiği için konum tek başına yetmez).
+        slot = slots[i] if i < len(slots) else None
+
+        if slot and slot.get("role") in ("video", "image"):
+            scene_num = slot["scene_number"]
+            png_path = IMAGES_DIR / f"scene_{scene_num:02d}{suffix}.png"
+            mp4_path = IMAGES_DIR / f"scene_{scene_num:02d}{suffix}.mp4"
+            if slot["role"] == "video":
+                # Video klip: ham kaydet (montaj ölçekleme/kırpmayı kendi yapıyor)
+                mp4_path.write_bytes(data)
+                logger.info("Manuel video klip kaydedildi: %s", mp4_path.name)
+            else:
+                center_crop_to_aspect(data, target_w, target_h).save(png_path, "PNG")
+                logger.info("Manuel görsel kaydedildi: %s", png_path.name)
+        elif slot and slot.get("role") == "thumbnail":
+            from scripts.utils import THUMBNAILS_DIR
+            THUMBNAILS_DIR.mkdir(parents=True, exist_ok=True)
+            thumbnail_path = THUMBNAILS_DIR / "thumbnail_raw.png"
+            center_crop_to_aspect(data, 1344, 768).save(thumbnail_path, "PNG")
+            logger.info("Manuel thumbnail arka planı kaydedildi.")
+        elif i < scene_count:
+            # Slot planı yoksa (eski üretimler) konuma göre eşleştir
             scene_num = scenes[i].get("scene_number", i + 1)
             png_path = IMAGES_DIR / f"scene_{scene_num:02d}{suffix}.png"
             mp4_path = IMAGES_DIR / f"scene_{scene_num:02d}{suffix}.mp4"
             if kind == "video":
-                # Video klip: ham kaydet (montaj ölçekleme/kırpmayı kendi yapıyor)
                 mp4_path.write_bytes(data)
                 if png_path.exists():
-                    png_path.unlink()  # Aynı sahnenin eski görseli varsa temizle
+                    png_path.unlink()
                 logger.info("Manuel video klip kaydedildi: %s", mp4_path.name)
             else:
                 center_crop_to_aspect(data, target_w, target_h).save(png_path, "PNG")
                 if mp4_path.exists():
-                    mp4_path.unlink()  # Aynı sahnenin eski videosu varsa temizle
+                    mp4_path.unlink()
                 logger.info("Manuel görsel kaydedildi: %s", png_path.name)
         elif kind != "video":
             # Uzun videoda fazladan gelen görsel = thumbnail arka planı
