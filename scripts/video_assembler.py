@@ -288,6 +288,126 @@ def create_scene_clip_from_video(
     return _run_ffmpeg(cmd, "scene clip (video)", timeout=300)
 
 
+def probe_duration(path: str) -> float:
+    """Medya dosyasının süresini saniye olarak döndür (okunamazsa 0.0)."""
+    try:
+        result = subprocess.run(
+            ["ffprobe", "-v", "error", "-show_entries", "format=duration",
+             "-of", "default=noprint_wrappers=1:nokey=1", str(path)],
+            capture_output=True, text=True, timeout=30,
+        )
+        return float(result.stdout.strip())
+    except (ValueError, FileNotFoundError, subprocess.TimeoutExpired, AttributeError):
+        logger.warning("Süre okunamadı: %s", path)
+        return 0.0
+
+
+def create_scene_clip_video_then_image(
+    video_path: str,
+    image_path: str,
+    audio_path: str,
+    output_path: str,
+    duration: float,
+    effect: str = "slow_zoom",
+    resolution: tuple[int, int] = (1920, 1080),
+    fade_in: bool = True,
+    fade_out: bool = True,
+) -> bool:
+    """
+    Uzun video sahnesi: önce video klip, klip bitince görselden devam.
+
+    NEDEN: uzun video sahnelerinin anlatımı 30-60 saniye sürüyor ama kullanıcı
+    en fazla ~10 saniyelik klip üretebiliyor. Tek klip verilirse kalan 20-50
+    saniye donuk kare olarak kalırdı. Bu fonksiyon klibi kendi doğal uzunluğunda
+    oynatır, ardından AYNI sahnenin görseline geçip Ken Burns ile anlatımın
+    sonuna kadar sürdürür — hareket de olur, donma da olmaz.
+
+    Geçiş, sahneler arası geçişle aynı dilde: klip karararak biter, görsel
+    karadan açılır.
+
+    Args:
+        video_path: Kullanıcının ~10 sn klibi
+        image_path: Aynı sahnenin devam görseli
+        audio_path: Sahne anlatımı (toplam süreyi bu belirler)
+        duration: Sahne süresi (anlatım uzunluğu)
+        effect: Görsel bölüm için Ken Burns efekti
+
+    Returns:
+        bool: Başarılı mı?
+    """
+    width, height = resolution
+    vdur = probe_duration(video_path)
+
+    # Klip anlatımı zaten karşılıyorsa görsele hiç gerek yok
+    if vdur <= 0 or vdur >= duration - 0.5:
+        return create_scene_clip_from_video(
+            video_path, audio_path, output_path, duration,
+            resolution=resolution, fade_in=fade_in, fade_out=fade_out,
+        )
+
+    vpart = min(vdur, duration)
+    ipart = max(duration - vpart, 0.5)
+    fade_d = min(SCENE_FADE_DURATION, vpart / 3.0, ipart / 3.0)
+
+    TEMP_DIR.mkdir(parents=True, exist_ok=True)
+    stem = Path(output_path).stem
+    seg_v = str(TEMP_DIR / f"{stem}_seg_video.mp4")
+    seg_i = str(TEMP_DIR / f"{stem}_seg_image.mp4")
+
+    # 1) Video bölümü — sessiz, klip sonunda karar (görsele geçiş)
+    vfilter = (
+        f"scale={width}:{height}:force_original_aspect_ratio=increase,"
+        f"crop={width}:{height},fps=25,setsar=1"
+    )
+    vfade = _scene_fade_filter(vpart, fade_in=fade_in, fade_out=True, fade_d=fade_d)
+    if vfade:
+        vfilter = f"{vfilter},{vfade}"
+    if not _run_ffmpeg([
+        "ffmpeg", "-y", "-i", video_path,
+        "-filter_complex", f"[0:v]{vfilter}[v]",
+        "-map", "[v]", "-an",
+        "-t", f"{vpart:.3f}",
+        "-c:v", "libx264", "-preset", "medium", "-crf", "18",
+        "-pix_fmt", "yuv420p", seg_v,
+    ], "scene segment (video part)", timeout=300):
+        return False
+
+    # 2) Görsel bölümü — sessiz, karadan açılır, Ken Burns ile devam eder
+    frames = max(int(ipart * 25), 1)
+    size = f"{width}x{height}"
+    prescale = "scale=-1:8000" if height > width else "scale=8000:-1"
+    kb = (f"{prescale},zoompan=z='min(zoom+0.0008,1.25)':x='iw/2-(iw/zoom/2)'"
+          f":y='ih/2-(ih/zoom/2)':d={frames}:s={size}:fps=25")
+    ifade = _scene_fade_filter(ipart, fade_in=True, fade_out=fade_out, fade_d=fade_d)
+    if ifade:
+        kb = f"{kb},{ifade}"
+    if not _run_ffmpeg([
+        "ffmpeg", "-y", "-loop", "1", "-i", image_path,
+        "-filter_complex", f"[0:v]{kb}[v]",
+        "-map", "[v]", "-an",
+        "-t", f"{ipart:.3f}",
+        "-c:v", "libx264", "-preset", "medium", "-crf", "18",
+        "-pix_fmt", "yuv420p", seg_i,
+    ], "scene segment (image part)", timeout=300):
+        return False
+
+    # 3) İki görsel bölümü birleştir + sahne anlatımını bindir
+    concat_file = TEMP_DIR / f"{stem}_segments.txt"
+    concat_file.write_text(
+        f"file '{seg_v}'\nfile '{seg_i}'\n".replace("\\", "/"), encoding="utf-8"
+    )
+    return _run_ffmpeg([
+        "ffmpeg", "-y",
+        "-f", "concat", "-safe", "0", "-i", str(concat_file),
+        "-i", audio_path,
+        "-map", "0:v", "-map", "1:a",
+        "-t", f"{duration:.3f}",
+        "-c:v", "libx264", "-preset", "medium", "-crf", "18",
+        "-c:a", "aac", "-b:a", "192k", "-ac", "2", "-ar", "44100",
+        "-pix_fmt", "yuv420p", output_path,
+    ], "scene clip (video→image)", timeout=300)
+
+
 # ──────────────────────────────────────
 # SRT Altyazı Üretimi
 # ──────────────────────────────────────
@@ -679,16 +799,34 @@ def assemble_video(
 
         # Varlık bir video klip ise Ken Burns yerine klibi doğrudan kullan
         if is_video_asset(asset_path):
-            console.print(f"  🎥 Sahne {scene_num} montajlanıyor (video klip)... ", end="")
-            success = create_scene_clip_from_video(
-                video_path=asset_path,
-                audio_path=audio_info["audio_path"],
-                output_path=clip_path,
-                duration=audio_info["duration_seconds"],
-                resolution=resolution,
-                fade_in=not is_first,
-                fade_out=not is_last,
-            )
+            # Aynı sahnenin devam görseli varsa (uzun videoda çift varlık):
+            # klip bitince görselden devam et — uzun anlatımda donma olmasın.
+            still = Path(asset_path).with_suffix(".png")
+            if still.exists() and still.stat().st_size > 10240:
+                console.print(
+                    f"  🎥 Sahne {scene_num} montajlanıyor (video→görsel)... ", end="")
+                success = create_scene_clip_video_then_image(
+                    video_path=asset_path,
+                    image_path=str(still),
+                    audio_path=audio_info["audio_path"],
+                    output_path=clip_path,
+                    duration=audio_info["duration_seconds"],
+                    effect=effect,
+                    resolution=resolution,
+                    fade_in=not is_first,
+                    fade_out=not is_last,
+                )
+            else:
+                console.print(f"  🎥 Sahne {scene_num} montajlanıyor (video klip)... ", end="")
+                success = create_scene_clip_from_video(
+                    video_path=asset_path,
+                    audio_path=audio_info["audio_path"],
+                    output_path=clip_path,
+                    duration=audio_info["duration_seconds"],
+                    resolution=resolution,
+                    fade_in=not is_first,
+                    fade_out=not is_last,
+                )
         else:
             console.print(f"  🎥 Sahne {scene_num} montajlanıyor ({effect})... ", end="")
             success = create_scene_clip(
