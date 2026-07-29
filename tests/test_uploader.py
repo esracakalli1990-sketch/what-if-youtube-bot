@@ -35,6 +35,46 @@ class TestSanitizeTags:
         assert _sanitize_tags(tags) == tags
 
 
+class TestFirstComment:
+    """İlk yorum: senaryonun İÇ NOTU sızmamalı, Roli'nin sesi olmalı."""
+
+    _SCENARIO = {
+        "scenes": [
+            {"twist_element": "The visceral shock of immediate mass marine death."},
+            {"twist_element": "The big twist of Earth's mass redistribution and its "
+                              "effect on rotation and geology, leading to a looping "
+                              "re-watch by connecting 'Earth itself shifts' back."},
+        ]
+    }
+
+    def test_does_not_leak_internal_twist_element(self):
+        """Canlı hata: twist_element yoruma yapıştırılıyordu.
+
+        O alan senaryo yazarı için yazılmış bir iç not; izleyiciye hitap etmiyor.
+        Yayınlanan yorum robotik ve anlamsız görünüyordu.
+        """
+        c = uploader._build_first_comment(self._SCENARIO, "UWZenX5WpTU")
+        assert "mass redistribution" not in c
+        assert "looping re-watch" not in c
+        assert "visceral shock" not in c
+        assert "twist" not in c.lower()
+
+    def test_has_roli_voice_and_question(self):
+        c = uploader._build_first_comment(self._SCENARIO, "UWZenX5WpTU")
+        assert c.startswith("🐰 ")
+        assert "👇" in c                     # etkileşim sorusu var
+        assert any(o in c for o in uploader._ROLI_OPENERS)
+
+    def test_deterministic_per_video(self):
+        a = uploader._build_first_comment(self._SCENARIO, "abc123")
+        b = uploader._build_first_comment(self._SCENARIO, "abc123")
+        assert a == b
+
+    def test_works_without_scenario(self):
+        c = uploader._build_first_comment(None, "abc123")
+        assert c.startswith("🐰 ") and "👇" in c
+
+
 class TestTimestamps:
     def test_fallback_without_audio_results(self):
         result = _generate_timestamps(None)

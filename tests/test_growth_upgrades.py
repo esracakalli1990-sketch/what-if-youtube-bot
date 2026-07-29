@@ -48,11 +48,18 @@ class TestShortsVideoPrompts:
 
 # ── İlk yorum (etkileşim sorusu) ─────────────────────────────────────────
 class TestFirstComment:
-    def test_includes_twist_and_question(self):
+    def test_roli_opener_and_question_no_scenario_leak(self):
+        """Senaryo metni yoruma SIZMAMALI (eski davranış hataydı).
+
+        twist_element senaryo yazarı için yazılmış bir iç nottur; canlıda
+        izleyiciye anlamsız görünen robotik yorumlar yayınlanmıştı. Yorum artık
+        Roli'nin ağzından sabit bir giriş + etkileşim sorusundan oluşur.
+        """
         scenario = {"scenes": [{"twist_element": "You have 8 minutes to live."}]}
         text = yt._build_first_comment(scenario, "vid123")
         assert text.startswith("🐰")
-        assert "You have 8 minutes to live." in text
+        assert "You have 8 minutes to live." not in text
+        assert any(o in text for o in yt._ROLI_OPENERS)
         assert any(q in text for q in yt._ENGAGEMENT_QUESTIONS)
 
     def test_deterministic_per_video(self):

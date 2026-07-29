@@ -149,6 +149,63 @@ class TestSnapshot:
         assert v["title"] == "MOON GONE" and v["kind"] == "short"
         assert v["views"] == 120 and v["avg_view_percentage"] == 60.2
 
+    def test_snapshot_includes_reach_and_traffic(self, monkeypatch):
+        """Gösterim/TO ve trafik kaynağı snapshot'a girmeli.
+
+        Teşhisin kritik verisi: görüntülenme düşükse sebep 'hiç gösterilmiyor'
+        mu (gösterim düşük) yoksa 'gösteriliyor ama tıklanmıyor' mu (TO düşük)?
+        """
+        monkeypatch.setattr(analytics, "_analytics_service", lambda: object())
+        monkeypatch.setattr(analytics, "channel_summary", lambda *a, **k: {
+            "views": 200, "estimatedMinutesWatched": 150,
+            "averageViewDuration": 50, "averageViewPercentage": 48.7,
+            "subscribersGained": 6, "subscribersLost": 2, "likes": 9,
+            "comments": 3,
+        })
+        monkeypatch.setattr(analytics, "top_videos_analytics", lambda *a, **k: [])
+        monkeypatch.setattr(analytics, "load_uploads", lambda: [])
+        monkeypatch.setattr(analytics, "reach_summary", lambda *a, **k: {
+            "impressions": 5400, "impressionClickThroughRate": 2.14,
+        })
+        monkeypatch.setattr(analytics, "traffic_sources", lambda *a, **k: [
+            {"insightTrafficSourceType": "SHORTS", "views": 180,
+             "estimatedMinutesWatched": 120},
+            {"insightTrafficSourceType": "NO_LINK_OTHER", "views": 20,
+             "estimatedMinutesWatched": 30},
+        ])
+
+        snap = analytics.build_snapshot(days=28)
+        assert snap["error"] is None
+        assert snap["reach"]["impressions"] == 5400
+        assert snap["reach"]["impressionClickThroughRate"] == 2.14
+        assert snap["traffic_sources"][0]["source"] == "SHORTS"
+        assert snap["traffic_sources"][0]["views"] == 180
+
+    def test_reach_failure_does_not_break_snapshot(self, monkeypatch):
+        """Gösterim metrikleri bazı hesaplarda/Shorts'ta desteklenmiyor —
+        hata alınsa bile snapshot'ın geri kalanı yazılmalı."""
+        monkeypatch.setattr(analytics, "_analytics_service", lambda: object())
+        monkeypatch.setattr(analytics, "channel_summary", lambda *a, **k: {
+            "views": 200, "estimatedMinutesWatched": 150,
+            "averageViewDuration": 50, "averageViewPercentage": 48.7,
+            "subscribersGained": 6, "subscribersLost": 2, "likes": 9,
+            "comments": 3,
+        })
+        monkeypatch.setattr(analytics, "top_videos_analytics", lambda *a, **k: [])
+        monkeypatch.setattr(analytics, "load_uploads", lambda: [])
+
+        def boom(*a, **k):
+            raise RuntimeError("metric not supported")
+
+        monkeypatch.setattr(analytics, "reach_summary", boom)
+        monkeypatch.setattr(analytics, "traffic_sources", boom)
+
+        snap = analytics.build_snapshot(days=28)
+        assert snap["error"] is None                  # snapshot yine geçerli
+        assert snap["channel"]["views"] == 200        # asıl veri korundu
+        assert "not supported" in snap["reach"]["error"]
+        assert "not supported" in snap["traffic_sources"][0]["error"]
+
     def test_write_snapshot_creates_file(self, monkeypatch, tmp_path):
         monkeypatch.setattr(analytics, "SNAPSHOT_FILE", tmp_path / "snap.json")
         monkeypatch.setattr(analytics, "_analytics_service", lambda: None)
