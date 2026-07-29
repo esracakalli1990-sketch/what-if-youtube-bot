@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-29T16:48:34.267143+00:00",
+  "generated_at": "2026-07-29T17:54:26.249927+00:00",
   "period_days": 28,
   "error": null,
   "channel": {
@@ -12,6 +12,41 @@
     "likes": 19,
     "comments": 0
   },
+  "reach": {
+    "error": "<HttpError 400 when requesting https://youtubeanalytics.googleapis.com/v2/reports?ids=channel%3D%3DMINE&startDate=2026-07-01&endDate=2026-07-29&metrics=impressions%2CimpressionClickThroughRate&alt=jso"
+  },
+  "traffic_sources": [
+    {
+      "source": "SHORTS",
+      "views": 416,
+      "watch_minutes": 165.0
+    },
+    {
+      "source": "EXT_URL",
+      "views": 26,
+      "watch_minutes": 13.0
+    },
+    {
+      "source": "YT_SEARCH",
+      "views": 15,
+      "watch_minutes": 3.0
+    },
+    {
+      "source": "NO_LINK_OTHER",
+      "views": 2,
+      "watch_minutes": 2.0
+    },
+    {
+      "source": "YT_CHANNEL",
+      "views": 2,
+      "watch_minutes": 1.0
+    },
+    {
+      "source": "YT_OTHER_PAGE",
+      "views": 1,
+      "watch_minutes": 0.0
+    }
+  ],
   "videos": [
     {
       "video_id": "sMPuRXHU6ko",
