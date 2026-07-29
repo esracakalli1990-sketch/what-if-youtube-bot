@@ -287,6 +287,45 @@ def top_videos_analytics(service, days: int = 28, limit: int = 8) -> list[dict]:
     return [dict(zip(headers, row)) for row in resp.get("rows", [])]
 
 
+def reach_summary(service, days: int = 28) -> dict:
+    """
+    Erişim metrikleri: gösterim (impressions) ve tıklama oranı (TO/CTR).
+
+    Teşhisin kritik verisi: görüntülenme düşükse sebep "YouTube hiç göstermiyor"
+    (gösterim düşük) mu, yoksa "gösteriyor ama tıklanmıyor" (gösterim yüksek,
+    TO düşük) mu? İkisi tamamen farklı sorunlar ve farklı çözümleri var.
+
+    Not: Shorts akışında gösterim raporlaması uzun videodan farklı çalışır ve
+    API bazı hesaplarda bu metrikleri döndürmeyebilir — bu durumda None döner.
+    """
+    end = date.today()
+    start = end - timedelta(days=days)
+    resp = _analytics_query(service, start=start.isoformat(), end=end.isoformat(),
+                            metrics="impressions,impressionClickThroughRate")
+    headers = [h["name"] for h in resp.get("columnHeaders", [])]
+    rows = resp.get("rows", [])
+    if not rows:
+        return {}
+    return dict(zip(headers, rows[0]))
+
+
+def traffic_sources(service, days: int = 28, limit: int = 10) -> list[dict]:
+    """
+    Trafik kaynağı dağılımı (son `days` gün).
+
+    Shorts akışı mı, arama mı, önerilen video mu, yoksa sadece kanal sayfası mı?
+    'Kanal sayfası/harici' ağırlıklıysa video organik dağıtım almıyor demektir.
+    """
+    end = date.today()
+    start = end - timedelta(days=days)
+    resp = _analytics_query(service, start=start.isoformat(), end=end.isoformat(),
+                            metrics="views,estimatedMinutesWatched",
+                            dimensions="insightTrafficSourceType",
+                            sort="-views", max_results=limit)
+    headers = [h["name"] for h in resp.get("columnHeaders", [])]
+    return [dict(zip(headers, row)) for row in resp.get("rows", [])]
+
+
 def _fmt_duration(seconds) -> str:
     """Saniyeyi d:ss biçimine çevir."""
     try:
@@ -401,6 +440,8 @@ def build_snapshot(days: int = 28) -> dict:
         "period_days": days,
         "error": None,
         "channel": {},
+        "reach": {},
+        "traffic_sources": [],
         "videos": [],
     }
 
@@ -418,6 +459,30 @@ def build_snapshot(days: int = 28) -> dict:
         snap["error"] = str(e)[:300]
         logger.warning("Snapshot analitik hatası: %s", e)
         return snap
+
+    # Erişim ve trafik kaynağı AYRI try içinde: bu metrikler bazı hesaplarda/
+    # Shorts'ta desteklenmeyebilir; hata alınırsa snapshot'ın geri kalanı yine
+    # yazılsın, sadece ilgili alan boş kalıp sebebi not edilsin.
+    try:
+        snap["reach"] = {
+            k: round(_num(v), 3) for k, v in reach_summary(service, days=days).items()
+        }
+    except Exception as e:
+        snap["reach"] = {"error": str(e)[:200]}
+        logger.warning("Erişim (gösterim/TO) metrikleri alınamadı: %s", e)
+
+    try:
+        snap["traffic_sources"] = [
+            {
+                "source": t.get("insightTrafficSourceType", ""),
+                "views": int(_num(t.get("views"))),
+                "watch_minutes": round(_num(t.get("estimatedMinutesWatched")), 1),
+            }
+            for t in traffic_sources(service, days=days)
+        ]
+    except Exception as e:
+        snap["traffic_sources"] = [{"error": str(e)[:200]}]
+        logger.warning("Trafik kaynağı dağılımı alınamadı: %s", e)
 
     id_map = {u.get("video_id"): u for u in load_uploads()}
     snap["channel"] = {

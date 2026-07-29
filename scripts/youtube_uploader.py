@@ -489,24 +489,37 @@ _ENGAGEMENT_QUESTIONS = [
 ]
 
 
+# Roli'nin ağzından kısa giriş — karakteri yorumda da yaşatır ("bu zaman
+# çizgisini zaten gördüm" tonu) ve soruya doğal bir bağlam verir.
+_ROLI_OPENERS = [
+    "I've already seen how this one ends.",
+    "I was there when this happened. It was worse in person.",
+    "Trust me — I've watched this timeline play out.",
+    "I came back to warn you about this one.",
+    "This is the timeline I keep going back to.",
+    "I've lived through this. You wouldn't like it.",
+]
+
+
 def _build_first_comment(scenario: dict | None, video_id: str) -> str:
     """
-    İlk yorum metnini üret: senaryonun şok tohumu + kişisel etkileşim sorusu.
+    İlk yorum metnini üret: Roli'nin ağzından kısa giriş + etkileşim sorusu.
 
-    Soru video_id'ye göre deterministik seçilir (videolar arası çeşitlilik,
-    aynı video için sabit).
+    Giriş ve soru video_id'ye göre deterministik seçilir (videolar arası
+    çeşitlilik, aynı video için sabit).
+
+    DİKKAT — senaryodan metin ALINMAZ. Eskiden son sahnenin `twist_element`
+    alanı yoruma yapıştırılıyordu; ama o alan senaryo yazarı için yazılmış bir
+    İÇ NOT ("izleyiciyi kaydırmaktan alıkoyan şok/açık döngü"), izleyiciye
+    hitap eden bir cümle değil. Canlıda şöyle bir yorum çıkmıştı: "The big
+    twist of Earth's mass redistribution and its effect on rotation and
+    geology, leading to a looping re-watch by connecting..." — izleyici için
+    anlamsız, robotik ve etkileşim öldüren bir metin.
     """
-    twist = None
-    if scenario:
-        scenes = scenario.get("scenes", [])
-        if scenes:
-            twist = (scenes[-1].get("twist_element") or "").strip() or None
-
-    idx = sum(bytearray(video_id.encode("utf-8"))) % len(_ENGAGEMENT_QUESTIONS)
-    question = _ENGAGEMENT_QUESTIONS[idx]
-
-    lead = f"🐰 {twist}\n\n" if twist else "🐰 "
-    return f"{lead}{question}"
+    seed = sum(bytearray(video_id.encode("utf-8")))
+    opener = _ROLI_OPENERS[seed % len(_ROLI_OPENERS)]
+    question = _ENGAGEMENT_QUESTIONS[seed % len(_ENGAGEMENT_QUESTIONS)]
+    return f"🐰 {opener}\n\n{question}"
 
 
 def _post_first_comment(youtube, video_id: str, scenario: dict | None = None):
