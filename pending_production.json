@@ -79,8 +79,20 @@
     "_generated_at": "2026-07-29T17:54:12.957511"
   },
   "expected_images": 10,
-  "image_file_ids": [],
-  "asset_kinds": [],
+  "image_file_ids": [
+    "BAACAgQAAxkBAAIBg2prZfVk98xmLrYurbgTcI4zTtEuAAJSJQAC0_pYU0MhYAAB2ecaYz0E",
+    "AgACAgQAAxkBAAIBhGprZfxSb640t966Xbajlwm4lo3QAAKCDmsb0_pYUwu0NnynWceEAQADAgADeQADPQQ",
+    "BQACAgQAAxkBAAIBhWprZnlmdtRBrIavVuJZniJKge0EAAJUJQAC0_pYU1R5y2CVH-WiPQQ",
+    "BQACAgQAAxkBAAIBiGprZyx_rNf7nv-p5UGAHI4aa2osAAJYJQAC0_pYU6j0WrzmAAGRoT0E",
+    "BQACAgQAAxkBAAIBimprZ9RwH6ASE-TPHsvGyx0G5vSPAAJcJQAC0_pYU5q7V0IY3VeOPQQ"
+  ],
+  "asset_kinds": [
+    "video",
+    "photo",
+    "video",
+    "video",
+    "video"
+  ],
   "asset_slots": [
     {
       "scene_number": 1,
