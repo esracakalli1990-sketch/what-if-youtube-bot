@@ -230,6 +230,67 @@ class TestSlotOrderGuard:
         assert "Sıra uyuşmuyor" not in mi.add_photo("p1")
 
 
+class TestDuplicatePublishGuard:
+    """Üst üste binen koşular aynı videoyu iki kez yayınlamamalı.
+
+    Canlı hata: elle tetiklenen koşu 22:18-22:41 arası çalışırken saatlik cron
+    22:34'te başladı; ikisi de aynı bekleyen üretimi tamamlanmış görüp AYNI
+    videoyu YouTube'a yükledi (2 yayın oldu).
+    """
+
+    def _fake_git(self, monkeypatch, responses):
+        """git çağrılarını taklit et: (returncode, stdout) döndürür."""
+        import subprocess
+
+        def fake_run(cmd, **kw):
+            key = cmd[1] if len(cmd) > 1 else ""
+            if key == "fetch":
+                out = responses.get("fetch", (0, ""))
+            elif "pending_production.json" in " ".join(cmd):
+                out = responses.get("pending", (0, "{}"))
+            else:
+                out = responses.get("uploads", (0, "[]"))
+            return subprocess.CompletedProcess(cmd, out[0], out[1], "")
+
+        monkeypatch.setattr(subprocess, "run", fake_run)
+
+    def test_blocks_when_pending_gone_remotely(self, monkeypatch):
+        """Uzakta bekleyen üretim silinmişse başka koşu tamamlamış demektir."""
+        self._fake_git(monkeypatch, {"pending": (1, "")})
+        reason = mi._remote_production_taken("konu", "BAŞLIK")
+        assert "başka bir koşu" in reason
+
+    def test_blocks_when_same_title_recently_uploaded(self, monkeypatch):
+        recent = datetime.now(timezone.utc).isoformat()
+        uploads = json.dumps([
+            {"video_id": "abc123", "title": "BAŞLIK", "uploaded_at": recent}
+        ])
+        self._fake_git(monkeypatch, {"pending": (0, "{}"), "uploads": (0, uploads)})
+        reason = mi._remote_production_taken("konu", "BAŞLIK")
+        assert "zaten yayınlanmış" in reason and "abc123" in reason
+
+    def test_allows_when_upload_is_old(self, monkeypatch):
+        old = (datetime.now(timezone.utc) - timedelta(hours=48)).isoformat()
+        uploads = json.dumps([
+            {"video_id": "abc123", "title": "BAŞLIK", "uploaded_at": old}
+        ])
+        self._fake_git(monkeypatch, {"pending": (0, "{}"), "uploads": (0, uploads)})
+        assert mi._remote_production_taken("konu", "BAŞLIK") == ""
+
+    def test_allows_when_title_differs(self, monkeypatch):
+        recent = datetime.now(timezone.utc).isoformat()
+        uploads = json.dumps([
+            {"video_id": "abc123", "title": "BAŞKA VİDEO", "uploaded_at": recent}
+        ])
+        self._fake_git(monkeypatch, {"pending": (0, "{}"), "uploads": (0, uploads)})
+        assert mi._remote_production_taken("konu", "BAŞLIK") == ""
+
+    def test_fails_open_when_git_unavailable(self, monkeypatch):
+        """Ağ/git sorunu üretimi durdurmamalı — kanal susmasın."""
+        self._fake_git(monkeypatch, {"fetch": (1, "")})
+        assert mi._remote_production_taken("konu", "BAŞLIK") == ""
+
+
 class TestSceneAssetPriority:
     def test_video_wins_when_both_exist(self, tmp_path, monkeypatch):
         """Sahnede hem klip hem görsel varsa VİDEO döndürülmeli.
@@ -432,6 +493,8 @@ class TestCompleteProductionImagesCheckpoint:
         mi._save_pending(pending)
 
         monkeypatch.setattr(mi, "load_env", lambda: {"TELEGRAM_BOT_TOKEN": "tok"})
+        # Çift yayın koruması ayrı test ediliyor; burada varlık eşleştirmesine bak
+        monkeypatch.setattr(mi, "_remote_production_taken", lambda *a, **k: "")
 
         png_bytes = self._png_bytes()
         video_bytes = b"\x00" * 20000
