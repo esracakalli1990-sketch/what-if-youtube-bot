@@ -38,6 +38,80 @@ PENDING_FILE = PROJECT_ROOT / "pending_production.json"
 # Hatırlatma aralığı (saat)
 REMINDER_INTERVAL_HOURS = 24
 
+# Aynı üretimin iki kez yayınlanmasını önleyen pencere (saat)
+DUPLICATE_GUARD_HOURS = 12
+
+
+def _remote_production_taken(topic: str, title: str = "") -> str:
+    """
+    Bu üretimi BAŞKA bir koşu üstlendi mi? Uzak depodan doğrula.
+
+    NEDEN: GitHub Actions koşuları ayrı konteynerlerde çalışır ve durum
+    dosyaları yalnızca koşu SONUNDA commit'lenir. İki koşu üst üste binerse
+    (canlıda oldu: elle tetiklenen koşu 22:18-22:41, saatlik cron 22:34'te
+    başladı) ikisi de aynı bekleyen üretimi "tamamlandı" görür ve AYNI VİDEOYU
+    İKİ KEZ yayınlar. Yerel dosyalara bakmak yetmez — o kopya eskimiştir.
+
+    Bu yüzden ~20 dakikalık üretime girmeden önce uzak durum tazelenir:
+      1) Bekleyen üretim uzakta silinmişse → başka koşu tamamlamış.
+      2) uploads.json'da aynı başlık son DUPLICATE_GUARD_HOURS içinde varsa
+         → zaten yayınlanmış.
+
+    Hata durumunda BOŞ döner (üretimi engellemez) — ağ/git sorunu yüzünden
+    kanal durmasın.
+
+    Returns:
+        str: Engelleme sebebi (boşsa engel yok)
+    """
+    import subprocess
+
+    branch = os.getenv("GITHUB_REF_NAME", "master")
+
+    def _git(*args) -> tuple[int, str]:
+        try:
+            r = subprocess.run(["git", *args], cwd=str(PROJECT_ROOT),
+                               capture_output=True, text=True, timeout=60)
+            return r.returncode, r.stdout
+        except (FileNotFoundError, subprocess.TimeoutExpired) as e:
+            logger.warning("Uzak durum kontrolü yapılamadı: %s", e)
+            return -1, ""
+
+    code, _ = _git("fetch", "origin", branch, "--quiet")
+    if code != 0:
+        logger.warning("git fetch başarısız — çift yayın koruması atlanıyor.")
+        return ""
+
+    # 1) Bekleyen üretim uzakta duruyor mu?
+    code, _ = _git("show", f"origin/{branch}:pending_production.json")
+    if code != 0:
+        return ("Bekleyen üretim uzak depoda yok — başka bir koşu bu videoyu "
+                "zaten tamamlamış.")
+
+    # 2) Aynı başlık yakın zamanda yüklenmiş mi?
+    code, out = _git("show", f"origin/{branch}:output/uploads.json")
+    if code != 0 or not out.strip():
+        return ""
+    try:
+        records = json.loads(out)
+    except json.JSONDecodeError:
+        return ""
+
+    now = datetime.now(timezone.utc)
+    for rec in reversed(records[-20:]):
+        if title and rec.get("title", "") != title:
+            continue
+        if not title:
+            break
+        try:
+            when = datetime.fromisoformat(rec.get("uploaded_at", ""))
+        except ValueError:
+            continue
+        hours = (now - when).total_seconds() / 3600
+        if hours < DUPLICATE_GUARD_HOURS:
+            return (f"\"{title}\" {hours:.1f} saat önce zaten yayınlanmış "
+                    f"({rec.get('video_id')}).")
+    return ""
+
 # Yükleme bu kadar kez başarısız olursa üretim DURAKLATILIR (döngü kırıcı).
 # Auth hatası (token süresi dolmuş vb.) tek denemede duraklatır — tekrar
 # denemek işe yaramaz. Böylece video her saat boşuna yeniden üretilmez.
@@ -583,6 +657,17 @@ def complete_production() -> bool:
     mode = pending["mode"]
     scenario = pending["scenario"]
     vertical = mode == "shorts"
+
+    # ÇİFT YAYIN KORUMASI: üst üste binen koşular aynı videoyu iki kez
+    # yayınlayabiliyor (canlıda oldu). ~20 dakikalık üretime girmeden önce
+    # uzak durumu tazeleyip bu işi başka koşunun üstlenip üstlenmediğine bak.
+    blocked = _remote_production_taken(
+        topic, scenario.get("clickbait_title", scenario.get("title", ""))
+    )
+    if blocked:
+        logger.warning("Üretim atlandı (çift yayın koruması): %s", blocked)
+        print_warning(f"Üretim atlandı — {blocked}")
+        return False
 
     keys = load_env()
     token = keys.get("TELEGRAM_BOT_TOKEN", "")
