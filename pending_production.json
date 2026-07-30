@@ -82,8 +82,14 @@
     "_generated_at": "2026-07-30T15:25:20.497302"
   },
   "expected_images": 10,
-  "image_file_ids": [],
-  "asset_kinds": [],
+  "image_file_ids": [
+    "BAACAgQAAxkBAAIBq2prlQiQyHgfj3F2CXjyRWRmyZibAAI_HwAC0_pgU1a7kgJpj0fAPQQ",
+    "AgACAgQAAxkBAAIBrGprlVt_ry-9SMrBNYPeEAr5ebyJAAKwD2sb0_pgU8uioeD_psaBAQADAgADeQADPQQ"
+  ],
+  "asset_kinds": [
+    "video",
+    "photo"
+  ],
   "asset_slots": [
     {
       "scene_number": 1,
