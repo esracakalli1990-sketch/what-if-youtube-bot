@@ -169,6 +169,67 @@ class TestLongVideoAssetPlan:
         assert pending["asset_slots"][-1]["role"] == "thumbnail"
 
 
+class TestSlotOrderGuard:
+    """Gelen dosyanın türü slotla uyuşmazsa sayılmamalı.
+
+    Canlı hata: kullanıcı görselleri 'dosya olarak' gönderdi, bot onları
+    sessizce düşürdü, arkadan gelen videolar boşalan slotlara kaydı ve
+    hizalama bozuldu (sahne 2'nin devam görseli yerine sahne 4'ün videosu).
+    """
+
+    def _pending_with_slots(self):
+        mi._save_pending({
+            "topic": "T", "mode": "long", "privacy": "public",
+            "scenario": {"scenes": []},
+            "expected_images": 4,
+            "image_file_ids": [],
+            "asset_kinds": [],
+            "asset_slots": [
+                {"scene_number": 1, "role": "video"},
+                {"scene_number": 1, "role": "image"},
+                {"scene_number": 2, "role": "video"},
+                {"scene_number": None, "role": "thumbnail"},
+            ],
+        })
+
+    def test_rejects_wrong_kind(self, isolated_state):
+        self._pending_with_slots()
+        mi.add_video("v1")                       # slot 1 doğru
+        reply = mi.add_video("v2")               # slot 2 GÖRSEL bekliyor
+        assert "Sıra uyuşmuyor" in reply
+        assert "GÖRSEL" in reply and "Sahne 1" in reply
+        # Yanlış dosya sayılmamalı
+        assert mi.load_pending()["image_file_ids"] == ["v1"]
+
+    def test_accepts_correct_kind(self, isolated_state):
+        self._pending_with_slots()
+        mi.add_video("v1")
+        reply = mi.add_photo("p1")
+        assert "Sıra uyuşmuyor" not in reply
+        assert mi.load_pending()["image_file_ids"] == ["v1", "p1"]
+        assert mi.load_pending()["asset_kinds"] == ["video", "photo"]
+
+    def test_thumbnail_slot_expects_photo(self, isolated_state):
+        self._pending_with_slots()
+        mi.add_video("v1")
+        mi.add_photo("p1")
+        mi.add_video("v2")
+        reply = mi.add_video("v3")               # thumbnail slotu görsel ister
+        assert "Sıra uyuşmuyor" in reply
+        assert "THUMBNAIL" in reply
+
+    def test_no_slots_keeps_old_behaviour(self, isolated_state):
+        """Slot planı olmayan eski üretimler eskisi gibi çalışmalı."""
+        mi._save_pending({
+            "topic": "T", "mode": "shorts", "privacy": "public",
+            "scenario": {"scenes": []},
+            "expected_images": 2,
+            "image_file_ids": [], "asset_kinds": [],
+        })
+        assert "Sıra uyuşmuyor" not in mi.add_video("v1")
+        assert "Sıra uyuşmuyor" not in mi.add_photo("p1")
+
+
 class TestSceneAssetPriority:
     def test_video_wins_when_both_exist(self, tmp_path, monkeypatch):
         """Sahnede hem klip hem görsel varsa VİDEO döndürülmeli.
@@ -256,7 +317,10 @@ class TestTurkishBrief:
         assert "bekleyen" in mi.add_photo("file_x").lower()
 
     def test_add_video_records_kind(self, isolated_state):
-        mi.start_pending("Test topic", "shorts", _scenario(2))
+        # Sahne 1 görsel, sahne 2 video → gönderim sırası slot planına uymalı
+        scenario = _scenario(2)
+        scenario["scenes"][1]["asset_type"] = "video"
+        mi.start_pending("Test topic", "shorts", scenario)
 
         mi.add_photo("file_a")
         mi.add_video("clip_b")

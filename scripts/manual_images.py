@@ -436,6 +436,25 @@ def _add_asset(file_id: str, kind: str) -> str:
         return (f"📷 {noun.capitalize()} aldım ama bekleyen bir video üretimi yok. "
                 "/short veya /video ile üretim başlatabilirsiniz.")
 
+    # SIRA KORUMASI: gelen dosyanın türü o slotta beklenenle uyuşmalı.
+    # Bir varlık düşerse (ör. tanınmayan dosya) sonraki dosyalar yanlış slota
+    # kayıp sessizce bozuk video üretiyordu — artık kayma anında yakalanır.
+    slots = pending.get("asset_slots") or []
+    idx = len(pending["image_file_ids"])
+    if idx < len(slots):
+        slot = slots[idx]
+        expected_kind = "video" if slot.get("role") == "video" else "photo"
+        if kind != expected_kind:
+            exp_noun = "VİDEO" if expected_kind == "video" else "GÖRSEL"
+            scene = slot.get("scene_number")
+            where = f"Sahne {scene}" if scene else "THUMBNAIL"
+            return (
+                f"🚫 <b>Sıra uyuşmuyor — bu dosyayı saymadım.</b>\n\n"
+                f"{idx + 1}/{pending['expected_images']} sırasında <b>{exp_noun}</b> "
+                f"bekliyorum ({where}), ama {noun} geldi.\n\n"
+                f"Doğru dosyayı gönderin. Sırayı görmek için /durum yazabilirsiniz."
+            )
+
     pending["image_file_ids"].append(file_id)
     # Varlık türünü pozisyonla eşleşecek şekilde kaydet (indirmede foto/video ayrımı için)
     pending.setdefault("asset_kinds", []).append(kind)

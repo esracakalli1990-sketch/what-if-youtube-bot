@@ -371,7 +371,13 @@ def process_pending_commands() -> int:
         video = message.get("video") or {}
         document = message.get("document") or {}
         # Flow klibi "video" ya da video mime'lı "document" olarak gelebilir
-        is_video_doc = str(document.get("mime_type", "")).startswith("video/")
+        doc_mime = str(document.get("mime_type", ""))
+        is_video_doc = doc_mime.startswith("video/")
+        # Görsel "dosya olarak" (sıkıştırmadan) gönderilirse Telegram bunu
+        # document olarak iletir ve message["photo"] BOŞ kalır. Eskiden bu mesaj
+        # hiçbir dala girmeyip sessizce düşüyordu → kullanıcının gönderdiği
+        # görseller kaybolup sonraki videolar yanlış slota kayıyordu.
+        is_image_doc = doc_mime.startswith("image/")
 
         # Güvenlik: yalnızca yetkili kullanıcı
         if chat_id != authorized_chat:
@@ -379,11 +385,12 @@ def process_pending_commands() -> int:
                 logger.warning("Yetkisiz Telegram mesajı yok sayıldı: chat=%s", chat_id)
             continue
 
-        # Fotoğraf — manuel görsel akışına ekle (en büyük boyutun file_id'si)
-        if photos:
+        # Fotoğraf — sıkıştırılmış foto VEYA "dosya olarak" gönderilmiş görsel
+        if photos or is_image_doc:
             _save_offset(offset)
             from scripts.manual_images import add_photo
-            reply = add_photo(photos[-1]["file_id"])
+            file_id = photos[-1]["file_id"] if photos else document.get("file_id")
+            reply = add_photo(file_id)
             if reply:
                 send_message(reply)
             processed += 1
@@ -397,6 +404,19 @@ def process_pending_commands() -> int:
             reply = add_video(file_id)
             if reply:
                 send_message(reply)
+            processed += 1
+            continue
+
+        # Tanınmayan dosya — SESSİZCE DÜŞÜRME. Sessiz düşüş, kullanıcının
+        # gönderdiği varlığın kaybolup sıradaki dosyaların yanlış slota
+        # kaymasına yol açıyordu; artık açıkça uyarılır.
+        if document:
+            _save_offset(offset)
+            send_message(
+                f"⚠️ Bu dosyayı tanıyamadım (<code>{doc_mime or 'bilinmeyen tür'}</code>) "
+                f"ve <b>saymadım</b>. Görselleri JPG/PNG, videoları MP4 olarak "
+                f"gönderin — sıranın bozulmaması için bu dosyayı tekrar yollayın."
+            )
             processed += 1
             continue
 
