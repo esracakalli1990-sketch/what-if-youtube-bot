@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-07-31T18:01:42.011889+00:00",
+  "generated_at": "2026-07-31T20:00:49.768074+00:00",
   "period_days": 28,
   "error": null,
   "channel": {
-    "views": 462,
-    "watch_minutes": 186.0,
+    "views": 477,
+    "watch_minutes": 188.0,
     "avg_view_duration_sec": 42.0,
-    "avg_view_percentage": 55.2,
+    "avg_view_percentage": 55.1,
     "subscribers_gained": 2,
     "subscribers_lost": 1,
     "likes": 19,
@@ -23,8 +23,8 @@
     },
     {
       "source": "EXT_URL",
-      "views": 26,
-      "watch_minutes": 13.0
+      "views": 29,
+      "watch_minutes": 14.0
     },
     {
       "source": "YT_SEARCH",
@@ -32,18 +32,23 @@
       "watch_minutes": 3.0
     },
     {
+      "source": "YT_CHANNEL",
+      "views": 11,
+      "watch_minutes": 2.0
+    },
+    {
       "source": "NO_LINK_OTHER",
       "views": 2,
       "watch_minutes": 2.0
     },
     {
-      "source": "YT_CHANNEL",
+      "source": "SUBSCRIBER",
       "views": 2,
-      "watch_minutes": 1.0
+      "watch_minutes": 0.0
     },
     {
       "source": "YT_OTHER_PAGE",
-      "views": 1,
+      "views": 2,
       "watch_minutes": 0.0
     }
   ],
@@ -61,16 +66,16 @@
       "video_id": "Sq7OfSkNnaw",
       "title": "ALL ICE MELTS INSTANTLY: This Is Your Last Day. #Shorts",
       "kind": "short",
-      "views": 49,
-      "avg_view_percentage": 126.4,
-      "avg_view_duration_sec": 63.0,
+      "views": 50,
+      "avg_view_percentage": 122.1,
+      "avg_view_duration_sec": 61.0,
       "watch_minutes": 19.0
     },
     {
       "video_id": "l0olB6EIyyg",
       "title": "SPEED OF LIGHT just became 100 KM/H! (You're Already DEAD) #Shorts",
       "kind": "short",
-      "views": 39,
+      "views": 40,
       "avg_view_percentage": 61.1,
       "avg_view_duration_sec": 29.0,
       "watch_minutes": 8.0
@@ -88,7 +93,7 @@
       "video_id": "m6vCnp0gyN8",
       "title": "YOU PHOTOSYNTHESIZE. But There's a TERRIBLE Catch. #Shorts",
       "kind": "short",
-      "views": 32,
+      "views": 33,
       "avg_view_percentage": 123.0,
       "avg_view_duration_sec": 76.0,
       "watch_minutes": 16.0
@@ -103,10 +108,19 @@
       "watch_minutes": 4.0
     },
     {
+      "video_id": "NS77j8qJkvs",
+      "title": "EVERY VOLCANO ERUPTS?! NOT LAVA YOU FEAR... #Shorts",
+      "kind": "short",
+      "views": 8,
+      "avg_view_percentage": 55.6,
+      "avg_view_duration_sec": 28.0,
+      "watch_minutes": 1.0
+    },
+    {
       "video_id": "thaeo3YtSqo",
       "title": "DOUBLE OXYGEN: Your Lungs WILL FAIL in Seconds! #Shorts",
       "kind": "short",
-      "views": 5,
+      "views": 6,
       "avg_view_percentage": 111.8,
       "avg_view_duration_sec": 49.0,
       "watch_minutes": 0.0
@@ -124,18 +138,27 @@
       "video_id": "lYaByHDACuc",
       "title": "You'd NEVER Survive 48 Hours Without Sleep. Here's Why. #Shorts",
       "kind": "short",
-      "views": 2,
-      "avg_view_percentage": 41.5,
-      "avg_view_duration_sec": 21.0,
+      "views": 4,
+      "avg_view_percentage": 37.3,
+      "avg_view_duration_sec": 19.0,
+      "watch_minutes": 1.0
+    },
+    {
+      "video_id": "eNWlX5TjI8U",
+      "title": "The Earth Just LOST ALL Insects... Here's What Happens FIRST #Shorts",
+      "kind": "short",
+      "views": 1,
+      "avg_view_percentage": 0.0,
+      "avg_view_duration_sec": 0.0,
       "watch_minutes": 0.0
     },
     {
-      "video_id": "NS77j8qJkvs",
-      "title": "EVERY VOLCANO ERUPTS?! NOT LAVA YOU FEAR... #Shorts",
+      "video_id": "7seUE-fBhEs",
+      "title": "Time Just Reversed 24 HOURS. Here's What Happens. #Shorts",
       "kind": "short",
       "views": 1,
-      "avg_view_percentage": 66.5,
-      "avg_view_duration_sec": 34.0,
+      "avg_view_percentage": 0.0,
+      "avg_view_duration_sec": 0.0,
       "watch_minutes": 0.0
     }
   ]
