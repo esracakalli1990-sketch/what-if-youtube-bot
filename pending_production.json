@@ -1,0 +1,96 @@
+{
+  "topic": "What would happen if the Earth had rings like Saturn?",
+  "mode": "shorts",
+  "privacy": "public",
+  "scenario": {
+    "title": "What if Earth Had Rings Like Saturn? (You Wouldn't Survive)",
+    "clickbait_title": "EARTH WITH RINGS: Your City Plunges Into ETERNAL DARKNESS!",
+    "thumbnail_concept": "A dramatic vertical composition of a familiar city skyline (e.g., New York, London) partially obscured by a colossal, icy ring system across the sky, casting deep shadows. The visible parts of the city are eerily dark and beginning to freeze, with subtle glints of ice. High contrast, cinematic lighting, 8K detail.",
+    "thumbnail_headline": "ETERNAL DARKNESS",
+    "total_duration_minutes": 0.68,
+    "seo_description": "What if Earth had rings like Saturn? Explore the terrifying consequences if our planet developed a colossal ring system. From perpetual darkness and freezing temperatures to catastrophic gravitational shifts and planetary destruction, this 'What If' scenario reveals a future you wouldn't survive. Discover the science behind this shocking possibility.",
+    "youtube_tags": [
+      "What If",
+      "Earth with Rings",
+      "Saturn Rings",
+      "Science Fiction",
+      "Space Exploration",
+      "Planetary Science",
+      "Astronomy",
+      "Future Earth",
+      "Apocalypse",
+      "End of the World",
+      "Gravitational Effects",
+      "Climate Change",
+      "Catastrophe",
+      "YouTube Shorts",
+      "Viral Video",
+      "Educational Shorts",
+      "Roli Scientist",
+      "Short Film"
+    ],
+    "scenes": [
+      {
+        "scene_number": 1,
+        "scene_type": "hook",
+        "duration_seconds": 10,
+        "narration": "Sunlight just vanished. Your city plunged into perpetual twilight. Temperatures plummet, freezing everything. Buildings covered in ice. But that's just the start.",
+        "visual_prompt": "Vertical composition. A familiar, bustling city skyline (e.g., Tokyo, New York) at peak daylight, but a colossal, icy ring system suddenly appears in the upper sky, casting an instantaneous, deep, and rapidly expanding shadow over the entire city. Ice crystals are visibly forming on skyscrapers and streets. Dramatic, high-contrast, cinematic lighting, 8K detail, photorealistic, continuous motion of shadow expanding and ice forming.",
+        "twist_element": "The sudden, inexplicable vanishing of sunlight and rapid freezing.",
+        "asset_type": "video"
+      },
+      {
+        "scene_number": 2,
+        "scene_type": "escalation",
+        "duration_seconds": 10,
+        "narration": "But that's not the worst part. Billions of icy rocks rain down daily. Satellites shattered, cities scarred. The atmosphere becomes a constant hailstorm. Then, it gets stranger.",
+        "visual_prompt": "Vertical composition. A desolate, ice-covered urban landscape seen from above, with colossal icy rings dominating the sky. Streaks of countless meteors and ice chunks continuously rain down, impacting buildings and the frozen ground, creating plumes of ice dust. The camera slowly pushes in on the falling debris. Dramatic atmosphere, 8K detail, photorealistic, continuous motion of debris falling.",
+        "twist_element": "The constant bombardment of falling debris and the implied further strangeness.",
+        "asset_type": "video"
+      },
+      {
+        "scene_number": 3,
+        "scene_type": "twist",
+        "duration_seconds": 10,
+        "narration": "Roli saw this future. 'You think the cold or falling ice is the real threat?' he mused. 'The rings' gravity pulls Earth apart. Tides swallow continents. Your world becomes new debris.'",
+        "visual_prompt": "Vertical composition. Roli, the photorealistic anthropomorphic rabbit scientist in his worn brass-and-leather steampunk spacesuit with goggles on his forehead and amber eyes, stands on a precarious, cracking landmass. He holds a glowing blue pocket-watch, looking directly at the camera with a calm, knowing expression (mouth closed). Behind him, the Earth's surface visibly cracks, oceans surge into the sky, and continents begin to tear apart under immense tidal forces from a colossal ring system overhead. Cinematic lighting, dramatic atmosphere, 8K detail.",
+        "twist_element": "The revelation that gravity, not just cold or debris, is truly destroying Earth.",
+        "asset_type": "video"
+      },
+      {
+        "scene_number": 4,
+        "scene_type": "loop_bait",
+        "duration_seconds": 10,
+        "narration": "Oceans rise, land cracks. Continents rip. Your final sunrise never comes. The world shatters, adding its pieces to the colossal rings, until sunlight vanished again.",
+        "visual_prompt": "Vertical composition. The Earth is dramatically breaking apart into colossal chunks, with molten core visible through fissures. These fragments slowly drift upwards, becoming part of a vast, expanding ring system surrounding a diminishing core. The scene fades to utter darkness as the last piece joins the rings. Cinematic, high contrast, 8K detail, photorealistic, continuous motion of the planet shattering and dispersing.",
+        "asset_type": "video"
+      }
+    ],
+    "_topic": "What would happen if the Earth had rings like Saturn?",
+    "_mode": "shorts",
+    "_generated_at": "2026-07-31T11:28:01.695259"
+  },
+  "expected_images": 4,
+  "image_file_ids": [],
+  "asset_kinds": [],
+  "asset_slots": [
+    {
+      "scene_number": 1,
+      "role": "video"
+    },
+    {
+      "scene_number": 2,
+      "role": "video"
+    },
+    {
+      "scene_number": 3,
+      "role": "video"
+    },
+    {
+      "scene_number": 4,
+      "role": "video"
+    }
+  ],
+  "prompts_sent_at": "2026-07-31T11:28:09.411541+00:00",
+  "last_reminder_at": "2026-07-31T11:28:09.411555+00:00"
+}
