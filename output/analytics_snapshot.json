@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-08-01T18:31:09.197998+00:00",
+  "generated_at": "2026-08-01T19:45:25.046799+00:00",
   "period_days": 28,
   "error": null,
   "channel": {
-    "views": 477,
-    "watch_minutes": 188.0,
+    "views": 478,
+    "watch_minutes": 189.0,
     "avg_view_duration_sec": 42.0,
-    "avg_view_percentage": 55.1,
+    "avg_view_percentage": 54.7,
     "subscribers_gained": 2,
     "subscribers_lost": 1,
     "likes": 19,
@@ -23,8 +23,8 @@
     },
     {
       "source": "EXT_URL",
-      "views": 29,
-      "watch_minutes": 14.0
+      "views": 30,
+      "watch_minutes": 15.0
     },
     {
       "source": "YT_SEARCH",
@@ -159,6 +159,15 @@
       "views": 1,
       "avg_view_percentage": 0.0,
       "avg_view_duration_sec": 0.0,
+      "watch_minutes": 0.0
+    },
+    {
+      "video_id": "gT07QXAEtjk",
+      "title": "",
+      "kind": "",
+      "views": 1,
+      "avg_view_percentage": 19.6,
+      "avg_view_duration_sec": 44.0,
       "watch_minutes": 0.0
     }
   ]
