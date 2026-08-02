@@ -145,8 +145,24 @@ jobs:
           done
           if ! git diff --cached --quiet; then
             git commit -m "bot: üretim durumu güncellendi [skip ci]"
-            git pull --rebase origin "${GITHUB_REF_NAME}" || true
-            git push origin "HEAD:${GITHUB_REF_NAME}"
+            # Push'u yeniden dene: GitHub zaman zaman geçici sunucu hatası
+            # döndürüyor ("remote: fatal error in commit_refs"). Burada durum
+            # kaybı daha pahalı — yüklenen videonun kaydı (uploads.json) yazılmazsa
+            # çift yayın koruması onu göremez.
+            pushed=0
+            for attempt in 1 2 3 4; do
+              git pull --rebase origin "${GITHUB_REF_NAME}" || true
+              if git push origin "HEAD:${GITHUB_REF_NAME}"; then
+                pushed=1
+                break
+              fi
+              echo "push başarısız (deneme ${attempt}/4) — bekleyip tekrar denenecek"
+              sleep $((attempt * 10))
+            done
+            if [ "$pushed" -ne 1 ]; then
+              echo "::error::Üretim durumu push edilemedi (4 deneme)."
+              exit 1
+            fi
           else
             echo "Durum değişikliği yok."
           fi
