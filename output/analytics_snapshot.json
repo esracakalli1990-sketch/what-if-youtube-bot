@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-08-04T22:34:30.172045+00:00",
+  "generated_at": "2026-08-05T00:53:36.883162+00:00",
   "period_days": 28,
   "error": null,
   "channel": {
-    "views": 478,
-    "watch_minutes": 189.0,
+    "views": 476,
+    "watch_minutes": 187.0,
     "avg_view_duration_sec": 42.0,
-    "avg_view_percentage": 54.7,
+    "avg_view_percentage": 55.9,
     "subscribers_gained": 2,
     "subscribers_lost": 1,
     "likes": 19,
     "comments": 0
   },
   "reach": {
-    "error": "<HttpError 400 when requesting https://youtubeanalytics.googleapis.com/v2/reports?ids=channel%3D%3DMINE&startDate=2026-07-07&endDate=2026-08-04&metrics=impressions%2CimpressionClickThroughRate&alt=jso"
+    "error": "<HttpError 400 when requesting https://youtubeanalytics.googleapis.com/v2/reports?ids=channel%3D%3DMINE&startDate=2026-07-08&endDate=2026-08-05&metrics=impressions%2CimpressionClickThroughRate&alt=jso"
   },
   "traffic_sources": [
     {
@@ -37,11 +37,6 @@
       "watch_minutes": 2.0
     },
     {
-      "source": "NO_LINK_OTHER",
-      "views": 2,
-      "watch_minutes": 2.0
-    },
-    {
       "source": "SUBSCRIBER",
       "views": 2,
       "watch_minutes": 0.0
@@ -49,6 +44,11 @@
     {
       "source": "YT_OTHER_PAGE",
       "views": 2,
+      "watch_minutes": 0.0
+    },
+    {
+      "source": "NO_LINK_OTHER",
+      "views": 0,
       "watch_minutes": 0.0
     }
   ],
@@ -144,6 +144,15 @@
       "watch_minutes": 1.0
     },
     {
+      "video_id": "gT07QXAEtjk",
+      "title": "",
+      "kind": "",
+      "views": 1,
+      "avg_view_percentage": 19.6,
+      "avg_view_duration_sec": 44.0,
+      "watch_minutes": 0.0
+    },
+    {
       "video_id": "eNWlX5TjI8U",
       "title": "The Earth Just LOST ALL Insects... Here's What Happens FIRST #Shorts",
       "kind": "short",
@@ -159,15 +168,6 @@
       "views": 1,
       "avg_view_percentage": 0.0,
       "avg_view_duration_sec": 0.0,
-      "watch_minutes": 0.0
-    },
-    {
-      "video_id": "gT07QXAEtjk",
-      "title": "",
-      "kind": "",
-      "views": 1,
-      "avg_view_percentage": 19.6,
-      "avg_view_duration_sec": 44.0,
       "watch_minutes": 0.0
     }
   ]
