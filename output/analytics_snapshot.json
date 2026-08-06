@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-05T23:28:14.126846+00:00",
+  "generated_at": "2026-08-06T00:51:27.613793+00:00",
   "period_days": 28,
   "error": null,
   "channel": {
@@ -13,7 +13,7 @@
     "comments": 0
   },
   "reach": {
-    "error": "<HttpError 400 when requesting https://youtubeanalytics.googleapis.com/v2/reports?ids=channel%3D%3DMINE&startDate=2026-07-08&endDate=2026-08-05&metrics=impressions%2CimpressionClickThroughRate&alt=jso"
+    "error": "<HttpError 400 when requesting https://youtubeanalytics.googleapis.com/v2/reports?ids=channel%3D%3DMINE&startDate=2026-07-09&endDate=2026-08-06&metrics=impressions%2CimpressionClickThroughRate&alt=jso"
   },
   "traffic_sources": [
     {
