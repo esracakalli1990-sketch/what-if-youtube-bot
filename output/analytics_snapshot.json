@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-08-06T15:43:06.099632+00:00",
+  "generated_at": "2026-08-07T00:22:37.797574+00:00",
   "period_days": 28,
   "error": null,
   "channel": {
-    "views": 476,
-    "watch_minutes": 187.0,
+    "views": 477,
+    "watch_minutes": 191.0,
     "avg_view_duration_sec": 42.0,
-    "avg_view_percentage": 55.9,
+    "avg_view_percentage": 56.3,
     "subscribers_gained": 2,
     "subscribers_lost": 1,
     "likes": 19,
     "comments": 0
   },
   "reach": {
-    "error": "<HttpError 400 when requesting https://youtubeanalytics.googleapis.com/v2/reports?ids=channel%3D%3DMINE&startDate=2026-07-09&endDate=2026-08-06&metrics=impressions%2CimpressionClickThroughRate&alt=jso"
+    "error": "<HttpError 400 when requesting https://youtubeanalytics.googleapis.com/v2/reports?ids=channel%3D%3DMINE&startDate=2026-07-10&endDate=2026-08-07&metrics=impressions%2CimpressionClickThroughRate&alt=jso"
   },
   "traffic_sources": [
     {
@@ -33,8 +33,8 @@
     },
     {
       "source": "YT_CHANNEL",
-      "views": 11,
-      "watch_minutes": 2.0
+      "views": 12,
+      "watch_minutes": 6.0
     },
     {
       "source": "SUBSCRIBER",
@@ -147,10 +147,10 @@
       "video_id": "gT07QXAEtjk",
       "title": "",
       "kind": "",
-      "views": 1,
-      "avg_view_percentage": 19.6,
-      "avg_view_duration_sec": 44.0,
-      "watch_minutes": 0.0
+      "views": 2,
+      "avg_view_percentage": 58.3,
+      "avg_view_duration_sec": 131.0,
+      "watch_minutes": 4.0
     },
     {
       "video_id": "eNWlX5TjI8U",
