@@ -1,0 +1,97 @@
+{
+  "topic": "What would happen if the Earth had rings like Saturn?",
+  "mode": "shorts",
+  "privacy": "public",
+  "scenario": {
+    "title": "What If Earth Had Saturn's Rings?",
+    "clickbait_title": "Earth Had Rings For A DAY... Here's What KILLED Us",
+    "thumbnail_concept": "Massive, detailed rings of ice and rock dominating the vertical sky over a terrified city, with small, glowing meteor streaks visible entering the atmosphere. High contrast, cinematic lighting, vertical composition.",
+    "thumbnail_headline": "SKY RAINS FIRE",
+    "youtube_tags": [
+      "whatif",
+      "earthrings",
+      "saturnrings",
+      "planetaryscience",
+      "spacefacts",
+      "sciencefiction",
+      "viralshorts",
+      "youtubeshorts",
+      "disasterscenario",
+      "climatechange",
+      "atmosphere",
+      "meteorites",
+      "gravity",
+      "roliscientist",
+      "futureearth",
+      "educationals",
+      "shockingfacts",
+      "whatifscenario"
+    ],
+    "seo_description": "What if Earth suddenly had rings like Saturn? Discover the shocking, terrifying truth. From raining fire to vanishing oxygen, this viral Short reveals the catastrophe and how we'd all die. #WhatIf #EarthRings",
+    "total_duration_minutes": 1,
+    "scenes": [
+      {
+        "scene_number": 1,
+        "scene_type": "hook",
+        "duration_seconds": 10,
+        "narration": "The sky just ignited. Shards of ice and rock, falling from above, rip through your city. Every second brings a new impact.",
+        "visual_prompt": "Vertical composition. A futuristic city skyline under a dramatically lit, ringed sky. Massive, glowing chunks of ice and rock, resembling meteors, are visibly streaking downwards, hitting buildings and exploding with fiery impacts. Dust and smoke rise. Cinematic lighting, photorealistic, 8K detail.",
+        "twist_element": "The immediate, visceral danger of falling debris from the rings, creating a sense of urgency and chaos.",
+        "asset_type": "video"
+      },
+      {
+        "scene_number": 2,
+        "scene_type": "escalation",
+        "duration_seconds": 10,
+        "narration": "But that’s not the worst part. Whole cities plunge into perpetual twilight. Then blinding flashes. Global temperatures plummet, disrupting all life.",
+        "visual_prompt": "Vertical composition. A vast, sprawling metropolis, half-shrouded in an unnatural, deep shadow cast by the immense overhead rings. The other half is bathed in harsh, distorted sunlight that creates long, alien-looking shadows. Extreme contrast between light and dark. A biting wind visibly whips through the streets. Photorealistic, dramatic atmosphere, 8K detail.",
+        "twist_element": "The unexpected, extreme light and temperature shifts caused by the rings, escalating the environmental threat.",
+        "asset_type": "video"
+      },
+      {
+        "scene_number": 3,
+        "scene_type": "twist",
+        "duration_seconds": 10,
+        "narration": "You think impacts are the problem? *I've seen this timeline*. Roli here. The rings are slowly stripping Earth's atmosphere. Oxygen is vanishing, fast.",
+        "visual_prompt": "Vertical composition. Roli, a photorealistic anthropomorphic rabbit scientist in a worn brass-and-leather steampunk spacesuit, goggles on his forehead, amber eyes, stands silhouetted against a view of Earth from space. He holds a glowing blue pocket-watch, his mouth is closed, but his expression is grim and knowing as he gestures towards the Earth's visibly thinning, hazy atmosphere. Cinematic lighting, 8K detail.",
+        "twist_element": "The big reveal: the true threat isn't just debris or light, but the rings actively destroying Earth's atmosphere, delivered by Roli's chilling testimony.",
+        "asset_type": "video"
+      },
+      {
+        "scene_number": 4,
+        "scene_type": "loop_bait",
+        "duration_seconds": 10,
+        "narration": "No oxygen, oceans evaporate. Planets shift. Our world becomes a barren, dead core. And then... the sky ignites.",
+        "visual_prompt": "Vertical composition. A high-altitude, dynamic shot of Earth rapidly transforming. Oceans visibly recede and evaporate into space. The vibrant blue and green give way to a barren, reddish, cracked surface, resembling Mars. A ring system is still visible, but now looks like a chaotic band around a dead planet. Then, a quick flash cut to meteors raining down again. Photorealistic, dramatic, 8K detail.",
+        "twist_element": "The ultimate, irreversible destruction of Earth, ending with a direct loop back to the opening scene's chaos, encouraging a re-watch.",
+        "asset_type": "video"
+      }
+    ],
+    "_topic": "What would happen if the Earth had rings like Saturn?",
+    "_mode": "shorts",
+    "_generated_at": "2026-08-08T09:34:26.837912"
+  },
+  "expected_images": 4,
+  "image_file_ids": [],
+  "asset_kinds": [],
+  "asset_slots": [
+    {
+      "scene_number": 1,
+      "role": "video"
+    },
+    {
+      "scene_number": 2,
+      "role": "video"
+    },
+    {
+      "scene_number": 3,
+      "role": "video"
+    },
+    {
+      "scene_number": 4,
+      "role": "video"
+    }
+  ],
+  "prompts_sent_at": "2026-08-08T09:34:34.773946+00:00",
+  "last_reminder_at": "2026-08-08T09:34:34.773959+00:00"
+}
