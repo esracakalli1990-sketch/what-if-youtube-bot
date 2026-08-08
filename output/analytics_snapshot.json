@@ -1,40 +1,40 @@
 {
-  "generated_at": "2026-08-07T23:56:52.736086+00:00",
+  "generated_at": "2026-08-08T02:27:42.375023+00:00",
   "period_days": 28,
   "error": null,
   "channel": {
-    "views": 477,
-    "watch_minutes": 191.0,
-    "avg_view_duration_sec": 42.0,
-    "avg_view_percentage": 56.3,
+    "views": 236,
+    "watch_minutes": 82.0,
+    "avg_view_duration_sec": 41.0,
+    "avg_view_percentage": 55.4,
     "subscribers_gained": 2,
     "subscribers_lost": 1,
-    "likes": 19,
+    "likes": 7,
     "comments": 0
   },
   "reach": {
-    "error": "<HttpError 400 when requesting https://youtubeanalytics.googleapis.com/v2/reports?ids=channel%3D%3DMINE&startDate=2026-07-10&endDate=2026-08-07&metrics=impressions%2CimpressionClickThroughRate&alt=jso"
+    "error": "<HttpError 400 when requesting https://youtubeanalytics.googleapis.com/v2/reports?ids=channel%3D%3DMINE&startDate=2026-07-11&endDate=2026-08-08&metrics=impressions%2CimpressionClickThroughRate&alt=jso"
   },
   "traffic_sources": [
     {
       "source": "SHORTS",
-      "views": 416,
-      "watch_minutes": 165.0
+      "views": 183,
+      "watch_minutes": 62.0
     },
     {
       "source": "EXT_URL",
-      "views": 30,
-      "watch_minutes": 15.0
-    },
-    {
-      "source": "YT_SEARCH",
-      "views": 15,
-      "watch_minutes": 3.0
+      "views": 27,
+      "watch_minutes": 12.0
     },
     {
       "source": "YT_CHANNEL",
-      "views": 12,
+      "views": 11,
       "watch_minutes": 6.0
+    },
+    {
+      "source": "YT_SEARCH",
+      "views": 11,
+      "watch_minutes": 0.0
     },
     {
       "source": "SUBSCRIBER",
@@ -53,15 +53,6 @@
     }
   ],
   "videos": [
-    {
-      "video_id": "sMPuRXHU6ko",
-      "title": "THE SUN JUST WENT OUT. Here's What Happens NEXT. #Shorts",
-      "kind": "short",
-      "views": 269,
-      "avg_view_percentage": 53.9,
-      "avg_view_duration_sec": 41.0,
-      "watch_minutes": 113.0
-    },
     {
       "video_id": "Sq7OfSkNnaw",
       "title": "ALL ICE MELTS INSTANTLY: This Is Your Last Day. #Shorts",
@@ -97,6 +88,15 @@
       "avg_view_percentage": 123.0,
       "avg_view_duration_sec": 76.0,
       "watch_minutes": 16.0
+    },
+    {
+      "video_id": "sMPuRXHU6ko",
+      "title": "THE SUN JUST WENT OUT. Here's What Happens NEXT. #Shorts",
+      "kind": "short",
+      "views": 28,
+      "avg_view_percentage": 25.6,
+      "avg_view_duration_sec": 19.0,
+      "watch_minutes": 5.0
     },
     {
       "video_id": "imAkMPIB6R0",
