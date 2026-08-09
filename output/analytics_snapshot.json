@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-09T17:57:11.600655+00:00",
+  "generated_at": "2026-08-09T19:11:03.775204+00:00",
   "period_days": 28,
   "error": null,
   "channel": {
@@ -9,7 +9,7 @@
     "avg_view_percentage": 62.5,
     "subscribers_gained": 2,
     "subscribers_lost": 1,
-    "likes": 7,
+    "likes": 6,
     "comments": 0
   },
   "reach": {
