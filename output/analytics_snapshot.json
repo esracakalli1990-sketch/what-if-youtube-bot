@@ -1,30 +1,30 @@
 {
-  "generated_at": "2026-08-09T23:57:24.668102+00:00",
+  "generated_at": "2026-08-10T02:40:37.842374+00:00",
   "period_days": 28,
   "error": null,
   "channel": {
-    "views": 202,
-    "watch_minutes": 70.0,
-    "avg_view_duration_sec": 43.0,
-    "avg_view_percentage": 62.5,
-    "subscribers_gained": 2,
-    "subscribers_lost": 1,
-    "likes": 6,
+    "views": 80,
+    "watch_minutes": 21.0,
+    "avg_view_duration_sec": 33.0,
+    "avg_view_percentage": 55.8,
+    "subscribers_gained": 0,
+    "subscribers_lost": 0,
+    "likes": 2,
     "comments": 0
   },
   "reach": {
-    "error": "<HttpError 400 when requesting https://youtubeanalytics.googleapis.com/v2/reports?ids=channel%3D%3DMINE&startDate=2026-07-12&endDate=2026-08-09&metrics=impressions%2CimpressionClickThroughRate&alt=jso"
+    "error": "<HttpError 400 when requesting https://youtubeanalytics.googleapis.com/v2/reports?ids=channel%3D%3DMINE&startDate=2026-07-13&endDate=2026-08-10&metrics=impressions%2CimpressionClickThroughRate&alt=jso"
   },
   "traffic_sources": [
     {
       "source": "SHORTS",
-      "views": 158,
-      "watch_minutes": 58.0
+      "views": 44,
+      "watch_minutes": 9.0
     },
     {
       "source": "EXT_URL",
-      "views": 23,
-      "watch_minutes": 7.0
+      "views": 15,
+      "watch_minutes": 5.0
     },
     {
       "source": "YT_CHANNEL",
@@ -54,15 +54,6 @@
   ],
   "videos": [
     {
-      "video_id": "Sq7OfSkNnaw",
-      "title": "ALL ICE MELTS INSTANTLY: This Is Your Last Day. #Shorts",
-      "kind": "short",
-      "views": 50,
-      "avg_view_percentage": 122.1,
-      "avg_view_duration_sec": 61.0,
-      "watch_minutes": 19.0
-    },
-    {
       "video_id": "l0olB6EIyyg",
       "title": "SPEED OF LIGHT just became 100 KM/H! (You're Already DEAD) #Shorts",
       "kind": "short",
@@ -72,39 +63,12 @@
       "watch_minutes": 8.0
     },
     {
-      "video_id": "kOQbzDDl-wA",
-      "title": "EARTH STOPS SPINNING: YOU WON'T BELIEVE What Happens! #Shorts",
-      "kind": "short",
-      "views": 36,
-      "avg_view_percentage": 33.5,
-      "avg_view_duration_sec": 27.0,
-      "watch_minutes": 11.0
-    },
-    {
-      "video_id": "m6vCnp0gyN8",
-      "title": "YOU PHOTOSYNTHESIZE. But There's a TERRIBLE Catch. #Shorts",
-      "kind": "short",
-      "views": 33,
-      "avg_view_percentage": 123.0,
-      "avg_view_duration_sec": 76.0,
-      "watch_minutes": 16.0
-    },
-    {
       "video_id": "NS77j8qJkvs",
       "title": "EVERY VOLCANO ERUPTS?! NOT LAVA YOU FEAR... #Shorts",
       "kind": "short",
       "views": 8,
       "avg_view_percentage": 55.6,
       "avg_view_duration_sec": 28.0,
-      "watch_minutes": 1.0
-    },
-    {
-      "video_id": "sMPuRXHU6ko",
-      "title": "THE SUN JUST WENT OUT. Here's What Happens NEXT. #Shorts",
-      "kind": "short",
-      "views": 6,
-      "avg_view_percentage": 38.3,
-      "avg_view_duration_sec": 29.0,
       "watch_minutes": 1.0
     },
     {
@@ -126,13 +90,22 @@
       "watch_minutes": 1.0
     },
     {
-      "video_id": "imAkMPIB6R0",
-      "title": "GRAVITY DOUBLED? You Wouldn't Survive 5 Minutes! #Shorts",
+      "video_id": "Sq7OfSkNnaw",
+      "title": "ALL ICE MELTS INSTANTLY: This Is Your Last Day. #Shorts",
       "kind": "short",
-      "views": 3,
-      "avg_view_percentage": 52.2,
-      "avg_view_duration_sec": 35.0,
+      "views": 4,
+      "avg_view_percentage": 93.3,
+      "avg_view_duration_sec": 46.0,
       "watch_minutes": 1.0
+    },
+    {
+      "video_id": "m6vCnp0gyN8",
+      "title": "YOU PHOTOSYNTHESIZE. But There's a TERRIBLE Catch. #Shorts",
+      "kind": "short",
+      "views": 4,
+      "avg_view_percentage": 10.4,
+      "avg_view_duration_sec": 6.0,
+      "watch_minutes": 0.0
     },
     {
       "video_id": "gT07QXAEtjk",
@@ -142,15 +115,6 @@
       "avg_view_percentage": 58.3,
       "avg_view_duration_sec": 131.0,
       "watch_minutes": 4.0
-    },
-    {
-      "video_id": "TfD9muAjcFg",
-      "title": "WHAT IF THE SUN VANISHED? (The Terrifying 8-Minute Truth)",
-      "kind": "long",
-      "views": 2,
-      "avg_view_percentage": 1.7,
-      "avg_view_duration_sec": 4.0,
-      "watch_minutes": 0.0
     },
     {
       "video_id": "eNWlX5TjI8U",
