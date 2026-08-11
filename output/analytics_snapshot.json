@@ -1,29 +1,29 @@
 {
-  "generated_at": "2026-08-10T23:58:41.766183+00:00",
+  "generated_at": "2026-08-11T02:34:28.991194+00:00",
   "period_days": 28,
   "error": null,
   "channel": {
-    "views": 80,
-    "watch_minutes": 21.0,
-    "avg_view_duration_sec": 33.0,
-    "avg_view_percentage": 55.8,
+    "views": 67,
+    "watch_minutes": 18.0,
+    "avg_view_duration_sec": 37.0,
+    "avg_view_percentage": 60.7,
     "subscribers_gained": 0,
     "subscribers_lost": 0,
-    "likes": 2,
+    "likes": 1,
     "comments": 0
   },
   "reach": {
-    "error": "<HttpError 400 when requesting https://youtubeanalytics.googleapis.com/v2/reports?ids=channel%3D%3DMINE&startDate=2026-07-13&endDate=2026-08-10&metrics=impressions%2CimpressionClickThroughRate&alt=jso"
+    "error": "<HttpError 400 when requesting https://youtubeanalytics.googleapis.com/v2/reports?ids=channel%3D%3DMINE&startDate=2026-07-14&endDate=2026-08-11&metrics=impressions%2CimpressionClickThroughRate&alt=jso"
   },
   "traffic_sources": [
     {
       "source": "SHORTS",
-      "views": 44,
-      "watch_minutes": 9.0
+      "views": 35,
+      "watch_minutes": 8.0
     },
     {
       "source": "EXT_URL",
-      "views": 15,
+      "views": 13,
       "watch_minutes": 5.0
     },
     {
@@ -33,7 +33,7 @@
     },
     {
       "source": "YT_SEARCH",
-      "views": 8,
+      "views": 6,
       "watch_minutes": 0.0
     },
     {
@@ -90,24 +90,6 @@
       "watch_minutes": 1.0
     },
     {
-      "video_id": "Sq7OfSkNnaw",
-      "title": "ALL ICE MELTS INSTANTLY: This Is Your Last Day. #Shorts",
-      "kind": "short",
-      "views": 4,
-      "avg_view_percentage": 93.3,
-      "avg_view_duration_sec": 46.0,
-      "watch_minutes": 1.0
-    },
-    {
-      "video_id": "m6vCnp0gyN8",
-      "title": "YOU PHOTOSYNTHESIZE. But There's a TERRIBLE Catch. #Shorts",
-      "kind": "short",
-      "views": 4,
-      "avg_view_percentage": 10.4,
-      "avg_view_duration_sec": 6.0,
-      "watch_minutes": 0.0
-    },
-    {
       "video_id": "gT07QXAEtjk",
       "title": "",
       "kind": "",
@@ -115,6 +97,15 @@
       "avg_view_percentage": 58.3,
       "avg_view_duration_sec": 131.0,
       "watch_minutes": 4.0
+    },
+    {
+      "video_id": "7seUE-fBhEs",
+      "title": "Time Just Reversed 24 HOURS. Here's What Happens. #Shorts",
+      "kind": "short",
+      "views": 1,
+      "avg_view_percentage": 0.0,
+      "avg_view_duration_sec": 0.0,
+      "watch_minutes": 0.0
     },
     {
       "video_id": "eNWlX5TjI8U",
@@ -126,8 +117,17 @@
       "watch_minutes": 0.0
     },
     {
-      "video_id": "7seUE-fBhEs",
-      "title": "Time Just Reversed 24 HOURS. Here's What Happens. #Shorts",
+      "video_id": "Sq7OfSkNnaw",
+      "title": "ALL ICE MELTS INSTANTLY: This Is Your Last Day. #Shorts",
+      "kind": "short",
+      "views": 1,
+      "avg_view_percentage": 45.8,
+      "avg_view_duration_sec": 22.0,
+      "watch_minutes": 0.0
+    },
+    {
+      "video_id": "m6vCnp0gyN8",
+      "title": "YOU PHOTOSYNTHESIZE. But There's a TERRIBLE Catch. #Shorts",
       "kind": "short",
       "views": 1,
       "avg_view_percentage": 0.0,
