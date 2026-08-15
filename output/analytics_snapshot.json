@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-08-14T23:45:26.125888+00:00",
+  "generated_at": "2026-08-15T01:55:30.678409+00:00",
   "period_days": 28,
   "error": null,
   "channel": {
-    "views": 35,
-    "watch_minutes": 11.0,
+    "views": 34,
+    "watch_minutes": 10.0,
     "avg_view_duration_sec": 38.0,
-    "avg_view_percentage": 54.7,
+    "avg_view_percentage": 53.7,
     "subscribers_gained": 0,
     "subscribers_lost": 0,
-    "likes": 0,
+    "likes": -1,
     "comments": 0
   },
   "reach": {
-    "error": "<HttpError 400 when requesting https://youtubeanalytics.googleapis.com/v2/reports?ids=channel%3D%3DMINE&startDate=2026-07-17&endDate=2026-08-14&metrics=impressions%2CimpressionClickThroughRate&alt=jso"
+    "error": "<HttpError 400 when requesting https://youtubeanalytics.googleapis.com/v2/reports?ids=channel%3D%3DMINE&startDate=2026-07-18&endDate=2026-08-15&metrics=impressions%2CimpressionClickThroughRate&alt=jso"
   },
   "traffic_sources": [
     {
@@ -32,12 +32,12 @@
       "watch_minutes": 0.0
     },
     {
-      "source": "SHORTS",
-      "views": 3,
+      "source": "SUBSCRIBER",
+      "views": 2,
       "watch_minutes": 0.0
     },
     {
-      "source": "SUBSCRIBER",
+      "source": "SHORTS",
       "views": 2,
       "watch_minutes": 0.0
     },
@@ -54,15 +54,6 @@
   ],
   "videos": [
     {
-      "video_id": "l0olB6EIyyg",
-      "title": "SPEED OF LIGHT just became 100 KM/H! (You're Already DEAD) #Shorts",
-      "kind": "short",
-      "views": 8,
-      "avg_view_percentage": 25.4,
-      "avg_view_duration_sec": 12.0,
-      "watch_minutes": 0.0
-    },
-    {
       "video_id": "NS77j8qJkvs",
       "title": "EVERY VOLCANO ERUPTS?! NOT LAVA YOU FEAR... #Shorts",
       "kind": "short",
@@ -70,6 +61,15 @@
       "avg_view_percentage": 55.6,
       "avg_view_duration_sec": 28.0,
       "watch_minutes": 1.0
+    },
+    {
+      "video_id": "l0olB6EIyyg",
+      "title": "SPEED OF LIGHT just became 100 KM/H! (You're Already DEAD) #Shorts",
+      "kind": "short",
+      "views": 7,
+      "avg_view_percentage": 8.1,
+      "avg_view_duration_sec": 3.0,
+      "watch_minutes": 0.0
     },
     {
       "video_id": "thaeo3YtSqo",
