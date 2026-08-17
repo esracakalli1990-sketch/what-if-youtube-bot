@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-08-16T23:42:12.313290+00:00",
+  "generated_at": "2026-08-17T02:00:16.950474+00:00",
   "period_days": 28,
   "error": null,
   "channel": {
-    "views": 34,
+    "views": 33,
     "watch_minutes": 10.0,
     "avg_view_duration_sec": 38.0,
     "avg_view_percentage": 53.7,
@@ -13,7 +13,7 @@
     "comments": 0
   },
   "reach": {
-    "error": "<HttpError 400 when requesting https://youtubeanalytics.googleapis.com/v2/reports?ids=channel%3D%3DMINE&startDate=2026-07-19&endDate=2026-08-16&metrics=impressions%2CimpressionClickThroughRate&alt=jso"
+    "error": "<HttpError 400 when requesting https://youtubeanalytics.googleapis.com/v2/reports?ids=channel%3D%3DMINE&startDate=2026-07-20&endDate=2026-08-17&metrics=impressions%2CimpressionClickThroughRate&alt=jso"
   },
   "traffic_sources": [
     {
@@ -28,7 +28,7 @@
     },
     {
       "source": "YT_SEARCH",
-      "views": 6,
+      "views": 5,
       "watch_minutes": 0.0
     },
     {
@@ -63,21 +63,21 @@
       "watch_minutes": 1.0
     },
     {
-      "video_id": "l0olB6EIyyg",
-      "title": "SPEED OF LIGHT just became 100 KM/H! (You're Already DEAD) #Shorts",
-      "kind": "short",
-      "views": 7,
-      "avg_view_percentage": 8.1,
-      "avg_view_duration_sec": 3.0,
-      "watch_minutes": 0.0
-    },
-    {
       "video_id": "thaeo3YtSqo",
       "title": "DOUBLE OXYGEN: Your Lungs WILL FAIL in Seconds! #Shorts",
       "kind": "short",
       "views": 6,
       "avg_view_percentage": 111.8,
       "avg_view_duration_sec": 49.0,
+      "watch_minutes": 0.0
+    },
+    {
+      "video_id": "l0olB6EIyyg",
+      "title": "SPEED OF LIGHT just became 100 KM/H! (You're Already DEAD) #Shorts",
+      "kind": "short",
+      "views": 6,
+      "avg_view_percentage": 8.1,
+      "avg_view_duration_sec": 3.0,
       "watch_minutes": 0.0
     },
     {
