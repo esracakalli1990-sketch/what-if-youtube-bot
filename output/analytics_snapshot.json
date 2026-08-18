@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-08-17T23:44:43.915024+00:00",
+  "generated_at": "2026-08-18T01:59:41.432803+00:00",
   "period_days": 28,
   "error": null,
   "channel": {
-    "views": 33,
+    "views": 31,
     "watch_minutes": 10.0,
-    "avg_view_duration_sec": 38.0,
-    "avg_view_percentage": 53.7,
+    "avg_view_duration_sec": 41.0,
+    "avg_view_percentage": 55.6,
     "subscribers_gained": 0,
     "subscribers_lost": 0,
     "likes": -1,
     "comments": 0
   },
   "reach": {
-    "error": "<HttpError 400 when requesting https://youtubeanalytics.googleapis.com/v2/reports?ids=channel%3D%3DMINE&startDate=2026-07-20&endDate=2026-08-17&metrics=impressions%2CimpressionClickThroughRate&alt=jso"
+    "error": "<HttpError 400 when requesting https://youtubeanalytics.googleapis.com/v2/reports?ids=channel%3D%3DMINE&startDate=2026-07-21&endDate=2026-08-18&metrics=impressions%2CimpressionClickThroughRate&alt=jso"
   },
   "traffic_sources": [
     {
@@ -28,7 +28,7 @@
     },
     {
       "source": "YT_SEARCH",
-      "views": 5,
+      "views": 3,
       "watch_minutes": 0.0
     },
     {
@@ -72,15 +72,6 @@
       "watch_minutes": 0.0
     },
     {
-      "video_id": "l0olB6EIyyg",
-      "title": "SPEED OF LIGHT just became 100 KM/H! (You're Already DEAD) #Shorts",
-      "kind": "short",
-      "views": 6,
-      "avg_view_percentage": 8.1,
-      "avg_view_duration_sec": 3.0,
-      "watch_minutes": 0.0
-    },
-    {
       "video_id": "lYaByHDACuc",
       "title": "You'd NEVER Survive 48 Hours Without Sleep. Here's Why. #Shorts",
       "kind": "short",
@@ -88,6 +79,15 @@
       "avg_view_percentage": 37.3,
       "avg_view_duration_sec": 19.0,
       "watch_minutes": 1.0
+    },
+    {
+      "video_id": "l0olB6EIyyg",
+      "title": "SPEED OF LIGHT just became 100 KM/H! (You're Already DEAD) #Shorts",
+      "kind": "short",
+      "views": 4,
+      "avg_view_percentage": 7.0,
+      "avg_view_duration_sec": 3.0,
+      "watch_minutes": 0.0
     },
     {
       "video_id": "gT07QXAEtjk",
