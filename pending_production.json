@@ -1,0 +1,97 @@
+{
+  "topic": "What would happen if the Earth had rings like Saturn?",
+  "mode": "shorts",
+  "privacy": "public",
+  "scenario": {
+    "title": "What If Earth Had Rings Like Saturn? (You Wouldn't Survive)",
+    "clickbait_title": "EARTH HAD RINGS. You Wouldn't BELIEVE What Happens!",
+    "thumbnail_concept": "A dramatic vertical split image. Top half: Earth's rings majestically arcing across the sky, glowing. Bottom half: A major city skyline, half bathed in perpetual shadow, half in daylight, with a clear, sharp dividing line created by the rings. The shadow side looks desolate. Focus on the sharp shadow line.",
+    "thumbnail_headline": "ETERNAL SHADOWS",
+    "total_duration_minutes": 0.4,
+    "youtube_tags": [
+      "what if",
+      "earth rings",
+      "saturn rings",
+      "space",
+      "science fiction",
+      "apocalypse",
+      "survival",
+      "shorts",
+      "youtube shorts",
+      "viral",
+      "science",
+      "astronomy",
+      "disaster",
+      "what if series",
+      "roli",
+      "planet earth",
+      "cosmic disaster",
+      "environmental collapse"
+    ],
+    "seo_description": "What if Earth suddenly gained rings like Saturn? Dive into a terrifying 'What If' scenario where our planet's beautiful rings bring chaos, eternal shadows, and constant destruction. Discover the shocking truth Roli the time-traveler witnessed!",
+    "scenes": [
+      {
+        "scene_number": 1,
+        "scene_type": "hook",
+        "duration_seconds": 10,
+        "narration": "A colossal shadow just swallowed half your city. It's permanent twilight, every single day. The sun is gone for good, overhead.",
+        "visual_prompt": "Vertical 9:16. Photorealistic, 8K detail. A sprawling modern metropolis, half of it abruptly plunged into a deep, perpetual twilight by an immense, sharp, cosmic shadow. The other half remains in stark sunlight. Giant, magnificent rings of ice and rock are faintly visible high in the darkened sky, casting the shadow. The camera slowly pushes in on the shadowed city, emphasizing its eerie desolation. Cinematic lighting, dramatic atmosphere.",
+        "twist_element": "The sudden, inexplicable, permanent shadow over half the world.",
+        "asset_type": "video"
+      },
+      {
+        "scene_number": 2,
+        "scene_type": "escalation",
+        "duration_seconds": 10,
+        "narration": "But that's not the worst. Without sunlight, temperatures plummet. Crops fail. Global famine begins. What else collapses?",
+        "visual_prompt": "Vertical 9:16. Photorealistic, 8K detail. A barren, frozen landscape stretches into the distance under a perpetually dim, twilight sky. Dead, brittle crops are covered in frost. A chilling wind visibly whips across the desolate fields. The camera slowly pans across the scene, revealing the extent of the ecological collapse. Focus on the stark contrast between the rings (faintly visible above) and the dying Earth below. Dramatic, cold lighting.",
+        "twist_element": "The chain reaction of global famine and ecological collapse beyond just darkness.",
+        "asset_type": "video"
+      },
+      {
+        "scene_number": 3,
+        "scene_type": "twist",
+        "duration_seconds": 10,
+        "narration": "Roli here has seen worse. Those beautiful rings? Pure chaos. Debris constantly rains down, striking cities like meteors.",
+        "visual_prompt": "Vertical 9:16. Photorealistic, 8K detail. Roli, the anthropomorphic rabbit scientist in a worn brass-and-leather steampunk spacesuit with goggles on his forehead and glowing amber eyes, stands on a rocky, desolate overlook. He holds a glowing blue pocket-watch, looking directly at the camera with a calm, knowing expression (mouth closed). Behind him, far in the distance, streaks of fiery debris from Earth's rings are visibly raining down towards a distant, glimmering city, creating small explosions on impact. The camera slowly zooms on Roli's face, emphasizing his silent, eerie authority. Dramatic, slightly ominous lighting.",
+        "twist_element": "The rings are not stable and constantly bombard the Earth with deadly debris.",
+        "asset_type": "video"
+      },
+      {
+        "scene_number": 4,
+        "scene_type": "loop_bait",
+        "duration_seconds": 10,
+        "narration": "Your world becomes an endless bombardment. The atmosphere ignites. New destruction every day. That perpetual shadow? The least of your worries.",
+        "visual_prompt": "Vertical 9:16. Photorealistic, 8K detail. A chaotic, fiery scene. Large chunks of burning ring debris tear through Earth's upper atmosphere, leaving blazing trails. Explosions erupt on the ground below as impacts occur, sending up clouds of dust and fire. The rings themselves are visible overhead, now looking less beautiful and more like a menacing, unstable threat. The camera continuously pushes forward through the falling debris, giving a sense of overwhelming destruction and constant motion. High contrast, intense, destructive lighting.",
+        "twist_element": "The escalating, continuous destruction makes the initial shadow seem trivial, pushing the viewer to re-evaluate.",
+        "asset_type": "video"
+      }
+    ],
+    "_topic": "What would happen if the Earth had rings like Saturn?",
+    "_mode": "shorts",
+    "_generated_at": "2026-08-18T09:29:01.590223"
+  },
+  "expected_images": 4,
+  "image_file_ids": [],
+  "asset_kinds": [],
+  "asset_slots": [
+    {
+      "scene_number": 1,
+      "role": "video"
+    },
+    {
+      "scene_number": 2,
+      "role": "video"
+    },
+    {
+      "scene_number": 3,
+      "role": "video"
+    },
+    {
+      "scene_number": 4,
+      "role": "video"
+    }
+  ],
+  "prompts_sent_at": "2026-08-18T09:29:07.705268+00:00",
+  "last_reminder_at": "2026-08-18T09:29:07.705283+00:00"
+}
