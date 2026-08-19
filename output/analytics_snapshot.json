@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-08-18T23:45:04.219742+00:00",
+  "generated_at": "2026-08-19T02:05:08.680713+00:00",
   "period_days": 28,
   "error": null,
   "channel": {
-    "views": 31,
+    "views": 30,
     "watch_minutes": 10.0,
     "avg_view_duration_sec": 41.0,
     "avg_view_percentage": 55.6,
@@ -13,7 +13,7 @@
     "comments": 0
   },
   "reach": {
-    "error": "<HttpError 400 when requesting https://youtubeanalytics.googleapis.com/v2/reports?ids=channel%3D%3DMINE&startDate=2026-07-21&endDate=2026-08-18&metrics=impressions%2CimpressionClickThroughRate&alt=jso"
+    "error": "<HttpError 400 when requesting https://youtubeanalytics.googleapis.com/v2/reports?ids=channel%3D%3DMINE&startDate=2026-07-22&endDate=2026-08-19&metrics=impressions%2CimpressionClickThroughRate&alt=jso"
   },
   "traffic_sources": [
     {
@@ -27,12 +27,12 @@
       "watch_minutes": 4.0
     },
     {
-      "source": "YT_SEARCH",
-      "views": 3,
+      "source": "SUBSCRIBER",
+      "views": 2,
       "watch_minutes": 0.0
     },
     {
-      "source": "SUBSCRIBER",
+      "source": "YT_SEARCH",
       "views": 2,
       "watch_minutes": 0.0
     },
@@ -84,7 +84,7 @@
       "video_id": "l0olB6EIyyg",
       "title": "SPEED OF LIGHT just became 100 KM/H! (You're Already DEAD) #Shorts",
       "kind": "short",
-      "views": 4,
+      "views": 3,
       "avg_view_percentage": 7.0,
       "avg_view_duration_sec": 3.0,
       "watch_minutes": 0.0
