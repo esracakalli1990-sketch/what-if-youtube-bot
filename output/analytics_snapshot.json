@@ -1,30 +1,30 @@
 {
-  "generated_at": "2026-08-19T23:47:09.997633+00:00",
+  "generated_at": "2026-08-20T01:57:30.839977+00:00",
   "period_days": 28,
   "error": null,
   "channel": {
-    "views": 30,
-    "watch_minutes": 10.0,
-    "avg_view_duration_sec": 41.0,
-    "avg_view_percentage": 55.6,
+    "views": 22,
+    "watch_minutes": 7.0,
+    "avg_view_duration_sec": 38.0,
+    "avg_view_percentage": 48.4,
     "subscribers_gained": 0,
     "subscribers_lost": 0,
     "likes": -1,
     "comments": 0
   },
   "reach": {
-    "error": "<HttpError 400 when requesting https://youtubeanalytics.googleapis.com/v2/reports?ids=channel%3D%3DMINE&startDate=2026-07-22&endDate=2026-08-19&metrics=impressions%2CimpressionClickThroughRate&alt=jso"
+    "error": "<HttpError 400 when requesting https://youtubeanalytics.googleapis.com/v2/reports?ids=channel%3D%3DMINE&startDate=2026-07-23&endDate=2026-08-20&metrics=impressions%2CimpressionClickThroughRate&alt=jso"
   },
   "traffic_sources": [
-    {
-      "source": "EXT_URL",
-      "views": 13,
-      "watch_minutes": 5.0
-    },
     {
       "source": "YT_CHANNEL",
       "views": 10,
       "watch_minutes": 4.0
+    },
+    {
+      "source": "EXT_URL",
+      "views": 7,
+      "watch_minutes": 2.0
     },
     {
       "source": "SUBSCRIBER",
@@ -33,11 +33,6 @@
     },
     {
       "source": "YT_SEARCH",
-      "views": 2,
-      "watch_minutes": 0.0
-    },
-    {
-      "source": "SHORTS",
       "views": 2,
       "watch_minutes": 0.0
     },
@@ -61,15 +56,6 @@
       "avg_view_percentage": 55.6,
       "avg_view_duration_sec": 28.0,
       "watch_minutes": 1.0
-    },
-    {
-      "video_id": "thaeo3YtSqo",
-      "title": "DOUBLE OXYGEN: Your Lungs WILL FAIL in Seconds! #Shorts",
-      "kind": "short",
-      "views": 6,
-      "avg_view_percentage": 111.8,
-      "avg_view_duration_sec": 49.0,
-      "watch_minutes": 0.0
     },
     {
       "video_id": "lYaByHDACuc",
@@ -99,8 +85,26 @@
       "watch_minutes": 4.0
     },
     {
+      "video_id": "Sq7OfSkNnaw",
+      "title": "ALL ICE MELTS INSTANTLY: This Is Your Last Day. #Shorts",
+      "kind": "short",
+      "views": 1,
+      "avg_view_percentage": 45.8,
+      "avg_view_duration_sec": 22.0,
+      "watch_minutes": 0.0
+    },
+    {
       "video_id": "7seUE-fBhEs",
       "title": "Time Just Reversed 24 HOURS. Here's What Happens. #Shorts",
+      "kind": "short",
+      "views": 1,
+      "avg_view_percentage": 0.0,
+      "avg_view_duration_sec": 0.0,
+      "watch_minutes": 0.0
+    },
+    {
+      "video_id": "thaeo3YtSqo",
+      "title": "DOUBLE OXYGEN: Your Lungs WILL FAIL in Seconds! #Shorts",
       "kind": "short",
       "views": 1,
       "avg_view_percentage": 0.0,
@@ -114,15 +118,6 @@
       "views": 1,
       "avg_view_percentage": 0.0,
       "avg_view_duration_sec": 0.0,
-      "watch_minutes": 0.0
-    },
-    {
-      "video_id": "Sq7OfSkNnaw",
-      "title": "ALL ICE MELTS INSTANTLY: This Is Your Last Day. #Shorts",
-      "kind": "short",
-      "views": 1,
-      "avg_view_percentage": 45.8,
-      "avg_view_duration_sec": 22.0,
       "watch_minutes": 0.0
     },
     {
