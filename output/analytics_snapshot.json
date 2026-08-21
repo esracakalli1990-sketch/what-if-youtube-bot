@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-08-20T23:48:35.107783+00:00",
+  "generated_at": "2026-08-21T02:06:27.201022+00:00",
   "period_days": 28,
   "error": null,
   "channel": {
-    "views": 22,
+    "views": 19,
     "watch_minutes": 7.0,
-    "avg_view_duration_sec": 38.0,
-    "avg_view_percentage": 48.4,
+    "avg_view_duration_sec": 46.0,
+    "avg_view_percentage": 52.0,
     "subscribers_gained": 0,
     "subscribers_lost": 0,
     "likes": -1,
     "comments": 0
   },
   "reach": {
-    "error": "<HttpError 400 when requesting https://youtubeanalytics.googleapis.com/v2/reports?ids=channel%3D%3DMINE&startDate=2026-07-23&endDate=2026-08-20&metrics=impressions%2CimpressionClickThroughRate&alt=jso"
+    "error": "<HttpError 400 when requesting https://youtubeanalytics.googleapis.com/v2/reports?ids=channel%3D%3DMINE&startDate=2026-07-24&endDate=2026-08-21&metrics=impressions%2CimpressionClickThroughRate&alt=jso"
   },
   "traffic_sources": [
     {
@@ -23,7 +23,7 @@
     },
     {
       "source": "EXT_URL",
-      "views": 7,
+      "views": 5,
       "watch_minutes": 2.0
     },
     {
@@ -33,7 +33,7 @@
     },
     {
       "source": "YT_SEARCH",
-      "views": 2,
+      "views": 1,
       "watch_minutes": 0.0
     },
     {
@@ -58,24 +58,6 @@
       "watch_minutes": 1.0
     },
     {
-      "video_id": "lYaByHDACuc",
-      "title": "You'd NEVER Survive 48 Hours Without Sleep. Here's Why. #Shorts",
-      "kind": "short",
-      "views": 4,
-      "avg_view_percentage": 37.3,
-      "avg_view_duration_sec": 19.0,
-      "watch_minutes": 1.0
-    },
-    {
-      "video_id": "l0olB6EIyyg",
-      "title": "SPEED OF LIGHT just became 100 KM/H! (You're Already DEAD) #Shorts",
-      "kind": "short",
-      "views": 3,
-      "avg_view_percentage": 7.0,
-      "avg_view_duration_sec": 3.0,
-      "watch_minutes": 0.0
-    },
-    {
       "video_id": "gT07QXAEtjk",
       "title": "",
       "kind": "",
@@ -83,6 +65,24 @@
       "avg_view_percentage": 58.3,
       "avg_view_duration_sec": 131.0,
       "watch_minutes": 4.0
+    },
+    {
+      "video_id": "l0olB6EIyyg",
+      "title": "SPEED OF LIGHT just became 100 KM/H! (You're Already DEAD) #Shorts",
+      "kind": "short",
+      "views": 2,
+      "avg_view_percentage": 9.8,
+      "avg_view_duration_sec": 4.0,
+      "watch_minutes": 0.0
+    },
+    {
+      "video_id": "lYaByHDACuc",
+      "title": "You'd NEVER Survive 48 Hours Without Sleep. Here's Why. #Shorts",
+      "kind": "short",
+      "views": 2,
+      "avg_view_percentage": 28.9,
+      "avg_view_duration_sec": 15.0,
+      "watch_minutes": 0.0
     },
     {
       "video_id": "Sq7OfSkNnaw",
