@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-08-22T18:56:24.172607+00:00",
+  "generated_at": "2026-08-22T19:44:09.631734+00:00",
   "period_days": 28,
   "error": null,
   "channel": {
-    "views": 18,
+    "views": 19,
     "watch_minutes": 7.0,
     "avg_view_duration_sec": 51.0,
     "avg_view_percentage": 54.7,
@@ -29,6 +29,11 @@
     {
       "source": "SUBSCRIBER",
       "views": 2,
+      "watch_minutes": 0.0
+    },
+    {
+      "source": "YT_SEARCH",
+      "views": 1,
       "watch_minutes": 0.0
     },
     {
@@ -62,6 +67,15 @@
       "watch_minutes": 4.0
     },
     {
+      "video_id": "thaeo3YtSqo",
+      "title": "DOUBLE OXYGEN: Your Lungs WILL FAIL in Seconds! #Shorts",
+      "kind": "short",
+      "views": 2,
+      "avg_view_percentage": 0.0,
+      "avg_view_duration_sec": 0.0,
+      "watch_minutes": 0.0
+    },
+    {
       "video_id": "lYaByHDACuc",
       "title": "You'd NEVER Survive 48 Hours Without Sleep. Here's Why. #Shorts",
       "kind": "short",
@@ -82,15 +96,6 @@
     {
       "video_id": "7seUE-fBhEs",
       "title": "Time Just Reversed 24 HOURS. Here's What Happens. #Shorts",
-      "kind": "short",
-      "views": 1,
-      "avg_view_percentage": 0.0,
-      "avg_view_duration_sec": 0.0,
-      "watch_minutes": 0.0
-    },
-    {
-      "video_id": "thaeo3YtSqo",
-      "title": "DOUBLE OXYGEN: Your Lungs WILL FAIL in Seconds! #Shorts",
       "kind": "short",
       "views": 1,
       "avg_view_percentage": 0.0,
