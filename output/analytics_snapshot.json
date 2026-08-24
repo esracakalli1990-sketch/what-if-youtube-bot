@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-08-23T23:43:50.243267+00:00",
+  "generated_at": "2026-08-24T02:06:27.873917+00:00",
   "period_days": 28,
   "error": null,
   "channel": {
-    "views": 19,
-    "watch_minutes": 7.0,
-    "avg_view_duration_sec": 51.0,
-    "avg_view_percentage": 54.7,
+    "views": 18,
+    "watch_minutes": 6.0,
+    "avg_view_duration_sec": 54.0,
+    "avg_view_percentage": 53.8,
     "subscribers_gained": 0,
     "subscribers_lost": 0,
     "likes": -1,
     "comments": 0
   },
   "reach": {
-    "error": "<HttpError 400 when requesting https://youtubeanalytics.googleapis.com/v2/reports?ids=channel%3D%3DMINE&startDate=2026-07-26&endDate=2026-08-23&metrics=impressions%2CimpressionClickThroughRate&alt=jso"
+    "error": "<HttpError 400 when requesting https://youtubeanalytics.googleapis.com/v2/reports?ids=channel%3D%3DMINE&startDate=2026-07-27&endDate=2026-08-24&metrics=impressions%2CimpressionClickThroughRate&alt=jso"
   },
   "traffic_sources": [
     {
@@ -23,8 +23,8 @@
     },
     {
       "source": "EXT_URL",
-      "views": 5,
-      "watch_minutes": 2.0
+      "views": 4,
+      "watch_minutes": 1.0
     },
     {
       "source": "SUBSCRIBER",
@@ -52,9 +52,9 @@
       "video_id": "NS77j8qJkvs",
       "title": "EVERY VOLCANO ERUPTS?! NOT LAVA YOU FEAR... #Shorts",
       "kind": "short",
-      "views": 8,
-      "avg_view_percentage": 55.6,
-      "avg_view_duration_sec": 28.0,
+      "views": 7,
+      "avg_view_percentage": 52.0,
+      "avg_view_duration_sec": 27.0,
       "watch_minutes": 1.0
     },
     {
