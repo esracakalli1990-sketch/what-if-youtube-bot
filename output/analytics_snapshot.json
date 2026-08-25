@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-25T10:58:36.981747+00:00",
+  "generated_at": "2026-08-25T11:52:53.681461+00:00",
   "period_days": 28,
   "error": null,
   "channel": {
@@ -17,34 +17,7 @@
   },
   "traffic_sources": [
     {
-      "source": "YT_CHANNEL",
-      "views": 10,
-      "watch_minutes": 4.0
-    },
-    {
-      "source": "EXT_URL",
-      "views": 4,
-      "watch_minutes": 1.0
-    },
-    {
-      "source": "SUBSCRIBER",
-      "views": 2,
-      "watch_minutes": 0.0
-    },
-    {
-      "source": "YT_SEARCH",
-      "views": 1,
-      "watch_minutes": 0.0
-    },
-    {
-      "source": "YT_OTHER_PAGE",
-      "views": 1,
-      "watch_minutes": 0.0
-    },
-    {
-      "source": "NO_LINK_OTHER",
-      "views": 0,
-      "watch_minutes": 0.0
+      "error": "<HttpError 500 when requesting https://youtubeanalytics.googleapis.com/v2/reports?ids=channel%3D%3DMINE&startDate=2026-07-28&endDate=2026-08-25&metrics=views%2CestimatedMinutesWatched&dimensions=insig"
     }
   ],
   "videos": [
