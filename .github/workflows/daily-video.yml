@@ -14,10 +14,14 @@ name: Otonom Video Üretimi
 # sadece yükleme adımı atlanır.
 
 on:
-  schedule:
-    - cron: "0 9 * * *"    # günlük Short
-    - cron: "0 8 * * 1,4"  # Pzt & Per uzun video
-    - cron: "0 7 * * 0"    # Pazar konu doldurma
+  # ⏸ DURDURULDU — kanal çalışmaları askıya alındı (kullanıcı isteği).
+  # Zamanlanmış çalışma kapalı: bot kendiliğinden ÇALIŞMAZ, Telegram'a
+  # bildirim GÖNDERMEZ, video üretmez/yüklemez.
+  # Tekrar açmak için: aşağıdaki 'schedule' bloğunun yorumunu kaldırın.
+  # schedule:
+  # - cron: "0 9 * * *"    # günlük Short
+  # - cron: "0 8 * * 1,4"  # Pzt & Per uzun video
+  # - cron: "0 7 * * 0"    # Pazar konu doldurma
   workflow_dispatch:
     inputs:
       job_type:
