@@ -7,8 +7,12 @@ name: Telegram Komut İşleyici
 # (video komutları için daily-video.yml'deki secrets da gerekli)
 
 on:
-  schedule:
-    - cron: "30 * * * *"  # her saat :30'da (video üretimiyle çakışmasın)
+  # ⏸ DURDURULDU — kanal çalışmaları askıya alındı (kullanıcı isteği).
+  # Zamanlanmış çalışma kapalı: bot kendiliğinden ÇALIŞMAZ, Telegram'a
+  # bildirim GÖNDERMEZ, video üretmez/yüklemez.
+  # Tekrar açmak için: aşağıdaki 'schedule' bloğunun yorumunu kaldırın.
+  # schedule:
+  # - cron: "30 * * * *"  # her saat :30'da (video üretimiyle çakışmasın)
   workflow_dispatch:
 
 concurrency:
