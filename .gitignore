@@ -29,3 +29,6 @@ n8n_data/
 # Deneme ciktilari
 thumbnail_option_*.png
 test_*.png
+
+# Graphify bilgi haritasi (yerel uretilir)
+graphify-out/
