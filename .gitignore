@@ -32,3 +32,7 @@ test_*.png
 
 # Graphify bilgi haritasi (yerel uretilir)
 graphify-out/
+
+# Nis analizi ham verisi
+nis-analizi/onbellek/
+nis-analizi/ham_veri.json

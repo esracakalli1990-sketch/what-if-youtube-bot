@@ -1,0 +1,13 @@
+{
+ "tr": {
+  "1_osmanli_turk_tarihi": ["osmanlı nasıl yıkıldı", "osmanlı tarihi belgesel", "istanbulun fethi", "malazgirt savaşı", "çanakkale savaşı belgesel", "selçuklu tarihi", "kanuni sultan süleyman hayatı", "osmanlı padişahları"],
+  "2_dunya_tarihi": ["roma imparatorluğu nasıl yıkıldı", "antik mısır tarihi", "moğol imparatorluğu", "sümerler", "hititler", "bizans tarihi", "ikinci dünya savaşı belgesel", "birinci dünya savaşı nasıl başladı"],
+  "3_felaketler": ["titanik nasıl battı", "çernobil faciası", "1999 depremi belgesel", "pompeii nasıl yok oldu", "hindenburg faciası", "challenger faciası", "fukuşima nükleer kazası", "tunguska olayı"],
+  "4_sirket_hikayeleri": ["nokia nasıl battı", "kodak nasıl battı", "apple nasıl kuruldu", "blockbuster nasıl battı", "coca cola nasıl kuruldu", "şirket hikayeleri belgesel", "bir markanın hikayesi", "ülker hikayesi"],
+  "5_bilim_kesif": ["aya iniş nasıl gerçekleşti", "atom bombası nasıl yapıldı", "penisilin nasıl bulundu", "uzay yarışı belgesel", "internet nasıl icat edildi", "elektrik nasıl bulundu", "dna nasıl keşfedildi", "einstein hayatı"],
+  "6_gizemler": ["çözülemeyen gizemler", "mh370 uçağı nasıl kayboldu", "dyatlov geçidi olayı", "bermuda şeytan üçgeni", "voynich el yazması", "atlantis kayıp şehir", "göbeklitepe gizemi", "tarihin gizemleri"]
+ },
+ "en": {
+  "7_kiyas_ingilizce_tarih": ["entire history of the roman empire", "fall of the roman empire", "history of the mongol empire", "byzantine empire history", "ancient mesopotamia history", "how did the titanic sink", "chernobyl disaster documentary", "history of the ottoman empire"]
+ }
+}
