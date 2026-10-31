@@ -24,6 +24,8 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
+import numpy as np
+
 from scripts import doc_audio, doc_render, doc_timeline
 from scripts.archive_images import fetch_images
 from scripts.utils import load_env, logger, PROJECT_ROOT
@@ -87,6 +89,7 @@ class Production:
             engine=os.getenv("DOC_TTS_ENGINE", "auto"),
             voice_settings=self.data.get("voice_settings"),
         )
+        self._send_voice_preview(results)
         manifest = [[] for _ in self.data["chapters"]]
         for (ci, _, _), r in zip(flat, results):
             r = {**r, "path": str(Path(r["path"]).relative_to(self.build))}
@@ -95,6 +98,31 @@ class Production:
             json.dumps(manifest, ensure_ascii=False), encoding="utf-8")
         total = sum(l.total for l in self.layouts())
         logger.info("Ses hazır: %d paragraf, toplam video ~%.1f dk", len(results), total / 60)
+
+    def _send_voice_preview(self, results: list[dict], seconds: float = 60.0):
+        """İlk ~1 dakikalık anlatımı Telegram'a gönder: render saatleri sürmeden sesi duymak için."""
+        from scripts.notifier import send_audio
+        parts, total = [], 0.0
+        for r in results:
+            parts.append(r["path"])
+            total += r["duration"]
+            if total >= seconds:
+                break
+        if not parts:
+            return
+        listing = self.path("ses", "onizleme.txt")
+        listing.write_text("".join(f"file '{Path(p).resolve()}'\n" for p in parts))
+        out = self.path("ses", "ses-onizleme.mp3")
+        try:
+            subprocess.run(["ffmpeg", "-y", "-v", "error", "-f", "concat", "-safe", "0",
+                            "-i", str(listing), "-c:a", "libmp3lame", "-b:a", "128k", str(out)],
+                           check=True)
+        except subprocess.CalledProcessError as e:
+            logger.warning("Ses önizlemesi hazırlanamadı: %s", e)
+            return
+        engine = results[0].get("engine", "?")
+        send_audio(str(out), f"🎙️ Seslendirme önizlemesi (ilk {total:.0f} sn) · motor: {engine}\n"
+                             f"Görüntü işleniyor; ses kötüyse işi iptal edin.")
 
     def stage_gorseller(self):
         specs = {k: ({**v, "file": str(self.folder / v["file"])} if v.get("file") else v)
@@ -203,22 +231,36 @@ class Production:
                             f"--props={json.dumps(props, ensure_ascii=False)}",
                             "--image-format=jpeg", "--jpeg-quality=90"])
 
-    def stage_bolum(self, only: int | None = None):
+    def chapter_shot_lists(self) -> list[list[dict]]:
+        """Her bölümün çekim listesi (render ve doğal ses izi aynı zamanlamayı kullanır)."""
         audio = self.audio_manifest()
         images = {k: str(self.build / v["path"]) for k, v in self.image_manifest().items()}
         videos = self.video_manifest()
         stock = {k: str(self.build / v["path"]) for k, v in videos["stock"].items()}
         films = {k: str(self.build / v["path"]) for k, v in videos["films"].items()}
         layouts = self.layouts()
+        return [doc_timeline.chapter_shots(
+                    ch, audio[ci], layouts[ci], images, self.folder,
+                    card_clip=str(self.path("cards", f"c{ci:02d}.mp4")) if ch.get("card") else None,
+                    stock_paths=stock, film_paths=films)
+                for ci, ch in enumerate(self.data["chapters"])]
+
+    def sfx_events(self, chapter_starts: list[float]) -> list[tuple[str, float, float, float]]:
+        """Doğal sesi açık video çekimleri: (video, kaynaktaki başlangıç, zamandaki yer, süre)."""
+        events = []
+        for ci, shots in enumerate(self.chapter_shot_lists()):
+            t = chapter_starts[ci]
+            for s in shots:
+                if s.get("sfx"):
+                    events.append((s["path"], s.get("start", 0.0), t, s["duration"]))
+                t += s["duration"]
+        return events
+
+    def stage_bolum(self, only: int | None = None):
         look = doc_render.Look()
-        for ci, ch in enumerate(self.data["chapters"]):
+        for ci, (ch, shots) in enumerate(zip(self.data["chapters"], self.chapter_shot_lists())):
             if only is not None and ci != only:
                 continue
-            card = self.path("cards", f"c{ci:02d}.mp4")
-            shots = doc_timeline.chapter_shots(
-                ch, audio[ci], layouts[ci], images, self.folder,
-                card_clip=str(card) if ch.get("card") else None,
-                stock_paths=stock, film_paths=films)
             fades = dict(fade_in=0.0 if ch.get("card") else 0.6)
             doc_render.render_chapter([doc_render.Shot(**s) for s in shots],
                                       str(self.path("chapters", f"c{ci:02d}.mp4")),
@@ -249,9 +291,12 @@ class Production:
         segments = [(self._music_for(ch.get("music")), starts[ci], layouts[ci].total)
                     for ci, ch in enumerate(chapters)]
         music = None
-        if any(s[0] for s in segments):
+        events = self.sfx_events(starts)
+        if any(s[0] for s in segments) or events:
+            # Müzik + kliplerin doğal sesleri tek "alt iz": anlatım sırasında birlikte alçalır
+            bed = doc_audio.music_bed(segments, total) + doc_audio.sfx_bed(events, total)
             music = self.path("ses", "muzik.wav")
-            doc_audio.write_wav(doc_audio.music_bed(segments, total), music)
+            doc_audio.write_wav(np.clip(bed, -1.0, 1.0), music)
         mastered = doc_audio.master(voice, music, self.path("ses", "master.m4a"))
 
         # Bölümler aynı kodlayıcı ayarıyla üretildi: yeniden kodlamadan birleştir ve
@@ -268,7 +313,8 @@ class Production:
         chapters_text = doc_timeline.youtube_chapters([c["title"] for c in chapters], starts)
         self.path("aciklama.txt").write_text(self.description(chapters_text), encoding="utf-8")
         meta = {"total_seconds": total, "chapter_starts": starts,
-                "lufs": doc_audio.measure_lufs(final), "music": bool(music)}
+                "lufs": doc_audio.measure_lufs(final), "music": any(s[0] for s in segments), "sfx_clips": len(events),
+                "tts_engines": sorted({a.get("engine", "?") for ch in audio for a in ch})}
         self.path("ozet.json").write_text(json.dumps(meta, indent=2), encoding="utf-8")
         logger.info("Belgesel hazır: %s (%.1f dk, %.1f LUFS)", final, total / 60, meta["lufs"])
 
@@ -377,6 +423,16 @@ def main(argv=None):
         print("Senaryo geçerli:", prod.data["title"])
         return 0
 
+    try:
+        _run_stages(prod, args)
+    except Exception as e:
+        # Telegram bildirimi gerçek hatayı gösterebilsin
+        prod.path("hata.txt").write_text(f"{type(e).__name__}: {e}"[:800], encoding="utf-8")
+        raise
+    return 0
+
+
+def _run_stages(prod, args):
     if args.asama in ("ses", "hepsi"):
         prod.stage_ses()
     if args.asama in ("gorseller", "hepsi"):
@@ -390,7 +446,6 @@ def main(argv=None):
     if args.asama == "yukle":
         when = datetime.fromisoformat(args.yayin.replace("Z", "+00:00")) if args.yayin else None
         prod.stage_yukle(when)
-    return 0
 
 
 if __name__ == "__main__":

@@ -167,15 +167,18 @@ def chapter_shots(chapter: dict, audio: list[dict], layout: ChapterLayout,
             }
             if "clip" in spec:
                 shot.update(kind="video", path=str(Path(folder) / spec["clip"]),
-                            note=spec.get("note", "Temsili canlandırma"))
+                            note=spec.get("note", "Temsili canlandırma"),
+                            sfx=spec.get("sfx", True))   # Gemini kliplerinin doğal sesi
             elif "map" in spec:
                 # Remotion harita sahnesi; renk tonu bileşende uygulanmış durumda
                 shot.update(kind="video", path=str(Path(folder) / "build" / "maps" / f"{spec['map']}.mp4"),
                             grade=False)
             elif "stock" in spec:
-                shot.update(kind="video", path=stock_paths[spec["stock"]], start=spec.get("start", 0.0))
+                shot.update(kind="video", path=stock_paths[spec["stock"]], start=spec.get("start", 0.0),
+                            sfx=spec.get("sfx", False))
             elif "film" in spec:
-                shot.update(kind="video", path=film_paths[spec["film"]], start=spec.get("start", 0.0))
+                shot.update(kind="video", path=film_paths[spec["film"]], start=spec.get("start", 0.0),
+                            sfx=spec.get("sfx", False))
             else:
                 shot.update(kind="image", path=image_paths[spec["image"]])
             if spec.get("overlay"):

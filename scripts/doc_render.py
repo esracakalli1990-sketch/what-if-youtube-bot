@@ -259,6 +259,7 @@ class Shot:
     start: float = 0.0               # video çekimi: kaynakta başlangıç saniyesi (film kesiti)
     overlay: str = ""                # atmosfer katmanı videosu (toz, sis, kıvılcım…)
     overlay_opacity: float = 0.55
+    sfx: bool = False                # videonun kendi sesi doğal ses izine eklenir (birleştirmede)
     _state: dict = field(default_factory=dict, repr=False)
 
 

@@ -24,6 +24,9 @@ from scripts.utils import logger
 
 SR = 48000
 ELEVEN_MODEL = "eleven_multilingual_v2"
+# 128 kbps her ElevenLabs paketinde var (192 kbps yalnızca Creator ve üstü);
+# ses zaten mastering'de 320k AAC'ye çevriliyor.
+ELEVEN_FORMAT = "mp3_44100_128"
 EDGE_VOICE = "tr-TR-AhmetNeural"
 SENTENCE_END = re.compile(r"[.!?…:]['\"”’)]*$")
 
@@ -115,7 +118,7 @@ def _eleven_paragraph(client, voice_id: str, text: str, prev_text: str, next_tex
     resp = client.text_to_speech.convert_with_timestamps(
         voice_id=voice_id, text=text, model_id=ELEVEN_MODEL,
         previous_text=prev_text or None, next_text=next_text or None,
-        voice_settings=settings, output_format="mp3_44100_192",
+        voice_settings=settings, output_format=ELEVEN_FORMAT,
     )
     data = resp.model_dump() if hasattr(resp, "model_dump") else dict(resp)
     audio = base64.b64decode(data["audio_base_64"])
@@ -150,6 +153,10 @@ def synthesize(paragraphs: list[str], out_dir: Path, voice_id: str = "",
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
     pronunciations = pronunciations or {}
+    requested = engine
+    if requested == "elevenlabs" and not (voice_id and api_key):
+        raise TTSError("ElevenLabs zorunlu ama ses kimliği (TTS_VOICE_ID_TR) ya da "
+                       "API anahtarı (ELEVENLABS_API_KEY) eksik")
     meta_path = out_dir / "engine.json"
     if (meta_path.exists() and engine != "edge" and voice_id and api_key
             and json.loads(meta_path.read_text())["engine"] == "edge"):
@@ -192,6 +199,9 @@ def synthesize(paragraphs: list[str], out_dir: Path, voice_id: str = "",
                     spoken[i + 1] if i + 1 < len(spoken) else "",
                     voice_settings)
             except Exception as e:
+                if requested == "elevenlabs":
+                    # Belgeselde robot sese düşmek yok: dur ve gerçek hatayı göster
+                    raise TTSError(f"ElevenLabs hatası (paragraf {i}): {e}") from e
                 if i == 0 and not any(out_dir.glob("p*.mp3")):
                     logger.warning("ElevenLabs kullanılamadı (%s) — tüm video edge-tts ile", e)
                     return synthesize(paragraphs, out_dir, pronunciations=pronunciations,
@@ -250,30 +260,82 @@ def place(clips: list[tuple[str, float]], total: float, sr: int = SR) -> np.ndar
     return buf
 
 
+BED_RMS_DB = -20.0   # müzik ve doğal sesler bu ortalama seviyeye eşitlenir (master'da ayrıca kısılır)
+
+
+def normalize_rms(x: np.ndarray, target_db: float = BED_RMS_DB, floor: float = 1e-4) -> np.ndarray:
+    """Sesi, duyulur kısımlarının ortalama gücüne göre hedef seviyeye getir.
+    Parçalar çok farklı kayıt seviyelerinde olabilir (yüksek masterlanmış müzik ↔ sessiz klip)."""
+    if not len(x):
+        return x
+    frame = 2048
+    n = len(x) // frame * frame
+    rms = np.sqrt(np.mean(x[:n].reshape(-1, frame) ** 2, axis=1)) if n else np.array([np.sqrt(np.mean(x ** 2))])
+    audible = rms[rms > floor]
+    if not len(audible):
+        return x * 0.0
+    level = float(np.sqrt(np.mean(audible ** 2)))
+    out = x * (10 ** (target_db / 20) / level)
+    return np.clip(out, -1.0, 1.0)
+
+
+def _fade(seg: np.ndarray, seconds: float, sr: int) -> np.ndarray:
+    f = min(int(seconds * sr), len(seg) // 2)
+    if f:
+        ramp = np.linspace(0, 1, f, dtype=np.float32)
+        seg[:f] *= ramp
+        seg[-f:] *= ramp[::-1]
+    return seg
+
+
 def music_bed(segments: list[tuple[str | None, float, float]], total: float,
-              fade: float = 2.0, sr: int = SR) -> np.ndarray:
+              fade: float = 4.0, sr: int = SR) -> np.ndarray:
     """
     Bölüm müziklerinden tek iz: [(dosya|None, başlangıç, süre)].
-    Parça kısa kalırsa döngüye alınır; bölüm sınırlarında yumuşak geçiş.
+    Her parça aynı seviyeye eşitlenir; kısa kalırsa döngüye alınır; bölüm
+    sınırlarında yavaş açılıp kapanır (belgesel tarzı, ani giriş yok).
     """
     buf = np.zeros(int(round(total * sr)), np.float32)
     for path, start, dur in segments:
         if not path:
             continue
-        src = decode(path, sr)
+        src = normalize_rms(decode(path, sr))
         if not len(src):
             continue
         n = int(round(dur * sr))
         reps = int(np.ceil(n / len(src)))
-        seg = np.tile(src, reps)[:n].copy()
-        f = min(int(fade * sr), n // 2)
-        if f:
-            ramp = np.linspace(0, 1, f, dtype=np.float32)
-            seg[:f] *= ramp
-            seg[-f:] *= ramp[::-1]
+        seg = _fade(np.tile(src, reps)[:n].copy(), fade, sr)
         a = int(round(start * sr))
         m = min(n, len(buf) - a)
         buf[a:a + m] += seg[:m]
+    return buf
+
+
+def decode_span(path: str, start: float, duration: float, sr: int = SR) -> np.ndarray:
+    """Videonun/sesin belirli bir aralığındaki sesi (ses izi yoksa boş dizi)."""
+    out = subprocess.run(
+        ["ffmpeg", "-v", "error", "-ss", f"{start:.3f}", "-t", f"{duration:.3f}", "-i", str(path),
+         "-vn", "-f", "f32le", "-ac", "1", "-ar", str(sr), "-"], capture_output=True)
+    return np.frombuffer(out.stdout, np.float32) if out.returncode == 0 else np.zeros(0, np.float32)
+
+
+def sfx_bed(events: list[tuple[str, float, float, float]], total: float,
+            level_db: float = BED_RMS_DB + 2, fade: float = 0.5, sr: int = SR) -> np.ndarray:
+    """
+    Doğal ses izi: [(video, videodaki başlangıç, zaman çizelgesindeki yer, süre)].
+    Her klibin sesi eşitlenir, kenarları yumuşatılır. Anlatım altında master'daki
+    sidechain ile müzikle birlikte alçalır.
+    """
+    buf = np.zeros(int(round(total * sr)), np.float32)
+    for path, src_start, at, dur in events:
+        seg = decode_span(path, src_start, dur, sr)
+        if not len(seg):
+            continue
+        seg = _fade(normalize_rms(seg.copy(), level_db), fade, sr)
+        a = int(round(at * sr))
+        m = min(len(seg), len(buf) - a)
+        if m > 0:
+            buf[a:a + m] += seg[:m]
     return buf
 
 
@@ -298,7 +360,7 @@ def _loudnorm_measure(path: Path, chain: str) -> dict:
 
 
 def master(voice_wav: Path, music_wav: Path | None, out_path: Path,
-           music_level: float = 0.22) -> Path:
+           music_level: float = 0.16) -> Path:
     """
     Anlatım + müzik → -14 LUFS, en fazla -1.5 dBTP, AAC 320k/48k.
     Müzik, anlatım sırasında sidechain sıkıştırmayla kendiliğinden alçalır.

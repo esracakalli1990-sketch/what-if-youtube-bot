@@ -391,3 +391,104 @@ def test_commons_music_used_and_credited(tmp_path):
     text = prod.description("0:00 Giriş\n1:00 A\n2:00 B")
     assert '🎵 Müzik\n• "Dream Culture" — Kevin MacLeod (CC BY 3.0)' in text
     assert text.count("Dream Culture") == 1          # kullanılmayan "huzun" listelenmez
+
+
+def _fake_elevenlabs(monkeypatch, error="403 output_format not allowed"):
+    calls = []
+
+    def fake(client, voice_id, text, prev, nxt, settings):
+        calls.append(text)
+        raise RuntimeError(error)
+
+    monkeypatch.setattr(da, "_eleven_paragraph", fake)
+    monkeypatch.setitem(__import__("sys").modules, "elevenlabs",
+                        type("M", (), {"ElevenLabs": lambda api_key: None}))
+    monkeypatch.setattr(da, "_edge_paragraph", None)   # edge'e düşerse TypeError
+    return calls
+
+
+def test_strict_elevenlabs_raises_instead_of_robot_voice(tmp_path, monkeypatch):
+    _fake_elevenlabs(monkeypatch)
+    with pytest.raises(da.TTSError, match="output_format not allowed"):
+        da.synthesize(["Merhaba"], tmp_path, voice_id="v", api_key="k", engine="elevenlabs")
+    assert not (tmp_path / "engine.json").exists()      # edge kaydı oluşmadı
+
+
+def test_strict_elevenlabs_requires_voice_id(tmp_path):
+    with pytest.raises(da.TTSError, match="TTS_VOICE_ID_TR"):
+        da.synthesize(["Merhaba"], tmp_path, voice_id="", api_key="k", engine="elevenlabs")
+
+
+def test_elevenlabs_format_works_on_all_plans():
+    assert da.ELEVEN_FORMAT == "mp3_44100_128"
+
+
+def test_voice_preview_sent_to_telegram(tmp_path, monkeypatch):
+    prod = _mini_production(tmp_path)
+    clips = []
+    for i in range(3):
+        p = tmp_path / f"p{i}.mp3"
+        subprocess.run(["ffmpeg", "-y", "-v", "error", "-f", "lavfi", "-i", "sine=d=1",
+                        "-c:a", "libmp3lame", str(p)], check=True)
+        clips.append({"path": str(p), "duration": 30.0, "engine": "elevenlabs"})
+    sent = {}
+    from scripts import notifier
+    monkeypatch.setattr(notifier, "send_audio", lambda path, cap: sent.update(path=path, cap=cap) or True)
+    prod._send_voice_preview(clips)
+    assert Path(sent["path"]).exists() and "elevenlabs" in sent["cap"]
+    listing = prod.path("ses", "onizleme.txt").read_text()
+    assert listing.count("file ") == 2                  # 60 sn'ye ulaşınca durur
+
+
+def test_normalize_rms_equalizes_loud_and_quiet_tracks():
+    t = np.linspace(0, 2, 2 * da.SR, dtype=np.float32)
+    loud = 0.8 * np.sin(2 * np.pi * 220 * t).astype(np.float32)
+    quiet = 0.01 * np.sin(2 * np.pi * 220 * t).astype(np.float32)
+    a, b = da.normalize_rms(loud), da.normalize_rms(quiet)
+    rms = lambda x: 20 * np.log10(np.sqrt(np.mean(x ** 2)))
+    assert abs(rms(a) - da.BED_RMS_DB) < 0.5 and abs(rms(b) - da.BED_RMS_DB) < 0.5
+
+
+def test_sfx_bed_places_clip_audio_with_fades(tmp_path):
+    clip = tmp_path / "k.mp4"
+    subprocess.run(["ffmpeg", "-y", "-v", "error", "-f", "lavfi", "-i", "color=c=black:s=64x36:d=4",
+                    "-f", "lavfi", "-i", "sine=f=300:d=4", "-shortest", "-c:v", "libx264",
+                    "-c:a", "aac", str(clip)], check=True)
+    bed = da.sfx_bed([(str(clip), 1.0, 2.0, 2.0)], total=6.0)
+    sr = da.SR
+    assert np.abs(bed[: int(1.9 * sr)]).max() == 0          # öncesi sessiz
+    assert np.abs(bed[int(2.8 * sr): int(3.2 * sr)]).max() > 0.01
+    assert abs(bed[int(2.0 * sr)]) < 0.01                    # yumuşak giriş
+    assert np.abs(bed[int(4.1 * sr):]).max() == 0            # sonrası sessiz
+
+
+def test_clip_shots_have_natural_sound_by_default(tmp_path):
+    (tmp_path / "klip.mp4").write_bytes(b"x")
+    ch = {"title": "c", "paragraphs": [{"text": "Bir. İki. Üç.", "shots": [
+        {"clip": "klip.mp4"}, {"clip": "klip.mp4", "sfx": False}, {"stock": "s"}]}]}
+    audio = [{"duration": 9.0, "words": [{"word": "Bir.", "start": 0, "end": 1},
+                                          {"word": "İki.", "start": 3, "end": 4},
+                                          {"word": "Üç.", "start": 6, "end": 7}]}]
+    lay = dt.layout_chapter(ch, [9.0])
+    shots = dt.chapter_shots(ch, audio, lay, {}, tmp_path, stock_paths={"s": "s.mp4"})
+    assert [s["sfx"] for s in shots] == [True, False, False]
+    dr.Shot(**shots[0])                                      # render çekimi kabul ediyor
+
+
+def test_music_calmness_ranks_pad_above_drums():
+    from scripts import doc_music as dm
+    sr = dm.SR
+    t = np.arange(int(100 * sr)) / sr
+    pad = (0.3 * np.sin(2 * np.pi * 110 * t) + 0.2 * np.sin(2 * np.pi * 165 * t)).astype(np.float32)
+    rng = np.random.default_rng(0)
+    drums = np.zeros_like(pad)
+    for beat in np.arange(0, 100, 0.25):                 # 4 vuruş/sn, parlak gürültü atakları
+        a = int(beat * sr)
+        drums[a:a + 2000] += rng.normal(0, 0.5, 2000).astype(np.float32) * np.exp(-np.arange(2000) / 300)
+    m_pad, m_drum = dm.analyze_signal(pad), dm.analyze_signal(drums)
+    assert m_pad["onset_rate"] < m_drum["onset_rate"]
+    assert m_pad["centroid_hz"] < m_drum["centroid_hz"]
+    ranked = dm.rank([{"commons": "davul", "duration": 100, **m_drum},
+                      {"commons": "pad", "duration": 100, **m_pad},
+                      {"commons": "kisa", "duration": 30, **m_pad}])
+    assert [r["commons"] for r in ranked] == ["pad", "davul"]   # kısa parça elendi
