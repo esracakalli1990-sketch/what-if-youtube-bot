@@ -1,0 +1,35 @@
+{
+ "slug": "01-hititler",
+ "title": "Hitit İmparatorluğu'nun Tam Hikâyesi | Anadolu'nun Unutulan Süper Gücü",
+ "description": "Üç bin yıl önce Anadolu'nun kalbinde, bugünkü Çorum'da, Mısır firavunlarıyla eşit konuşan bir imparatorluk yükseldi. Kralları Babil'e kadar yürüdü, Kadeş'te Ramses'le savaştı ve tarihin metni günümüze ulaşan en eski barış antlaşmalarından birini imzaladı. Sonra, neredeyse iz bırakmadan kayboldu.\n\nBu belgeselde Hititlerin yeniden keşfinden çöküşüne kadar tam hikâyesini, arşiv belgeleri ve müze eserleri eşliğinde anlatıyoruz. Tartışmalı bilgiler anlatımda öyle belirtilmiştir.",
+ "tags": ["hititler", "hitit imparatorluğu", "hattuşa", "tarih belgeseli", "anadolu tarihi", "kadeş savaşı", "kadeş antlaşması", "tunç çağı", "antik tarih", "belgesel", "çorum", "boğazköy", "ramses", "yazılıkaya", "türkçe belgesel", "uyku için tarih"],
+ "hashtags": ["#Hititler", "#Tarih", "#Belgesel", "#Anadolu", "#Hattuşa"],
+ "ai_disclosure": "Bazı sahnelerde yapay zekâ ile üretilmiş temsili canlandırmalar kullanılmıştır; bu sahneler videoda \"Temsili canlandırma\" olarak işaretlidir.",
+ "sources": [
+  "Trevor Bryce, The Kingdom of the Hittites, Oxford University Press, 2005",
+  "Trevor Bryce, Letters of the Great Kings of the Ancient Near East, Routledge, 2003",
+  "Jürgen Seeher, Hattusha Guide: A Day in the Hittite Capital",
+  "Harry A. Hoffner Jr., The Laws of the Hittites, Brill, 1997",
+  "Ekrem Akurgal, Hatti ve Hitit Uygarlıkları",
+  "UNESCO Dünya Mirası: Hattusha, the Hittite Capital",
+  "BM Hediye Kayıtları: Kadeş Antlaşması kopyası (un.org/ungifts)"
+ ],
+ "pronunciations": {
+  "Texier": "Teksiye",
+  "Sayce": "Seys",
+  "Winckler": "Vinkler",
+  "Bedřich": "Bedrih",
+  "Hrozný": "Hrozni",
+  "Ankhesenamun": "Ankesenamun"
+ },
+ "voice_settings": {"stability": 0.55, "similarity_boost": 0.8, "style": 0.1, "use_speaker_boost": true},
+ "thumbnails": [
+  {"image": "aslan_kapi_1", "line1": "Unutulan İmparatorluk", "line2": "Hititler", "badge": "TAM HİKÂYE", "focus_x": 0.62},
+  {"image": "kades_tablet", "line1": "İlk Barış", "line2": "Hititler ve Mısır", "badge": "TAM HİKÂYE", "focus_x": 0.6},
+  {"image": "yazilikaya_a", "line1": "Bin Tanrının Ülkesi", "line2": "Hititler", "badge": "TAM HİKÂYE", "focus_x": 0.65}
+ ],
+ "images": {},
+ "cards": {},
+ "music": {},
+ "shots": {}
+}

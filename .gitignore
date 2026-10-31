@@ -36,3 +36,6 @@ graphify-out/
 # Nis analizi ham verisi
 nis-analizi/onbellek/
 nis-analizi/ham_veri.json
+
+# Belgesel üretim çıktıları (yerel / Actions artifact)
+belgeseller/*/build/

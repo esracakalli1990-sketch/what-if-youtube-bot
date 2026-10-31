@@ -465,7 +465,9 @@ def upload_video(
 def _upload_thumbnail(youtube, video_id: str, thumbnail_path: str):
     """Thumbnail yükle."""
     try:
-        media = MediaFileUpload(thumbnail_path, mimetype="image/png")
+        # YouTube kapak sınırı 2 MB: belgesel kapakları JPEG olarak üretilir
+        mime = "image/jpeg" if str(thumbnail_path).lower().endswith((".jpg", ".jpeg")) else "image/png"
+        media = MediaFileUpload(thumbnail_path, mimetype=mime)
         youtube.thumbnails().set(
             videoId=video_id,
             media_body=media,
@@ -570,6 +572,102 @@ def _add_to_playlist(youtube, video_id: str, playlist_id: str):
     except Exception as e:
         print_warning(f"Playlist ekleme hatası: {e}")
         logger.warning("Playlist ekleme hatası: %s", e)
+
+
+def upload_documentary(
+    video_path: str,
+    title: str,
+    description: str,
+    tags: list[str],
+    thumbnail_path: str | None = None,
+    captions_path: str | None = None,
+    publish_at: datetime | None = None,
+    playlist_id: str | None = None,
+    synthetic_media: bool = False,
+) -> str | None:
+    """
+    Türkçe tarih belgeselini yükle: her zaman GİZLİ başlar.
+
+    publish_at verilirse YouTube o saatte kendisi yayınlar; verilmezse video
+    gizli kalır ve kullanıcı Studio'dan izleyip yayınlar (onay kapısı).
+    synthetic_media: videoda gerçekçi yapay zekâ canlandırması varsa YouTube'un
+    "değiştirilmiş/sentetik içerik" beyanı işaretlenir.
+    """
+    if not Path(video_path).exists():
+        print_error(f"Video dosyası bulunamadı: {video_path}")
+        return None
+    credentials = authenticate()
+    if not credentials:
+        _set_upload_error("YouTube yetkilendirmesi yok")
+        return None
+    _reset_upload_error()
+    youtube = build("youtube", "v3", credentials=credentials)
+    tags = _sanitize_tags(tags)
+    status = {
+        "privacyStatus": "private",
+        "selfDeclaredMadeForKids": False,
+        "containsSyntheticMedia": bool(synthetic_media),
+    }
+    if publish_at:
+        status["publishAt"] = publish_at.isoformat()
+    body = {
+        "snippet": {
+            "title": title[:100],
+            "description": description[:5000],
+            "tags": tags,
+            "categoryId": CATEGORY_IDS["education"],
+            "defaultLanguage": "tr",
+            "defaultAudioLanguage": "tr",
+        },
+        "status": status,
+    }
+    size_mb = Path(video_path).stat().st_size / (1024 * 1024)
+    logger.info("Belgesel yükleniyor: %s (%.0f MB)", title, size_mb)
+    try:
+        media = MediaFileUpload(video_path, mimetype="video/mp4", resumable=True,
+                                chunksize=32 * 1024 * 1024)
+        request = youtube.videos().insert(part="snippet,status", body=body, media_body=media)
+        response = None
+        while response is None:
+            progress, response = request.next_chunk()
+            if progress:
+                console.print(f"\r  📤 Yükleniyor: {int(progress.progress() * 100)}%", end="")
+        console.print()
+        video_id = response["id"]
+        print_success(f"Belgesel yüklendi (gizli): https://youtu.be/{video_id}")
+        record_upload(video_id, title, kind="belgesel", privacy="private")
+    except HttpError as e:
+        print_error(f"YouTube API hatası: {e}")
+        _set_upload_error(str(e))
+        return None
+    except Exception as e:
+        print_error(f"Yükleme hatası: {e}")
+        _set_upload_error(str(e))
+        return None
+
+    if thumbnail_path and Path(thumbnail_path).exists():
+        _upload_thumbnail(youtube, video_id, thumbnail_path)
+    if captions_path and Path(captions_path).exists():
+        _upload_captions(youtube, video_id, captions_path)
+    if playlist_id:
+        _add_to_playlist(youtube, video_id, playlist_id)
+    return video_id
+
+
+def _upload_captions(youtube, video_id: str, srt_path: str, language: str = "tr",
+                     name: str = "Türkçe"):
+    """Altyazı dosyasını (.srt) videoya ekle (force-ssl yetkisi gerekir)."""
+    try:
+        youtube.captions().insert(
+            part="snippet",
+            body={"snippet": {"videoId": video_id, "language": language,
+                              "name": name, "isDraft": False}},
+            media_body=MediaFileUpload(srt_path, mimetype="application/octet-stream"),
+        ).execute()
+        print_success("Altyazı yüklendi!")
+    except Exception as e:
+        print_warning(f"Altyazı yüklenemedi: {e}")
+        logger.warning("Altyazı yükleme hatası: %s", e)
 
 
 def _generate_description(
