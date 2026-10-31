@@ -901,8 +901,8 @@
      "text": "Bu kapının ardında bir zamanlar bir imparatorluğun kalbi atıyordu. Kralları Mısır firavunlarıyla eşit konuşuyordu. Orduları Babil'e kadar yürüdü. Tarihin bilinen en eski barış antlaşmalarından birini bu kentin kâtipleri kile kazıdı.",
      "shots": [
       {
-       "image": "aslan_kapi_2",
-       "move": "right"
+       "clip": "klipler/klip1.mp4",
+       "move": "still"
       },
       {
        "image": "amarna_mektup2",
@@ -1372,8 +1372,8 @@
        "transition": "dissolve"
       },
       {
-       "image": "halep",
-       "move": "right"
+       "clip": "klipler/klip4.mp4",
+       "move": "still"
       }
      ]
     },
@@ -1922,8 +1922,8 @@
      "text": "Hitit savaş arabaları nehri geçti ve yürüyüş hâlindeki Mısır birliklerinden birinin üzerine çullandı. Birlik dağıldı. Kaçan askerler, Ramses'in karargâhına doğru koştu, peşlerinde Hitit arabaları.",
      "shots": [
       {
-       "stock": "at_dortnala",
-       "start": 9.0
+       "clip": "klipler/klip5.mp4",
+       "move": "still"
       },
       {
        "image": "ramesseum_kades",
@@ -1947,8 +1947,8 @@
        "move": "in"
       },
       {
-       "stock": "at_dortnala",
-       "start": 1.0
+       "clip": "klipler/klip6.mp4",
+       "move": "still"
       }
      ]
     },
@@ -2404,8 +2404,8 @@
      "text": "Bu kentin bir başka özelliği, kâtipleriydi. Hitit kâtipleri birden fazla dil ve yazı bilirdi: Hititçe, Akadca, Sümerce, Hurrice, Luvice… Hattuşa arşivlerinde Mezopotamya'nın ünlü Gılgamış Destanı'nın Hititçe ve Hurrice çevirileri bile bulundu. Hattuşa, yalnızca bir güç merkezi değil, aynı zamanda bir bilgi merkeziydi.",
      "shots": [
       {
-       "stock": "kil_eller",
-       "start": 6.0
+       "clip": "klipler/klip3.mp4",
+       "move": "still"
       },
       {
        "image": "suppiluliuma_tablet",
@@ -2588,8 +2588,8 @@
      "text": "Hattuşa'nın sonu uzun süre dramatik bir yıkım sahnesi olarak anlatıldı: düşmanın kente girmesi, sarayların ateşe verilmesi. Kentte gerçekten de büyük bir yangının izleri var. Ama son yıllarda yapılan kazılar, daha sessiz ve belki daha çarpıcı bir tabloya işaret ediyor.",
      "shots": [
       {
-       "stock": "yangin",
-       "start": 2.0
+       "clip": "klipler/klip8.mp4",
+       "move": "still"
       },
       {
        "image": "buyukkale_13",

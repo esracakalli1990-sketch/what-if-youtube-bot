@@ -386,8 +386,8 @@
   ],
   "0.1": [
    {
-    "image": "aslan_kapi_2",
-    "move": "right"
+    "clip": "klipler/klip1.mp4",
+    "move": "still"
    },
    {
     "image": "amarna_mektup2",
@@ -765,8 +765,8 @@
     "transition": "dissolve"
    },
    {
-    "image": "halep",
-    "move": "right"
+    "clip": "klipler/klip4.mp4",
+    "move": "still"
    }
   ],
   "2.10": [
@@ -1186,8 +1186,8 @@
   ],
   "5.6": [
    {
-    "stock": "at_dortnala",
-    "start": 9.0
+    "clip": "klipler/klip5.mp4",
+    "move": "still"
    },
    {
     "image": "ramesseum_kades",
@@ -1208,8 +1208,8 @@
     "move": "in"
    },
    {
-    "stock": "at_dortnala",
-    "start": 1.0
+    "clip": "klipler/klip6.mp4",
+    "move": "still"
    }
   ],
   "5.8": [
@@ -1568,8 +1568,8 @@
   ],
   "7.9": [
    {
-    "stock": "kil_eller",
-    "start": 6.0
+    "clip": "klipler/klip3.mp4",
+    "move": "still"
    },
    {
     "image": "suppiluliuma_tablet",
@@ -1708,8 +1708,8 @@
   ],
   "8.9": [
    {
-    "stock": "yangin",
-    "start": 2.0
+    "clip": "klipler/klip8.mp4",
+    "move": "still"
    },
    {
     "image": "buyukkale_13",
