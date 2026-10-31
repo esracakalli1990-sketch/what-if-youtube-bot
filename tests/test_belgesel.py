@@ -345,3 +345,33 @@ def test_validate_stock_film_overlay_refs(tmp_path):
     assert any("stok video tanımsız" in p for p in problems)
     assert any("film tanımsız" in p for p in problems)
     assert any("katman tanımsız" in p for p in problems)
+
+
+def test_validate_label_must_be_dict(tmp_path):
+    data = {"slug": "x", "title": "t", "images": {"a": {}}, "chapters": [{"title": "c", "paragraphs": [
+        {"text": "t", "shots": [{"image": "a", "label": "HATTUŞA · ÇORUM"},
+                                {"image": "a", "label": {"title": "HATTUŞA", "subtitle": "ÇORUM"}}]}]}]}
+    problems = dt.validate(data, tmp_path)
+    assert len([p for p in problems if "etiket" in p]) == 1
+
+
+def test_edge_cache_replaced_when_elevenlabs_available(tmp_path, monkeypatch):
+    import json
+    # Önceki çalışmada ses kimliği yoktu → edge-tts önbelleği
+    (tmp_path / "engine.json").write_text(json.dumps({"engine": "edge"}))
+    (tmp_path / "p000.json").write_text(json.dumps({"fp": "eski", "words": []}))
+    (tmp_path / "p000.mp3").write_bytes(b"x")
+    calls = []
+
+    def fake_eleven(client, voice_id, text, prev, nxt, settings):
+        calls.append(text)
+        raise RuntimeError("ağ yok (test)")
+
+    monkeypatch.setattr(da, "_eleven_paragraph", fake_eleven)
+    monkeypatch.setitem(__import__("sys").modules, "elevenlabs",
+                        type("M", (), {"ElevenLabs": lambda api_key: None}))
+    monkeypatch.setattr(da, "_edge_paragraph", None)  # edge'e düşerse hata verir
+    with pytest.raises(Exception):
+        da.synthesize(["Merhaba"], tmp_path, voice_id="v", api_key="k")
+    assert calls == ["Merhaba"]                       # ElevenLabs denendi
+    assert not (tmp_path / "p000.mp3").exists()       # eski yedek ses atıldı

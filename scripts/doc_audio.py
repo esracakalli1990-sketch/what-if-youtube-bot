@@ -151,6 +151,16 @@ def synthesize(paragraphs: list[str], out_dir: Path, voice_id: str = "",
     out_dir.mkdir(parents=True, exist_ok=True)
     pronunciations = pronunciations or {}
     meta_path = out_dir / "engine.json"
+    if (meta_path.exists() and engine != "edge" and voice_id and api_key
+            and json.loads(meta_path.read_text())["engine"] == "edge"):
+        # Önbellekte ücretsiz yedek ses var ama ElevenLabs artık kullanılabilir:
+        # yedek kayıtlar atılır, tüm video ElevenLabs ile baştan seslendirilir.
+        logger.info("Önbellekteki edge-tts sesi atılıyor; ElevenLabs ile yeniden üretilecek")
+        for words_path in out_dir.glob("p*.json"):
+            if isinstance(json.loads(words_path.read_text(encoding="utf-8")), dict):
+                words_path.unlink()
+                words_path.with_suffix(".mp3").unlink(missing_ok=True)
+        meta_path.unlink()
     if meta_path.exists():
         engine = json.loads(meta_path.read_text())["engine"]  # tek motor kuralı
     elif engine == "auto":
