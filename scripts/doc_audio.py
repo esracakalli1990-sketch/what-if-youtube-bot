@@ -24,6 +24,9 @@ from scripts.utils import logger
 
 SR = 48000
 ELEVEN_MODEL = "eleven_multilingual_v2"
+# 128 kbps her ElevenLabs paketinde var (192 kbps yalnızca Creator ve üstü);
+# ses zaten mastering'de 320k AAC'ye çevriliyor.
+ELEVEN_FORMAT = "mp3_44100_128"
 EDGE_VOICE = "tr-TR-AhmetNeural"
 SENTENCE_END = re.compile(r"[.!?…:]['\"”’)]*$")
 
@@ -115,7 +118,7 @@ def _eleven_paragraph(client, voice_id: str, text: str, prev_text: str, next_tex
     resp = client.text_to_speech.convert_with_timestamps(
         voice_id=voice_id, text=text, model_id=ELEVEN_MODEL,
         previous_text=prev_text or None, next_text=next_text or None,
-        voice_settings=settings, output_format="mp3_44100_192",
+        voice_settings=settings, output_format=ELEVEN_FORMAT,
     )
     data = resp.model_dump() if hasattr(resp, "model_dump") else dict(resp)
     audio = base64.b64decode(data["audio_base_64"])
@@ -150,6 +153,10 @@ def synthesize(paragraphs: list[str], out_dir: Path, voice_id: str = "",
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
     pronunciations = pronunciations or {}
+    requested = engine
+    if requested == "elevenlabs" and not (voice_id and api_key):
+        raise TTSError("ElevenLabs zorunlu ama ses kimliği (TTS_VOICE_ID_TR) ya da "
+                       "API anahtarı (ELEVENLABS_API_KEY) eksik")
     meta_path = out_dir / "engine.json"
     if (meta_path.exists() and engine != "edge" and voice_id and api_key
             and json.loads(meta_path.read_text())["engine"] == "edge"):
@@ -192,6 +199,9 @@ def synthesize(paragraphs: list[str], out_dir: Path, voice_id: str = "",
                     spoken[i + 1] if i + 1 < len(spoken) else "",
                     voice_settings)
             except Exception as e:
+                if requested == "elevenlabs":
+                    # Belgeselde robot sese düşmek yok: dur ve gerçek hatayı göster
+                    raise TTSError(f"ElevenLabs hatası (paragraf {i}): {e}") from e
                 if i == 0 and not any(out_dir.glob("p*.mp3")):
                     logger.warning("ElevenLabs kullanılamadı (%s) — tüm video edge-tts ile", e)
                     return synthesize(paragraphs, out_dir, pronunciations=pronunciations,

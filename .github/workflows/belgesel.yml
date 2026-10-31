@@ -52,6 +52,8 @@ jobs:
       TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
       TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
       KLASOR: ${{ inputs.klasor }}
+      # Belgeselde robot sese (edge-tts) düşmek yok: ElevenLabs hata verirse iş durur
+      DOC_TTS_ENGINE: elevenlabs
     steps:
       - name: Disk alanı aç
         # 1440p bölümler + final ≈ 11 GB; runner'daki kullanılmayan araçlar silinir
@@ -180,7 +182,9 @@ jobs:
           from scripts.notifier import send_message
           klasor, mod, sonuc, url = os.environ["KLASOR"], os.environ["MOD"], os.environ["SONUC"], os.environ["RUN_URL"]
           if sonuc != "success":
-              send_message(f"❌ Belgesel ({mod}) başarısız: {klasor}\n{url}")
+              hata = Path(klasor, "build", "hata.txt")
+              neden = f"\nNeden: {hata.read_text()}" if hata.exists() else ""
+              send_message(f"❌ Belgesel ({mod}) başarısız: {klasor}{neden}\n{url}")
           elif mod == "inceleme":
               from scripts.notifier import send_photo
               sheets = sorted(Path(klasor, "inceleme").glob("*.jpg"))
@@ -193,6 +197,8 @@ jobs:
               y = json.loads(Path(klasor, "build", "yukleme.json").read_text())
               ozet = json.loads(Path(klasor, "build", "ozet.json").read_text())
               plan = f"Planlı yayın: {y['publish_at']}" if y.get("publish_at") else "Gizli — Studio'dan yayınlayın"
+              ses = ", ".join("ElevenLabs" if e == "elevenlabs" else e for e in ozet.get("tts_engines", []))
               send_message(f"✅ Belgesel GİZLİ yüklendi ({ozet['total_seconds']/60:.0f} dk, {ozet['lufs']:.1f} LUFS)\n"
+                           f"Ses: {ses} · Müzik: {'var' if ozet.get('music') else 'yok'}\n"
                            f"{y['url']}\n{plan}\nİzleyip onaylayın.")
           EOF

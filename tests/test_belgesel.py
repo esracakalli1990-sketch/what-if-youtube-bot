@@ -391,3 +391,50 @@ def test_commons_music_used_and_credited(tmp_path):
     text = prod.description("0:00 Giriş\n1:00 A\n2:00 B")
     assert '🎵 Müzik\n• "Dream Culture" — Kevin MacLeod (CC BY 3.0)' in text
     assert text.count("Dream Culture") == 1          # kullanılmayan "huzun" listelenmez
+
+
+def _fake_elevenlabs(monkeypatch, error="403 output_format not allowed"):
+    calls = []
+
+    def fake(client, voice_id, text, prev, nxt, settings):
+        calls.append(text)
+        raise RuntimeError(error)
+
+    monkeypatch.setattr(da, "_eleven_paragraph", fake)
+    monkeypatch.setitem(__import__("sys").modules, "elevenlabs",
+                        type("M", (), {"ElevenLabs": lambda api_key: None}))
+    monkeypatch.setattr(da, "_edge_paragraph", None)   # edge'e düşerse TypeError
+    return calls
+
+
+def test_strict_elevenlabs_raises_instead_of_robot_voice(tmp_path, monkeypatch):
+    _fake_elevenlabs(monkeypatch)
+    with pytest.raises(da.TTSError, match="output_format not allowed"):
+        da.synthesize(["Merhaba"], tmp_path, voice_id="v", api_key="k", engine="elevenlabs")
+    assert not (tmp_path / "engine.json").exists()      # edge kaydı oluşmadı
+
+
+def test_strict_elevenlabs_requires_voice_id(tmp_path):
+    with pytest.raises(da.TTSError, match="TTS_VOICE_ID_TR"):
+        da.synthesize(["Merhaba"], tmp_path, voice_id="", api_key="k", engine="elevenlabs")
+
+
+def test_elevenlabs_format_works_on_all_plans():
+    assert da.ELEVEN_FORMAT == "mp3_44100_128"
+
+
+def test_voice_preview_sent_to_telegram(tmp_path, monkeypatch):
+    prod = _mini_production(tmp_path)
+    clips = []
+    for i in range(3):
+        p = tmp_path / f"p{i}.mp3"
+        subprocess.run(["ffmpeg", "-y", "-v", "error", "-f", "lavfi", "-i", "sine=d=1",
+                        "-c:a", "libmp3lame", str(p)], check=True)
+        clips.append({"path": str(p), "duration": 30.0, "engine": "elevenlabs"})
+    sent = {}
+    from scripts import notifier
+    monkeypatch.setattr(notifier, "send_audio", lambda path, cap: sent.update(path=path, cap=cap) or True)
+    prod._send_voice_preview(clips)
+    assert Path(sent["path"]).exists() and "elevenlabs" in sent["cap"]
+    listing = prod.path("ses", "onizleme.txt").read_text()
+    assert listing.count("file ") == 2                  # 60 sn'ye ulaşınca durur

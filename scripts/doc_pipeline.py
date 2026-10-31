@@ -87,6 +87,7 @@ class Production:
             engine=os.getenv("DOC_TTS_ENGINE", "auto"),
             voice_settings=self.data.get("voice_settings"),
         )
+        self._send_voice_preview(results)
         manifest = [[] for _ in self.data["chapters"]]
         for (ci, _, _), r in zip(flat, results):
             r = {**r, "path": str(Path(r["path"]).relative_to(self.build))}
@@ -95,6 +96,31 @@ class Production:
             json.dumps(manifest, ensure_ascii=False), encoding="utf-8")
         total = sum(l.total for l in self.layouts())
         logger.info("Ses hazır: %d paragraf, toplam video ~%.1f dk", len(results), total / 60)
+
+    def _send_voice_preview(self, results: list[dict], seconds: float = 60.0):
+        """İlk ~1 dakikalık anlatımı Telegram'a gönder: render saatleri sürmeden sesi duymak için."""
+        from scripts.notifier import send_audio
+        parts, total = [], 0.0
+        for r in results:
+            parts.append(r["path"])
+            total += r["duration"]
+            if total >= seconds:
+                break
+        if not parts:
+            return
+        listing = self.path("ses", "onizleme.txt")
+        listing.write_text("".join(f"file '{Path(p).resolve()}'\n" for p in parts))
+        out = self.path("ses", "ses-onizleme.mp3")
+        try:
+            subprocess.run(["ffmpeg", "-y", "-v", "error", "-f", "concat", "-safe", "0",
+                            "-i", str(listing), "-c:a", "libmp3lame", "-b:a", "128k", str(out)],
+                           check=True)
+        except subprocess.CalledProcessError as e:
+            logger.warning("Ses önizlemesi hazırlanamadı: %s", e)
+            return
+        engine = results[0].get("engine", "?")
+        send_audio(str(out), f"🎙️ Seslendirme önizlemesi (ilk {total:.0f} sn) · motor: {engine}\n"
+                             f"Görüntü işleniyor; ses kötüyse işi iptal edin.")
 
     def stage_gorseller(self):
         specs = {k: ({**v, "file": str(self.folder / v["file"])} if v.get("file") else v)
@@ -268,7 +294,8 @@ class Production:
         chapters_text = doc_timeline.youtube_chapters([c["title"] for c in chapters], starts)
         self.path("aciklama.txt").write_text(self.description(chapters_text), encoding="utf-8")
         meta = {"total_seconds": total, "chapter_starts": starts,
-                "lufs": doc_audio.measure_lufs(final), "music": bool(music)}
+                "lufs": doc_audio.measure_lufs(final), "music": bool(music),
+                "tts_engines": sorted({a.get("engine", "?") for ch in audio for a in ch})}
         self.path("ozet.json").write_text(json.dumps(meta, indent=2), encoding="utf-8")
         logger.info("Belgesel hazır: %s (%.1f dk, %.1f LUFS)", final, total / 60, meta["lufs"])
 
@@ -377,6 +404,16 @@ def main(argv=None):
         print("Senaryo geçerli:", prod.data["title"])
         return 0
 
+    try:
+        _run_stages(prod, args)
+    except Exception as e:
+        # Telegram bildirimi gerçek hatayı gösterebilsin
+        prod.path("hata.txt").write_text(f"{type(e).__name__}: {e}"[:800], encoding="utf-8")
+        raise
+    return 0
+
+
+def _run_stages(prod, args):
     if args.asama in ("ses", "hepsi"):
         prod.stage_ses()
     if args.asama in ("gorseller", "hepsi"):
@@ -390,7 +427,6 @@ def main(argv=None):
     if args.asama == "yukle":
         when = datetime.fromisoformat(args.yayin.replace("Z", "+00:00")) if args.yayin else None
         prod.stage_yukle(when)
-    return 0
 
 
 if __name__ == "__main__":
