@@ -122,6 +122,17 @@ class Production:
         shutil.copy2(src, public / src.name)
         return src.name
 
+    def _crop_public(self, filename: str, box, out_name: str) -> str:
+        """Remotion public/ içindeki görselden oransal (x0, y0, x1, y1) kesit al."""
+        from PIL import Image
+        Image.MAX_IMAGE_PIXELS = None
+        public = REMOTION_DIR / "public"
+        im = Image.open(public / filename).convert("RGB")
+        w, h = im.size
+        x0, y0, x1, y1 = box
+        im.crop((int(w * x0), int(h * y0), int(w * x1), int(h * y1))).save(public / out_name)
+        return out_name
+
     def stage_kartlar(self):
         for ci, ch in enumerate(self.data["chapters"]):
             card = ch.get("card")
@@ -133,7 +144,11 @@ class Production:
                             str(self.path("cards", f"c{ci:02d}.mp4")),
                             f"--props={json.dumps(props, ensure_ascii=False)}", "--crf=16"])
         for name, props in self.data.get("maps", {}).items():
-            props = {**props, "image": self._stage_image(props.get("image", ""))}
+            props = dict(props)
+            image = self._stage_image(props.get("image", ""))
+            if props.pop("crop", None) and image:
+                image = self._crop_public(image, self.data["maps"][name]["crop"], f"harita_{name}.png")
+            props["image"] = image
             self._remotion(["render", "src/index.ts", "MapMoves",
                             str(self.path("maps", f"{name}.mp4")),
                             f"--props={json.dumps(props, ensure_ascii=False)}", "--crf=16"])

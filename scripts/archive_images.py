@@ -122,6 +122,7 @@ def _parse_page(page: dict) -> dict | None:
         "mime": ii.get("mime", ""),
         # Orijinal genişlik DOWNLOAD_WIDTH'ten küçükse thumburl orijinali verir
         "url": ii.get("thumburl") or ii.get("url"),
+        "original_url": ii.get("url"),
         "page_url": ii.get("descriptionurl", ""),
         "license": m("LicenseShortName"),
         "license_url": m("LicenseUrl"),
@@ -222,6 +223,9 @@ def fetch_images(images: dict, out_dir: Path, min_width: int = MIN_WIDTH) -> dic
         problems = check_usable(info, min_width=spec.get("min_width", min_width))
         if problems:
             raise ArchiveError(f"{key} ({info['title']}): " + "; ".join(problems))
+        if spec.get("original"):
+            # Kırpılacak büyük haritalar: küçültülmüş kopya yerine özgün dosya
+            info = {**info, "url": info["original_url"]}
         ext = Path(info["url"].split("?")[0]).suffix.lower() or ".jpg"
         path = download(info, out_dir / f"{key}{ext}", session=session)
         result[key] = {"path": str(path), "credit": {
