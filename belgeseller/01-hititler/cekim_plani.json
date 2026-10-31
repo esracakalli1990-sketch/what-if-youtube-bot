@@ -373,7 +373,10 @@
    {
     "film": "hattusa_video",
     "start": 1097.0,
-    "label": "HATTUŞA · BOĞAZKALE, ÇORUM"
+    "label": {
+     "title": "HATTUŞA",
+     "subtitle": "BOĞAZKALE, ÇORUM"
+    }
    },
    {
     "film": "hattusa_video",
@@ -457,7 +460,10 @@
    {
     "image": "eski_gravur",
     "move": "in",
-    "label": "BOĞAZKÖY · 1834"
+    "label": {
+     "title": "BOĞAZKÖY",
+     "subtitle": "1834"
+    }
    },
    {
     "film": "hattusa_video",
@@ -480,7 +486,10 @@
    {
     "image": "yazilikaya_a",
     "move": "in",
-    "label": "YAZILIKAYA"
+    "label": {
+     "title": "YAZILIKAYA",
+     "subtitle": ""
+    }
    },
    {
     "image": "yazilikaya_a4",
@@ -513,7 +522,10 @@
    {
     "image": "ivriz",
     "move": "up",
-    "label": "İVRİZ KAYA ANITI"
+    "label": {
+     "title": "İVRİZ KAYA ANITI",
+     "subtitle": ""
+    }
    },
    {
     "image": "karkamis_savasci",
@@ -529,7 +541,10 @@
    {
     "image": "buyukkale_1994",
     "move": "out",
-    "label": "BÜYÜKKALE · HATTUŞA"
+    "label": {
+     "title": "BÜYÜKKALE",
+     "subtitle": "HATTUŞA"
+    }
    },
    {
     "film": "hattusa_video",
@@ -569,7 +584,10 @@
    {
     "image": "hrozny_anit",
     "move": "in",
-    "label": "BEDŘICH HROZNÝ (1879–1952)"
+    "label": {
+     "title": "BEDŘICH HROZNÝ (1879–1952)",
+     "subtitle": ""
+    }
    },
    {
     "image": "suppiluliuma_tablet",
@@ -628,7 +646,10 @@
    {
     "image": "hatti_disk",
     "move": "left",
-    "label": "HATTİ GÜNEŞ KURSU"
+    "label": {
+     "title": "HATTİ GÜNEŞ KURSU",
+     "subtitle": ""
+    }
    },
    {
     "image": "alaca_seramik",
@@ -653,7 +674,10 @@
    {
     "image": "kultepe",
     "move": "right",
-    "label": "KÜLTEPE (KANİŞ) · KAYSERİ"
+    "label": {
+     "title": "KÜLTEPE (KANİŞ)",
+     "subtitle": "KAYSERİ"
+    }
    },
    {
     "clip": "klipler/klip2.mp4",
@@ -719,7 +743,10 @@
    {
     "image": "kral_kapi",
     "move": "in",
-    "label": "KRAL KAPISI · HATTUŞA"
+    "label": {
+     "title": "KRAL KAPISI",
+     "subtitle": "HATTUŞA"
+    }
    },
    {
     "film": "hattusa_video",
@@ -742,7 +769,10 @@
    {
     "image": "halep",
     "move": "out",
-    "label": "HALEP"
+    "label": {
+     "title": "HALEP",
+     "subtitle": ""
+    }
    }
   ],
   "2.8": [
@@ -773,7 +803,10 @@
    {
     "image": "hammurabi",
     "move": "in",
-    "label": "HAMMURABİ KANUNLARI · LOUVRE"
+    "label": {
+     "title": "HAMMURABİ KANUNLARI",
+     "subtitle": "LOUVRE"
+    }
    },
    {
     "stock": "yangin",
@@ -827,7 +860,10 @@
    {
     "image": "buyuk_mabet_3",
     "move": "right",
-    "label": "BÜYÜK MABET · HATTUŞA"
+    "label": {
+     "title": "BÜYÜK MABET",
+     "subtitle": "HATTUŞA"
+    }
    },
    {
     "image": "suppiluliuma_tablet",
@@ -947,7 +983,10 @@
    {
     "image": "amarna_mektup2",
     "move": "in",
-    "label": "AMARNA MEKTUPLARI"
+    "label": {
+     "title": "AMARNA MEKTUPLARI",
+     "subtitle": ""
+    }
    },
    {
     "image": "karnak",
@@ -1106,7 +1145,10 @@
    {
     "image": "ramses_heykel",
     "move": "out",
-    "label": "II. RAMSES"
+    "label": {
+     "title": "II. RAMSES",
+     "subtitle": ""
+    }
    }
   ],
   "5.1": [
@@ -1117,7 +1159,10 @@
    {
     "image": "ebu_simbel",
     "move": "left",
-    "label": "EBU SİMBEL · MISIR"
+    "label": {
+     "title": "EBU SİMBEL",
+     "subtitle": "MISIR"
+    }
    }
   ],
   "5.2": [
@@ -1232,7 +1277,10 @@
    {
     "image": "karnak",
     "move": "in",
-    "label": "KARNAK · MISIR"
+    "label": {
+     "title": "KARNAK",
+     "subtitle": "MISIR"
+    }
    },
    {
     "image": "ebu_simbel",
@@ -1321,7 +1369,10 @@
    {
     "image": "kades_tablet",
     "move": "in",
-    "label": "KADEŞ ANTLAŞMASI · İSTANBUL ARKEOLOJİ MÜZELERİ"
+    "label": {
+     "title": "KADEŞ ANTLAŞMASI",
+     "subtitle": "İSTANBUL ARKEOLOJİ MÜZELERİ"
+    }
    }
   ],
   "6.5": [
@@ -1424,7 +1475,10 @@
    {
     "image": "buyukkale_1",
     "move": "in",
-    "label": "BÜYÜKKALE"
+    "label": {
+     "title": "BÜYÜKKALE",
+     "subtitle": ""
+    }
    },
    {
     "film": "hattusa_video",
@@ -1461,14 +1515,20 @@
    {
     "image": "sfenks_kapi_1",
     "move": "out",
-    "label": "SFENKSLİ KAPI"
+    "label": {
+     "title": "SFENKSLİ KAPI",
+     "subtitle": ""
+    }
    }
   ],
   "7.3": [
    {
     "image": "yerkapi_sfenks",
     "move": "left",
-    "label": "YERKAPI"
+    "label": {
+     "title": "YERKAPI",
+     "subtitle": ""
+    }
    },
    {
     "image": "yerkapi_tunel",
@@ -1487,7 +1547,10 @@
    {
     "image": "yazilikaya_giris",
     "move": "up",
-    "label": "YAZILIKAYA"
+    "label": {
+     "title": "YAZILIKAYA",
+     "subtitle": ""
+    }
    },
    {
     "image": "yazilikaya_a",
@@ -1618,12 +1681,18 @@
    {
     "image": "ugarit",
     "move": "out",
-    "label": "UGARİT · SURİYE"
+    "label": {
+     "title": "UGARİT",
+     "subtitle": "SURİYE"
+    }
    },
    {
     "image": "miken_aslan",
     "move": "left",
-    "label": "MİKENE"
+    "label": {
+     "title": "MİKENE",
+     "subtitle": ""
+    }
    },
    {
     "image": "medinet_habu",
@@ -1749,12 +1818,18 @@
    {
     "image": "karkamis_savasci",
     "move": "in",
-    "label": "KARKAMIŞ · GEÇ HİTİT"
+    "label": {
+     "title": "KARKAMIŞ",
+     "subtitle": "GEÇ HİTİT"
+    }
    },
    {
     "image": "aslantepe_libasyon",
     "move": "out",
-    "label": "ARSLANTEPE · MALATYA"
+    "label": {
+     "title": "ARSLANTEPE",
+     "subtitle": "MALATYA"
+    }
    },
    {
     "image": "ivriz",
@@ -1769,7 +1844,10 @@
    {
     "image": "alaca_sfenks",
     "move": "left",
-    "label": "ALACAHÖYÜK"
+    "label": {
+     "title": "ALACAHÖYÜK",
+     "subtitle": ""
+    }
    },
    {
     "image": "alaca_sfenks_3",
@@ -1794,7 +1872,10 @@
    {
     "image": "gunes_heykel",
     "move": "in",
-    "label": "HİTİT GÜNEŞ KURSU ANITI · ANKARA"
+    "label": {
+     "title": "HİTİT GÜNEŞ KURSU ANITI",
+     "subtitle": "ANKARA"
+    }
    },
    {
     "image": "hatti_disk",
