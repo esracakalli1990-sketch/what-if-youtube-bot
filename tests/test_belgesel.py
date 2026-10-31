@@ -375,3 +375,19 @@ def test_edge_cache_replaced_when_elevenlabs_available(tmp_path, monkeypatch):
         da.synthesize(["Merhaba"], tmp_path, voice_id="v", api_key="k")
     assert calls == ["Merhaba"]                       # ElevenLabs denendi
     assert not (tmp_path / "p000.mp3").exists()       # eski yedek ses atıldı
+
+
+def test_commons_music_used_and_credited(tmp_path):
+    import json
+    prod = _mini_production(tmp_path)
+    prod.data["chapters"][0]["music"] = "gizem"
+    credit = {"title": "File:Kevin MacLeod - Dream Culture.ogg", "artist": "Kevin MacLeod",
+              "license": "CC BY 3.0"}
+    prod.path("videos.json").write_text(json.dumps(
+        {"stock": {}, "films": {}, "music": {"gizem": {"path": "music/gizem.ogg", "credit": credit},
+                                             "huzun": {"path": "music/huzun.ogg", "credit": credit}}}))
+    assert prod._music_for("gizem") == str(prod.build / "music/gizem.ogg")
+    assert prod._music_for(None) is None
+    text = prod.description("0:00 Giriş\n1:00 A\n2:00 B")
+    assert '🎵 Müzik\n• "Dream Culture" — Kevin MacLeod (CC BY 3.0)' in text
+    assert text.count("Dream Culture") == 1          # kullanılmayan "huzun" listelenmez

@@ -93,6 +93,7 @@ jobs:
             ${{ inputs.klasor }}/build/images
             ${{ inputs.klasor }}/build/films
             ${{ inputs.klasor }}/build/stock
+            ${{ inputs.klasor }}/build/music
           key: belgesel-${{ inputs.klasor }}-${{ github.run_id }}
           restore-keys: belgesel-${{ inputs.klasor }}-
 

@@ -367,7 +367,19 @@
   "8": "buyukkale_41",
   "9": "alaca_sfenks"
  },
- "music": {},
+ "music": {
+  "0": "gizem",
+  "1": "gizem",
+  "2": "destansi",
+  "3": "gerilim",
+  "4": "destansi",
+  "5": "gerilim",
+  "6": "huzun",
+  "7": "gizem",
+  "8": "gerilim",
+  "9": "huzun",
+  "10": "destansi"
+ },
  "shots": {
   "0.0": [
    {
@@ -2473,5 +2485,19 @@
   "klip6": "5.7",
   "klip7": "8.6",
   "klip8": "8.9"
+ },
+ "music_sources": {
+  "gizem": {
+   "commons": "File:Kevin MacLeod - Dream Culture.ogg"
+  },
+  "gerilim": {
+   "commons": "File:Kevin MacLeod - Ouroboros - Full Mix.ogg"
+  },
+  "destansi": {
+   "commons": "File:Kevin MacLeod - Virtutes Instrumenti.ogg"
+  },
+  "huzun": {
+   "commons": "File:Kevin MacLeod - On the Passing of Time.ogg"
+  }
  }
 }
