@@ -114,7 +114,7 @@ jobs:
           git config user.name "belgesel-bot"
           git config user.email "actions@github.com"
           git checkout -B "inceleme/$SLUG"
-          git add -f "$KLASOR/inceleme/"*.jpg "$KLASOR/inceleme/adaylar.json"
+          git add -f "$KLASOR/inceleme/"*.jpg "$KLASOR/inceleme/"*.json
           git commit -m "inceleme: $SLUG kare ve aday sayfaları [skip ci]"
           for i in 1 2 3 4; do git push -f origin "inceleme/$SLUG" && break; sleep $((i * 5)); done
 

@@ -24,6 +24,8 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
+import numpy as np
+
 from scripts import doc_audio, doc_render, doc_timeline
 from scripts.archive_images import fetch_images
 from scripts.utils import load_env, logger, PROJECT_ROOT
@@ -229,22 +231,36 @@ class Production:
                             f"--props={json.dumps(props, ensure_ascii=False)}",
                             "--image-format=jpeg", "--jpeg-quality=90"])
 
-    def stage_bolum(self, only: int | None = None):
+    def chapter_shot_lists(self) -> list[list[dict]]:
+        """Her bölümün çekim listesi (render ve doğal ses izi aynı zamanlamayı kullanır)."""
         audio = self.audio_manifest()
         images = {k: str(self.build / v["path"]) for k, v in self.image_manifest().items()}
         videos = self.video_manifest()
         stock = {k: str(self.build / v["path"]) for k, v in videos["stock"].items()}
         films = {k: str(self.build / v["path"]) for k, v in videos["films"].items()}
         layouts = self.layouts()
+        return [doc_timeline.chapter_shots(
+                    ch, audio[ci], layouts[ci], images, self.folder,
+                    card_clip=str(self.path("cards", f"c{ci:02d}.mp4")) if ch.get("card") else None,
+                    stock_paths=stock, film_paths=films)
+                for ci, ch in enumerate(self.data["chapters"])]
+
+    def sfx_events(self, chapter_starts: list[float]) -> list[tuple[str, float, float, float]]:
+        """Doğal sesi açık video çekimleri: (video, kaynaktaki başlangıç, zamandaki yer, süre)."""
+        events = []
+        for ci, shots in enumerate(self.chapter_shot_lists()):
+            t = chapter_starts[ci]
+            for s in shots:
+                if s.get("sfx"):
+                    events.append((s["path"], s.get("start", 0.0), t, s["duration"]))
+                t += s["duration"]
+        return events
+
+    def stage_bolum(self, only: int | None = None):
         look = doc_render.Look()
-        for ci, ch in enumerate(self.data["chapters"]):
+        for ci, (ch, shots) in enumerate(zip(self.data["chapters"], self.chapter_shot_lists())):
             if only is not None and ci != only:
                 continue
-            card = self.path("cards", f"c{ci:02d}.mp4")
-            shots = doc_timeline.chapter_shots(
-                ch, audio[ci], layouts[ci], images, self.folder,
-                card_clip=str(card) if ch.get("card") else None,
-                stock_paths=stock, film_paths=films)
             fades = dict(fade_in=0.0 if ch.get("card") else 0.6)
             doc_render.render_chapter([doc_render.Shot(**s) for s in shots],
                                       str(self.path("chapters", f"c{ci:02d}.mp4")),
@@ -275,9 +291,12 @@ class Production:
         segments = [(self._music_for(ch.get("music")), starts[ci], layouts[ci].total)
                     for ci, ch in enumerate(chapters)]
         music = None
-        if any(s[0] for s in segments):
+        events = self.sfx_events(starts)
+        if any(s[0] for s in segments) or events:
+            # Müzik + kliplerin doğal sesleri tek "alt iz": anlatım sırasında birlikte alçalır
+            bed = doc_audio.music_bed(segments, total) + doc_audio.sfx_bed(events, total)
             music = self.path("ses", "muzik.wav")
-            doc_audio.write_wav(doc_audio.music_bed(segments, total), music)
+            doc_audio.write_wav(np.clip(bed, -1.0, 1.0), music)
         mastered = doc_audio.master(voice, music, self.path("ses", "master.m4a"))
 
         # Bölümler aynı kodlayıcı ayarıyla üretildi: yeniden kodlamadan birleştir ve
@@ -294,7 +313,7 @@ class Production:
         chapters_text = doc_timeline.youtube_chapters([c["title"] for c in chapters], starts)
         self.path("aciklama.txt").write_text(self.description(chapters_text), encoding="utf-8")
         meta = {"total_seconds": total, "chapter_starts": starts,
-                "lufs": doc_audio.measure_lufs(final), "music": bool(music),
+                "lufs": doc_audio.measure_lufs(final), "music": any(s[0] for s in segments), "sfx_clips": len(events),
                 "tts_engines": sorted({a.get("engine", "?") for ch in audio for a in ch})}
         self.path("ozet.json").write_text(json.dumps(meta, indent=2), encoding="utf-8")
         logger.info("Belgesel hazır: %s (%.1f dk, %.1f LUFS)", final, total / 60, meta["lufs"])

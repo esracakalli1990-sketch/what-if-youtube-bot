@@ -103,6 +103,11 @@ def run(folder: Path, plan: dict, every: float = 15.0, per_query: int = 5) -> li
         candidates[key] = {"q": spec["q"], "adaylar": found}
         if found:
             sheets.append(stock_sheet(key, spec["q"], found, out_dir))
+    if plan.get("muzik_arama"):
+        # Fon müziği adayları: nesnel "sakinlik" ölçüsüyle sıralanır (bkz. doc_music)
+        from scripts import doc_music
+        ranked = doc_music.review(plan["muzik_arama"], folder / "build" / "muzik_adaylari")
+        doc_music.write_report(ranked, out_dir / "muzik_adaylari.json")
     (out_dir / "adaylar.json").write_text(json.dumps(candidates, ensure_ascii=False, indent=1),
                                           encoding="utf-8")
     logger.info("İnceleme: %d sayfa → %s", len(sheets), out_dir)
