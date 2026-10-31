@@ -1,0 +1,2819 @@
+{
+ "slug": "01-hititler",
+ "title": "Hitit İmparatorluğu'nun Tam Hikâyesi | Anadolu'nun Unutulan Süper Gücü",
+ "description": "Üç bin yıl önce Anadolu'nun kalbinde, bugünkü Çorum'da, Mısır firavunlarıyla eşit konuşan bir imparatorluk yükseldi. Kralları Babil'e kadar yürüdü, Kadeş'te Ramses'le savaştı ve tarihin metni günümüze ulaşan en eski barış antlaşmalarından birini imzaladı. Sonra, neredeyse iz bırakmadan kayboldu.\n\nBu belgeselde Hititlerin yeniden keşfinden çöküşüne kadar tam hikâyesini, arşiv belgeleri ve müze eserleri eşliğinde anlatıyoruz. Tartışmalı bilgiler anlatımda öyle belirtilmiştir.",
+ "tags": [
+  "hititler",
+  "hitit imparatorluğu",
+  "hattuşa",
+  "tarih belgeseli",
+  "anadolu tarihi",
+  "kadeş savaşı",
+  "kadeş antlaşması",
+  "tunç çağı",
+  "antik tarih",
+  "belgesel",
+  "çorum",
+  "boğazköy",
+  "ramses",
+  "yazılıkaya",
+  "türkçe belgesel",
+  "uyku için tarih"
+ ],
+ "hashtags": [
+  "#Hititler",
+  "#Tarih",
+  "#Belgesel",
+  "#Anadolu",
+  "#Hattuşa"
+ ],
+ "ai_disclosure": "Bazı sahnelerde yapay zekâ ile üretilmiş temsili canlandırmalar kullanılmıştır; bu sahneler videoda \"Temsili canlandırma\" olarak işaretlidir.",
+ "sources": [
+  "Trevor Bryce, The Kingdom of the Hittites, Oxford University Press, 2005",
+  "Trevor Bryce, Letters of the Great Kings of the Ancient Near East, Routledge, 2003",
+  "Jürgen Seeher, Hattusha Guide: A Day in the Hittite Capital",
+  "Harry A. Hoffner Jr., The Laws of the Hittites, Brill, 1997",
+  "Ekrem Akurgal, Hatti ve Hitit Uygarlıkları",
+  "UNESCO Dünya Mirası: Hattusha, the Hittite Capital",
+  "BM Hediye Kayıtları: Kadeş Antlaşması kopyası (un.org/ungifts)"
+ ],
+ "pronunciations": {
+  "Texier": "Teksiye",
+  "Sayce": "Seys",
+  "Winckler": "Vinkler",
+  "Bedřich": "Bedrih",
+  "Hrozný": "Hrozni",
+  "Ankhesenamun": "Ankesenamun"
+ },
+ "voice_settings": {
+  "stability": 0.55,
+  "similarity_boost": 0.8,
+  "style": 0.1,
+  "use_speaker_boost": true
+ },
+ "thumbnails": [
+  {
+   "image": "aslan_kapi_1",
+   "line1": "Unutulan İmparatorluk",
+   "line2": "Hititler",
+   "badge": "TAM HİKÂYE",
+   "focus_x": 0.62
+  },
+  {
+   "image": "kades_tablet",
+   "line1": "İlk Barış",
+   "line2": "Hititler ve Mısır",
+   "badge": "TAM HİKÂYE",
+   "focus_x": 0.6
+  },
+  {
+   "image": "yazilikaya_a",
+   "line1": "Bin Tanrının Ülkesi",
+   "line2": "Hititler",
+   "badge": "TAM HİKÂYE",
+   "focus_x": 0.65
+  }
+ ],
+ "images": {
+  "alaca_seramik": {
+   "commons": "File:Hittite pottery from Alaca Höyük.jpg"
+  },
+  "alaca_sfenks": {
+   "commons": "File:Sphinx Gate, Alaca Höyük 02.jpg"
+  },
+  "alaca_sfenks_3": {
+   "commons": "File:Sphinx Gate, Alaca Höyük 03.jpg"
+  },
+  "amarna_mektup2": {
+   "commons": "File:Amarna letter. Letter from Yapahu (ruler of Gezer) to the Egyptian pharaoh Amenhotep III or son Akhenaten.jpg"
+  },
+  "ankhesenamun": {
+   "commons": "File:Double scene of Ankhesenamun and Tutankhamun.jpg"
+  },
+  "ankhesenamun_ok": {
+   "commons": "File:Ankhesenamun handing arrow to seated Tutankhamun.jpg"
+  },
+  "araba_karkamis": {
+   "commons": "File:Ankara Anatolian Civilizations Carchemish orthostats Long Wall Chariot scene A in 2011 02.jpg"
+  },
+  "araba_karkamis_d": {
+   "commons": "File:Ankara Anatolian Civilizations Carchemish orthostats Long Wall Chariot scene D in 2011 07.jpg"
+  },
+  "araba_samal": {
+   "commons": "File:Relief orthostat showing a war chariot and a dying naked foe. From Sam'al citadel. 9th century BC. Museum of the Ancient Orient, Istanbul.jpg"
+  },
+  "aslan_kapi_1": {
+   "commons": "File:Lion Gate, Hattusa 01.jpg"
+  },
+  "aslan_kapi_2": {
+   "commons": "File:Lion Gate, Hattusa 02.jpg"
+  },
+  "aslan_kapi_5": {
+   "commons": "File:Lion Gate, Hattusa 05.jpg"
+  },
+  "aslan_kapi_6": {
+   "commons": "File:Lion Gate, Hattusa 06.jpg"
+  },
+  "aslan_kapi_8": {
+   "commons": "File:Lion Gate, Hattusa 08.jpg"
+  },
+  "aslantepe_libasyon": {
+   "commons": "File:Museum of Anatolian Civilizations Aslantepe King Allumalli pouring libation to Storm God who is in two different poses 2012 3434.jpg"
+  },
+  "asur_muhur": {
+   "commons": "File:Cuneiform tablet case impressed with four cylinder seals Old Assyrian.png"
+  },
+  "asur_tablet": {
+   "commons": "File:Clay tablet and its stamped envelop. Legal debt-note on silver. Old Assyrian dialect. Assyrian Colony Period, 19th century BCE. Ancient Orient Museum, Istanbul.jpg"
+  },
+  "asur_zarf": {
+   "commons": "File:Tablet envelope sealed Old Assyrian 113581.jpg"
+  },
+  "boga_pithos": {
+   "commons": "File:Museum of Anatolian Civilizations Hittite Bull head pithos in 2019 01.jpg"
+  },
+  "bogazkoy_muze": {
+   "commons": "File:Museum Hattusa - Boğazköy Museum, Boğazköy, Çorum, Turkey 26.jpg"
+  },
+  "bogazkoy_muze_5": {
+   "commons": "File:Museum Hattusa - Boğazköy Museum, Boğazköy, Çorum, Turkey 05.jpg"
+  },
+  "buyuk_mabet_1": {
+   "commons": "File:Hattusa-Lower City 03.jpg"
+  },
+  "buyuk_mabet_1994": {
+   "commons": "File:Hattuşa Great temple in 1994 096.jpg"
+  },
+  "buyuk_mabet_2": {
+   "commons": "File:Hattusa-Lower City 02.jpg"
+  },
+  "buyuk_mabet_3": {
+   "commons": "File:Great Temple, Hattusa, Boğazkale, Çorum, Turkey 02.jpg"
+  },
+  "buyukkale_1": {
+   "commons": "File:Ḫattuša Büyükkale 01 .jpg"
+  },
+  "buyukkale_13": {
+   "commons": "File:Ḫattuša Büyükkale 13.jpg"
+  },
+  "buyukkale_1994": {
+   "commons": "File:Hattuşa Büyükkale in 1994 113.jpg"
+  },
+  "buyukkale_41": {
+   "commons": "File:Ḫattuša Büyükkale 41.jpg"
+  },
+  "ebu_simbel": {
+   "commons": "File:Templo de Ramsés II, Abu Simbel, Egipto, 2022-04-02, DD 74-76 HDR.jpg"
+  },
+  "ebu_simbel_salon": {
+   "commons": "File:Großer Tempel (Abu Simbel) Große Pfeilerhalle Ostwand 03.jpg"
+  },
+  "eski_gravur": {
+   "commons": "File:V A - 5 - Ruines de la citadelle de Hatti (Aujourd'hui Boghaz-Keui).tif"
+  },
+  "figurin_amasya": {
+   "commons": "File:Figurine von Amasya 01.jpg"
+  },
+  "figurin_boga": {
+   "commons": "File:Figurine du dieu de l'orage debout sur un taureau, exposition Royaumes oubliés, Louvre 2019.jpg"
+  },
+  "firtina_tanrisi": {
+   "commons": "File:Orthostate - Tarhunza le dieu de l'orage.jpg"
+  },
+  "gaga_testi": {
+   "commons": "File:Beak-spouted terracota jug.jpg"
+  },
+  "gunes_heykel": {
+   "commons": "File:Ankara Hitit Güneş Kursu Heykeli in 2011 01.jpg"
+  },
+  "halep": {
+   "commons": "File:Aleppo Citadel 05 - Inner gate.jpg"
+  },
+  "hammurabi": {
+   "commons": "File:Code of Hammurabi (Louvre Sb 8)-31434550325.jpg"
+  },
+  "harita": {
+   "commons": "File:Map of the Hittite empire.png",
+   "original": true
+  },
+  "hatti_disk": {
+   "commons": "File:Museum of Anatolian Civilizations Hattian disk with geometric design in 2019 05.jpg"
+  },
+  "hattusa_hiyeroglif": {
+   "commons": "File:Hattusa, capital of the Hittite Empire 24.jpg"
+  },
+  "on_iki_tanri_2": {
+   "commons": "File:Hattusa, capital of the Hittite Empire 39.jpg"
+  },
+  "hrozny_anit": {
+   "commons": "File:Memorial of Bedřich Hrozný in Lysá nad Labem, Nymburk District.JPG"
+  },
+  "hrozny_muze": {
+   "commons": "File:Museum of Bedřich Hrozný in Lysá nad Labem.JPG"
+  },
+  "ivriz": {
+   "commons": "File:Ivriz Neo-Hittite relief (1993).jpg"
+  },
+  "kades_parca": {
+   "commons": "File:2. Part of the clay tablet of Kadesh Treaty, written in Akkadian. 1269 BCE. From Boğazköy, Turkey. Clay tablet. Museum of the Ancient Orient, Istanbul, Turkey.jpg"
+  },
+  "kades_tablet": {
+   "commons": "File:Kadesh Treaty, written in Akkadian. 1269 BCE. From Boğazköy, Turkey. Clay tablet. Museum of the Ancient Orient, Istanbul, Turkey.jpg"
+  },
+  "karkamis_savasci": {
+   "commons": "File:Ankara Anatolian Civilizations Carchemish orthostats Long Wall Warriors in 2011 01.jpg"
+  },
+  "karnak": {
+   "commons": "File:Theban region, Temple Complex of Amon in Karnak, Temple of Amun, photo 10 of 46 - Archivio fotografico Museo Egizio, Turin C01125.jpg"
+  },
+  "kayseri_riton": {
+   "commons": "File:Kayseri Archaeological Museum Rhyton 2240.jpg"
+  },
+  "kral_kapi": {
+   "commons": "File:King's Gate, Hattusa.jpg"
+  },
+  "kral_kapi_4": {
+   "commons": "File:King's Gate, Hattusa, Boğazkale, Çorum, Turkey 04.jpg"
+  },
+  "kultepe": {
+   "commons": "File:Kultepe Karum excavations (1993) 01.jpg"
+  },
+  "kultepe_hoyuk": {
+   "commons": "File:Kultepe Karum trenches and mound (1993).jpg"
+  },
+  "medinet_habu": {
+   "commons": "File:Medinet Habu Ramses III. Tempel Nordostwand Abzeichnung 01.jpg"
+  },
+  "medinet_habu_2": {
+   "commons": "File:Medinet Habu Ramses III. Tempel Erster Hof 20.jpg"
+  },
+  "miken_aslan": {
+   "commons": "File:Lion Gate, Mycenae, 201510.jpg"
+  },
+  "mitanni_seramik": {
+   "commons": "File:Mitanni or Nuzi ware - Oriental Institute Museum, University of Chicago - DSC07021.JPG"
+  },
+  "on_iki_tanri": {
+   "commons": "File:Relief of the Twelve Underworld Gods Chamber B Yazilikaya Hattusa.jpg"
+  },
+  "oturan_kadin": {
+   "commons": "File:Museum of Anatolian Civilizations Hittite Statuette of a seated woman in 2012 02.jpg"
+  },
+  "panorama": {
+   "commons": "File:Boğazköy panorama.jpg"
+  },
+  "panorama_2": {
+   "commons": "File:Panorama in Hattusa.jpg"
+  },
+  "ramesseum_kades": {
+   "commons": "File:Battle scene from the Great Kadesh reliefs of Ramses II on the Walls of the Ramesseum.jpg"
+  },
+  "ramses_heykel": {
+   "commons": "File:Statue of Ramesses II in Karnak Temple in Luxor Egypt.JPG"
+  },
+  "ramses_turin": {
+   "commons": "File:Statue of Ramses II from Karnak, granodiorite - C 1380 Museo Egizio (Turin) 01.jpg"
+  },
+  "riton": {
+   "commons": "File:Museum of Anatolian Civilizations Hittite Cup type rhyton with animal's head in 2014 06.jpg"
+  },
+  "sfenks_kapi_1": {
+   "commons": "File:Sphinx Gate, Hattusa 01.jpg"
+  },
+  "sfenks_kapi_2": {
+   "commons": "File:Sphinx Gate, Hattusa, Boğazkale, Çorum, Turkey.jpg"
+  },
+  "suppiluliuma_antlasma": {
+   "commons": "File:Suppiluliuma I and Hukkana treaty, 13th century BC, from Hattusa, Istanbul Archaeological Museum.jpg"
+  },
+  "suppiluliuma_tablet": {
+   "commons": "File:Suppiluliuma I' deeds, 14th century BC, from Hattusa, Istanbul Archaeological Museum.jpg"
+  },
+  "sur_1": {
+   "commons": "File:Hattusa - Hittite city wall 02.jpg"
+  },
+  "sur_2": {
+   "commons": "File:Hattusa - Hittite city wall 01.jpg"
+  },
+  "sur_rekons": {
+   "commons": "File:Modern reconstruction of a 65m long section of the city wall made of mud brick, Hattusa, the capital of the Hittite Empire in the late Bronze Age, Boğazkale, Turkey (26064042932).jpg"
+  },
+  "suriye_uzay": {
+   "commons": "File:ISS056-E-5974 - View of Syria - Mediterranean Sea - Tartus - Latakia - Syrian Coastal Mountain Range (Jabal al-Ansariya) - Orontes River - Lake Homs - Hama - Antakya - Gulf of Alexandretta - Iskenderun - Aleppo (cropped).jpg"
+  },
+  "alaca_mezar_1": {
+   "commons": "File:Boğazköy-alacahöyük (1).jpg"
+  },
+  "alaca_mezar_2": {
+   "commons": "File:Boğazköy-alacahöyük (3).jpg"
+  },
+  "hattusa_manzara": {
+   "commons": "File:Boğazköy-alacahöyük (5).jpg"
+  },
+  "kral_kapi_genel": {
+   "commons": "File:Boğazköy-alacahöyük (8).jpg"
+  },
+  "yazilikaya_giris": {
+   "commons": "File:Boğazköy-alacahöyük (9).jpg"
+  },
+  "tarhunda_araba": {
+   "commons": "File:Adana Archaeological Museum Late Hittite Tarhunda on chariot 0214.jpg"
+  },
+  "testi_tokat": {
+   "commons": "File:Impero ittita, versatoio, in terracotta, da tokat, 1400-1200 ac ca. (m. archeologico istanbul).jpg"
+  },
+  "ugarit": {
+   "commons": "File:5.44 Ugarit (2).jpg"
+  },
+  "ugarit_tablet": {
+   "commons": "File:Tablet-AO 21091-IMG 3848-black.jpg"
+  },
+  "vadi": {
+   "commons": "File:Hattuşa (Hitit Başkenti) antik kentinden Boğazkale ilçesine ve çevresindeki vadiye bakış.jpg"
+  },
+  "vadi_1991": {
+   "commons": "File:Hattuşaş Landschaft 01 08 1991.jpg"
+  },
+  "yazilikaya_a": {
+   "commons": "File:Chamber A, Yazilikaya 02.jpg"
+  },
+  "yazilikaya_a4": {
+   "commons": "File:Chamber A, Yazilikaya 04.jpg"
+  },
+  "yazilikaya_a5": {
+   "commons": "File:Chamber A, Yazilikaya 05.jpg"
+  },
+  "yazilikaya_b": {
+   "commons": "File:Chamber B, Yazilikaya 02.jpg"
+  },
+  "yerkapi_ag": {
+   "commons": "File:Hattuşa Yerkapı Postern at low end of tunnel in 2004 3545.jpg"
+  },
+  "yerkapi_sfenks": {
+   "commons": "File:Hattuşa (Hitit Başkenti) antik kentinin güney ucundaki Yerkapı'da bulunan Sfenksli Kapı.jpg"
+  },
+  "yerkapi_tunel": {
+   "commons": "File:Hattuşa Yerkapı inside tunnel in 2004 3544.jpg"
+  }
+ },
+ "films": {
+  "hattusa_video": {
+   "commons": "File:HATTUŞAŞ ANTİK KENTİ ÇORUM (ALACA BOĞAZKALE.webm",
+   "kesitler": {
+    "_not": "İnceleme 31 Ekim: 15 sn'lik karelerden seçildi. Tabela, araba, parmak olan yerler hariç.",
+    "merdiven_kayalar": 105,
+    "kaya_yakin": 120,
+    "asagi_sehir_yol": 150,
+    "tas_doseme": 165,
+    "tas_yikinti": 180,
+    "manzara_rekons_uzak": 315,
+    "temel_duvarlar_1": 465,
+    "temel_duvarlar_2": 480,
+    "temel_duvarlar_3": 495,
+    "temel_duvarlar_4": 510,
+    "yikintilar_agac": 615,
+    "vadi_yikinti": 675,
+    "temel_genis": 705,
+    "sur_kiklopik": 780,
+    "aslanli_kapi_yan": 810,
+    "sur_yakin": 825,
+    "aslanli_kapi": 885,
+    "yerkapi_merdiven": 1020,
+    "sur_bloklar": 1065,
+    "ova_manzara_1": 1095,
+    "ova_manzara_2": 1125,
+    "ova_manzara_3": 1155,
+    "bozkir_tepe": 1215,
+    "kral_kapi_kabartma": 1395,
+    "kral_kapi_gecit": 1425,
+    "sur_kral_kapi": 1455,
+    "kral_kapi_genel": 1500,
+    "buyukkaya_tepe": 1650,
+    "rekons_kule": 1710,
+    "rekons_sur": 1740
+   }
+  }
+ },
+ "stock": {
+  "gok_timelapse": {
+   "q": "clouds timelapse over hills",
+   "id": 8062899
+  },
+  "bozkir_ruzgar": {
+   "q": "dry grass blowing in wind",
+   "id": 25786184
+  },
+  "bozkir_gunbatimi": {
+   "q": "steppe hills sunset",
+   "id": 9317375
+  },
+  "yildizli_gece": {
+   "q": "starry night sky timelapse",
+   "id": 8644889
+  },
+  "nehir": {
+   "q": "river flowing over rocks",
+   "id": 20597835
+  },
+  "deniz_safak": {
+   "q": "calm sea horizon dawn",
+   "id": 33859149
+  },
+  "kurak_toprak": {
+   "q": "dry cracked earth drought",
+   "id": 37533724
+  },
+  "bugday_ruzgar": {
+   "q": "wheat field wind",
+   "id": 30511075
+  },
+  "koyun_suru": {
+   "q": "sheep flock on hills",
+   "id": 8419435
+  },
+  "at_dortnala": {
+   "q": "horses galloping dust",
+   "id": 27979821
+  },
+  "ates_gece": {
+   "q": "bonfire flames night",
+   "id": 28802354
+  },
+  "yangin": {
+   "q": "fire burning wood dark",
+   "id": 15264411
+  },
+  "mum_isigi": {
+   "q": "oil lamp flame dark",
+   "id": 34579325
+  },
+  "kil_eller": {
+   "q": "hands shaping clay",
+   "id": 6694356
+  },
+  "ekmek_firin": {
+   "q": "bread baking wood oven",
+   "id": 5898901
+  },
+  "tas_doku": {
+   "q": "ancient stone wall texture close up",
+   "id": 7538700
+  },
+  "katman_toz": {
+   "q": "dust particles floating black background",
+   "id": 28492353
+  },
+  "katman_kivilcim": {
+   "q": "fire embers sparks black background",
+   "id": 9823510
+  },
+  "katman_sis": {
+   "q": "smoke fog black background",
+   "id": 6894947
+  },
+  "katman_isik": {
+   "q": "light leak film overlay",
+   "id": 30042779
+  }
+ },
+ "maps": {
+  "babil_seferi": {
+   "image": "harita",
+   "crop": [
+    0.6,
+    0.5,
+    1.0,
+    0.7925
+   ],
+   "title": "I. Murşili'nin seferi",
+   "subtitle": "MÖ 1595 civarı · Hattuşa'dan Babil'e",
+   "arrows": [
+    {
+     "points": [
+      [
+       0.375,
+       0.164
+      ],
+      [
+       0.47,
+       0.4
+      ],
+      [
+       0.5,
+       0.564
+      ]
+     ],
+     "color": "#d4553a",
+     "start": 1.0,
+     "duration": 3.0
+    },
+    {
+     "points": [
+      [
+       0.5,
+       0.564
+      ],
+      [
+       0.75,
+       0.66
+      ],
+      [
+       0.86,
+       0.8
+      ]
+     ],
+     "color": "#d4553a",
+     "start": 5.0,
+     "duration": 4.0
+    }
+   ],
+   "markers": [
+    {
+     "x": 0.375,
+     "y": 0.164,
+     "label": "Hattuşa",
+     "start": 0.5
+    },
+    {
+     "x": 0.5,
+     "y": 0.564,
+     "label": "Halep",
+     "start": 3.5
+    },
+    {
+     "x": 0.84,
+     "y": 0.8,
+     "label": "Babil'e",
+     "start": 8.0
+    }
+   ],
+   "zoom": [
+    1.0,
+    1.06
+   ],
+   "focus": [
+    0.6,
+    0.5
+   ],
+   "durationSec": 16
+  },
+  "kusatma": {
+   "image": "harita",
+   "crop": [
+    0.6,
+    0.5,
+    1.0,
+    0.7925
+   ],
+   "title": "Dört yandan düşman",
+   "subtitle": "MÖ 14. yüzyıl ortası",
+   "arrows": [
+    {
+     "points": [
+      [
+       0.53,
+       0.08
+      ],
+      [
+       0.41,
+       0.14
+      ]
+     ],
+     "color": "#d4553a",
+     "start": 1.0,
+     "duration": 2.0,
+     "label": "Kaşkalar"
+    },
+    {
+     "points": [
+      [
+       0.04,
+       0.4
+      ],
+      [
+       0.25,
+       0.3
+      ]
+     ],
+     "color": "#d4553a",
+     "start": 3.0,
+     "duration": 2.5,
+     "label": "Arzava"
+    },
+    {
+     "points": [
+      [
+       0.7,
+       0.45
+      ],
+      [
+       0.48,
+       0.3
+      ]
+     ],
+     "color": "#d4553a",
+     "start": 5.0,
+     "duration": 2.5,
+     "label": "Hayaşa"
+    }
+   ],
+   "markers": [
+    {
+     "x": 0.375,
+     "y": 0.164,
+     "label": "Hattuşa",
+     "start": 0.5
+    }
+   ],
+   "zoom": [
+    1.0,
+    1.06
+   ],
+   "focus": [
+    0.35,
+    0.3
+   ],
+   "durationSec": 16
+  },
+  "mitanni": {
+   "image": "harita",
+   "crop": [
+    0.6,
+    0.5,
+    1.0,
+    0.7925
+   ],
+   "title": "Mitanni seferi",
+   "subtitle": "I. Şuppiluliuma · MÖ 14. yüzyıl",
+   "arrows": [
+    {
+     "points": [
+      [
+       0.375,
+       0.164
+      ],
+      [
+       0.47,
+       0.38
+      ],
+      [
+       0.54,
+       0.53
+      ]
+     ],
+     "color": "#d4553a",
+     "start": 1.0,
+     "duration": 3.0
+    },
+    {
+     "points": [
+      [
+       0.54,
+       0.53
+      ],
+      [
+       0.7,
+       0.48
+      ]
+     ],
+     "color": "#d4553a",
+     "start": 5.0,
+     "duration": 2.5
+    }
+   ],
+   "markers": [
+    {
+     "x": 0.375,
+     "y": 0.164,
+     "label": "Hattuşa",
+     "start": 0.5
+    },
+    {
+     "x": 0.54,
+     "y": 0.53,
+     "label": "Karkamış",
+     "start": 4.0
+    },
+    {
+     "x": 0.72,
+     "y": 0.46,
+     "label": "Mitanni",
+     "start": 7.5
+    }
+   ],
+   "zoom": [
+    1.0,
+    1.06
+   ],
+   "focus": [
+    0.55,
+    0.4
+   ],
+   "durationSec": 16
+  },
+  "kades": {
+   "image": "harita",
+   "crop": [
+    0.6,
+    0.5,
+    1.0,
+    0.7925
+   ],
+   "title": "Kadeş Savaşı",
+   "subtitle": "MÖ 1274 · Muvattali ve II. Ramses",
+   "arrows": [
+    {
+     "points": [
+      [
+       0.375,
+       0.164
+      ],
+      [
+       0.47,
+       0.42
+      ],
+      [
+       0.49,
+       0.667
+      ]
+     ],
+     "color": "#d4553a",
+     "start": 1.0,
+     "duration": 3.5
+    },
+    {
+     "points": [
+      [
+       0.33,
+       0.9
+      ],
+      [
+       0.42,
+       0.85
+      ],
+      [
+       0.47,
+       0.7
+      ]
+     ],
+     "color": "#c9a45c",
+     "start": 3.0,
+     "duration": 3.5,
+     "label": "II. Ramses"
+    }
+   ],
+   "markers": [
+    {
+     "x": 0.375,
+     "y": 0.164,
+     "label": "Hattuşa",
+     "start": 0.5
+    },
+    {
+     "x": 0.49,
+     "y": 0.667,
+     "label": "Kadeş",
+     "start": 6.5
+    }
+   ],
+   "zoom": [
+    1.0,
+    1.06
+   ],
+   "focus": [
+    0.45,
+    0.6
+   ],
+   "durationSec": 16
+  },
+  "cokus": {
+   "image": "harita",
+   "crop": [
+    0.6,
+    0.5,
+    1.0,
+    0.7925
+   ],
+   "title": "Tunç Çağı'nın çöküşü",
+   "subtitle": "MÖ 1200 civarı",
+   "arrows": [
+    {
+     "points": [
+      [
+       0.02,
+       0.6
+      ],
+      [
+       0.25,
+       0.72
+      ],
+      [
+       0.44,
+       0.62
+      ]
+     ],
+     "color": "#d4553a",
+     "start": 1.0,
+     "duration": 4.0,
+     "label": "Deniz Kavimleri"
+    },
+    {
+     "points": [
+      [
+       0.25,
+       0.72
+      ],
+      [
+       0.28,
+       0.86
+      ]
+     ],
+     "color": "#d4553a",
+     "start": 4.5,
+     "duration": 2.5
+    }
+   ],
+   "markers": [
+    {
+     "x": 0.375,
+     "y": 0.164,
+     "label": "Hattuşa",
+     "start": 6.0
+    },
+    {
+     "x": 0.46,
+     "y": 0.6,
+     "label": "Ugarit",
+     "start": 4.5
+    },
+    {
+     "x": 0.28,
+     "y": 0.88,
+     "label": "Mısır",
+     "start": 7.0
+    }
+   ],
+   "zoom": [
+    1.0,
+    1.06
+   ],
+   "focus": [
+    0.4,
+    0.55
+   ],
+   "durationSec": 16
+  }
+ },
+ "klip_yerleri": {
+  "_not": "Gemini klipleri gelince bu paragraflardaki ilgili çekimin yerine {\"clip\": \"klipler/klipN.mp4\"} konur.",
+  "klip1": "0.0",
+  "klip2": "2.2",
+  "klip3": "7.9",
+  "klip4": "2.9",
+  "klip5": "5.6",
+  "klip6": "5.7",
+  "klip7": "8.6",
+  "klip8": "8.9"
+ },
+ "chapters": [
+  {
+   "title": "Giriş",
+   "paragraphs": [
+    {
+     "text": "Anadolu'nun ortasında, bugün Çorum'un sessiz tepelerinde, dev taşlardan örülmüş bir kapı duruyor. İki yanında, üç bin yılı aşkın süredir aynı yöne bakan iki taş aslan.",
+     "shots": [
+      {
+       "film": "hattusa_video",
+       "start": 1097.0,
+       "label": "HATTUŞA · BOĞAZKALE, ÇORUM"
+      },
+      {
+       "film": "hattusa_video",
+       "start": 886.0
+      },
+      {
+       "image": "aslan_kapi_1",
+       "move": "in"
+      }
+     ]
+    },
+    {
+     "text": "Bu kapının ardında bir zamanlar bir imparatorluğun kalbi atıyordu. Kralları Mısır firavunlarıyla eşit konuşuyordu. Orduları Babil'e kadar yürüdü. Tarihin bilinen en eski barış antlaşmalarından birini bu kentin kâtipleri kile kazıdı.",
+     "shots": [
+      {
+       "image": "aslan_kapi_2",
+       "move": "right"
+      },
+      {
+       "image": "amarna_mektup2",
+       "move": "in"
+      },
+      {
+       "image": "araba_karkamis",
+       "move": "right"
+      },
+      {
+       "image": "kades_parca",
+       "move": "in"
+      }
+     ]
+    },
+    {
+     "text": "Ve sonra, bir gün, her şey sustu. Kent boşaltıldı, saraylar yandı, adları unutuldu. O kadar unutuldu ki, yaklaşık üç bin yıl boyunca dünya bu insanların var olduğunu bile bilmedi.",
+     "shots": [
+      {
+       "image": "buyukkale_1",
+       "move": "out",
+       "overlay": "katman_kivilcim"
+      },
+      {
+       "stock": "yangin",
+       "start": 0.0
+      },
+      {
+       "film": "hattusa_video",
+       "start": 483.0
+      }
+     ]
+    },
+    {
+     "text": "Bugün onlara Hititler diyoruz. Bu, onların tam hikâyesi: bir dağ kentinden doğup Yakın Doğu'nun büyük güçlerinden birine dönüşen, sonra neredeyse iz bırakmadan kaybolan bir imparatorluğun hikâyesi.",
+     "shots": [
+      {
+       "image": "panorama",
+       "move": "left"
+      },
+      {
+       "film": "hattusa_video",
+       "start": 1397.0
+      },
+      {
+       "stock": "bozkir_gunbatimi",
+       "start": 10.0
+      }
+     ]
+    },
+    {
+     "text": "Bu yolculukta kayıp bir dilin nasıl çözüldüğünü, bir Mısır kraliçesinin gizemli mektubunu, antik dünyanın en büyük savaş arabası çarpışmalarından birini ve o savaşın ardından gelen beklenmedik barışı göreceğiz. Ama önce, en büyük soruyla başlayalım: Koca bir imparatorluk, nasıl olur da tarihten silinir?",
+     "shots": [
+      {
+       "image": "hattusa_hiyeroglif",
+       "move": "left"
+      },
+      {
+       "image": "ankhesenamun",
+       "move": "in"
+      },
+      {
+       "image": "ramesseum_kades",
+       "move": "up"
+      },
+      {
+       "image": "kades_tablet",
+       "move": "in"
+      },
+      {
+       "film": "hattusa_video",
+       "start": 1158.0
+      }
+     ]
+    }
+   ],
+   "music": null
+  },
+  {
+   "title": "Unutulmuş Bir İmparatorluk",
+   "paragraphs": [
+    {
+     "text": "Bin sekiz yüz otuz dört yılında Fransız gezgin Charles Texier, Anadolu'nun içlerinde, Boğazköy adlı küçük bir köyün yakınlarında devasa kalıntılarla karşılaştı. Kilometrelerce uzanan surlar, oyulmuş kaya kabartmaları, büyük kapılar… Texier bu kalıntıların kime ait olduğunu bilmiyordu. Kimse bilmiyordu.",
+     "shots": [
+      {
+       "image": "eski_gravur",
+       "move": "in",
+       "label": "BOĞAZKÖY · 1834"
+      },
+      {
+       "film": "hattusa_video",
+       "start": 782.0
+      },
+      {
+       "film": "hattusa_video",
+       "start": 1021.0
+      },
+      {
+       "image": "yazilikaya_giris",
+       "move": "right"
+      }
+     ]
+    },
+    {
+     "text": "Texier önce burasının, antik Yunan tarihçisi Herodot'un sözünü ettiği Pteria kenti olabileceğini düşündü. Yakındaki kayalıkta, yan yana yürüyen tanrı figürlerini gördüğünde ise hayrete düştü. Bu figürler ne Yunan'a, ne Roma'ya, ne de Pers dünyasına benziyordu. Bu, bilinmeyen bir halkın sanatıydı.",
+     "shots": [
+      {
+       "image": "vadi",
+       "move": "out"
+      },
+      {
+       "image": "yazilikaya_a",
+       "move": "in",
+       "label": "YAZILIKAYA"
+      },
+      {
+       "image": "yazilikaya_a4",
+       "move": "left"
+      },
+      {
+       "image": "yazilikaya_a5",
+       "move": "left"
+      }
+     ]
+    },
+    {
+     "text": "O dönemde Hititler hakkında bilinenler, neredeyse yalnızca Tevrat'taki kısa birkaç satırdan ibaretti. Orada Hititler, küçük bir Kenan halkı gibi anılıyordu. Kimse onların bir zamanlar bir imparatorluk kurduğunu düşünmüyordu.",
+     "shots": [
+      {
+       "stock": "mum_isigi",
+       "start": 0.0
+      },
+      {
+       "image": "panorama_2",
+       "move": "right"
+      },
+      {
+       "film": "hattusa_video",
+       "start": 467.0
+      }
+     ]
+    },
+    {
+     "text": "Yüzyılın sonlarına doğru İngiliz dilbilimci Archibald Sayce cesur bir iddia ortaya attı: Anadolu'dan Suriye'ye kadar dağılmış bu gizemli yazıtlar ve kabartmalar, unutulmuş büyük bir imparatorluğa aitti. Pek çok bilim insanı ona şüpheyle baktı. Kanıt yoktu. Okunabilen tek bir cümle bile yoktu.",
+     "shots": [
+      {
+       "image": "yazilikaya_b",
+       "move": "in"
+      },
+      {
+       "image": "ivriz",
+       "move": "up",
+       "label": "İVRİZ KAYA ANITI"
+      },
+      {
+       "image": "karkamis_savasci",
+       "move": "in"
+      },
+      {
+       "image": "hattusa_hiyeroglif",
+       "move": "right",
+       "overlay": "katman_toz"
+      }
+     ]
+    },
+    {
+     "text": "Kanıt, bin dokuz yüz altı yılında topraktan çıktı. Alman arkeolog Hugo Winckler ve Osmanlı müzeciliğinin önemli isimlerinden Theodor Makridi, Boğazköy'de kazıya başladılar. Kısa sürede binlerce kil tablete ulaştılar. Bu bir krallık arşiviydi: mektuplar, antlaşmalar, kanunlar, dualar, kehanetler…",
+     "shots": [
+      {
+       "image": "buyukkale_1994",
+       "move": "out",
+       "label": "BÜYÜKKALE · HATTUŞA"
+      },
+      {
+       "film": "hattusa_video",
+       "start": 707.0
+      },
+      {
+       "image": "suppiluliuma_tablet",
+       "move": "in"
+      },
+      {
+       "image": "bogazkoy_muze",
+       "move": "left"
+      }
+     ]
+    },
+    {
+     "text": "Tabletlerin bir kısmı, o çağın diplomasi dili olan Akadca ile yazılmıştı ve okunabiliyordu. Bu tabletler, kazılan yerin kayıp başkentin ta kendisi olduğunu gösteriyordu: Hattuşa.",
+     "shots": [
+      {
+       "image": "kades_parca",
+       "move": "left"
+      },
+      {
+       "image": "buyukkale_13",
+       "move": "in"
+      }
+     ]
+    },
+    {
+     "text": "Ama tabletlerin çoğu, kimsenin anlamadığı bir dildeydi. Çivi yazısıyla yazılmışlardı, işaretler okunabiliyordu, ama kelimeler hiçbir bilinen dile benzemiyordu.",
+     "shots": [
+      {
+       "image": "suppiluliuma_antlasma",
+       "move": "in"
+      },
+      {
+       "image": "asur_tablet",
+       "move": "up",
+       "overlay": "katman_toz"
+      }
+     ]
+    },
+    {
+     "text": "Bu bilmeceyi Çek dilbilimci Bedřich Hrozný çözdü. Hrozný, bir tablette şu cümleye takıldı: \"nu ninda-an ezzatteni, vatar-ma ekutteni.\"",
+     "shots": [
+      {
+       "image": "hrozny_anit",
+       "move": "in",
+       "label": "BEDŘICH HROZNÝ (1879–1952)"
+      },
+      {
+       "image": "suppiluliuma_tablet",
+       "move": "right"
+      }
+     ]
+    },
+    {
+     "text": "\"Ninda\" işareti Sümercede \"ekmek\" anlamına geliyordu. Hemen yanındaki \"ezza\" kelimesi, Latince ve Almancadaki \"yemek\" fiillerini andırıyordu. \"Vatar\" ise neredeyse İngilizcedeki \"water\" ile aynıydı.",
+     "shots": [
+      {
+       "stock": "ekmek_firin",
+       "start": 0.0
+      },
+      {
+       "stock": "nehir",
+       "start": 0.0
+      },
+      {
+       "image": "bogazkoy_muze_5",
+       "move": "right"
+      }
+     ]
+    },
+    {
+     "text": "Cümle şu anlama geliyordu: \"Şimdi ekmek yiyeceksiniz ve su içeceksiniz.\"",
+     "shots": [
+      {
+       "image": "kades_tablet",
+       "move": "in"
+      }
+     ]
+    },
+    {
+     "text": "Bin dokuz yüz on beşte yayımlanan bu çözüm, bilim dünyasını sarstı. Hititçe, Hint-Avrupa dil ailesine aitti; yani İngilizce, Almanca, Farsça ve Hintçe ile aynı kökten geliyordu. Üstelik bu ailenin yazıya geçirilmiş bilinen en eski üyesiydi.",
+     "shots": [
+      {
+       "image": "hrozny_muze",
+       "move": "out"
+      },
+      {
+       "image": "hattusa_hiyeroglif",
+       "move": "left"
+      },
+      {
+       "film": "hattusa_video",
+       "start": 1127.0
+      }
+     ]
+    },
+    {
+     "text": "Üç bin yıl susan imparatorluk, yeniden konuşmaya başlamıştı. Peki bu insanlar kimdi ve Anadolu'nun kalbinde bu güç nasıl doğdu?",
+     "shots": [
+      {
+       "image": "aslan_kapi_5",
+       "move": "in"
+      },
+      {
+       "film": "hattusa_video",
+       "start": 1426.0
+      }
+     ]
+    }
+   ],
+   "music": null,
+   "card": {
+    "kicker": "BÖLÜM I",
+    "date": "1834 · Boğazköy",
+    "image": "eski_gravur"
+   }
+  },
+  {
+   "title": "Hattuşa'nın Doğuşu",
+   "paragraphs": [
+    {
+     "text": "Hikâye, Hititlerden önce başlıyor. Milattan önce üçüncü binyılda Orta Anadolu'da Hattiler adında bir halk yaşıyordu. Hattuşa adı da, Hitit tanrılarının pek çoğu da, aslında bu eski halktan miras kaldı.",
+     "shots": [
+      {
+       "stock": "gok_timelapse",
+       "start": 0.0
+      },
+      {
+       "image": "hatti_disk",
+       "move": "left",
+       "label": "HATTİ GÜNEŞ KURSU"
+      },
+      {
+       "image": "alaca_seramik",
+       "move": "in"
+      }
+     ]
+    },
+    {
+     "text": "Milattan önce ikinci binyılın başlarında bölgede, kendi dillerini konuşan yeni topluluklar güç kazanmaya başladı. Bugün Hititçe dediğimiz dili konuşan bu insanlar, kendi dillerine \"Neşili\" diyordu; Kayseri yakınlarındaki Kaniş kentinin, yani bugünkü Kültepe'nin diğer adı olan Neşa'dan.",
+     "shots": [
+      {
+       "image": "vadi_1991",
+       "move": "up"
+      },
+      {
+       "image": "figurin_boga",
+       "move": "in"
+      },
+      {
+       "stock": "koyun_suru",
+       "start": 0.0
+      }
+     ]
+    },
+    {
+     "text": "Kaniş, o dönemde dünyanın en hareketli ticaret merkezlerinden biriydi. Mezopotamya'daki Asur kentinden gelen tüccarlar, kentin eteklerine bir ticaret mahallesi kurmuştu. Eşek kervanlarıyla aylar süren yolculuklar yapıyor, Anadolu'ya kalay ve değerli kumaşlar getiriyor, karşılığında altın ve gümüş götürüyorlardı.",
+     "shots": [
+      {
+       "image": "kultepe",
+       "move": "right",
+       "label": "KÜLTEPE (KANİŞ) · KAYSERİ"
+      },
+      {
+       "image": "kultepe_hoyuk",
+       "move": "out"
+      },
+      {
+       "image": "asur_zarf",
+       "move": "left"
+      },
+      {
+       "image": "asur_muhur",
+       "move": "in"
+      }
+     ]
+    },
+    {
+     "text": "Bu tüccarlar, Anadolu'ya çok önemli bir şey daha getirdi: yazıyı. Kültepe'de, iş mektupları, borç senetleri, aile yazışmaları içeren on binlerce kil tablet bulundu. Bir tüccar karısının kocasına yazdığı sitem dolu bir mektup, bir babanın oğluna verdiği öğütler… Bunlar, Anadolu'da yazıya geçmiş en eski sesler arasında. Ve bu tabletlerdeki yerel isimler arasında, Hititçenin bilinen en eski kelimeleri de var.",
+     "shots": [
+      {
+       "image": "asur_tablet",
+       "move": "in"
+      },
+      {
+       "stock": "kil_eller",
+       "start": 0.0
+      },
+      {
+       "image": "asur_zarf",
+       "move": "left"
+      },
+      {
+       "image": "asur_muhur",
+       "move": "in"
+      },
+      {
+       "film": "hattusa_video",
+       "start": 166.0
+      }
+     ]
+    },
+    {
+     "text": "Bu dönemin en çarpıcı belgelerinden biri, Kuşşara kralı Anitta'ya ait bir metindir. Anitta, Hattuşa'yı ele geçirip yerle bir ettiğini anlatır. Sonra da kente bir lanet okur: Kendisinden sonra burada yeniden kral olup Hattuşa'yı iskân eden olursa, Fırtına Tanrısı onu cezalandırsın.",
+     "shots": [
+      {
+       "image": "kultepe_hoyuk",
+       "move": "right"
+      },
+      {
+       "image": "asur_tablet",
+       "move": "up",
+       "overlay": "katman_toz"
+      },
+      {
+       "stock": "ates_gece",
+       "start": 0.0
+      }
+     ]
+    },
+    {
+     "text": "Tarihin ironisine bakın: Bu lanetten yaklaşık bir asır sonra Hattuşa, tam da Anitta'nın halefleri sayılan krallar tarafından yeniden kuruldu ve bir imparatorluğun başkenti oldu.",
+     "shots": [
+      {
+       "film": "hattusa_video",
+       "start": 1652.0
+      },
+      {
+       "image": "panorama",
+       "move": "right"
+      }
+     ]
+    },
+    {
+     "text": "Milattan önce on yedinci yüzyılda, kendine Hattuşili, yani \"Hattuşalı\" adını veren bir kral, başkentini bu kayalık tepelere taşıdı. Yer kusursuz bir seçimdi: derin vadilerle çevrili, savunması kolay, suyu bol bir dağ yamacı.",
+     "shots": [
+      {
+       "image": "kral_kapi",
+       "move": "in",
+       "label": "KRAL KAPISI · HATTUŞA"
+      },
+      {
+       "film": "hattusa_video",
+       "start": 1457.0
+      },
+      {
+       "image": "sur_1",
+       "move": "in"
+      }
+     ]
+    },
+    {
+     "text": "Hattuşili savaşçı bir kraldı. Güneye, Toros Dağları'nın ötesine, Suriye'nin zengin ticaret kentlerine seferler düzenledi. Ama arkasında bıraktığı en ilginç belge, bir zafer yazıtı değil, ölüm döşeğinde söylediği sözlerdir.",
+     "shots": [
+      {
+       "stock": "at_dortnala",
+       "start": 0.0
+      },
+      {
+       "image": "karkamis_savasci",
+       "move": "right"
+      },
+      {
+       "image": "halep",
+       "move": "out",
+       "label": "HALEP"
+      }
+     ]
+    },
+    {
+     "text": "Bu vasiyette yaşlı kral, kendi ailesinin ihanetlerinden acı acı yakınır. Seçtiği veliahdın kendisine karşı geldiğini, akrabalarının onu dinlemediğini anlatır. Ve tahtı, torunu ve evlatlığı olan genç Murşili'ye bırakır.",
+     "shots": [
+      {
+       "image": "suppiluliuma_tablet",
+       "move": "left"
+      },
+      {
+       "stock": "mum_isigi",
+       "start": 4.0
+      },
+      {
+       "image": "oturan_kadin",
+       "move": "left"
+      }
+     ]
+    },
+    {
+     "text": "Murşili, dedesinin bıraktığı işi tamamladı. Önce Suriye'nin güçlü kenti Halep'i aldı. Sonra kimsenin beklemediği bir şey yaptı: Ordusunu Fırat boyunca yüzlerce kilometre güneye sürdü ve Babil'i yağmaladı.",
+     "shots": [
+      {
+       "map": "babil_seferi",
+       "transition": "dissolve"
+      },
+      {
+       "image": "halep",
+       "move": "right"
+      }
+     ]
+    },
+    {
+     "text": "Hammurabi'nin kurduğu ünlü hanedan, bu saldırıyla sona erdi. Babil seferinin tarihi, kullanılan kronolojiye göre değişir; en sık verilen tarih milattan önce on altıncı yüzyılın başlarıdır. Amacının ne olduğu da tartışmalıdır: Kalıcı bir fetih değil, büyük bir yağma ve güç gösterisi gibi görünür.",
+     "shots": [
+      {
+       "image": "hammurabi",
+       "move": "in",
+       "label": "HAMMURABİ KANUNLARI · LOUVRE"
+      },
+      {
+       "stock": "yangin",
+       "start": 6.0
+      },
+      {
+       "image": "hammurabi",
+       "move": "up",
+       "focus": [
+        0.5,
+        0.3
+       ]
+      }
+     ]
+    },
+    {
+     "text": "Murşili, zaferle başkentine döndü. Ve döndükten kısa süre sonra, kendi eniştesi Hantili tarafından öldürüldü.",
+     "shots": [
+      {
+       "film": "hattusa_video",
+       "start": 1501.0
+      },
+      {
+       "stock": "mum_isigi",
+       "start": 8.0
+      }
+     ]
+    },
+    {
+     "text": "Anadolu'nun en güçlü kralı, düşmanın kılıcıyla değil, ailesinin hançeriyle düştü. Ve bu cinayet, Hitit tarihinin kanlı bir bölümünü başlatacaktı.",
+     "shots": [
+      {
+       "image": "buyukkale_41",
+       "move": "in",
+       "overlay": "katman_sis"
+      },
+      {
+       "stock": "ates_gece",
+       "start": 3.0
+      }
+     ]
+    }
+   ],
+   "music": null,
+   "card": {
+    "kicker": "BÖLÜM II",
+    "date": "MÖ 17. yüzyıl · Orta Anadolu",
+    "image": "kultepe"
+   }
+  },
+  {
+   "title": "Kanlı Taht",
+   "paragraphs": [
+    {
+     "text": "Murşili'nin ölümünden sonra gelen yıllar, saray entrikalarıyla, suikastlarla ve iç savaşlarla geçti. Bir kral öldürülüyor, yerine geçen bir başkası birkaç yıl içinde aynı akıbete uğruyordu. Merkez zayıfladıkça, bir zamanlar fethedilen topraklar birer birer elden çıktı.",
+     "shots": [
+      {
+       "image": "buyuk_mabet_1",
+       "move": "up"
+      },
+      {
+       "image": "buyuk_mabet_2",
+       "move": "in"
+      },
+      {
+       "film": "hattusa_video",
+       "start": 497.0
+      }
+     ]
+    },
+    {
+     "text": "Bu kargaşaya son vermeye çalışan kral, Telipinu oldu. Telipinu, bugün \"Telipinu Fermanı\" diye bilinen bir metin bıraktı. Ferman, önce geçmişin kanlı hikâyesini anlatır: Krallık birlik içindeyken nasıl büyüdüğünü, kardeşler birbirini öldürmeye başlayınca nasıl çöktüğünü.",
+     "shots": [
+      {
+       "image": "buyuk_mabet_3",
+       "move": "right",
+       "label": "BÜYÜK MABET · HATTUŞA"
+      },
+      {
+       "image": "suppiluliuma_tablet",
+       "move": "out"
+      },
+      {
+       "film": "hattusa_video",
+       "start": 512.0
+      }
+     ]
+    },
+    {
+     "text": "Sonra kurallar koyar. Tahta kimin geçeceği açıkça belirlenir: önce kralın birinci eşinden doğan oğul, o yoksa ikinci derecedeki oğul, oğul yoksa kralın kızının kocası. Ve en önemlisi: Kraliyet ailesinden birini öldüren, kanunla yargılanacaktı.",
+     "shots": [
+      {
+       "image": "suppiluliuma_antlasma",
+       "move": "right"
+      },
+      {
+       "stock": "mum_isigi",
+       "start": 2.0
+      },
+      {
+       "image": "asur_tablet",
+       "move": "left"
+      }
+     ]
+    },
+    {
+     "text": "Bu, eski dünyada nadir görülen bir şeydi: Kralın kendi gücünü yazılı kurallarla sınırlaması.",
+     "shots": [
+      {
+       "image": "kades_parca",
+       "move": "in"
+      }
+     ]
+    },
+    {
+     "text": "Hititlerin hukuku da kendi döneminin pek çok komşusundan farklıydı. Hitit kanunlarında, \"göze göz, dişe diş\" yerine çoğu suç için tazminat öngörülüyordu. Hırsızlığın, yaralamanın, hatta bazı ağır suçların bedeli, gümüş ya da hayvan olarak ödenebiliyordu.",
+     "shots": [
+      {
+       "image": "figurin_amasya",
+       "move": "in"
+      },
+      {
+       "image": "oturan_kadin",
+       "move": "in"
+      },
+      {
+       "stock": "bugday_ruzgar",
+       "start": 0.0
+      }
+     ]
+    },
+    {
+     "text": "Ama yazılı kurallar, dışarıdaki tehlikeleri durduramazdı. Kuzeyde, Karadeniz'e uzanan dağlarda yaşayan Kaşka adlı savaşçı topluluklar, yüzyıllar boyunca Hititlerin başına bela oldu. Kaşkalar bir krallık değil, dağınık kabilelerdi. Tek bir başkentleri, yenilip teslim alınacak tek bir kralları yoktu. Hitit orduları bir vadiyi temizlediğinde, onlar bir başka vadiden geri dönüyordu. Hattuşa'nın kuzeye bu kadar yakın olması, kenti sürekli bir tehdit altında tutuyordu.",
+     "shots": [
+      {
+       "stock": "bozkir_ruzgar",
+       "start": 0.0
+      },
+      {
+       "film": "hattusa_video",
+       "start": 677.0
+      },
+      {
+       "image": "sur_2",
+       "move": "up"
+      },
+      {
+       "image": "karkamis_savasci",
+       "move": "left"
+      },
+      {
+       "stock": "ates_gece",
+       "start": 6.0
+      }
+     ]
+    },
+    {
+     "text": "Batıda ise Arzava adlı güçlü bir krallık vardı. Arzava o kadar önemli bir güçtü ki, bir dönem Mısır firavunu, Hitit kralı yerine Arzava kralıyla evlilik yoluyla ittifak kurmaya çalıştı. Bu yazışmalar da günümüze ulaştı. Güneydoğuda ise yükselen yeni bir güç vardı: Mitanni Krallığı.",
+     "shots": [
+      {
+       "image": "gaga_testi",
+       "move": "in"
+      },
+      {
+       "image": "testi_tokat",
+       "move": "right"
+      },
+      {
+       "stock": "deniz_safak",
+       "start": 0.0
+      }
+     ]
+    },
+    {
+     "text": "Milattan önce on dördüncü yüzyılın ortalarına gelindiğinde, Hitit devleti tarihinin en karanlık anlarından birini yaşıyordu. Metinlere göre düşmanlar her yönden saldırmış, Hattuşa'nın kendisi bile ateşe verilmişti.",
+     "shots": [
+      {
+       "map": "kusatma",
+       "transition": "dissolve"
+      },
+      {
+       "image": "yerkapi_ag",
+       "move": "out",
+       "overlay": "katman_kivilcim"
+      }
+     ]
+    },
+    {
+     "text": "Hitit krallığı yok olmanın eşiğindeydi. Ama tam bu noktada, tarihin en yetenekli komutanlarından biri sahneye çıkacaktı.",
+     "shots": [
+      {
+       "film": "hattusa_video",
+       "start": 617.0
+      },
+      {
+       "stock": "gok_timelapse",
+       "start": 6.0
+      }
+     ]
+    }
+   ],
+   "music": null,
+   "card": {
+    "kicker": "BÖLÜM III",
+    "date": "MÖ 16. yüzyıl · Hattuşa",
+    "image": "buyuk_mabet_3"
+   }
+  },
+  {
+   "title": "Büyük Kral",
+   "paragraphs": [
+    {
+     "text": "Adı Şuppiluliuma'ydı. Babasının yanında genç bir komutan olarak savaşmış, krallığı yeniden toparlamıştı. Tahta çıktığında, Hitit devletini Yakın Doğu'nun en büyük güçlerinden biri hâline getirecekti.",
+     "shots": [
+      {
+       "image": "kral_kapi_4",
+       "move": "in"
+      },
+      {
+       "image": "aslantepe_libasyon",
+       "move": "left"
+      },
+      {
+       "stock": "at_dortnala",
+       "start": 4.0
+      }
+     ]
+    },
+    {
+     "text": "Bu, büyük güçlerin birbirine mektup yazdığı bir çağdı. Mısır'da Amarna'da bulunan diplomatik yazışmalar, dönemin krallarının birbirine nasıl hitap ettiğini gösterir: \"kardeşim\" diye başlayan mektuplar, altın talepleri, gecikmiş hediyeler için sitemler, evlilik pazarlıkları… Hitit kralı da bu kulübün bir üyesiydi ve firavuna, eşitine yazar gibi yazıyordu.",
+     "shots": [
+      {
+       "image": "amarna_mektup2",
+       "move": "in",
+       "label": "AMARNA MEKTUPLARI"
+      },
+      {
+       "image": "karnak",
+       "move": "up"
+      },
+      {
+       "image": "suppiluliuma_tablet",
+       "move": "in"
+      },
+      {
+       "image": "mitanni_seramik",
+       "move": "in"
+      }
+     ]
+    },
+    {
+     "text": "Şuppiluliuma'nın en büyük hedefi Mitanni'ydi. Mitanni, Fırat'ın doğusunda, savaş arabası ustası bir aristokrasinin yönettiği güçlü bir krallıktı. Hitit ordusuna daha önce ağır kayıplar verdirmişti. Uzun ve dikkatli bir hazırlığın ardından, Şuppiluliuma cesur bir hamle yaptı. Ordusunu beklenmedik bir yoldan, kuzeyden dolaştırarak Mitanni topraklarının içine sürdü. Mitanni başkenti yağmalandı, krallık iç savaşa sürüklendi ve bir daha eski gücüne kavuşamadı.",
+     "shots": [
+      {
+       "map": "mitanni",
+       "transition": "dissolve"
+      },
+      {
+       "image": "mitanni_seramik",
+       "move": "left"
+      },
+      {
+       "stock": "nehir",
+       "start": 10.0
+      },
+      {
+       "image": "karkamis_savasci",
+       "move": "right"
+      },
+      {
+       "image": "araba_karkamis",
+       "move": "right"
+      }
+     ]
+    },
+    {
+     "text": "Şuppiluliuma böylece Suriye'nin büyük bölümünü ele geçirdi. Fırat kıyısındaki önemli kent Karkamış'ı aldı ve oğullarını Suriye'deki kilit kentlere kral olarak atadı. Artık Hitit kralı, kendisini Mısır firavunu ve Babil kralıyla eşit sayan bir \"Büyük Kral\"dı.",
+     "shots": [
+      {
+       "image": "araba_karkamis_d",
+       "move": "out"
+      },
+      {
+       "image": "halep",
+       "move": "left"
+      },
+      {
+       "stock": "nehir",
+       "start": 20.0
+      }
+     ]
+    },
+    {
+     "text": "Tam da bu sırada, tarihin en şaşırtıcı mektuplarından biri Hattuşa'ya ulaştı.",
+     "shots": [
+      {
+       "image": "amarna_mektup2",
+       "move": "in"
+      }
+     ]
+    },
+    {
+     "text": "Mektup, Mısır'dan geliyordu. Yazan, kocası yeni ölmüş bir Mısır kraliçesiydi. Hitit kaynaklarında adı \"Dahamunzu\" diye geçer; bu kelime büyük olasılıkla \"kralın karısı\" anlamına gelen bir unvandır.",
+     "shots": [
+      {
+       "image": "ankhesenamun",
+       "move": "left"
+      },
+      {
+       "image": "karnak",
+       "move": "right"
+      }
+     ]
+    },
+    {
+     "text": "Kraliçe şöyle yazıyordu: \"Kocam öldü. Oğlum yok. Senin ise çok oğlun olduğunu söylüyorlar. Bana oğullarından birini gönderirsen, o benim kocam olur. Asla kendi hizmetkârlarımdan birini alıp ona koca demeyeceğim.\"",
+     "shots": [
+      {
+       "image": "ankhesenamun_ok",
+       "move": "in"
+      },
+      {
+       "stock": "mum_isigi",
+       "start": 6.0
+      }
+     ]
+    },
+    {
+     "text": "Şuppiluliuma inanamadı. Mısır'ın kraliçesi, ezeli rakibinden bir koca istiyordu. Kral, bunun bir tuzak olabileceğinden şüphelenerek önce bir elçi gönderdi. Elçi, kraliçenin yeni bir mektubuyla döndü. Kraliçe kırgındı: \"Eğer bir oğlum olsaydı, kendi utancımı yabancı bir ülkeye yazar mıydım?\"",
+     "shots": [
+      {
+       "image": "suppiluliuma_antlasma",
+       "move": "in"
+      },
+      {
+       "image": "ankhesenamun",
+       "move": "right"
+      },
+      {
+       "stock": "deniz_safak",
+       "start": 10.0
+      }
+     ]
+    },
+    {
+     "text": "Bu kraliçenin kim olduğu, bugün hâlâ tartışılıyor. Bazı tarihçiler onun Tutankamon'un dul eşi Ankhesenamun olduğunu düşünüyor; başka adaylar da var. Kesin bir yanıt yok.",
+     "shots": [
+      {
+       "image": "ankhesenamun",
+       "move": "in",
+       "note": "Kimliği tartışmalı"
+      },
+      {
+       "image": "ankhesenamun_ok",
+       "move": "left"
+      }
+     ]
+    },
+    {
+     "text": "Sonunda Şuppiluliuma, oğullarından Zannanza'yı Mısır'a gönderdi. Ama prens Mısır'a hiç ulaşamadı. Yolda öldürüldü. Kimin öldürdüğü bilinmiyor, ama Hititler suçu Mısırlılara yükledi.",
+     "shots": [
+      {
+       "stock": "at_dortnala",
+       "start": 8.0
+      },
+      {
+       "image": "karnak",
+       "move": "left"
+      }
+     ]
+    },
+    {
+     "text": "Öfkeli kral intikam için Mısır'ın Suriye'deki topraklarına saldırdı ve binlerce esir aldı. Ve burada hikâye, kimsenin beklemediği bir yöne döndü.",
+     "shots": [
+      {
+       "image": "araba_samal",
+       "move": "up"
+      },
+      {
+       "stock": "yangin",
+       "start": 10.0
+      }
+     ]
+    },
+    {
+     "text": "Esirlerle birlikte Hitit topraklarına bir salgın hastalık geldi. Salgın yıllarca sürdü. Kurbanları arasında Büyük Kral Şuppiluliuma'nın kendisi ve kısa süre sonra onun yerine geçen oğlu da vardı.",
+     "shots": [
+      {
+       "image": "buyukkale_1",
+       "move": "in",
+       "overlay": "katman_sis"
+      },
+      {
+       "stock": "kurak_toprak",
+       "start": 0.0
+      }
+     ]
+    },
+    {
+     "text": "Bu felaketi bugün bildiğimiz, Şuppiluliuma'nın diğer oğlu Murşili'nin yazdığı dualar sayesinde. Genç kral, \"Veba Duaları\" diye bilinen metinlerde tanrılara yalvarır: Babasının bir yemini bozduğu için mi cezalandırıldıklarını sorar, hataları itiraf eder ve halkı için merhamet diler. Üç bin yıl öncesinden gelen bu sesler, bir kralın değil, çaresiz bir insanın sesidir.",
+     "shots": [
+      {
+       "image": "suppiluliuma_tablet",
+       "move": "left"
+      },
+      {
+       "image": "bogazkoy_muze",
+       "move": "right"
+      },
+      {
+       "stock": "mum_isigi",
+       "start": 1.0
+      },
+      {
+       "film": "hattusa_video",
+       "start": 181.0
+      }
+     ]
+    }
+   ],
+   "music": null,
+   "card": {
+    "kicker": "BÖLÜM IV",
+    "date": "MÖ 14. yüzyıl · Hattuşa'dan Suriye'ye",
+    "image": "kral_kapi_4"
+   }
+  },
+  {
+   "title": "Kadeş",
+   "paragraphs": [
+    {
+     "text": "Salgın yıllarının ardından imparatorluk ayakta kalmayı başardı. Murşili uzun hükümdarlığı boyunca sınırları korudu. Onun oğlu Muvattali tahta çıktığında ise ufukta büyük bir fırtına vardı.",
+     "shots": [
+      {
+       "image": "araba_karkamis",
+       "move": "in"
+      },
+      {
+       "image": "ramses_heykel",
+       "move": "out",
+       "label": "II. RAMSES"
+      }
+     ]
+    },
+    {
+     "text": "Mısır'da yeni ve hırslı bir firavun hüküm sürüyordu: İkinci Ramses. Ramses, atalarının kaybettiği Suriye topraklarını geri almaya kararlıydı. İki süper gücün karşılaşacağı yer, Asi Nehri kıyısındaki Kadeş kentiydi.",
+     "shots": [
+      {
+       "image": "ramses_turin",
+       "move": "in"
+      },
+      {
+       "image": "ebu_simbel",
+       "move": "left",
+       "label": "EBU SİMBEL · MISIR"
+      }
+     ]
+    },
+    {
+     "text": "Muvattali savaşa uzun süre hazırlandı. Başkenti bir süreliğine Hattuşa'dan güneye, Tarhuntaşşa adlı yeni bir kente taşıdı. Bu kentin yeri bugün hâlâ kesin olarak bilinmiyor. Sonra imparatorluğun dört bir yanından, Batı Anadolu'dan Suriye'ye kadar, müttefik ve vasal krallıklardan asker topladı. Mısır kaynaklarına göre Kadeş önlerinde toplanan bu ordu, o güne kadar görülmüş en kalabalık ordulardan biriydi.",
+     "shots": [
+      {
+       "image": "karkamis_savasci",
+       "move": "in"
+      },
+      {
+       "stock": "at_dortnala",
+       "start": 2.0
+      },
+      {
+       "image": "araba_karkamis_d",
+       "move": "in"
+      },
+      {
+       "image": "tarhunda_araba",
+       "move": "up"
+      },
+      {
+       "stock": "bozkir_ruzgar",
+       "start": 8.0
+      }
+     ]
+    },
+    {
+     "text": "Hitit ordusunun en güçlü silahı, savaş arabalarıydı. Bu arabalar, hafif ve hızlı Mısır arabalarından daha ağırdı. Pek çok tarihçiye göre Hitit arabalarında sürücü ve savaşçının yanında bir de kalkan taşıyan üçüncü bir asker bulunuyordu. Mısır arabaları ise okçular için tasarlanmış, iki kişilik çevik platformlardı. Kadeş, bu iki savaş anlayışının karşılaşması olacaktı.",
+     "shots": [
+      {
+       "image": "araba_samal",
+       "move": "in"
+      },
+      {
+       "image": "tarhunda_araba",
+       "move": "left"
+      },
+      {
+       "stock": "at_dortnala",
+       "start": 6.0
+      },
+      {
+       "image": "araba_karkamis",
+       "move": "in"
+      }
+     ]
+    },
+    {
+     "text": "Ramses ordusunu dört büyük birlik hâlinde kuzeye yürüttü. Her birlik bir tanrının adını taşıyordu: Amon, Ra, Ptah ve Set. Kadeş'e yaklaşırken yakalanan iki bedevi, Hitit ordusunun çok uzakta, kuzeyde olduğunu söyledi. Ramses buna inandı ve öncü birliğiyle hızla ilerleyip Kadeş'in yakınında karargâh kurdu.",
+     "shots": [
+      {
+       "map": "kades",
+       "transition": "dissolve"
+      },
+      {
+       "image": "ramesseum_kades",
+       "move": "in"
+      }
+     ]
+    },
+    {
+     "text": "Ama bedeviler yalan söylüyordu. Mısır kaynaklarına göre onlar, Hititlerin gönderdiği casuslardı. Muvattali'nin ordusu tam karşıdaydı, kentin arkasında gizlenmişti.",
+     "shots": [
+      {
+       "image": "ramesseum_kades",
+       "move": "left",
+       "focus": [
+        0.3,
+        0.5
+       ]
+      },
+      {
+       "image": "ebu_simbel_salon",
+       "move": "right"
+      }
+     ]
+    },
+    {
+     "text": "Hitit savaş arabaları nehri geçti ve yürüyüş hâlindeki Mısır birliklerinden birinin üzerine çullandı. Birlik dağıldı. Kaçan askerler, Ramses'in karargâhına doğru koştu, peşlerinde Hitit arabaları.",
+     "shots": [
+      {
+       "stock": "at_dortnala",
+       "start": 9.0
+      },
+      {
+       "image": "ramesseum_kades",
+       "move": "right",
+       "focus": [
+        0.7,
+        0.5
+       ]
+      },
+      {
+       "stock": "nehir",
+       "start": 5.0
+      }
+     ]
+    },
+    {
+     "text": "Bu çatışma, antik dünyanın bilinen en büyük savaş arabası çarpışmalarından biri olarak anılır. Mısır kaynakları, binlerce savaş arabasından söz eder.",
+     "shots": [
+      {
+       "image": "ebu_simbel_salon",
+       "move": "in"
+      },
+      {
+       "stock": "at_dortnala",
+       "start": 1.0
+      }
+     ]
+    },
+    {
+     "text": "Mısır yazıtlarına göre Ramses, neredeyse tek başına, kendi savaş arabasıyla düşman saflarına daldı ve ordusunu kurtardı. Tam bu sırada, yetişen yeni Mısır birlikleri Hititleri geri püskürttü.",
+     "shots": [
+      {
+       "image": "ramses_heykel",
+       "move": "in"
+      },
+      {
+       "image": "ebu_simbel_salon",
+       "move": "left"
+      }
+     ]
+    },
+    {
+     "text": "Peki Kadeş'i kim kazandı?",
+     "shots": [
+      {
+       "image": "ramesseum_kades",
+       "move": "out"
+      }
+     ]
+    },
+    {
+     "text": "Ramses'e sorarsanız, cevap açıktı. Mısır'a döndükten sonra bu savaşı büyük bir zafer olarak anlattı ve tapınaklarının duvarlarına kazıttı. Ebu Simbel'de, Karnak'ta, Ramesseum'da bu sahneler bugün hâlâ görülebilir.",
+     "shots": [
+      {
+       "image": "karnak",
+       "move": "in",
+       "label": "KARNAK · MISIR"
+      },
+      {
+       "image": "ebu_simbel",
+       "move": "right"
+      }
+     ]
+    },
+    {
+     "text": "Ama sonuçlar başka bir şey söylüyor. Ramses Kadeş'i alamadı ve geri çekildi. Hititler ise bölgedeki konumlarını korudu, hatta sonraki yıllarda güneye doğru genişledi. Bugün tarihçilerin çoğu, Kadeş'i kesin bir galibi olmayan bir savaş olarak görür. Belki de tarihin ilk büyük propaganda savaşı, savaş alanında değil, tapınak duvarlarında kazanıldı.",
+     "shots": [
+      {
+       "image": "ramses_turin",
+       "move": "out"
+      },
+      {
+       "image": "kades_tablet",
+       "move": "left"
+      },
+      {
+       "image": "halep",
+       "move": "in"
+      },
+      {
+       "film": "hattusa_video",
+       "start": 1103.0
+      }
+     ]
+    }
+   ],
+   "music": null,
+   "card": {
+    "kicker": "BÖLÜM V",
+    "date": "MÖ 13. yüzyıl · Asi Nehri, Suriye",
+    "image": "ramesseum_kades"
+   }
+  },
+  {
+   "title": "İlk Barış",
+   "paragraphs": [
+    {
+     "text": "Kadeş'ten sonra Hitit tahtında yine bir taht kavgası yaşandı. Muvattali'nin ölümünden sonra oğlu tahta çıktı. Ama kralın amcası Hattuşili, yeğenini tahttan indirip yerine geçti. Tahttan indirilen genç kral sonunda kaçmayı başardı. Nereye mi? Düşman Mısır'a.",
+     "shots": [
+      {
+       "image": "yazilikaya_a",
+       "move": "in"
+      },
+      {
+       "image": "yazilikaya_a4",
+       "move": "up"
+      },
+      {
+       "stock": "mum_isigi",
+       "start": 3.0
+      }
+     ]
+    },
+    {
+     "text": "Hattuşili, tahtı zorla aldığını biliyordu ve bunu meşru göstermek için tarihin en ilginç belgelerinden birini yazdırdı. Bugün \"Hattuşili'nin Savunması\" diye bilinen bu metinde kral, hayatını baştan anlatır. Çocukken hasta ve cılız olduğunu, tanrıça İştar'ın onu koruması altına aldığını yazar. Yeğenine karşı ayaklanmasının bir ihanet değil, tanrıçanın iradesi olduğunu savunur.",
+     "shots": [
+      {
+       "image": "yazilikaya_a5",
+       "move": "in"
+      },
+      {
+       "image": "suppiluliuma_tablet",
+       "move": "right"
+      },
+      {
+       "image": "on_iki_tanri_2",
+       "move": "out"
+      },
+      {
+       "stock": "ates_gece",
+       "start": 1.0
+      }
+     ]
+    },
+    {
+     "text": "Bu metin, eski dünyanın bilinen en erken otobiyografik siyasi metinlerinden biri sayılır. Okurken, üç bin yıl önce yaşamış bir kralın, kendi vicdanını ve halkını ikna etmeye çalıştığını hissedersiniz.",
+     "shots": [
+      {
+       "image": "hattusa_hiyeroglif",
+       "move": "in"
+      },
+      {
+       "image": "suppiluliuma_antlasma",
+       "move": "left"
+      }
+     ]
+    },
+    {
+     "text": "Ama sorun çözülmemişti. Tahttan indirilen yeğen, Urhi-Teşup, Mısır'a sığınmıştı ve Hattuşili, Ramses'ten onun iadesini istiyordu. Bu, iki imparatorluk arasında yeni bir gerilim kaynağıydı. Ama aynı zamanda iki tarafın da artık yeni tehditlerle karşı karşıya olduğu bir dönemdi. Doğuda Asur güçleniyordu. Savaş, iki tarafı da yoruyordu.",
+     "shots": [
+      {
+       "image": "ramses_heykel",
+       "move": "right"
+      },
+      {
+       "stock": "deniz_safak",
+       "start": 30.0
+      },
+      {
+       "image": "karnak",
+       "move": "left"
+      },
+      {
+       "image": "amarna_mektup2",
+       "move": "left"
+      }
+     ]
+    },
+    {
+     "text": "Ve sonunda, eski düşmanlar beklenmedik bir şey yaptı: Barış imzaladılar.",
+     "shots": [
+      {
+       "image": "kades_tablet",
+       "move": "in",
+       "label": "KADEŞ ANTLAŞMASI · İSTANBUL ARKEOLOJİ MÜZELERİ"
+      }
+     ]
+    },
+    {
+     "text": "Hattuşili ile Ramses arasındaki bu antlaşma, tarihin metni günümüze ulaşmış en eski barış antlaşmalarından biridir. İki taraf da birbirine saldırmamayı, birbirinin topraklarına saygı göstermeyi, dışarıdan bir saldırı olursa birbirine yardım etmeyi ve kaçakları birbirine iade etmeyi kabul etti.",
+     "shots": [
+      {
+       "image": "kades_tablet",
+       "move": "up",
+       "focus": [
+        0.5,
+        0.35
+       ]
+      },
+      {
+       "image": "kades_parca",
+       "move": "in"
+      },
+      {
+       "image": "karnak",
+       "move": "left"
+      }
+     ]
+    },
+    {
+     "text": "Antlaşmanın iki versiyonu da günümüze ulaştı. Mısır versiyonu tapınak duvarlarına kazındı. Hitit versiyonu ise Hattuşa'da bulunan kil tabletlerde. Bu tabletlerden biri bugün İstanbul Arkeoloji Müzeleri'nde sergileniyor. Antlaşmanın büyütülmüş bir kopyası da, Türkiye'nin hediyesi olarak, New York'taki Birleşmiş Milletler binasında asılı duruyor.",
+     "shots": [
+      {
+       "image": "karnak",
+       "move": "in"
+      },
+      {
+       "image": "kades_parca",
+       "move": "right"
+      },
+      {
+       "image": "kades_tablet",
+       "move": "out"
+      },
+      {
+       "stock": "mum_isigi",
+       "start": 5.0
+      }
+     ]
+    },
+    {
+     "text": "Bu barışın arkasında bir de güçlü bir kadın vardı: Kraliçe Puduhepa. Hattuşili'nin eşi olan Puduhepa, devlet işlerinde son derece etkiliydi. Mısır sarayıyla kendi adına yazışıyor, kendi mührünü kullanıyordu. Ramses'in eşi Nefertari ile karşılıklı mektuplar ve hediyeler gönderdiler.",
+     "shots": [
+      {
+       "image": "oturan_kadin",
+       "move": "in"
+      },
+      {
+       "image": "figurin_amasya",
+       "move": "left"
+      },
+      {
+       "image": "firtina_tanrisi",
+       "move": "in"
+      }
+     ]
+    },
+    {
+     "text": "Barış, bir evlilikle de güçlendirildi. Hattuşili ile Puduhepa'nın kızı, Mısır'a gelin gidecekti. Ama bu düğün, iki saray arasında uzun bir pazarlığa dönüştü. Ramses, çeyizin gecikmesinden yakınınca Puduhepa'nın verdiği cevap, onun kişiliğini çok iyi anlatır. Kraliçe, Hattuşa'nın sarayında bir yangın çıktığını, kalan varlıkları da tanrılara ve krallığın ihtiyaçlarına ayırdıklarını yazar. Ve kibarca ama açıkça şunu ima eder: Mısır gibi zengin bir ülkenin kralı, bir gelinin çeyizine bu kadar takılmamalıdır.",
+     "shots": [
+      {
+       "stock": "deniz_safak",
+       "start": 40.0
+      },
+      {
+       "image": "ebu_simbel",
+       "move": "up"
+      },
+      {
+       "image": "ebu_simbel_salon",
+       "move": "right"
+      },
+      {
+       "stock": "at_dortnala",
+       "start": 3.0
+      },
+      {
+       "image": "ramses_turin",
+       "move": "left"
+      }
+     ]
+    },
+    {
+     "text": "Sonunda prenses, uzun ve zahmetli bir yolculuğun ardından Mısır'a ulaştı ve Ramses'in eşlerinden biri oldu. Mısır'da ona Mısırca bir ad verildi. Eski düşmanlar artık akrabaydı.",
+     "shots": [
+      {
+       "image": "ebu_simbel",
+       "move": "out"
+      },
+      {
+       "stock": "bozkir_gunbatimi",
+       "start": 40.0
+      }
+     ]
+    },
+    {
+     "text": "Barış sağlanmıştı. Peki bu imparatorluğun kalbinde, Hattuşa'da hayat nasıldı?",
+     "shots": [
+      {
+       "film": "hattusa_video",
+       "start": 1130.0
+      }
+     ]
+    }
+   ],
+   "music": null,
+   "card": {
+    "kicker": "BÖLÜM VI",
+    "date": "MÖ 13. yüzyıl · Hattuşa ve Mısır",
+    "image": "yazilikaya_a"
+   }
+  },
+  {
+   "title": "Bin Tanrının Kenti",
+   "paragraphs": [
+    {
+     "text": "Zirvesindeki Hattuşa, antik dünyanın en etkileyici başkentlerinden biriydi. Kent, kuzeydeki aşağı kentten güneydeki yukarı kente doğru tırmanan bir dağ yamacına kurulmuştu. Ortada, sarp kayalıkların üzerinde, kralın sarayı Büyükkale yükseliyordu. Arşivler, kabul salonları ve kraliyet daireleri buradaydı.",
+     "shots": [
+      {
+       "film": "hattusa_video",
+       "start": 1161.0
+      },
+      {
+       "image": "panorama",
+       "move": "right"
+      },
+      {
+       "image": "buyukkale_1",
+       "move": "in",
+       "label": "BÜYÜKKALE"
+      },
+      {
+       "film": "hattusa_video",
+       "start": 1742.0
+      }
+     ]
+    },
+    {
+     "text": "Aşağı kentte, kentin en büyük yapısı olan Büyük Mabet duruyordu. Etrafını depolar ve odalar çeviriyordu. Bu depoların bazılarında, toprağa gömülü dev küpler bulundu. Kentin ambarları, büyük miktarda tahılı uzun süre saklayabilecek şekilde tasarlanmıştı. Kıtlık korkusu, Hititlerin hep aklındaydı.",
+     "shots": [
+      {
+       "image": "buyuk_mabet_3",
+       "move": "in"
+      },
+      {
+       "film": "hattusa_video",
+       "start": 471.0
+      },
+      {
+       "image": "buyuk_mabet_1994",
+       "move": "right"
+      },
+      {
+       "image": "boga_pithos",
+       "move": "in"
+      }
+     ]
+    },
+    {
+     "text": "Yukarı kent ise tapınaklarla doluydu. Onlarca tapınağın kalıntısı bulundu. Ve bütün bu kenti, kilometrelerce uzanan çift sıra surlar çevreliyordu. Surlara Aslanlı Kapı, Kral Kapısı ve Sfenksli Kapı gibi anıtsal kapılardan giriliyordu.",
+     "shots": [
+      {
+       "film": "hattusa_video",
+       "start": 621.0
+      },
+      {
+       "film": "hattusa_video",
+       "start": 712.0
+      },
+      {
+       "image": "sfenks_kapi_1",
+       "move": "out",
+       "label": "SFENKSLİ KAPI"
+      }
+     ]
+    },
+    {
+     "text": "Kentin en güney ucunda, yapay bir set üzerinde, mühendislik harikası bir yapı var: Yerkapı. Bu setin altından, taş bloklarla örülmüş, yaklaşık yetmiş metre uzunluğunda bir tünel geçer. Bu tünel üç bin yıldan fazla bir süredir ayakta duruyor ve bugün hâlâ içinden yürünebiliyor.",
+     "shots": [
+      {
+       "image": "yerkapi_sfenks",
+       "move": "left",
+       "label": "YERKAPI"
+      },
+      {
+       "image": "yerkapi_tunel",
+       "move": "in"
+      },
+      {
+       "image": "yerkapi_ag",
+       "move": "in"
+      },
+      {
+       "film": "hattusa_video",
+       "start": 1025.0
+      }
+     ]
+    },
+    {
+     "text": "Hattuşa'nın hemen yakınında, kayalar arasında doğal bir açık hava tapınağı bulunur: Yazılıkaya. Kaya duvarlarına, yan yana yürüyen tanrı ve tanrıça alayları oyulmuştur. Bir tarafta erkek tanrılar, diğer tarafta tanrıçalar ilerler ve ortada buluşurlar: Fırtına Tanrısı Teşup ve eşi Hepat.",
+     "shots": [
+      {
+       "image": "yazilikaya_giris",
+       "move": "up",
+       "label": "YAZILIKAYA"
+      },
+      {
+       "image": "yazilikaya_a",
+       "move": "right"
+      },
+      {
+       "image": "yazilikaya_a4",
+       "move": "in"
+      }
+     ]
+    },
+    {
+     "text": "Hemen yanındaki dar bir geçitte ise, on iki yeraltı tanrısının yürüyüşü ve kral Tuthaliya'yı koruyan bir tanrının kabartması vardır. Pek çok araştırmacı, bu bölümün kral için bir anma yeri olabileceğini düşünür.",
+     "shots": [
+      {
+       "image": "on_iki_tanri",
+       "move": "right"
+      },
+      {
+       "image": "on_iki_tanri_2",
+       "move": "in"
+      },
+      {
+       "image": "yazilikaya_b",
+       "move": "in"
+      }
+     ]
+    },
+    {
+     "text": "Hititler kendi ülkelerini \"Hatti'nin bin tanrısının ülkesi\" diye anıyordu. Bu bir abartı değildi. Hititler, fethettikleri halkların tanrılarını yok etmek yerine, onları kendi tanrıları arasına kabul ediyordu. Hatti, Hurri, Luvi, Mezopotamya kökenli tanrılar aynı törenlerde anılıyordu. Kral, aynı zamanda tanrıların başrahibiydi ve yılın büyük bölümünü, ülkenin dört bir yanındaki bayramlara katılarak geçirirdi.",
+     "shots": [
+      {
+       "image": "figurin_boga",
+       "move": "in"
+      },
+      {
+       "image": "firtina_tanrisi",
+       "move": "right"
+      },
+      {
+       "image": "riton",
+       "move": "out"
+      },
+      {
+       "image": "kayseri_riton",
+       "move": "left"
+      },
+      {
+       "image": "gunes_heykel",
+       "move": "in"
+      }
+     ]
+    },
+    {
+     "text": "Önemli kararlar alınmadan önce tanrılara danışılırdı. Kâhinler kuşların uçuşunu izler, kurban edilen hayvanların iç organlarını inceler, işaretleri yorumlardı. Bir savaşa çıkmak mı, bir hastalığın nedenini bulmak mı? Cevap, tanrıların işaretlerindeydi.",
+     "shots": [
+      {
+       "stock": "yildizli_gece",
+       "start": 0.0
+      },
+      {
+       "image": "riton",
+       "move": "left"
+      },
+      {
+       "stock": "ates_gece",
+       "start": 5.0
+      }
+     ]
+    },
+    {
+     "text": "Peki sıradan insanlar nasıl yaşıyordu? Hitit metinleri, buğday ve arpanın, ekmeğin ve biranın günlük hayatın temeli olduğunu gösteriyor. Hitit kâtipleri, onlarca farklı ekmek türünden söz eder. Bağlar, zeytinlikler, koyun ve sığır sürüleri vardı. Kanunlar, bir bağ çubuğunun, bir domuzun, kaçan bir köleyi bulmanın bedelini tek tek belirliyordu.",
+     "shots": [
+      {
+       "stock": "bugday_ruzgar",
+       "start": 5.0
+      },
+      {
+       "stock": "ekmek_firin",
+       "start": 8.0
+      },
+      {
+       "image": "gaga_testi",
+       "move": "in"
+      },
+      {
+       "image": "testi_tokat",
+       "move": "right"
+      }
+     ]
+    },
+    {
+     "text": "Bu kentin bir başka özelliği, kâtipleriydi. Hitit kâtipleri birden fazla dil ve yazı bilirdi: Hititçe, Akadca, Sümerce, Hurrice, Luvice… Hattuşa arşivlerinde Mezopotamya'nın ünlü Gılgamış Destanı'nın Hititçe ve Hurrice çevirileri bile bulundu. Hattuşa, yalnızca bir güç merkezi değil, aynı zamanda bir bilgi merkeziydi.",
+     "shots": [
+      {
+       "stock": "kil_eller",
+       "start": 6.0
+      },
+      {
+       "image": "suppiluliuma_tablet",
+       "move": "in"
+      },
+      {
+       "image": "hattusa_hiyeroglif",
+       "move": "up"
+      },
+      {
+       "image": "asur_tablet",
+       "move": "left"
+      }
+     ]
+    },
+    {
+     "text": "İmparatorluk zirvesindeydi. Kimse, sonun bu kadar yakın olduğunu tahmin edemezdi.",
+     "shots": [
+      {
+       "film": "hattusa_video",
+       "start": 1711.0
+      }
+     ]
+    }
+   ],
+   "music": null,
+   "card": {
+    "kicker": "BÖLÜM VII",
+    "date": "MÖ 13. yüzyıl · Hattuşa",
+    "image": "buyukkale_1"
+   }
+  },
+  {
+   "title": "Çöküş",
+   "paragraphs": [
+    {
+     "text": "Puduhepa'nın oğlu Tuthaliya döneminde, imparatorluğun etrafında kara bulutlar toplanmaya başladı. Doğuda Asur, güçlü kralı Tukulti-Ninurta yönetiminde Hitit topraklarına saldırdı. Nihriya'da yapılan savaşta Hititler ağır bir yenilgiye uğradı.",
+     "shots": [
+      {
+       "image": "hattusa_manzara",
+       "move": "in"
+      },
+      {
+       "stock": "bozkir_gunbatimi",
+       "start": 20.0
+      },
+      {
+       "image": "sur_rekons",
+       "move": "right"
+      }
+     ]
+    },
+    {
+     "text": "Ama asıl tehlike, düşman ordularından değil, çok daha derinden geliyordu.",
+     "shots": [
+      {
+       "stock": "gok_timelapse",
+       "start": 3.0
+      }
+     ]
+    },
+    {
+     "text": "Milattan önce on üçüncü yüzyılın sonu ile on ikinci yüzyılın başı arasında, Doğu Akdeniz dünyası bir domino gibi çöktü. Yunanistan'daki Miken sarayları, Suriye kıyısındaki zengin ticaret kenti Ugarit ve daha pek çok kent yıkıldı ya da terk edildi. Tarihçiler bu döneme \"Geç Tunç Çağı Çöküşü\" adını verir.",
+     "shots": [
+      {
+       "map": "cokus",
+       "transition": "dissolve"
+      },
+      {
+       "image": "ugarit",
+       "move": "out",
+       "label": "UGARİT · SURİYE"
+      },
+      {
+       "image": "miken_aslan",
+       "move": "left",
+       "label": "MİKENE"
+      },
+      {
+       "image": "medinet_habu",
+       "move": "in"
+      }
+     ]
+    },
+    {
+     "text": "Nedenleri hâlâ tartışılıyor. Muhtemelen tek bir neden yoktu: kuraklık ve kıtlık, ticaret yollarının çökmesi, iç isyanlar, depremler ve Mısır kaynaklarının \"Deniz Kavimleri\" dediği göç dalgaları… Hepsi bir araya gelmiş olabilir.",
+     "shots": [
+      {
+       "stock": "kurak_toprak",
+       "start": 10.0
+      },
+      {
+       "image": "medinet_habu_2",
+       "move": "up"
+      },
+      {
+       "stock": "deniz_safak",
+       "start": 50.0
+      }
+     ]
+    },
+    {
+     "text": "Hitit metinleri, bu yıllarda imparatorluğun ciddi bir gıda sıkıntısı yaşadığını gösteriyor. Hitit kralları, tahıl için Mısır'dan yardım istedi. Bir zamanlar Kadeş'te savaşan iki imparatorluk arasında artık gemilerle tahıl taşınıyordu. Ugarit'e yazılan bir Hitit mektubunda, tahıl sevkiyatının ne kadar hayati olduğu açıkça vurgulanır: Bu, bir ölüm kalım meselesidir.",
+     "shots": [
+      {
+       "stock": "bugday_ruzgar",
+       "start": 12.0
+      },
+      {
+       "stock": "kurak_toprak",
+       "start": 25.0
+      },
+      {
+       "image": "ugarit_tablet",
+       "move": "in"
+      },
+      {
+       "image": "bogazkoy_muze_5",
+       "move": "left"
+      }
+     ]
+    },
+    {
+     "text": "Bu dönemin en ürkütücü belgeleri, Ugarit kentinden geliyor. Ugarit, Hititlere bağlı zengin bir liman kentiydi. Kentin son günlerine ait olduğu düşünülen mektuplarda, düşman gemilerinin kıyıda göründüğü, kentlerin yakıldığı, askerlerin ve gemilerin başka yerlerde olduğu için kentin savunmasız kaldığı anlatılır.",
+     "shots": [
+      {
+       "image": "ugarit",
+       "move": "in"
+      },
+      {
+       "image": "ugarit_tablet",
+       "move": "right"
+      },
+      {
+       "stock": "deniz_safak",
+       "start": 60.0
+      }
+     ]
+    },
+    {
+     "text": "Ugarit'in kralı, bir mektubunda şöyle yazar: \"Babam, bak, düşmanın gemileri geldi. Kentlerim yakıldı, ülkeme kötülük yaptılar.\" Bu mektupların bazılarının, hiç gönderilemeden, kent yıkılırken arşivde kaldığı düşünülüyor. Ugarit kısa süre sonra yerle bir oldu ve bir daha yeniden kurulmadı.",
+     "shots": [
+      {
+       "image": "ugarit_tablet",
+       "move": "in"
+      },
+      {
+       "stock": "deniz_safak",
+       "start": 20.0
+      },
+      {
+       "image": "medinet_habu",
+       "move": "left"
+      }
+     ]
+    },
+    {
+     "text": "Bilinen son Hitit büyük kralı, İkinci Şuppiluliuma'ydı. Onun döneminde Hitit donanması Kıbrıs açıklarında deniz savaşları yaptı. Kral, imparatorluğu ayakta tutmak için çırpındı.",
+     "shots": [
+      {
+       "image": "yerkapi_sfenks",
+       "move": "right"
+      },
+      {
+       "film": "hattusa_video",
+       "start": 1067.0
+      }
+     ]
+    },
+    {
+     "text": "Sonra, kaynaklar susar.",
+     "shots": [
+      {
+       "film": "hattusa_video",
+       "start": 186.0
+      }
+     ]
+    },
+    {
+     "text": "Hattuşa'nın sonu uzun süre dramatik bir yıkım sahnesi olarak anlatıldı: düşmanın kente girmesi, sarayların ateşe verilmesi. Kentte gerçekten de büyük bir yangının izleri var. Ama son yıllarda yapılan kazılar, daha sessiz ve belki daha çarpıcı bir tabloya işaret ediyor.",
+     "shots": [
+      {
+       "stock": "yangin",
+       "start": 2.0
+      },
+      {
+       "image": "buyukkale_13",
+       "move": "right",
+       "overlay": "katman_kivilcim"
+      },
+      {
+       "film": "hattusa_video",
+       "start": 488.0
+      }
+     ]
+    },
+    {
+     "text": "Görünüşe göre kent, yanmadan önce büyük ölçüde boşaltılmıştı. Değerli eşyalar, devlet arşivinin önemli bölümleri götürülmüştü. Saray ve yönetim, başkenti terk etmiş olabilir. Yangın, belki de geride kalan boş bir kenti sardı.",
+     "shots": [
+      {
+       "image": "buyukkale_1994",
+       "move": "left"
+      },
+      {
+       "film": "hattusa_video",
+       "start": 682.0
+      },
+      {
+       "stock": "ates_gece",
+       "start": 7.0
+      }
+     ]
+    },
+    {
+     "text": "Kraliyet ailesinin nereye gittiği bilinmiyor. Bir imparatorluk, son sözünü söylemeden sahneden çekildi.",
+     "shots": [
+      {
+       "film": "hattusa_video",
+       "start": 1219.0
+      },
+      {
+       "stock": "bozkir_gunbatimi",
+       "start": 60.0
+      }
+     ]
+    }
+   ],
+   "music": null,
+   "card": {
+    "kicker": "BÖLÜM VIII",
+    "date": "MÖ 12. yüzyıl başları · Doğu Akdeniz",
+    "image": "buyukkale_41"
+   }
+  },
+  {
+   "title": "Miras",
+   "paragraphs": [
+    {
+     "text": "Ama Hititlerin hikâyesi tamamen bitmedi. İmparatorluğun çöküşünden sonra, Güneydoğu Anadolu'da ve Kuzey Suriye'de, Karkamış ve Malatya gibi kentlerde küçük krallıklar yaşamaya devam etti. Tarihçiler bunlara \"Geç Hitit Krallıkları\" der. Bu krallıklar, Hitit kültürünün izlerini birkaç yüzyıl daha taşıdı. Tevrat'ta adı geçen Hititler de muhtemelen bu sonraki dönemin insanlarıydı.",
+     "shots": [
+      {
+       "image": "karkamis_savasci",
+       "move": "in",
+       "label": "KARKAMIŞ · GEÇ HİTİT"
+      },
+      {
+       "image": "aslantepe_libasyon",
+       "move": "out",
+       "label": "ARSLANTEPE · MALATYA"
+      },
+      {
+       "image": "ivriz",
+       "move": "in"
+      },
+      {
+       "image": "araba_karkamis_d",
+       "move": "left"
+      }
+     ]
+    },
+    {
+     "text": "Hattuşa ise yüzyıllar boyunca toprağın altında bekledi. Bin dokuz yüz seksen altıda UNESCO Dünya Mirası Listesi'ne alındı. Arşivinden çıkan Hitit çivi yazılı tabletleri de bugün UNESCO'nun Dünya Belleği kayıtları arasında.",
+     "shots": [
+      {
+       "image": "alaca_sfenks",
+       "move": "left",
+       "label": "ALACAHÖYÜK"
+      },
+      {
+       "image": "alaca_sfenks_3",
+       "move": "in"
+      },
+      {
+       "image": "alaca_mezar_1",
+       "move": "in"
+      }
+     ]
+    },
+    {
+     "text": "Bugün Ankara'daki Anadolu Medeniyetleri Müzesi'nde, Çorum Müzesi'nde ve İstanbul Arkeoloji Müzeleri'nde Hitit dünyasının eşsiz eserlerini görebilirsiniz.",
+     "shots": [
+      {
+       "image": "bogazkoy_muze",
+       "move": "right"
+      },
+      {
+       "image": "boga_pithos",
+       "move": "left"
+      }
+     ]
+    },
+    {
+     "text": "Hititlerin Türkiye'deki izi, bazen beklenmedik yerlerde karşımıza çıkar. Ankara'nın uzun yıllar simgesi olan ve Sıhhiye'deki anıtla tanınan \"Hitit güneşi\", aslında Alacahöyük'teki çok daha eski mezarlarda bulunan bronz törensel bir eserden esinlenir. Bu eserler, Hitit İmparatorluğu'ndan yüzyıllar önceye, Hatti dönemine tarihlenir. Yani bugün \"Hitit güneşi\" dediğimiz simge, Hititlerin kendisinden de eski bir Anadolu mirasıdır.",
+     "shots": [
+      {
+       "image": "gunes_heykel",
+       "move": "in",
+       "label": "HİTİT GÜNEŞ KURSU ANITI · ANKARA"
+      },
+      {
+       "image": "hatti_disk",
+       "move": "up"
+      },
+      {
+       "image": "alaca_mezar_2",
+       "move": "in"
+      },
+      {
+       "image": "figurin_boga",
+       "move": "right"
+      },
+      {
+       "image": "riton",
+       "move": "right"
+      }
+     ]
+    },
+    {
+     "text": "Bu belki de Anadolu'nun hikâyesini en iyi özetleyen şey: Her uygarlık, kendinden öncekinin üzerine kurulur. Hattiler Hititlere, Hititler Geç Hitit krallıklarına, onlar da Frigyalılara, Lidyalılara ve sonrakilere bir şeyler bıraktı.",
+     "shots": [
+      {
+       "film": "hattusa_video",
+       "start": 1134.0
+      },
+      {
+       "stock": "gok_timelapse",
+       "start": 9.0
+      }
+     ]
+    },
+    {
+     "text": "Arkeologlar Hattuşa'da bugün hâlâ kazı yapıyor ve hâlâ yeni tabletler, yeni mühürler, yeni sorular buluyor. Bu hikâye, henüz tamamlanmadı.",
+     "shots": [
+      {
+       "film": "hattusa_video",
+       "start": 1402.0
+      },
+      {
+       "image": "bogazkoy_muze_5",
+       "move": "in"
+      }
+     ]
+    },
+    {
+     "text": "Hititler bize ne bıraktı? Hint-Avrupa dillerinin bilinen en eski yazılı örneklerini. Kendi döneminin pek çok komşusundan daha ölçülü bir hukuku. Yenilen halkların tanrılarına bile yer açan bir inanç dünyasını. Ve tarihin metni günümüze ulaşan en eski barış antlaşmalarından birini.",
+     "shots": [
+      {
+       "image": "hattusa_hiyeroglif",
+       "move": "right"
+      },
+      {
+       "image": "kades_tablet",
+       "move": "in"
+      },
+      {
+       "film": "hattusa_video",
+       "start": 812.0
+      }
+     ]
+    },
+    {
+     "text": "Ama belki de en büyük dersleri şu: En güçlü imparatorluklar bile, tek bir savaşla değil, iç çekişmeler, kuraklık, kıtlık ve kopan bağlarla, yavaş yavaş çözülür.",
+     "shots": [
+      {
+       "film": "hattusa_video",
+       "start": 1165.0
+      },
+      {
+       "stock": "bozkir_gunbatimi",
+       "start": 75.0
+      }
+     ]
+    },
+    {
+     "text": "Ve Anadolu'nun kalbinde, taş aslanlar hâlâ bekliyor. Üç bin yıldır aynı yöne bakarak.",
+     "shots": [
+      {
+       "image": "aslan_kapi_8",
+       "move": "out"
+      }
+     ]
+    }
+   ],
+   "music": null,
+   "card": {
+    "kicker": "BÖLÜM IX",
+    "date": "Bugün · Anadolu",
+    "image": "alaca_sfenks"
+   }
+  },
+  {
+   "title": "Kapanış",
+   "paragraphs": [
+    {
+     "text": "Bu yolculukta bize eşlik ettiğiniz için teşekkürler. Bir sonraki bölümde, Hititlerin Kadeş'te karşılaştığı o büyük rakibin, Mısır'ın üç bin yıllık hikâyesini baştan sona anlatacağız. Kaçırmamak için kanala abone olabilirsiniz.",
+     "shots": [
+      {
+       "image": "aslan_kapi_6",
+       "move": "in"
+      },
+      {
+       "image": "ebu_simbel",
+       "move": "out"
+      }
+     ]
+    }
+   ],
+   "music": null
+  }
+ ]
+}
