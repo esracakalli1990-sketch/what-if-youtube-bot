@@ -72,6 +72,8 @@ def validate(data: dict, folder: Path | None = None) -> list[str]:
                     problems.append(f"{where} çekim {si}: film tanımsız ({shot['film']})")
                 if shot.get("overlay") and shot["overlay"] not in data.get("stock", {}):
                     problems.append(f"{where} çekim {si}: katman tanımsız ({shot['overlay']})")
+                if "label" in shot and not (isinstance(shot["label"], dict) and shot["label"].get("title")):
+                    problems.append(f"{where} çekim {si}: etiket {{\"title\", \"subtitle\"}} biçiminde olmalı")
                 if not any(k in shot for k in SHOT_SOURCES):
                     problems.append(f"{where} çekim {si}: {'/'.join(SHOT_SOURCES)} biri gerekli")
     return problems
