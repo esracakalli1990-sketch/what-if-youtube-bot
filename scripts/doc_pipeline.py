@@ -132,6 +132,11 @@ class Production:
             self._remotion(["render", "src/index.ts", "ChapterCard",
                             str(self.path("cards", f"c{ci:02d}.mp4")),
                             f"--props={json.dumps(props, ensure_ascii=False)}", "--crf=16"])
+        for name, props in self.data.get("maps", {}).items():
+            props = {**props, "image": self._stage_image(props.get("image", ""))}
+            self._remotion(["render", "src/index.ts", "MapMoves",
+                            str(self.path("maps", f"{name}.mp4")),
+                            f"--props={json.dumps(props, ensure_ascii=False)}", "--crf=16"])
         for ti, th in enumerate(self.data.get("thumbnails", [])):
             props = {"image": self._stage_image(th.get("image", "")), "line1": th.get("line1", ""),
                      "line2": th.get("line2", ""), "badge": th.get("badge", "TAM HİKÂYE"),

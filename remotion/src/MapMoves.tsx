@@ -73,7 +73,8 @@ export const MapMoves: React.FC<MapMovesProps> = ({image, title, subtitle, arrow
   const frame = useCurrentFrame();
   const {fps, durationInFrames} = useVideoConfig();
   const z = interpolate(frame, [0, durationInFrames], zoom);
-  const fade = interpolate(frame, [0, 0.6 * fps, durationInFrames - 0.6 * fps, durationInFrames], [0, 1, 1, 0], clamp);
+  // Yalnızca giriş geçişi: çekim uzarsa son kare donar, kararmış kare donmasın
+  const fade = interpolate(frame, [0, 0.6 * fps], [0, 1], clamp);
   return (
     <AbsoluteFill style={{backgroundColor: '#000', opacity: fade}}>
       <AbsoluteFill style={{scale: z, transformOrigin: `${focus[0] * 100}% ${focus[1] * 100}%`}}>

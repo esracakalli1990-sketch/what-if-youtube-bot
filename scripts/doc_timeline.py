@@ -61,8 +61,10 @@ def validate(data: dict, folder: Path | None = None) -> list[str]:
                     problems.append(f"{where} çekim {si}: görsel tanımsız ({shot['image']})")
                 if "clip" in shot and folder and not (Path(folder) / shot["clip"]).exists():
                     problems.append(f"{where} çekim {si}: klip yok ({shot['clip']})")
-                if "image" not in shot and "clip" not in shot:
-                    problems.append(f"{where} çekim {si}: 'image' veya 'clip' gerekli")
+                if "map" in shot and shot["map"] not in data.get("maps", {}):
+                    problems.append(f"{where} çekim {si}: harita tanımsız ({shot['map']})")
+                if not any(k in shot for k in ("image", "clip", "map")):
+                    problems.append(f"{where} çekim {si}: 'image', 'clip' veya 'map' gerekli")
     return problems
 
 
@@ -152,6 +154,10 @@ def chapter_shots(chapter: dict, audio: list[dict], layout: ChapterLayout,
             if "clip" in spec:
                 shot.update(kind="video", path=str(Path(folder) / spec["clip"]),
                             note=spec.get("note", "Temsili canlandırma"))
+            elif "map" in spec:
+                # Remotion harita sahnesi; renk tonu bileşende uygulanmış durumda
+                shot.update(kind="video", path=str(Path(folder) / "build" / "maps" / f"{spec['map']}.mp4"),
+                            grade=False)
             else:
                 shot.update(kind="image", path=image_paths[spec["image"]])
             shots.append(shot)
