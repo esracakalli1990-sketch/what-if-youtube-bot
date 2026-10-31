@@ -492,3 +492,9 @@ def test_music_calmness_ranks_pad_above_drums():
                       {"commons": "pad", "duration": 100, **m_pad},
                       {"commons": "kisa", "duration": 30, **m_pad}])
     assert [r["commons"] for r in ranked] == ["pad", "davul"]   # kısa parça elendi
+
+
+def test_music_credit_names_are_clean():
+    from scripts.doc_pipeline import _track_name
+    assert _track_name("File:Kevin MacLeod - 06 - Impact Lento.ogg") == "Impact Lento"
+    assert _track_name("File:Heart of Nowhere (MacLeod, Kevin) (ISRC USUAN1400045).oga") == "Heart of Nowhere"

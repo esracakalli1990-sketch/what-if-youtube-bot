@@ -370,15 +370,15 @@
  "music": {
   "0": "gizem",
   "1": "gizem",
-  "2": "destansi",
-  "3": "gerilim",
-  "4": "destansi",
-  "5": "gerilim",
+  "2": "agir",
+  "3": "karanlik",
+  "4": "agir",
+  "5": "karanlik",
   "6": "huzun",
-  "7": "gizem",
-  "8": "gerilim",
+  "7": "tapinak",
+  "8": "karanlik",
   "9": "huzun",
-  "10": "destansi"
+  "10": "agir"
  },
  "shots": {
   "0.0": [
@@ -2488,16 +2488,19 @@
  },
  "music_sources": {
   "gizem": {
-   "commons": "File:Kevin MacLeod - Dream Culture.ogg"
+   "commons": "File:Heart of Nowhere (MacLeod, Kevin) (ISRC USUAN1400045).oga"
   },
-  "gerilim": {
-   "commons": "File:Kevin MacLeod - Ouroboros - Full Mix.ogg"
+  "agir": {
+   "commons": "File:Earth Prelude (MacLeod, Kevin) (ISRC USUAN1100247).oga"
   },
-  "destansi": {
-   "commons": "File:Kevin MacLeod - Virtutes Instrumenti.ogg"
+  "karanlik": {
+   "commons": "File:Kevin MacLeod - Ritual.ogg"
   },
   "huzun": {
-   "commons": "File:Kevin MacLeod - On the Passing of Time.ogg"
+   "commons": "File:Kevin MacLeod - 06 - Impact Lento.ogg"
+  },
+  "tapinak": {
+   "commons": "File:Kevin MacLeod - Temple of the Manes.ogg"
   }
  },
  "muzik_arama": [

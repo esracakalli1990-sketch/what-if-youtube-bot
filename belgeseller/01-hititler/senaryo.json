@@ -877,16 +877,19 @@
  },
  "music_sources": {
   "gizem": {
-   "commons": "File:Kevin MacLeod - Dream Culture.ogg"
+   "commons": "File:Heart of Nowhere (MacLeod, Kevin) (ISRC USUAN1400045).oga"
   },
-  "gerilim": {
-   "commons": "File:Kevin MacLeod - Ouroboros - Full Mix.ogg"
+  "agir": {
+   "commons": "File:Earth Prelude (MacLeod, Kevin) (ISRC USUAN1100247).oga"
   },
-  "destansi": {
-   "commons": "File:Kevin MacLeod - Virtutes Instrumenti.ogg"
+  "karanlik": {
+   "commons": "File:Kevin MacLeod - Ritual.ogg"
   },
   "huzun": {
-   "commons": "File:Kevin MacLeod - On the Passing of Time.ogg"
+   "commons": "File:Kevin MacLeod - 06 - Impact Lento.ogg"
+  },
+  "tapinak": {
+   "commons": "File:Kevin MacLeod - Temple of the Manes.ogg"
   }
  },
  "muzik_arama": [
@@ -1477,7 +1480,7 @@
      ]
     }
    ],
-   "music": "destansi",
+   "music": "agir",
    "card": {
     "kicker": "BÖLÜM II",
     "date": "MÖ 17. yüzyıl · Orta Anadolu",
@@ -1638,7 +1641,7 @@
      ]
     }
    ],
-   "music": "gerilim",
+   "music": "karanlik",
    "card": {
     "kicker": "BÖLÜM III",
     "date": "MÖ 16. yüzyıl · Hattuşa",
@@ -1860,7 +1863,7 @@
      ]
     }
    ],
-   "music": "destansi",
+   "music": "agir",
    "card": {
     "kicker": "BÖLÜM IV",
     "date": "MÖ 14. yüzyıl · Hattuşa'dan Suriye'ye",
@@ -2075,7 +2078,7 @@
      ]
     }
    ],
-   "music": "gerilim",
+   "music": "karanlik",
    "card": {
     "kicker": "BÖLÜM V",
     "date": "MÖ 13. yüzyıl · Asi Nehri, Suriye",
@@ -2511,7 +2514,7 @@
      ]
     }
    ],
-   "music": "gizem",
+   "music": "tapinak",
    "card": {
     "kicker": "BÖLÜM VII",
     "date": "MÖ 13. yüzyıl · Hattuşa",
@@ -2719,7 +2722,7 @@
      ]
     }
    ],
-   "music": "gerilim",
+   "music": "karanlik",
    "card": {
     "kicker": "BÖLÜM VIII",
     "date": "MÖ 12. yüzyıl başları · Doğu Akdeniz",
@@ -2911,7 +2914,7 @@
      ]
     }
    ],
-   "music": "destansi"
+   "music": "agir"
   }
  ]
 }
