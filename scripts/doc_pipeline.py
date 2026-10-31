@@ -224,7 +224,8 @@ class Production:
             if c.get("title"):
                 name = c["title"].removeprefix("File:").rsplit(".", 1)[0]
                 credits.append(f"• {name} — {c.get('artist', '')} ({c.get('license', '')}), Wikimedia Commons")
-        if d.get("ai_disclosure"):
+        uses_clips = any("clip" in s for ch in d["chapters"] for p in ch["paragraphs"] for s in p["shots"])
+        if d.get("ai_disclosure") and uses_clips:
             parts += ["", f"ℹ️ {d['ai_disclosure']}"]
         if d.get("hashtags"):
             parts += ["", " ".join(d["hashtags"])]
