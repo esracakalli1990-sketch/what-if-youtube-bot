@@ -866,7 +866,7 @@
  },
  "klip_yerleri": {
   "_not": "Gemini klipleri gelince bu paragraflardaki ilgili çekimin yerine {\"clip\": \"klipler/klipN.mp4\"} konur.",
-  "klip1": "0.0",
+  "klip1": "0.1",
   "klip2": "2.2",
   "klip3": "7.9",
   "klip4": "2.9",
@@ -2553,8 +2553,8 @@
        "move": "in"
       },
       {
-       "stock": "deniz_safak",
-       "start": 20.0
+       "clip": "klipler/klip7.mp4",
+       "move": "still"
       },
       {
        "image": "medinet_habu",
