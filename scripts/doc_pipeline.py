@@ -354,7 +354,7 @@ class Production:
         if video_lines:
             parts += ["", "🎥 Video kaynakları"] + video_lines
         used_moods = {ch.get("music") for ch in d["chapters"]}
-        music_lines = [f"• \"{c['credit']['title'].removeprefix('File:').rsplit('.', 1)[0].removeprefix('Kevin MacLeod - ')}\" "
+        music_lines = [f"• \"{_track_name(c['credit']['title'])}\" "
                        f"— {c['credit']['artist']} ({c['credit']['license']}), Wikimedia Commons"
                        for k, c in videos["music"].items() if k in used_moods]
         if music_lines:
@@ -394,6 +394,16 @@ class Production:
             {"video_id": video_id, "url": f"https://youtu.be/{video_id}",
              "publish_at": publish_at.isoformat() if publish_at else None}, indent=2))
         return video_id
+
+
+def _track_name(title: str) -> str:
+    """'File:Kevin MacLeod - 06 - Impact Lento.ogg' / 'File:Earth Prelude (MacLeod, Kevin) (ISRC …).oga'
+    → 'Impact Lento' / 'Earth Prelude'."""
+    import re
+    name = title.removeprefix("File:").rsplit(".", 1)[0]
+    name = re.sub(r"\s*\((?:ISRC [^)]*|MacLeod, Kevin ?|Kevin MacLeod ?)\)", "", name)
+    name = re.sub(r"^Kevin MacLeod\s*[-~]\s*(?:\d+\s*-\s*)?", "", name)
+    return name.strip()
 
 
 def main(argv=None):
