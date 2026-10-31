@@ -122,7 +122,9 @@ class Production:
         """Pexels videoları ve uzun filmler (yalnızca kullanılanlar indirilir)."""
         stock = {k: v for k, v in self.data.get("stock", {}).items() if k in self._used("stock")}
         films = {k: v for k, v in self.data.get("films", {}).items() if k in self._used("film")}
-        manifest = {"stock": {}, "films": {}}
+        moods = {ch.get("music") for ch in self.data["chapters"]}
+        music = {k: v for k, v in self.data.get("music_sources", {}).items() if k in moods}
+        manifest = {"stock": {}, "films": {}, "music": {}}
         if stock:
             from scripts.stock_video import fetch_all
             for k, v in fetch_all(stock, self.path("stock", "x").parent).items():
@@ -131,14 +133,19 @@ class Production:
             from scripts.archive_images import fetch_films
             for k, v in fetch_films(films, self.path("films", "x").parent).items():
                 manifest["films"][k] = {"path": os.path.relpath(v["path"], self.build), "credit": v["credit"]}
+        if music:
+            # Commons'taki CC müzikler (ör. Kevin MacLeod); film indiricisiyle aynı lisans kontrolü
+            from scripts.archive_images import fetch_films
+            for k, v in fetch_films(music, self.path("music", "x").parent).items():
+                manifest["music"][k] = {"path": os.path.relpath(v["path"], self.build), "credit": v["credit"]}
         self.path("videos.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2),
                                            encoding="utf-8")
 
     def video_manifest(self) -> dict:
         path = self.build / "videos.json"
         if not path.exists():
-            return {"stock": {}, "films": {}}
-        return json.loads(path.read_text(encoding="utf-8"))
+            return {"stock": {}, "films": {}, "music": {}}
+        return {"music": {}, **json.loads(path.read_text(encoding="utf-8"))}
 
     def _remotion(self, args: list[str]):
         cmd = ["npx", "remotion", *args]
@@ -266,7 +273,12 @@ class Production:
         logger.info("Belgesel hazır: %s (%.1f dk, %.1f LUFS)", final, total / 60, meta["lufs"])
 
     def _music_for(self, mood: str | None) -> str | None:
-        if not mood or not MUSIC_DIR.exists():
+        if not mood:
+            return None
+        downloaded = self.video_manifest()["music"].get(mood)
+        if downloaded:
+            return str(self.build / downloaded["path"])
+        if not MUSIC_DIR.exists():
             return None
         files = sorted(MUSIC_DIR.glob(f"{mood}*.mp3")) + sorted(MUSIC_DIR.glob(f"{mood}*.wav"))
         return str(files[0]) if files else None
@@ -295,6 +307,12 @@ class Production:
             video_lines.append("• Pexels: " + ", ".join(pexels))
         if video_lines:
             parts += ["", "🎥 Video kaynakları"] + video_lines
+        used_moods = {ch.get("music") for ch in d["chapters"]}
+        music_lines = [f"• \"{c['credit']['title'].removeprefix('File:').rsplit('.', 1)[0].removeprefix('Kevin MacLeod - ')}\" "
+                       f"— {c['credit']['artist']} ({c['credit']['license']}), Wikimedia Commons"
+                       for k, c in videos["music"].items() if k in used_moods]
+        if music_lines:
+            parts += ["", "🎵 Müzik"] + music_lines
         if d.get("hashtags"):
             parts += ["", " ".join(d["hashtags"])]
         head = "\n".join(parts)
