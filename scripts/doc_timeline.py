@@ -15,7 +15,7 @@ from pathlib import Path
 
 from scripts.doc_audio import sentence_starts
 
-CARD_SECONDS = 4.5      # bölüm kartı (müzik altında, anlatımsız)
+CARD_SECONDS = 5.0      # bölüm kartı = Remotion ChapterCard süresi (150 kare)
 LEAD_SECONDS = 0.6      # kartsız bölümde anlatım öncesi
 PARAGRAPH_GAP = 0.65    # paragraflar arası nefes
 TAIL_SECONDS = 1.4      # bölüm sonu (siyaha geçiş + müzik)

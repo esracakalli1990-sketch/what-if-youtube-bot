@@ -398,6 +398,12 @@ def run_system_check():
 
 def main():
     """Ana giriş noktası."""
+    # Türkçe tarih belgeseli hattı ayrı bir CLI'dır:
+    #   python main.py --belgesel belgeseller/01-hititler hepsi --ornek 2
+    if len(sys.argv) > 1 and sys.argv[1] == "--belgesel":
+        from scripts.doc_pipeline import main as belgesel_main
+        sys.exit(belgesel_main(sys.argv[2:]))
+
     parser = argparse.ArgumentParser(
         description="What-If YouTube Bot - Otonom Video Üretim Sistemi",
         formatter_class=argparse.RawDescriptionHelpFormatter,

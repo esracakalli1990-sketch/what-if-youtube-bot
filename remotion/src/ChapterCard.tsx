@@ -1,7 +1,7 @@
 import React from 'react';
 import {AbsoluteFill, Img, staticFile, useCurrentFrame, useVideoConfig, interpolate} from 'remotion';
 import {SERIF, SANS} from './fonts';
-import {GOLD, IVORY, SAND, ease, clamp} from './theme';
+import {GOLD, IVORY, SAND, ease, clamp, trUpper} from './theme';
 
 export type ChapterCardProps = {kicker: string; title: string; date: string; image: string};
 
@@ -27,7 +27,7 @@ export const ChapterCard: React.FC<ChapterCardProps> = ({kicker, title, date, im
         <div style={{fontFamily: SERIF, fontWeight: 700, fontSize: 150, color: IVORY, textAlign: 'center',
           textShadow: '0 6px 40px rgba(0,0,0,0.8)', padding: '0 160px',
           opacity: interpolate(frame, [0.6 * fps, 1.6 * fps], [0, 1], clamp),
-          translate: interpolate(frame, [0.6 * fps, 1.8 * fps], ['0px 40px', '0px 0px'], {...clamp, easing: ease})}}>{title}</div>
+          translate: interpolate(frame, [0.6 * fps, 1.8 * fps], ['0px 40px', '0px 0px'], {...clamp, easing: ease})}}>{trUpper(title)}</div>
         <div style={{fontFamily: SANS, fontWeight: 300, fontSize: 48, color: SAND, marginTop: 40,
           opacity: interpolate(frame, [1.4 * fps, 2.2 * fps], [0, 0.9], clamp)}}>{date}</div>
       </AbsoluteFill>

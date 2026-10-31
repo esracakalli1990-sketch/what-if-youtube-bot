@@ -6,3 +6,7 @@ export const IVORY = '#f3ead8';
 export const SAND = '#d8ccb4';
 export const ease = Easing.bezier(0.16, 1, 0.3, 1);
 export const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
+
+// Cinzel küçük harfleri büyük harf biçiminde çizer; Türkçe "i" noktasız "I"
+// görünür. Bu fontla yazılan metin önce Türkçe kurallarıyla büyütülür.
+export const trUpper = (text: string) => text.toLocaleUpperCase('tr-TR');

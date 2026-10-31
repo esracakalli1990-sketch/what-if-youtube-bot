@@ -177,8 +177,14 @@ def _font(name: str, size: int, variation: str) -> ImageFont.FreeTypeFont:
     return f
 
 
+def tr_upper(text: str) -> str:
+    """Türkçe büyük harf: i→İ, ı→I (Cinzel küçük harfi büyük biçimde çizer)."""
+    return text.replace("i", "İ").replace("ı", "I").upper()
+
+
 def render_label(title: str, subtitle: str = "") -> tuple[np.ndarray, tuple[int, int]]:
     """Alt bant: altın çizgi + yer adı (Cinzel) + tarih/açıklama. (BGRA, (x, y))"""
+    title = tr_upper(title)
     f_title = _font("Cinzel.ttf", 64, "Bold")
     f_sub = _font("SourceSans3.ttf", 40, "Regular")
     pad = 40
@@ -222,11 +228,14 @@ def composite(frame: np.ndarray, overlay: np.ndarray, pos: tuple[int, int], opac
     roi[:] = (overlay[:, :, :3].astype(np.float32) * a + roi.astype(np.float32) * (1 - a)).astype(np.uint8)
 
 
-def _envelope(t: float, duration: float, fade_in=(0.6, 1.2), fade_out=1.0) -> float:
-    """Bindirme görünürlüğü: gir, kal, çık (yerel çekim zamanına göre)."""
+def _envelope(t: float, duration: float, fade_in=(0.4, 0.9), end_gap=0.3, fade_out=0.5) -> float:
+    """Bindirme görünürlüğü: gir, kal, çık (yerel çekim zamanına göre).
+
+    Kısa çekimlerde de okunabilsin diye erken girer, kesmeden hemen önce çıkar.
+    """
     a, b = fade_in
     up = np.clip((t - a) / (b - a), 0, 1)
-    down = np.clip((duration - fade_out - t) / 0.5, 0, 1)
+    down = np.clip((duration - end_gap - t) / fade_out, 0, 1)
     return float(min(up, down))
 
 
@@ -327,7 +336,8 @@ class VideoSource:
 
 def render_chapter(shots: list[Shot], out_path: str, xfade: float = 0.5,
                    fade_in: float = 0.6, fade_out: float = 0.8,
-                   crf: int = 17, preset: str = "fast", look: Look | None = None) -> str:
+                   crf: int = 18, preset: str = "veryfast", maxrate: str = "20M",
+                   look: Look | None = None) -> str:
     """
     Çekimleri tek videoya render et. Toplam süre = çekim sürelerinin toplamı
     (çapraz geçiş sınırın iki yanına yarı yarıya taşar, süreyi kısaltmaz).
@@ -376,7 +386,10 @@ def render_chapter(shots: list[Shot], out_path: str, xfade: float = 0.5,
     enc = subprocess.Popen(
         ["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "bgr24",
          "-s", f"{OUT_W}x{OUT_H}", "-r", str(FPS), "-i", "-",
+         # Gren sıkıştırmayı zorlar: bit hızı YouTube'un 1440p önerisi düzeyinde
+         # sınırlanır (35 dk ≈ 5 GB). "veryfast": 2 çekirdekte 35 dk ≈ 2,5 saat.
          "-c:v", "libx264", "-preset", preset, "-crf", str(crf),
+         "-maxrate", maxrate, "-bufsize", "40M",
          "-pix_fmt", "yuv420p", "-movflags", "+faststart", str(out_path)],
         stdin=subprocess.PIPE)
     i = 0

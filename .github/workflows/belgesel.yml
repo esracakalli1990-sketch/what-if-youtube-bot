@@ -1,0 +1,170 @@
+name: Belgesel Üret
+
+# Türkçe tarih belgeseli üretimi — YALNIZCA elle tetiklenir (zamanlayıcı yok).
+# Plan: docs/PROJE_PLANI_TARIH_SERISI.md
+#
+#   mod=ornek : ilk N bölüm → 1080p önizleme (artifact). Kalite onayı için;
+#               tüm videoya ses kredisi harcanmaz.
+#   mod=tam   : tüm video → YouTube'a GİZLİ yükleme (yayin verilirse o saatte
+#               YouTube kendisi yayınlar). Siz izleyip onaylamadan herkese açılmaz.
+#
+# Gerekli secrets: ELEVENLABS_API_KEY, TTS_VOICE_ID_TR (Türkçe ses),
+#   YOUTUBE_CLIENT_SECRETS_B64, YOUTUBE_TOKEN_B64, TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID
+# İsteğe bağlı: DOC_PLAYLIST_ID (seri oynatma listesi)
+
+on:
+  workflow_dispatch:
+    inputs:
+      klasor:
+        description: "Senaryo klasörü"
+        default: belgeseller/01-hititler
+      mod:
+        description: "ornek = önizleme, tam = YouTube'a gizli yükleme"
+        type: choice
+        options: [ornek, tam]
+        default: ornek
+      ornek_bolum:
+        description: "Örnekte kaç bölüm (giriş + ilk bölüm = 2)"
+        default: "2"
+      yayin:
+        description: "Planlı yayın (ISO-8601 UTC, ör. 2026-11-04T16:00:00Z). Boşsa gizli kalır."
+        required: false
+
+concurrency:
+  group: belgesel-${{ inputs.klasor }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  uret:
+    runs-on: ubuntu-latest
+    # 35 dk video ≈ 2,5 saat render (2 çekirdek) + ses + yükleme
+    timeout-minutes: 345
+    env:
+      ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+      TTS_VOICE_ID_TR: ${{ secrets.TTS_VOICE_ID_TR }}
+      DOC_PLAYLIST_ID: ${{ secrets.DOC_PLAYLIST_ID }}
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      KLASOR: ${{ inputs.klasor }}
+    steps:
+      - name: Disk alanı aç
+        # 1440p bölümler + final ≈ 11 GB; runner'daki kullanılmayan araçlar silinir
+        run: |
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL || true
+          df -h /
+
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: remotion/package-lock.json
+
+      - name: FFmpeg kur
+        timeout-minutes: 8
+        run: |
+          sudo apt-get -o DPkg::Lock::Timeout=180 update -q || true
+          sudo apt-get -o DPkg::Lock::Timeout=180 install -y -q ffmpeg \
+            || (sleep 20 && sudo apt-get -o DPkg::Lock::Timeout=180 install -y -q ffmpeg)
+
+      - name: Bağımlılıkları kur
+        run: |
+          pip install -r requirements.txt
+          cd remotion && npm ci --no-audit --no-fund
+
+      - name: Ses ve görsel önbelleğini geri yükle
+        # Ses ElevenLabs kredisidir: tekrar çalıştırmada yeniden üretilmez
+        uses: actions/cache@v4
+        with:
+          path: |
+            ${{ inputs.klasor }}/build/audio
+            ${{ inputs.klasor }}/build/images
+          key: belgesel-${{ inputs.klasor }}-${{ github.run_id }}
+          restore-keys: belgesel-${{ inputs.klasor }}-
+
+      - name: Senaryoyu doğrula
+        run: python -m scripts.doc_pipeline "$KLASOR" dogrula
+
+      - name: Örnek üret
+        if: inputs.mod == 'ornek'
+        run: |
+          python -m scripts.doc_pipeline "$KLASOR" hepsi --ornek "${{ inputs.ornek_bolum }}"
+          # Önizleme küçültülür (artifact alanı sınırlı); asıl kalite tam üretimde
+          ffmpeg -v error -i "$KLASOR/build/ornek.mp4" -vf scale=1920:-2 -c:v libx264 \
+            -preset medium -crf 21 -c:a copy -movflags +faststart ornek-1080p.mp4
+
+      - name: Örneği paylaş
+        if: inputs.mod == 'ornek'
+        uses: actions/upload-artifact@v4
+        with:
+          name: ornek-onizleme
+          path: ornek-1080p.mp4
+          retention-days: 5
+
+      - name: Tam üretim
+        if: inputs.mod == 'tam'
+        run: python -m scripts.doc_pipeline "$KLASOR" hepsi
+
+      - name: YouTube kimlik dosyalarını hazırla
+        if: inputs.mod == 'tam'
+        env:
+          CLIENT_SECRETS_B64: ${{ secrets.YOUTUBE_CLIENT_SECRETS_B64 }}
+          TOKEN_B64: ${{ secrets.YOUTUBE_TOKEN_B64 }}
+        run: |
+          echo "$CLIENT_SECRETS_B64" | base64 -d > client_secrets.json
+          echo "$TOKEN_B64" | base64 -d > youtube_token.pickle
+
+      - name: YouTube'a gizli yükle
+        if: inputs.mod == 'tam'
+        run: |
+          if [ -n "${{ inputs.yayin }}" ]; then
+            python -m scripts.doc_pipeline "$KLASOR" yukle --yayin "${{ inputs.yayin }}"
+          else
+            python -m scripts.doc_pipeline "$KLASOR" yukle
+          fi
+
+      - name: Kapakları ve altyazıyı paylaş
+        if: inputs.mod == 'tam'
+        uses: actions/upload-artifact@v4
+        with:
+          name: kapaklar-altyazi
+          path: |
+            ${{ inputs.klasor }}/build/thumbs/*.jpg
+            ${{ inputs.klasor }}/build/altyazi.srt
+            ${{ inputs.klasor }}/build/aciklama.txt
+            ${{ inputs.klasor }}/build/ozet.json
+            ${{ inputs.klasor }}/build/yukleme.json
+          retention-days: 14
+
+      - name: Telegram bildirimi
+        if: always()
+        env:
+          SONUC: ${{ job.status }}
+          MOD: ${{ inputs.mod }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          python - <<'EOF'
+          import json, os
+          from pathlib import Path
+          from scripts.notifier import send_message
+          klasor, mod, sonuc, url = os.environ["KLASOR"], os.environ["MOD"], os.environ["SONUC"], os.environ["RUN_URL"]
+          if sonuc != "success":
+              send_message(f"❌ Belgesel ({mod}) başarısız: {klasor}\n{url}")
+          elif mod == "ornek":
+              send_message(f"🎬 Örnek önizleme hazır: {klasor}\nİndirme (Artifacts → ornek-onizleme): {url}")
+          else:
+              y = json.loads(Path(klasor, "build", "yukleme.json").read_text())
+              ozet = json.loads(Path(klasor, "build", "ozet.json").read_text())
+              plan = f"Planlı yayın: {y['publish_at']}" if y.get("publish_at") else "Gizli — Studio'dan yayınlayın"
+              send_message(f"✅ Belgesel GİZLİ yüklendi ({ozet['total_seconds']/60:.0f} dk, {ozet['lufs']:.1f} LUFS)\n"
+                           f"{y['url']}\n{plan}\nİzleyip onaylayın.")
+          EOF

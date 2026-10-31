@@ -12,6 +12,7 @@ doc_audio.py - Belgesel anlatım sesi: üretim, zaman damgaları, miksaj, master
 
 import asyncio
 import base64
+import hashlib
 import json
 import re
 import subprocess
@@ -165,8 +166,14 @@ def synthesize(paragraphs: list[str], out_dir: Path, voice_id: str = "",
     for i, text in enumerate(paragraphs):
         mp3 = out_dir / f"p{i:03d}.mp3"
         words_path = out_dir / f"p{i:03d}.json"
-        if mp3.exists() and words_path.exists():
-            words = json.loads(words_path.read_text(encoding="utf-8"))
+        # Önbellek metnin parmak iziyle geçerli: paragraf düzeltilirse yalnızca
+        # o paragraf yeniden seslendirilir (komşuların bağlamı için yeniden üretim yok).
+        fp = hashlib.sha1(f"{engine}|{voice_id}|{spoken[i]}".encode("utf-8")).hexdigest()[:16]
+        cached = json.loads(words_path.read_text(encoding="utf-8")) if words_path.exists() else None
+        if isinstance(cached, dict) and cached.get("fp") == fp and mp3.exists():
+            words = cached["words"]
+        elif isinstance(cached, list) and mp3.exists():
+            words = cached          # parmak izi olmayan elle hazırlanmış ses (test/kayıt)
         elif engine == "elevenlabs":
             try:
                 audio, alignment = _eleven_paragraph(
@@ -189,7 +196,9 @@ def synthesize(paragraphs: list[str], out_dir: Path, voice_id: str = "",
             if len(shown) == len(words):
                 for w, s in zip(words, shown):
                     w["word"] = s
-        words_path.write_text(json.dumps(words, ensure_ascii=False), encoding="utf-8")
+        if not isinstance(cached, list):
+            words_path.write_text(json.dumps({"fp": fp, "words": words}, ensure_ascii=False),
+                                  encoding="utf-8")
         if not meta_path.exists():
             meta_path.write_text(json.dumps({"engine": engine}))
         results.append({"path": str(mp3), "duration": _probe_duration(mp3),
@@ -303,7 +312,7 @@ def master(voice_wav: Path, music_wav: Path | None, out_path: Path,
           f"measured_LRA={m['input_lra']}:measured_thresh={m['input_thresh']}:"
           f"offset={m['target_offset']}")
     subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(mix_wav), "-af", ln,
-                    "-ar", str(SR), "-c:a", "aac", "-b:a", "320k", str(out_path)], check=True)
+                    "-ar", str(SR), "-ac", "2", "-c:a", "aac", "-b:a", "320k", str(out_path)], check=True)
     mix_wav.unlink(missing_ok=True)
     return out_path
 

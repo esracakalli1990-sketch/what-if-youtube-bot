@@ -187,3 +187,84 @@ def test_render_chapter_duration(photo, tmp_path):
     probe = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration",
                             "-of", "csv=p=0", str(out)], capture_output=True, text=True)
     assert float(probe.stdout) == pytest.approx(2.0, abs=0.05)
+
+
+def test_label_stays_readable_in_short_shot():
+    """4 sn'lik çekimde etiket en az ~2 sn tam görünür olmalı."""
+    visible = [t / 30 for t in range(120) if dr._envelope(t / 30, 4.0) >= 0.999]
+    assert visible and visible[-1] - visible[0] >= 2.0
+
+
+# ── Üretim hattı ve yükleme ──────────────────
+
+def _mini_production(tmp_path, n_images=3):
+    import json
+    images = {f"g{i}": {"file": f"g{i}.jpg"} for i in range(n_images)}
+    data = {"slug": "t", "title": "Deneme", "description": "Giriş metni.", "images": images,
+            "sources": ["Bryce, T. The Kingdom of the Hittites (2005)"],
+            "chapters": [{"title": "Giriş", "paragraphs": [{"text": "a", "shots": [{"image": "g0"}]}]}]}
+    (tmp_path / "senaryo.json").write_text(json.dumps(data), encoding="utf-8")
+    from scripts.doc_pipeline import Production
+    prod = Production(str(tmp_path))
+    credit = {"title": "File:" + "Uzun bir eser adı " * 6 + ".jpg", "artist": "Fotoğrafçı",
+              "license": "CC BY-SA 4.0"}
+    manifest = {k: {"path": f"images/{k}.jpg",
+                    "credit": credit | {"title": credit["title"].replace("File:", f"File:{k} ")}}
+                for k in images}
+    prod.path("images", "manifest.json").write_text(json.dumps(manifest), encoding="utf-8")
+    return prod
+
+
+def test_description_has_sections_and_fits_limit(tmp_path):
+    prod = _mini_production(tmp_path, n_images=80)
+    text = prod.description("0:00 Giriş\n1:00 Kuruluş\n5:00 Son")
+    assert len(text) <= 5000
+    assert "📍 Bölümler\n0:00 Giriş" in text
+    assert "📚 Kaynaklar" in text and "Bryce" in text
+    assert "tam liste sabit yorumda" in text      # sığmayan lisanslar kesildi
+
+
+def test_sample_mode_limits_chapters(tmp_path):
+    prod = _mini_production(tmp_path)
+    from scripts.doc_pipeline import Production
+    sample = Production(str(tmp_path), sample=1)
+    assert sample.final_name == "ornek.mp4" and len(sample.data["chapters"]) == 1
+    assert sample._manifest_name() == "manifest-ornek.json"
+    assert prod._manifest_name() == "manifest.json"
+
+
+def test_upload_documentary_body(monkeypatch, tmp_path):
+    from scripts import youtube_uploader as yu
+    video = tmp_path / "v.mp4"
+    video.write_bytes(b"0" * 1024)
+    captured = {}
+
+    class Req:
+        def next_chunk(self):
+            return None, {"id": "abc123"}
+
+    class Videos:
+        def insert(self, part, body, media_body):
+            captured["body"] = body
+            return Req()
+
+    class YT:
+        def videos(self):
+            return Videos()
+
+    monkeypatch.setattr(yu, "authenticate", lambda: object())
+    monkeypatch.setattr(yu, "build", lambda *a, **k: YT())
+    monkeypatch.setattr(yu, "MediaFileUpload", lambda *a, **k: None)
+    monkeypatch.setattr(yu, "record_upload", lambda *a, **k: None)
+    from datetime import datetime, timezone
+    when = datetime(2026, 11, 4, 16, 0, tzinfo=timezone.utc)
+    vid = yu.upload_documentary(str(video), "Hititler", "açıklama", ["tarih"],
+                                publish_at=when, synthetic_media=True)
+    assert vid == "abc123"
+    body = captured["body"]
+    assert body["status"]["privacyStatus"] == "private"
+    assert body["status"]["publishAt"] == when.isoformat()
+    assert body["status"]["containsSyntheticMedia"] is True
+    assert body["snippet"]["defaultLanguage"] == "tr"
+    assert body["snippet"]["defaultAudioLanguage"] == "tr"
+    assert body["snippet"]["categoryId"] == "27"
