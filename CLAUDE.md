@@ -2,6 +2,7 @@
 
 Proje devir bilgisi için önce `docs/DEVIR_NOTU.md`, sonra `docs/AJAN_DERSLERI.md` dosyasını oku
 (başka projelerden alınan dersler, niş ölçümü yöntemi, Graphify kurulumu).
+Güncel proje: Türkçe uzun tarih belgeseli serisi — `docs/PROJE_PLANI_TARIH_SERISI.md`.
 
 Kısa kurallar:
 - Kullanıcı Türkçe konuşur, kodlamada zayıftır; sade ve dürüst anlat.
