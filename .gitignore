@@ -39,3 +39,4 @@ nis-analizi/ham_veri.json
 
 # Belgesel üretim çıktıları (yerel / Actions artifact)
 belgeseller/*/build/
+belgeseller/*/inceleme/

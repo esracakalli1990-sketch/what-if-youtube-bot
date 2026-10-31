@@ -2,8 +2,31 @@
  "slug": "01-hititler",
  "title": "Hitit İmparatorluğu'nun Tam Hikâyesi | Anadolu'nun Unutulan Süper Gücü",
  "description": "Üç bin yıl önce Anadolu'nun kalbinde, bugünkü Çorum'da, Mısır firavunlarıyla eşit konuşan bir imparatorluk yükseldi. Kralları Babil'e kadar yürüdü, Kadeş'te Ramses'le savaştı ve tarihin metni günümüze ulaşan en eski barış antlaşmalarından birini imzaladı. Sonra, neredeyse iz bırakmadan kayboldu.\n\nBu belgeselde Hititlerin yeniden keşfinden çöküşüne kadar tam hikâyesini, arşiv belgeleri ve müze eserleri eşliğinde anlatıyoruz. Tartışmalı bilgiler anlatımda öyle belirtilmiştir.",
- "tags": ["hititler", "hitit imparatorluğu", "hattuşa", "tarih belgeseli", "anadolu tarihi", "kadeş savaşı", "kadeş antlaşması", "tunç çağı", "antik tarih", "belgesel", "çorum", "boğazköy", "ramses", "yazılıkaya", "türkçe belgesel", "uyku için tarih"],
- "hashtags": ["#Hititler", "#Tarih", "#Belgesel", "#Anadolu", "#Hattuşa"],
+ "tags": [
+  "hititler",
+  "hitit imparatorluğu",
+  "hattuşa",
+  "tarih belgeseli",
+  "anadolu tarihi",
+  "kadeş savaşı",
+  "kadeş antlaşması",
+  "tunç çağı",
+  "antik tarih",
+  "belgesel",
+  "çorum",
+  "boğazköy",
+  "ramses",
+  "yazılıkaya",
+  "türkçe belgesel",
+  "uyku için tarih"
+ ],
+ "hashtags": [
+  "#Hititler",
+  "#Tarih",
+  "#Belgesel",
+  "#Anadolu",
+  "#Hattuşa"
+ ],
  "ai_disclosure": "Bazı sahnelerde yapay zekâ ile üretilmiş temsili canlandırmalar kullanılmıştır; bu sahneler videoda \"Temsili canlandırma\" olarak işaretlidir.",
  "sources": [
   "Trevor Bryce, The Kingdom of the Hittites, Oxford University Press, 2005",
@@ -22,14 +45,388 @@
   "Hrozný": "Hrozni",
   "Ankhesenamun": "Ankesenamun"
  },
- "voice_settings": {"stability": 0.55, "similarity_boost": 0.8, "style": 0.1, "use_speaker_boost": true},
+ "voice_settings": {
+  "stability": 0.55,
+  "similarity_boost": 0.8,
+  "style": 0.1,
+  "use_speaker_boost": true
+ },
  "thumbnails": [
-  {"image": "aslan_kapi_1", "line1": "Unutulan İmparatorluk", "line2": "Hititler", "badge": "TAM HİKÂYE", "focus_x": 0.62},
-  {"image": "kades_tablet", "line1": "İlk Barış", "line2": "Hititler ve Mısır", "badge": "TAM HİKÂYE", "focus_x": 0.6},
-  {"image": "yazilikaya_a", "line1": "Bin Tanrının Ülkesi", "line2": "Hititler", "badge": "TAM HİKÂYE", "focus_x": 0.65}
+  {
+   "image": "aslan_kapi_1",
+   "line1": "Unutulan İmparatorluk",
+   "line2": "Hititler",
+   "badge": "TAM HİKÂYE",
+   "focus_x": 0.62
+  },
+  {
+   "image": "kades_tablet",
+   "line1": "İlk Barış",
+   "line2": "Hititler ve Mısır",
+   "badge": "TAM HİKÂYE",
+   "focus_x": 0.6
+  },
+  {
+   "image": "yazilikaya_a",
+   "line1": "Bin Tanrının Ülkesi",
+   "line2": "Hititler",
+   "badge": "TAM HİKÂYE",
+   "focus_x": 0.65
+  }
  ],
- "images": {},
+ "images": {
+  "alaca_seramik": {
+   "commons": "File:Hittite pottery from Alaca Höyük.jpg"
+  },
+  "alaca_sfenks": {
+   "commons": "File:Sphinx Gate, Alaca Höyük 02.jpg"
+  },
+  "alaca_sfenks_3": {
+   "commons": "File:Sphinx Gate, Alaca Höyük 03.jpg"
+  },
+  "amarna_mektup2": {
+   "commons": "File:Amarna letter. Letter from Yapahu (ruler of Gezer) to the Egyptian pharaoh Amenhotep III or son Akhenaten.jpg"
+  },
+  "ankhesenamun": {
+   "commons": "File:Double scene of Ankhesenamun and Tutankhamun.jpg"
+  },
+  "ankhesenamun_ok": {
+   "commons": "File:Ankhesenamun handing arrow to seated Tutankhamun.jpg"
+  },
+  "araba_karkamis": {
+   "commons": "File:Ankara Anatolian Civilizations Carchemish orthostats Long Wall Chariot scene A in 2011 02.jpg"
+  },
+  "araba_karkamis_d": {
+   "commons": "File:Ankara Anatolian Civilizations Carchemish orthostats Long Wall Chariot scene D in 2011 07.jpg"
+  },
+  "araba_samal": {
+   "commons": "File:Relief orthostat showing a war chariot and a dying naked foe. From Sam'al citadel. 9th century BC. Museum of the Ancient Orient, Istanbul.jpg"
+  },
+  "aslan_kapi_1": {
+   "commons": "File:Lion Gate, Hattusa 01.jpg"
+  },
+  "aslan_kapi_2": {
+   "commons": "File:Lion Gate, Hattusa 02.jpg"
+  },
+  "aslan_kapi_5": {
+   "commons": "File:Lion Gate, Hattusa 05.jpg"
+  },
+  "aslan_kapi_6": {
+   "commons": "File:Lion Gate, Hattusa 06.jpg"
+  },
+  "aslan_kapi_8": {
+   "commons": "File:Lion Gate, Hattusa 08.jpg"
+  },
+  "aslantepe_libasyon": {
+   "commons": "File:Museum of Anatolian Civilizations Aslantepe King Allumalli pouring libation to Storm God who is in two different poses 2012 3434.jpg"
+  },
+  "asur_muhur": {
+   "commons": "File:Cuneiform tablet case impressed with four cylinder seals Old Assyrian.png"
+  },
+  "asur_tablet": {
+   "commons": "File:Clay tablet and its stamped envelop. Legal debt-note on silver. Old Assyrian dialect. Assyrian Colony Period, 19th century BCE. Ancient Orient Museum, Istanbul.jpg"
+  },
+  "asur_zarf": {
+   "commons": "File:Tablet envelope sealed Old Assyrian 113581.jpg"
+  },
+  "boga_pithos": {
+   "commons": "File:Museum of Anatolian Civilizations Hittite Bull head pithos in 2019 01.jpg"
+  },
+  "bogazkoy_muze": {
+   "commons": "File:Museum Hattusa - Boğazköy Museum, Boğazköy, Çorum, Turkey 26.jpg"
+  },
+  "bogazkoy_muze_5": {
+   "commons": "File:Museum Hattusa - Boğazköy Museum, Boğazköy, Çorum, Turkey 05.jpg"
+  },
+  "buyuk_mabet_1": {
+   "commons": "File:Hattusa-Lower City 03.jpg"
+  },
+  "buyuk_mabet_1994": {
+   "commons": "File:Hattuşa Great temple in 1994 096.jpg"
+  },
+  "buyuk_mabet_2": {
+   "commons": "File:Hattusa-Lower City 02.jpg"
+  },
+  "buyuk_mabet_3": {
+   "commons": "File:Great Temple, Hattusa, Boğazkale, Çorum, Turkey 02.jpg"
+  },
+  "buyukkale_1": {
+   "commons": "File:Ḫattuša Büyükkale 01 .jpg"
+  },
+  "buyukkale_13": {
+   "commons": "File:Ḫattuša Büyükkale 13.jpg"
+  },
+  "buyukkale_1994": {
+   "commons": "File:Hattuşa Büyükkale in 1994 113.jpg"
+  },
+  "buyukkale_41": {
+   "commons": "File:Ḫattuša Büyükkale 41.jpg"
+  },
+  "ebu_simbel": {
+   "commons": "File:Templo de Ramsés II, Abu Simbel, Egipto, 2022-04-02, DD 74-76 HDR.jpg"
+  },
+  "ebu_simbel_salon": {
+   "commons": "File:Großer Tempel (Abu Simbel) Große Pfeilerhalle Ostwand 03.jpg"
+  },
+  "eski_gravur": {
+   "commons": "File:V A - 5 - Ruines de la citadelle de Hatti (Aujourd'hui Boghaz-Keui).tif"
+  },
+  "figurin_amasya": {
+   "commons": "File:Figurine von Amasya 01.jpg"
+  },
+  "figurin_boga": {
+   "commons": "File:Figurine du dieu de l'orage debout sur un taureau, exposition Royaumes oubliés, Louvre 2019.jpg"
+  },
+  "firtina_tanrisi": {
+   "commons": "File:Orthostate - Tarhunza le dieu de l'orage.jpg"
+  },
+  "gaga_testi": {
+   "commons": "File:Beak-spouted terracota jug.jpg"
+  },
+  "gunes_heykel": {
+   "commons": "File:Ankara Hitit Güneş Kursu Heykeli in 2011 01.jpg"
+  },
+  "halep": {
+   "commons": "File:Aleppo Citadel 05 - Inner gate.jpg"
+  },
+  "hammurabi": {
+   "commons": "File:Code of Hammurabi (Louvre Sb 8)-31434550325.jpg"
+  },
+  "harita": {
+   "commons": "File:Map of the Hittite empire.png",
+   "original": true
+  },
+  "hatti_disk": {
+   "commons": "File:Museum of Anatolian Civilizations Hattian disk with geometric design in 2019 05.jpg"
+  },
+  "hattusa_hiyeroglif": {
+   "commons": "File:Hattusa, capital of the Hittite Empire 24.jpg"
+  },
+  "on_iki_tanri_2": {
+   "commons": "File:Hattusa, capital of the Hittite Empire 39.jpg"
+  },
+  "hrozny_anit": {
+   "commons": "File:Memorial of Bedřich Hrozný in Lysá nad Labem, Nymburk District.JPG"
+  },
+  "hrozny_muze": {
+   "commons": "File:Museum of Bedřich Hrozný in Lysá nad Labem.JPG"
+  },
+  "ivriz": {
+   "commons": "File:Ivriz Neo-Hittite relief (1993).jpg"
+  },
+  "kades_parca": {
+   "commons": "File:2. Part of the clay tablet of Kadesh Treaty, written in Akkadian. 1269 BCE. From Boğazköy, Turkey. Clay tablet. Museum of the Ancient Orient, Istanbul, Turkey.jpg"
+  },
+  "kades_tablet": {
+   "commons": "File:Kadesh Treaty, written in Akkadian. 1269 BCE. From Boğazköy, Turkey. Clay tablet. Museum of the Ancient Orient, Istanbul, Turkey.jpg"
+  },
+  "karkamis_savasci": {
+   "commons": "File:Ankara Anatolian Civilizations Carchemish orthostats Long Wall Warriors in 2011 01.jpg"
+  },
+  "karnak": {
+   "commons": "File:Theban region, Temple Complex of Amon in Karnak, Temple of Amun, photo 10 of 46 - Archivio fotografico Museo Egizio, Turin C01125.jpg"
+  },
+  "kayseri_riton": {
+   "commons": "File:Kayseri Archaeological Museum Rhyton 2240.jpg"
+  },
+  "kral_kapi": {
+   "commons": "File:King's Gate, Hattusa.jpg"
+  },
+  "kral_kapi_4": {
+   "commons": "File:King's Gate, Hattusa, Boğazkale, Çorum, Turkey 04.jpg"
+  },
+  "kultepe": {
+   "commons": "File:Kultepe Karum excavations (1993) 01.jpg"
+  },
+  "kultepe_hoyuk": {
+   "commons": "File:Kultepe Karum trenches and mound (1993).jpg"
+  },
+  "medinet_habu": {
+   "commons": "File:Medinet Habu Ramses III. Tempel Nordostwand Abzeichnung 01.jpg"
+  },
+  "medinet_habu_2": {
+   "commons": "File:Medinet Habu Ramses III. Tempel Erster Hof 20.jpg"
+  },
+  "miken_aslan": {
+   "commons": "File:Lion Gate, Mycenae, 201510.jpg"
+  },
+  "mitanni_seramik": {
+   "commons": "File:Mitanni or Nuzi ware - Oriental Institute Museum, University of Chicago - DSC07021.JPG"
+  },
+  "on_iki_tanri": {
+   "commons": "File:Relief of the Twelve Underworld Gods Chamber B Yazilikaya Hattusa.jpg"
+  },
+  "oturan_kadin": {
+   "commons": "File:Museum of Anatolian Civilizations Hittite Statuette of a seated woman in 2012 02.jpg"
+  },
+  "panorama": {
+   "commons": "File:Boğazköy panorama.jpg"
+  },
+  "panorama_2": {
+   "commons": "File:Panorama in Hattusa.jpg"
+  },
+  "ramesseum_kades": {
+   "commons": "File:Battle scene from the Great Kadesh reliefs of Ramses II on the Walls of the Ramesseum.jpg"
+  },
+  "ramses_heykel": {
+   "commons": "File:Statue of Ramesses II in Karnak Temple in Luxor Egypt.JPG"
+  },
+  "ramses_turin": {
+   "commons": "File:Statue of Ramses II from Karnak, granodiorite - C 1380 Museo Egizio (Turin) 01.jpg"
+  },
+  "riton": {
+   "commons": "File:Museum of Anatolian Civilizations Hittite Cup type rhyton with animal's head in 2014 06.jpg"
+  },
+  "sfenks_kapi_1": {
+   "commons": "File:Sphinx Gate, Hattusa 01.jpg"
+  },
+  "sfenks_kapi_2": {
+   "commons": "File:Sphinx Gate, Hattusa, Boğazkale, Çorum, Turkey.jpg"
+  },
+  "suppiluliuma_antlasma": {
+   "commons": "File:Suppiluliuma I and Hukkana treaty, 13th century BC, from Hattusa, Istanbul Archaeological Museum.jpg"
+  },
+  "suppiluliuma_tablet": {
+   "commons": "File:Suppiluliuma I' deeds, 14th century BC, from Hattusa, Istanbul Archaeological Museum.jpg"
+  },
+  "sur_1": {
+   "commons": "File:Hattusa - Hittite city wall 02.jpg"
+  },
+  "sur_2": {
+   "commons": "File:Hattusa - Hittite city wall 01.jpg"
+  },
+  "sur_rekons": {
+   "commons": "File:Modern reconstruction of a 65m long section of the city wall made of mud brick, Hattusa, the capital of the Hittite Empire in the late Bronze Age, Boğazkale, Turkey (26064042932).jpg"
+  },
+  "suriye_uzay": {
+   "commons": "File:ISS056-E-5974 - View of Syria - Mediterranean Sea - Tartus - Latakia - Syrian Coastal Mountain Range (Jabal al-Ansariya) - Orontes River - Lake Homs - Hama - Antakya - Gulf of Alexandretta - Iskenderun - Aleppo (cropped).jpg"
+  },
+  "alaca_mezar_1": {
+   "commons": "File:Boğazköy-alacahöyük (1).jpg"
+  },
+  "alaca_mezar_2": {
+   "commons": "File:Boğazköy-alacahöyük (3).jpg"
+  },
+  "hattusa_manzara": {
+   "commons": "File:Boğazköy-alacahöyük (5).jpg"
+  },
+  "kral_kapi_genel": {
+   "commons": "File:Boğazköy-alacahöyük (8).jpg"
+  },
+  "yazilikaya_giris": {
+   "commons": "File:Boğazköy-alacahöyük (9).jpg"
+  },
+  "tarhunda_araba": {
+   "commons": "File:Adana Archaeological Museum Late Hittite Tarhunda on chariot 0214.jpg"
+  },
+  "testi_tokat": {
+   "commons": "File:Impero ittita, versatoio, in terracotta, da tokat, 1400-1200 ac ca. (m. archeologico istanbul).jpg"
+  },
+  "ugarit": {
+   "commons": "File:5.44 Ugarit (2).jpg"
+  },
+  "ugarit_tablet": {
+   "commons": "File:Tablet-AO 21091-IMG 3848-black.jpg"
+  },
+  "vadi": {
+   "commons": "File:Hattuşa (Hitit Başkenti) antik kentinden Boğazkale ilçesine ve çevresindeki vadiye bakış.jpg"
+  },
+  "vadi_1991": {
+   "commons": "File:Hattuşaş Landschaft 01 08 1991.jpg"
+  },
+  "yazilikaya_a": {
+   "commons": "File:Chamber A, Yazilikaya 02.jpg"
+  },
+  "yazilikaya_a4": {
+   "commons": "File:Chamber A, Yazilikaya 04.jpg"
+  },
+  "yazilikaya_a5": {
+   "commons": "File:Chamber A, Yazilikaya 05.jpg"
+  },
+  "yazilikaya_b": {
+   "commons": "File:Chamber B, Yazilikaya 02.jpg"
+  },
+  "yerkapi_ag": {
+   "commons": "File:Hattuşa Yerkapı Postern at low end of tunnel in 2004 3545.jpg"
+  },
+  "yerkapi_sfenks": {
+   "commons": "File:Hattuşa (Hitit Başkenti) antik kentinin güney ucundaki Yerkapı'da bulunan Sfenksli Kapı.jpg"
+  },
+  "yerkapi_tunel": {
+   "commons": "File:Hattuşa Yerkapı inside tunnel in 2004 3544.jpg"
+  }
+ },
  "cards": {},
  "music": {},
- "shots": {}
+ "shots": {},
+ "films": {
+  "hattusa_video": {
+   "commons": "File:HATTUŞAŞ ANTİK KENTİ ÇORUM (ALACA BOĞAZKALE.webm"
+  }
+ },
+ "stock": {
+  "gok_timelapse": {
+   "q": "clouds timelapse over hills"
+  },
+  "bozkir_ruzgar": {
+   "q": "dry grass blowing in wind"
+  },
+  "bozkir_gunbatimi": {
+   "q": "steppe hills sunset"
+  },
+  "yildizli_gece": {
+   "q": "starry night sky timelapse"
+  },
+  "nehir": {
+   "q": "river flowing over rocks"
+  },
+  "deniz_safak": {
+   "q": "calm sea horizon dawn"
+  },
+  "kurak_toprak": {
+   "q": "dry cracked earth drought"
+  },
+  "bugday_ruzgar": {
+   "q": "wheat field wind"
+  },
+  "koyun_suru": {
+   "q": "sheep flock on hills"
+  },
+  "at_dortnala": {
+   "q": "horses galloping dust"
+  },
+  "toz_firtinasi": {
+   "q": "dust storm desert"
+  },
+  "ates_gece": {
+   "q": "bonfire flames night"
+  },
+  "yangin": {
+   "q": "fire burning wood dark"
+  },
+  "mum_isigi": {
+   "q": "oil lamp flame dark"
+  },
+  "kil_eller": {
+   "q": "hands shaping clay"
+  },
+  "ekmek_firin": {
+   "q": "bread baking wood oven"
+  },
+  "tas_doku": {
+   "q": "ancient stone wall texture close up"
+  },
+  "katman_toz": {
+   "q": "dust particles floating black background"
+  },
+  "katman_kivilcim": {
+   "q": "fire embers sparks black background"
+  },
+  "katman_sis": {
+   "q": "smoke fog black background"
+  },
+  "katman_isik": {
+   "q": "light leak film overlay"
+  }
+ }
 }

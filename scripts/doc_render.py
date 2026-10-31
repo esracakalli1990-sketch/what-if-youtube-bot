@@ -256,7 +256,44 @@ class Shot:
     label: dict | None = None        # {"title": ..., "subtitle": ...}
     note: str = ""                   # sağ üst not
     grade: bool = True               # video çekimlerinde renk tonu (grafik kartlarında kapalı)
+    start: float = 0.0               # video çekimi: kaynakta başlangıç saniyesi (film kesiti)
+    overlay: str = ""                # atmosfer katmanı videosu (toz, sis, kıvılcım…)
+    overlay_opacity: float = 0.55
     _state: dict = field(default_factory=dict, repr=False)
+
+
+def probe_duration(path: str) -> float:
+    out = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration",
+                          "-of", "default=noprint_wrappers=1:nokey=1", str(path)],
+                         capture_output=True, text=True)
+    try:
+        return float(out.stdout.strip())
+    except ValueError:
+        return 0.0
+
+
+def screen_blend(base: np.ndarray, layer: np.ndarray, opacity: float) -> np.ndarray:
+    """"Screen" karışımı: katmanın parlak kısımları (toz, kıvılcım) tabana eklenir, siyahı kaybolur."""
+    layer = cv2.convertScaleAbs(layer, alpha=opacity)
+    inv = cv2.multiply(cv2.bitwise_not(base), cv2.bitwise_not(layer), scale=1 / 255.0)
+    return cv2.bitwise_not(inv)
+
+
+class AtmosSource:
+    """Bir çekim kaynağının üstüne döngülü atmosfer katmanı bindirir."""
+
+    def __init__(self, base, shot: Shot):
+        self.base = base
+        self.layer = VideoSource(Shot("video", shot.overlay, 0), loop=True, do_grade=False)
+        self.opacity = shot.overlay_opacity
+
+    def frame(self, t: float) -> np.ndarray:
+        return screen_blend(self.base.frame(t), self.layer.frame(t), self.opacity)
+
+    def close(self):
+        self.layer.close()
+        if isinstance(self.base, VideoSource):
+            self.base.close()
 
 
 class ImageSource:
@@ -297,16 +334,32 @@ class ImageSource:
 
 
 class VideoSource:
-    """Klibi 1440p'ye ölçekleyip sırayla okur; klip biterse son kare donar."""
+    """
+    Klibi 1440p'ye ölçekleyip sırayla okur.
 
-    def __init__(self, shot: Shot):
+    start: kaynakta başlangıç saniyesi (uzun filmden kesit). Kaynak çekimden
+    kısaysa en fazla %40 yavaşlatılır; yine yetmezse son kare donar.
+    loop: atmosfer katmanları gibi kısa döngülerin sonsuz tekrarı.
+    """
+
+    def __init__(self, shot: Shot, span: float = 0.0, loop: bool = False, do_grade: bool | None = None):
         self.shot = shot
-        vf = (f"scale={OUT_W}:{OUT_H}:force_original_aspect_ratio=increase,"
+        self.do_grade = shot.grade if do_grade is None else do_grade
+        speed = 1.0
+        if span and not loop:
+            available = probe_duration(shot.path) - shot.start
+            if 0 < available < span:
+                speed = max(available / span, 0.6)
+        vf = (f"setpts=PTS/{speed:.4f},"
+              f"scale={OUT_W}:{OUT_H}:force_original_aspect_ratio=increase:flags=lanczos,"
               f"crop={OUT_W}:{OUT_H},fps={FPS}")
-        self.proc = subprocess.Popen(
-            ["ffmpeg", "-loglevel", "error", "-i", shot.path, "-vf", vf,
-             "-f", "rawvideo", "-pix_fmt", "bgr24", "-"],
-            stdout=subprocess.PIPE)
+        cmd = ["ffmpeg", "-loglevel", "error"]
+        if loop:
+            cmd += ["-stream_loop", "-1"]
+        if shot.start:
+            cmd += ["-ss", f"{shot.start:.3f}"]
+        cmd += ["-i", shot.path, "-an", "-vf", vf, "-f", "rawvideo", "-pix_fmt", "bgr24", "-"]
+        self.proc = subprocess.Popen(cmd, stdout=subprocess.PIPE)
         self.pos = -1
         self.last = np.zeros((OUT_H, OUT_W, 3), np.uint8)
         self.ended = False
@@ -320,7 +373,7 @@ class VideoSource:
                 self.ended = True
                 break
             frame = np.frombuffer(buf, np.uint8).reshape(OUT_H, OUT_W, 3)
-            self.last = grade(frame) if self.shot.grade else frame.copy()
+            self.last = grade(frame) if self.do_grade else frame.copy()
             self.pos += 1
         return self.last
 
@@ -357,7 +410,8 @@ def render_chapter(shots: list[Shot], out_path: str, xfade: float = 0.5,
         if i not in sources:
             s = shots[i]
             span = s.duration + xfade
-            sources[i] = VideoSource(s) if s.kind == "video" else ImageSource(s, span, canvas_cache)
+            src = VideoSource(s, span) if s.kind == "video" else ImageSource(s, span, canvas_cache)
+            sources[i] = AtmosSource(src, s) if s.overlay else src
             ov = []
             if s.label:
                 ov.append(render_label(s.label.get("title", ""), s.label.get("subtitle", "")))
@@ -368,8 +422,10 @@ def render_chapter(shots: list[Shot], out_path: str, xfade: float = 0.5,
 
     def release(i: int):
         src = sources.pop(i, None)
-        if isinstance(src, VideoSource):
+        if isinstance(src, (VideoSource, AtmosSource)):
             src.close()
+        if isinstance(src, AtmosSource):
+            src = src.base
         overlays.pop(i, None)
         if isinstance(src, ImageSource):
             # Aynı görsel sonraki çekimlerde yoksa tuvali bellekten at

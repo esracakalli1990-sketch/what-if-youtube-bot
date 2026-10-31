@@ -268,3 +268,80 @@ def test_upload_documentary_body(monkeypatch, tmp_path):
     assert body["snippet"]["defaultLanguage"] == "tr"
     assert body["snippet"]["defaultAudioLanguage"] == "tr"
     assert body["snippet"]["categoryId"] == "27"
+
+
+# ── Faz 1b: stok video, film kesiti, atmosfer katmanı ──
+
+def test_pexels_best_file_prefers_landscape_near_1440p():
+    from scripts import stock_video as sv
+    video = {"id": 7, "duration": 12, "image": "p.jpg", "url": "u", "user": {"name": "Ayşe"},
+             "video_files": [
+                 {"file_type": "video/mp4", "width": 1280, "height": 720, "link": "a"},
+                 {"file_type": "video/mp4", "width": 3840, "height": 2160, "link": "b"},
+                 {"file_type": "video/mp4", "width": 2560, "height": 1440, "link": "c"},
+                 {"file_type": "video/mp4", "width": 1080, "height": 1920, "link": "d"}]}
+    assert sv.best_file(video)["link"] == "c"
+    s = sv.summarize(video)
+    assert s["id"] == 7 and s["author"] == "Ayşe" and s["link"] == "c"
+    assert sv.best_file({"video_files": [{"file_type": "video/mp4", "width": 1280, "height": 720}]}) is None
+
+
+def test_pexels_requires_key(monkeypatch):
+    from scripts import stock_video as sv
+    monkeypatch.delenv("PEXELS_API_KEY", raising=False)
+    with pytest.raises(sv.StockError):
+        sv.search("dust")
+
+
+def test_screen_blend_brightens_and_ignores_black():
+    base = np.full((4, 4, 3), 100, np.uint8)
+    black = np.zeros((4, 4, 3), np.uint8)
+    white = np.full((4, 4, 3), 255, np.uint8)
+    assert np.array_equal(dr.screen_blend(base, black, 0.8), base)
+    out = dr.screen_blend(base, white, 0.5)
+    assert (out > base).all() and (out < 255).all()
+
+
+@pytest.fixture
+def short_video(tmp_path):
+    path = tmp_path / "klip.mp4"
+    subprocess.run(["ffmpeg", "-y", "-v", "error", "-f", "lavfi", "-i",
+                    "testsrc=size=320x180:rate=30:duration=4", str(path)], check=True)
+    return str(path)
+
+
+def test_video_source_start_and_slowdown(short_video):
+    dr.OUT_W, dr.OUT_H = 320, 180
+    try:
+        # 4 sn'lik klip, 2. saniyeden başla, 3 sn'lik çekim: kalan 2 sn → yavaşlatılır
+        src = dr.VideoSource(dr.Shot("video", short_video, 3.0, start=2.0), span=3.0)
+        frames = [src.frame(t / 30) for t in range(0, 90, 10)]
+        src.close()
+        # Yavaşlatma sayesinde son kareler de hâlâ değişiyor (donmuyor)
+        assert not np.array_equal(frames[-1], frames[-2])
+    finally:
+        dr.OUT_W, dr.OUT_H = 2560, 1440
+
+
+def test_chapter_shots_stock_film_overlay(tmp_path):
+    chapter = {"title": "c", "paragraphs": [{"text": "a", "shots": [
+        {"stock": "gok"}, {"film": "hattusa", "start": 42.0},
+        {"image": "x", "overlay": "toz", "overlay_opacity": 0.4}]}]}
+    audio = [{"duration": 12.0, "words": _words("Bir. İki. Üç. Dört. Beş. Altı.", 2.0)}]
+    layout = dt.layout_chapter(chapter, [12.0])
+    shots = dt.chapter_shots(chapter, audio, layout, {"x": "x.jpg"}, tmp_path,
+                             stock_paths={"gok": "gok.mp4", "toz": "toz.mp4"},
+                             film_paths={"hattusa": "film.webm"})
+    assert [s["kind"] for s in shots] == ["video", "video", "image"]
+    assert shots[1]["path"] == "film.webm" and shots[1]["start"] == 42.0
+    assert shots[2]["overlay"] == "toz.mp4" and shots[2]["overlay_opacity"] == 0.4
+
+
+def test_validate_stock_film_overlay_refs(tmp_path):
+    data = {"slug": "x", "title": "t", "images": {"a": {}}, "stock": {"gok": {"q": "sky"}},
+            "films": {}, "chapters": [{"title": "c", "paragraphs": [{"text": "t", "shots": [
+                {"stock": "yok"}, {"film": "f"}, {"image": "a", "overlay": "sis"}]}]}]}
+    problems = dt.validate(data, tmp_path)
+    assert any("stok video tanımsız" in p for p in problems)
+    assert any("film tanımsız" in p for p in problems)
+    assert any("katman tanımsız" in p for p in problems)

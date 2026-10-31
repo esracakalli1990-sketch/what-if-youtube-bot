@@ -3,6 +3,8 @@ name: Belgesel Üret
 # Türkçe tarih belgeseli üretimi — YALNIZCA elle tetiklenir (zamanlayıcı yok).
 # Plan: docs/PROJE_PLANI_TARIH_SERISI.md
 #
+#   mod=inceleme : Commons filmlerinden kare sayfaları + Pexels aday sayfaları
+#               → "inceleme/<slug>" dalına commit (Claude kesit/ID seçer) + Telegram.
 #   mod=ornek : ilk N bölüm → 1080p önizleme (artifact). Kalite onayı için;
 #               tüm videoya ses kredisi harcanmaz.
 #   mod=tam   : tüm video → YouTube'a GİZLİ yükleme (yayin verilirse o saatte
@@ -21,7 +23,7 @@ on:
       mod:
         description: "ornek = önizleme, tam = YouTube'a gizli yükleme"
         type: choice
-        options: [ornek, tam]
+        options: [inceleme, ornek, tam]
         default: ornek
       ornek_bolum:
         description: "Örnekte kaç bölüm (giriş + ilk bölüm = 2)"
@@ -35,7 +37,7 @@ concurrency:
   cancel-in-progress: false
 
 permissions:
-  contents: read
+  contents: write   # yalnızca inceleme modu: inceleme dalına kare sayfaları yazar
 
 jobs:
   uret:
@@ -46,6 +48,7 @@ jobs:
       ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
       TTS_VOICE_ID_TR: ${{ secrets.TTS_VOICE_ID_TR }}
       DOC_PLAYLIST_ID: ${{ secrets.DOC_PLAYLIST_ID }}
+      PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
       TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
       TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
       KLASOR: ${{ inputs.klasor }}
@@ -88,11 +91,29 @@ jobs:
           path: |
             ${{ inputs.klasor }}/build/audio
             ${{ inputs.klasor }}/build/images
+            ${{ inputs.klasor }}/build/films
+            ${{ inputs.klasor }}/build/stock
           key: belgesel-${{ inputs.klasor }}-${{ github.run_id }}
           restore-keys: belgesel-${{ inputs.klasor }}-
 
       - name: Senaryoyu doğrula
+        if: inputs.mod != 'inceleme'
         run: python -m scripts.doc_pipeline "$KLASOR" dogrula
+
+      - name: İnceleme sayfaları üret
+        if: inputs.mod == 'inceleme'
+        run: python -m scripts.doc_pipeline "$KLASOR" inceleme
+
+      - name: İnceleme sayfalarını dala yaz
+        if: inputs.mod == 'inceleme'
+        run: |
+          SLUG=$(basename "$KLASOR")
+          git config user.name "belgesel-bot"
+          git config user.email "actions@github.com"
+          git checkout -B "inceleme/$SLUG"
+          git add -f "$KLASOR/inceleme/"*.jpg "$KLASOR/inceleme/adaylar.json"
+          git commit -m "inceleme: $SLUG kare ve aday sayfaları [skip ci]"
+          for i in 1 2 3 4; do git push -f origin "inceleme/$SLUG" && break; sleep $((i * 5)); done
 
       - name: Örnek üret
         if: inputs.mod == 'ornek'
@@ -159,6 +180,12 @@ jobs:
           klasor, mod, sonuc, url = os.environ["KLASOR"], os.environ["MOD"], os.environ["SONUC"], os.environ["RUN_URL"]
           if sonuc != "success":
               send_message(f"❌ Belgesel ({mod}) başarısız: {klasor}\n{url}")
+          elif mod == "inceleme":
+              from scripts.notifier import send_photo
+              sheets = sorted(Path(klasor, "inceleme").glob("*.jpg"))
+              send_message(f"🔎 İnceleme sayfaları hazır ({len(sheets)} sayfa): {klasor}\n{url}")
+              for p in sheets[:10]:
+                  send_photo(str(p), p.stem)
           elif mod == "ornek":
               send_message(f"🎬 Örnek önizleme hazır: {klasor}\nİndirme (Artifacts → ornek-onizleme): {url}")
           else:

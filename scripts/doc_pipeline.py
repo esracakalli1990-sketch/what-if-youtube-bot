@@ -104,6 +104,41 @@ class Production:
                         "credit": v["credit"]} for k, v in result.items()}
         self.path("images", "manifest.json").write_text(
             json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
+        self._fetch_videos()
+
+    def _used(self, field: str) -> set:
+        """Bu üretimin (örnekte yalnızca ilk bölümlerin) çekimlerinde geçen anahtarlar."""
+        keys = set()
+        for ch in self.data["chapters"]:
+            for p in ch["paragraphs"]:
+                for s in p["shots"]:
+                    if s.get(field):
+                        keys.add(s[field])
+                    if field == "stock" and s.get("overlay"):
+                        keys.add(s["overlay"])
+        return keys
+
+    def _fetch_videos(self):
+        """Pexels videoları ve uzun filmler (yalnızca kullanılanlar indirilir)."""
+        stock = {k: v for k, v in self.data.get("stock", {}).items() if k in self._used("stock")}
+        films = {k: v for k, v in self.data.get("films", {}).items() if k in self._used("film")}
+        manifest = {"stock": {}, "films": {}}
+        if stock:
+            from scripts.stock_video import fetch_all
+            for k, v in fetch_all(stock, self.path("stock", "x").parent).items():
+                manifest["stock"][k] = {"path": os.path.relpath(v["path"], self.build), "credit": v["credit"]}
+        if films:
+            from scripts.archive_images import fetch_films
+            for k, v in fetch_films(films, self.path("films", "x").parent).items():
+                manifest["films"][k] = {"path": os.path.relpath(v["path"], self.build), "credit": v["credit"]}
+        self.path("videos.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2),
+                                           encoding="utf-8")
+
+    def video_manifest(self) -> dict:
+        path = self.build / "videos.json"
+        if not path.exists():
+            return {"stock": {}, "films": {}}
+        return json.loads(path.read_text(encoding="utf-8"))
 
     def _remotion(self, args: list[str]):
         cmd = ["npx", "remotion", *args]
@@ -164,6 +199,9 @@ class Production:
     def stage_bolum(self, only: int | None = None):
         audio = self.audio_manifest()
         images = {k: str(self.build / v["path"]) for k, v in self.image_manifest().items()}
+        videos = self.video_manifest()
+        stock = {k: str(self.build / v["path"]) for k, v in videos["stock"].items()}
+        films = {k: str(self.build / v["path"]) for k, v in videos["films"].items()}
         layouts = self.layouts()
         look = doc_render.Look()
         for ci, ch in enumerate(self.data["chapters"]):
@@ -172,7 +210,8 @@ class Production:
             card = self.path("cards", f"c{ci:02d}.mp4")
             shots = doc_timeline.chapter_shots(
                 ch, audio[ci], layouts[ci], images, self.folder,
-                card_clip=str(card) if ch.get("card") else None)
+                card_clip=str(card) if ch.get("card") else None,
+                stock_paths=stock, film_paths=films)
             fades = dict(fade_in=0.0 if ch.get("card") else 0.6)
             doc_render.render_chapter([doc_render.Shot(**s) for s in shots],
                                       str(self.path("chapters", f"c{ci:02d}.mp4")),
@@ -247,6 +286,15 @@ class Production:
         uses_clips = any("clip" in s for ch in d["chapters"] for p in ch["paragraphs"] for s in p["shots"])
         if d.get("ai_disclosure") and uses_clips:
             parts += ["", f"ℹ️ {d['ai_disclosure']}"]
+        videos = self.video_manifest()
+        video_lines = [f"• {c['credit']['title'].removeprefix('File:').rsplit('.', 1)[0]} — "
+                       f"{c['credit']['artist']} ({c['credit']['license']}), Wikimedia Commons"
+                       for c in videos["films"].values()]
+        pexels = sorted({c["credit"]["author"] for c in videos["stock"].values() if c["credit"].get("author")})
+        if pexels:
+            video_lines.append("• Pexels: " + ", ".join(pexels))
+        if video_lines:
+            parts += ["", "🎥 Video kaynakları"] + video_lines
         if d.get("hashtags"):
             parts += ["", " ".join(d["hashtags"])]
         head = "\n".join(parts)
@@ -288,12 +336,21 @@ def main(argv=None):
     ap = argparse.ArgumentParser(description="Türkçe tarih belgeseli üretim hattı")
     ap.add_argument("klasor")
     ap.add_argument("asama", choices=["ses", "gorseller", "kartlar", "bolum", "birlestir",
-                                      "yukle", "hepsi", "dogrula"])
+                                      "yukle", "hepsi", "dogrula", "inceleme"])
     ap.add_argument("--bolum", type=int, default=None, help="yalnızca bu bölümü render et")
     ap.add_argument("--yayin", default=None, help="planlı yayın, ISO-8601 (ör. 2026-11-04T16:00:00Z)")
     ap.add_argument("--ornek", type=int, default=None,
                     help="yalnızca ilk N bölümle örnek üret (build/ornek.mp4)")
     args = ap.parse_args(argv)
+
+    if args.asama == "inceleme":
+        # Çekim planı yazılmadan önce çalışır: senaryo.json yerine cekim_plani.json okunur
+        from scripts import doc_review
+        folder = Path(args.klasor).resolve()
+        plan = json.loads((folder / "cekim_plani.json").read_text(encoding="utf-8"))
+        for sheet in doc_review.run(folder, plan):
+            print(sheet)
+        return 0
 
     prod = Production(args.klasor, sample=args.ornek)
     if args.ornek and args.asama == "yukle":
@@ -301,6 +358,7 @@ def main(argv=None):
     if args.asama == "dogrula":
         print("Senaryo geçerli:", prod.data["title"])
         return 0
+
     if args.asama in ("ses", "hepsi"):
         prod.stage_ses()
     if args.asama in ("gorseller", "hepsi"):
