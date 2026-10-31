@@ -361,72 +361,122 @@
  "shots": {},
  "films": {
   "hattusa_video": {
-   "commons": "File:HATTUŞAŞ ANTİK KENTİ ÇORUM (ALACA BOĞAZKALE.webm"
+   "commons": "File:HATTUŞAŞ ANTİK KENTİ ÇORUM (ALACA BOĞAZKALE.webm",
+   "kesitler": {
+    "_not": "İnceleme 31 Ekim: 15 sn'lik karelerden seçildi. Tabela, araba, parmak olan yerler hariç.",
+    "merdiven_kayalar": 105,
+    "kaya_yakin": 120,
+    "asagi_sehir_yol": 150,
+    "tas_doseme": 165,
+    "tas_yikinti": 180,
+    "manzara_rekons_uzak": 315,
+    "temel_duvarlar_1": 465,
+    "temel_duvarlar_2": 480,
+    "temel_duvarlar_3": 495,
+    "temel_duvarlar_4": 510,
+    "yikintilar_agac": 615,
+    "vadi_yikinti": 675,
+    "temel_genis": 705,
+    "sur_kiklopik": 780,
+    "aslanli_kapi_yan": 810,
+    "sur_yakin": 825,
+    "aslanli_kapi": 885,
+    "yerkapi_merdiven": 1020,
+    "sur_bloklar": 1065,
+    "ova_manzara_1": 1095,
+    "ova_manzara_2": 1125,
+    "ova_manzara_3": 1155,
+    "bozkir_tepe": 1215,
+    "kral_kapi_kabartma": 1395,
+    "kral_kapi_gecit": 1425,
+    "sur_kral_kapi": 1455,
+    "kral_kapi_genel": 1500,
+    "buyukkaya_tepe": 1650,
+    "rekons_kule": 1710,
+    "rekons_sur": 1740
+   }
   }
  },
  "stock": {
   "gok_timelapse": {
-   "q": "clouds timelapse over hills"
+   "q": "clouds timelapse over hills",
+   "id": 8062899
   },
   "bozkir_ruzgar": {
-   "q": "dry grass blowing in wind"
+   "q": "dry grass blowing in wind",
+   "id": 25786184
   },
   "bozkir_gunbatimi": {
-   "q": "steppe hills sunset"
+   "q": "steppe hills sunset",
+   "id": 9317375
   },
   "yildizli_gece": {
-   "q": "starry night sky timelapse"
+   "q": "starry night sky timelapse",
+   "id": 8644889
   },
   "nehir": {
-   "q": "river flowing over rocks"
+   "q": "river flowing over rocks",
+   "id": 20597835
   },
   "deniz_safak": {
-   "q": "calm sea horizon dawn"
+   "q": "calm sea horizon dawn",
+   "id": 33859149
   },
   "kurak_toprak": {
-   "q": "dry cracked earth drought"
+   "q": "dry cracked earth drought",
+   "id": 37533724
   },
   "bugday_ruzgar": {
-   "q": "wheat field wind"
+   "q": "wheat field wind",
+   "id": 30511075
   },
   "koyun_suru": {
-   "q": "sheep flock on hills"
+   "q": "sheep flock on hills",
+   "id": 8419435
   },
   "at_dortnala": {
-   "q": "horses galloping dust"
-  },
-  "toz_firtinasi": {
-   "q": "dust storm desert"
+   "q": "horses galloping dust",
+   "id": 27979821
   },
   "ates_gece": {
-   "q": "bonfire flames night"
+   "q": "bonfire flames night",
+   "id": 28802354
   },
   "yangin": {
-   "q": "fire burning wood dark"
+   "q": "fire burning wood dark",
+   "id": 15264411
   },
   "mum_isigi": {
-   "q": "oil lamp flame dark"
+   "q": "oil lamp flame dark",
+   "id": 34579325
   },
   "kil_eller": {
-   "q": "hands shaping clay"
+   "q": "hands shaping clay",
+   "id": 6694356
   },
   "ekmek_firin": {
-   "q": "bread baking wood oven"
+   "q": "bread baking wood oven",
+   "id": 5898901
   },
   "tas_doku": {
-   "q": "ancient stone wall texture close up"
+   "q": "ancient stone wall texture close up",
+   "id": 7538700
   },
   "katman_toz": {
-   "q": "dust particles floating black background"
+   "q": "dust particles floating black background",
+   "id": 28492353
   },
   "katman_kivilcim": {
-   "q": "fire embers sparks black background"
+   "q": "fire embers sparks black background",
+   "id": 9823510
   },
   "katman_sis": {
-   "q": "smoke fog black background"
+   "q": "smoke fog black background",
+   "id": 6894947
   },
   "katman_isik": {
-   "q": "light leak film overlay"
+   "q": "light leak film overlay",
+   "id": 30042779
   }
  }
 }
