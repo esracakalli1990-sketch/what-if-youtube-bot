@@ -1,6 +1,77 @@
 # PROJE PLANI — Türkçe Uzun Tarih Belgeseli Serisi
 
-Tarih: 31 Ekim 2026 · Kanal: mevcut kanal (şu an "Roli's Doomsday Files", 3 abone, 473 toplam izlenme) · Durum: **onaylandı (31 Ekim 2026), Faz 1 başladı**
+Tarih: 31 Ekim 2026 · Kanal: mevcut kanal (şu an "Roli's Doomsday Files", 3 abone, 473 toplam izlenme) · Durum: **Faz 1 tamamlandı ve master'da (PR #43). Faz 1b (gerçek video katmanı) onaylandı, 31 Ekim.**
+
+---
+
+# FAZ 1b — GERÇEK VİDEO KATMANI (31 Ekim, onaylandı)
+
+## Bağlam
+Kullanıcının haklı tespiti: 43 dakikalık bir video yalnızca fotoğraflardan oluşursa, hareket eklense bile "slayt gösterisi" hissi verir. Konuyla birebir ilgili yerlerde gerçek video belgesel hissini artırır.
+- Kullanıcının kararları: Pexels kullanılacak; Wikimedia'daki Hattuşa videosundan kesitler alınacak; Gemini klipleri şimdilik 8 ile sınırlı; kullanıcı kendisi de video araştıracak.
+- Hedef karışım (43 dk): **~%30 gerçek video** + ~%15 hareketli harita + ~%55 fotoğraf. Fotoğraflar da "atmosfer katmanı" ile canlandırılacak.
+
+## Kaynaklar ve durumları
+| Kaynak | Ne | Lisans | Durum |
+|---|---|---|---|
+| **Wikimedia: "HATTUŞAŞ ANTİK KENTİ ÇORUM" videosu** | Hattuşa'da çekilmiş 29 dakikalık gerçek görüntü, 720p | CC BY 3.0 (sahibi: GÖLGE ADAM YILDIRIM; açıklamada atıf zorunlu) | Bulundu. 1,8 GB; Actions'ta indirilecek. 720p olduğu için kısa kesitler (5–8 sn) ve renk düzeltmesiyle kullanılacak |
+| **Pexels** | Atmosfer görüntüleri: bozkır, gökyüzü time-lapse, nehir, ateş, toz, kil işleyen eller, mum ışığı… | Pexels lisansı: ticari kullanım serbest, atıf gerekmez (açıklamaya yine de eklenecek) | Kullanıcı `PEXELS_API_KEY` secret'ını ekleyecek. Bu ortamdan erişim kapalı, Actions'tan erişiliyor |
+| **Gemini klipleri** | 8 canlandırma (`klip_promptlari.md`) | Kullanıcı üretiyor | Bekleniyor |
+| **Kullanıcının bulduğu videolar** | — | Yalnızca uygun lisans (aşağıda) | Kullanıcı araştırıyor |
+| NASA arşivi | Uzaydan görüntü | Kamu malı | Denendi; uygun görüntü yok, kullanılmayacak |
+
+## Yeni "formül": atmosfer katmanları
+Fotoğrafların üzerine Pexels'ten alınan **toz zerreleri, sis, kıvılcım, ışık hüzmesi** gibi şeffaf hareketli katmanlar "screen" karışımıyla bindirilir. Örnekler:
+- Yangın anlatılırken Hattuşa fotoğrafının üstünde uçuşan kıvılcımlar
+- Müze eserinin üstünde süzülen toz
+
+Ucuzdur (Pexels ücretsiz), fotoğrafı "canlı çekim" gibi gösterir ve tarihsel hata riski taşımaz.
+
+## Uygulama
+1. **`scripts/stock_video.py` (yeni):** Pexels arama ve indirme.
+   - Yatay, ≥1920 px ve yeterli süreli görüntüler seçilir.
+   - Seçilen ID ve çekenin adı `build/stock/credits.json`'a yazılır.
+   - Plandaki her sahne bir arama sorgusu taşır. İnceleme sonrası beğenilen ID planda **sabitlenir**; sonraki çalışmalarda aynı görüntü gelir.
+2. **Yeni çekim türleri:** `doc_timeline.chapter_shots` ve `validate` genişletilir.
+   - `{"stock": {"q": "...", "id": 123}}` → Pexels videosu
+   - `{"film": "hattusa_video", "start": 312.5}` → Commons videosundan, verilen saniyeden başlayan kesit
+   - Fotoğraf çekiminde `"overlay": "toz" | "sis" | "kivilcim" | "isik"` → atmosfer katmanı
+3. **`doc_render.py`:**
+   - `VideoSource` başlangıç saniyesi (`-ss`) alabilecek, 720p kaynağı kaliteli büyütecek.
+   - Klip çekimden kısaysa donmak yerine yavaşlatılacak, olmazsa son kare kullanılacak.
+   - Fotoğraf çekimlerine katman karışımı (`cv2.add` ile screen benzeri, opaklık ayarlı) eklenecek.
+4. **`archive_images.py`:** Commons video dosyası indirme. İndirme dosyası bu video için webm.
+5. **`belgesel.yml`'e `inceleme` modu:**
+   - Commons videosundan 15 saniyede bir kare ve plandaki her Pexels sorgusu için 4 aday kare çıkarır.
+   - Bunları küçük JPG temas sayfalarına dizer ve `inceleme/hititler` dalına commit'ler. Bu ortam Actions artifact'larını indiremiyor, git dalını ise okuyabiliyor.
+   - Ben sayfalara bakıp kesitleri ve ID'leri seçerim.
+   - Ayrıca Telegram'a gönderilir, kullanıcı da görsün.
+6. **Açıklama:** "Video kaynakları" bölümü eklenecek. Commons videosu için CC BY atfı zorunlu; Pexels çekenleri de nezaketen eklenecek.
+7. **Testler:** Yeni çekim türleri, katman karışımı, `-ss` ile kesit süresi, Pexels yanıt ayrıştırma (sahte yanıtla).
+
+## Kullanıcının kendi araştırması için kurallar (kanalı korumak için)
+- **Kullanılabilir:** Pexels, Pixabay, Mixkit, Coverr, Wikimedia Commons'taki CC0/CC BY/CC BY-SA/kamu malı videolar.
+- **Kullanılamaz:** Başka kanalların YouTube videoları, TV belgeselleri, film sahneleri ("telif yok" yazsa bile), lisansı belirsiz her şey.
+- YouTube'daki "Creative Commons" filtreli videolar lisans olarak uygun olabilir, ama YouTube'dan video indirmek YouTube'un kurallarına aykırı. Bu yüzden bunları ancak Wikimedia'ya aktarılmış kopyası varsa kullanırız. Bulduğu her linki önce bana göndersin, lisansını ben kontrol edeyim.
+- Bulduğu videoları sohbete yükleyebilir ya da linkini atabilir. Ben lisansı kontrol edip `klipler/` klasörüne alırım.
+
+## Sıra
+1. Kod (yukarıdaki 1–7) → test → PR → CI → birleştirme
+2. Kullanıcı `PEXELS_API_KEY` ekler
+3. `inceleme` modu çalışır → ben kesitleri ve görüntüleri seçerim → tam çekim planı yazılır
+4. `ornek` modu (giriş + Bölüm I, ~7 dk) → kullanıcı izler
+5. Gemini klipleri ve kullanıcının bulduğu videolar geldikçe plandaki ilgili çekimler değiştirilir; yalnızca etkilenen bölüm yeniden render edilir
+
+## Riskler
+- Commons videosu 720p ve amatör çekim olabilir; yazı, filigran veya titrek kamera içerebilir. İnceleme sayfasında temiz kesitler seçilecek, kötüyse az kullanılacak.
+- Pexels'te "Anadolu"ya özgü görüntü sınırlı. Yer belirten değil, genel atmosfer görüntüleri kullanılacak (gökyüzü, toz, ateş, su, eller). Yanıltıcı yer iddiası yapılmayacak.
+- 1,8 GB indirme Actions'ta birkaç dakika sürer; önbelleğe alınır.
+
+## Doğrulama
+- `pytest` (yeni testler dahil) yeşil.
+- Yerelde sentetik bir video ile `-ss` kesiti ve katman karışımı denenir; kareler gözle kontrol edilir.
+- `inceleme` modu çalışınca temas sayfaları dalda görünür.
+- `ornek` çıktısında video oranı ve geçişler kontrol edilir.
 
 ---
 

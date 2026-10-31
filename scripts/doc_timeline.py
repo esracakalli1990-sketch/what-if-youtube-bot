@@ -23,6 +23,9 @@ MIN_SHOT = 2.2          # bundan kısa çekim göz yorar
 CUT_LEAD = 0.12         # kesme, kelimeden hemen önce
 
 
+SHOT_SOURCES = ("image", "clip", "map", "stock", "film")
+
+
 class ScenarioError(Exception):
     pass
 
@@ -61,8 +64,16 @@ def validate(data: dict, folder: Path | None = None) -> list[str]:
                     problems.append(f"{where} çekim {si}: görsel tanımsız ({shot['image']})")
                 if "clip" in shot and folder and not (Path(folder) / shot["clip"]).exists():
                     problems.append(f"{where} çekim {si}: klip yok ({shot['clip']})")
-                if "image" not in shot and "clip" not in shot:
-                    problems.append(f"{where} çekim {si}: 'image' veya 'clip' gerekli")
+                if "map" in shot and shot["map"] not in data.get("maps", {}):
+                    problems.append(f"{where} çekim {si}: harita tanımsız ({shot['map']})")
+                if "stock" in shot and shot["stock"] not in data.get("stock", {}):
+                    problems.append(f"{where} çekim {si}: stok video tanımsız ({shot['stock']})")
+                if "film" in shot and shot["film"] not in data.get("films", {}):
+                    problems.append(f"{where} çekim {si}: film tanımsız ({shot['film']})")
+                if shot.get("overlay") and shot["overlay"] not in data.get("stock", {}):
+                    problems.append(f"{where} çekim {si}: katman tanımsız ({shot['overlay']})")
+                if not any(k in shot for k in SHOT_SOURCES):
+                    problems.append(f"{where} çekim {si}: {'/'.join(SHOT_SOURCES)} biri gerekli")
     return problems
 
 
@@ -117,11 +128,14 @@ def _cut_points(words: list[dict], n_shots: int, duration: float) -> list[float]
 
 
 def chapter_shots(chapter: dict, audio: list[dict], layout: ChapterLayout,
-                  image_paths: dict, folder: Path, card_clip: str | None = None) -> list[dict]:
+                  image_paths: dict, folder: Path, card_clip: str | None = None,
+                  stock_paths: dict | None = None, film_paths: dict | None = None) -> list[dict]:
     """
     Bölümün çekim listesi (doc_render.Shot alanlarıyla sözlükler).
     Her paragrafın çekimleri bir sonraki paragrafın başına kadar sürer.
+    stock_paths / film_paths: indirilmiş Pexels videoları ve uzun filmler.
     """
+    stock_paths, film_paths = stock_paths or {}, film_paths or {}
     shots = []
     if chapter.get("card"):
         if not card_clip:
@@ -152,8 +166,19 @@ def chapter_shots(chapter: dict, audio: list[dict], layout: ChapterLayout,
             if "clip" in spec:
                 shot.update(kind="video", path=str(Path(folder) / spec["clip"]),
                             note=spec.get("note", "Temsili canlandırma"))
+            elif "map" in spec:
+                # Remotion harita sahnesi; renk tonu bileşende uygulanmış durumda
+                shot.update(kind="video", path=str(Path(folder) / "build" / "maps" / f"{spec['map']}.mp4"),
+                            grade=False)
+            elif "stock" in spec:
+                shot.update(kind="video", path=stock_paths[spec["stock"]], start=spec.get("start", 0.0))
+            elif "film" in spec:
+                shot.update(kind="video", path=film_paths[spec["film"]], start=spec.get("start", 0.0))
             else:
                 shot.update(kind="image", path=image_paths[spec["image"]])
+            if spec.get("overlay"):
+                shot.update(overlay=stock_paths[spec["overlay"]],
+                            overlay_opacity=spec.get("overlay_opacity", 0.55))
             shots.append(shot)
     # Yuvarlama artıkları: toplam, bölüm süresine birebir eşit olsun
     drift = layout.total - sum(s["duration"] for s in shots)

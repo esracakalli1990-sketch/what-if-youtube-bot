@@ -122,6 +122,7 @@ def _parse_page(page: dict) -> dict | None:
         "mime": ii.get("mime", ""),
         # Orijinal genişlik DOWNLOAD_WIDTH'ten küçükse thumburl orijinali verir
         "url": ii.get("thumburl") or ii.get("url"),
+        "original_url": ii.get("url"),
         "page_url": ii.get("descriptionurl", ""),
         "license": m("LicenseShortName"),
         "license_url": m("LicenseUrl"),
@@ -222,6 +223,9 @@ def fetch_images(images: dict, out_dir: Path, min_width: int = MIN_WIDTH) -> dic
         problems = check_usable(info, min_width=spec.get("min_width", min_width))
         if problems:
             raise ArchiveError(f"{key} ({info['title']}): " + "; ".join(problems))
+        if spec.get("original"):
+            # Kırpılacak büyük haritalar: küçültülmüş kopya yerine özgün dosya
+            info = {**info, "url": info["original_url"]}
         ext = Path(info["url"].split("?")[0]).suffix.lower() or ".jpg"
         path = download(info, out_dir / f"{key}{ext}", session=session)
         result[key] = {"path": str(path), "credit": {
@@ -231,4 +235,54 @@ def fetch_images(images: dict, out_dir: Path, min_width: int = MIN_WIDTH) -> dic
     out_dir.mkdir(parents=True, exist_ok=True)
     credits_path.write_text(json.dumps({k: v["credit"] for k, v in result.items()},
                                        ensure_ascii=False, indent=2), encoding="utf-8")
+    return result
+
+
+def download_stream(url: str, dest: Path, session=None, retries: int = 4) -> Path:
+    """Büyük dosyayı (ör. 1,8 GB video) belleğe almadan parça parça indir."""
+    dest = Path(dest)
+    if dest.exists() and dest.stat().st_size > 1_000_000:
+        return dest
+    session = session or _session()
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    tmp = dest.with_suffix(dest.suffix + ".part")
+    for attempt in range(retries):
+        _wait_turn()
+        try:
+            with session.get(url, stream=True, timeout=600) as r:
+                if r.status_code == 429:
+                    raise requests.HTTPError("HTTP 429")
+                r.raise_for_status()
+                with open(tmp, "wb") as f:
+                    for chunk in r.iter_content(4 << 20):
+                        f.write(chunk)
+            tmp.rename(dest)
+            return dest
+        except requests.RequestException as e:
+            if attempt == retries - 1:
+                raise ArchiveError(f"Video indirilemedi ({url}): {e}") from e
+            time.sleep(_retry_delay(getattr(e, "response", None), attempt))
+    return dest
+
+
+def fetch_films(films: dict, out_dir: Path) -> dict:
+    """
+    Uzun videoları (Commons) indir: {anahtar: {"commons": "File:...webm"}}.
+    Görsellerdeki çözünürlük şartı aranmaz; lisans şartı aynıdır.
+    """
+    out_dir = Path(out_dir)
+    session = _session()
+    infos = file_infos([f["commons"] for f in films.values()], session=session)
+    result = {}
+    for key, spec in films.items():
+        info = infos.get(normalize_title(spec["commons"]))
+        if not info:
+            raise ArchiveError(f"{key}: video bulunamadı ({spec['commons']})")
+        if not license_allowed(info.get("license", "")):
+            raise ArchiveError(f"{key}: lisans uygun değil ({info.get('license')})")
+        ext = Path(info["original_url"].split("?")[0]).suffix.lower() or ".webm"
+        path = download_stream(info["original_url"], out_dir / f"{key}{ext}", session=session)
+        result[key] = {"path": str(path), "credit": {
+            k: info[k] for k in ("title", "artist", "license", "license_url", "page_url")}}
+        logger.info("Film: %s ← %s (%s)", key, info["title"], info["license"])
     return result
