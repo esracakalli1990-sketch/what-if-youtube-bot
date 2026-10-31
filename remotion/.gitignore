@@ -1,0 +1,5 @@
+node_modules/
+out/
+# Fontlar ve görseller render öncesi kopyalanır (kaynak: ../assets, belgeseller/)
+public/*
+!public/.gitkeep
