@@ -256,10 +256,8 @@ class Production:
                             str(self.path("maps", f"{name}.mp4")),
                             f"--props={json.dumps(props, ensure_ascii=False)}", "--crf=16"])
         for ti, th in enumerate(self.data.get("thumbnails", [])):
-            props = {"image": self._stage_image(th.get("image", "")), "line1": th.get("line1", ""),
-                     "line2": th.get("line2", ""), "badge": th.get("badge", "TAM HİKÂYE"),
-                     "focusX": th.get("focus_x", 0.6)}
-            self._remotion(["still", "src/index.ts", "Thumbnail",
+            comp, props = thumbnail_props(th, self._stage_image)
+            self._remotion(["still", "src/index.ts", comp,
                             str(self.path("thumbs", f"kapak{ti + 1}.jpg")),
                             f"--props={json.dumps(props, ensure_ascii=False)}",
                             "--image-format=jpeg", "--jpeg-quality=90"])
@@ -427,6 +425,22 @@ class Production:
             {"video_id": video_id, "url": f"https://youtu.be/{video_id}",
              "publish_at": publish_at.isoformat() if publish_at else None}, indent=2))
         return video_id
+
+
+def thumbnail_props(th: dict, stage) -> tuple[str, dict]:
+    """Kapak tanımı → (Remotion bileşeni, props). sablon=v2: rakip analizine göre yeni şablon."""
+    if th.get("sablon") == "v2":
+        return "ThumbnailV2", {
+            "subject": stage(th.get("odak", "")) if th.get("odak") else "",
+            "subjectX": th.get("odak_x", 0.74), "subjectY": th.get("odak_y", 0.55),
+            "subjectH": th.get("odak_boy", 1.25), "blend": th.get("karisim", "lighten"),
+            "background": stage(th.get("arka_plan", "")) if th.get("arka_plan") else "",
+            "bgPosition": th.get("arka_plan_kadraj", "50% 50%"), "glow": th.get("hale", "#ffb030"),
+            "line1": th.get("line1", ""), "line2": th.get("line2", ""),
+            "accent": th.get("vurgu", "#FFC83D"), "tag": th.get("etiket", "Tarih Dosyaları")}
+    return "Thumbnail", {"image": stage(th.get("image", "")), "line1": th.get("line1", ""),
+                         "line2": th.get("line2", ""), "badge": th.get("badge", "TAM HİKÂYE"),
+                         "focusX": th.get("focus_x", 0.6)}
 
 
 def _channel_playlist() -> str | None:

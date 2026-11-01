@@ -837,3 +837,13 @@ def test_thumb_metrics_and_mobile_grid(tmp_path, monkeypatch):
     assert "kapak_mobil.jpg" in names and "kapak_rakipler_01.jpg" in names
     rep = json.loads((folder / "inceleme" / "kapak_olcumler.json").read_text())
     assert {r["channel"] for r in rep} == {"TRT Belgesel", "BİZ"}
+
+
+def test_thumbnail_v2_props():
+    from scripts.doc_pipeline import thumbnail_props
+    stage = lambda k: f"pub_{k}.jpg"
+    comp, p = thumbnail_props({"sablon": "v2", "odak": "tut", "line1": "3000 yıllık", "line2": "sır"}, stage)
+    assert comp == "ThumbnailV2" and p["subject"] == "pub_tut.jpg" and p["background"] == ""
+    assert p["accent"] == "#FFC83D" and p["tag"] == "Tarih Dosyaları"
+    comp, p = thumbnail_props({"image": "x", "line1": "a", "line2": "b"}, stage)
+    assert comp == "Thumbnail" and p["image"] == "pub_x.jpg"
