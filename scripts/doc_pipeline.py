@@ -247,6 +247,9 @@ class Production:
                             str(self.path("cards", f"c{ci:02d}.mp4")),
                             f"--props={json.dumps(props, ensure_ascii=False)}", "--crf=16"])
         for name, props in self.data.get("maps", {}).items():
+            if "bounds" in props:            # coğrafi harita (MapStory, gerçek enlem/boylam)
+                self._render_geo_map(name, dict(props))
+                continue
             props = dict(props)
             image = self._stage_image(props.get("image", ""))
             if props.pop("crop", None) and image:
@@ -261,6 +264,27 @@ class Production:
                             str(self.path("thumbs", f"kapak{ti + 1}.jpg")),
                             f"--props={json.dumps(props, ensure_ascii=False)}",
                             "--image-format=jpeg", "--jpeg-quality=90"])
+
+    def _render_geo_map(self, name: str, props: dict):
+        """taban: 'dunya' → NASA Blue Marble'dan kırpılan rölyef; 'parsomen' → yakın plan savaş zemini."""
+        from scripts import doc_maps
+        doc_maps.check_bounds(props["bounds"])
+        public = REMOTION_DIR / "public"
+        public.mkdir(exist_ok=True)
+        for font in (PROJECT_ROOT / "assets" / "fonts").glob("*.ttf"):
+            shutil.copy2(font, public / font.name)
+        base = props.pop("taban", "dunya")
+        props["image"] = ""
+        if base == "dunya":
+            world = self.build / self.image_manifest()["dunya"]["path"]
+            out = REMOTION_DIR / "public" / f"harita_{name}.jpg"
+            doc_maps.prepare_base(world, props["bounds"], out)
+            props["image"] = out.name
+        defaults = {"regions": [], "routes": [], "units": [], "clashes": [], "cities": [], "labels": [],
+                    "rivers": [], "years": [], "camera": [], "note": "", "subtitle": ""}
+        props = {**defaults, **props}
+        self._remotion(["render", "src/index.ts", "MapStory", str(self.path("maps", f"{name}.mp4")),
+                        f"--props={json.dumps(props, ensure_ascii=False)}", "--crf=16"])
 
     def chapter_shot_lists(self) -> list[list[dict]]:
         """Her bölümün çekim listesi (render ve doğal ses izi aynı zamanlamayı kullanır)."""

@@ -46,6 +46,16 @@ def validate(data: dict, folder: Path | None = None) -> list[str]:
         if not data.get(key):
             problems.append(f"'{key}' eksik")
     images = data.get("images", {})
+    for name, m in data.get("maps", {}).items():
+        if "bounds" in m:
+            from scripts.doc_maps import check_bounds
+            try:
+                check_bounds(m["bounds"])
+            except ValueError as e:
+                problems.append(f"harita {name}: {e}")
+            if m.get("taban", "dunya") == "dunya" and "dunya" not in images:
+                problems.append(f"harita {name}: 'dunya' taban görseli images içinde yok "
+                                f"(File:Whole world - land and oceans 12000.jpg, original: true)")
     for ci, ch in enumerate(data.get("chapters", [])):
         if not ch.get("title"):
             problems.append(f"bölüm {ci}: başlık yok")
