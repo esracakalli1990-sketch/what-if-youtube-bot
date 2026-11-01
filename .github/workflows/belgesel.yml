@@ -23,7 +23,7 @@ on:
       mod:
         description: "ornek = önizleme, tam = YouTube'a gizli yükleme"
         type: choice
-        options: [inceleme, ornek, tam]
+        options: [inceleme, ornek, tam, shorts]
         default: ornek
       ornek_bolum:
         description: "Örnekte kaç bölüm (giriş + ilk bölüm = 2)"
@@ -141,7 +141,7 @@ jobs:
         run: python -m scripts.doc_pipeline "$KLASOR" hepsi
 
       - name: YouTube kimlik dosyalarını hazırla
-        if: inputs.mod == 'tam'
+        if: inputs.mod == 'tam' || inputs.mod == 'shorts'
         env:
           CLIENT_SECRETS_B64: ${{ secrets.YOUTUBE_CLIENT_SECRETS_B64 }}
           TOKEN_B64: ${{ secrets.YOUTUBE_TOKEN_B64 }}
@@ -157,6 +157,21 @@ jobs:
           else
             python -m scripts.doc_pipeline "$KLASOR" yukle
           fi
+
+      - name: Shorts üret ve gizli + planlı yükle
+        if: inputs.mod == 'shorts'
+        # Belgeselin önbellekteki sesi ve görselleri kullanılır: yeni ElevenLabs kredisi yok
+        run: python -m scripts.doc_shorts "$KLASOR" --yukle
+
+      - name: Shorts dosyalarını paylaş
+        if: inputs.mod == 'shorts'
+        uses: actions/upload-artifact@v4
+        with:
+          name: shorts
+          path: |
+            ${{ inputs.klasor }}/build/shorts/*.mp4
+            ${{ inputs.klasor }}/build/shorts/shorts.json
+          retention-days: 14
 
       - name: Kapakları ve altyazıyı paylaş
         if: inputs.mod == 'tam'
@@ -193,6 +208,10 @@ jobs:
               send_message(f"🔎 İnceleme sayfaları hazır ({len(sheets)} sayfa): {klasor}\n{url}")
               for p in sheets[:10]:
                   send_photo(str(p), p.stem)
+          elif mod == "shorts":
+              rows = json.loads(Path(klasor, "build", "shorts", "shorts.json").read_text())
+              send_message("📱 Shorts GİZLİ yüklendi ve planlandı:\n" + "\n".join(
+                  f"• {r['id']} ({r['seconds']:.0f} sn) → {r.get('url')} · yayın {r.get('yayin')}" for r in rows))
           elif mod == "ornek":
               send_message(f"🎬 Örnek önizleme hazır: {klasor}\nİndirme (Artifacts → ornek-onizleme): {url}")
           else:
