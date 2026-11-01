@@ -877,3 +877,13 @@ def test_validate_geo_map_requires_world_image(tmp_path):
                  "savas": {"bounds": {"west": 0, "east": 16, "south": 0, "north": 9}, "taban": "parsomen"}}}
     problems = dt.validate(data, tmp_path)
     assert any("dunya" in p for p in problems) and not any("savas" in p for p in problems)
+
+
+def test_markdown_keeps_paragraphs_starting_with_direction_marker():
+    from scripts.doc_script_md import parse_markdown
+    md = ("## GİRİŞ\n\n[EKRAN: Piramitler]\n\n[sakin] Bir sabah, Nil kıyısında.\n\n"
+          "[duraksama 1.0]\n\nNormal paragraf.\n\n# DOĞRULA TABLOSU\n| 1 | x |\n")
+    ch = parse_markdown(md)
+    texts = [p["text"] for p in ch[0]["paragraphs"]]
+    assert texts == ["[sakin] Bir sabah, Nil kıyısında.", "Normal paragraf."]
+    assert ch[0]["paragraphs"][0]["screen"] == "Piramitler"

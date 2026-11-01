@@ -55,7 +55,9 @@ def parse_markdown(text: str) -> list[dict]:
         if m:
             screen = m.group(1)
             continue
-        if line.startswith(("#", "*", "[")):
+        # Yalnızca köşeli parantezden ibaret satırlar ekran/yapım notudur; [fısıltı] gibi
+        # duygu işaretiyle BAŞLAYAN anlatım paragrafları korunur.
+        if line.startswith(("#", "*", "|")) or re.fullmatch(r"(\[[^\]]*\]\s*)+", line):
             continue
         cur["paragraphs"].append({"text": line, "screen": screen})
     return [c for c in chapters if c["paragraphs"]]
