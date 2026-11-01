@@ -173,6 +173,18 @@ def _find_playlist(yt, title: str) -> str | None:
     return None
 
 
+def _retry(call, tries: int = 4, wait: float = 5.0):
+    """Yeni oluşturulan kaynak (ör. oynatma listesi) API'de birkaç saniye geç görünebilir."""
+    import time
+    for attempt in range(tries):
+        try:
+            return call()
+        except Exception:
+            if attempt == tries - 1:
+                raise
+            time.sleep(wait * (attempt + 1))
+
+
 def report(yt, title_word: str) -> dict:
     ch = _my_channel(yt)
     latest, older = pick_latest(_uploads(yt, ch), title_word)
@@ -281,12 +293,18 @@ def apply(yt, folder: Path, publish_at: str, title_word: str, out_dir: Path) -> 
                                        "Tarih Dosyaları belgesel serisi."},
             "status": {"privacyStatus": "public"}}).execute()["id"]
         done.append("oynatma listesi oluşturuldu")
-    in_list = {i["contentDetails"]["videoId"] for i in yt.playlistItems().list(
-        part="contentDetails", playlistId=pl, maxResults=50).execute().get("items", [])}
+    try:
+        in_list = {i["contentDetails"]["videoId"] for i in _retry(lambda: yt.playlistItems().list(
+            part="contentDetails", playlistId=pl, maxResults=50).execute()).get("items", [])}
+    except Exception:
+        in_list = set()      # yeni liste henüz görünmüyor olabilir: boş say
     if vid not in in_list:
-        yt.playlistItems().insert(part="snippet", body={"snippet": {
-            "playlistId": pl, "resourceId": {"kind": "youtube#video", "videoId": vid}}}).execute()
-        done.append("video oynatma listesine eklendi")
+        try:
+            _retry(lambda: yt.playlistItems().insert(part="snippet", body={"snippet": {
+                "playlistId": pl, "resourceId": {"kind": "youtube#video", "videoId": vid}}}).execute())
+            done.append("video oynatma listesine eklendi")
+        except Exception as e:
+            problems.append(f"oynatma listesine ekleme: {e}")
 
     # 4) İlk yorum (gizli videoda reddedilebilir; o zaman yayından sonra tekrar çalıştırılır)
     try:

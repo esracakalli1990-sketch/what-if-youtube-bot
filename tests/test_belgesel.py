@@ -690,3 +690,18 @@ def test_channel_apply_with_fake_youtube(tmp_path, monkeypatch):
     assert yt.bodies["channels.update"]["brandingSettings"]["image"]["bannerExternalUrl"] == "https://banner"
     assert r["silinebilir"] == ["https://youtu.be/old (private)"]
     assert "delete" not in " ".join(yt.log)                 # hiçbir şey silinmez
+
+
+def test_channel_retry_waits_for_new_playlist(monkeypatch):
+    from scripts import channel_setup as cs
+    import time
+    monkeypatch.setattr(time, "sleep", lambda s: None)
+    calls = []
+
+    def flaky():
+        calls.append(1)
+        if len(calls) < 3:
+            raise RuntimeError("playlistNotFound")
+        return {"ok": True}
+
+    assert cs._retry(flaky) == {"ok": True} and len(calls) == 3
