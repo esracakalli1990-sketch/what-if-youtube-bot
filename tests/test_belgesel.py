@@ -847,3 +847,33 @@ def test_thumbnail_v2_props():
     assert p["accent"] == "#FFC83D" and p["tag"] == "Tarih Dosyaları"
     comp, p = thumbnail_props({"image": "x", "line1": "a", "line2": "b"}, stage)
     assert comp == "Thumbnail" and p["image"] == "pub_x.jpg"
+
+
+def test_geo_map_bounds_and_crop(tmp_path):
+    from PIL import Image
+    from scripts import doc_maps as dm
+    b = dm.fit_bounds((33.5, 32.8), 28)
+    assert abs((b["east"] - b["west"]) / (b["north"] - b["south"]) - 16 / 9) < 1e-3
+    dm.check_bounds(b)
+    with pytest.raises(ValueError):
+        dm.check_bounds({"west": 0, "east": 10, "south": 0, "north": 10})
+    assert dm.lonlat_to_px(0, 0, (3600, 1800)) == (1800, 900)
+    # Dünya görüntüsü: Akdeniz bölgesine kırmızı işaret koy, kırpımda doğru yere düşmeli
+    world = Image.new("RGB", (3600, 1800), (0, 0, 80))
+    x, y = dm.lonlat_to_px(36.52, 34.56, world.size)              # Kadeş
+    world.paste((255, 0, 0), (int(x) - 3, int(y) - 3, int(x) + 4, int(y) + 4))
+    world.save(tmp_path / "w.png")
+    im = Image.open(dm.prepare_base(tmp_path / "w.png", b, tmp_path / "o.jpg"))
+    assert im.size == (2560, 1440)
+    px = ((36.52 - b["west"]) / (b["east"] - b["west"]) * 2560, (b["north"] - 34.56) / (b["north"] - b["south"]) * 1440)
+    r, g, bl = im.getpixel((int(px[0]), int(px[1])))
+    assert r > 150 and bl < 120                                    # işaret aynı koordinatta
+
+
+def test_validate_geo_map_requires_world_image(tmp_path):
+    data = {"slug": "x", "title": "t", "images": {"a": {}}, "chapters": [{"title": "c", "paragraphs": [
+        {"text": "t", "shots": [{"map": "kades"}]}]}],
+        "maps": {"kades": {"bounds": {"west": 0, "east": 16, "south": 0, "north": 9}, "taban": "dunya"},
+                 "savas": {"bounds": {"west": 0, "east": 16, "south": 0, "north": 9}, "taban": "parsomen"}}}
+    problems = dt.validate(data, tmp_path)
+    assert any("dunya" in p for p in problems) and not any("savas" in p for p in problems)
