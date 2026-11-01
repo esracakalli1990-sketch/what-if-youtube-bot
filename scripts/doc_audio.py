@@ -24,6 +24,18 @@ from scripts.utils import logger
 
 SR = 48000
 ELEVEN_MODEL = "eleven_multilingual_v2"
+# Satır içi ses yönergelerini ([whispers], [pause]…) anlayan modeller. Bunlar
+# önceki/sonraki metin bağlamını desteklemeyebilir; ses ayarları modelde kalır.
+TAG_MODELS = {"eleven_v3", "eleven_v4"}
+# Senaryoda Türkçe yazılan duygu işaretleri → model etiketleri. Seslendirilmez;
+# altyazıda görünmez. Listede olmayan [etiket] olduğu gibi modele gider.
+DIRECTIONS = {
+    "fısıltı": "whispers", "fisilti": "whispers", "gerilim": "tense", "hayret": "surprised",
+    "şaşkın": "surprised", "ağır": "slow", "yavaş": "slow", "dramatik": "dramatic",
+    "sakin": "calm", "heyecan": "excited", "hüzün": "sad", "ciddi": "serious",
+    "merak": "curious", "vurgulu": "emphatic",
+}
+MARKER = re.compile(r"\[([^\]]+)\]")
 # 128 kbps her ElevenLabs paketinde var (192 kbps yalnızca Creator ve üstü);
 # ses zaten mastering'de 320k AAC'ye çevriliyor.
 ELEVEN_FORMAT = "mp3_44100_128"
@@ -56,6 +68,47 @@ def apply_pronunciations(text: str, pronunciations: dict) -> str:
     return text
 
 
+def display_text(text: str) -> str:
+    """Ekranda/altyazıda görünecek metin: [işaretler] ve <break> etiketleri olmadan."""
+    text = MARKER.sub(" ", text)
+    text = re.sub(r"<[^>]+>", " ", text)
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def apply_directions(text: str, model: str) -> str:
+    """
+    Senaryodaki duygu işaretlerini modele çevir.
+    v3/v4: [fısıltı] → [whispers], [duraksama 1.5] → [pause].
+    v2: etiketler kaldırılır; duraksama → <break time="1.5s"/> (v2 bunu anlar).
+    """
+    def repl(m):
+        raw = m.group(1).strip()
+        key = raw.lower()
+        if key.startswith("duraksama"):
+            secs = re.findall(r"[\d.,]+", key)
+            sec = float(secs[0].replace(",", ".")) if secs else 1.0
+            return "[pause]" if model in TAG_MODELS else f'<break time="{sec:.1f}s"/>'
+        if model not in TAG_MODELS:
+            return " "
+        return f"[{DIRECTIONS.get(key, raw)}]"
+    return re.sub(r"\s+", " ", MARKER.sub(repl, text)).strip()
+
+
+def _drop_markup(chars, starts, ends):
+    """Hizalamadan [etiket] ve <break …> karakterlerini ayıkla (seslendirilmezler)."""
+    out, depth = [], 0
+    for ch, s, e in zip(chars, starts, ends):
+        if ch in "[<":
+            depth += 1
+            continue
+        if ch in "]>" and depth:
+            depth -= 1
+            continue
+        if not depth:
+            out.append((ch, s, e))
+    return out
+
+
 def words_from_alignment(alignment: dict, display_text: str) -> list[dict]:
     """
     ElevenLabs karakter hizalamasından kelime zamanları üret.
@@ -63,11 +116,23 @@ def words_from_alignment(alignment: dict, display_text: str) -> list[dict]:
     Kelime metni seslendirilen metin yerine ekranda gösterilecek (orijinal)
     metinden alınır; okunuş değişikliği kelime sayısını korur.
     """
-    chars = alignment.get("characters", [])
-    starts = alignment.get("character_start_times_seconds", [])
-    ends = alignment.get("character_end_times_seconds", [])
+    if alignment.get("words"):          # forced alignment yanıtı: hazır kelime zamanları
+        spans = [[w["start"], w["end"]] for w in alignment["words"] if w.get("text", "").strip()]
+        chars = list(" ".join(w["text"] for w in alignment["words"]))
+    else:
+        clean = _drop_markup(alignment.get("characters", []),
+                             alignment.get("character_start_times_seconds", []),
+                             alignment.get("character_end_times_seconds", []))
+        chars = [c for c, _, _ in clean]
+        spans = None
+    if spans is not None:
+        shown = display_text.split()
+        if len(shown) != len(spans):
+            logger.warning("Kelime sayısı uyuşmuyor (gösterilen %d, hizalanan %d)", len(shown), len(spans))
+            shown = "".join(chars).split()
+        return [{"word": w, "start": round(a, 3), "end": round(b, 3)} for w, (a, b) in zip(shown, spans)]
     spans, cur = [], None
-    for ch, s, e in zip(chars, starts, ends):
+    for ch, s, e in clean:
         if ch.isspace():
             if cur:
                 spans.append(cur)
@@ -110,20 +175,39 @@ def _probe_duration(path: Path) -> float:
 
 
 def _eleven_paragraph(client, voice_id: str, text: str, prev_text: str, next_text: str,
-                      voice_settings: dict | None):
-    from elevenlabs import VoiceSettings
-    settings = VoiceSettings(**(voice_settings or {
-        "stability": 0.55, "similarity_boost": 0.8, "style": 0.1, "use_speaker_boost": True,
-    }))
-    resp = client.text_to_speech.convert_with_timestamps(
-        voice_id=voice_id, text=text, model_id=ELEVEN_MODEL,
-        previous_text=prev_text or None, next_text=next_text or None,
-        voice_settings=settings, output_format=ELEVEN_FORMAT,
-    )
-    data = resp.model_dump() if hasattr(resp, "model_dump") else dict(resp)
-    audio = base64.b64decode(data["audio_base_64"])
-    alignment = data.get("normalized_alignment") or data.get("alignment") or {}
-    return audio, alignment
+                      voice_settings: dict | None, model: str = ELEVEN_MODEL):
+    """Bir paragrafı seslendir; (mp3, hizalama) döndür.
+
+    Etiketli modellerde (v3/v4) bağlam metni ve ses ayarı gönderilmez. Zaman
+    damgası uç noktası modeli desteklemezse ses düz üretilir ve kelime zamanları
+    ElevenLabs forced alignment ile sonradan çıkarılır.
+    """
+    tagged = model in TAG_MODELS
+    kwargs = dict(voice_id=voice_id, text=text, model_id=model, output_format=ELEVEN_FORMAT)
+    if not tagged:
+        from elevenlabs import VoiceSettings
+        kwargs.update(previous_text=prev_text or None, next_text=next_text or None,
+                      voice_settings=VoiceSettings(**(voice_settings or {
+                          "stability": 0.55, "similarity_boost": 0.8, "style": 0.1,
+                          "use_speaker_boost": True})))
+    elif voice_settings:
+        from elevenlabs import VoiceSettings
+        kwargs["voice_settings"] = VoiceSettings(**voice_settings)
+    try:
+        resp = client.text_to_speech.convert_with_timestamps(**kwargs)
+        data = resp.model_dump() if hasattr(resp, "model_dump") else dict(resp)
+        audio = base64.b64decode(data["audio_base_64"])
+        alignment = data.get("normalized_alignment") or data.get("alignment") or {}
+        if alignment.get("characters"):
+            return audio, alignment
+    except Exception as e:
+        if not tagged:
+            raise
+        logger.info("Zaman damgalı uç nokta %s ile çalışmadı (%s); forced alignment", model, e)
+        audio = b"".join(client.text_to_speech.convert(**kwargs))
+    fa = client.forced_alignment.create(file=("p.mp3", audio, "audio/mpeg"), text=display_text(text))
+    data = fa.model_dump() if hasattr(fa, "model_dump") else dict(fa)
+    return audio, {"words": data.get("words", [])}
 
 
 async def _edge_paragraph(text: str, voice: str, mp3_path: Path) -> list[dict]:
@@ -186,7 +270,7 @@ def reference_rate(all_words: list[list[dict]]) -> float:
 def synthesize(paragraphs: list[str], out_dir: Path, voice_id: str = "",
                api_key: str = "", pronunciations: dict | None = None,
                engine: str = "auto", voice_settings: dict | None = None,
-               rush_budget: int = 0) -> list[dict]:
+               rush_budget: int = 0, model: str = ELEVEN_MODEL) -> list[dict]:
     """
     Paragrafları seslendir. Sonuç: [{"path", "duration", "words", "engine"}].
 
@@ -221,14 +305,19 @@ def synthesize(paragraphs: list[str], out_dir: Path, voice_id: str = "",
         from elevenlabs import ElevenLabs
         client = ElevenLabs(api_key=api_key)
 
-    spoken = [apply_pronunciations(p, pronunciations) for p in paragraphs]
+    # Okunuşlar → duygu işaretleri (modele göre). Ekrandaki metin işaretsiz.
+    spoken = [apply_directions(apply_pronunciations(p, pronunciations), model) for p in paragraphs]
+    shown_texts = [display_text(p) for p in paragraphs]
     results = []
     for i, text in enumerate(paragraphs):
         mp3 = out_dir / f"p{i:03d}.mp3"
         words_path = out_dir / f"p{i:03d}.json"
         # Önbellek metnin parmak iziyle geçerli: paragraf düzeltilirse yalnızca
         # o paragraf yeniden seslendirilir (komşuların bağlamı için yeniden üretim yok).
-        fp = hashlib.sha1(f"{engine}|{voice_id}|{spoken[i]}".encode("utf-8")).hexdigest()[:16]
+        # Varsayılan modelde eski önbellek anahtarı korunur (Hitit sesi yeniden üretilmez)
+        key = f"{engine}|{voice_id}|{spoken[i]}" if model == ELEVEN_MODEL else \
+            f"{engine}|{model}|{voice_id}|{spoken[i]}"
+        fp = hashlib.sha1(key.encode("utf-8")).hexdigest()[:16]
         cached = json.loads(words_path.read_text(encoding="utf-8")) if words_path.exists() else None
         new = False
         if isinstance(cached, dict) and cached.get("fp") == fp and mp3.exists():
@@ -241,7 +330,7 @@ def synthesize(paragraphs: list[str], out_dir: Path, voice_id: str = "",
                     client, voice_id, spoken[i],
                     spoken[i - 1] if i > 0 else "",
                     spoken[i + 1] if i + 1 < len(spoken) else "",
-                    voice_settings)
+                    voice_settings, model=model)
             except Exception as e:
                 if requested == "elevenlabs":
                     # Belgeselde robot sese düşmek yok: dur ve gerçek hatayı göster
@@ -253,11 +342,11 @@ def synthesize(paragraphs: list[str], out_dir: Path, voice_id: str = "",
                 raise TTSError(f"ElevenLabs paragraf {i} hatası (video yarıda; "
                                f"karışık ses olmasın diye durduruldu): {e}") from e
             mp3.write_bytes(audio)
-            words = words_from_alignment(alignment, text)
+            words = words_from_alignment(alignment, shown_texts[i])
             new = True
         else:
-            words = asyncio.run(_edge_paragraph(spoken[i], EDGE_VOICE, mp3))
-            shown = text.split()
+            words = asyncio.run(_edge_paragraph(display_text(spoken[i]), EDGE_VOICE, mp3))
+            shown = shown_texts[i].split()
             if len(shown) == len(words):
                 for w, s in zip(words, shown):
                     w["word"] = s
@@ -271,11 +360,12 @@ def synthesize(paragraphs: list[str], out_dir: Path, voice_id: str = "",
                         "chars": len(spoken[i])})
         logger.info("Ses p%03d hazır (%.1f sn, %s)", i, results[-1]["duration"], engine)
     if engine == "elevenlabs" and rush_budget > 0:
-        _repair_rushes(results, paragraphs, spoken, out_dir, client, voice_id, rush_budget)
+        _repair_rushes(results, shown_texts, spoken, out_dir, client, voice_id, rush_budget, model)
     return results
 
 
-def _repair_rushes(results, paragraphs, spoken, out_dir, client, voice_id, budget: int):
+def _repair_rushes(results, paragraphs, spoken, out_dir, client, voice_id, budget: int,
+                   model: str = ELEVEN_MODEL):
     """Hızlanan paragrafları sabit ayarla yeniden seslendir (en fazla `budget` karakter)."""
     ref = reference_rate([r["words"] for r in results])
     report, used = [], 0
@@ -294,7 +384,8 @@ def _repair_rushes(results, paragraphs, spoken, out_dir, client, voice_id, budge
         try:
             audio, alignment = _eleven_paragraph(
                 client, voice_id, spoken[i], spoken[i - 1] if i > 0 else "",
-                spoken[i + 1] if i + 1 < len(spoken) else "", STEADY_SETTINGS)
+                spoken[i + 1] if i + 1 < len(spoken) else "",
+                None if model in TAG_MODELS else STEADY_SETTINGS, model=model)
         except Exception as e:
             report.append({"p": i, "rush": score, "durum": f"hata: {e}"})
             continue

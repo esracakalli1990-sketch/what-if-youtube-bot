@@ -363,7 +363,7 @@ def test_edge_cache_replaced_when_elevenlabs_available(tmp_path, monkeypatch):
     (tmp_path / "p000.mp3").write_bytes(b"x")
     calls = []
 
-    def fake_eleven(client, voice_id, text, prev, nxt, settings):
+    def fake_eleven(client, voice_id, text, prev, nxt, settings, model=None):
         calls.append(text)
         raise RuntimeError("ağ yok (test)")
 
@@ -396,7 +396,7 @@ def test_commons_music_used_and_credited(tmp_path):
 def _fake_elevenlabs(monkeypatch, error="403 output_format not allowed"):
     calls = []
 
-    def fake(client, voice_id, text, prev, nxt, settings):
+    def fake(client, voice_id, text, prev, nxt, settings, model=None):
         calls.append(text)
         raise RuntimeError(error)
 
@@ -527,7 +527,7 @@ def test_rush_repair_regenerates_only_rushed_paragraph(tmp_path, monkeypatch):
         results.append({"path": str(mp3), "duration": 15.0, "words": w})
     calls = []
 
-    def fake(client, voice_id, text, prev, nxt, settings):
+    def fake(client, voice_id, text, prev, nxt, settings, model=None):
         calls.append((text, settings))
         steady = " ".join(["kelime"] * 28)
         ends = [k * 0.5 for k in range(len(steady))]
@@ -743,3 +743,75 @@ def test_hitit_shorts_config_is_valid():
             assert not any("map" in shot for shot in data["chapters"][c]["paragraphs"][p]["shots"])
         assert s["muzik"] in music and len(s["baslik"]) <= 100
         assert len(s["kanca"].split("\n")) <= 2 and s["yayin"].endswith("Z")
+
+
+def test_directions_for_v4_and_v2():
+    t = "[sakin] Bir bahar sabahı. [duraksama 1.5] [fısıltı] Ama bilmediği bir şey vardı. [dramatic] Son."
+    v4 = da.apply_directions(t, "eleven_v4")
+    assert v4 == "[calm] Bir bahar sabahı. [pause] [whispers] Ama bilmediği bir şey vardı. [dramatic] Son."
+    v2 = da.apply_directions(t, "eleven_multilingual_v2")
+    assert "[" not in v2 and '<break time="1.5s"/>' in v2
+    assert da.display_text(t) == "Bir bahar sabahı. Ama bilmediği bir şey vardı. Son."
+    assert da.display_text(v2) == da.display_text(t)
+
+
+def test_alignment_ignores_tags_and_supports_forced_alignment():
+    spoken = "[calm] Bir sabah. [whispers] Sır."
+    chars = list(spoken)
+    starts = [i * 0.1 for i in range(len(chars))]
+    words = da.words_from_alignment({"characters": chars, "character_start_times_seconds": starts,
+                                     "character_end_times_seconds": [s + 0.05 for s in starts]},
+                                    "Bir sabah. Sır.")
+    assert [w["word"] for w in words] == ["Bir", "sabah.", "Sır."]
+    fa = {"words": [{"text": "Bir", "start": 0.0, "end": 0.3}, {"text": "sabah.", "start": 0.4, "end": 0.9},
+                    {"text": "Sır.", "start": 1.5, "end": 1.9}]}
+    w2 = da.words_from_alignment(fa, "Bir sabah. Sır.")
+    assert w2[2] == {"word": "Sır.", "start": 1.5, "end": 1.9}
+
+
+def test_v4_falls_back_to_forced_alignment(monkeypatch):
+    calls = {}
+
+    class TTS:
+        def convert_with_timestamps(self, **kw):
+            calls["ts"] = kw
+            raise RuntimeError("model not supported for timestamps")
+
+        def convert(self, **kw):
+            calls["plain"] = kw
+            return iter([b"ses", b"verisi"])
+
+    class FA:
+        def create(self, file, text):
+            calls["fa_text"] = text
+            return {"words": [{"text": "Bir", "start": 0, "end": 0.4}, {"text": "sır.", "start": 0.6, "end": 1.0}]}
+
+    client = type("C", (), {"text_to_speech": TTS(), "forced_alignment": FA()})()
+    audio, al = da._eleven_paragraph(client, "v", "[whispers] Bir sır.", "önce", "sonra", None, model="eleven_v4")
+    assert audio == b"sesverisi" and calls["fa_text"] == "Bir sır."
+    assert "previous_text" not in calls["ts"] and calls["ts"]["model_id"] == "eleven_v4"
+    assert da.words_from_alignment(al, "Bir sır.")[1]["word"] == "sır."
+
+
+def test_model_changes_cache_key_but_default_keeps_old(tmp_path, monkeypatch):
+    import json
+    seen = []
+
+    def fake(client, voice_id, text, prev, nxt, settings, model=None):
+        seen.append((text, model))
+        chars = list(da.display_text(text))
+        st = [i * 0.05 for i in range(len(chars))]
+        return b"x", {"characters": chars, "character_start_times_seconds": st,
+                      "character_end_times_seconds": [s + 0.04 for s in st]}
+
+    monkeypatch.setattr(da, "_eleven_paragraph", fake)
+    monkeypatch.setattr(da, "_probe_duration", lambda p: 1.0)
+    monkeypatch.setitem(__import__("sys").modules, "elevenlabs",
+                        type("M", (), {"ElevenLabs": lambda api_key: None}))
+    r = da.synthesize(["[fısıltı] Merhaba dünya."], tmp_path, voice_id="v", api_key="k",
+                      engine="elevenlabs", model="eleven_v4")
+    assert seen == [("[whispers] Merhaba dünya.", "eleven_v4")]
+    assert [w["word"] for w in r[0]["words"]] == ["Merhaba", "dünya."]
+    da.synthesize(["[fısıltı] Merhaba dünya."], tmp_path, voice_id="v", api_key="k",
+                  engine="elevenlabs", model="eleven_v4")
+    assert len(seen) == 1                                   # önbellekten
