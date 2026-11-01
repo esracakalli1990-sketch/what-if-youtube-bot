@@ -1260,10 +1260,10 @@
   "memfis_piramitleri": {
    "taban": "parsomen",
    "bounds": {
-    "west": 30.55,
+    "west": 30.25,
     "east": 31.85,
-    "south": 29.3344,
-    "north": 30.0656
+    "south": 29.23,
+    "north": 30.13
    },
    "durationSec": 12,
    "title": "Piramitlerin Evrimi",
@@ -1346,14 +1346,14 @@
      "label": "Gize · Keops",
      "start": 8.5,
      "major": true,
-     "side": "left"
+     "side": "right"
     }
    ],
    "labels": [
     {
      "at": [
-      30.95,
-      29.6
+      30.6,
+      29.5
      ],
      "text": "Batı Çölü",
      "start": 0.5,
@@ -1389,7 +1389,7 @@
    "subtitle": "Birinci Ara Dönem ve yeniden birleşme",
    "regions": [
     {
-     "name": "Herakleopolis",
+     "name": "Kuzey krallığı",
      "color": "#9b6fc4",
      "poly": [
       [
@@ -1448,8 +1448,8 @@
      "start": 0.6,
      "end": 8.0,
      "label": [
-      27.6,
-      29.0
+      27.4,
+      27.9
      ]
     },
     {
