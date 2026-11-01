@@ -81,6 +81,8 @@ class Production:
     # ── aşamalar ─────────────────────────────
     def stage_ses(self):
         flat = self.paragraphs()
+        key = _env("ELEVENLABS_API_KEY")
+        before = doc_audio.elevenlabs_balance(key) if key else None
         results = doc_audio.synthesize(
             [t for _, _, t in flat], self.path("audio", "x").parent,
             voice_id=_env("TTS_VOICE_ID_TR"),
@@ -88,7 +90,10 @@ class Production:
             pronunciations=self.data.get("pronunciations", {}),
             engine=os.getenv("DOC_TTS_ENGINE", "auto"),
             voice_settings=self.data.get("voice_settings"),
+            rush_budget=int(os.getenv("DOC_RUSH_BUDGET", "0")),
         )
+        self._send_credit_report(results, before, key)
+        self._send_rush_report()
         self._send_voice_preview(results)
         manifest = [[] for _ in self.data["chapters"]]
         for (ci, _, _), r in zip(flat, results):
@@ -98,6 +103,33 @@ class Production:
             json.dumps(manifest, ensure_ascii=False), encoding="utf-8")
         total = sum(l.total for l in self.layouts())
         logger.info("Ses hazır: %d paragraf, toplam video ~%.1f dk", len(results), total / 60)
+
+    def _send_credit_report(self, results: list[dict], before: dict | None, key: str):
+        """Bu çalışmada ne kadar ses üretildi, hangi hesaptan ne kadar kredi düştü."""
+        from scripts.notifier import send_message
+        new = [r for r in results if r.get("new")]
+        after = doc_audio.elevenlabs_balance(key) if key else None
+        lines = [f"🧾 Kredi raporu: {len(new)} paragraf yeni seslendirildi "
+                 f"({sum(r['chars'] for r in new)} karakter), "
+                 f"{len(results) - len(new)} paragraf önbellekten."]
+        if before and after:
+            lines.append(f"ElevenLabs hesabı ({after['tier']}): bu işte {after['used'] - before['used']} "
+                         f"kredi düştü · kalan {after['limit'] - after['used']} / {after['limit']}")
+        self.path("kredi.json").write_text(json.dumps(
+            {"yeni_paragraf": len(new), "yeni_karakter": sum(r["chars"] for r in new),
+             "once": before, "sonra": after}, ensure_ascii=False, indent=1), encoding="utf-8")
+        send_message("\n".join(lines))
+
+    def _send_rush_report(self):
+        report = self.path("audio", "hiz_raporu.json")
+        if not report.exists():
+            return
+        from scripts.notifier import send_message
+        r = json.loads(report.read_text(encoding="utf-8"))
+        items = r["paragraflar"]
+        fixed = sum(1 for x in items if x["durum"] == "düzeltildi")
+        send_message(f"🎙️ Hızlanma kontrolü: {len(items)} paragrafta hızlanma bulundu, "
+                     f"{fixed} tanesi düzeltildi ({r['kullanilan_karakter']} kredi).")
 
     def _send_voice_preview(self, results: list[dict], seconds: float = 60.0):
         """İlk ~1 dakikalık anlatımı Telegram'a gönder: render saatleri sürmeden sesi duymak için."""

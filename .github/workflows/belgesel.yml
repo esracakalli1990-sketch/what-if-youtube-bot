@@ -54,6 +54,8 @@ jobs:
       KLASOR: ${{ inputs.klasor }}
       # Belgeselde robot sese (edge-tts) düşmek yok: ElevenLabs hata verirse iş durur
       DOC_TTS_ENGINE: elevenlabs
+      # Hızlanan paragrafları yeniden seslendirme için en fazla bu kadar kredi
+      DOC_RUSH_BUDGET: "5000"
     steps:
       - name: Disk alanı aç
         # 1440p bölümler + final ≈ 11 GB; runner'daki kullanılmayan araçlar silinir
