@@ -1,1 +1,7166 @@
-{"films": {}, "stock": {}}
+{
+ "slug": "02-misir",
+ "title": "Antik Mısır'ın Tam Hikâyesi | Piramitlerden Kleopatra'ya 3000 Yıl",
+ "description": "Kleopatra, Büyük Piramit'e bizden daha uzaktı. Üç bin yıl boyunca aynı tanrılara tapan, aynı dili konuşan ve her çöküşten sonra yeniden doğan bir uygarlık: Antik Mısır.\n\nBu belgeselde Narmer'in iki tacı birleştirmesinden piramitleri yapan işçilere, kendini firavun ilan eden Hatşepsut'tan tanrıları yasaklayan Ahenaton'a, Kadeş'teki Ramses'ten tarihin ilk grevine, Kleopatra'nın son savaşından hiyeroglifleri çözen Champollion'a kadar Mısır'ın tam hikâyesini, müze eserleri ve arşiv belgeleri eşliğinde anlatıyoruz. Tartışmalı bilgiler anlatımda öyle belirtilmiştir.\n\nSerinin önceki bölümü: Hitit İmparatorluğu'nun Tam Hikâyesi → https://youtu.be/ibuMFDr7rmI",
+ "tags": [
+  "antik mısır",
+  "mısır tarihi",
+  "firavunlar",
+  "piramitler",
+  "tarih belgeseli",
+  "kleopatra",
+  "tutankamon",
+  "ramses",
+  "hatşepsut",
+  "ahenaton",
+  "nefertiti",
+  "rosetta taşı",
+  "kadeş savaşı",
+  "antik tarih",
+  "belgesel",
+  "türkçe belgesel",
+  "uyku için tarih"
+ ],
+ "hashtags": [
+  "#AntikMısır",
+  "#Tarih",
+  "#Belgesel",
+  "#Firavun",
+  "#Piramitler"
+ ],
+ "ai_disclosure": "Bazı sahnelerde yapay zekâ ile üretilmiş temsili canlandırmalar kullanılmıştır; bu sahneler videoda \"Temsili canlandırma\" olarak işaretlidir.",
+ "sources": [
+  "Ian Shaw (ed.), The Oxford History of Ancient Egypt, Oxford University Press, 2000",
+  "Mark Lehner, The Complete Pyramids, Thames & Hudson, 1997",
+  "Mark Lehner & Zahi Hawass, Giza and the Pyramids, 2017",
+  "Pierre Tallet, Les papyrus de la mer Rouge I: Le journal de Merer, IFAO, 2017",
+  "Miriam Lichtheim, Ancient Egyptian Literature, Vol. I–II, University of California Press",
+  "Joyce Tyldesley, Hatchepsut: The Female Pharaoh, 1996; Nefertiti, 1998",
+  "William L. Moran, The Amarna Letters, Johns Hopkins University Press, 1992",
+  "Howard Carter, The Tomb of Tut.ankh.Amen, 1923",
+  "Kenneth A. Kitchen, Pharaoh Triumphant: The Life and Times of Ramesses II, 1982",
+  "Eric H. Cline, 1177 B.C.: The Year Civilization Collapsed, Princeton University Press, 2014",
+  "John Romer, Ancient Lives: The Story of the Pharaohs' Tombmakers, 1984",
+  "Plutarkhos, Antonius ve Sezar biyografileri",
+  "Richard Parkinson, Cracking Codes: The Rosetta Stone and Decipherment, British Museum Press, 1999",
+  "UNESCO Dünya Mirası: Nubian Monuments from Abu Simbel to Philae"
+ ],
+ "tts_model": "eleven_v4",
+ "pronunciations": {
+  "Champollion": "Şampolyon",
+  "Jean-François": "Jan-Fransuva",
+  "Thomas": "Tomas",
+  "Young": "Yang",
+  "Howard": "Havırd",
+  "Eratosthenes": "Eratostenes",
+  "Theodosius": "Teodosius"
+ },
+ "voice_settings": {
+  "stability": 0.55,
+  "similarity_boost": 0.8,
+  "style": 0.1,
+  "use_speaker_boost": true
+ },
+ "thumbnails": [
+  {
+   "sablon": "v2",
+   "odak": "tut_maske",
+   "odak_x": 0.74,
+   "odak_y": 0.55,
+   "odak_boy": 1.25,
+   "karisim": "lighten",
+   "hale": "#ffb030",
+   "line1": "3000 yıllık",
+   "line2": "sır",
+   "vurgu": "#FFC83D"
+  },
+  {
+   "sablon": "v2",
+   "odak": "nefertiti",
+   "odak_x": 0.75,
+   "odak_y": 0.58,
+   "odak_boy": 1.3,
+   "karisim": "lighten",
+   "hale": "#2fa4c8",
+   "line1": "Mısır nasıl",
+   "line2": "çöktü?",
+   "vurgu": "#FFC83D"
+  },
+  {
+   "sablon": "v2",
+   "arka_plan": "nefertari_tapinak",
+   "arka_plan_kadraj": "55% 60%",
+   "hale": "#ff7a1a",
+   "line1": "Firavunların",
+   "line2": "sonu",
+   "vurgu": "#FFC83D"
+  }
+ ],
+ "images": {
+  "ahenaton": {
+   "commons": "File:Statue of Akhenaten, Egyptian Museum, al-Qāhirah, CG, EGY (46992844015).jpg"
+  },
+  "ahmose": {
+   "commons": "File:Head of Ahmose I MET DP140853.jpg"
+  },
+  "amarna_mektup2": {
+   "commons": "File:Amarna letter. Letter from Yapahu (ruler of Gezer) to the Egyptian pharaoh Amenhotep III or son Akhenaten.jpg"
+  },
+  "amarna_mektup_3": {
+   "commons": "File:Amarna letter- Royal Letter from Abi-milku of Tyre to the king of Egypt MET 24.2.12 EGDP021809.jpg"
+  },
+  "amarna_plan": {
+   "commons": "File:Plan of the ruins of Tell el-Amarna from Histoire de l'art égyptien (1878) by Émile Prisse d'Avennes. Original from The New York Public Library. Digitally enhanced by rawpixel. (50623605491).jpg"
+  },
+  "amarna_tahrip": {
+   "commons": "File:Defaced relief of Akhenaten and Nefertiti from Akhenaten’s Royal Tomb.jpg"
+  },
+  "ankhesenamun": {
+   "commons": "File:Double scene of Ankhesenamun and Tutankhamun.jpg"
+  },
+  "araba_kabartma": {
+   "commons": "File:Talatat block with relief showing a horse and a chariot from the temple of Aton at Karnak.jpg"
+  },
+  "asur_kabartma": {
+   "commons": "File:Alabaster bas-relief, procession of Assyrian warriors, reign of Sennacherib, from Nineveh, Iraq. 7th century BCE. Pergamon Museum, Berlin.jpg"
+  },
+  "aton_kabartma": {
+   "commons": "File:Relief of the royal family, Akhenaten, Nefertiti and the three daughters, 1352–1336 BC, painted limestone, 25 × 20 cm, Egyptian Museum of Berlin.jpg"
+  },
+  "buhen": {
+   "commons": "File:Buhen3.jpg"
+  },
+  "carter": {
+   "commons": "File:Howard Carter and Arthur Callender in Tutankhamun's tomb.jpg"
+  },
+  "carter_2": {
+   "commons": "File:The Moment Carter Opens the Shrine.jpg"
+  },
+  "champollion": {
+   "commons": "File:Jean-François Champollion, by Léon Cogniet.jpg"
+  },
+  "deniz_kavim": {
+   "commons": "File:02010 Naval battle of Delta, peuples de la mer, Medinet Habu Ramses III. Tempel Nordostwand.jpg",
+   "min_width": 1700
+  },
+  "deyr_bahri": {
+   "commons": "File:Templo funerario de Hatshepsut, Luxor, Egipto, 2022-04-03, DD 13.jpg"
+  },
+  "deyr_bahri_2": {
+   "commons": "File:Thebes, Luxor, Egypt, Panoramic view of Deir el-Bahari from above, Temple of Hatshepsut.jpg"
+  },
+  "deyr_medine": {
+   "commons": "File:Deir el-Medina ruins (2009a).jpg"
+  },
+  "deyr_medine_2": {
+   "commons": "File:Deir al Medineh near Luxor.jpg"
+  },
+  "dikilitas": {
+   "commons": "File:Obelisco de Teodosio, Estambul, Turquía, 2024-09-28, DD 128.jpg"
+  },
+  "dikilitas_2": {
+   "commons": "File:Obelisk of Thutmosis III, Istanbul, Turkey 001.jpg"
+  },
+  "dikilitas_kaide": {
+   "commons": "File:Detail from the south face of the Obelisk of Theodosius.jpg"
+  },
+  "dunya": {
+   "commons": "File:Whole world - land and oceans 12000.jpg",
+   "original": true
+  },
+  "ebu_simbel": {
+   "commons": "File:Templo de Ramsés II, Abu Simbel, Egipto, 2022-04-02, DD 74-76 HDR.jpg"
+  },
+  "ebu_simbel_genis": {
+   "commons": "File:Templo de Ramsés II, Abu Simbel, Egipto, 2022-04-02, DD 03.jpg"
+  },
+  "ebu_simbel_ic": {
+   "commons": "File:Interior Reliefs at Abu Simbel (VI).jpg"
+  },
+  "ebu_simbel_kades": {
+   "commons": "File:Ramesses II relief in the tomb at Abu Simbel.jpg"
+  },
+  "ebu_simbel_salon": {
+   "commons": "File:Großer Tempel (Abu Simbel) Große Pfeilerhalle Ostwand 03.jpg"
+  },
+  "ebu_simbel_yakin": {
+   "commons": "File:Templo de Ramsés II, Abu Simbel, Egipto, 2022-04-02, DD 26-28 HDR.jpg"
+  },
+  "egik_piramit": {
+   "commons": "File:Bent Pyramid of Snofru.jpg"
+  },
+  "eratosthenes": {
+   "commons": "File:Eratosthenes.jpg"
+  },
+  "eratosthenes_harita": {
+   "commons": "File:Eratosthenes, Eratosthenis Werlds Karta (FL27971615 2725315).jpg"
+  },
+  "faros": {
+   "commons": "File:The pharos of Alexandria. Coloured engraving, ca. 1804-1811. Wellcome L0047776.jpg"
+  },
+  "gize_eski": {
+   "commons": "File:Spelterini Pyramids.jpg"
+  },
+  "gize_hepsi": {
+   "commons": "File:All Gizah Pyramids.jpg"
+  },
+  "gize_panorama": {
+   "commons": "File:Sphinx and pyramids of Giza panorama.jpg"
+  },
+  "grev_papirus": {
+   "commons": "File:The so-called 'Strike Papyrus' written by Amunnakht - Museo Egizio Turin C 1880 p01.jpg"
+  },
+  "gunes_teknesi": {
+   "commons": "File:Grand Egyptian Museum - Khufu ship.jpg"
+  },
+  "gunes_teknesi_2": {
+   "commons": "File:Barca Solar del faraón KEOPS - A740777.jpg"
+  },
+  "hatsepsut_buyuk": {
+   "commons": "File:Large Kneeling Statue of Hatshepsut MET DP117949.jpg"
+  },
+  "hatsepsut_diz": {
+   "commons": "File:Kneeling statue of Hatshepsut MET DP116798.jpg"
+  },
+  "hatsepsut_kirik": {
+   "commons": "File:Head of an Osiride Statue of Hatshepsut MET DP310775.jpg"
+  },
+  "hatsepsut_sfenks": {
+   "commons": "File:Sphinx of Hatshepsut, Egyptian collection, Metropolitan Museum of Art.jpg"
+  },
+  "hiksos_kabartma": {
+   "commons": "File:Procession of the Aamu, Tomb of Khnumhotep II (composite).jpg"
+  },
+  "hiyeroglif_duvar": {
+   "commons": "File:Thebes, Medinet Habu, Egypt, Temple of Ramesses III, Egyptian hieroglyphs, Ancient Egypt.jpg"
+  },
+  "imhotep": {
+   "commons": "File:Imhotep statuette, bronze - Museo Egizio, Turin C 112 p02.jpg"
+  },
+  "iskender": {
+   "commons": "File:Bust of Alexander the Great in Musei Capitolini.jpg"
+  },
+  "iskender_mozaik": {
+   "commons": "File:Alexander (Battle of Issus) Mosaic.jpg"
+  },
+  "kades_parca": {
+   "commons": "File:2. Part of the clay tablet of Kadesh Treaty, written in Akkadian. 1269 BCE. From Boğazköy, Turkey. Clay tablet. Museum of the Ancient Orient, Istanbul, Turkey.jpg"
+  },
+  "kades_tablet": {
+   "commons": "File:Kadesh Treaty, written in Akkadian. 1269 BCE. From Boğazköy, Turkey. Clay tablet. Museum of the Ancient Orient, Istanbul, Turkey.jpg"
+  },
+  "kalp_tartisi": {
+   "commons": "File:The judgement of the dead in the presence of Osiris.jpg"
+  },
+  "karnak": {
+   "commons": "File:Theban region, Temple Complex of Amon in Karnak, Temple of Amun, photo 10 of 46 - Archivio fotografico Museo Egizio, Turin C01125.jpg"
+  },
+  "karnak_hipostil": {
+   "commons": "File:Luxor, Egypt, Karnak, Great Hypostyle Hall, Columns.jpg"
+  },
+  "karnak_yilliklar": {
+   "commons": "File:Image of Thutmose III with his wife on the Heraldic Pillar in Annals Hall. Karnak Temple, Egypt.jpg"
+  },
+  "kartus": {
+   "commons": "File:Edfu 15 cartouche hieroglyphs decolorized.jpg"
+  },
+  "kayalik_mezar": {
+   "commons": "File:Tombs at Beni Hasan (I).jpg"
+  },
+  "keops": {
+   "commons": "File:Pyramids of Giza and boat pit.jpg"
+  },
+  "keops_tas": {
+   "commons": "File:Khufu's Pyramid Complex (V).jpg"
+  },
+  "kleopatra_bust": {
+   "commons": "File:Bust of Cleopatra VII - Altes Museum - Berlin - Germany 2017.jpg"
+  },
+  "kleopatra_bust_2": {
+   "commons": "File:Cleopatra VII, 40-30 BCE; Altes Museum, Berlin (2) (28399851109).jpg"
+  },
+  "kleopatra_olum": {
+   "commons": "File:The Death of Cleopatra arthur.jpg"
+  },
+  "kleopatra_sikke": {
+   "commons": "File:Coin of Cleopatra VII and her baby Casearion.jpg"
+  },
+  "krallar_vadisi": {
+   "commons": "File:Thebes, Luxor, Egypt, Panoramic view of the Valley of the Kings.jpg"
+  },
+  "krallar_vadisi_2": {
+   "commons": "File:Entrance of Ramses IV tomb in the Valley of the Kings (KV2).jpg"
+  },
+  "maat": {
+   "commons": "File:The Goddess Maat in Seti II’s KV15 Tomb.jpg"
+  },
+  "medinet_habu": {
+   "commons": "File:Medinet Habu Ramses III. Tempel Nordostwand Abzeichnung 01.jpg"
+  },
+  "medinet_habu_2": {
+   "commons": "File:Medinet Habu Ramses III. Tempel Erster Hof 20.jpg"
+  },
+  "mentuhotep": {
+   "commons": "File:Relief of Nebhepetre Mentuhotep II and the Goddess Hathor MET DP322048.jpg"
+  },
+  "meroe": {
+   "commons": "File:Pyramids of Meroe in Bajrawiya, Sudan 09.jpg"
+  },
+  "mumya_lahit": {
+   "commons": "File:Sarcophagus and mummy Egyptian Museum Cairo.jpg"
+  },
+  "mumya_salon": {
+   "commons": "File:Mummies, Egyptian Museum, al-Qāhirah, CG, EGY (47856885152).jpg"
+  },
+  "napolyon_misir": {
+   "commons": "File:Bonaparte ante la Esfinge, por Jean-Léon Gérôme.jpg"
+  },
+  "narmer": {
+   "commons": "File:Narmer Palette smiting side.jpg"
+  },
+  "narmer_arka": {
+   "commons": "File:Narmer Palette verso.jpg"
+  },
+  "nefertari_tapinak": {
+   "commons": "File:Templo de Nefertari, Abu Simbel, Egipto, 2022-04-02, DD 153.jpg"
+  },
+  "nefertiti": {
+   "commons": "File:Nofretete Neues Museum.jpg",
+   "min_width": 1800
+  },
+  "nefertiti_profil": {
+   "commons": "File:Nefertiti profile.jpg"
+  },
+  "nil_feluka": {
+   "commons": "File:Nile River, Feluccas, Aswan, Egypt.jpg"
+  },
+  "oktavianus": {
+   "commons": "File:Augustus of Prima Porta.jpg"
+  },
+  "papirus_yazi": {
+   "commons": "File:Papyrus Ramesseum A 01.jpg"
+  },
+  "pers_kabartma": {
+   "commons": "File:Persepolis stairs of the Apadana relief.jpg"
+  },
+  "philae": {
+   "commons": "File:Temple of Isis in Philae.jpg"
+  },
+  "ptolemaios": {
+   "commons": "File:Ptolemy I Soter Louvre Ma849.jpg"
+  },
+  "punt_kabartma": {
+   "commons": "File:Relief of Hatshepsut's expedition to the Land of Punt by Σταύρος.jpg"
+  },
+  "punt_kabartma_2": {
+   "commons": "File:Queen Hatshepsut's expedition to Punt, plaster cast of her mortuary temple at Deir el-Bahri, Western Thebes, Egypt - Royal Ontario Museum - DSC09766.JPG"
+  },
+  "ramesseum": {
+   "commons": "File:Luxor Ramesseum R17.jpg"
+  },
+  "ramesseum_kades": {
+   "commons": "File:Battle scene from the Great Kadesh reliefs of Ramses II on the Walls of the Ramesseum.jpg"
+  },
+  "ramses3_mumya": {
+   "commons": "File:Ramses III mummy head.png"
+  },
+  "ramses_heykel": {
+   "commons": "File:Statue of Ramesses II in Karnak Temple in Luxor Egypt.JPG"
+  },
+  "ramses_mumya": {
+   "commons": "File:Mummy of Ramesses II - 02 (cropped).JPG"
+  },
+  "ramses_turin": {
+   "commons": "File:Statue of Ramses II from Karnak, granodiorite - C 1380 Museo Egizio (Turin) 01.jpg"
+  },
+  "rosetta": {
+   "commons": "File:Rosetta Stone.JPG"
+  },
+  "rosetta_yakin": {
+   "commons": "File:London - British Museum - Rosetta Stone.jpg"
+  },
+  "sakkara": {
+   "commons": "File:Pyramid of Djoser 2010.jpg"
+  },
+  "sakkara_2": {
+   "commons": "File:Saqqara, Pyramid of Djoser 2, Ancient Egypt.jpg"
+  },
+  "sakkara_eski": {
+   "commons": "File:Saqqara, Pyramid of Djoser and nearby tombs, Pictures, F. Bonfils, photo 3 of 8 - Archivio fotografico Museo Egizio, Turin INV01 002.jpg"
+  },
+  "sekenenre": {
+   "commons": "File:Sequenre tao.JPG"
+  },
+  "sekenenre_2": {
+   "commons": "File:Seqenenre Tao head bottom.png"
+  },
+  "senusret": {
+   "commons": "File:Head of Senusret III - granite - Luxor Museum 01.jpg"
+  },
+  "senusret_2": {
+   "commons": "File:Statues of Senusret III, British Museum 01.jpg"
+  },
+  "senusret_3": {
+   "commons": "File:Senusret III, MET Museum NYC.jpg"
+  },
+  "sezar": {
+   "commons": "File:Head of Julius Caesar from Tusculum MAntTorino 2089 n01.jpg"
+  },
+  "sfenks": {
+   "commons": "File:Great Sphinx of Giza (2).jpg"
+  },
+  "sfenks_2": {
+   "commons": "File:Sphinx partially excavated2.jpg"
+  },
+  "sinuhe": {
+   "commons": "File:Papyrus Berlin 3022 (A-I).jpg"
+  },
+  "siva": {
+   "commons": "File:Siwa Oasis, Temple of the Oracle of Amun, Egypt.jpg"
+  },
+  "tapinak_kabartma": {
+   "commons": "File:Thebes, Medinet Habu, Egypt, Temple of Ramesses III, Reliefs.jpg"
+  },
+  "tarim_mezar": {
+   "commons": "File:Agricultural Scenes, Tomb of Nakht (IA mma agricultural scenes tomb of nakht 548438).jpg"
+  },
+  "thomas_young": {
+   "commons": "File:Portrait of Thomas Young.jpg"
+  },
+  "tut_1923": {
+   "commons": "File:Tourists outside Tutankhamun's tomb, February 1923.jpg"
+  },
+  "tut_maske": {
+   "commons": "File:The famous Tutankhamun Mask front.jpg"
+  },
+  "tut_maske_yan": {
+   "commons": "File:Mask of Tutankhamun in 2025.jpg"
+  },
+  "tutmosis": {
+   "commons": "File:Upper part of a statue of Thutmose III MET 07.230.3 02.jpg"
+  }
+ },
+ "cards": {
+  "1": "nil_feluka",
+  "2": "sakkara",
+  "3": "senusret",
+  "4": "araba_kabartma",
+  "5": "deyr_bahri",
+  "6": "nefertiti",
+  "7": "ebu_simbel",
+  "8": "medinet_habu",
+  "9": "iskender",
+  "10": "kleopatra_bust",
+  "11": "rosetta"
+ },
+ "music": {
+  "0": "gizem",
+  "1": "isik",
+  "2": "agir",
+  "3": "karanlik",
+  "4": "ses",
+  "5": "tapinak",
+  "6": "gizem",
+  "7": "agir",
+  "8": "karanlik",
+  "9": "derin",
+  "10": "huzun",
+  "11": "isik",
+  "12": "huzun"
+ },
+ "shots": {
+  "0.0": [
+   {
+    "stock": "gize_safak",
+    "start": 0.0,
+    "label": {
+     "title": "GİZE",
+     "subtitle": "MISIR"
+    }
+   },
+   {
+    "image": "gize_panorama",
+    "move": "left"
+   },
+   {
+    "image": "sfenks",
+    "move": "in"
+   }
+  ],
+  "0.1": [
+   {
+    "image": "kleopatra_bust",
+    "move": "in"
+   },
+   {
+    "image": "keops",
+    "move": "out"
+   },
+   {
+    "image": "gize_hepsi",
+    "move": "right"
+   }
+  ],
+  "0.2": [
+   {
+    "image": "karnak_hipostil",
+    "move": "up"
+   },
+   {
+    "image": "ramses_heykel",
+    "move": "in"
+   },
+   {
+    "stock": "nil_gunbatimi",
+    "start": 0.0
+   }
+  ],
+  "0.3": [
+   {
+    "image": "tut_maske",
+    "move": "in",
+    "overlay": "katman_toz"
+   },
+   {
+    "image": "hatsepsut_diz",
+    "move": "in"
+   },
+   {
+    "image": "ahenaton",
+    "move": "in"
+   },
+   {
+    "image": "rosetta",
+    "move": "right"
+   }
+  ],
+  "1.0": [
+   {
+    "map": "nil_vadisi"
+   },
+   {
+    "stock": "nil_gunbatimi",
+    "start": 0.0
+   }
+  ],
+  "1.1": [
+   {
+    "stock": "nil_akis",
+    "start": 0.0
+   },
+   {
+    "image": "nil_feluka",
+    "move": "left"
+   },
+   {
+    "image": "tarim_mezar",
+    "move": "in"
+   }
+  ],
+  "1.2": [
+   {
+    "stock": "bugday_ruzgar",
+    "start": 0.0
+   },
+   {
+    "image": "tarim_mezar",
+    "move": "right"
+   },
+   {
+    "stock": "yildizli_gece",
+    "start": 0.0
+   }
+  ],
+  "1.3": [
+   {
+    "image": "maat",
+    "move": "in"
+   },
+   {
+    "image": "tapinak_kabartma",
+    "move": "left"
+   },
+   {
+    "stock": "gunes_dogus",
+    "start": 0.0
+   }
+  ],
+  "1.4": [
+   {
+    "map": "iki_misir"
+   }
+  ],
+  "1.5": [
+   {
+    "image": "narmer",
+    "move": "in",
+    "label": {
+     "title": "NARMER PALETİ",
+     "subtitle": "MÖ 3100 · KAHİRE, MISIR MÜZESİ"
+    }
+   },
+   {
+    "image": "narmer_arka",
+    "move": "up"
+   },
+   {
+    "image": "narmer",
+    "move": "out"
+   }
+  ],
+  "1.6": [
+   {
+    "image": "narmer_arka",
+    "move": "in"
+   },
+   {
+    "image": "sakkara",
+    "move": "right"
+   }
+  ],
+  "2.0": [
+   {
+    "image": "sakkara",
+    "move": "in",
+    "label": {
+     "title": "SAKKARA",
+     "subtitle": "COSER'İN BASAMAKLI PİRAMİDİ"
+    }
+   },
+   {
+    "image": "sakkara_eski",
+    "move": "out"
+   },
+   {
+    "image": "sakkara_2",
+    "move": "left"
+   }
+  ],
+  "2.1": [
+   {
+    "image": "imhotep",
+    "move": "in"
+   },
+   {
+    "image": "sakkara",
+    "move": "out"
+   }
+  ],
+  "2.2": [
+   {
+    "map": "memfis_piramitleri"
+   },
+   {
+    "image": "egik_piramit",
+    "move": "in"
+   }
+  ],
+  "2.3": [
+   {
+    "image": "keops",
+    "move": "up",
+    "label": {
+     "title": "GİZE",
+     "subtitle": "KEOPS PİRAMİDİ · MÖ 2560"
+    }
+   },
+   {
+    "image": "gize_hepsi",
+    "move": "left"
+   },
+   {
+    "image": "gize_panorama",
+    "move": "right"
+   }
+  ],
+  "2.4": [
+   {
+    "image": "keops_tas",
+    "move": "in"
+   },
+   {
+    "stock": "tas_doku",
+    "start": 0.0
+   },
+   {
+    "image": "keops",
+    "move": "out"
+   }
+  ],
+  "2.5": [
+   {
+    "image": "gize_hepsi",
+    "move": "in"
+   },
+   {
+    "image": "gize_eski",
+    "move": "left"
+   },
+   {
+    "stock": "ekmek_firin",
+    "start": 0.0
+   },
+   {
+    "image": "gize_panorama",
+    "move": "right"
+   }
+  ],
+  "2.6": [
+   {
+    "stock": "deniz_safak",
+    "start": 0.0,
+    "label": {
+     "title": "VADİ EL-CERF",
+     "subtitle": "KIZILDENİZ KIYISI · 2013"
+    }
+   },
+   {
+    "stock": "mum_isigi",
+    "start": 0.0
+   },
+   {
+    "image": "gize_hepsi",
+    "move": "out"
+   }
+  ],
+  "2.7": [
+   {
+    "image": "keops_tas",
+    "move": "up"
+   },
+   {
+    "stock": "nil_akis",
+    "start": 0.0
+   },
+   {
+    "image": "gize_eski",
+    "move": "in"
+   },
+   {
+    "image": "keops",
+    "move": "out"
+   }
+  ],
+  "2.8": [
+   {
+    "image": "gunes_teknesi",
+    "move": "in",
+    "label": {
+     "title": "GÜNEŞ TEKNESİ",
+     "subtitle": "KEOPS · GİZE"
+    }
+   },
+   {
+    "image": "gunes_teknesi_2",
+    "move": "left"
+   },
+   {
+    "image": "gunes_teknesi",
+    "move": "out"
+   }
+  ],
+  "2.9": [
+   {
+    "image": "sfenks",
+    "move": "in"
+   },
+   {
+    "image": "sfenks_2",
+    "move": "out"
+   }
+  ],
+  "3.0": [
+   {
+    "stock": "kurak_toprak",
+    "start": 0.0
+   },
+   {
+    "stock": "kum_ruzgar",
+    "start": 0.0
+   },
+   {
+    "image": "tarim_mezar",
+    "move": "out"
+   }
+  ],
+  "3.1": [
+   {
+    "image": "kayalik_mezar",
+    "move": "in"
+   },
+   {
+    "stock": "ates_gece",
+    "start": 0.0
+   },
+   {
+    "image": "sakkara_eski",
+    "move": "left"
+   }
+  ],
+  "3.2": [
+   {
+    "map": "parcalanma"
+   },
+   {
+    "image": "mentuhotep",
+    "move": "in"
+   }
+  ],
+  "3.3": [
+   {
+    "image": "senusret",
+    "move": "in",
+    "label": {
+     "title": "III. SENUSRET",
+     "subtitle": "ORTA KRALLIK · MÖ 1850"
+    }
+   },
+   {
+    "image": "senusret_2",
+    "move": "in"
+   },
+   {
+    "image": "senusret_3",
+    "move": "out"
+   }
+  ],
+  "3.4": [
+   {
+    "stock": "nil_akis",
+    "start": 0.0
+   },
+   {
+    "image": "buhen",
+    "move": "in"
+   },
+   {
+    "image": "senusret_3",
+    "move": "out"
+   }
+  ],
+  "3.5": [
+   {
+    "image": "sinuhe",
+    "move": "right",
+    "label": {
+     "title": "SİNUHE'NİN ÖYKÜSÜ",
+     "subtitle": "ORTA KRALLIK EDEBİYATI"
+    }
+   },
+   {
+    "stock": "mum_isigi",
+    "start": 0.0
+   },
+   {
+    "image": "papirus_yazi",
+    "move": "in"
+   }
+  ],
+  "3.6": [
+   {
+    "stock": "kum_ruzgar",
+    "start": 0.0
+   },
+   {
+    "image": "araba_kabartma",
+    "move": "in"
+   }
+  ],
+  "4.0": [
+   {
+    "map": "hiksos_gocu"
+   },
+   {
+    "image": "hiksos_kabartma",
+    "move": "in"
+   }
+  ],
+  "4.1": [
+   {
+    "image": "araba_kabartma",
+    "move": "right"
+   },
+   {
+    "stock": "at_dortnala",
+    "start": 0.0
+   },
+   {
+    "image": "ramesseum_kades",
+    "move": "in"
+   }
+  ],
+  "4.2": [
+   {
+    "image": "sekenenre",
+    "move": "in",
+    "label": {
+     "title": "SEKENENRE TAO",
+     "subtitle": "MUMYA · KAHİRE"
+    }
+   },
+   {
+    "stock": "mum_isigi",
+    "start": 0.0
+   },
+   {
+    "image": "sekenenre_2",
+    "move": "in"
+   }
+  ],
+  "4.3": [
+   {
+    "image": "sekenenre_2",
+    "move": "out"
+   },
+   {
+    "stock": "ates_gece",
+    "start": 0.0
+   },
+   {
+    "image": "araba_kabartma",
+    "move": "left"
+   }
+  ],
+  "4.4": [
+   {
+    "map": "ahmose_seferi"
+   },
+   {
+    "image": "ahmose",
+    "move": "in"
+   }
+  ],
+  "4.5": [
+   {
+    "image": "karnak_hipostil",
+    "move": "up"
+   },
+   {
+    "image": "deyr_bahri",
+    "move": "right"
+   }
+  ],
+  "5.0": [
+   {
+    "image": "hatsepsut_diz",
+    "move": "in",
+    "label": {
+     "title": "HATŞEPSUT",
+     "subtitle": "MÖ 1479–1458"
+    }
+   },
+   {
+    "image": "hatsepsut_buyuk",
+    "move": "up"
+   }
+  ],
+  "5.1": [
+   {
+    "image": "hatsepsut_buyuk",
+    "move": "in"
+   },
+   {
+    "image": "hatsepsut_sfenks",
+    "move": "left"
+   },
+   {
+    "image": "hatsepsut_diz",
+    "move": "out"
+   }
+  ],
+  "5.2": [
+   {
+    "image": "deyr_bahri",
+    "move": "right",
+    "label": {
+     "title": "DEYR EL-BAHRİ",
+     "subtitle": "HATŞEPSUT TAPINAĞI · LUKSOR"
+    }
+   },
+   {
+    "image": "deyr_bahri_2",
+    "move": "in"
+   }
+  ],
+  "5.3": [
+   {
+    "map": "punt_seferi"
+   },
+   {
+    "image": "punt_kabartma",
+    "move": "left"
+   },
+   {
+    "image": "punt_kabartma_2",
+    "move": "in"
+   }
+  ],
+  "5.4": [
+   {
+    "image": "deyr_bahri_2",
+    "move": "out"
+   },
+   {
+    "image": "hatsepsut_kirik",
+    "move": "in"
+   },
+   {
+    "stock": "kum_ruzgar",
+    "start": 0.0
+   }
+  ],
+  "5.5": [
+   {
+    "image": "mumya_salon",
+    "move": "in"
+   },
+   {
+    "stock": "mum_isigi",
+    "start": 0.0
+   },
+   {
+    "image": "hatsepsut_diz",
+    "move": "out"
+   }
+  ],
+  "5.6": [
+   {
+    "image": "tutmosis",
+    "move": "in",
+    "label": {
+     "title": "III. TUTMOSİS",
+     "subtitle": "MÖ 1479–1425"
+    }
+   }
+  ],
+  "5.7": [
+   {
+    "map": "megiddo_savas"
+   },
+   {
+    "image": "tutmosis",
+    "move": "out"
+   }
+  ],
+  "5.8": [
+   {
+    "stock": "at_dortnala",
+    "start": 0.0
+   },
+   {
+    "image": "karnak_yilliklar",
+    "move": "right"
+   },
+   {
+    "map": "tutmosis_imparatorluk"
+   }
+  ],
+  "5.9": [
+   {
+    "image": "dikilitas",
+    "move": "up",
+    "label": {
+     "title": "DİKİLİTAŞ",
+     "subtitle": "SULTANAHMET · İSTANBUL"
+    }
+   },
+   {
+    "image": "dikilitas_kaide",
+    "move": "in"
+   },
+   {
+    "image": "dikilitas_2",
+    "move": "out"
+   }
+  ],
+  "6.0": [
+   {
+    "image": "karnak_hipostil",
+    "move": "left"
+   },
+   {
+    "image": "ahenaton",
+    "move": "in"
+   }
+  ],
+  "6.1": [
+   {
+    "image": "ahenaton",
+    "move": "in",
+    "label": {
+     "title": "AHENATON",
+     "subtitle": "MÖ 1353–1336"
+    }
+   },
+   {
+    "image": "aton_kabartma",
+    "move": "in"
+   }
+  ],
+  "6.2": [
+   {
+    "map": "amarna_goc"
+   },
+   {
+    "image": "amarna_plan",
+    "move": "left"
+   }
+  ],
+  "6.3": [
+   {
+    "image": "nefertiti",
+    "move": "in",
+    "label": {
+     "title": "NEFERTİTİ",
+     "subtitle": "NEUES MUSEUM · BERLİN"
+    }
+   },
+   {
+    "image": "nefertiti_profil",
+    "move": "right"
+   },
+   {
+    "image": "nefertiti",
+    "move": "out"
+   }
+  ],
+  "6.4": [
+   {
+    "image": "amarna_mektup2",
+    "move": "in"
+   },
+   {
+    "image": "amarna_mektup_3",
+    "move": "right"
+   },
+   {
+    "image": "ankhesenamun",
+    "move": "in"
+   }
+  ],
+  "6.5": [
+   {
+    "image": "amarna_tahrip",
+    "move": "in"
+   },
+   {
+    "stock": "kum_ruzgar",
+    "start": 0.0
+   }
+  ],
+  "6.6": [
+   {
+    "image": "tut_maske",
+    "move": "in",
+    "label": {
+     "title": "TUTANKAMON",
+     "subtitle": "MÖ 1332–1323"
+    }
+   }
+  ],
+  "6.7": [
+   {
+    "image": "krallar_vadisi",
+    "move": "left",
+    "label": {
+     "title": "KRALLAR VADİSİ",
+     "subtitle": "LUKSOR · 1922"
+    }
+   },
+   {
+    "image": "carter",
+    "move": "in"
+   },
+   {
+    "stock": "mum_isigi",
+    "start": 0.0
+   },
+   {
+    "image": "carter_2",
+    "move": "in"
+   }
+  ],
+  "6.8": [
+   {
+    "image": "tut_1923",
+    "move": "in"
+   },
+   {
+    "image": "tut_maske_yan",
+    "move": "in",
+    "overlay": "katman_toz"
+   }
+  ],
+  "6.9": [
+   {
+    "image": "mumya_lahit",
+    "move": "in"
+   },
+   {
+    "image": "mumya_salon",
+    "move": "right"
+   }
+  ],
+  "6.10": [
+   {
+    "image": "kalp_tartisi",
+    "move": "in"
+   },
+   {
+    "image": "kalp_tartisi",
+    "move": "right"
+   },
+   {
+    "stock": "mum_isigi",
+    "start": 0.0
+   }
+  ],
+  "7.0": [
+   {
+    "image": "ebu_simbel",
+    "move": "in",
+    "label": {
+     "title": "EBU SİMBEL",
+     "subtitle": "NÜBYE · MÖ 1264"
+    }
+   },
+   {
+    "image": "ebu_simbel_yakin",
+    "move": "up"
+   }
+  ],
+  "7.1": [
+   {
+    "image": "ramses_turin",
+    "move": "in"
+   },
+   {
+    "image": "ramses_heykel",
+    "move": "up"
+   }
+  ],
+  "7.2": [
+   {
+    "image": "ebu_simbel_salon",
+    "move": "in"
+   },
+   {
+    "image": "ebu_simbel_ic",
+    "move": "in"
+   },
+   {
+    "stock": "gunes_dogus",
+    "start": 0.0
+   }
+  ],
+  "7.3": [
+   {
+    "image": "ebu_simbel_genis",
+    "move": "left"
+   },
+   {
+    "image": "nefertari_tapinak",
+    "move": "in"
+   },
+   {
+    "image": "ebu_simbel",
+    "move": "out"
+   }
+  ],
+  "7.4": [
+   {
+    "map": "kades_seferi"
+   }
+  ],
+  "7.5": [
+   {
+    "map": "kades_savas"
+   },
+   {
+    "image": "ramesseum_kades",
+    "move": "left"
+   }
+  ],
+  "7.6": [
+   {
+    "image": "ramesseum_kades",
+    "move": "in"
+   },
+   {
+    "image": "ebu_simbel_kades",
+    "move": "right"
+   }
+  ],
+  "7.7": [
+   {
+    "image": "kades_tablet",
+    "move": "in",
+    "label": {
+     "title": "KADEŞ ANTLAŞMASI",
+     "subtitle": "İSTANBUL ARKEOLOJİ MÜZELERİ"
+    }
+   },
+   {
+    "image": "kades_parca",
+    "move": "in"
+   }
+  ],
+  "7.8": [
+   {
+    "image": "ebu_simbel_salon",
+    "move": "left"
+   },
+   {
+    "stock": "deniz_safak",
+    "start": 0.0
+   }
+  ],
+  "7.9": [
+   {
+    "image": "ramesseum",
+    "move": "in",
+    "label": {
+     "title": "RAMESSEUM",
+     "subtitle": "LUKSOR"
+    }
+   },
+   {
+    "stock": "kum_ruzgar",
+    "start": 0.0
+   }
+  ],
+  "8.0": [
+   {
+    "image": "medinet_habu",
+    "move": "right",
+    "label": {
+     "title": "MEDİNET HABU",
+     "subtitle": "III. RAMSES TAPINAĞI"
+    }
+   },
+   {
+    "image": "deniz_kavim",
+    "move": "in"
+   },
+   {
+    "image": "medinet_habu_2",
+    "move": "left"
+   }
+  ],
+  "8.1": [
+   {
+    "map": "tunc_cokus"
+   },
+   {
+    "image": "deniz_kavim",
+    "move": "out"
+   }
+  ],
+  "8.2": [
+   {
+    "image": "deyr_medine",
+    "move": "left",
+    "label": {
+     "title": "DEYR EL-MEDİNE",
+     "subtitle": "İŞÇİ KÖYÜ · LUKSOR"
+    }
+   },
+   {
+    "image": "deyr_medine_2",
+    "move": "in"
+   }
+  ],
+  "8.3": [
+   {
+    "image": "grev_papirus",
+    "move": "in"
+   },
+   {
+    "stock": "kurak_toprak",
+    "start": 0.0
+   },
+   {
+    "image": "deyr_medine",
+    "move": "out"
+   }
+  ],
+  "8.4": [
+   {
+    "image": "medinet_habu_2",
+    "move": "in"
+   },
+   {
+    "stock": "kum_ruzgar",
+    "start": 0.0
+   }
+  ],
+  "8.5": [
+   {
+    "image": "krallar_vadisi",
+    "move": "right"
+   },
+   {
+    "stock": "mum_isigi",
+    "start": 0.0
+   },
+   {
+    "image": "krallar_vadisi_2",
+    "move": "in"
+   }
+  ],
+  "8.6": [
+   {
+    "image": "mumya_salon",
+    "move": "in"
+   },
+   {
+    "image": "ramses_mumya",
+    "move": "in"
+   }
+  ],
+  "8.7": [
+   {
+    "image": "ramses3_mumya",
+    "move": "in"
+   },
+   {
+    "image": "ramesseum",
+    "move": "out"
+   }
+  ],
+  "9.0": [
+   {
+    "map": "yabanci_taclar"
+   },
+   {
+    "image": "meroe",
+    "move": "in"
+   }
+  ],
+  "9.1": [
+   {
+    "image": "asur_kabartma",
+    "move": "left"
+   },
+   {
+    "stock": "ates_gece",
+    "start": 0.0
+   },
+   {
+    "image": "pers_kabartma",
+    "move": "in"
+   }
+  ],
+  "9.2": [
+   {
+    "image": "iskender",
+    "move": "in",
+    "label": {
+     "title": "BÜYÜK İSKENDER",
+     "subtitle": "MÖ 356–323"
+    }
+   },
+   {
+    "image": "iskender_mozaik",
+    "move": "right"
+   },
+   {
+    "image": "siva",
+    "move": "left"
+   }
+  ],
+  "9.3": [
+   {
+    "map": "iskender_misir"
+   },
+   {
+    "image": "faros",
+    "move": "in"
+   }
+  ],
+  "9.4": [
+   {
+    "image": "eratosthenes",
+    "move": "in"
+   },
+   {
+    "stock": "gunes_dogus",
+    "start": 0.0
+   },
+   {
+    "image": "eratosthenes_harita",
+    "move": "right"
+   }
+  ],
+  "9.5": [
+   {
+    "image": "ptolemaios",
+    "move": "in"
+   },
+   {
+    "image": "faros",
+    "move": "right"
+   }
+  ],
+  "10.0": [
+   {
+    "image": "kleopatra_bust",
+    "move": "in",
+    "label": {
+     "title": "VII. KLEOPATRA",
+     "subtitle": "MÖ 69–30"
+    }
+   },
+   {
+    "image": "kleopatra_sikke",
+    "move": "in"
+   }
+  ],
+  "10.1": [
+   {
+    "image": "kleopatra_bust_2",
+    "move": "in"
+   },
+   {
+    "image": "kleopatra_sikke",
+    "move": "in"
+   }
+  ],
+  "10.2": [
+   {
+    "map": "roma_genisleme"
+   }
+  ],
+  "10.3": [
+   {
+    "image": "sezar",
+    "move": "in"
+   },
+   {
+    "image": "kleopatra_bust",
+    "move": "out"
+   }
+  ],
+  "10.4": [
+   {
+    "stock": "mum_isigi",
+    "start": 0.0
+   },
+   {
+    "image": "sezar",
+    "move": "out"
+   },
+   {
+    "image": "kleopatra_sikke",
+    "move": "right"
+   }
+  ],
+  "10.5": [
+   {
+    "map": "aktion_savas"
+   },
+   {
+    "stock": "deniz_safak",
+    "start": 0.0
+   }
+  ],
+  "10.6": [
+   {
+    "image": "oktavianus",
+    "move": "in"
+   },
+   {
+    "stock": "mum_isigi",
+    "start": 0.0
+   },
+   {
+    "image": "kleopatra_olum",
+    "move": "in"
+   }
+  ],
+  "10.7": [
+   {
+    "image": "philae",
+    "move": "out"
+   },
+   {
+    "stock": "nil_gunbatimi",
+    "start": 0.0
+   }
+  ],
+  "11.0": [
+   {
+    "image": "philae",
+    "move": "left"
+   },
+   {
+    "image": "hiyeroglif_duvar",
+    "move": "right"
+   }
+  ],
+  "11.1": [
+   {
+    "map": "napolyon_resit"
+   },
+   {
+    "image": "napolyon_misir",
+    "move": "in"
+   }
+  ],
+  "11.2": [
+   {
+    "image": "rosetta",
+    "move": "in",
+    "label": {
+     "title": "ROSETTA TAŞI",
+     "subtitle": "MÖ 196 · BRITISH MUSEUM"
+    }
+   },
+   {
+    "image": "rosetta_yakin",
+    "move": "right"
+   },
+   {
+    "image": "rosetta",
+    "move": "out"
+   }
+  ],
+  "11.3": [
+   {
+    "image": "champollion",
+    "move": "in",
+    "label": {
+     "title": "J.-F. CHAMPOLLION",
+     "subtitle": "1790–1832"
+    }
+   },
+   {
+    "image": "kartus",
+    "move": "in"
+   },
+   {
+    "image": "rosetta_yakin",
+    "move": "left"
+   }
+  ],
+  "11.4": [
+   {
+    "image": "thomas_young",
+    "move": "in"
+   },
+   {
+    "image": "rosetta",
+    "move": "right"
+   }
+  ],
+  "11.5": [
+   {
+    "image": "champollion",
+    "move": "out"
+   },
+   {
+    "stock": "mum_isigi",
+    "start": 0.0
+   },
+   {
+    "image": "hiyeroglif_duvar",
+    "move": "in"
+   }
+  ],
+  "11.6": [
+   {
+    "image": "karnak_hipostil",
+    "move": "up"
+   },
+   {
+    "image": "hiyeroglif_duvar",
+    "move": "left"
+   },
+   {
+    "image": "karnak",
+    "move": "out"
+   }
+  ],
+  "12.0": [
+   {
+    "stock": "gize_gunbatimi",
+    "start": 0.0
+   },
+   {
+    "image": "gize_panorama",
+    "move": "right"
+   },
+   {
+    "image": "keops",
+    "move": "out"
+   }
+  ]
+ },
+ "stock": {
+  "gize_safak": {
+   "q": "giza pyramids sunrise"
+  },
+  "gize_gunbatimi": {
+   "q": "pyramids sunset desert"
+  },
+  "nil_gunbatimi": {
+   "q": "nile river sunset felucca"
+  },
+  "nil_akis": {
+   "q": "nile river water flowing"
+  },
+  "bugday_ruzgar": {
+   "q": "wheat field wind",
+   "id": 30511075
+  },
+  "yildizli_gece": {
+   "q": "starry night sky timelapse",
+   "id": 8644889
+  },
+  "gunes_dogus": {
+   "q": "sun rising over desert"
+  },
+  "kum_ruzgar": {
+   "q": "sand blowing desert dunes wind"
+  },
+  "kurak_toprak": {
+   "q": "dry cracked earth drought",
+   "id": 37533724
+  },
+  "tas_doku": {
+   "q": "ancient stone wall texture close up",
+   "id": 7538700
+  },
+  "ekmek_firin": {
+   "q": "bread baking wood oven",
+   "id": 5898901
+  },
+  "deniz_safak": {
+   "q": "calm sea horizon dawn",
+   "id": 33859149
+  },
+  "mum_isigi": {
+   "q": "oil lamp flame dark",
+   "id": 34579325
+  },
+  "ates_gece": {
+   "q": "bonfire flames night",
+   "id": 28802354
+  },
+  "at_dortnala": {
+   "q": "horses galloping dust",
+   "id": 27979821
+  },
+  "katman_toz": {
+   "q": "dust particles floating black background",
+   "id": 28492353
+  }
+ },
+ "films": {},
+ "maps": {
+  "nil_vadisi": {
+   "taban": "dunya",
+   "bounds": {
+    "west": 19.0,
+    "east": 43.0,
+    "south": 19.25,
+    "north": 32.75
+   },
+   "durationSec": 13,
+   "title": "Nil Vadisi",
+   "subtitle": "Çölün ortasında yeşil bir şerit",
+   "regions": [
+    {
+     "name": "Kemet",
+     "color": "#6fae6a",
+     "poly": [
+      [
+       32.8,
+       24.1
+      ],
+      [
+       32.8,
+       24.9
+      ],
+      [
+       32.45,
+       25.6
+      ],
+      [
+       32.5,
+       26.0
+      ],
+      [
+       31.9,
+       26.1
+      ],
+      [
+       31.0,
+       27.1
+      ],
+      [
+       30.65,
+       28.0
+      ],
+      [
+       30.8,
+       28.8
+      ],
+      [
+       30.6,
+       29.3
+      ],
+      [
+       31.1,
+       29.9
+      ],
+      [
+       30.9,
+       30.2
+      ],
+      [
+       30.1,
+       31.3
+      ],
+      [
+       30.8,
+       31.55
+      ],
+      [
+       31.8,
+       31.55
+      ],
+      [
+       32.2,
+       31.2
+      ],
+      [
+       31.4,
+       30.2
+      ],
+      [
+       31.35,
+       29.85
+      ],
+      [
+       31.3,
+       29.0
+      ],
+      [
+       31.0,
+       28.1
+      ],
+      [
+       31.35,
+       27.2
+      ],
+      [
+       32.0,
+       26.4
+      ],
+      [
+       32.8,
+       26.2
+      ],
+      [
+       32.75,
+       25.7
+      ],
+      [
+       33.0,
+       24.9
+      ],
+      [
+       33.0,
+       24.1
+      ]
+     ],
+     "start": 2.0,
+     "label": [
+      33.9,
+      27.0
+     ]
+    }
+   ],
+   "rivers": [
+    {
+     "points": [
+      [
+       32.89,
+       24.09
+      ],
+      [
+       32.93,
+       24.45
+      ],
+      [
+       32.87,
+       24.98
+      ],
+      [
+       32.55,
+       25.3
+      ],
+      [
+       32.64,
+       25.7
+      ],
+      [
+       32.72,
+       26.1
+      ],
+      [
+       32.25,
+       26.15
+      ],
+      [
+       31.92,
+       26.3
+      ],
+      [
+       31.6,
+       26.6
+      ],
+      [
+       31.18,
+       27.18
+      ],
+      [
+       30.85,
+       27.7
+      ],
+      [
+       30.75,
+       28.1
+      ],
+      [
+       30.9,
+       28.8
+      ],
+      [
+       31.1,
+       29.3
+      ],
+      [
+       31.25,
+       29.85
+      ],
+      [
+       31.22,
+       30.1
+      ],
+      [
+       31.13,
+       30.2
+      ],
+      [
+       30.9,
+       30.6
+      ],
+      [
+       30.6,
+       31.1
+      ],
+      [
+       30.4,
+       31.45
+      ]
+     ],
+     "name": "Nil",
+     "start": 0.6,
+     "labelAt": [
+      30.75,
+      28.6
+     ]
+    },
+    {
+     "points": [
+      [
+       31.13,
+       30.2
+      ],
+      [
+       31.3,
+       30.6
+      ],
+      [
+       31.6,
+       31.1
+      ],
+      [
+       31.83,
+       31.5
+      ]
+     ],
+     "start": 0.6
+    }
+   ],
+   "cities": [
+    {
+     "at": [
+      31.255,
+      29.845
+     ],
+     "label": "Memfis",
+     "start": 4.5,
+     "major": true
+    },
+    {
+     "at": [
+      32.64,
+      25.7
+     ],
+     "label": "Teb",
+     "start": 8.5
+    },
+    {
+     "at": [
+      32.9,
+      24.09
+     ],
+     "label": "Asvan",
+     "start": 10.5
+    }
+   ],
+   "labels": [
+    {
+     "at": [
+      27.0,
+      32.3
+     ],
+     "text": "Akdeniz",
+     "start": 0.4,
+     "kind": "sea"
+    },
+    {
+     "at": [
+      36.6,
+      22.5
+     ],
+     "text": "Kızıldeniz",
+     "start": 0.6,
+     "kind": "sea"
+    },
+    {
+     "at": [
+      25.5,
+      25.0
+     ],
+     "text": "Deşret (Batı Çölü)",
+     "start": 1.2,
+     "kind": "land"
+    }
+   ],
+   "camera": [
+    {
+     "t": 0,
+     "center": [
+      31,
+      26
+     ],
+     "zoom": 1.0
+    },
+    {
+     "t": 3.0,
+     "center": [
+      31,
+      26
+     ],
+     "zoom": 1.0
+    },
+    {
+     "t": 6.0,
+     "center": [
+      31.0,
+      30.0
+     ],
+     "zoom": 2.2
+    },
+    {
+     "t": 11.5,
+     "center": [
+      32.4,
+      25.0
+     ],
+     "zoom": 2.2
+    }
+   ]
+  },
+  "iki_misir": {
+   "taban": "dunya",
+   "bounds": {
+    "west": 22.0,
+    "east": 38.0,
+    "south": 23.9,
+    "north": 32.9
+   },
+   "durationSec": 12,
+   "title": "İki Taç, Tek Ülke",
+   "subtitle": "Yukarı ve Aşağı Mısır'ın birleşmesi",
+   "regions": [
+    {
+     "name": "Yukarı Mısır",
+     "color": "#efe6cc",
+     "poly": [
+      [
+       32.8,
+       24.1
+      ],
+      [
+       32.8,
+       24.9
+      ],
+      [
+       32.45,
+       25.6
+      ],
+      [
+       32.5,
+       26.0
+      ],
+      [
+       31.9,
+       26.1
+      ],
+      [
+       31.0,
+       27.1
+      ],
+      [
+       30.65,
+       28.0
+      ],
+      [
+       30.8,
+       28.8
+      ],
+      [
+       30.6,
+       29.3
+      ],
+      [
+       31.0,
+       29.75
+      ],
+      [
+       31.4,
+       29.75
+      ],
+      [
+       31.3,
+       29.0
+      ],
+      [
+       31.0,
+       28.1
+      ],
+      [
+       31.35,
+       27.2
+      ],
+      [
+       32.0,
+       26.4
+      ],
+      [
+       32.8,
+       26.2
+      ],
+      [
+       32.75,
+       25.7
+      ],
+      [
+       33.0,
+       24.9
+      ],
+      [
+       33.0,
+       24.1
+      ]
+     ],
+     "start": 0.6,
+     "end": 7.0,
+     "label": [
+      28.6,
+      26.4
+     ]
+    },
+    {
+     "name": "Aşağı Mısır",
+     "color": "#c8553d",
+     "poly": [
+      [
+       31.0,
+       29.75
+      ],
+      [
+       31.1,
+       29.9
+      ],
+      [
+       30.9,
+       30.2
+      ],
+      [
+       30.1,
+       31.3
+      ],
+      [
+       30.8,
+       31.55
+      ],
+      [
+       31.8,
+       31.55
+      ],
+      [
+       32.2,
+       31.2
+      ],
+      [
+       31.4,
+       30.2
+      ],
+      [
+       31.35,
+       29.85
+      ],
+      [
+       31.4,
+       29.75
+      ]
+     ],
+     "start": 1.6,
+     "end": 7.0,
+     "label": [
+      27.8,
+      30.6
+     ]
+    },
+    {
+     "name": "Birleşik Mısır",
+     "color": "#e3b04b",
+     "poly": [
+      [
+       32.8,
+       24.1
+      ],
+      [
+       32.8,
+       24.9
+      ],
+      [
+       32.45,
+       25.6
+      ],
+      [
+       32.5,
+       26.0
+      ],
+      [
+       31.9,
+       26.1
+      ],
+      [
+       31.0,
+       27.1
+      ],
+      [
+       30.65,
+       28.0
+      ],
+      [
+       30.8,
+       28.8
+      ],
+      [
+       30.6,
+       29.3
+      ],
+      [
+       31.1,
+       29.9
+      ],
+      [
+       30.9,
+       30.2
+      ],
+      [
+       30.1,
+       31.3
+      ],
+      [
+       30.8,
+       31.55
+      ],
+      [
+       31.8,
+       31.55
+      ],
+      [
+       32.2,
+       31.2
+      ],
+      [
+       31.4,
+       30.2
+      ],
+      [
+       31.35,
+       29.85
+      ],
+      [
+       31.3,
+       29.0
+      ],
+      [
+       31.0,
+       28.1
+      ],
+      [
+       31.35,
+       27.2
+      ],
+      [
+       32.0,
+       26.4
+      ],
+      [
+       32.8,
+       26.2
+      ],
+      [
+       32.75,
+       25.7
+      ],
+      [
+       33.0,
+       24.9
+      ],
+      [
+       33.0,
+       24.1
+      ]
+     ],
+     "start": 7.0,
+     "label": [
+      34.6,
+      28.2
+     ]
+    }
+   ],
+   "rivers": [
+    {
+     "points": [
+      [
+       32.89,
+       24.09
+      ],
+      [
+       32.93,
+       24.45
+      ],
+      [
+       32.87,
+       24.98
+      ],
+      [
+       32.55,
+       25.3
+      ],
+      [
+       32.64,
+       25.7
+      ],
+      [
+       32.72,
+       26.1
+      ],
+      [
+       32.25,
+       26.15
+      ],
+      [
+       31.92,
+       26.3
+      ],
+      [
+       31.6,
+       26.6
+      ],
+      [
+       31.18,
+       27.18
+      ],
+      [
+       30.85,
+       27.7
+      ],
+      [
+       30.75,
+       28.1
+      ],
+      [
+       30.9,
+       28.8
+      ],
+      [
+       31.1,
+       29.3
+      ],
+      [
+       31.25,
+       29.85
+      ],
+      [
+       31.22,
+       30.1
+      ],
+      [
+       31.13,
+       30.2
+      ],
+      [
+       30.9,
+       30.6
+      ],
+      [
+       30.6,
+       31.1
+      ],
+      [
+       30.4,
+       31.45
+      ]
+     ],
+     "name": "Nil",
+     "start": 0.3,
+     "labelAt": [
+      30.75,
+      28.6
+     ]
+    },
+    {
+     "points": [
+      [
+       31.13,
+       30.2
+      ],
+      [
+       31.3,
+       30.6
+      ],
+      [
+       31.6,
+       31.1
+      ],
+      [
+       31.83,
+       31.5
+      ]
+     ],
+     "start": 0.3
+    }
+   ],
+   "cities": [
+    {
+     "at": [
+      32.78,
+      25.1
+     ],
+     "label": "Nehen",
+     "start": 2.6
+    },
+    {
+     "at": [
+      31.92,
+      26.18
+     ],
+     "label": "Abidos",
+     "start": 3.0
+    },
+    {
+     "at": [
+      30.73,
+      31.2
+     ],
+     "label": "Buto",
+     "start": 3.4,
+     "side": "left"
+    },
+    {
+     "at": [
+      31.255,
+      29.845
+     ],
+     "label": "Memfis",
+     "start": 7.6,
+     "major": true
+    }
+   ],
+   "years": [
+    {
+     "t": 6.5,
+     "text": "MÖ 3100"
+    }
+   ],
+   "note": "Sınırlar yaklaşıktır"
+  },
+  "memfis_piramitleri": {
+   "taban": "parsomen",
+   "bounds": {
+    "west": 30.55,
+    "east": 31.85,
+    "south": 29.3344,
+    "north": 30.0656
+   },
+   "durationSec": 12,
+   "title": "Piramitlerin Evrimi",
+   "subtitle": "Memfis nekropolü",
+   "rivers": [
+    {
+     "points": [
+      [
+       31.29,
+       29.3
+      ],
+      [
+       31.25,
+       29.5
+      ],
+      [
+       31.27,
+       29.7
+      ],
+      [
+       31.255,
+       29.85
+      ],
+      [
+       31.23,
+       30.05
+      ]
+     ],
+     "name": "Nil",
+     "start": 0.3,
+     "labelAt": [
+      31.3,
+      29.55
+     ]
+    }
+   ],
+   "cities": [
+    {
+     "at": [
+      31.255,
+      29.845
+     ],
+     "label": "Memfis",
+     "start": 0.8,
+     "side": "right"
+    },
+    {
+     "at": [
+      31.216,
+      29.871
+     ],
+     "label": "Sakkara · Coser",
+     "start": 2.0,
+     "major": true,
+     "side": "left"
+    },
+    {
+     "at": [
+      31.157,
+      29.388
+     ],
+     "label": "Meydum",
+     "start": 4.5,
+     "side": "left"
+    },
+    {
+     "at": [
+      31.209,
+      29.808
+     ],
+     "label": "Dahşur · Eğik Piramit",
+     "start": 6.5,
+     "side": "left"
+    },
+    {
+     "at": [
+      31.134,
+      29.979
+     ],
+     "label": "Gize · Keops",
+     "start": 8.5,
+     "major": true,
+     "side": "left"
+    }
+   ],
+   "labels": [
+    {
+     "at": [
+      30.95,
+      29.6
+     ],
+     "text": "Batı Çölü",
+     "start": 0.5,
+     "kind": "land"
+    }
+   ],
+   "years": [
+    {
+     "t": 2.0,
+     "text": "MÖ 2650"
+    },
+    {
+     "t": 6.5,
+     "text": "MÖ 2600"
+    },
+    {
+     "t": 8.5,
+     "text": "MÖ 2560"
+    }
+   ],
+   "camera": []
+  },
+  "parcalanma": {
+   "taban": "dunya",
+   "bounds": {
+    "west": 22.0,
+    "east": 38.0,
+    "south": 23.9,
+    "north": 32.9
+   },
+   "durationSec": 12,
+   "title": "Bölünmüş Ülke",
+   "subtitle": "Birinci Ara Dönem ve yeniden birleşme",
+   "regions": [
+    {
+     "name": "Herakleopolis",
+     "color": "#9b6fc4",
+     "poly": [
+      [
+       30.6,
+       28.6
+      ],
+      [
+       30.8,
+       28.8
+      ],
+      [
+       30.6,
+       29.3
+      ],
+      [
+       31.1,
+       29.9
+      ],
+      [
+       30.9,
+       30.2
+      ],
+      [
+       30.1,
+       31.3
+      ],
+      [
+       30.8,
+       31.55
+      ],
+      [
+       31.8,
+       31.55
+      ],
+      [
+       32.2,
+       31.2
+      ],
+      [
+       31.4,
+       30.2
+      ],
+      [
+       31.35,
+       29.85
+      ],
+      [
+       31.3,
+       29.0
+      ],
+      [
+       31.1,
+       28.6
+      ]
+     ],
+     "start": 0.6,
+     "end": 8.0,
+     "label": [
+      27.6,
+      29.0
+     ]
+    },
+    {
+     "name": "Teb",
+     "color": "#e3b04b",
+     "poly": [
+      [
+       32.8,
+       24.1
+      ],
+      [
+       32.8,
+       24.9
+      ],
+      [
+       32.45,
+       25.6
+      ],
+      [
+       32.5,
+       26.0
+      ],
+      [
+       31.9,
+       26.1
+      ],
+      [
+       31.6,
+       26.5
+      ],
+      [
+       32.0,
+       26.6
+      ],
+      [
+       32.8,
+       26.2
+      ],
+      [
+       32.75,
+       25.7
+      ],
+      [
+       33.0,
+       24.9
+      ],
+      [
+       33.0,
+       24.1
+      ]
+     ],
+     "start": 1.2,
+     "end": 8.0,
+     "label": [
+      34.3,
+      25.4
+     ]
+    },
+    {
+     "name": "Orta Krallık",
+     "color": "#e3b04b",
+     "poly": [
+      [
+       32.8,
+       24.1
+      ],
+      [
+       32.8,
+       24.9
+      ],
+      [
+       32.45,
+       25.6
+      ],
+      [
+       32.5,
+       26.0
+      ],
+      [
+       31.9,
+       26.1
+      ],
+      [
+       31.0,
+       27.1
+      ],
+      [
+       30.65,
+       28.0
+      ],
+      [
+       30.8,
+       28.8
+      ],
+      [
+       30.6,
+       29.3
+      ],
+      [
+       31.1,
+       29.9
+      ],
+      [
+       30.9,
+       30.2
+      ],
+      [
+       30.1,
+       31.3
+      ],
+      [
+       30.8,
+       31.55
+      ],
+      [
+       31.8,
+       31.55
+      ],
+      [
+       32.2,
+       31.2
+      ],
+      [
+       31.4,
+       30.2
+      ],
+      [
+       31.35,
+       29.85
+      ],
+      [
+       31.3,
+       29.0
+      ],
+      [
+       31.0,
+       28.1
+      ],
+      [
+       31.35,
+       27.2
+      ],
+      [
+       32.0,
+       26.4
+      ],
+      [
+       32.8,
+       26.2
+      ],
+      [
+       32.75,
+       25.7
+      ],
+      [
+       33.0,
+       24.9
+      ],
+      [
+       33.0,
+       24.1
+      ]
+     ],
+     "start": 8.0,
+     "label": [
+      34.6,
+      28.2
+     ]
+    }
+   ],
+   "rivers": [
+    {
+     "points": [
+      [
+       32.89,
+       24.09
+      ],
+      [
+       32.93,
+       24.45
+      ],
+      [
+       32.87,
+       24.98
+      ],
+      [
+       32.55,
+       25.3
+      ],
+      [
+       32.64,
+       25.7
+      ],
+      [
+       32.72,
+       26.1
+      ],
+      [
+       32.25,
+       26.15
+      ],
+      [
+       31.92,
+       26.3
+      ],
+      [
+       31.6,
+       26.6
+      ],
+      [
+       31.18,
+       27.18
+      ],
+      [
+       30.85,
+       27.7
+      ],
+      [
+       30.75,
+       28.1
+      ],
+      [
+       30.9,
+       28.8
+      ],
+      [
+       31.1,
+       29.3
+      ],
+      [
+       31.25,
+       29.85
+      ],
+      [
+       31.22,
+       30.1
+      ],
+      [
+       31.13,
+       30.2
+      ],
+      [
+       30.9,
+       30.6
+      ],
+      [
+       30.6,
+       31.1
+      ],
+      [
+       30.4,
+       31.45
+      ]
+     ],
+     "name": "Nil",
+     "start": 0.3,
+     "labelAt": [
+      30.75,
+      28.6
+     ]
+    },
+    {
+     "points": [
+      [
+       31.13,
+       30.2
+      ],
+      [
+       31.3,
+       30.6
+      ],
+      [
+       31.6,
+       31.1
+      ],
+      [
+       31.83,
+       31.5
+      ]
+     ],
+     "start": 0.3
+    }
+   ],
+   "cities": [
+    {
+     "at": [
+      30.94,
+      29.08
+     ],
+     "label": "Herakleopolis",
+     "start": 1.0,
+     "side": "left"
+    },
+    {
+     "at": [
+      32.64,
+      25.7
+     ],
+     "label": "Teb",
+     "start": 1.6,
+     "major": true
+    }
+   ],
+   "routes": [
+    {
+     "points": [
+      [
+       32.64,
+       25.7
+      ],
+      [
+       32.0,
+       26.4
+      ],
+      [
+       31.2,
+       27.2
+      ],
+      [
+       30.8,
+       28.2
+      ],
+      [
+       30.94,
+       29.08
+      ],
+      [
+       31.255,
+       29.845
+      ]
+     ],
+     "color": "#e3b04b",
+     "start": 3.5,
+     "duration": 4.0,
+     "label": "II. Mentuhotep",
+     "dashed": true,
+     "army": true
+    }
+   ],
+   "years": [
+    {
+     "t": 0.5,
+     "text": "MÖ 2160"
+    },
+    {
+     "t": 7.5,
+     "text": "MÖ 2055"
+    }
+   ],
+   "note": "Sınırlar yaklaşıktır"
+  },
+  "hiksos_gocu": {
+   "taban": "dunya",
+   "bounds": {
+    "west": 27.5,
+    "east": 39.5,
+    "south": 27.625,
+    "north": 34.375
+   },
+   "durationSec": 11,
+   "title": "Hiksoslar",
+   "subtitle": "Doğudan Delta'ya",
+   "regions": [
+    {
+     "name": "Hiksos",
+     "color": "#9b6fc4",
+     "poly": [
+      [
+       31.0,
+       31.5
+      ],
+      [
+       32.3,
+       31.3
+      ],
+      [
+       32.6,
+       30.8
+      ],
+      [
+       31.6,
+       30.2
+      ],
+      [
+       31.0,
+       30.4
+      ]
+     ],
+     "start": 6.0,
+     "label": [
+      30.2,
+      32.2
+     ]
+    }
+   ],
+   "rivers": [
+    {
+     "points": [
+      [
+       32.89,
+       24.09
+      ],
+      [
+       32.93,
+       24.45
+      ],
+      [
+       32.87,
+       24.98
+      ],
+      [
+       32.55,
+       25.3
+      ],
+      [
+       32.64,
+       25.7
+      ],
+      [
+       32.72,
+       26.1
+      ],
+      [
+       32.25,
+       26.15
+      ],
+      [
+       31.92,
+       26.3
+      ],
+      [
+       31.6,
+       26.6
+      ],
+      [
+       31.18,
+       27.18
+      ],
+      [
+       30.85,
+       27.7
+      ],
+      [
+       30.75,
+       28.1
+      ],
+      [
+       30.9,
+       28.8
+      ],
+      [
+       31.1,
+       29.3
+      ],
+      [
+       31.25,
+       29.85
+      ],
+      [
+       31.22,
+       30.1
+      ],
+      [
+       31.13,
+       30.2
+      ],
+      [
+       30.9,
+       30.6
+      ],
+      [
+       30.6,
+       31.1
+      ],
+      [
+       30.4,
+       31.45
+      ]
+     ],
+     "start": 0.3
+    },
+    {
+     "points": [
+      [
+       31.13,
+       30.2
+      ],
+      [
+       31.3,
+       30.6
+      ],
+      [
+       31.6,
+       31.1
+      ],
+      [
+       31.83,
+       31.5
+      ]
+     ],
+     "start": 0.3
+    }
+   ],
+   "routes": [
+    {
+     "points": [
+      [
+       35.6,
+       33.2
+      ],
+      [
+       34.9,
+       32.2
+      ],
+      [
+       34.4,
+       31.4
+      ],
+      [
+       33.4,
+       31.1
+      ],
+      [
+       31.82,
+       30.79
+      ]
+     ],
+     "color": "#9b6fc4",
+     "start": 1.0,
+     "duration": 4.0,
+     "dashed": true
+    },
+    {
+     "points": [
+      [
+       36.5,
+       32.0
+      ],
+      [
+       35.2,
+       31.0
+      ],
+      [
+       34.0,
+       30.9
+      ],
+      [
+       32.6,
+       30.85
+      ],
+      [
+       31.82,
+       30.79
+      ]
+     ],
+     "color": "#9b6fc4",
+     "start": 1.8,
+     "duration": 4.0,
+     "dashed": true
+    }
+   ],
+   "cities": [
+    {
+     "at": [
+      31.255,
+      29.845
+     ],
+     "label": "Memfis",
+     "start": 0.5
+    },
+    {
+     "at": [
+      34.38,
+      31.25
+     ],
+     "label": "Şaruhen",
+     "start": 1.4
+    },
+    {
+     "at": [
+      31.82,
+      30.79
+     ],
+     "label": "Avaris",
+     "start": 5.2,
+     "major": true
+    }
+   ],
+   "labels": [
+    {
+     "at": [
+      31.5,
+      33.3
+     ],
+     "text": "Akdeniz",
+     "start": 0.4,
+     "kind": "sea"
+    },
+    {
+     "at": [
+      33.9,
+      29.4
+     ],
+     "text": "Sina",
+     "start": 0.6,
+     "kind": "land"
+    },
+    {
+     "at": [
+      36.4,
+      32.9
+     ],
+     "text": "Kenan",
+     "start": 0.8,
+     "kind": "land"
+    }
+   ],
+   "years": [
+    {
+     "t": 0.5,
+     "text": "MÖ 1650"
+    }
+   ],
+   "note": "Göç yolları temsilidir"
+  },
+  "ahmose_seferi": {
+   "taban": "dunya",
+   "bounds": {
+    "west": 22.0,
+    "east": 38.0,
+    "south": 23.9,
+    "north": 32.9
+   },
+   "durationSec": 12,
+   "title": "Kurtuluş Savaşı",
+   "subtitle": "Ahmose Hiksosları kovuyor",
+   "regions": [
+    {
+     "name": "Hiksos",
+     "color": "#9b6fc4",
+     "poly": [
+      [
+       31.0,
+       31.5
+      ],
+      [
+       32.3,
+       31.3
+      ],
+      [
+       32.6,
+       30.8
+      ],
+      [
+       31.6,
+       30.2
+      ],
+      [
+       31.0,
+       30.4
+      ]
+     ],
+     "start": 0.3,
+     "end": 7.5,
+     "label": [
+      33.6,
+      31.3
+     ]
+    },
+    {
+     "name": "Yeni Krallık",
+     "color": "#e3b04b",
+     "poly": [
+      [
+       32.8,
+       24.1
+      ],
+      [
+       32.8,
+       24.9
+      ],
+      [
+       32.45,
+       25.6
+      ],
+      [
+       32.5,
+       26.0
+      ],
+      [
+       31.9,
+       26.1
+      ],
+      [
+       31.0,
+       27.1
+      ],
+      [
+       30.65,
+       28.0
+      ],
+      [
+       30.8,
+       28.8
+      ],
+      [
+       30.6,
+       29.3
+      ],
+      [
+       31.1,
+       29.9
+      ],
+      [
+       30.9,
+       30.2
+      ],
+      [
+       30.1,
+       31.3
+      ],
+      [
+       30.8,
+       31.55
+      ],
+      [
+       31.8,
+       31.55
+      ],
+      [
+       32.2,
+       31.2
+      ],
+      [
+       31.4,
+       30.2
+      ],
+      [
+       31.35,
+       29.85
+      ],
+      [
+       31.3,
+       29.0
+      ],
+      [
+       31.0,
+       28.1
+      ],
+      [
+       31.35,
+       27.2
+      ],
+      [
+       32.0,
+       26.4
+      ],
+      [
+       32.8,
+       26.2
+      ],
+      [
+       32.75,
+       25.7
+      ],
+      [
+       33.0,
+       24.9
+      ],
+      [
+       33.0,
+       24.1
+      ]
+     ],
+     "start": 8.5,
+     "label": [
+      34.6,
+      28.2
+     ]
+    }
+   ],
+   "rivers": [
+    {
+     "points": [
+      [
+       32.89,
+       24.09
+      ],
+      [
+       32.93,
+       24.45
+      ],
+      [
+       32.87,
+       24.98
+      ],
+      [
+       32.55,
+       25.3
+      ],
+      [
+       32.64,
+       25.7
+      ],
+      [
+       32.72,
+       26.1
+      ],
+      [
+       32.25,
+       26.15
+      ],
+      [
+       31.92,
+       26.3
+      ],
+      [
+       31.6,
+       26.6
+      ],
+      [
+       31.18,
+       27.18
+      ],
+      [
+       30.85,
+       27.7
+      ],
+      [
+       30.75,
+       28.1
+      ],
+      [
+       30.9,
+       28.8
+      ],
+      [
+       31.1,
+       29.3
+      ],
+      [
+       31.25,
+       29.85
+      ],
+      [
+       31.22,
+       30.1
+      ],
+      [
+       31.13,
+       30.2
+      ],
+      [
+       30.9,
+       30.6
+      ],
+      [
+       30.6,
+       31.1
+      ],
+      [
+       30.4,
+       31.45
+      ]
+     ],
+     "name": "Nil",
+     "start": 0.2,
+     "labelAt": [
+      30.75,
+      28.6
+     ]
+    },
+    {
+     "points": [
+      [
+       31.13,
+       30.2
+      ],
+      [
+       31.3,
+       30.6
+      ],
+      [
+       31.6,
+       31.1
+      ],
+      [
+       31.83,
+       31.5
+      ]
+     ],
+     "start": 0.2
+    }
+   ],
+   "cities": [
+    {
+     "at": [
+      32.64,
+      25.7
+     ],
+     "label": "Teb",
+     "start": 0.6,
+     "major": true
+    },
+    {
+     "at": [
+      31.255,
+      29.845
+     ],
+     "label": "Memfis",
+     "start": 1.0
+    },
+    {
+     "at": [
+      31.82,
+      30.79
+     ],
+     "label": "Avaris",
+     "start": 1.2
+    },
+    {
+     "at": [
+      34.38,
+      31.25
+     ],
+     "label": "Şaruhen",
+     "start": 7.6
+    }
+   ],
+   "routes": [
+    {
+     "points": [
+      [
+       32.64,
+       25.7
+      ],
+      [
+       32.0,
+       26.4
+      ],
+      [
+       31.2,
+       27.2
+      ],
+      [
+       30.8,
+       28.2
+      ],
+      [
+       31.1,
+       29.3
+      ],
+      [
+       31.255,
+       29.845
+      ],
+      [
+       31.4,
+       30.3
+      ],
+      [
+       31.82,
+       30.79
+      ]
+     ],
+     "color": "#e3b04b",
+     "start": 1.5,
+     "duration": 5.0,
+     "label": "Ahmose",
+     "dashed": true,
+     "army": true
+    },
+    {
+     "points": [
+      [
+       31.82,
+       30.79
+      ],
+      [
+       32.6,
+       31.0
+      ],
+      [
+       33.6,
+       31.1
+      ],
+      [
+       34.38,
+       31.25
+      ]
+     ],
+     "color": "#9b6fc4",
+     "start": 7.2,
+     "duration": 2.5,
+     "dashed": true
+    }
+   ],
+   "clashes": [
+    {
+     "at": [
+      31.82,
+      30.79
+     ],
+     "start": 6.6
+    }
+   ],
+   "years": [
+    {
+     "t": 6.4,
+     "text": "MÖ 1550"
+    }
+   ]
+  },
+  "punt_seferi": {
+   "taban": "dunya",
+   "bounds": {
+    "west": 25.5,
+    "east": 47.5,
+    "south": 14.8125,
+    "north": 27.1875
+   },
+   "durationSec": 12,
+   "title": "Punt Seferi",
+   "subtitle": "Hatşepsut'un gemileri güneye açılıyor",
+   "routes": [
+    {
+     "points": [
+      [
+       32.64,
+       25.7
+      ],
+      [
+       32.81,
+       26.0
+      ],
+      [
+       33.97,
+       26.55
+      ]
+     ],
+     "color": "#e3b04b",
+     "start": 0.8,
+     "duration": 2.0,
+     "dashed": true
+    },
+    {
+     "points": [
+      [
+       33.97,
+       26.55
+      ],
+      [
+       35.2,
+       25.0
+      ],
+      [
+       37.2,
+       22.0
+      ],
+      [
+       38.6,
+       19.0
+      ],
+      [
+       39.4,
+       16.3
+      ]
+     ],
+     "color": "#e3b04b",
+     "start": 2.8,
+     "duration": 4.0,
+     "label": "Gemiler",
+     "dashed": true,
+     "army": true
+    },
+    {
+     "points": [
+      [
+       39.6,
+       15.9
+      ],
+      [
+       38.3,
+       18.9
+      ],
+      [
+       36.7,
+       22.1
+      ],
+      [
+       35.0,
+       25.0
+      ],
+      [
+       34.1,
+       26.3
+      ]
+     ],
+     "color": "#6fae6a",
+     "start": 8.0,
+     "duration": 3.0,
+     "label": "Tütsü ağaçları",
+     "dashed": true
+    }
+   ],
+   "rivers": [
+    {
+     "points": [
+      [
+       32.89,
+       24.09
+      ],
+      [
+       32.93,
+       24.45
+      ],
+      [
+       32.87,
+       24.98
+      ],
+      [
+       32.55,
+       25.3
+      ],
+      [
+       32.64,
+       25.7
+      ],
+      [
+       32.72,
+       26.1
+      ],
+      [
+       32.25,
+       26.15
+      ],
+      [
+       31.92,
+       26.3
+      ],
+      [
+       31.6,
+       26.6
+      ],
+      [
+       31.18,
+       27.18
+      ],
+      [
+       30.85,
+       27.7
+      ],
+      [
+       30.75,
+       28.1
+      ],
+      [
+       30.9,
+       28.8
+      ],
+      [
+       31.1,
+       29.3
+      ],
+      [
+       31.25,
+       29.85
+      ],
+      [
+       31.22,
+       30.1
+      ],
+      [
+       31.13,
+       30.2
+      ],
+      [
+       30.9,
+       30.6
+      ],
+      [
+       30.6,
+       31.1
+      ],
+      [
+       30.4,
+       31.45
+      ]
+     ],
+     "start": 0.3
+    },
+    {
+     "points": [
+      [
+       31.13,
+       30.2
+      ],
+      [
+       31.3,
+       30.6
+      ],
+      [
+       31.6,
+       31.1
+      ],
+      [
+       31.83,
+       31.5
+      ]
+     ],
+     "start": 0.3
+    }
+   ],
+   "cities": [
+    {
+     "at": [
+      32.64,
+      25.7
+     ],
+     "label": "Teb",
+     "start": 0.4,
+     "major": true
+    },
+    {
+     "at": [
+      33.97,
+      26.55
+     ],
+     "label": "Mersa Gavasis",
+     "start": 1.8,
+     "side": "right"
+    }
+   ],
+   "labels": [
+    {
+     "at": [
+      39.9,
+      20.0
+     ],
+     "text": "Kızıldeniz",
+     "start": 0.4,
+     "kind": "sea"
+    },
+    {
+     "at": [
+      38.4,
+      15.7
+     ],
+     "text": "Punt (yaklaşık)",
+     "start": 6.5,
+     "kind": "land"
+    }
+   ],
+   "years": [
+    {
+     "t": 0.5,
+     "text": "MÖ 1470"
+    }
+   ],
+   "note": "Punt'un yeri tartışmalıdır"
+  },
+  "megiddo_savas": {
+   "taban": "parsomen",
+   "bounds": {
+    "west": 34.87,
+    "east": 35.37,
+    "south": 32.3894,
+    "north": 32.6706
+   },
+   "durationSec": 12,
+   "title": "Megiddo Savaşı",
+   "subtitle": "Tutmosis dar geçidi seçiyor",
+   "units": [
+    {
+     "label": "Mısır ordusu",
+     "color": "#e3b04b",
+     "path": [
+      [
+       34.95,
+       32.41
+      ],
+      [
+       35.03,
+       32.45
+      ],
+      [
+       35.09,
+       32.5
+      ],
+      [
+       35.14,
+       32.55
+      ],
+      [
+       35.165,
+       32.57
+      ]
+     ],
+     "start": 1.0,
+     "duration": 6.0,
+     "labelSide": "below"
+    },
+    {
+     "label": "Kenan güney kanadı",
+     "color": "#c8553d",
+     "path": [
+      [
+       35.24,
+       32.505
+      ],
+      [
+       35.22,
+       32.535
+      ]
+     ],
+     "start": 0.5,
+     "duration": 7.5,
+     "labelSide": "below"
+    },
+    {
+     "label": "Kenan kuzey kanadı",
+     "color": "#c8553d",
+     "path": [
+      [
+       35.12,
+       32.645
+      ],
+      [
+       35.15,
+       32.62
+      ]
+     ],
+     "start": 0.5,
+     "duration": 7.5,
+     "labelSide": "above"
+    }
+   ],
+   "clashes": [
+    {
+     "at": [
+      35.175,
+      32.575
+     ],
+     "start": 8.2
+    }
+   ],
+   "cities": [
+    {
+     "at": [
+      35.184,
+      32.585
+     ],
+     "label": "Megiddo",
+     "start": 0.3,
+     "major": true,
+     "side": "right"
+    }
+   ],
+   "labels": [
+    {
+     "at": [
+      35.04,
+      32.6
+     ],
+     "text": "Karmel sıradağları",
+     "start": 0.3,
+     "kind": "land"
+    },
+    {
+     "at": [
+      35.06,
+      32.49
+     ],
+     "text": "Aruna geçidi",
+     "start": 1.5,
+     "kind": "land"
+    },
+    {
+     "at": [
+      35.25,
+      32.47
+     ],
+     "text": "Taanah yolu",
+     "start": 0.6,
+     "kind": "land"
+    },
+    {
+     "at": [
+      35.04,
+      32.62
+     ],
+     "text": "Kuzey yolu",
+     "start": 0.6,
+     "kind": "land"
+    }
+   ],
+   "years": [
+    {
+     "t": 0.3,
+     "text": "MÖ 1457"
+    }
+   ],
+   "note": "Karnak yıllıklarına göre",
+   "camera": [
+    {
+     "t": 0,
+     "center": [
+      35.12,
+      32.53
+     ],
+     "zoom": 1.0
+    },
+    {
+     "t": 8,
+     "center": [
+      35.15,
+      32.55
+     ],
+     "zoom": 1.35
+    }
+   ]
+  },
+  "tutmosis_imparatorluk": {
+   "taban": "dunya",
+   "bounds": {
+    "west": 22.5,
+    "east": 47.5,
+    "south": 22.9688,
+    "north": 37.0312
+   },
+   "durationSec": 12,
+   "title": "İmparatorluk Fırat'a Ulaşıyor",
+   "subtitle": "III. Tutmosis'in seferleri",
+   "regions": [
+    {
+     "name": "Mısır",
+     "color": "#e3b04b",
+     "poly": [
+      [
+       32.8,
+       24.1
+      ],
+      [
+       32.8,
+       24.9
+      ],
+      [
+       32.45,
+       25.6
+      ],
+      [
+       32.5,
+       26.0
+      ],
+      [
+       31.9,
+       26.1
+      ],
+      [
+       31.0,
+       27.1
+      ],
+      [
+       30.65,
+       28.0
+      ],
+      [
+       30.8,
+       28.8
+      ],
+      [
+       30.6,
+       29.3
+      ],
+      [
+       31.1,
+       29.9
+      ],
+      [
+       30.9,
+       30.2
+      ],
+      [
+       30.1,
+       31.3
+      ],
+      [
+       30.8,
+       31.55
+      ],
+      [
+       31.8,
+       31.55
+      ],
+      [
+       32.2,
+       31.2
+      ],
+      [
+       31.4,
+       30.2
+      ],
+      [
+       31.35,
+       29.85
+      ],
+      [
+       31.3,
+       29.0
+      ],
+      [
+       31.0,
+       28.1
+      ],
+      [
+       31.35,
+       27.2
+      ],
+      [
+       32.0,
+       26.4
+      ],
+      [
+       32.8,
+       26.2
+      ],
+      [
+       32.75,
+       25.7
+      ],
+      [
+       33.0,
+       24.9
+      ],
+      [
+       33.0,
+       24.1
+      ]
+     ],
+     "start": 0.5,
+     "label": [
+      29.0,
+      26.0
+     ]
+    },
+    {
+     "name": "Mısır'a bağlı topraklar",
+     "color": "#e3b04b",
+     "poly": [
+      [
+       34.2,
+       31.3
+      ],
+      [
+       34.9,
+       32.8
+      ],
+      [
+       35.6,
+       34.6
+      ],
+      [
+       35.9,
+       35.8
+      ],
+      [
+       36.2,
+       36.6
+      ],
+      [
+       37.5,
+       36.9
+      ],
+      [
+       38.2,
+       36.8
+      ],
+      [
+       38.6,
+       36.2
+      ],
+      [
+       38.0,
+       35.0
+      ],
+      [
+       36.8,
+       33.6
+      ],
+      [
+       36.0,
+       32.0
+      ],
+      [
+       35.5,
+       31.0
+      ],
+      [
+       34.9,
+       29.5
+      ]
+     ],
+     "start": 6.5,
+     "label": [
+      41.0,
+      31.0
+     ]
+    }
+   ],
+   "rivers": [
+    {
+     "points": [
+      [
+       32.89,
+       24.09
+      ],
+      [
+       32.93,
+       24.45
+      ],
+      [
+       32.87,
+       24.98
+      ],
+      [
+       32.55,
+       25.3
+      ],
+      [
+       32.64,
+       25.7
+      ],
+      [
+       32.72,
+       26.1
+      ],
+      [
+       32.25,
+       26.15
+      ],
+      [
+       31.92,
+       26.3
+      ],
+      [
+       31.6,
+       26.6
+      ],
+      [
+       31.18,
+       27.18
+      ],
+      [
+       30.85,
+       27.7
+      ],
+      [
+       30.75,
+       28.1
+      ],
+      [
+       30.9,
+       28.8
+      ],
+      [
+       31.1,
+       29.3
+      ],
+      [
+       31.25,
+       29.85
+      ],
+      [
+       31.22,
+       30.1
+      ],
+      [
+       31.13,
+       30.2
+      ],
+      [
+       30.9,
+       30.6
+      ],
+      [
+       30.6,
+       31.1
+      ],
+      [
+       30.4,
+       31.45
+      ]
+     ],
+     "start": 0.3
+    },
+    {
+     "points": [
+      [
+       31.13,
+       30.2
+      ],
+      [
+       31.3,
+       30.6
+      ],
+      [
+       31.6,
+       31.1
+      ],
+      [
+       31.83,
+       31.5
+      ]
+     ],
+     "start": 0.3
+    },
+    {
+     "points": [
+      [
+       38.6,
+       37.5
+      ],
+      [
+       38.05,
+       36.83
+      ],
+      [
+       38.2,
+       36.0
+      ],
+      [
+       38.9,
+       35.9
+      ],
+      [
+       40.1,
+       35.3
+      ],
+      [
+       41.0,
+       34.4
+      ],
+      [
+       42.0,
+       34.0
+      ],
+      [
+       43.5,
+       33.2
+      ],
+      [
+       44.4,
+       32.6
+      ],
+      [
+       46.0,
+       31.2
+      ]
+     ],
+     "name": "Fırat",
+     "start": 0.3,
+     "labelAt": [
+      40.8,
+      35.3
+     ]
+    }
+   ],
+   "routes": [
+    {
+     "points": [
+      [
+       31.255,
+       29.845
+      ],
+      [
+       32.3,
+       30.9
+      ],
+      [
+       34.46,
+       31.5
+      ],
+      [
+       35.184,
+       32.585
+      ]
+     ],
+     "color": "#e3b04b",
+     "start": 1.0,
+     "duration": 3.0,
+     "label": "1. sefer",
+     "dashed": true,
+     "army": true
+    },
+    {
+     "points": [
+      [
+       35.184,
+       32.585
+      ],
+      [
+       35.9,
+       34.0
+      ],
+      [
+       36.9,
+       35.6
+      ],
+      [
+       38.0,
+       36.83
+      ]
+     ],
+     "color": "#e3b04b",
+     "start": 4.5,
+     "duration": 3.0,
+     "label": "8. sefer",
+     "dashed": true,
+     "army": true
+    }
+   ],
+   "clashes": [
+    {
+     "at": [
+      35.184,
+      32.585
+     ],
+     "start": 4.0
+    }
+   ],
+   "cities": [
+    {
+     "at": [
+      31.255,
+      29.845
+     ],
+     "label": "Memfis",
+     "start": 0.6
+    },
+    {
+     "at": [
+      34.46,
+      31.5
+     ],
+     "label": "Gazze",
+     "start": 1.5
+    },
+    {
+     "at": [
+      35.184,
+      32.585
+     ],
+     "label": "Megiddo",
+     "start": 3.6,
+     "major": true
+    },
+    {
+     "at": [
+      38.0,
+      36.83
+     ],
+     "label": "Kargamış",
+     "start": 7.4
+    }
+   ],
+   "years": [
+    {
+     "t": 1.0,
+     "text": "MÖ 1457"
+    },
+    {
+     "t": 7.4,
+     "text": "MÖ 1446"
+    }
+   ],
+   "note": "Sınırlar yaklaşıktır"
+  },
+  "amarna_goc": {
+   "taban": "dunya",
+   "bounds": {
+    "west": 22.0,
+    "east": 38.0,
+    "south": 23.9,
+    "north": 32.9
+   },
+   "durationSec": 11,
+   "title": "Yeni Başkent",
+   "subtitle": "Ahenaton Teb'i terk ediyor",
+   "rivers": [
+    {
+     "points": [
+      [
+       32.89,
+       24.09
+      ],
+      [
+       32.93,
+       24.45
+      ],
+      [
+       32.87,
+       24.98
+      ],
+      [
+       32.55,
+       25.3
+      ],
+      [
+       32.64,
+       25.7
+      ],
+      [
+       32.72,
+       26.1
+      ],
+      [
+       32.25,
+       26.15
+      ],
+      [
+       31.92,
+       26.3
+      ],
+      [
+       31.6,
+       26.6
+      ],
+      [
+       31.18,
+       27.18
+      ],
+      [
+       30.85,
+       27.7
+      ],
+      [
+       30.75,
+       28.1
+      ],
+      [
+       30.9,
+       28.8
+      ],
+      [
+       31.1,
+       29.3
+      ],
+      [
+       31.25,
+       29.85
+      ],
+      [
+       31.22,
+       30.1
+      ],
+      [
+       31.13,
+       30.2
+      ],
+      [
+       30.9,
+       30.6
+      ],
+      [
+       30.6,
+       31.1
+      ],
+      [
+       30.4,
+       31.45
+      ]
+     ],
+     "name": "Nil",
+     "start": 0.2,
+     "labelAt": [
+      30.75,
+      28.6
+     ]
+    },
+    {
+     "points": [
+      [
+       31.13,
+       30.2
+      ],
+      [
+       31.3,
+       30.6
+      ],
+      [
+       31.6,
+       31.1
+      ],
+      [
+       31.83,
+       31.5
+      ]
+     ],
+     "start": 0.2
+    }
+   ],
+   "cities": [
+    {
+     "at": [
+      32.64,
+      25.7
+     ],
+     "label": "Teb",
+     "start": 0.5,
+     "major": true
+    },
+    {
+     "at": [
+      31.255,
+      29.845
+     ],
+     "label": "Memfis",
+     "start": 0.8
+    },
+    {
+     "at": [
+      30.9,
+      27.65
+     ],
+     "label": "Ahetaton (Amarna)",
+     "start": 6.0,
+     "major": true
+    }
+   ],
+   "routes": [
+    {
+     "points": [
+      [
+       32.64,
+       25.7
+      ],
+      [
+       32.0,
+       26.4
+      ],
+      [
+       31.2,
+       27.2
+      ],
+      [
+       30.9,
+       27.65
+      ]
+     ],
+     "color": "#e3b04b",
+     "start": 2.0,
+     "duration": 4.0,
+     "label": "Ahenaton",
+     "dashed": true
+    }
+   ],
+   "years": [
+    {
+     "t": 1.5,
+     "text": "MÖ 1346"
+    }
+   ],
+   "camera": [
+    {
+     "t": 0,
+     "center": [
+      31.3,
+      27.9
+     ],
+     "zoom": 1.0
+    },
+    {
+     "t": 6.5,
+     "center": [
+      31.3,
+      27.9
+     ],
+     "zoom": 1.0
+    },
+    {
+     "t": 10.5,
+     "center": [
+      31.0,
+      27.4
+     ],
+     "zoom": 1.8
+    }
+   ]
+  },
+  "kades_seferi": {
+   "taban": "dunya",
+   "bounds": {
+    "west": 19.5,
+    "east": 47.5,
+    "south": 24.925,
+    "north": 40.675
+   },
+   "durationSec": 11,
+   "title": "Kadeş Seferi",
+   "subtitle": "İki imparatorluk karşı karşıya",
+   "regions": [
+    {
+     "name": "Mısır",
+     "color": "#e3b04b",
+     "poly": [
+      [
+       29.0,
+       31.0
+      ],
+      [
+       32.3,
+       31.3
+      ],
+      [
+       34.2,
+       31.5
+      ],
+      [
+       35.0,
+       33.0
+      ],
+      [
+       35.7,
+       34.4
+      ],
+      [
+       36.3,
+       34.3
+      ],
+      [
+       35.9,
+       33.0
+      ],
+      [
+       35.6,
+       31.0
+      ],
+      [
+       34.9,
+       29.6
+      ],
+      [
+       34.3,
+       28.0
+      ],
+      [
+       33.5,
+       27.0
+      ],
+      [
+       33.0,
+       25.0
+      ],
+      [
+       32.7,
+       23.5
+      ],
+      [
+       31.5,
+       23.5
+      ],
+      [
+       32.0,
+       25.5
+      ],
+      [
+       31.0,
+       27.0
+      ],
+      [
+       30.5,
+       29.0
+      ],
+      [
+       29.3,
+       30.2
+      ]
+     ],
+     "start": 0.5,
+     "label": [
+      31.6,
+      27.2
+     ]
+    },
+    {
+     "name": "Hitit",
+     "color": "#c8553d",
+     "poly": [
+      [
+       26.5,
+       38.5
+      ],
+      [
+       29.5,
+       41.0
+      ],
+      [
+       33.5,
+       41.8
+      ],
+      [
+       36.5,
+       41.3
+      ],
+      [
+       39.0,
+       40.6
+      ],
+      [
+       40.5,
+       39.0
+      ],
+      [
+       40.2,
+       37.5
+      ],
+      [
+       38.8,
+       36.0
+      ],
+      [
+       37.3,
+       35.2
+      ],
+      [
+       36.5,
+       35.6
+      ],
+      [
+       36.0,
+       36.2
+      ],
+      [
+       34.5,
+       36.4
+      ],
+      [
+       32.5,
+       36.3
+      ],
+      [
+       29.5,
+       36.8
+      ],
+      [
+       27.5,
+       37.5
+      ]
+     ],
+     "start": 1.0,
+     "label": [
+      34.8,
+      38.6
+     ]
+    }
+   ],
+   "routes": [
+    {
+     "points": [
+      [
+       31.83,
+       30.8
+      ],
+      [
+       34.47,
+       31.5
+      ],
+      [
+       35.18,
+       32.58
+      ],
+      [
+       35.9,
+       33.9
+      ],
+      [
+       36.52,
+       34.56
+      ]
+     ],
+     "color": "#e3b04b",
+     "start": 2.5,
+     "duration": 4.5,
+     "label": "II. Ramses",
+     "dashed": true,
+     "army": true
+    },
+    {
+     "points": [
+      [
+       34.62,
+       40.02
+      ],
+      [
+       35.8,
+       38.3
+      ],
+      [
+       36.6,
+       37.0
+      ],
+      [
+       37.16,
+       36.2
+      ],
+      [
+       36.52,
+       34.56
+      ]
+     ],
+     "color": "#c8553d",
+     "start": 3.0,
+     "duration": 4.5,
+     "label": "Muvattali",
+     "dashed": true,
+     "army": true
+    }
+   ],
+   "clashes": [
+    {
+     "at": [
+      36.52,
+      34.56
+     ],
+     "start": 7.6
+    }
+   ],
+   "cities": [
+    {
+     "at": [
+      34.62,
+      40.02
+     ],
+     "label": "Hattuşa",
+     "start": 1.4,
+     "major": true
+    },
+    {
+     "at": [
+      32.64,
+      25.7
+     ],
+     "label": "Teb",
+     "start": 0.8
+    },
+    {
+     "at": [
+      31.255,
+      29.845
+     ],
+     "label": "Memfis",
+     "start": 0.9
+    },
+    {
+     "at": [
+      31.83,
+      30.8
+     ],
+     "label": "Pi-Ramses",
+     "start": 2.2,
+     "side": "left"
+    },
+    {
+     "at": [
+      36.52,
+      34.56
+     ],
+     "label": "Kadeş",
+     "start": 6.8,
+     "major": true
+    },
+    {
+     "at": [
+      37.16,
+      36.2
+     ],
+     "label": "Halep",
+     "start": 2.8
+    }
+   ],
+   "labels": [
+    {
+     "at": [
+      29.5,
+      33.6
+     ],
+     "text": "Akdeniz",
+     "start": 0.6,
+     "kind": "sea"
+    }
+   ],
+   "rivers": [
+    {
+     "points": [
+      [
+       32.9,
+       24.1
+      ],
+      [
+       32.65,
+       25.7
+      ],
+      [
+       32.0,
+       26.5
+      ],
+      [
+       31.2,
+       27.5
+      ],
+      [
+       30.8,
+       28.5
+      ],
+      [
+       31.25,
+       29.9
+      ],
+      [
+       31.24,
+       30.05
+      ],
+      [
+       31.0,
+       31.4
+      ]
+     ],
+     "name": "Nil",
+     "start": 0.4,
+     "labelAt": [
+      31.25,
+      28.0
+     ]
+    }
+   ],
+   "years": [
+    {
+     "t": 0.5,
+     "text": "MÖ 1274"
+    }
+   ],
+   "camera": [
+    {
+     "t": 0,
+     "center": [
+      33.5,
+      32.8
+     ],
+     "zoom": 1.0
+    },
+    {
+     "t": 6.5,
+     "center": [
+      33.5,
+      32.8
+     ],
+     "zoom": 1.0
+    },
+    {
+     "t": 9.5,
+     "center": [
+      36.2,
+      34.8
+     ],
+     "zoom": 2.2
+    }
+   ],
+   "note": "Sınırlar yaklaşıktır"
+  },
+  "kades_savas": {
+   "taban": "parsomen",
+   "bounds": {
+    "west": 36.19,
+    "east": 36.81,
+    "south": 34.3556,
+    "north": 34.7044
+   },
+   "durationSec": 11,
+   "title": "Kadeş Savaşı",
+   "subtitle": "Pusu: Hitit arabaları nehri geçiyor",
+   "units": [
+    {
+     "label": "Re Tümeni",
+     "color": "#e3b04b",
+     "path": [
+      [
+       36.44,
+       34.36
+      ],
+      [
+       36.47,
+       34.47
+      ]
+     ],
+     "start": 0.8,
+     "duration": 4.0,
+     "labelSide": "below"
+    },
+    {
+     "label": "Amun Tümeni",
+     "color": "#e3b04b",
+     "path": [
+      [
+       36.455,
+       34.585
+      ],
+      [
+       36.46,
+       34.6
+      ]
+     ],
+     "start": 0.5,
+     "duration": 1.5
+    },
+    {
+     "label": "Hitit arabaları",
+     "color": "#c8553d",
+     "path": [
+      [
+       36.62,
+       34.58
+      ],
+      [
+       36.57,
+       34.52
+      ],
+      [
+       36.52,
+       34.48
+      ],
+      [
+       36.485,
+       34.47
+      ]
+     ],
+     "start": 4.0,
+     "duration": 3.5,
+     "labelSide": "above"
+    }
+   ],
+   "clashes": [
+    {
+     "at": [
+      36.48,
+      34.47
+     ],
+     "start": 7.4
+    }
+   ],
+   "cities": [
+    {
+     "at": [
+      36.52,
+      34.56
+     ],
+     "label": "Kadeş",
+     "start": 0.3,
+     "major": true
+    }
+   ],
+   "labels": [
+    {
+     "at": [
+      36.62,
+      34.66
+     ],
+     "text": "Hitit ordusu (gizli)",
+     "start": 0.3,
+     "kind": "land"
+    }
+   ],
+   "rivers": [
+    {
+     "points": [
+      [
+       36.47,
+       34.33
+      ],
+      [
+       36.49,
+       34.42
+      ],
+      [
+       36.505,
+       34.5
+      ],
+      [
+       36.515,
+       34.56
+      ],
+      [
+       36.53,
+       34.62
+      ],
+      [
+       36.52,
+       34.7
+      ],
+      [
+       36.5,
+       34.75
+      ]
+     ],
+     "name": "Asi",
+     "start": 0.2,
+     "labelAt": [
+      36.495,
+      34.43
+     ]
+    }
+   ],
+   "camera": [
+    {
+     "t": 0,
+     "center": [
+      36.5,
+      34.53
+     ],
+     "zoom": 1.0
+    },
+    {
+     "t": 7,
+     "center": [
+      36.5,
+      34.5
+     ],
+     "zoom": 1.35
+    }
+   ],
+   "note": "Mısır kaynaklarına göre"
+  },
+  "tunc_cokus": {
+   "taban": "dunya",
+   "bounds": {
+    "west": 16.0,
+    "east": 44.0,
+    "south": 27.125,
+    "north": 42.875
+   },
+   "durationSec": 12,
+   "title": "Tunç Çağı'nın Çöküşü",
+   "subtitle": "Deniz Kavimleri",
+   "regions": [
+    {
+     "name": "Hitit",
+     "color": "#c8553d",
+     "poly": [
+      [
+       26.5,
+       38.5
+      ],
+      [
+       29.5,
+       41.0
+      ],
+      [
+       33.5,
+       41.8
+      ],
+      [
+       36.5,
+       41.3
+      ],
+      [
+       39.0,
+       40.6
+      ],
+      [
+       40.5,
+       39.0
+      ],
+      [
+       40.2,
+       37.5
+      ],
+      [
+       38.8,
+       36.0
+      ],
+      [
+       37.3,
+       35.2
+      ],
+      [
+       36.5,
+       35.6
+      ],
+      [
+       36.0,
+       36.2
+      ],
+      [
+       34.5,
+       36.4
+      ],
+      [
+       32.5,
+       36.3
+      ],
+      [
+       29.5,
+       36.8
+      ],
+      [
+       27.5,
+       37.5
+      ]
+     ],
+     "start": 0.4,
+     "end": 6.0,
+     "label": [
+      33.0,
+      38.9
+     ]
+    }
+   ],
+   "routes": [
+    {
+     "points": [
+      [
+       24.0,
+       38.0
+      ],
+      [
+       27.0,
+       36.6
+      ],
+      [
+       30.5,
+       36.0
+      ],
+      [
+       33.3,
+       35.3
+      ],
+      [
+       35.78,
+       35.6
+      ]
+     ],
+     "color": "#5b93c7",
+     "start": 1.5,
+     "duration": 4.0,
+     "label": "Deniz Kavimleri",
+     "dashed": true,
+     "army": true
+    },
+    {
+     "points": [
+      [
+       25.0,
+       36.5
+      ],
+      [
+       28.0,
+       34.0
+      ],
+      [
+       31.0,
+       32.2
+      ],
+      [
+       31.6,
+       31.4
+      ]
+     ],
+     "color": "#5b93c7",
+     "start": 3.0,
+     "duration": 4.5,
+     "dashed": true,
+     "army": true
+    },
+    {
+     "points": [
+      [
+       22.0,
+       32.5
+      ],
+      [
+       25.5,
+       31.7
+      ],
+      [
+       28.5,
+       31.2
+      ],
+      [
+       30.4,
+       31.2
+      ]
+     ],
+     "color": "#5b93c7",
+     "start": 3.8,
+     "duration": 4.0,
+     "dashed": true
+    }
+   ],
+   "clashes": [
+    {
+     "at": [
+      35.78,
+      35.6
+     ],
+     "start": 5.5
+    },
+    {
+     "at": [
+      31.5,
+      31.35
+     ],
+     "start": 8.0
+    }
+   ],
+   "cities": [
+    {
+     "at": [
+      22.76,
+      37.73
+     ],
+     "label": "Mikene",
+     "start": 0.8
+    },
+    {
+     "at": [
+      26.24,
+      39.96
+     ],
+     "label": "Truva",
+     "start": 0.9
+    },
+    {
+     "at": [
+      34.62,
+      40.02
+     ],
+     "label": "Hattuşa",
+     "start": 1.0,
+     "major": true
+    },
+    {
+     "at": [
+      35.78,
+      35.6
+     ],
+     "label": "Ugarit",
+     "start": 1.2
+    },
+    {
+     "at": [
+      33.9,
+      35.15
+     ],
+     "label": "Alaşiya (Kıbrıs)",
+     "start": 1.4,
+     "side": "left"
+    },
+    {
+     "at": [
+      31.255,
+      29.845
+     ],
+     "label": "Memfis",
+     "start": 1.6
+    }
+   ],
+   "labels": [
+    {
+     "at": [
+      27.5,
+      33.0
+     ],
+     "text": "Akdeniz",
+     "start": 0.4,
+     "kind": "sea"
+    }
+   ],
+   "years": [
+    {
+     "t": 0.5,
+     "text": "MÖ 1200"
+    },
+    {
+     "t": 7.6,
+     "text": "MÖ 1177"
+    }
+   ],
+   "note": "Yollar temsilidir"
+  },
+  "yabanci_taclar": {
+   "taban": "dunya",
+   "bounds": {
+    "west": 18.0,
+    "east": 54.0,
+    "south": 19.375,
+    "north": 39.625
+   },
+   "durationSec": 14,
+   "title": "Yabancı Taçlar",
+   "subtitle": "Mısır tahtı el değiştiriyor",
+   "regions": [
+    {
+     "name": "Mısır",
+     "color": "#e3b04b",
+     "poly": [
+      [
+       25.0,
+       31.6
+      ],
+      [
+       29.9,
+       31.2
+      ],
+      [
+       32.3,
+       31.3
+      ],
+      [
+       34.2,
+       31.3
+      ],
+      [
+       34.9,
+       29.5
+      ],
+      [
+       33.6,
+       27.3
+      ],
+      [
+       32.8,
+       25.7
+      ],
+      [
+       33.3,
+       24.0
+      ],
+      [
+       31.0,
+       22.0
+      ],
+      [
+       25.0,
+       22.0
+      ]
+     ],
+     "start": 0.3,
+     "label": [
+      28.0,
+      25.5
+     ]
+    }
+   ],
+   "routes": [
+    {
+     "points": [
+      [
+       31.8,
+       19.6
+      ],
+      [
+       33.0,
+       21.5
+      ],
+      [
+       32.9,
+       24.1
+      ],
+      [
+       32.64,
+       25.7
+      ],
+      [
+       31.6,
+       27.0
+      ],
+      [
+       31.255,
+       29.845
+      ]
+     ],
+     "color": "#6fae6a",
+     "start": 0.8,
+     "duration": 2.4,
+     "label": "Kuş",
+     "dashed": true,
+     "army": true
+    },
+    {
+     "points": [
+      [
+       43.15,
+       36.36
+      ],
+      [
+       39.5,
+       35.5
+      ],
+      [
+       36.0,
+       33.0
+      ],
+      [
+       34.0,
+       31.2
+      ],
+      [
+       31.255,
+       29.845
+      ]
+     ],
+     "color": "#b07a4a",
+     "start": 4.0,
+     "duration": 2.4,
+     "label": "Asur",
+     "dashed": true,
+     "army": true
+    },
+    {
+     "points": [
+      [
+       48.26,
+       32.19
+      ],
+      [
+       44.5,
+       33.3
+      ],
+      [
+       39.0,
+       34.5
+      ],
+      [
+       35.0,
+       31.8
+      ],
+      [
+       31.255,
+       29.845
+      ]
+     ],
+     "color": "#5b93c7",
+     "start": 7.2,
+     "duration": 2.4,
+     "label": "Pers",
+     "dashed": true,
+     "army": true
+    },
+    {
+     "points": [
+      [
+       23.0,
+       39.3
+      ],
+      [
+       26.5,
+       37.0
+      ],
+      [
+       30.0,
+       33.5
+      ],
+      [
+       32.55,
+       31.04
+      ],
+      [
+       31.255,
+       29.845
+      ]
+     ],
+     "color": "#9b6fc4",
+     "start": 10.4,
+     "duration": 2.4,
+     "label": "Makedonya",
+     "dashed": true,
+     "army": true
+    }
+   ],
+   "cities": [
+    {
+     "at": [
+      31.255,
+      29.845
+     ],
+     "label": "Memfis",
+     "start": 0.5,
+     "major": true
+    },
+    {
+     "at": [
+      32.64,
+      25.7
+     ],
+     "label": "Teb",
+     "start": 0.6
+    },
+    {
+     "at": [
+      43.15,
+      36.36
+     ],
+     "label": "Ninova",
+     "start": 3.8
+    },
+    {
+     "at": [
+      44.42,
+      32.54
+     ],
+     "label": "Babil",
+     "start": 3.9
+    },
+    {
+     "at": [
+      48.26,
+      32.19
+     ],
+     "label": "Sus",
+     "start": 7.0
+    }
+   ],
+   "labels": [
+    {
+     "at": [
+      28.0,
+      34.0
+     ],
+     "text": "Akdeniz",
+     "start": 0.3,
+     "kind": "sea"
+    }
+   ],
+   "years": [
+    {
+     "t": 0.8,
+     "text": "MÖ 728"
+    },
+    {
+     "t": 4.0,
+     "text": "MÖ 671"
+    },
+    {
+     "t": 7.2,
+     "text": "MÖ 525"
+    },
+    {
+     "t": 10.4,
+     "text": "MÖ 332"
+    }
+   ],
+   "note": "Sınırlar yaklaşıktır"
+  },
+  "iskender_misir": {
+   "taban": "dunya",
+   "bounds": {
+    "west": 24.0,
+    "east": 33.0,
+    "south": 27.9688,
+    "north": 33.0312
+   },
+   "durationSec": 12,
+   "title": "İskender Mısır'da",
+   "subtitle": "Pelusion'dan Siva vahasına",
+   "rivers": [
+    {
+     "points": [
+      [
+       32.89,
+       24.09
+      ],
+      [
+       32.93,
+       24.45
+      ],
+      [
+       32.87,
+       24.98
+      ],
+      [
+       32.55,
+       25.3
+      ],
+      [
+       32.64,
+       25.7
+      ],
+      [
+       32.72,
+       26.1
+      ],
+      [
+       32.25,
+       26.15
+      ],
+      [
+       31.92,
+       26.3
+      ],
+      [
+       31.6,
+       26.6
+      ],
+      [
+       31.18,
+       27.18
+      ],
+      [
+       30.85,
+       27.7
+      ],
+      [
+       30.75,
+       28.1
+      ],
+      [
+       30.9,
+       28.8
+      ],
+      [
+       31.1,
+       29.3
+      ],
+      [
+       31.25,
+       29.85
+      ],
+      [
+       31.22,
+       30.1
+      ],
+      [
+       31.13,
+       30.2
+      ],
+      [
+       30.9,
+       30.6
+      ],
+      [
+       30.6,
+       31.1
+      ],
+      [
+       30.4,
+       31.45
+      ]
+     ],
+     "start": 0.2
+    },
+    {
+     "points": [
+      [
+       31.13,
+       30.2
+      ],
+      [
+       31.3,
+       30.6
+      ],
+      [
+       31.6,
+       31.1
+      ],
+      [
+       31.83,
+       31.5
+      ]
+     ],
+     "start": 0.2
+    }
+   ],
+   "routes": [
+    {
+     "points": [
+      [
+       32.55,
+       31.04
+      ],
+      [
+       31.9,
+       30.6
+      ],
+      [
+       31.3,
+       30.1
+      ],
+      [
+       31.255,
+       29.845
+      ]
+     ],
+     "color": "#9b6fc4",
+     "start": 0.8,
+     "duration": 2.0,
+     "dashed": true,
+     "army": true
+    },
+    {
+     "points": [
+      [
+       31.255,
+       29.845
+      ],
+      [
+       30.9,
+       30.5
+      ],
+      [
+       30.3,
+       31.0
+      ],
+      [
+       29.92,
+       31.2
+      ],
+      [
+       27.23,
+       31.35
+      ],
+      [
+       26.3,
+       30.5
+      ],
+      [
+       25.52,
+       29.2
+      ]
+     ],
+     "color": "#9b6fc4",
+     "start": 3.0,
+     "duration": 4.5,
+     "label": "İskender",
+     "dashed": true,
+     "army": true
+    }
+   ],
+   "cities": [
+    {
+     "at": [
+      32.55,
+      31.04
+     ],
+     "label": "Pelusion",
+     "start": 0.5
+    },
+    {
+     "at": [
+      31.255,
+      29.845
+     ],
+     "label": "Memfis",
+     "start": 1.2
+    },
+    {
+     "at": [
+      29.92,
+      31.2
+     ],
+     "label": "İskenderiye",
+     "start": 4.4,
+     "major": true
+    },
+    {
+     "at": [
+      25.52,
+      29.2
+     ],
+     "label": "Siva vahası",
+     "start": 7.4,
+     "major": true
+    }
+   ],
+   "labels": [
+    {
+     "at": [
+      27.8,
+      32.4
+     ],
+     "text": "Akdeniz",
+     "start": 0.3,
+     "kind": "sea"
+    },
+    {
+     "at": [
+      26.5,
+      28.6
+     ],
+     "text": "Batı Çölü",
+     "start": 0.5,
+     "kind": "land"
+    }
+   ],
+   "years": [
+    {
+     "t": 0.5,
+     "text": "MÖ 332"
+    },
+    {
+     "t": 4.4,
+     "text": "MÖ 331"
+    }
+   ],
+   "camera": [
+    {
+     "t": 0,
+     "center": [
+      28.5,
+      30.5
+     ],
+     "zoom": 1.0
+    },
+    {
+     "t": 8.5,
+     "center": [
+      28.5,
+      30.5
+     ],
+     "zoom": 1.0
+    },
+    {
+     "t": 11.5,
+     "center": [
+      29.92,
+      31.1
+     ],
+     "zoom": 2.0
+    }
+   ]
+  },
+  "roma_genisleme": {
+   "taban": "dunya",
+   "bounds": {
+    "west": -2.0,
+    "east": 38.0,
+    "south": 25.75,
+    "north": 48.25
+   },
+   "durationSec": 12,
+   "title": "Roma'nın Gölgesi",
+   "subtitle": "Akdeniz Roma'nın eline geçiyor",
+   "regions": [
+    {
+     "name": "Roma",
+     "color": "#b8323a",
+     "poly": [
+      [
+       7.5,
+       44
+      ],
+      [
+       9,
+       44.4
+      ],
+      [
+       12.3,
+       45.5
+      ],
+      [
+       13.7,
+       45.7
+      ],
+      [
+       12.5,
+       44
+      ],
+      [
+       14,
+       42.5
+      ],
+      [
+       16,
+       41.9
+      ],
+      [
+       18.5,
+       40.2
+      ],
+      [
+       16.5,
+       38
+      ],
+      [
+       15.6,
+       38
+      ],
+      [
+       15.7,
+       40
+      ],
+      [
+       14,
+       41
+      ],
+      [
+       12.5,
+       41.8
+      ],
+      [
+       10.5,
+       43
+      ],
+      [
+       8,
+       43.8
+      ]
+     ],
+     "start": 1.0,
+     "label": [
+      13.0,
+      43.2
+     ]
+    },
+    {
+     "name": "",
+     "color": "#b8323a",
+     "poly": [
+      [
+       12.4,
+       38.1
+      ],
+      [
+       15.6,
+       38.3
+      ],
+      [
+       15.1,
+       36.7
+      ],
+      [
+       12.5,
+       37.6
+      ]
+     ],
+     "start": 1.3
+    },
+    {
+     "name": "",
+     "color": "#b8323a",
+     "poly": [
+      [
+       -9,
+       43.7
+      ],
+      [
+       -2,
+       43.4
+      ],
+      [
+       3.2,
+       42.4
+      ],
+      [
+       3.2,
+       41.8
+      ],
+      [
+       0.5,
+       40.5
+      ],
+      [
+       -0.3,
+       39.4
+      ],
+      [
+       0.2,
+       38.7
+      ],
+      [
+       -0.7,
+       37.6
+      ],
+      [
+       -2.1,
+       36.7
+      ],
+      [
+       -5.6,
+       36.0
+      ],
+      [
+       -7.4,
+       37.2
+      ],
+      [
+       -8.9,
+       37
+      ]
+     ],
+     "start": 1.6
+    },
+    {
+     "name": "",
+     "color": "#b8323a",
+     "poly": [
+      [
+       19.4,
+       41.8
+      ],
+      [
+       19.3,
+       40.4
+      ],
+      [
+       20.2,
+       39.4
+      ],
+      [
+       21.1,
+       38.3
+      ],
+      [
+       21.6,
+       37
+      ],
+      [
+       22.8,
+       36.4
+      ],
+      [
+       23.2,
+       38
+      ],
+      [
+       24,
+       38.2
+      ],
+      [
+       22.9,
+       40.2
+      ],
+      [
+       24,
+       40.8
+      ],
+      [
+       26.0,
+       40.8
+      ],
+      [
+       26.6,
+       41.6
+      ],
+      [
+       23.5,
+       42
+      ],
+      [
+       21,
+       42.6
+      ]
+     ],
+     "start": 1.9
+    },
+    {
+     "name": "",
+     "color": "#b8323a",
+     "poly": [
+      [
+       8.5,
+       37
+      ],
+      [
+       10.3,
+       37.3
+      ],
+      [
+       11.1,
+       36.9
+      ],
+      [
+       10.5,
+       36
+      ],
+      [
+       11.1,
+       35.2
+      ],
+      [
+       10.1,
+       34.2
+      ],
+      [
+       8.5,
+       34.5
+      ]
+     ],
+     "start": 2.2
+    },
+    {
+     "name": "",
+     "color": "#b8323a",
+     "poly": [
+      [
+       26.1,
+       40
+      ],
+      [
+       26.9,
+       39
+      ],
+      [
+       27.3,
+       37.6
+      ],
+      [
+       28,
+       36.7
+      ],
+      [
+       29.6,
+       36.2
+      ],
+      [
+       31,
+       36.8
+      ],
+      [
+       31.5,
+       38
+      ],
+      [
+       30,
+       39.8
+      ],
+      [
+       29.5,
+       41
+      ],
+      [
+       27.5,
+       40.9
+      ]
+     ],
+     "start": 2.5
+    },
+    {
+     "name": "",
+     "color": "#b8323a",
+     "poly": [
+      [
+       3.2,
+       42.5
+      ],
+      [
+       7.5,
+       43.8
+      ],
+      [
+       7.6,
+       45.9
+      ],
+      [
+       6.8,
+       47.5
+      ],
+      [
+       8.2,
+       48.9
+      ],
+      [
+       8,
+       50
+      ],
+      [
+       6,
+       51
+      ],
+      [
+       3,
+       51.2
+      ],
+      [
+       -1,
+       49.6
+      ],
+      [
+       -4.5,
+       48.5
+      ],
+      [
+       -1.2,
+       46.2
+      ],
+      [
+       -1.6,
+       43.4
+      ]
+     ],
+     "start": 5.0
+    },
+    {
+     "name": "",
+     "color": "#b8323a",
+     "poly": [
+      [
+       31,
+       36.8
+      ],
+      [
+       31.5,
+       38
+      ],
+      [
+       30,
+       39.8
+      ],
+      [
+       32,
+       41.8
+      ],
+      [
+       35,
+       42
+      ],
+      [
+       37.5,
+       41
+      ],
+      [
+       35.5,
+       39
+      ],
+      [
+       36.2,
+       36.9
+      ],
+      [
+       34.5,
+       36.8
+      ],
+      [
+       32.5,
+       36.1
+      ]
+     ],
+     "start": 5.4
+    },
+    {
+     "name": "",
+     "color": "#b8323a",
+     "poly": [
+      [
+       35.6,
+       36.9
+      ],
+      [
+       37.0,
+       37.0
+      ],
+      [
+       38.5,
+       36.5
+      ],
+      [
+       38.8,
+       35.2
+      ],
+      [
+       37.0,
+       33.0
+      ],
+      [
+       35.9,
+       32.2
+      ],
+      [
+       34.9,
+       31.6
+      ],
+      [
+       35.0,
+       33.0
+      ],
+      [
+       35.6,
+       34.4
+      ],
+      [
+       35.8,
+       35.6
+      ]
+     ],
+     "start": 5.8
+    },
+    {
+     "name": "",
+     "color": "#b8323a",
+     "poly": [
+      [
+       19.9,
+       30.9
+      ],
+      [
+       20.1,
+       32.2
+      ],
+      [
+       21.5,
+       32.9
+      ],
+      [
+       23.2,
+       32.6
+      ],
+      [
+       25.0,
+       31.7
+      ],
+      [
+       25.0,
+       30
+      ],
+      [
+       20,
+       29.5
+      ]
+     ],
+     "start": 6.2
+    },
+    {
+     "name": "Mısır",
+     "color": "#e3b04b",
+     "poly": [
+      [
+       25.0,
+       31.6
+      ],
+      [
+       29.9,
+       31.2
+      ],
+      [
+       32.3,
+       31.3
+      ],
+      [
+       34.2,
+       31.3
+      ],
+      [
+       34.9,
+       29.5
+      ],
+      [
+       33.6,
+       27.3
+      ],
+      [
+       32.8,
+       25.7
+      ],
+      [
+       33.3,
+       24.0
+      ],
+      [
+       31.0,
+       22.0
+      ],
+      [
+       25.0,
+       22.0
+      ]
+     ],
+     "start": 0.4,
+     "label": [
+      29.0,
+      27.5
+     ]
+    }
+   ],
+   "cities": [
+    {
+     "at": [
+      12.5,
+      41.9
+     ],
+     "label": "Roma",
+     "start": 0.8,
+     "major": true
+    },
+    {
+     "at": [
+      29.92,
+      31.2
+     ],
+     "label": "İskenderiye",
+     "start": 0.6,
+     "major": true
+    },
+    {
+     "at": [
+      10.32,
+      36.85
+     ],
+     "label": "Kartaca",
+     "start": 1.6
+    },
+    {
+     "at": [
+      23.73,
+      37.98
+     ],
+     "label": "Atina",
+     "start": 2.0
+    }
+   ],
+   "years": [
+    {
+     "t": 1.0,
+     "text": "MÖ 133"
+    },
+    {
+     "t": 5.0,
+     "text": "MÖ 51"
+    }
+   ],
+   "note": "Sınırlar yaklaşıktır",
+   "camera": [
+    {
+     "t": 0,
+     "center": [
+      18,
+      37
+     ],
+     "zoom": 1.0
+    },
+    {
+     "t": 8.5,
+     "center": [
+      18,
+      37
+     ],
+     "zoom": 1.0
+    },
+    {
+     "t": 11.5,
+     "center": [
+      27,
+      33
+     ],
+     "zoom": 1.6
+    }
+   ]
+  },
+  "aktion_savas": {
+   "taban": "parsomen",
+   "bounds": {
+    "west": 20.47,
+    "east": 20.97,
+    "south": 38.7894,
+    "north": 39.0706
+   },
+   "durationSec": 12,
+   "title": "Aktion Deniz Savaşı",
+   "subtitle": "Kleopatra'nın gemileri ayrılıyor",
+   "units": [
+    {
+     "label": "Oktavianus · Agrippa",
+     "color": "#b8323a",
+     "path": [
+      [
+       20.5,
+       38.98
+      ],
+      [
+       20.58,
+       38.96
+      ]
+     ],
+     "start": 0.5,
+     "duration": 4.0,
+     "labelSide": "above"
+    },
+    {
+     "label": "Antonius",
+     "color": "#9b6fc4",
+     "path": [
+      [
+       20.74,
+       38.955
+      ],
+      [
+       20.66,
+       38.955
+      ]
+     ],
+     "start": 1.0,
+     "duration": 3.5,
+     "labelSide": "below"
+    },
+    {
+     "label": "Kleopatra",
+     "color": "#e3b04b",
+     "path": [
+      [
+       20.73,
+       38.94
+      ],
+      [
+       20.7,
+       38.9
+      ],
+      [
+       20.67,
+       38.85
+      ]
+     ],
+     "start": 6.0,
+     "duration": 4.0,
+     "labelSide": "below"
+    }
+   ],
+   "clashes": [
+    {
+     "at": [
+      20.62,
+      38.96
+     ],
+     "start": 4.6
+    }
+   ],
+   "labels": [
+    {
+     "at": [
+      20.88,
+      38.98
+     ],
+     "text": "Ambrakia Körfezi",
+     "start": 0.3,
+     "kind": "sea"
+    },
+    {
+     "at": [
+      20.5,
+      38.86
+     ],
+     "text": "İon Denizi",
+     "start": 0.3,
+     "kind": "sea"
+    },
+    {
+     "at": [
+      20.78,
+      39.04
+     ],
+     "text": "Aktion burnu",
+     "start": 0.5,
+     "kind": "land"
+    }
+   ],
+   "years": [
+    {
+     "t": 0.3,
+     "text": "MÖ 31"
+    }
+   ],
+   "note": "Antik kaynaklara göre",
+   "camera": [
+    {
+     "t": 0,
+     "center": [
+      20.72,
+      38.93
+     ],
+     "zoom": 1.0
+    },
+    {
+     "t": 6,
+     "center": [
+      20.68,
+      38.91
+     ],
+     "zoom": 1.2
+    }
+   ]
+  },
+  "napolyon_resit": {
+   "taban": "dunya",
+   "bounds": {
+    "west": 23.0,
+    "east": 37.0,
+    "south": 28.0625,
+    "north": 35.9375
+   },
+   "durationSec": 11,
+   "title": "Napolyon Mısır'da",
+   "subtitle": "Reşit'te bulunan taş",
+   "rivers": [
+    {
+     "points": [
+      [
+       32.89,
+       24.09
+      ],
+      [
+       32.93,
+       24.45
+      ],
+      [
+       32.87,
+       24.98
+      ],
+      [
+       32.55,
+       25.3
+      ],
+      [
+       32.64,
+       25.7
+      ],
+      [
+       32.72,
+       26.1
+      ],
+      [
+       32.25,
+       26.15
+      ],
+      [
+       31.92,
+       26.3
+      ],
+      [
+       31.6,
+       26.6
+      ],
+      [
+       31.18,
+       27.18
+      ],
+      [
+       30.85,
+       27.7
+      ],
+      [
+       30.75,
+       28.1
+      ],
+      [
+       30.9,
+       28.8
+      ],
+      [
+       31.1,
+       29.3
+      ],
+      [
+       31.25,
+       29.85
+      ],
+      [
+       31.22,
+       30.1
+      ],
+      [
+       31.13,
+       30.2
+      ],
+      [
+       30.9,
+       30.6
+      ],
+      [
+       30.6,
+       31.1
+      ],
+      [
+       30.4,
+       31.45
+      ]
+     ],
+     "start": 0.2
+    },
+    {
+     "points": [
+      [
+       31.13,
+       30.2
+      ],
+      [
+       31.3,
+       30.6
+      ],
+      [
+       31.6,
+       31.1
+      ],
+      [
+       31.83,
+       31.5
+      ]
+     ],
+     "start": 0.2
+    }
+   ],
+   "routes": [
+    {
+     "points": [
+      [
+       23.2,
+       35.5
+      ],
+      [
+       26.5,
+       33.5
+      ],
+      [
+       29.92,
+       31.2
+      ]
+     ],
+     "color": "#5b93c7",
+     "start": 0.8,
+     "duration": 2.5,
+     "label": "Fransız donanması",
+     "dashed": true,
+     "army": true
+    },
+    {
+     "points": [
+      [
+       29.92,
+       31.2
+      ],
+      [
+       30.6,
+       30.9
+      ],
+      [
+       31.24,
+       30.04
+      ]
+     ],
+     "color": "#5b93c7",
+     "start": 3.5,
+     "duration": 2.0,
+     "dashed": true
+    }
+   ],
+   "cities": [
+    {
+     "at": [
+      29.92,
+      31.2
+     ],
+     "label": "İskenderiye",
+     "start": 2.8
+    },
+    {
+     "at": [
+      31.24,
+      30.04
+     ],
+     "label": "Kahire",
+     "start": 5.2
+    },
+    {
+     "at": [
+      30.06,
+      31.32
+     ],
+     "label": "Ebukır",
+     "start": 6.0,
+     "side": "left"
+    },
+    {
+     "at": [
+      30.42,
+      31.4
+     ],
+     "label": "Reşit (Rosetta)",
+     "start": 6.8,
+     "major": true,
+     "side": "right"
+    }
+   ],
+   "labels": [
+    {
+     "at": [
+      27.5,
+      34.0
+     ],
+     "text": "Akdeniz",
+     "start": 0.3,
+     "kind": "sea"
+    }
+   ],
+   "years": [
+    {
+     "t": 0.5,
+     "text": "1798"
+    },
+    {
+     "t": 6.8,
+     "text": "1799"
+    }
+   ],
+   "camera": [
+    {
+     "t": 0,
+     "center": [
+      30,
+      32
+     ],
+     "zoom": 1.0
+    },
+    {
+     "t": 7.0,
+     "center": [
+      30,
+      32
+     ],
+     "zoom": 1.0
+    },
+    {
+     "t": 10.5,
+     "center": [
+      30.6,
+      31.2
+     ],
+     "zoom": 2.2
+    }
+   ]
+  }
+ },
+ "music_sources": {
+  "gizem": {
+   "commons": "File:Heart of Nowhere (MacLeod, Kevin) (ISRC USUAN1400045).oga"
+  },
+  "agir": {
+   "commons": "File:Earth Prelude (MacLeod, Kevin) (ISRC USUAN1100247).oga"
+  },
+  "karanlik": {
+   "commons": "File:Kevin MacLeod - Ritual.ogg"
+  },
+  "huzun": {
+   "commons": "File:Kevin MacLeod - 06 - Impact Lento.ogg"
+  },
+  "tapinak": {
+   "commons": "File:Kevin MacLeod - Temple of the Manes.ogg"
+  },
+  "ses": {
+   "commons": "File:The Voices (MacLeod, Kevin) (ISRC USUAN1100046).oga"
+  },
+  "isik": {
+   "commons": "File:Kevin MacLeod - Bathed in the Light.ogg"
+  },
+  "derin": {
+   "commons": "File:Kevin MacLeod - Silver Blue Light.ogg"
+  }
+ },
+ "klip_yerleri": {
+  "_not": "Gemini klipleri gelince bu paragraflardaki ilgili çekimin yerine {\"clip\": \"klipler/klipN.mp4\"} konur.",
+  "klip1": "2.7",
+  "klip2": "1.1",
+  "klip3": "4.4",
+  "klip4": "5.3",
+  "klip5": "6.7",
+  "klip6": "7.5",
+  "klip7": "8.3",
+  "klip8": "10.5"
+ }
+}
