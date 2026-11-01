@@ -15,10 +15,10 @@ for k in ["amarna_mektup2", "ankhesenamun", "ebu_simbel", "ebu_simbel_salon", "k
 IMAGES["dunya"] = {"commons": "File:Whole world - land and oceans 12000.jpg", "original": True}
 
 STOCK = {
- "gize_safak": {"q": "giza pyramids sunrise"}, "gize_gunbatimi": {"q": "pyramids sunset desert"},
- "nil_gunbatimi": {"q": "nile river sunset felucca"}, "nil_akis": {"q": "nile river water flowing"},
+ "gize_safak": {"q": "giza pyramids sunrise", "id": 10717893}, "gize_gunbatimi": {"q": "pyramids sunset desert", "id": 4205790},
+ "nil_gunbatimi": {"q": "nile river sunset felucca", "id": 12277989}, "nil_akis": {"q": "nile river water flowing", "id": 20663017},
  "bugday_ruzgar": HITIT["stock"]["bugday_ruzgar"], "yildizli_gece": HITIT["stock"]["yildizli_gece"],
- "gunes_dogus": {"q": "sun rising over desert"}, "kum_ruzgar": {"q": "sand blowing desert dunes wind"},
+ "gunes_dogus": {"q": "sun rising over desert", "id": 29660258}, "kum_ruzgar": {"q": "sand blowing desert dunes wind", "id": 8865223},
  "kurak_toprak": HITIT["stock"]["kurak_toprak"], "tas_doku": HITIT["stock"]["tas_doku"],
  "ekmek_firin": HITIT["stock"]["ekmek_firin"], "deniz_safak": HITIT["stock"]["deniz_safak"],
  "mum_isigi": HITIT["stock"]["mum_isigi"], "ates_gece": HITIT["stock"]["ates_gece"],
