@@ -498,3 +498,66 @@ def test_music_credit_names_are_clean():
     from scripts.doc_pipeline import _track_name
     assert _track_name("File:Kevin MacLeod - 06 - Impact Lento.ogg") == "Impact Lento"
     assert _track_name("File:Heart of Nowhere (MacLeod, Kevin) (ISRC USUAN1400045).oga") == "Heart of Nowhere"
+
+
+def _timed_words(n, sec_per_word, t0=0.0, word="kelime"):
+    out, t = [], t0
+    for _ in range(n):
+        out.append({"word": word, "start": round(t, 3), "end": round(t + sec_per_word * 0.9, 3)})
+        t += sec_per_word
+    return out
+
+
+def test_rush_score_flags_sped_up_section():
+    normal = _timed_words(30, 0.5)
+    rushed = _timed_words(10, 0.5) + _timed_words(8, 0.3, t0=5.0) + _timed_words(10, 0.5, t0=7.4)
+    ref = da.reference_rate([normal, normal, rushed])
+    assert da.rush_score(normal, ref) < da.RUSH_LIMIT
+    assert da.rush_score(rushed, ref) > da.RUSH_LIMIT
+
+
+def test_rush_repair_regenerates_only_rushed_paragraph(tmp_path, monkeypatch):
+    import json
+    normal, rushed = _timed_words(30, 0.5), _timed_words(10, 0.5) + _timed_words(8, 0.3, t0=5.0) + _timed_words(10, 0.5, t0=7.4)
+    results = []
+    for i, w in enumerate([normal, normal, rushed]):
+        mp3 = tmp_path / f"p{i:03d}.mp3"
+        mp3.write_bytes(b"eski")
+        (tmp_path / f"p{i:03d}.json").write_text(json.dumps({"fp": "x", "words": w}))
+        results.append({"path": str(mp3), "duration": 15.0, "words": w})
+    calls = []
+
+    def fake(client, voice_id, text, prev, nxt, settings):
+        calls.append((text, settings))
+        steady = " ".join(["kelime"] * 28)
+        ends = [k * 0.5 for k in range(len(steady))]
+        return b"yeni", {"characters": list(steady), "character_start_times_seconds": ends,
+                         "character_end_times_seconds": [e + 0.04 for e in ends]}
+
+    monkeypatch.setattr(da, "_eleven_paragraph", fake)
+    monkeypatch.setattr(da, "_probe_duration", lambda p: 15.0)
+    texts = ["a " * 28] * 3
+    da._repair_rushes(results, texts, texts, tmp_path, None, "v", budget=5000)
+    assert len(calls) == 1 and calls[0][1] == da.STEADY_SETTINGS     # yalnızca hızlanan paragraf
+    assert (tmp_path / "p002.mp3").read_bytes() == b"yeni"
+    assert json.loads((tmp_path / "p002.json").read_text())["repaired"] is True
+    report = json.loads((tmp_path / "hiz_raporu.json").read_text())
+    assert report["paragraflar"][0]["durum"] == "düzeltildi"
+    # İkinci çalıştırmada aynı paragraf için tekrar kredi harcanmaz
+    da._repair_rushes(results, texts, texts, tmp_path, None, "v", budget=5000)
+    assert len(calls) == 1
+
+
+def test_credit_report_counts_new_paragraphs(tmp_path, monkeypatch):
+    import json
+    prod = _mini_production(tmp_path)
+    from scripts import notifier
+    sent = []
+    monkeypatch.setattr(notifier, "send_message", lambda m: sent.append(m) or True)
+    monkeypatch.setattr(da, "elevenlabs_balance",
+                        lambda key: {"tier": "starter", "used": 12000, "limit": 40000})
+    results = [{"new": True, "chars": 100}, {"new": False, "chars": 50}]
+    prod._send_credit_report(results, {"tier": "starter", "used": 11900, "limit": 40000}, "k")
+    k = json.loads(prod.path("kredi.json").read_text())
+    assert k["yeni_paragraf"] == 1 and k["yeni_karakter"] == 100
+    assert "100 kredi düştü" in sent[0] and "1 paragraf önbellekten" in sent[0]

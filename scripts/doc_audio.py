@@ -141,9 +141,52 @@ async def _edge_paragraph(text: str, voice: str, mp3_path: Path) -> list[dict]:
     return words
 
 
+# ElevenLabs çok dilli modeli uzun paragraflarda bazen birkaç saniye hızlanır.
+# Kelime zamanlarından konuşma hızı ölçülür; normalden belirgin hızlı paragraflar
+# daha "sabit" ayarla yeniden seslendirilir (yalnızca onlar → az kredi).
+RUSH_WINDOW = 6            # kelime
+RUSH_LIMIT = 1.30          # pencere hızı / genel ortanca hız
+STEADY_SETTINGS = {"stability": 0.8, "similarity_boost": 0.8, "style": 0.0,
+                   "use_speaker_boost": True, "speed": 0.95}
+
+
+def elevenlabs_balance(api_key: str) -> dict | None:
+    """Hesabın paket ve kalan karakter bilgisi (API anahtarının ait olduğu hesap)."""
+    try:
+        from elevenlabs import ElevenLabs
+        sub = ElevenLabs(api_key=api_key).user.subscription.get()
+        return {"tier": sub.tier, "used": sub.character_count, "limit": sub.character_limit}
+    except Exception as e:      # rapor içindir; üretimi durdurmaz
+        logger.warning("ElevenLabs bakiyesi okunamadı: %s", e)
+        return None
+
+
+def window_rates(words: list[dict], k: int = RUSH_WINDOW, min_span: float = 1.2) -> list[float]:
+    """Ardışık k kelimelik pencerelerde saniyedeki harf sayısı."""
+    rates = []
+    for i in range(len(words) - k + 1):
+        w = words[i:i + k]
+        span = w[-1]["end"] - w[0]["start"]
+        if span >= min_span:
+            rates.append(sum(len(x["word"]) for x in w) / span)
+    return rates
+
+
+def rush_score(words: list[dict], ref_rate: float) -> float:
+    """Paragraftaki en hızlı pencerenin genel ortanca hıza oranı (1.0 = normal)."""
+    rates = window_rates(words)
+    return round(max(rates) / ref_rate, 3) if rates and ref_rate > 0 else 0.0
+
+
+def reference_rate(all_words: list[list[dict]]) -> float:
+    rates = [r for w in all_words for r in window_rates(w)]
+    return float(np.median(rates)) if rates else 0.0
+
+
 def synthesize(paragraphs: list[str], out_dir: Path, voice_id: str = "",
                api_key: str = "", pronunciations: dict | None = None,
-               engine: str = "auto", voice_settings: dict | None = None) -> list[dict]:
+               engine: str = "auto", voice_settings: dict | None = None,
+               rush_budget: int = 0) -> list[dict]:
     """
     Paragrafları seslendir. Sonuç: [{"path", "duration", "words", "engine"}].
 
@@ -187,6 +230,7 @@ def synthesize(paragraphs: list[str], out_dir: Path, voice_id: str = "",
         # o paragraf yeniden seslendirilir (komşuların bağlamı için yeniden üretim yok).
         fp = hashlib.sha1(f"{engine}|{voice_id}|{spoken[i]}".encode("utf-8")).hexdigest()[:16]
         cached = json.loads(words_path.read_text(encoding="utf-8")) if words_path.exists() else None
+        new = False
         if isinstance(cached, dict) and cached.get("fp") == fp and mp3.exists():
             words = cached["words"]
         elif isinstance(cached, list) and mp3.exists():
@@ -210,6 +254,7 @@ def synthesize(paragraphs: list[str], out_dir: Path, voice_id: str = "",
                                f"karışık ses olmasın diye durduruldu): {e}") from e
             mp3.write_bytes(audio)
             words = words_from_alignment(alignment, text)
+            new = True
         else:
             words = asyncio.run(_edge_paragraph(spoken[i], EDGE_VOICE, mp3))
             shown = text.split()
@@ -222,9 +267,52 @@ def synthesize(paragraphs: list[str], out_dir: Path, voice_id: str = "",
         if not meta_path.exists():
             meta_path.write_text(json.dumps({"engine": engine}))
         results.append({"path": str(mp3), "duration": _probe_duration(mp3),
-                        "words": words, "engine": engine})
+                        "words": words, "engine": engine, "new": new,
+                        "chars": len(spoken[i])})
         logger.info("Ses p%03d hazır (%.1f sn, %s)", i, results[-1]["duration"], engine)
+    if engine == "elevenlabs" and rush_budget > 0:
+        _repair_rushes(results, paragraphs, spoken, out_dir, client, voice_id, rush_budget)
     return results
+
+
+def _repair_rushes(results, paragraphs, spoken, out_dir, client, voice_id, budget: int):
+    """Hızlanan paragrafları sabit ayarla yeniden seslendir (en fazla `budget` karakter)."""
+    ref = reference_rate([r["words"] for r in results])
+    report, used = [], 0
+    for i, r in enumerate(results):
+        words_path = out_dir / f"p{i:03d}.json"
+        meta = json.loads(words_path.read_text(encoding="utf-8"))
+        if not isinstance(meta, dict):
+            continue
+        score = rush_score(r["words"], ref)
+        if score <= RUSH_LIMIT or meta.get("repaired"):
+            continue
+        if used + len(spoken[i]) > budget:
+            report.append({"p": i, "rush": score, "durum": "bütçe yetmedi"})
+            continue
+        used += len(spoken[i])
+        try:
+            audio, alignment = _eleven_paragraph(
+                client, voice_id, spoken[i], spoken[i - 1] if i > 0 else "",
+                spoken[i + 1] if i + 1 < len(spoken) else "", STEADY_SETTINGS)
+        except Exception as e:
+            report.append({"p": i, "rush": score, "durum": f"hata: {e}"})
+            continue
+        new_words = words_from_alignment(alignment, paragraphs[i])
+        new_score = rush_score(new_words, ref)
+        mp3 = Path(r["path"])
+        if new_score < score:
+            mp3.write_bytes(audio)
+            r.update(words=new_words, duration=_probe_duration(mp3))
+            meta.update(words=new_words)
+        meta["repaired"] = True          # bir daha denenmez (kredi koruması)
+        words_path.write_text(json.dumps(meta, ensure_ascii=False), encoding="utf-8")
+        report.append({"p": i, "rush": score, "yeni": new_score,
+                       "durum": "düzeltildi" if new_score < score else "eskisi kaldı"})
+        logger.info("Hızlanma düzeltmesi p%03d: %.2f → %.2f", i, score, new_score)
+    (out_dir / "hiz_raporu.json").write_text(json.dumps(
+        {"ortanca_hiz": round(ref, 2), "sinir": RUSH_LIMIT, "kullanilan_karakter": used,
+         "paragraflar": report}, ensure_ascii=False, indent=1), encoding="utf-8")
 
 
 # ─────────────────────────────────────────────
