@@ -815,3 +815,25 @@ def test_model_changes_cache_key_but_default_keeps_old(tmp_path, monkeypatch):
     da.synthesize(["[fısıltı] Merhaba dünya."], tmp_path, voice_id="v", api_key="k",
                   engine="elevenlabs", model="eleven_v4")
     assert len(seen) == 1                                   # önbellekten
+
+
+def test_thumb_metrics_and_mobile_grid(tmp_path, monkeypatch):
+    from PIL import Image
+    from scripts import thumb_review as tr
+    dark = Image.new("RGB", (480, 360), (10, 10, 10))
+    bright = Image.new("RGB", (480, 270), (250, 40, 20))
+    assert tr._crop_16_9(dark).size == (480, 270)
+    md, mb = tr.metrics(dark), tr.metrics(bright)
+    assert mb["parlaklik"] > md["parlaklik"] and mb["doygunluk"] > md["doygunluk"]
+    folder = tmp_path / "f"
+    (folder / "kapak_adaylari").mkdir(parents=True)
+    bright.save(folder / "kapak_adaylari" / "A.jpg")
+    import json
+    (folder / "kapak_rakipler.json").write_text(json.dumps({"rakipler": [
+        {"id": "x1", "title": "t", "channel": "TRT Belgesel", "views": 3_000_000, "published": "2020"}]}))
+    monkeypatch.setattr(tr, "fetch", lambda vid: dark)
+    sheets = tr.run(folder)
+    names = [p.name for p in sheets]
+    assert "kapak_mobil.jpg" in names and "kapak_rakipler_01.jpg" in names
+    rep = json.loads((folder / "inceleme" / "kapak_olcumler.json").read_text())
+    assert {r["channel"] for r in rep} == {"TRT Belgesel", "BİZ"}

@@ -108,6 +108,8 @@ def run(folder: Path, plan: dict, every: float = 15.0, per_query: int = 5) -> li
         from scripts import doc_music
         ranked = doc_music.review(plan["muzik_arama"], folder / "build" / "muzik_adaylari")
         doc_music.write_report(ranked, out_dir / "muzik_adaylari.json")
+    from scripts import thumb_review
+    sheets += thumb_review.run(folder)          # kapak_rakipler.json varsa rakip kapak analizi
     (out_dir / "adaylar.json").write_text(json.dumps(candidates, ensure_ascii=False, indent=1),
                                           encoding="utf-8")
     logger.info("İnceleme: %d sayfa → %s", len(sheets), out_dir)
