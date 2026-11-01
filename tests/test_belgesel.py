@@ -705,3 +705,41 @@ def test_channel_retry_waits_for_new_playlist(monkeypatch):
         return {"ok": True}
 
     assert cs._retry(flaky) == {"ok": True} and len(calls) == 3
+
+
+def test_shorts_caption_chunks_and_ass():
+    from scripts import doc_shorts as sh
+    words = [{"word": w, "start": i * 0.5, "end": i * 0.5 + 0.4}
+             for i, w in enumerate("Şimdi ekmek yiyeceksiniz ve su içeceksiniz. Hititçe çözüldü.".split())]
+    chunks = sh.caption_chunks(words, offset=10.0)
+    assert chunks[0] == (10.0, 10.9, "Şimdi ekmek")              # 18 karakter sınırı
+    assert any(t.endswith("içeceksiniz.") for _, _, t in chunks)  # cümle sonunda kesilir
+    assert all(len(t.split()) <= 3 for _, _, t in chunks)
+    ass = sh.ass_subtitles(chunks)
+    assert "Source Sans 3 ExtraBold" in ass and "Dialogue: 0,0:00:10.00,0:00:10.90,Alt,,0,0,0,,Şimdi ekmek" in ass
+
+
+def test_shorts_description_has_full_video_and_credits():
+    from scripts import doc_shorts as sh
+    d = sh.short_description({"aciklama": "Kısa."}, "https://youtu.be/ibuMFDr7rmI",
+                             ["Lion Gate — X (CC BY-SA 4.0)", "Lion Gate — X (CC BY-SA 4.0)"], "Temsili canlandırma")
+    assert "https://youtu.be/ibuMFDr7rmI" in d and "#shorts" in d and "Temsili canlandırma" in d
+    assert d.count("Lion Gate") == 1
+
+
+def test_hitit_shorts_config_is_valid():
+    import json
+    from scripts import doc_shorts as sh
+    folder = Path(__file__).resolve().parent.parent / "belgeseller" / "01-hititler"
+    cfg = json.loads((folder / "shorts.json").read_text(encoding="utf-8"))
+    data = json.loads((folder / "senaryo.json").read_text(encoding="utf-8"))
+    music = set(json.loads((folder / "cekim_plani.json").read_text(encoding="utf-8"))["music_sources"])
+    assert len({s["id"] for s in cfg["shorts"]}) == len(cfg["shorts"])
+    for s in cfg["shorts"]:
+        pairs = sh.select_paragraphs(data, s["paragraflar"])
+        chars = sum(len(data["chapters"][c]["paragraphs"][p]["text"]) for c, p in pairs)
+        assert 300 < chars < 800, s["id"]                         # ~25–58 sn
+        for c, p in pairs:                                         # Remotion haritası gerektirmesin
+            assert not any("map" in shot for shot in data["chapters"][c]["paragraphs"][p]["shots"])
+        assert s["muzik"] in music and len(s["baslik"]) <= 100
+        assert len(s["kanca"].split("\n")) <= 2 and s["yayin"].endswith("Z")
