@@ -1,0 +1,115 @@
+name: Kanal Ayarları
+
+# "Tarih Dosyaları" kanal ve video ayarları — YALNIZCA elle tetiklenir.
+#   mod=rapor  : yalnızca okur (kanal, belgesel videoları, oynatma listeleri)
+#   mod=uygula : kanal açıklaması/banner, seri oynatma listesi, en yeni belgesel
+#                videosunun planlı yayını, ilk yorum; profil resmi ve kapaklar
+#                Telegram'a dosya olarak gelir (API ile yüklenemiyor).
+# Hiçbir video silinmez.
+
+on:
+  workflow_dispatch:
+    inputs:
+      klasor:
+        description: "Belgesel klasörü"
+        default: belgeseller/01-hititler
+      mod:
+        type: choice
+        options: [rapor, uygula]
+        default: rapor
+      yayin:
+        description: "Planlı yayın (ISO-8601 UTC)"
+        default: "2026-11-01T16:00:00Z"
+      baslik:
+        description: "Hedef videonun başlığında geçen kelime"
+        default: Hitit
+
+permissions:
+  contents: read
+
+jobs:
+  kanal:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      KLASOR: ${{ inputs.klasor }}
+      MOD: ${{ inputs.mod }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - uses: actions/setup-node@v4
+        if: inputs.mod == 'uygula'
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: remotion/package-lock.json
+
+      - name: Bağımlılıkları kur
+        run: |
+          pip install -r requirements.txt
+          if [ "$MOD" = "uygula" ]; then cd remotion && npm ci --no-audit --no-fund; fi
+
+      - name: YouTube kimlik dosyalarını hazırla
+        env:
+          CLIENT_SECRETS_B64: ${{ secrets.YOUTUBE_CLIENT_SECRETS_B64 }}
+          TOKEN_B64: ${{ secrets.YOUTUBE_TOKEN_B64 }}
+        run: |
+          echo "$CLIENT_SECRETS_B64" | base64 -d > client_secrets.json
+          echo "$TOKEN_B64" | base64 -d > youtube_token.pickle
+
+      - name: Kanal ayarları
+        run: |
+          python -m scripts.channel_setup "$KLASOR" "$MOD" --yayin "${{ inputs.yayin }}" --baslik "${{ inputs.baslik }}"
+
+      - name: Görselleri ve raporu paylaş
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kanal-${{ inputs.mod }}
+          path: ${{ inputs.klasor }}/build/kanal/*.*
+          retention-days: 14
+
+      - name: Telegram bildirimi
+        if: always()
+        env:
+          SONUC: ${{ job.status }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          from scripts.notifier import send_message, send_document
+          from scripts.channel_setup import STUDIO_STEPS
+          out = Path(os.environ["KLASOR"], "build", "kanal")
+          mod, url = os.environ["MOD"], os.environ["RUN_URL"]
+          if os.environ["SONUC"] != "success":
+              send_message(f"❌ Kanal ayarları ({mod}) başarısız\n{url}")
+              raise SystemExit
+          r = json.loads((out / f"{mod}.json").read_text())
+          if mod == "rapor":
+              v = r.get("hedef_video") or {}
+              send_message(f"🔎 Kanal raporu: {r['kanal']['ad']} · hedef video {v.get('url')} "
+                           f"({v.get('privacy')}, yayın: {v.get('publishAt')}) · eski sürüm: {len(r['eski_surumler'])}\n{url}")
+          else:
+              lines = ["✅ Kanal ayarları yapıldı:"] + [f"• {x}" for x in r["yapilanlar"]]
+              if r["sorunlar"]:
+                  lines += ["⚠️ Sorunlar:"] + [f"• {x}" for x in r["sorunlar"]]
+              lines += [f"🎬 Video: {r['video']}", f"▶️ Liste: https://www.youtube.com/playlist?list={r['playlist_id']}"]
+              if r["silinebilir"]:
+                  lines += ["🗑️ Silinebilir eski sürümler:"] + [f"• {x}" for x in r["silinebilir"]]
+              send_message("\n".join(lines))
+              send_message(STUDIO_STEPS)
+              for key, cap in [("profil", "Profil resmi (Studio → Özelleştirme → Profil → Resim)"),
+                               ("kapak1", "Kapak 1"), ("kapak2", "Kapak 2"), ("kapak3", "Kapak 3"),
+                               ("banner", "Banner (kanala yüklendi)")]:
+                  p = r["dosyalar"].get(key)
+                  if p and Path(p).exists():
+                      send_document(p, cap)
+          PY
