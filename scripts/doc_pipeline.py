@@ -91,6 +91,7 @@ class Production:
             engine=os.getenv("DOC_TTS_ENGINE", "auto"),
             voice_settings=self.data.get("voice_settings"),
             rush_budget=int(os.getenv("DOC_RUSH_BUDGET", "0")),
+            model=self.data.get("tts_model", doc_audio.ELEVEN_MODEL),
         )
         self._send_credit_report(results, before, key)
         self._send_rush_report()
