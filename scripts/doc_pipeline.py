@@ -417,7 +417,7 @@ class Production:
             thumbnail_path=str(thumbs[0]) if thumbs else None,
             captions_path=str(self.path("altyazi.srt")),
             publish_at=publish_at,
-            playlist_id=_env("DOC_PLAYLIST_ID") or None,
+            playlist_id=_env("DOC_PLAYLIST_ID") or _channel_playlist(),
             synthetic_media=synthetic,
         )
         if not video_id:
@@ -426,6 +426,12 @@ class Production:
             {"video_id": video_id, "url": f"https://youtu.be/{video_id}",
              "publish_at": publish_at.isoformat() if publish_at else None}, indent=2))
         return video_id
+
+
+def _channel_playlist() -> str | None:
+    """Seri oynatma listesi: DOC_PLAYLIST_ID yoksa kanal.json (channel_setup yazar)."""
+    from scripts.channel_setup import playlist_id_from_config
+    return playlist_id_from_config()
 
 
 def _track_name(title: str) -> str:

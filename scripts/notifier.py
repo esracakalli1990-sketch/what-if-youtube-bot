@@ -100,6 +100,26 @@ def send_photo(photo_path: str, caption: str = "") -> bool:
         return False
 
 
+def send_document(path: str, caption: str = "") -> bool:
+    """Telegram'a dosya gönder (sıkıştırılmadan; ör. profil resmi, kapak)."""
+    token, chat_id = _config()
+    if not token or not chat_id or "buraya" in token:
+        return False
+
+    try:
+        with open(path, "rb") as f:
+            response = requests.post(
+                f"{TELEGRAM_API}/bot{token}/sendDocument",
+                data={"chat_id": chat_id, "caption": caption[:1024]},
+                files={"document": f},
+                timeout=120,
+            )
+        return response.status_code == 200
+    except Exception as e:
+        logger.warning("Telegram dosya gönderim hatası: %s", e)
+        return False
+
+
 def send_audio(audio_path: str, caption: str = "") -> bool:
     """Telegram'a ses dosyası gönder (ör. seslendirme önizlemesi)."""
     token, chat_id = _config()

@@ -561,3 +561,130 @@ def test_credit_report_counts_new_paragraphs(tmp_path, monkeypatch):
     k = json.loads(prod.path("kredi.json").read_text())
     assert k["yeni_paragraf"] == 1 and k["yeni_karakter"] == 100
     assert "100 kredi düştü" in sent[0] and "1 paragraf önbellekten" in sent[0]
+
+
+def _vid(vid, title, when, privacy="private"):
+    return {"id": vid, "snippet": {"title": title, "publishedAt": when, "categoryId": "27"},
+            "status": {"privacyStatus": privacy, "embeddable": True, "license": "youtube",
+                       "publicStatsViewable": True, "containsSyntheticMedia": True},
+            "contentDetails": {"duration": "PT35M"}}
+
+
+def test_channel_pick_latest_and_status():
+    from scripts import channel_setup as cs
+    vids = [_vid("a", "Hitit İmparatorluğu'nun Tam Hikâyesi", "2026-10-31T23:00:00Z"),
+            _vid("c", "Hitit İmparatorluğu'nun Tam Hikâyesi", "2026-11-01T09:30:00Z"),
+            _vid("w", "What If The Moon Vanished", "2026-11-01T10:00:00Z", "unlisted"),
+            _vid("b", "Hitit İmparatorluğu'nun Tam Hikâyesi", "2026-11-01T04:00:00Z")]
+    latest, older = cs.pick_latest(vids, "hitit")
+    assert latest["id"] == "c" and [v["id"] for v in older] == ["b", "a"]
+    st = cs.scheduled_status(latest["status"], "2026-11-01T16:00:00Z")
+    assert st["privacyStatus"] == "private" and st["publishAt"] == "2026-11-01T16:00:00Z"
+    assert st["containsSyntheticMedia"] is True and st["selfDeclaredMadeForKids"] is False
+    assert cs.valid_publish_time("2026-11-01T16:00:00Z") == "2026-11-01T16:00:00Z"
+    with pytest.raises(ValueError):
+        cs.valid_publish_time("2026-11-01T16:00:00")
+
+
+def test_channel_branding_keeps_other_settings():
+    from scripts import channel_setup as cs
+    b = cs.branding_update({"channel": {"title": "Eski", "unsubscribedTrailer": "x"},
+                            "watch": {"textColor": "#fff"}}, banner_url="https://banner")
+    assert b["channel"]["unsubscribedTrailer"] == "x" and b["watch"] == {"textColor": "#fff"}
+    assert b["channel"]["country"] == "TR" and b["channel"]["defaultLanguage"] == "tr"
+    assert '"tarih belgeseli"' in b["channel"]["keywords"]
+    assert b["image"]["bannerExternalUrl"] == "https://banner"
+
+
+class _Req:
+    def __init__(self, result, log, name):
+        self.result, self.log, self.name = result, log, name
+
+    def execute(self):
+        self.log.append(self.name)
+        return self.result
+
+
+class _FakeYT:
+    """Yalnızca channel_setup'ın kullandığı çağrıları taklit eden YouTube istemcisi."""
+
+    def __init__(self, videos):
+        self.videos_data, self.log, self.bodies = videos, [], {}
+
+    def _r(self, name, result=None, body=None):
+        if body is not None:
+            self.bodies[name] = body
+        return _Req(result or {}, self.log, name)
+
+    def channels(self):
+        yt = self
+        class C:
+            def list(self, **k):
+                return yt._r("channels.list", {"items": [{"id": "UC1", "snippet": {"title": "Roli"},
+                    "statistics": {}, "brandingSettings": {"channel": {"title": "Roli"}},
+                    "contentDetails": {"relatedPlaylists": {"uploads": "UU1"}}}]})
+            def update(self, part, body):
+                return yt._r("channels.update", body=body)
+        return C()
+
+    def channelBanners(self):
+        yt = self
+        class B:
+            def insert(self, media_body):
+                return yt._r("banner", {"url": "https://banner"})
+        return B()
+
+    def playlistItems(self):
+        yt = self
+        class P:
+            def list(self, playlistId, **k):
+                if playlistId == "UU1":
+                    return yt._r("uploads", {"items": [{"contentDetails": {"videoId": v["id"]}} for v in yt.videos_data]})
+                return yt._r("pl.items", {"items": []})
+            def insert(self, part, body):
+                return yt._r("pl.add", body=body)
+        return P()
+
+    def videos(self):
+        yt = self
+        class V:
+            def list(self, **k):
+                return yt._r("videos.list", {"items": yt.videos_data})
+            def update(self, part, body):
+                return yt._r("videos.update", body=body)
+        return V()
+
+    def playlists(self):
+        yt = self
+        class L:
+            def list(self, **k):
+                return yt._r("playlists.list", {"items": []})
+            def insert(self, part, body):
+                return yt._r("playlists.insert", {"id": "PL9"}, body=body)
+        return L()
+
+    def commentThreads(self):
+        yt = self
+        class T:
+            def list(self, **k):
+                return yt._r("comments.list", {"items": []})
+            def insert(self, part, body):
+                return yt._r("comments.insert", body=body)
+        return T()
+
+
+def test_channel_apply_with_fake_youtube(tmp_path, monkeypatch):
+    from scripts import channel_setup as cs
+    monkeypatch.setattr(cs, "render_art", lambda folder, out: {"banner": tmp_path / "b.jpg"})
+    monkeypatch.setattr(cs, "KANAL_JSON", tmp_path / "yok.json")
+    (tmp_path / "b.jpg").write_bytes(b"jpg")
+    yt = _FakeYT([_vid("old", "Hitit İmparatorluğu", "2026-10-31T23:00:00Z"),
+                  _vid("new", "Hitit İmparatorluğu", "2026-11-01T09:30:00Z")])
+    r = cs.apply(yt, tmp_path, "2026-11-01T16:00:00Z", "Hitit", tmp_path)
+    assert r["video_id"] == "new" and r["playlist_id"] == "PL9" and not r["sorunlar"]
+    assert yt.bodies["videos.update"]["status"]["publishAt"] == "2026-11-01T16:00:00Z"
+    assert yt.bodies["pl.add"]["snippet"]["resourceId"]["videoId"] == "new"
+    assert "playlist?list=PL9" in yt.bodies["comments.insert"]["snippet"]["topLevelComment"]["snippet"]["textOriginal"]
+    assert yt.bodies["channels.update"]["brandingSettings"]["image"]["bannerExternalUrl"] == "https://banner"
+    assert r["silinebilir"] == ["https://youtu.be/old (private)"]
+    assert "delete" not in " ".join(yt.log)                 # hiçbir şey silinmez
