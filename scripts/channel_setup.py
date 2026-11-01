@@ -80,11 +80,14 @@ def pick_latest(videos: list[dict], title_word: str) -> tuple[dict | None, list[
     return (matching[0] if matching else None), matching[1:]
 
 
-def scheduled_status(current: dict, publish_at: str) -> dict:
-    """videos.update için durum: mevcut değiştirilebilir alanlar korunur, gizli + planlı yayın."""
-    keep = ("embeddable", "license", "publicStatsViewable", "containsSyntheticMedia")
+def scheduled_status(current: dict, publish_at: str, synthetic: bool = True) -> dict:
+    """videos.update için durum: mevcut değiştirilebilir alanlar korunur, gizli + planlı yayın.
+    Gemini canlandırmaları kullanıldığı için "değiştirilmiş/yapay içerik" beyanı açıkça işaretlenir
+    (API okumasında alan boş dönebiliyor; boş bırakmak beyanı kaldırır)."""
+    keep = ("embeddable", "license", "publicStatsViewable")
     status = {k: current[k] for k in keep if k in current}
-    status.update(privacyStatus="private", publishAt=publish_at, selfDeclaredMadeForKids=False)
+    status.update(privacyStatus="private", publishAt=publish_at, selfDeclaredMadeForKids=False,
+                  containsSyntheticMedia=bool(synthetic))
     return status
 
 

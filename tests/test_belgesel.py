@@ -581,6 +581,8 @@ def test_channel_pick_latest_and_status():
     st = cs.scheduled_status(latest["status"], "2026-11-01T16:00:00Z")
     assert st["privacyStatus"] == "private" and st["publishAt"] == "2026-11-01T16:00:00Z"
     assert st["containsSyntheticMedia"] is True and st["selfDeclaredMadeForKids"] is False
+    no_flag = {k: v for k, v in latest["status"].items() if k != "containsSyntheticMedia"}
+    assert cs.scheduled_status(no_flag, "2026-11-01T16:00:00Z")["containsSyntheticMedia"] is True
     assert cs.valid_publish_time("2026-11-01T16:00:00Z") == "2026-11-01T16:00:00Z"
     with pytest.raises(ValueError):
         cs.valid_publish_time("2026-11-01T16:00:00")
