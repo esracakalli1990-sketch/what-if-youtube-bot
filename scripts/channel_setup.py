@@ -45,14 +45,16 @@ KEYWORDS = ["tarih", "tarih belgeseli", "belgesel", "türkçe belgesel", "anadol
             "antik tarih", "imparatorluklar", "hititler", "medeniyetler", "tarih dosyaları"]
 
 
-def first_comment(playlist_id: str | None) -> str:
+HITIT_COMMENT = ("Sizce Hititlerin çöküşünün asıl nedeni neydi: kuraklık mı, Deniz Kavimleri mi, iç savaşlar mı? "
+                 "Yorumlarda tartışalım.\n\n🔔 Sıradaki belgesel: Antik Mısır'ın Tam Hikâyesi.")
+
+
+def first_comment(playlist_id: str | None, body: str | None = None) -> str:
+    """İlk yorum. body: belgeselin kendi sorusu ve duyurusu (cekim_plani.json → "ilk_yorum")."""
     lines = ["📜 Tarih Dosyaları'na hoş geldiniz! Bu belgeselde kullanılan kaynakların ve görsellerin "
              "tam listesi açıklamada.",
              "",
-             "Sizce Hititlerin çöküşünün asıl nedeni neydi: kuraklık mı, Deniz Kavimleri mi, iç savaşlar mı? "
-             "Yorumlarda tartışalım.",
-             "",
-             "🔔 Sıradaki belgesel: Antik Mısır'ın Tam Hikâyesi."]
+             body or HITIT_COMMENT]
     if playlist_id:
         lines.append(f"▶️ Serinin tamamı: https://www.youtube.com/playlist?list={playlist_id}")
     return "\n".join(lines)
@@ -250,6 +252,13 @@ def render_art(folder: Path, out_dir: Path) -> dict:
 # Uygulama
 # ─────────────────────────────────────────────
 
+def _plan_comment(folder: Path) -> str | None:
+    plan = Path(folder) / "cekim_plani.json"
+    if plan.exists():
+        return json.loads(plan.read_text(encoding="utf-8")).get("ilk_yorum")
+    return None
+
+
 def apply(yt, folder: Path, publish_at: str, title_word: str, out_dir: Path) -> dict:
     from googleapiclient.http import MediaFileUpload
     done, problems = [], []
@@ -313,7 +322,7 @@ def apply(yt, folder: Path, publish_at: str, title_word: str, out_dir: Path) -> 
                 if t["snippet"]["topLevelComment"]["snippet"].get("authorChannelId", {}).get("value") == ch["id"]]
         if not mine:
             yt.commentThreads().insert(part="snippet", body={"snippet": {
-                "videoId": vid, "topLevelComment": {"snippet": {"textOriginal": first_comment(pl)}}}}).execute()
+                "videoId": vid, "topLevelComment": {"snippet": {"textOriginal": first_comment(pl, _plan_comment(folder))}}}}).execute()
             done.append("ilk yorum eklendi")
     except Exception as e:
         problems.append(f"ilk yorum (yayından sonra tekrar denenecek): {e}")
