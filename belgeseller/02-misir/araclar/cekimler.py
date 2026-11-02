@@ -56,7 +56,7 @@ SHOTS = {
  "6.4": [i("amarna_mektup2", "in"), i("amarna_mektup_3", "right"), i("ankhesenamun", "in")],
  "6.5": [i("amarna_tahrip", "in"), s("kum_ruzgar")],
  "6.6": [i("tut_maske", "in", label=L("TUTANKAMON", "MÖ 1332–1323"))],
- "6.7": [i("krallar_vadisi", "left", label=L("KRALLAR VADİSİ", "LUKSOR · 1922")), i("carter", "in"), s("mum_isigi"), i("carter_2", "in")],
+ "6.7": [i("krallar_vadisi", "left", label=L("KRALLAR VADİSİ", "LUKSOR · 1922")), i("carter", "in"), {"clip": "klipler/klip5.mp4", "move": "still"}, i("carter_2", "in")],
  "6.8": [i("tut_1923", "in"), i("tut_maske_yan", "in", overlay="katman_toz")],
  "6.9": [i("mumya_lahit", "in"), i("mumya_salon", "right")],
  "6.10": [i("kalp_tartisi", "in"), i("kalp_tartisi", "right"), s("mum_isigi")],

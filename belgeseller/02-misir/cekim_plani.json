@@ -1172,8 +1172,8 @@
     "move": "in"
    },
    {
-    "stock": "mum_isigi",
-    "start": 0.0
+    "clip": "klipler/klip5.mp4",
+    "move": "still"
    },
    {
     "image": "carter_2",
