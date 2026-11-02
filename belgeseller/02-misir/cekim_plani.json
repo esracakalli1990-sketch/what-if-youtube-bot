@@ -725,8 +725,8 @@
   ],
   "2.7": [
    {
-    "image": "keops_tas",
-    "move": "up"
+    "clip": "klipler/klip1.mp4",
+    "move": "still"
    },
    {
     "stock": "nil_akis",

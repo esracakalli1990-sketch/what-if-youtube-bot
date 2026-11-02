@@ -23,7 +23,7 @@ SHOTS = {
  "2.4": [i("keops_tas", "in"), s("tas_doku"), i("keops", "out")],
  "2.5": [i("gize_hepsi", "in"), i("gize_eski", "left"), s("ekmek_firin"), i("gize_panorama", "right")],
  "2.6": [s("deniz_safak", label=L("VADİ EL-CERF", "KIZILDENİZ KIYISI · 2013")), s("mum_isigi"), i("gize_hepsi", "out")],
- "2.7": [i("keops_tas", "up"), s("nil_akis"), i("gize_eski", "in"), i("keops", "out")],
+ "2.7": [{"clip": "klipler/klip1.mp4", "move": "still"}, s("nil_akis"), i("gize_eski", "in"), i("keops", "out")],
  "2.8": [i("gunes_teknesi", "in", label=L("GÜNEŞ TEKNESİ", "KEOPS · GİZE")), i("gunes_teknesi_2", "left"), i("gunes_teknesi", "out")],
  "2.9": [i("sfenks", "in"), i("sfenks_2", "out")],
  "3.0": [s("kurak_toprak"), s("kum_ruzgar"), i("tarim_mezar", "out")],
