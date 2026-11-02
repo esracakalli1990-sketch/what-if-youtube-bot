@@ -1,6 +1,6 @@
 F = {
  "gize_panorama": "Sphinx and pyramids of Giza panorama.jpg", "gize_hepsi": "All Gizah Pyramids.jpg",
- "gize_eski": "Spelterini Pyramids.jpg", "keops": "Pyramids of Giza and boat pit.jpg", "keops_tas": "Khufu's Pyramid Complex (V).jpg",
+ "gize_eski": "Schiaparelli's excavations - Giza, Landscape and unknown mastabas, Landscape and unknown areas, 1903, photo 16 of 22 - Archivio fotografico Museo Egizio, Turin INV87 017.jpg", "keops": "Pyramids of Giza and boat pit.jpg", "keops_tas": "Khufu's Pyramid Complex (V).jpg",
  "sfenks": "Great Sphinx of Giza (2).jpg", "sfenks_2": "Sphinx partially excavated2.jpg",
  "sakkara": "Pyramid of Djoser 2010.jpg",
  "sakkara_eski": "Saqqara, Pyramid of Djoser and nearby tombs, Pictures, F. Bonfils, photo 3 of 8 - Archivio fotografico Museo Egizio, Turin INV01 002.jpg",
