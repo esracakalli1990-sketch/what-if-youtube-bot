@@ -73,7 +73,7 @@ SHOTS = {
  "8.0": [i("medinet_habu", "right", label=L("MEDİNET HABU", "III. RAMSES TAPINAĞI")), i("deniz_kavim", "in"), i("medinet_habu_2", "left")],
  "8.1": [m("tunc_cokus"), i("deniz_kavim", "out")],
  "8.2": [i("deyr_medine", "left", label=L("DEYR EL-MEDİNE", "İŞÇİ KÖYÜ · LUKSOR")), i("deyr_medine_2", "in")],
- "8.3": [i("grev_papirus", "in"), s("kurak_toprak"), i("deyr_medine", "out")],
+ "8.3": [i("grev_papirus", "in"), {"clip": "klipler/klip7.mp4", "move": "still"}, i("deyr_medine", "out")],
  "8.4": [i("medinet_habu_2", "in"), s("kum_ruzgar")],
  "8.5": [i("krallar_vadisi", "right"), s("mum_isigi"), i("krallar_vadisi_2", "in")],
  "8.6": [i("mumya_salon", "in"), i("ramses_mumya", "in")],

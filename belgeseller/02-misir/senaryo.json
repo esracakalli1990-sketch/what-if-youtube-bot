@@ -7113,8 +7113,8 @@
        "move": "in"
       },
       {
-       "stock": "kurak_toprak",
-       "start": 0.0
+       "clip": "klipler/klip7.mp4",
+       "move": "still"
       },
       {
        "image": "deyr_medine",
