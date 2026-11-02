@@ -218,12 +218,19 @@ def _still(composition: str, out: Path, props: dict, extra: list[str] | None = N
     return out
 
 
+CHANNEL_ART_PLAN = PROJECT_ROOT / "belgeseller" / "01-hititler" / "cekim_plani.json"
+
+
 def render_art(folder: Path, out_dir: Path) -> dict:
     """Banner, profil resmi ve 3 kapak."""
     plan = json.loads((folder / "cekim_plani.json").read_text(encoding="utf-8"))
-    thumbs = plan.get("thumbnails", [])
-    keys = list(dict.fromkeys(["buyuk_mabet_3", "aslan_kapi_1"] + [t["image"] for t in thumbs]))
-    paths = _fetch(plan, keys, out_dir / "gorseller")
+    # v2 kapaklar ("sablon": "v2") belgesel hattında üretilir; burada yalnızca eski şablon
+    thumbs = [t for t in plan.get("thumbnails", []) if t.get("image") and t.get("sablon") != "v2"]
+    # Kanal kimliği (banner, profil) her zaman seri görselleriyle: Hitit planından
+    art_plan = json.loads(CHANNEL_ART_PLAN.read_text(encoding="utf-8"))
+    paths = _fetch(art_plan, ["buyuk_mabet_3", "aslan_kapi_1"], out_dir / "gorseller")
+    if thumbs:
+        paths.update(_fetch(plan, list(dict.fromkeys(t["image"] for t in thumbs)), out_dir / "gorseller"))
     public = REMOTION_DIR / "public"
     public.mkdir(exist_ok=True)
     for font in (PROJECT_ROOT / "assets" / "fonts").glob("*.ttf"):
