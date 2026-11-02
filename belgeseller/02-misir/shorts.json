@@ -1,24 +1,79 @@
-{"tam_video": "", "_not": "tam_video, Mısır videosu yüklenince doldurulacak; yayın tarihleri video tarihine göre güncellenecek.",
- "etiketler": ["antik mısır", "tarih", "belgesel", "firavun", "piramitler", "antik tarih", "shorts"],
+{
+ "tam_video": "https://youtu.be/Ns-ozDX_Y6g",
+ "etiketler": [
+  "antik mısır",
+  "tarih",
+  "belgesel",
+  "firavun",
+  "piramitler",
+  "antik tarih",
+  "shorts"
+ ],
  "shorts": [
-  {"id": "kleopatra", "paragraflar": ["0.0", "0.1", "0.2"], "muzik": "gizem", "kanca": "KLEOPATRA BİLE\nPİRAMİTLERE UZAKTI",
+  {
+   "id": "kleopatra",
+   "paragraflar": [
+    "0.0",
+    "0.1",
+    "0.2"
+   ],
+   "muzik": "gizem",
+   "kanca": "KLEOPATRA BİLE\nPİRAMİTLERE UZAKTI",
    "baslik": "Kleopatra piramitlere bizden daha uzaktı #shorts",
    "aciklama": "Büyük Piramit, Kleopatra doğduğunda bile iki bin beş yüz yıllık bir anıttı. Antik Mısır'ın üç bin yıllık hikâyesinden bir kesit.",
-   "yayin": "2026-11-08T10:00:00Z"},
-  {"id": "merer", "paragraflar": ["2.5", "2.6", "2.7"], "muzik": "agir", "kanca": "PİRAMİDİ YAPAN ADAMIN\nGÜNLÜĞÜ BULUNDU",
+   "yayin": "2026-11-07T10:00:00Z"
+  },
+  {
+   "id": "merer",
+   "paragraflar": [
+    "2.5",
+    "2.6",
+    "2.7"
+   ],
+   "muzik": "agir",
+   "kanca": "PİRAMİDİ YAPAN ADAMIN\nGÜNLÜĞÜ BULUNDU",
    "baslik": "Piramidi inşa eden ustabaşının günlüğü #shorts",
    "aciklama": "2013'te Kızıldeniz kıyısında bulunan papirüsler: Merer'in ekibi Gize'ye taş taşırken tuttuğu iş defteri.",
-   "yayin": "2026-11-09T10:00:00Z"},
-  {"id": "carter", "paragraflar": ["6.6", "6.7", "6.8"], "muzik": "gizem", "kanca": "\"BİR ŞEY\nGÖREBİLİYOR MUSUN?\"",
+   "yayin": "2026-11-08T10:00:00Z"
+  },
+  {
+   "id": "carter",
+   "paragraflar": [
+    "6.6",
+    "6.7",
+    "6.8"
+   ],
+   "muzik": "gizem",
+   "kanca": "\"BİR ŞEY\nGÖREBİLİYOR MUSUN?\"",
    "baslik": "Tutankamon'un mezarı açıldığında Carter ne gördü? #shorts",
    "aciklama": "4 Kasım 1922: Krallar Vadisi'nde bir basamak bulundu. Haftalar sonra Howard Carter mum ışığıyla içeri baktı.",
-   "yayin": "2026-11-10T10:00:00Z"},
-  {"id": "grev", "paragraflar": ["8.2", "8.3", "8.4"], "muzik": "karanlik", "kanca": "TARİHİN\nİLK GREVİ",
+   "yayin": "2026-11-09T10:00:00Z"
+  },
+  {
+   "id": "grev",
+   "paragraflar": [
+    "8.2",
+    "8.3",
+    "8.4"
+   ],
+   "muzik": "karanlik",
+   "kanca": "TARİHİN\nİLK GREVİ",
    "baslik": "Tarihte kaydedilen ilk grev: \"Açız!\" #shorts",
    "aciklama": "III. Ramses'in 29. yılında Deyr el-Medine işçileri tayınları gecikince aletlerini bıraktı. Olay bir papirüse kaydedildi.",
-   "yayin": "2026-11-11T10:00:00Z"},
-  {"id": "champollion", "paragraflar": ["11.3", "11.4", "11.5"], "muzik": "isik", "kanca": "1400 YIL SONRA\nKONUŞAN DİL",
+   "yayin": "2026-11-10T10:00:00Z"
+  },
+  {
+   "id": "champollion",
+   "paragraflar": [
+    "11.3",
+    "11.4",
+    "11.5"
+   ],
+   "muzik": "isik",
+   "kanca": "1400 YIL SONRA\nKONUŞAN DİL",
    "baslik": "Hiyeroglifler 1400 yıl sonra nasıl çözüldü? #shorts",
    "aciklama": "Rosetta Taşı ve Champollion: Kimsenin okuyamadığı bir yazının yeniden konuşmaya başladığı gün.",
-   "yayin": "2026-11-12T10:00:00Z"}
- ]}
+   "yayin": "2026-11-11T10:00:00Z"
+  }
+ ]
+}

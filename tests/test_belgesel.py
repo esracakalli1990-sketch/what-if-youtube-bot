@@ -1,5 +1,6 @@
 """Belgesel hattı testleri: arşiv lisansı, ses metni, zaman çizelgesi, render."""
 
+import json
 import subprocess
 from pathlib import Path
 
@@ -909,3 +910,11 @@ def test_hepsi_runs_images_before_paid_voice_stage():
     with pytest.raises(RuntimeError):
         _run_stages(Prod(), SimpleNamespace(asama="hepsi", bolum=None, yayin=None))
     assert calls == ["stage_gorseller"]
+
+
+def test_first_comment_uses_documentary_specific_text(tmp_path):
+    from scripts.channel_setup import _plan_comment, first_comment
+    (tmp_path / "cekim_plani.json").write_text(json.dumps({"ilk_yorum": "Mısır sorusu?"}), encoding="utf-8")
+    text = first_comment("PL1", _plan_comment(tmp_path))
+    assert "Mısır sorusu?" in text and "Hitit" not in text and "list=PL1" in text
+    assert "Hititlerin" in first_comment(None, _plan_comment(tmp_path / "yok"))
