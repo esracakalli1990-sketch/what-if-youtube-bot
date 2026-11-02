@@ -887,3 +887,25 @@ def test_markdown_keeps_paragraphs_starting_with_direction_marker():
     texts = [p["text"] for p in ch[0]["paragraphs"]]
     assert texts == ["[sakin] Bir sabah, Nil kıyısında.", "Normal paragraf."]
     assert ch[0]["paragraphs"][0]["screen"] == "Piramitler"
+
+
+def test_hepsi_runs_images_before_paid_voice_stage():
+    """Görsel hatası ElevenLabs kredisi harcanmadan yakalanmalı: görseller sesten önce."""
+    from types import SimpleNamespace
+    from scripts.doc_pipeline import _run_stages
+
+    calls = []
+
+    class Prod:
+        def __getattr__(self, name):
+            if name.startswith("stage_"):
+                def stage(*a, **k):
+                    calls.append(name)
+                    if name == "stage_gorseller":
+                        raise RuntimeError("çözünürlük düşük")
+                return stage
+            raise AttributeError(name)
+
+    with pytest.raises(RuntimeError):
+        _run_stages(Prod(), SimpleNamespace(asama="hepsi", bolum=None, yayin=None))
+    assert calls == ["stage_gorseller"]
