@@ -520,10 +520,11 @@ def main(argv=None):
 
 
 def _run_stages(prod, args):
-    if args.asama in ("ses", "hepsi"):
-        prod.stage_ses()
+    # Görseller sesten ÖNCE: indirme/lisans/çözünürlük hatası kredi harcanmadan yakalanır
     if args.asama in ("gorseller", "hepsi"):
         prod.stage_gorseller()
+    if args.asama in ("ses", "hepsi"):
+        prod.stage_ses()
     if args.asama in ("kartlar", "hepsi"):
         prod.stage_kartlar()
     if args.asama in ("bolum", "hepsi"):
