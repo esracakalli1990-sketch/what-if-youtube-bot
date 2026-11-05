@@ -135,7 +135,8 @@ Tablo dosyasını Gemini'ye ekleyin ve komutu yapıştırın.
 Animate the attached painting. Keep it exactly as a painting: same composition, same brush strokes and colors, do not turn it into a photograph. Add only gentle subtle motion: the ships slowly move forward on the hill, ropes tighten, flags and sails flutter in the wind, clouds drift slowly, a little smoke rises. Very slow camera push-in. Horizontal 16:9. No text. No dialogue, no speech; only soft ambient sound.
 ```
 
-### T2 ⭐ — Zonaro: Fatih'in İstanbul'a girişi → `tablolar/T2_zonaro_fetih.jpg`
+### T2 ⭐ — Zonaro: Fatih'in İstanbul'a girişi
+Wikimedia indirmemi engellediği için dosyayı buradan indirin: https://commons.wikimedia.org/wiki/File:Conquest_of_Constantinople,_Zonaro.jpg
 ```
 Animate the attached painting. Keep it exactly as a painting: same composition, same brush strokes and colors, do not turn it into a photograph. Add only gentle subtle motion: banners and flags wave in the wind, the horses step slowly forward, smoke drifts in the background, light shimmers. Very slow camera push-in toward the sultan on the white horse. Horizontal 16:9. No text. No dialogue, no speech; only soft ambient sound.
 ```
@@ -145,7 +146,8 @@ Animate the attached painting. Keep it exactly as a painting: same composition, 
 Animate the attached medieval manuscript miniature. Keep it exactly as a painted miniature: same flat medieval style, colors and composition, do not make it realistic or 3D. Add only gentle subtle motion: tiny banners flutter, small puffs of cannon smoke rise, water ripples softly, tents sway slightly. Very slow camera pan across the scene. Horizontal 16:9. No text. No dialogue, no speech; only soft ambient sound.
 ```
 
-### T4 — Matejko: Varna Savaşı (1879) → `tablolar/T4_matejko_varna.jpg`
+### T4 — Matejko: Varna Savaşı (1879)
+Wikimedia indirmemi engellediği için dosyayı buradan indirin: https://commons.wikimedia.org/wiki/File:Battle_of_Varna,_Jan_Matejko.jpg
 ```
 Animate the attached painting. Keep it exactly as a painting: same composition, brush strokes and colors, do not turn it into a photograph. Add only gentle subtle motion: dust and smoke drift across the battlefield, banners and lances wave, horses' manes move, clouds drift. Very slow camera pan from left to right. Horizontal 16:9. No text. No dialogue, no speech; only soft ambient sound.
 ```
