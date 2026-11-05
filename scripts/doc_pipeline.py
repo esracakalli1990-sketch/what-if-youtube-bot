@@ -250,6 +250,9 @@ class Production:
             if "bounds" in props:            # coğrafi harita (MapStory, gerçek enlem/boylam)
                 self._render_geo_map(name, dict(props))
                 continue
+            if props.get("bilesen"):         # bilgi grafiği / karakter kartı (Infographic, PortraitCard)
+                self._render_component(name, dict(props))
+                continue
             props = dict(props)
             image = self._stage_image(props.get("image", ""))
             if props.pop("crop", None) and image:
@@ -264,6 +267,19 @@ class Production:
                             str(self.path("thumbs", f"kapak{ti + 1}.jpg")),
                             f"--props={json.dumps(props, ensure_ascii=False)}",
                             "--image-format=jpeg", "--jpeg-quality=90"])
+
+    def _render_component(self, name: str, props: dict):
+        """Remotion grafik bileşeni: görsel alanları (image/background) public/'e kopyalanır."""
+        comp = props.pop("bilesen")
+        public = REMOTION_DIR / "public"
+        public.mkdir(exist_ok=True)
+        for font in (PROJECT_ROOT / "assets" / "fonts").glob("*.ttf"):
+            shutil.copy2(font, public / font.name)
+        for key in ("image", "background"):
+            if props.get(key):
+                props[key] = self._stage_image(props[key])
+        self._remotion(["render", "src/index.ts", comp, str(self.path("maps", f"{name}.mp4")),
+                        f"--props={json.dumps(props, ensure_ascii=False)}", "--crf=16"])
 
     def _render_geo_map(self, name: str, props: dict):
         """taban: 'dunya' → NASA Blue Marble'dan kırpılan rölyef; 'parsomen' → yakın plan savaş zemini."""
