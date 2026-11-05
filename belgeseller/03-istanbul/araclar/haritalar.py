@@ -257,7 +257,7 @@ M["k_zaganos"] = K("Zağanos Paşa", "Vezir", ["Fetihten yana", "Rumeli Hisarı'
 M["k_urban"] = K("Urban", "Top ustası", ["Önce Bizans'a başvurdu", "Edirne'de dev topu döktü"], image="sahi_topu",
                  side="right")
 M["k_konstantin"] = K("XI. Konstantin", "Son Bizans İmparatoru", ["1449'dan beri imparator", "Şehri terk etmedi"],
-                      image="konstantin_minyatur", focusY=0.25)
+                      image="mermer_kule", focusY=0.4)
 M["k_giustiniani"] = K("Giovanni Giustiniani", "Cenevizli komutan", ["Kara surlarının savunmasını yönetti",
                        "Son hücumda ağır yaralandı"], image="surlar_kule", side="right")
 M["k_aksemseddin"] = K("Akşemseddin", "Fatih'in hocası", ["Zafer müjdesi veren mektuplar yazdı",
