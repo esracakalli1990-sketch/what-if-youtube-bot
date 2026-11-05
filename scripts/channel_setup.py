@@ -75,9 +75,27 @@ STUDIO_STEPS = """🛠️ YouTube Studio'da sizin yapacaklarınız (API bunlara 
 # Saf yardımcılar (test edilebilir)
 # ─────────────────────────────────────────────
 
+def _seconds(iso: str) -> int:
+    """ISO-8601 süre (PT1H2M3S) → saniye."""
+    import re
+    m = re.fullmatch(r"P(?:(\d+)D)?T?(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?", iso or "")
+    if not m:
+        return 0
+    d, h, mi, s = (int(x or 0) for x in m.groups())
+    return ((d * 24 + h) * 60 + mi) * 60 + s
+
+
+def is_short(video: dict) -> bool:
+    """Short'lar belgesel hedefi sayılmaz (planlanmaz, "silinebilir" listesine girmez)."""
+    title = video["snippet"]["title"].lower()
+    dur = _seconds(video.get("contentDetails", {}).get("duration", ""))
+    return "#shorts" in title or (0 < dur <= 180)
+
+
 def pick_latest(videos: list[dict], title_word: str) -> tuple[dict | None, list[dict]]:
-    """Başlığında `title_word` geçen videolardan en yeni yüklenen ve diğerleri."""
-    matching = [v for v in videos if title_word.lower() in v["snippet"]["title"].lower()]
+    """Başlığında `title_word` geçen belgesellerden (Short'lar hariç) en yeni yüklenen ve diğerleri."""
+    matching = [v for v in videos
+                if title_word.lower() in v["snippet"]["title"].lower() and not is_short(v)]
     matching.sort(key=lambda v: v["snippet"]["publishedAt"], reverse=True)
     return (matching[0] if matching else None), matching[1:]
 

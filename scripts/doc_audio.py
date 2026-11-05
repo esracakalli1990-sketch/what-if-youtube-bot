@@ -29,8 +29,11 @@ ELEVEN_MODEL = "eleven_multilingual_v2"
 TAG_MODELS = {"eleven_v3", "eleven_v4"}
 # Senaryoda Türkçe yazılan duygu işaretleri → model etiketleri. Seslendirilmez;
 # altyazıda görünmez. Listede olmayan [etiket] olduğu gibi modele gider.
+# Fısıltı kullanılmaz: Türkçe seslendirmede bazı yerlerde uyumsuz duyuldu (kullanıcı geri bildirimi,
+# Mısır belgeseli). Senaryoda kalmışsa sessizce atılır.
+DISABLED_DIRECTIONS = {"fısıltı", "fisilti", "whispers", "whisper"}
 DIRECTIONS = {
-    "fısıltı": "whispers", "fisilti": "whispers", "gerilim": "tense", "hayret": "surprised",
+    "gerilim": "tense", "hayret": "surprised",
     "şaşkın": "surprised", "ağır": "slow", "yavaş": "slow", "dramatik": "dramatic",
     "sakin": "calm", "heyecan": "excited", "hüzün": "sad", "ciddi": "serious",
     "merak": "curious", "vurgulu": "emphatic",
@@ -78,7 +81,7 @@ def display_text(text: str) -> str:
 def apply_directions(text: str, model: str) -> str:
     """
     Senaryodaki duygu işaretlerini modele çevir.
-    v3/v4: [fısıltı] → [whispers], [duraksama 1.5] → [pause].
+    v3/v4: [hayret] → [surprised], [duraksama 1.5] → [pause]; [fısıltı] atılır.
     v2: etiketler kaldırılır; duraksama → <break time="1.5s"/> (v2 bunu anlar).
     """
     def repl(m):
@@ -88,7 +91,7 @@ def apply_directions(text: str, model: str) -> str:
             secs = re.findall(r"[\d.,]+", key)
             sec = float(secs[0].replace(",", ".")) if secs else 1.0
             return "[pause]" if model in TAG_MODELS else f'<break time="{sec:.1f}s"/>'
-        if model not in TAG_MODELS:
+        if model not in TAG_MODELS or key in DISABLED_DIRECTIONS:
             return " "
         return f"[{DIRECTIONS.get(key, raw)}]"
     return re.sub(r"\s+", " ", MARKER.sub(repl, text)).strip()

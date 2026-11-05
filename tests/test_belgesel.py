@@ -749,7 +749,7 @@ def test_hitit_shorts_config_is_valid():
 def test_directions_for_v4_and_v2():
     t = "[sakin] Bir bahar sabahı. [duraksama 1.5] [fısıltı] Ama bilmediği bir şey vardı. [dramatic] Son."
     v4 = da.apply_directions(t, "eleven_v4")
-    assert v4 == "[calm] Bir bahar sabahı. [pause] [whispers] Ama bilmediği bir şey vardı. [dramatic] Son."
+    assert v4 == "[calm] Bir bahar sabahı. [pause] Ama bilmediği bir şey vardı. [dramatic] Son."  # fısıltı kapalı
     v2 = da.apply_directions(t, "eleven_multilingual_v2")
     assert "[" not in v2 and '<break time="1.5s"/>' in v2
     assert da.display_text(t) == "Bir bahar sabahı. Ama bilmediği bir şey vardı. Son."
@@ -811,7 +811,7 @@ def test_model_changes_cache_key_but_default_keeps_old(tmp_path, monkeypatch):
                         type("M", (), {"ElevenLabs": lambda api_key: None}))
     r = da.synthesize(["[fısıltı] Merhaba dünya."], tmp_path, voice_id="v", api_key="k",
                       engine="elevenlabs", model="eleven_v4")
-    assert seen == [("[whispers] Merhaba dünya.", "eleven_v4")]
+    assert seen == [("Merhaba dünya.", "eleven_v4")]   # fısıltı atılır
     assert [w["word"] for w in r[0]["words"]] == ["Merhaba", "dünya."]
     da.synthesize(["[fısıltı] Merhaba dünya."], tmp_path, voice_id="v", api_key="k",
                   engine="elevenlabs", model="eleven_v4")
