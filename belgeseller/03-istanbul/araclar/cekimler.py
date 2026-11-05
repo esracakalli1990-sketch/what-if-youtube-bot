@@ -58,7 +58,7 @@ SHOTS = {
  "6.6": [i("fatih_madalya", "in")],
  # VII. GEMİLER KARADAN YÜRÜYOR
  "7.0": [m("gemiler_karadan"), i("halic_2", "left")],
- "7.1": [c(6), i("galata", "up")],
+ "7.1": [c(6), i("halic", "up")],
  "7.2": [m("gemiler_karadan"), m("g_gemiler")],
  "7.3": [c(1), c(2)],
  "7.4": [i("zonaro_fetih", "in"), i("halic", "right")],
@@ -83,7 +83,7 @@ SHOTS = {
  # X. FETİH
  "10.0": [c(10), i("zonaro_fetih", "in", label=L("FATİH'İN İSTANBUL'A GİRİŞİ", "FAUSTO ZONARO"))],
  "10.1": [i("ayasofya_ic", "up"), i("ayasofya_2", "in")],
- "10.2": [i("gennadios", "in", label=L("FATİH VE PATRİK GENNADİOS", "MOZAİK")), i("galata", "left")],
+ "10.2": [i("gennadios", "in", label=L("FATİH VE PATRİK GENNADİOS", "MOZAİK")), i("ayasofya_2", "left")],
  "10.3": [m("osmanli_yukselis")],
  "10.4": [i("topkapi", "in", label=L("TOPKAPI SARAYI", "İSTANBUL")), i("fatih_camii", "left"), i("kapalicarsi", "in")],
  "10.5": [i("eyup_sultan", "in"), i("eyup_kubbe", "up")],

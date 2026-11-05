@@ -130,9 +130,6 @@
   "fatih_madalya": {
    "commons": "File:Costanzo da ferrara, medaglia con mehmed II, sultano ottomano, conquistatore di costantinopoli, 1478.jpg"
   },
-  "galata": {
-   "commons": "File:Istanbul asv2020-02 img48 Galata Tower.jpg"
-  },
   "gennadios": {
    "commons": "File:Gennadios II and Mehmed II.jpg"
   },
@@ -205,13 +202,13 @@
    "commons": "File:Istanbul Yedikule Theodosian Walls southern end in 2012 6416.jpg"
   },
   "surlar_kule": {
-   "commons": "File:Istanbul asv2021-11 img65 Walls of Constantinople.jpg"
+   "commons": "File:Istanbul Yedikule Theodosian Walls southern end in 2006 3426b.jpg"
   },
   "topkapi": {
-   "commons": "File:Istanbul asv2020-02 img23 Topkapı Palace.jpg"
+   "commons": "File:İstanbul - Topkapı Sarayı 1291.jpg"
   },
   "yedikule": {
-   "commons": "File:Istanbul asv2021-11 img60 Yedikule.jpg"
+   "commons": "File:Istanbul Marble Tower end of walls leading to it 0499.jpg"
   },
   "zonaro_fetih": {
    "commons": "File:Conquest of Constantinople, Zonaro.jpg",
@@ -6295,7 +6292,7 @@
        "sfx": true
       },
       {
-       "image": "galata",
+       "image": "halic",
        "move": "up"
       }
      ]
@@ -6619,7 +6616,7 @@
        }
       },
       {
-       "image": "galata",
+       "image": "ayasofya_2",
        "move": "left"
       }
      ]
