@@ -6484,9 +6484,8 @@
        "map": "son_hucum"
       },
       {
-       "clip": "klipler/klip12.mp4",
-       "move": "still",
-       "sfx": true
+       "image": "kusatma_maket",
+       "move": "right"
       }
      ]
     },
@@ -6499,8 +6498,9 @@
        "sfx": true
       },
       {
-       "image": "kusatma_maket",
-       "move": "in"
+       "image": "surlar_kule",
+       "move": "in",
+       "overlay": "katman_kivilcim"
       }
      ]
     },
@@ -6560,9 +6560,8 @@
      "text": "Sabah olduğunda, bin yılı aşkın süre fethedilemeyen şehrin surlarında Osmanlı sancakları dalgalanıyordu.",
      "shots": [
       {
-       "clip": "klipler/klip9.mp4",
-       "move": "still",
-       "sfx": true
+       "image": "kapak_sancak",
+       "move": "in"
       }
      ]
     }

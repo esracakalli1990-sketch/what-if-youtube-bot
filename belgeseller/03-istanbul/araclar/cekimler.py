@@ -73,13 +73,13 @@ SHOTS = {
  "8.5": [i("osmanli_minyatur", "in"), m("k_aksemseddin")],
  "8.6": [s("ates_gece"), i("fatih_bellini", "out")],
  # IX. SON HÜCUM
- "9.0": [m("son_hucum"), c(12)],
- "9.1": [c(12), i("kusatma_maket", "in")],
+ "9.0": [m("son_hucum"), i("kusatma_maket", "right")],
+ "9.1": [c(12), i("surlar_kule", "in", overlay="katman_kivilcim")],
  "9.2": [c(8), m("k_giustiniani")],
  "9.3": [m("kerkoporta"), i("surlar_kule", "left")],
  "9.4": [c(9), m("k_ulubatli")],
  "9.5": [i("surlar_genis", "right", overlay="katman_sis"), i("mermer_kule", "in")],
- "9.6": [c(9)],
+ "9.6": [i("kapak_sancak", "in")],
  # X. FETİH
  "10.0": [c(10), i("zonaro_fetih", "in", label=L("FATİH'İN İSTANBUL'A GİRİŞİ", "FAUSTO ZONARO"))],
  "10.1": [i("ayasofya_ic", "up"), i("ayasofya_2", "in")],
