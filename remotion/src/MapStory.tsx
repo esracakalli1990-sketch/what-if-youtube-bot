@@ -19,6 +19,12 @@ export type Label = {at: LonLat; text: string; start: number; kind?: 'sea' | 'ri
 export type River = {points: LonLat[]; name?: string; start: number; labelAt?: LonLat};
 export type Year = {t: number; text: string};
 export type CamKey = {t: number; center: LonLat; zoom: number};
+// Şehir planı katmanları (İstanbul kuşatması gibi yakın plan sahneler)
+export type Land = {poly: LonLat[]; start?: number};
+export type Line = {points: LonLat[]; kind: 'wall' | 'chain' | 'bridge' | 'trench'; start: number; duration?: number;
+  color?: string; label?: string; labelAt?: LonLat};
+export type Convoy = {points: LonLat[]; count: number; start: number; duration: number; spacing?: number;
+  color?: string; label?: string};
 
 export type MapStoryProps = {
   image: string;
@@ -34,6 +40,9 @@ export type MapStoryProps = {
   rivers: River[];
   years: Year[];
   camera: CamKey[];
+  lands?: Land[];       // kara parçaları (parşömen tabanda kıyı çizgisi)
+  lines?: Line[];       // sur, zincir, köprü, hendek
+  convoys?: Convoy[];   // rota boyunca art arda ilerleyen gemiler
   note: string;          // ör. "Sınırlar yaklaşıktır"
   durationSec: number;
 };
@@ -119,6 +128,51 @@ export const MapStory: React.FC<MapStoryProps> = (p) => {
           </svg>
         )}
         <svg width={W} height={H} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible'}}>
+          {(p.lands ?? []).length && !p.image ? (
+            <rect x={-W} y={-H} width={3 * W} height={3 * H} fill="#3f6470" opacity={0.5} />
+          ) : null}
+          {(p.lands ?? []).map((l, i) => {
+            const d = l.poly.map((q, j) => `${j ? 'L' : 'M'} ${proj(q).join(' ')}`).join(' ') + ' Z';
+            return (
+              <g key={`la${i}`} opacity={appear(l.start ?? 0, 0.8)}>
+                <path d={d} fill="#d6c08f" stroke="#4a3a26" strokeWidth={7 * s} strokeLinejoin="round" />
+                <path d={d} fill="url(#parsomen)" opacity={0.55} />
+              </g>
+            );
+          })}
+          {(p.lines ?? []).map((ln, i) => {
+            const pts = ln.points.map(proj);
+            const len = pathLen(pts);
+            const k = interpolate(t, [ln.start, ln.start + (ln.duration ?? 1.5)], [0, 1], {...clamp, easing: ease});
+            if (k <= 0) return null;
+            const d = pts.map(([x, y], j) => `${j ? 'L' : 'M'} ${x} ${y}`).join(' ');
+            const style = {
+              wall: {stroke: ln.color ?? '#3a2a1a', w: 22, dash: undefined as string | undefined, under: '#e9dcc0'},
+              chain: {stroke: ln.color ?? '#d9d9d9', w: 10, dash: `${16 * s} ${10 * s}`, under: '#1a1a1a'},
+              bridge: {stroke: ln.color ?? '#8a5a2b', w: 14, dash: `${6 * s} ${6 * s}`, under: '#2b1a0c'},
+              trench: {stroke: ln.color ?? '#6b4b2a', w: 9, dash: `${4 * s} ${8 * s}`, under: 'rgba(0,0,0,0.3)'},
+            }[ln.kind];
+            const [lx, ly] = ln.labelAt ? proj(ln.labelAt) : pointAt(pts, 0.5);
+            return (
+              <g key={`ln${i}`}>
+                <path d={d} fill="none" stroke={style.under} strokeWidth={(style.w + 10) * s} strokeLinecap="round"
+                  strokeLinejoin="round" strokeDasharray={len} strokeDashoffset={len * (1 - k)} opacity={0.8} />
+                <path d={d} fill="none" stroke={style.stroke} strokeWidth={style.w * s} strokeLinecap="round"
+                  strokeLinejoin="round" mask={`url(#lm${i})`} strokeDasharray={style.dash} />
+                {ln.kind === 'wall' ? (
+                  <path d={d} fill="none" stroke="#e9dcc0" strokeWidth={5 * s} strokeDasharray={`${10 * s} ${14 * s}`}
+                    mask={`url(#lm${i})`} />
+                ) : null}
+                <mask id={`lm${i}`}><path d={d} fill="none" stroke="#fff" strokeWidth={(style.w + 20) * s}
+                  strokeDasharray={len} strokeDashoffset={len * (1 - k)} /></mask>
+                {ln.label ? (
+                  <text x={lx} y={ly - 30 * s} textAnchor="middle" fontFamily={SANS} fontWeight={700}
+                    fontSize={40 * s} fill={IVORY} opacity={Math.min(1, k * 2)} stroke="rgba(0,0,0,0.85)"
+                    strokeWidth={8 * s} style={{paintOrder: 'stroke'}}>{ln.label}</text>
+                ) : null}
+              </g>
+            );
+          })}
           {p.regions.map((r, i) => {
             const on = appear(r.start, 1.0) * (r.end !== undefined ? 1 - appear(r.end, 1.0) : 1);
             if (on <= 0) return null;
@@ -219,6 +273,35 @@ export const MapStory: React.FC<MapStoryProps> = (p) => {
               </g>
             );
           })}
+          {(p.convoys ?? []).map((cv, i) => {
+            const pts = cv.points.map(proj);
+            const gap = cv.spacing ?? 0.35;
+            const [sx, sy] = pts[0];
+            return (
+              <g key={`cv${i}`}>
+                {Array.from({length: cv.count}, (_, j) => {
+                  const st = cv.start + j * gap;
+                  const k = interpolate(t, [st, st + cv.duration], [0, 1], {...clamp, easing: ease});
+                  if (t < st) return null;
+                  const [x, y] = pointAt(pts, k);
+                  const [px, py] = pointAt(pts, Math.max(0, k - 0.01));
+                  const ang = k > 0.005 ? (Math.atan2(y - py, x - px) * 180) / Math.PI : 0;
+                  return (
+                    <g key={j} transform={`translate(${x} ${y}) rotate(${ang}) scale(${s * 1.6})`}>
+                      <path d="M -34 -9 L 24 -9 L 40 0 L 24 9 L -34 9 Z" fill={cv.color ?? '#b5482f'} stroke="#000" strokeWidth={4} />
+                      <line x1={-6} y1={0} x2={-6} y2={-30} stroke="#000" strokeWidth={4} />
+                      <path d="M -6 -30 L 12 -16 L -6 -10 Z" fill={IVORY} stroke="#000" strokeWidth={2} />
+                    </g>
+                  );
+                })}
+                {cv.label ? (
+                  <text x={sx} y={sy - 50 * s} textAnchor="middle" fontFamily={SANS} fontWeight={700}
+                    fontSize={44 * s} fill={IVORY} opacity={appear(cv.start, 0.5)} stroke="rgba(0,0,0,0.85)"
+                    strokeWidth={9 * s} style={{paintOrder: 'stroke'}}>{cv.label}</text>
+                ) : null}
+              </g>
+            );
+          })}
           {p.clashes.map((c, i) => {
             const [x, y] = proj(c.at);
             const k = interpolate(t, [c.start, c.start + 1.2], [0, 1], clamp);
@@ -261,7 +344,8 @@ export const MapStory: React.FC<MapStoryProps> = (p) => {
           textShadow: '0 3px 16px rgba(0,0,0,0.9)'}}>{p.subtitle}</div>
       </div>
       {year ? (
-        <div style={{position: 'absolute', right: 120, top: 92, fontFamily: SERIF, fontWeight: 700, fontSize: 92,
+        <div style={{position: 'absolute', right: 120, top: 92, fontFamily: SERIF, fontWeight: 700,
+          fontSize: year.text.length > 10 ? 60 : 92,
           color: IVORY, textShadow: '0 4px 24px rgba(0,0,0,0.9)', opacity: appear(year.t, 0.4)}}>{year.text}</div>
       ) : null}
       {p.note ? (

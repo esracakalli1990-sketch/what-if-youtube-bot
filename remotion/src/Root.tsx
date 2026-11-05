@@ -6,6 +6,8 @@ import {MapMoves, MapMovesProps} from './MapMoves';
 import {ChannelBanner, ChannelAvatar} from './ChannelArt';
 import {ThumbnailV2, ThumbV2Props} from './ThumbnailV2';
 import {MapStory, MapStoryProps} from './MapStory';
+import {Infographic, InfographicProps} from './Infographic';
+import {PortraitCard, PortraitCardProps} from './PortraitCard';
 
 // Belgesel grafik parçaları. Gövde (fotoğraf + Ken Burns) Python render
 // motorunda üretilir; burada yalnızca animasyonlu grafik klipleri var.
@@ -51,6 +53,27 @@ export const Root: React.FC = () => (
     defaultProps={{image: '', bounds: {west: 16, east: 48, south: 22, north: 40}, title: '', subtitle: '',
       regions: [], routes: [], units: [], clashes: [], cities: [], labels: [], rivers: [], years: [], camera: [],
       note: '', durationSec: 10} as MapStoryProps}
+  />
+  <Composition
+    id="Infographic"
+    component={Infographic}
+    durationInFrames={300}
+    fps={30}
+    width={2560}
+    height={1440}
+    calculateMetadata={({props}: {props: InfographicProps}) => ({durationInFrames: Math.round(props.durationSec * 30)})}
+    defaultProps={{type: 'rakam', title: 'Kuşatma', subtitle: '', stats: [{value: 53, suffix: ' gün', label: 'süren kuşatma'}],
+      durationSec: 8} as InfographicProps}
+  />
+  <Composition
+    id="PortraitCard"
+    component={PortraitCard}
+    durationInFrames={210}
+    fps={30}
+    width={2560}
+    height={1440}
+    calculateMetadata={({props}: {props: PortraitCardProps}) => ({durationInFrames: Math.round(props.durationSec * 30)})}
+    defaultProps={{image: '', name: 'II. Mehmed', role: 'Osmanlı Sultanı', facts: ['Doğum: 1432, Edirne'], durationSec: 7} as PortraitCardProps}
   />
   <Composition
     id="ThumbnailV2"

@@ -43,3 +43,22 @@ def test_pick_latest_skips_shorts():
     latest, older = cs.pick_latest(vids, "Mısır")
     assert latest["id"] == "doc" and older == []
     assert cs._seconds("PT1H2M3S") == 3723 and cs._seconds("") == 0
+
+
+def test_component_maps_render_with_staged_images(tmp_path, monkeypatch):
+    """maps içinde "bilesen" olan girdiler kendi Remotion bileşeniyle render edilir; görseller sahnelenir."""
+    import sys
+    sys.path.insert(0, str(__import__("pathlib").Path(__file__).parent))
+    from test_belgesel import _mini_production
+    prod = _mini_production(tmp_path)
+    prod.data["maps"] = {"fatih": {"bilesen": "PortraitCard", "image": "g1", "name": "II. Mehmed", "role": "Sultan",
+                                   "facts": [], "durationSec": 6}}
+    calls = []
+    monkeypatch.setattr(prod, "_stage_image", lambda key: f"staged_{key}.jpg")
+    monkeypatch.setattr(prod, "_remotion", lambda args: calls.append(args))
+    prod.stage_kartlar()
+    comp_calls = [c for c in calls if c[2] == "PortraitCard"]
+    assert len(comp_calls) == 1
+    props = json.loads(comp_calls[0][-2].removeprefix("--props="))
+    assert props["image"] == "staged_g1.jpg" and "bilesen" not in props
+    assert comp_calls[0][3].endswith("maps/fatih.mp4")
