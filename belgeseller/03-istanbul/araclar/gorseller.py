@@ -39,6 +39,7 @@ F = {
 IMAGES = {k: {"commons": "File:" + v} for k, v in F.items()}
 # Kısa kenarı küçük ama eşsiz eserler
 IMAGES["zonaro_fetih"]["min_width"] = 1600
+IMAGES["konstantin_minyatur"] = {"commons": "File:Constantine XI Palaiologos miniature (color corrected).png", "min_width": 680}
 IMAGES["kusatma_minyatur"]["min_width"] = 1700
 # Kapak arka planları (Gemini klibinden kare; "temsili")
 IMAGES["kapak_gemiler"] = {"file": "kapak/gemiler.jpg", "credit": {"title": "Temsili canlandırma", "artist": "Gemini ile üretildi", "license": "—"}}
