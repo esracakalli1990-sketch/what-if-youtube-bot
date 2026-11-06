@@ -5,14 +5,12 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
 sys.path.insert(0, str(HERE))
 from haritalar import M
-from cekimler import SHOTS
+from cekimler import SHOTS, STOCK
 from gorseller import IMAGES
 
 MISIR = json.load(open(ROOT / "belgeseller/02-misir/cekim_plani.json", encoding="utf-8"))
 HITIT = json.load(open(ROOT / "belgeseller/01-hititler/cekim_plani.json", encoding="utf-8"))
 IMAGES["dunya"] = {"commons": "File:Whole world - land and oceans 12000.jpg", "original": True}
-STOCK = {k: HITIT["stock"][k] for k in ("ates_gece", "mum_isigi", "deniz_safak", "yildizli_gece",
-                                        "katman_toz", "katman_kivilcim", "katman_sis")}
 MUSIC = {"0": "karanlik", "1": "gizem", "2": "agir", "3": "derin", "4": "karanlik", "5": "ses", "6": "karanlik",
          "7": "agir", "8": "gizem", "9": "karanlik", "10": "isik", "11": "huzun"}
 CARDS = {"1": "buondelmonti", "2": "fatih_bellini", "3": "rumeli_hisari", "4": "sahi_topu", "5": "surlar_genis",
@@ -68,6 +66,7 @@ missing = sorted(used - set(IMAGES))
 maps_used = {x["map"] for v in SHOTS.values() for x in v if "map" in x}
 plan["images"] = {k: v for k, v in sorted(IMAGES.items()) if k in used}
 plan["maps"] = {k: v for k, v in M.items() if k in maps_used}
+plan["stock"] = {k: v for k, v in STOCK.items() if k in {x.get("stock") for vv in SHOTS.values() for x in vv}}
 stock_used = {x.get("stock") for v in SHOTS.values() for x in v} | {x.get("overlay") for v in SHOTS.values() for x in v}
 print("eksik görsel:", missing, "| eksik stok:", sorted(x for x in stock_used - set(STOCK) if x),
       "| kullanılmayan harita:", sorted(set(M) - maps_used))

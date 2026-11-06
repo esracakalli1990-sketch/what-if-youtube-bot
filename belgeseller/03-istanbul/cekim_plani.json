@@ -112,9 +112,6 @@
   "edirne_cami": {
    "commons": "File:Eski Cami, Edirne 41.JPG"
   },
-  "edirne_panorama": {
-   "commons": "File:20120604 Edirne view from the top of the Minaret of Selimiye Mosque Edirne Turkey Panoramic.jpg"
-  },
   "eyup_kubbe": {
    "commons": "File:Dome of the Eyüp Sultan Mosque (2022).jpg"
   },
@@ -158,8 +155,9 @@
     "license": "—"
    }
   },
-  "kapalicarsi": {
-   "commons": "File:Grand Bazaar (Istanbul).jpg"
+  "konstantin_minyatur": {
+   "commons": "File:Constantine XI Palaiologos miniature (color corrected).png",
+   "min_width": 680
   },
   "konstantinopolis_mural": {
    "commons": "File:Constantinople mural, Istanbul Archaeological Museums.jpg"
@@ -204,15 +202,8 @@
   "surlar_kule": {
    "commons": "File:Istanbul Yedikule Theodosian Walls southern end in 2006 3426b.jpg"
   },
-  "topkapi": {
-   "commons": "File:İstanbul - Topkapı Sarayı 1291.jpg"
-  },
   "yedikule": {
    "commons": "File:Istanbul Marble Tower end of walls leading to it 0499.jpg"
-  },
-  "zonaro_fetih": {
-   "commons": "File:Conquest of Constantinople, Zonaro.jpg",
-   "min_width": 1600
   }
  },
  "cards": {
@@ -253,20 +244,20 @@
     }
    },
    {
-    "image": "halic",
-    "move": "left",
-    "overlay": "katman_sis"
+    "clip": "klipler/y10.mp4",
+    "move": "still",
+    "sfx": true
    }
   ],
   "0.1": [
    {
-    "image": "surlar_genis",
-    "move": "up"
-   },
-   {
     "clip": "klipler/klip2.mp4",
     "move": "still",
     "sfx": true
+   },
+   {
+    "stock": "p19671347",
+    "start": 0.0
    }
   ],
   "0.2": [
@@ -275,34 +266,37 @@
     "move": "in"
    },
    {
-    "image": "surlar_kule",
-    "move": "left"
+    "stock": "p32304331",
+    "start": 0.0
    },
    {
-    "clip": "klipler/klip4.mp4",
-    "move": "still",
-    "sfx": true
+    "stock": "p32304330",
+    "start": 0.0
    }
   ],
   "0.3": [
    {
-    "image": "rumeli_hisari",
-    "move": "right"
+    "stock": "p31639721",
+    "start": 0.0
    },
    {
     "image": "sahi_topu",
     "move": "in"
    },
    {
-    "map": "sehir_plani"
-   },
-   {
-    "clip": "klipler/klip8.mp4",
-    "move": "still",
-    "sfx": true
+    "stock": "p14441647",
+    "start": 0.0
    }
   ],
   "1.0": [
+   {
+    "stock": "p34432985",
+    "start": 0.0
+   },
+   {
+    "stock": "p37789039",
+    "start": 0.0
+   },
    {
     "image": "buondelmonti",
     "move": "in",
@@ -310,14 +304,6 @@
      "title": "KONSTANTİNOPOLİS",
      "subtitle": "BUONDELMONTİ HARİTASI · 1422"
     }
-   },
-   {
-    "image": "ayasofya",
-    "move": "left"
-   },
-   {
-    "image": "halic_2",
-    "move": "right"
    }
   ],
   "1.1": [
@@ -325,22 +311,30 @@
     "map": "eski_kusatmalar"
    },
    {
-    "image": "surlar_guney",
-    "move": "in"
+    "image": "anadolu_hisari",
+    "move": "left",
+    "label": {
+     "title": "ANADOLU HİSARI",
+     "subtitle": "1394 · BUGÜN"
+    }
    }
   ],
   "1.2": [
    {
-    "image": "eyup_sultan",
-    "move": "in",
+    "stock": "p29217883",
+    "start": 0.0,
     "label": {
      "title": "EYÜP SULTAN",
-     "subtitle": "İSTANBUL"
+     "subtitle": "İSTANBUL · BUGÜN"
     }
    },
    {
     "image": "eyup_kubbe",
     "move": "up"
+   },
+   {
+    "image": "eyup_sultan",
+    "move": "in"
    }
   ],
   "1.3": [
@@ -348,32 +342,37 @@
     "map": "bizans_kuculme"
    },
    {
-    "image": "konstantinopolis_mural",
-    "move": "in"
+    "clip": "klipler/y2.mp4",
+    "move": "still",
+    "sfx": true
+   },
+   {
+    "image": "buondelmonti",
+    "move": "right"
    }
   ],
   "1.4": [
    {
-    "image": "buondelmonti",
-    "move": "out"
+    "stock": "p35615255",
+    "start": 0.0
    },
    {
-    "image": "ayasofya_2",
+    "image": "ayasofya",
     "move": "in"
    },
    {
-    "stock": "yildizli_gece",
+    "stock": "p37191274",
     "start": 0.0
    }
   ],
   "1.5": [
    {
-    "image": "altin_kapi",
-    "move": "in"
+    "stock": "p34490200",
+    "start": 0.0
    },
    {
-    "image": "surlar_kule",
-    "move": "out"
+    "image": "surlar_genis",
+    "move": "left"
    }
   ],
   "2.0": [
@@ -381,18 +380,23 @@
     "map": "k_fatih"
    },
    {
-    "image": "fatih_madalya",
-    "move": "in"
+    "clip": "klipler/y3k.mp4",
+    "move": "still",
+    "sfx": false
+   },
+   {
+    "image": "edirne_cami",
+    "move": "left"
    }
   ],
   "2.1": [
    {
-    "image": "edirne_cami",
-    "move": "in"
-   },
-   {
     "image": "osmanli_minyatur",
     "move": "left"
+   },
+   {
+    "image": "fatih_madalya",
+    "move": "in"
    }
   ],
   "2.2": [
@@ -400,45 +404,54 @@
     "map": "varna_1444"
    },
    {
+    "clip": "klipler/t4.mp4",
+    "move": "still",
+    "sfx": true,
+    "label": {
+     "title": "VARNA SAVAŞI · 1444",
+     "subtitle": "MATEJKO TABLOSUNDAN TEMSİLİ CANLANDIRMA"
+    }
+   },
+   {
     "map": "g_yol"
    }
   ],
   "2.3": [
    {
-    "image": "osmanli_minyatur",
-    "move": "right"
-   },
-   {
-    "stock": "mum_isigi",
-    "start": 0.0
+    "map": "g_yol"
    }
   ],
   "2.4": [
    {
-    "image": "edirne_panorama",
-    "move": "left",
+    "stock": "p31774009",
+    "start": 0.0,
     "label": {
      "title": "EDİRNE",
-     "subtitle": "OSMANLI BAŞKENTİ · 1451"
+     "subtitle": "OSMANLI BAŞKENTİ · BUGÜN"
     }
    },
    {
-    "image": "fatih_bellini",
+    "image": "edirne_cami",
     "move": "in"
    }
   ],
   "2.5": [
    {
-    "map": "k_candarli"
+    "clip": "klipler/y4.mp4",
+    "move": "still",
+    "sfx": true
    },
    {
-    "map": "k_zaganos"
+    "map": "sehir_plani"
+   },
+   {
+    "map": "k_fatih"
    }
   ],
   "2.6": [
    {
-    "image": "buondelmonti",
-    "move": "in"
+    "stock": "p37191274",
+    "start": 12.0
    }
   ],
   "3.0": [
@@ -446,14 +459,19 @@
     "map": "bogazkesen"
    },
    {
-    "image": "anadolu_hisari",
-    "move": "left"
+    "stock": "p33294992",
+    "start": 0.0
    }
   ],
   "3.1": [
    {
-    "image": "rumeli_hisari",
-    "move": "in",
+    "clip": "klipler/y5.mp4",
+    "move": "still",
+    "sfx": true
+   },
+   {
+    "stock": "p33294993",
+    "start": 0.0,
     "label": {
      "title": "RUMELİ HİSARI",
      "subtitle": "BOĞAZKESEN · 1452"
@@ -465,22 +483,21 @@
   ],
   "3.2": [
    {
-    "image": "rumeli_hisari_kule",
-    "move": "up"
-   },
-   {
     "clip": "klipler/klip3.mp4",
     "move": "still",
     "sfx": true
+   },
+   {
+    "image": "rumeli_hisari_kule",
+    "move": "up"
    }
   ],
   "3.3": [
    {
-    "image": "bogaz_gravur",
-    "move": "left"
+    "map": "k_konstantin"
    },
    {
-    "stock": "mum_isigi",
+    "stock": "p35977724",
     "start": 0.0
    }
   ],
@@ -489,38 +506,47 @@
     "map": "donanma_gelibolu"
    },
    {
-    "stock": "deniz_safak",
+    "stock": "p39394631",
     "start": 0.0
    }
   ],
   "3.5": [
    {
     "image": "kusatma_gravur",
-    "move": "in"
+    "move": "right"
    },
    {
-    "image": "buondelmonti",
-    "move": "right"
+    "map": "kusatma_dizilis"
    }
   ],
   "4.0": [
    {
-    "stock": "ates_gece",
+    "clip": "klipler/y6.mp4",
+    "move": "still",
+    "sfx": true,
+    "label": {
+     "title": "URBAN",
+     "subtitle": "TOP DÖKÜMCÜSÜ · TEMSİLİ CANLANDIRMA"
+    }
+   },
+   {
+    "stock": "p32304332",
     "start": 0.0
    },
    {
-    "map": "k_urban"
+    "image": "altin_kapi",
+    "move": "in"
    }
   ],
   "4.1": [
    {
-    "image": "sahi_topu_2",
-    "move": "in",
-    "overlay": "katman_kivilcim"
+    "clip": "klipler/y1.mp4",
+    "move": "still",
+    "sfx": true
    },
    {
-    "stock": "ates_gece",
-    "start": 5.0
+    "image": "fatih_madalya",
+    "move": "out"
    }
   ],
   "4.2": [
@@ -528,8 +554,9 @@
     "map": "g_top"
    },
    {
-    "image": "sahi_topu",
-    "move": "left"
+    "clip": "klipler/klip4.mp4",
+    "move": "still",
+    "sfx": true
    }
   ],
   "4.3": [
@@ -537,14 +564,15 @@
     "map": "topun_yolu"
    },
    {
-    "image": "edirne_panorama",
-    "move": "right"
+    "clip": "klipler/y7.mp4",
+    "move": "still",
+    "sfx": true
    }
   ],
   "4.4": [
    {
     "image": "sahi_topu",
-    "move": "in",
+    "move": "left",
     "label": {
      "title": "OSMANLI TOPU · 1464",
      "subtitle": "BUGÜN İNGİLTERE'DE SERGİLENİYOR"
@@ -552,7 +580,7 @@
    },
    {
     "image": "sahi_topu_2",
-    "move": "right"
+    "move": "in"
    }
   ],
   "4.5": [
@@ -566,16 +594,16 @@
   ],
   "5.0": [
    {
-    "image": "surlar_genis",
-    "move": "left",
+    "stock": "p32304330",
+    "start": 8.0,
     "label": {
      "title": "THEODOSİUS SURLARI",
-     "subtitle": "İSTANBUL"
+     "subtitle": "İSTANBUL · BUGÜN"
     }
    },
    {
-    "image": "mermer_kule",
-    "move": "up"
+    "stock": "p32304336",
+    "start": 0.0
    }
   ],
   "5.1": [
@@ -590,31 +618,52 @@
   "5.2": [
    {
     "map": "sehir_plani"
+   },
+   {
+    "stock": "p19057675",
+    "start": 0.0
    }
   ],
   "5.3": [
    {
-    "map": "k_konstantin"
+    "clip": "klipler/y8.mp4",
+    "move": "still",
+    "sfx": true,
+    "label": {
+     "title": "GİOVANNİ GİUSTİNİANİ",
+     "subtitle": "CENEVİZLİ KOMUTAN · TEMSİLİ CANLANDIRMA"
+    }
    },
    {
-    "map": "k_giustiniani"
+    "map": "g_iki_taraf"
+   },
+   {
+    "image": "mermer_kule",
+    "move": "up"
    }
   ],
   "5.4": [
    {
-    "image": "ayasofya_ic",
-    "move": "in",
-    "overlay": "katman_toz"
+    "stock": "p10716775",
+    "start": 0.0
    },
    {
-    "image": "konstantinopolis_mural",
+    "image": "ayasofya_ic",
+    "move": "in"
+   },
+   {
+    "stock": "p38530731",
+    "start": 0.0
+   },
+   {
+    "image": "ayasofya_2",
     "move": "left"
    }
   ],
   "5.5": [
    {
-    "image": "yedikule",
-    "move": "out"
+    "stock": "p30734481",
+    "start": 0.0
    }
   ],
   "5.6": [
@@ -622,29 +671,29 @@
     "map": "kusatma_dizilis"
    },
    {
-    "map": "g_iki_taraf"
+    "image": "kusatma_maket",
+    "move": "left"
    }
   ],
   "6.0": [
    {
-    "clip": "klipler/klip4.mp4",
+    "clip": "klipler/y9.mp4",
     "move": "still",
     "sfx": true
-   },
-   {
-    "image": "surlar_kule",
-    "move": "in",
-    "overlay": "katman_kivilcim"
    }
   ],
   "6.1": [
    {
     "image": "kusatma_minyatur",
-    "move": "in"
+    "move": "in",
+    "label": {
+     "title": "KUŞATMA · 1453",
+     "subtitle": "JEAN LE TAVERNIER MİNYATÜRÜ"
+    }
    },
    {
-    "image": "surlar_genis",
-    "move": "right"
+    "image": "surlar_kule",
+    "move": "in"
    }
   ],
   "6.2": [
@@ -654,13 +703,21 @@
     "sfx": true
    },
    {
-    "stock": "ates_gece",
-    "start": 0.0
+    "image": "kusatma_gravur",
+    "move": "in"
+   },
+   {
+    "image": "altin_kapi",
+    "move": "right"
    }
   ],
   "6.3": [
    {
-    "map": "sehir_plani"
+    "map": "deniz_savasi"
+   },
+   {
+    "stock": "p19671347",
+    "start": 8.0
    },
    {
     "image": "halic",
@@ -669,11 +726,17 @@
   ],
   "6.4": [
    {
-    "map": "deniz_savasi"
+    "clip": "klipler/y11k.mp4",
+    "move": "still",
+    "sfx": true
    },
    {
-    "image": "kusatma_gravur",
-    "move": "in"
+    "stock": "p39394631",
+    "start": 7.0
+   },
+   {
+    "image": "bogaz_gravur",
+    "move": "left"
    }
   ],
   "6.5": [
@@ -683,14 +746,18 @@
     "sfx": true
    },
    {
-    "image": "fatih_bellini",
-    "move": "in"
+    "image": "surlar_kule",
+    "move": "left"
    }
   ],
   "6.6": [
    {
-    "image": "fatih_madalya",
-    "move": "in"
+    "stock": "p31822117",
+    "start": 0.0,
+    "label": {
+     "title": "GALATA SIRTLARI",
+     "subtitle": "BUGÜN"
+    }
    }
   ],
   "7.0": [
@@ -698,8 +765,8 @@
     "map": "gemiler_karadan"
    },
    {
-    "image": "halic_2",
-    "move": "left"
+    "stock": "p14441647",
+    "start": 18.0
    }
   ],
   "7.1": [
@@ -709,13 +776,23 @@
     "sfx": true
    },
    {
-    "image": "halic",
-    "move": "up"
+    "stock": "p34432939",
+    "start": 0.0,
+    "label": {
+     "title": "GEMİLERİN YOLU",
+     "subtitle": "BUGÜN BEYOĞLU · KASIMPAŞA"
+    }
    }
   ],
   "7.2": [
    {
-    "map": "gemiler_karadan"
+    "clip": "klipler/t1.mp4",
+    "move": "still",
+    "sfx": true,
+    "label": {
+     "title": "GEMİLER KARADAN YÜRÜYOR",
+     "subtitle": "ZONARO TABLOSUNDAN TEMSİLİ CANLANDIRMA"
+    }
    },
    {
     "map": "g_gemiler"
@@ -723,24 +800,23 @@
   ],
   "7.3": [
    {
-    "clip": "klipler/klip1.mp4",
+    "clip": "klipler/y12.mp4",
     "move": "still",
     "sfx": true
    },
    {
-    "clip": "klipler/klip2.mp4",
-    "move": "still",
-    "sfx": true
+    "image": "halic_2",
+    "move": "left"
    }
   ],
   "7.4": [
    {
-    "image": "zonaro_fetih",
-    "move": "in"
+    "stock": "p34432939",
+    "start": 8.0
    },
    {
-    "image": "halic",
-    "move": "right"
+    "image": "fatih_bellini",
+    "move": "out"
    }
   ],
   "7.5": [
@@ -748,8 +824,9 @@
     "map": "venedik_baskini"
    },
    {
-    "stock": "ates_gece",
-    "start": 0.0
+    "clip": "klipler/y13.mp4",
+    "move": "still",
+    "sfx": true
    }
   ],
   "7.6": [
@@ -757,8 +834,9 @@
     "map": "yuzer_kopru"
    },
    {
-    "image": "kusatma_maket",
-    "move": "left"
+    "clip": "klipler/y14.mp4",
+    "move": "still",
+    "sfx": true
    }
   ],
   "8.0": [
@@ -766,18 +844,23 @@
     "map": "g_tunel"
    },
    {
-    "stock": "mum_isigi",
-    "start": 0.0
+    "clip": "klipler/y15.mp4",
+    "move": "still",
+    "sfx": true
    }
   ],
   "8.1": [
    {
-    "image": "surlar_guney",
-    "move": "in"
+    "clip": "klipler/y16.mp4",
+    "move": "still",
+    "sfx": true
    },
    {
-    "stock": "ates_gece",
-    "start": 10.0
+    "map": "g_tunel"
+   },
+   {
+    "image": "surlar_guney",
+    "move": "right"
    }
   ],
   "8.2": [
@@ -787,18 +870,22 @@
     "sfx": true
    },
    {
-    "image": "kusatma_minyatur",
-    "move": "out"
+    "clip": "klipler/t5.mp4",
+    "move": "still",
+    "sfx": true,
+    "label": {
+     "title": "KUŞATMA PLANI",
+     "subtitle": "SCHREIBER GRAVÜRÜNDEN TEMSİLİ CANLANDIRMA"
+    }
    }
   ],
   "8.3": [
    {
-    "image": "ayasofya",
-    "move": "in",
-    "overlay": "katman_sis"
+    "stock": "p11229446",
+    "start": 0.0
    },
    {
-    "stock": "yildizli_gece",
+    "stock": "p12030510",
     "start": 0.0
    }
   ],
@@ -809,27 +896,54 @@
     "sfx": true
    },
    {
-    "image": "surlar_genis",
-    "move": "left"
+    "image": "konstantin_minyatur",
+    "move": "in",
+    "label": {
+     "title": "XI. KONSTANTİN",
+     "subtitle": "15. YÜZYIL MİNYATÜRÜ"
+    }
    }
   ],
   "8.5": [
    {
+    "clip": "klipler/y17k.mp4",
+    "move": "still",
+    "sfx": true,
+    "label": {
+     "title": "SON SAVAŞ DİVANI",
+     "subtitle": "TEMSİLİ CANLANDIRMA"
+    }
+   },
+   {
     "image": "osmanli_minyatur",
+    "move": "right"
+   },
+   {
+    "image": "konstantinopolis_mural",
     "move": "in"
    },
    {
-    "map": "k_aksemseddin"
+    "image": "rumeli_hisari_kule",
+    "move": "up",
+    "label": {
+     "title": "ZAĞANOS PAŞA KULESİ",
+     "subtitle": "RUMELİ HİSARI"
+    }
    }
   ],
   "8.6": [
    {
-    "stock": "ates_gece",
-    "start": 0.0
+    "clip": "klipler/y18.mp4",
+    "move": "still",
+    "sfx": true
    },
    {
-    "image": "fatih_bellini",
+    "image": "ayasofya",
     "move": "out"
+   },
+   {
+    "stock": "p12030510",
+    "start": 30.0
    }
   ],
   "9.0": [
@@ -837,8 +951,8 @@
     "map": "son_hucum"
    },
    {
-    "image": "kusatma_maket",
-    "move": "right"
+    "stock": "p39618754",
+    "start": 0.0
    }
   ],
   "9.1": [
@@ -848,19 +962,31 @@
     "sfx": true
    },
    {
-    "image": "surlar_kule",
-    "move": "in",
-    "overlay": "katman_kivilcim"
-   }
-  ],
-  "9.2": [
-   {
-    "clip": "klipler/klip8.mp4",
+    "clip": "klipler/y19k.mp4",
     "move": "still",
     "sfx": true
    },
    {
-    "map": "k_giustiniani"
+    "map": "son_hucum"
+   },
+   {
+    "stock": "p39618754",
+    "start": 7.0
+   }
+  ],
+  "9.2": [
+   {
+    "clip": "klipler/y20k.mp4",
+    "move": "still",
+    "sfx": true,
+    "label": {
+     "title": "GİUSTİNİANİ YARALANDI",
+     "subtitle": "TEMSİLİ CANLANDIRMA"
+    }
+   },
+   {
+    "image": "surlar_genis",
+    "move": "right"
    }
   ],
   "9.3": [
@@ -868,25 +994,38 @@
     "map": "kerkoporta"
    },
    {
-    "image": "surlar_kule",
-    "move": "left"
+    "stock": "p32304338",
+    "start": 0.0
+   },
+   {
+    "image": "yedikule",
+    "move": "in"
    }
   ],
   "9.4": [
    {
     "clip": "klipler/klip9.mp4",
     "move": "still",
-    "sfx": true
+    "sfx": true,
+    "label": {
+     "title": "ULUBATLI HASAN",
+     "subtitle": "TEMSİLİ CANLANDIRMA"
+    }
    },
    {
-    "map": "k_ulubatli"
+    "image": "kapak_sancak",
+    "move": "in"
    }
   ],
   "9.5": [
    {
-    "image": "surlar_genis",
-    "move": "right",
-    "overlay": "katman_sis"
+    "clip": "klipler/y21.mp4",
+    "move": "still",
+    "sfx": true
+   },
+   {
+    "image": "konstantinopolis_mural",
+    "move": "left"
    },
    {
     "image": "mermer_kule",
@@ -896,7 +1035,15 @@
   "9.6": [
    {
     "image": "kapak_sancak",
-    "move": "in"
+    "move": "out",
+    "label": {
+     "title": "29 MAYIS 1453",
+     "subtitle": "İSTANBUL"
+    }
+   },
+   {
+    "stock": "p35615255",
+    "start": 5.0
    }
   ],
   "10.0": [
@@ -906,22 +1053,27 @@
     "sfx": true
    },
    {
-    "image": "zonaro_fetih",
-    "move": "in",
+    "clip": "klipler/t2.mp4",
+    "move": "still",
+    "sfx": true,
     "label": {
-     "title": "FATİH'İN İSTANBUL'A GİRİŞİ",
-     "subtitle": "FAUSTO ZONARO"
+     "title": "FATİH İSTANBUL'DA",
+     "subtitle": "ZONARO TABLOSUNDAN TEMSİLİ CANLANDIRMA"
     }
    }
   ],
   "10.1": [
    {
-    "image": "ayasofya_ic",
-    "move": "up"
+    "stock": "p19163087",
+    "start": 0.0
    },
    {
-    "image": "ayasofya_2",
-    "move": "in"
+    "stock": "p38530728",
+    "start": 0.0
+   },
+   {
+    "image": "ayasofya_ic",
+    "move": "up"
    }
   ],
   "10.2": [
@@ -934,19 +1086,27 @@
     }
    },
    {
-    "image": "ayasofya_2",
-    "move": "left"
+    "stock": "p18293182",
+    "start": 0.0,
+    "label": {
+     "title": "GALATA KULESİ",
+     "subtitle": "CENEVİZ YAPISI · 1348"
+    }
    }
   ],
   "10.3": [
    {
     "map": "osmanli_yukselis"
+   },
+   {
+    "stock": "p34432986",
+    "start": 0.0
    }
   ],
   "10.4": [
    {
-    "image": "topkapi",
-    "move": "in",
+    "stock": "p19312245",
+    "start": 0.0,
     "label": {
      "title": "TOPKAPI SARAYI",
      "subtitle": "İSTANBUL"
@@ -954,72 +1114,212 @@
    },
    {
     "image": "fatih_camii",
-    "move": "left"
+    "move": "in",
+    "label": {
+     "title": "FATİH CAMİİ",
+     "subtitle": "İSTANBUL"
+    }
    },
    {
-    "image": "kapalicarsi",
-    "move": "in"
+    "stock": "p36403074",
+    "start": 0.0
    }
   ],
   "10.5": [
    {
+    "stock": "p29218872",
+    "start": 0.0
+   },
+   {
     "image": "eyup_sultan",
-    "move": "in"
+    "move": "up"
    },
    {
     "image": "eyup_kubbe",
-    "move": "up"
+    "move": "in"
    }
   ],
   "10.6": [
    {
-    "image": "fatih_bellini",
-    "move": "in"
+    "stock": "p35314400",
+    "start": 0.0
+   },
+   {
+    "image": "istanbul_siluet",
+    "move": "left"
    }
   ],
   "11.0": [
    {
-    "image": "istanbul_siluet",
-    "move": "left"
+    "stock": "p31639721",
+    "start": 8.0
+   },
+   {
+    "stock": "p32304331",
+    "start": 4.0
+   },
+   {
+    "stock": "p19163087",
+    "start": 7.0
+   },
+   {
+    "stock": "p34432926",
+    "start": 0.0
    },
    {
     "image": "rumeli_hisari_2",
-    "move": "right"
-   },
-   {
-    "image": "ayasofya",
-    "move": "out"
+    "move": "in"
    }
   ]
  },
  "stock": {
-  "ates_gece": {
-   "q": "bonfire flames night",
-   "id": 28802354
+  "p19671347": {
+   "q": "Golden Horn aerial",
+   "id": 19671347
   },
-  "mum_isigi": {
-   "q": "oil lamp flame dark",
-   "id": 34579325
+  "p32304331": {
+   "q": "Istanbul city walls aerial",
+   "id": 32304331
   },
-  "deniz_safak": {
-   "q": "calm sea horizon dawn",
-   "id": 33859149
+  "p31639721": {
+   "q": "Rumeli Hisari aerial",
+   "id": 31639721
   },
-  "yildizli_gece": {
-   "q": "starry night sky timelapse",
-   "id": 8644889
+  "p34432985": {
+   "q": "Istanbul historic peninsula drone",
+   "id": 34432985
   },
-  "katman_toz": {
-   "q": "dust particles floating black background",
-   "id": 28492353
+  "p37789039": {
+   "q": "Sarayburnu Istanbul sea",
+   "id": 37789039
   },
-  "katman_kivilcim": {
-   "q": "fire embers sparks black background",
-   "id": 9823510
+  "p29217883": {
+   "q": "Eyup Sultan mosque",
+   "id": 29217883
   },
-  "katman_sis": {
-   "q": "smoke fog black background",
-   "id": 6894947
+  "p35615255": {
+   "q": "Bosphorus sunrise",
+   "id": 35615255
+  },
+  "p34490200": {
+   "q": "Theodosian walls Istanbul",
+   "id": 34490200
+  },
+  "p31774009": {
+   "q": "Edirne Turkey",
+   "id": 31774009
+  },
+  "p37191274": {
+   "q": "ship Bosphorus strait",
+   "id": 37191274
+  },
+  "p33294992": {
+   "q": "Rumeli fortress Bosphorus",
+   "id": 33294992
+  },
+  "p33294993": {
+   "q": "Rumeli Hisari aerial",
+   "id": 33294993
+  },
+  "p35977724": {
+   "q": "Bosphorus fog",
+   "id": 35977724
+  },
+  "p39394631": {
+   "q": "empty sea horizon calm",
+   "id": 39394631
+  },
+  "p32304330": {
+   "q": "Istanbul city walls aerial",
+   "id": 32304330
+  },
+  "p32304332": {
+   "q": "Istanbul city walls aerial",
+   "id": 32304332
+  },
+  "p32304336": {
+   "q": "Yedikule fortress",
+   "id": 32304336
+  },
+  "p32304338": {
+   "q": "Yedikule fortress",
+   "id": 32304338
+  },
+  "p19057675": {
+   "q": "Golden Horn Istanbul",
+   "id": 19057675
+  },
+  "p10716775": {
+   "q": "Hagia Sophia interior",
+   "id": 10716775
+  },
+  "p38530731": {
+   "q": "Hagia Sophia interior",
+   "id": 38530731
+  },
+  "p38530728": {
+   "q": "Hagia Sophia interior",
+   "id": 38530728
+  },
+  "p30734481": {
+   "q": "empty sea horizon calm",
+   "id": 30734481
+  },
+  "p31822117": {
+   "q": "Galata hill aerial Istanbul",
+   "id": 31822117
+  },
+  "p14441647": {
+   "q": "Golden Horn aerial",
+   "id": 14441647
+  },
+  "p34432939": {
+   "q": "Galata hill aerial Istanbul",
+   "id": 34432939
+  },
+  "p11229446": {
+   "q": "lunar eclipse blood moon",
+   "id": 11229446
+  },
+  "p12030510": {
+   "q": "Hagia Sophia night",
+   "id": 12030510
+  },
+  "p39618754": {
+   "q": "Ottoman mehter band",
+   "id": 39618754
+  },
+  "p19163087": {
+   "q": "Hagia Sophia aerial drone",
+   "id": 19163087
+  },
+  "p18293182": {
+   "q": "Galata tower",
+   "id": 18293182
+  },
+  "p34432986": {
+   "q": "Topkapi palace",
+   "id": 34432986
+  },
+  "p19312245": {
+   "q": "Topkapi palace",
+   "id": 19312245
+  },
+  "p36403074": {
+   "q": "Grand Bazaar Istanbul",
+   "id": 36403074
+  },
+  "p29218872": {
+   "q": "Eyup Sultan mosque",
+   "id": 29218872
+  },
+  "p35314400": {
+   "q": "Istanbul skyline sunset",
+   "id": 35314400
+  },
+  "p34432926": {
+   "q": "Istanbul skyline night",
+   "id": 34432926
   }
  },
  "films": {},
@@ -6274,95 +6574,17 @@
    "side": "left",
    "durationSec": 7
   },
-  "k_candarli": {
-   "bilesen": "PortraitCard",
-   "image": "edirne_cami",
-   "name": "Çandarlı Halil Paşa",
-   "role": "Sadrazam",
-   "facts": [
-    "Barıştan yana",
-    "Kuşatmanın kaldırılmasını önerdi"
-   ],
-   "focusY": 0.3,
-   "side": "right",
-   "durationSec": 7
-  },
-  "k_zaganos": {
-   "bilesen": "PortraitCard",
-   "image": "rumeli_hisari_kule",
-   "name": "Zağanos Paşa",
-   "role": "Vezir",
-   "facts": [
-    "Fetihten yana",
-    "Rumeli Hisarı'nda bir kule onun adını taşır"
-   ],
-   "focusY": 0.3,
-   "side": "left",
-   "durationSec": 7
-  },
-  "k_urban": {
-   "bilesen": "PortraitCard",
-   "image": "sahi_topu",
-   "name": "Urban",
-   "role": "Top ustası",
-   "facts": [
-    "Önce Bizans'a başvurdu",
-    "Edirne'de dev topu döktü"
-   ],
-   "focusY": 0.3,
-   "side": "right",
-   "durationSec": 7
-  },
   "k_konstantin": {
    "bilesen": "PortraitCard",
-   "image": "mermer_kule",
+   "image": "konstantin_minyatur",
    "name": "XI. Konstantin",
    "role": "Son Bizans İmparatoru",
    "facts": [
     "1449'dan beri imparator",
     "Şehri terk etmedi"
    ],
-   "focusY": 0.4,
+   "focusY": 0.25,
    "side": "left",
-   "durationSec": 7
-  },
-  "k_giustiniani": {
-   "bilesen": "PortraitCard",
-   "image": "surlar_kule",
-   "name": "Giovanni Giustiniani",
-   "role": "Cenevizli komutan",
-   "facts": [
-    "Kara surlarının savunmasını yönetti",
-    "Son hücumda ağır yaralandı"
-   ],
-   "focusY": 0.3,
-   "side": "right",
-   "durationSec": 7
-  },
-  "k_aksemseddin": {
-   "bilesen": "PortraitCard",
-   "image": "eyup_sultan",
-   "name": "Akşemseddin",
-   "role": "Fatih'in hocası",
-   "facts": [
-    "Zafer müjdesi veren mektuplar yazdı",
-    "Eyüp Sultan'ın kabrini bulduğu anlatılır"
-   ],
-   "focusY": 0.3,
-   "side": "left",
-   "durationSec": 7
-  },
-  "k_ulubatli": {
-   "bilesen": "PortraitCard",
-   "image": "surlar_genis",
-   "name": "Ulubatlı Hasan",
-   "role": "Yeniçeri",
-   "facts": [
-    "Osmanlı geleneğine göre sancağı surlara ilk diken",
-    "Orada şehit düştü"
-   ],
-   "focusY": 0.3,
-   "side": "right",
    "durationSec": 7
   }
  },
