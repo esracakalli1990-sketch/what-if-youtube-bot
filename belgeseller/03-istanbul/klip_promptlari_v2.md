@@ -12,6 +12,8 @@ Elimizdeki 12 klip (Klip 1–12) **aynen kalıyor**; her biri videoda bir kez ku
 - Tuhaf eller, birleşmiş atlar ya da eriyen yüzler varsa yeniden üretin.
 - Görünür filigran varsa kırpmayacağım; bana söyleyin.
 
+**Komutlarda gerçek kişi adı yok.** Gemini, adı geçen tanınmış tarihî kişileri içeren komutları reddediyor ("tanınmış kişiler" politikası). Bu yüzden "Mehmed II" ya da "Konstantin" yerine "genç bir Osmanlı sultanı" gibi tarifler kullanıldı. Kim olduğunu anlatım ve ekrandaki yazı söylüyor.
+
 **Fatih'in göründüğü kliplerde (Y1, Y3, Y4, Y19)** `belgeseller/karakterler/fatih.jpg` portresini Gemini'ye **görsel olarak ekleyin** (ataç ya da "+"), sonra komutu yapıştırın.
 
 **Tablo canlandırmaları (T1–T5):** Tablo dosyasını Gemini'ye ekleyip komutu yapıştırın. Dosyalar `belgeseller/03-istanbul/tablolar/` klasöründe; ayrıca size ayrı ayrı gönderiyorum. Amaç tabloyu değiştirmek değil, **içinde hafif hareket** yaratmak: dalgalanan sancak, yükselen duman, ilerleyen gemiler. Gemini tabloyu "fotoğraf gibi" yeniden çizerse o klibi kullanmayız; tablo görünümü korunmalı.
@@ -22,7 +24,7 @@ Elimizdeki 12 klip (Klip 1–12) **aynen kalıyor**; her biri videoda bir kez ku
 
 ### Y1 ⭐ — Fatih ordugâhtan surlara bakıyor (Giriş)
 ```
-Use the attached image as the exact face and costume of the sultan. Horizontal 16:9 landscape video. Cinematic shot at golden hour, spring 1453: the young Ottoman sultan Mehmed II (slim young man, oval face, light olive skin, dark almond-shaped eyes, slightly hooked aquiline nose, short neat dark-brown beard, large rounded white turban with a small red top, crimson red kaftan with gold embroidery) stands on a low hill in front of his army camp of white and red tents, looking toward the distant massive stone walls of Constantinople with towers along the horizon. Slow camera orbit from behind his shoulder to a three-quarter view of his determined face. Wind moves his kaftan. Photorealistic historical documentary reconstruction. No text, no modern flags, no modern objects. No dialogue, no speech, no narration, no spoken words; only natural ambient sound.
+Use the attached image as the exact face and costume of the sultan. Horizontal 16:9 landscape video. Cinematic shot at golden hour, spring, 15th century: a young Ottoman sultan (slim young man, oval face, light olive skin, dark almond-shaped eyes, slightly hooked aquiline nose, short neat dark-brown beard, large rounded white turban with a small red top, crimson red kaftan with gold embroidery) stands on a low hill in front of his army camp of white and red tents, looking toward the distant massive stone walls of a great medieval city with towers along the horizon. Slow camera orbit from behind his shoulder to a three-quarter view of his determined face. Wind moves his kaftan. Photorealistic historical documentary reconstruction. No text, no modern flags, no modern objects. No dialogue, no speech, no narration, no spoken words; only natural ambient sound.
 ```
 
 ### Y2 — Yarı boş Konstantinopolis (Bölüm I)
@@ -32,12 +34,12 @@ Horizontal 16:9 landscape video. Cinematic slow aerial drift over a half-empty m
 
 ### Y3 — Genç Mehmed mum ışığında okuyor (Bölüm II)
 ```
-Use the attached image as the face reference, but make him younger: about 16 years old, with only a very light beginning of a beard. Horizontal 16:9 landscape video. Cinematic interior at night, 15th-century Ottoman palace room: the young prince Mehmed in a white turban and a red kaftan sits cross-legged on a carpet, reading large illuminated manuscripts and maps by the warm light of oil lamps, turning a page, then looking up thoughtfully. Shelves of books, carved wooden window. Slow push-in. Photorealistic historical documentary reconstruction. No text on screen, no modern objects. No dialogue, no speech, no narration, no spoken words; only natural ambient sound.
+Use the attached image as the face reference, but make him younger: about 16 years old, with only a very light beginning of a beard. Horizontal 16:9 landscape video. Cinematic interior at night, 15th-century Ottoman palace room: a young Ottoman prince in a white turban and a red kaftan sits cross-legged on a carpet, reading large illuminated manuscripts and maps by the warm light of oil lamps, turning a page, then looking up thoughtfully. Shelves of books, carved wooden window. Slow push-in. Photorealistic historical documentary reconstruction. No text on screen, no modern objects. No dialogue, no speech, no narration, no spoken words; only natural ambient sound.
 ```
 
 ### Y4 ⭐ — Fatih gece şehrin planını çiziyor (Bölüm II)
 ```
-Use the attached image as the exact face and costume of the sultan. Horizontal 16:9 landscape video. Cinematic interior at night, 1452: the young sultan Mehmed II leans over a large wooden table covered with hand-drawn plans of a walled city on parchment, drawing lines with an ink pen by candlelight, pausing, tapping a point on the walls. Close-up of his hand and the plan, then his focused face lit by candles. Photorealistic historical documentary reconstruction. No readable text, no modern objects. No dialogue, no speech, no narration, no spoken words; only natural ambient sound.
+Use the attached image as the exact face and costume of the sultan. Horizontal 16:9 landscape video. Cinematic interior at night, 15th century: the young Ottoman sultan leans over a large wooden table covered with hand-drawn plans of a walled city on parchment, drawing lines with an ink pen by candlelight, pausing, tapping a point on the walls. Close-up of his hand and the plan, then his focused face lit by candles. Photorealistic historical documentary reconstruction. No readable text, no modern objects. No dialogue, no speech, no narration, no spoken words; only natural ambient sound.
 ```
 
 ### Y5 ⭐ — Rumeli Hisarı inşaatı (Bölüm III)
@@ -112,7 +114,7 @@ Horizontal 16:9 landscape video. Epic cinematic night shot, late May 1453: a vas
 
 ### Y19 — Fatih hendeğin kenarında (Bölüm IX)
 ```
-Use the attached image as the exact face and costume of the sultan. Horizontal 16:9 landscape video. Cinematic night shot, 29 May 1453: the young sultan Mehmed II on horseback at the edge of a wide moat in front of massive city walls lit by fires, raising his arm and urging his soldiers forward; janissaries in white caps rush past him toward the walls. Low angle shot, smoke and torchlight. Photorealistic historical documentary reconstruction. No text, no modern flags, no modern objects. No dialogue, no speech, no narration, no spoken words; only natural ambient sound.
+Use the attached image as the exact face and costume of the sultan. Horizontal 16:9 landscape video. Cinematic night shot, 15th century: the young Ottoman sultan on horseback at the edge of a wide moat in front of massive city walls lit by fires, raising his arm and urging his soldiers forward; janissaries in white caps rush past him toward the walls. Low angle shot, smoke and torchlight. Photorealistic historical documentary reconstruction. No text, no modern flags, no modern objects. No dialogue, no speech, no narration, no spoken words; only natural ambient sound.
 ```
 
 ### Y20 — Yaralı komutan surdan indiriliyor (Bölüm IX, Giustiniani)
@@ -122,7 +124,7 @@ Horizontal 16:9 landscape video. Cinematic shot at dawn, 29 May 1453: a wounded 
 
 ### Y21 — Son imparator kılıcını alıyor (Bölüm IX, Konstantin)
 ```
-Horizontal 16:9 landscape video. Cinematic dramatic shot at dawn, 29 May 1453: the last Byzantine emperor, a grey-bearded man in his late forties, removes his imperial purple cloak and golden insignia and lets them fall, takes a sword from a soldier and walks toward the fighting at the walls like an ordinary soldier, a few loyal men following him. Respectful, solemn tone. No gore. Smoke, firelight and grey dawn. Photorealistic historical documentary reconstruction. No text, no modern objects. No dialogue, no speech, no narration, no spoken words; only natural ambient sound.
+Horizontal 16:9 landscape video. Cinematic dramatic shot at dawn, 15th century: an old medieval emperor, a grey-bearded man in his late forties, removes his imperial purple cloak and golden insignia and lets them fall, takes a sword from a soldier and walks toward the fighting at the walls like an ordinary soldier, a few loyal men following him. Respectful, solemn tone. No gore. Smoke, firelight and grey dawn. Photorealistic historical documentary reconstruction. No text, no modern objects. No dialogue, no speech, no narration, no spoken words; only natural ambient sound.
 ```
 
 ---
