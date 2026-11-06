@@ -131,6 +131,8 @@ Horizontal 16:9 landscape video. Cinematic dramatic shot at dawn, 15th century: 
 ---
 
 ## TABLO CANLANDIRMALARI
+
+> **Karar (6 Kasım):** Gemini tabloyu az hareket ettirse bile (sadece duman ya da hafif dalgalanma) klip kullanılacak. Kamera yaklaşmasını ve kaydırmayı kurguda ben ekliyorum. Tabloyu tekrar tekrar üretmeye gerek yok, tek deneme yeterli.
 Tablo dosyasını Gemini'ye ekleyin ve komutu yapıştırın.
 
 ### T1 ⭐ — Zonaro: Gemilerin karadan yürütülmesi → `tablolar/T1_zonaro_gemiler.jpg`
