@@ -25,3 +25,12 @@ Her klip kare kare incelendi. Kurguda kullanılacak saniye aralıkları:
 | y19 | ✅ | 2–8,4 sn | Baş ve sonda siyah sinema şeritleri |
 | y20 | ✅ | 1,6–10 sn | Başta siyah sinema şeritleri |
 | y21 | ✅ | tamamı | |
+
+## Tablo canlandırmaları
+| Klip | Durum | Kullanılacak aralık | Not |
+|---|---|---|---|
+| t1 | ✅ | tamamı | Zonaro gemiler. 2. sn'den sonra Gemini kadrajı genişletmiş; yağlı boya görünümü korunuyor |
+| t2 | ✅ | tamamı | Zonaro giriş. 2. sn'den sonra Gemini sahneyi yeniden çizmiş (beyaz atlı sultan, top). Etiket: "ZONARO TABLOSUNDAN TEMSİLİ CANLANDIRMA" |
+| t3 | ⚠️ | 0–2,5 sn | 3. sn'den sonra Gemini başka bir şehir uyduruyor (gotik katedral, İngiliz sancakları). Konstantinopolis değil, kullanılmayacak. Yerine orijinal minyatür üzerinde yavaş kaydırma |
+| t4 | ✅ | tamamı | Matejko Varna. Sahne yeniden çizilmiş ama genel savaş sahnesi; "temsili" etiketiyle |
+| t5 | ✅ | tamamı | Schreiber gravürü, sadık ve yavaş yaklaşma |
