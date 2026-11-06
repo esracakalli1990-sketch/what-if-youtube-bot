@@ -20,7 +20,7 @@ Her klip kare kare incelendi. Kurguda kullanılacak saniye aralıkları:
 | y14 | ✅ | tamamı | |
 | y15 | ✅ | tamamı | |
 | y16 | ✅ | tamamı | |
-| y17 | ⚠️ yeniden üretilecek | yedek: 7–9 sn (harita yakın çekimi) | Osmanlı çadırında **haçlı sancak** ve cam fanuslu gaz lambası |
+| y17 | ✅ (2. üretim) | 5–10 sn | 0–4 sn'de kırmızı zemin üzerinde ay-yıldızlı sancak (modern bayrağa benziyor) görünüyor; o kısım kullanılmayacak |
 | y18 | ✅ | tamamı | |
 | y19 | ✅ | 2–8,4 sn | Baş ve sonda siyah sinema şeritleri |
 | y20 | ✅ | 1,6–10 sn | Başta siyah sinema şeritleri |
