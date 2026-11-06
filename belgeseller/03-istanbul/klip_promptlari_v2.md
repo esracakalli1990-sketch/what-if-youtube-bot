@@ -10,6 +10,7 @@ Elimizdeki 12 klip (Klip 1–12) **aynen kalıyor**; her biri videoda bir kez ku
 - **Yatay (16:9) olmalı.** Gemini'de "Yatay / Landscape" seçin.
 - Konuşma, yazı, logo ya da **modern Türk bayrağı** (kırmızı zemin üzerinde beyaz ay-yıldız) içermemeli. 1453 sancakları düz kırmızı ya da yeşildi.
 - Tuhaf eller, birleşmiş atlar ya da eriyen yüzler varsa yeniden üretin.
+- **Şehirde minare olmamalı.** 1453'ten önce Konstantinopolis'te kiliseler vardı, minare yoktu. Gemini bazen Ayasofya'ya minare ekliyor. Küçük ve bulanıksa ben o saniyeleri kesip çıkarırım; büyük ve belirginse klibi yeniden üretin. Yeniden üretirken komutun sonuna şunu ekleyin: *"Byzantine churches only, no minarets, no mosques."*
 - Görünür filigran varsa kırpmayacağım; bana söyleyin.
 
 **Komutlarda gerçek kişi adı yok.** Gemini, adı geçen tanınmış tarihî kişileri içeren komutları reddediyor ("tanınmış kişiler" politikası). Bu yüzden "Mehmed II" ya da "Konstantin" yerine "genç bir Osmanlı sultanı" gibi tarifler kullanıldı. Kim olduğunu anlatım ve ekrandaki yazı söylüyor.
