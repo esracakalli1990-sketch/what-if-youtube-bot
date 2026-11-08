@@ -2,12 +2,15 @@
 import json
 
 
-def test_channel_art_uses_series_images_and_skips_v2_thumbnails(tmp_path, monkeypatch):
-    """Mısır gibi Hitit görseli olmayan planlarda da banner/profil üretilebilmeli."""
+def test_channel_art_uses_series_images_and_renders_v2_thumbnails(tmp_path, monkeypatch):
+    """Banner/profil seri (Hitit) görselleriyle; v2 kapaklar da üretilip Telegram'a gönderilebilmeli."""
     from scripts import channel_setup as cs
     (tmp_path / "cekim_plani.json").write_text(json.dumps({
-        "images": {"tut_maske": {"commons": "File:X.jpg"}},
-        "thumbnails": [{"sablon": "v2", "odak": "tut_maske", "line1": "a", "line2": "b"}]}), encoding="utf-8")
+        "images": {"tut_maske": {"commons": "File:X.jpg"}, "yerel": {"file": "kapak/y.jpg"}},
+        "thumbnails": [{"sablon": "v2", "odak": "tut_maske", "line1": "a", "line2": "b"},
+                       {"sablon": "v2", "arka_plan": "yerel", "line1": "c", "line2": "d"}]}), encoding="utf-8")
+    (tmp_path / "kapak").mkdir()
+    (tmp_path / "kapak" / "y.jpg").write_bytes(b"x")
     fetched = []
 
     def fake_fetch(plan, keys, out_dir):
@@ -22,12 +25,21 @@ def test_channel_art_uses_series_images_and_skips_v2_thumbnails(tmp_path, monkey
         return res
 
     monkeypatch.setattr(cs, "_fetch", fake_fetch)
-    monkeypatch.setattr(cs, "_still", lambda comp, out, props, extra=None: out)
+    calls = []
+    monkeypatch.setattr(cs, "_still", lambda comp, out, props, extra=None: calls.append((comp, props)) or out)
     (tmp_path / "remotion").mkdir()
     monkeypatch.setattr(cs, "REMOTION_DIR", tmp_path / "remotion")
     art = cs.render_art(tmp_path, tmp_path / "out")
-    assert fetched == [["buyuk_mabet_3", "aslan_kapi_1"]]
-    assert set(art) == {"banner", "profil"}
+    assert fetched == [["buyuk_mabet_3", "aslan_kapi_1"], ["tut_maske"]]   # yerel dosya indirilmez
+    assert set(art) == {"banner", "profil", "kapak1", "kapak2"}
+    thumbs = [p for c, p in calls if c == "ThumbnailV2"]
+    assert thumbs[0]["subject"] == "kanal_tut_maske.jpg" and thumbs[1]["background"] == "kanal_yerel.jpg"
+
+
+def test_studio_steps_name_the_video():
+    from scripts.channel_setup import studio_steps
+    text = studio_steps("https://youtu.be/abc", "İstanbul")
+    assert "İstanbul videosu" in text and "https://youtu.be/abc" in text and "Hitit" not in text
 
 
 def test_pick_latest_skips_shorts():

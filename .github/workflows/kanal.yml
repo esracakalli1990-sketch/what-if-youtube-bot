@@ -86,7 +86,7 @@ jobs:
           import json, os
           from pathlib import Path
           from scripts.notifier import send_message, send_document
-          from scripts.channel_setup import STUDIO_STEPS
+          from scripts.channel_setup import studio_steps
           out = Path(os.environ["KLASOR"], "build", "kanal")
           mod, url = os.environ["MOD"], os.environ["RUN_URL"]
           if os.environ["SONUC"] != "success":
@@ -105,7 +105,7 @@ jobs:
               if r["silinebilir"]:
                   lines += ["🗑️ Silinebilir eski sürümler:"] + [f"• {x}" for x in r["silinebilir"]]
               send_message("\n".join(lines))
-              send_message(STUDIO_STEPS)
+              send_message(studio_steps(r["video"], r.get("baslik", "")))
               for key, cap in [("profil", "Profil resmi (Studio → Özelleştirme → Profil → Resim)"),
                                ("kapak1", "Kapak 1"), ("kapak2", "Kapak 2"), ("kapak3", "Kapak 3"),
                                ("banner", "Banner (kanala yüklendi)")]:
