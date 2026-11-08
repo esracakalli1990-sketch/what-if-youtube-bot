@@ -60,15 +60,20 @@ def first_comment(playlist_id: str | None, body: str | None = None) -> str:
     return "\n".join(lines)
 
 
-STUDIO_STEPS = """🛠️ YouTube Studio'da sizin yapacaklarınız (API bunlara izin vermiyor):
-1) Kanal adı: Studio → Özelleştirme → Profil → Ad: "Tarih Dosyaları" → Yayınla.
-   İsterseniz aynı ekrandan tanıtıcıyı (@) da değiştirin (ör. @tarihdosyalari).
-2) Profil resmi: aynı ekranda "Resim" → Telegram'a gelen profil.png dosyasını yükleyin.
-3) Kapak testi: İçerik → Hitit videosu → Kapak → "Test ve karşılaştır" → Telegram'a gelen 3 kapağı ekleyin.
-4) Yorumu sabitle: videonun yorumlarında kanalın yorumunun ⋮ menüsü → "Sabitle".
-5) Bitiş ekranı: video düzenle → Bitiş ekranı → "Abone ol" + "Oynatma listesi: Tarih Dosyaları: İmparatorluklar".
-6) Ana sayfa: Özelleştirme → Düzen → "Geri gelen aboneler için öne çıkan video" → Hitit videosu.
-7) Eski sürümler: aşağıda "silinebilir" yazan gizli Hitit videolarını İçerik'ten silin."""
+def studio_steps(video_url: str = "", name: str = "") -> str:
+    """Studio'da elle yapılacak adımlar (API izin vermiyor), o videoya göre."""
+    v = f"{name} videosu" if name else "yeni video"
+    link = f" ({video_url})" if video_url else ""
+    return (f"🛠️ YouTube Studio'da sizin yapacaklarınız — {v}{link}:\n"
+            f"1) Kapak testi: İçerik → {v} → Kapak → \"Test ve karşılaştır\" → aşağıdaki 3 kapağı ekleyin.\n"
+            "2) Yorumu sabitle: video yayına girince kanalın ilk yorumunun ⋮ menüsü → \"Sabitle\".\n"
+            f"3) Ana sayfa: Özelleştirme → Düzen → \"Geri gelen aboneler için öne çıkan video\" → {v}.\n"
+            "4) Shorts: her Short'ta \"İlgili video\" olarak bu videoyu seçin.\n"
+            "5) Aşağıda \"silinebilir\" yazan eski gizli sürüm varsa İçerik'ten silebilirsiniz.\n"
+            "Kanal adı, profil resmi ve banner zaten ayarlı; tekrar yapmanız gerekmez.")
+
+
+STUDIO_STEPS = studio_steps()   # geriye dönük uyumluluk
 
 
 # ─────────────────────────────────────────────
@@ -242,13 +247,16 @@ CHANNEL_ART_PLAN = PROJECT_ROOT / "belgeseller" / "01-hititler" / "cekim_plani.j
 def render_art(folder: Path, out_dir: Path) -> dict:
     """Banner, profil resmi ve 3 kapak."""
     plan = json.loads((folder / "cekim_plani.json").read_text(encoding="utf-8"))
-    # v2 kapaklar ("sablon": "v2") belgesel hattında üretilir; burada yalnızca eski şablon
-    thumbs = [t for t in plan.get("thumbnails", []) if t.get("image") and t.get("sablon") != "v2"]
+    thumbs = [t for t in plan.get("thumbnails", []) if t.get("image") or t.get("arka_plan") or t.get("odak")]
     # Kanal kimliği (banner, profil) her zaman seri görselleriyle: Hitit planından
     art_plan = json.loads(CHANNEL_ART_PLAN.read_text(encoding="utf-8"))
     paths = _fetch(art_plan, ["buyuk_mabet_3", "aslan_kapi_1"], out_dir / "gorseller")
-    if thumbs:
-        paths.update(_fetch(plan, list(dict.fromkeys(t["image"] for t in thumbs)), out_dir / "gorseller"))
+    keys = list(dict.fromkeys(t[f] for t in thumbs for f in ("image", "arka_plan", "odak") if t.get(f)))
+    local = {k: str(Path(folder) / plan["images"][k]["file"]) for k in keys if plan["images"][k].get("file")}
+    remote = [k for k in keys if k not in local]
+    if remote:
+        paths.update(_fetch(plan, remote, out_dir / "gorseller"))
+    paths.update(local)
     public = REMOTION_DIR / "public"
     public.mkdir(exist_ok=True)
     for font in (PROJECT_ROOT / "assets" / "fonts").glob("*.ttf"):
@@ -264,11 +272,10 @@ def render_art(folder: Path, out_dir: Path) -> dict:
         "profil": _still("ChannelAvatar", out_dir / "profil.png",
                          {"image": name["aslan_kapi_1"], "monogram": "TD", "focusX": 0.5, "focusY": 0.4}),
     }
+    from scripts.doc_pipeline import thumbnail_props
     for i, t in enumerate(thumbs, 1):
-        art[f"kapak{i}"] = _still("Thumbnail", out_dir / f"kapak{i}.jpg",
-                                  {"image": name[t["image"]], "line1": t.get("line1", ""),
-                                   "line2": t.get("line2", ""), "badge": t.get("badge", "TAM HİKÂYE"),
-                                   "focusX": t.get("focus_x", 0.6)},
+        comp, props = thumbnail_props(t, lambda k: name[k])
+        art[f"kapak{i}"] = _still(comp, out_dir / f"kapak{i}.jpg", props,
                                   ["--image-format=jpeg", "--jpeg-quality=92"])
     return art
 
@@ -352,7 +359,7 @@ def apply(yt, folder: Path, publish_at: str, title_word: str, out_dir: Path) -> 
     except Exception as e:
         problems.append(f"ilk yorum (yayından sonra tekrar denenecek): {e}")
 
-    return {"video": f"https://youtu.be/{vid}", "video_id": vid, "playlist_id": pl,
+    return {"video": f"https://youtu.be/{vid}", "video_id": vid, "playlist_id": pl, "baslik": title_word,
             "yapilanlar": done, "sorunlar": problems,
             "silinebilir": [f"https://youtu.be/{v['id']} ({v['status'].get('privacyStatus')})" for v in older],
             "dosyalar": {k: str(v) for k, v in art.items()}}
