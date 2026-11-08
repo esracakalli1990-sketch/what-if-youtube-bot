@@ -1,0 +1,51 @@
+{
+ "tam_video": "https://youtu.be/AI-RfRzQfos",
+ "etiketler": ["istanbul'un fethi", "fatih sultan mehmed", "1453", "osmanlı", "tarih", "belgesel", "shorts"],
+ "shorts": [
+  {
+   "id": "gemiler",
+   "paragraflar": ["0.0", "0.1"],
+   "muzik": "karanlik",
+   "kanca": "GEMİLER\nKARADAN YÜRÜDÜ",
+   "baslik": "1453: Gemiler bir gecede karadan Haliç'e indi #shorts",
+   "aciklama": "22 Nisan 1453 gecesi Osmanlı gemileri yağlanmış kalaslar üzerinde Galata sırtlarını aştı ve zincirle kapalı Haliç'e indi.",
+   "yayin": "2026-11-10T15:00:00Z"
+  },
+  {
+   "id": "top",
+   "paragraflar": ["4.1", "4.2"],
+   "muzik": "agir",
+   "kanca": "BİN YILLIK SURLARA\nKARŞI DEV TOP",
+   "baslik": "Fatih'in surları yıkmak için döktürdüğü dev top #shorts",
+   "aciklama": "Urban'ın Edirne'de döktüğü dev top, yüzlerce kiloluk taş gülleler atıyordu. İstanbul'un fethinden bir kesit.",
+   "yayin": "2026-11-11T15:00:00Z"
+  },
+  {
+   "id": "bogazkesen",
+   "paragraflar": ["3.1", "3.2"],
+   "muzik": "derin",
+   "kanca": "4,5 AYDA\nBİR KALE",
+   "baslik": "Rumeli Hisarı neden 'Boğazkesen' diye anıldı? #shorts",
+   "aciklama": "1452 baharında başlayan inşaat, kaynaklara göre dört buçuk ay gibi kısa bir sürede tamamlandı.",
+   "yayin": "2026-11-12T15:00:00Z"
+  },
+  {
+   "id": "ulubatli",
+   "paragraflar": ["9.4", "9.6"],
+   "muzik": "karanlik",
+   "kanca": "SANCAĞI\nSURLARA DİKTİ",
+   "baslik": "Ulubatlı Hasan ve 29 Mayıs sabahı #shorts",
+   "aciklama": "Osmanlı geleneğine göre Ulubatlı Hasan, yaralanmasına rağmen sancağı surların tepesine dikti.",
+   "yayin": "2026-11-13T15:00:00Z"
+  },
+  {
+   "id": "fetih",
+   "paragraflar": ["10.0", "10.6"],
+   "muzik": "isik",
+   "kanca": "BİR ÇAĞI\nKAPATAN SULTAN",
+   "baslik": "21 yaşında bir çağı kapatan sultan #shorts",
+   "aciklama": "Birçok tarihçi Orta Çağ'ın sonunu 29 Mayıs 1453 ile başlatır. İstanbul'un fethinden bir kesit.",
+   "yayin": "2026-11-14T15:00:00Z"
+  }
+ ]
+}
