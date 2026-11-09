@@ -132,6 +132,7 @@ jobs:
 
       - name: Örneği paylaş
         if: inputs.mod == 'ornek'
+        continue-on-error: true   # depolama kotası dolsa da iş başarısız sayılmasın
         uses: actions/upload-artifact@v4
         with:
           name: ornek-onizleme
@@ -167,6 +168,7 @@ jobs:
 
       - name: Shorts dosyalarını paylaş
         if: inputs.mod == 'shorts'
+        continue-on-error: true   # depolama kotası dolsa da iş başarısız sayılmasın
         uses: actions/upload-artifact@v4
         with:
           name: shorts
@@ -177,6 +179,7 @@ jobs:
 
       - name: Kapakları ve altyazıyı paylaş
         if: inputs.mod == 'tam'
+        continue-on-error: true   # depolama kotası dolsa da iş başarısız sayılmasın
         uses: actions/upload-artifact@v4
         with:
           name: kapaklar-altyazi

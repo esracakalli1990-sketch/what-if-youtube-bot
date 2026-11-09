@@ -70,6 +70,7 @@ jobs:
 
       - name: Görselleri ve raporu paylaş
         if: always()
+        continue-on-error: true   # depolama kotası dolsa da iş başarısız sayılmasın
         uses: actions/upload-artifact@v4
         with:
           name: kanal-${{ inputs.mod }}
