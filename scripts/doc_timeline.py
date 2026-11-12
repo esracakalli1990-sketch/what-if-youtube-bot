@@ -63,6 +63,9 @@ def validate(data: dict, folder: Path | None = None, draft: bool = False) -> lis
             if m.get("taban", "dunya") == "dunya" and "dunya" not in images:
                 problems.append(f"harita {name}: 'dunya' taban görseli images içinde yok "
                                 f"(File:Whole world - land and oceans 12000.jpg, original: true)")
+    for word, spoken in data.get("pronunciations", {}).items():
+        if " " in str(spoken).strip():   # altyazı kelime sırasıyla eşlenir: kelime sayısı değişmemeli
+            problems.append(f"okunuş tek kelime olmalı (tire kullanın): {word} → {spoken}")
     if data.get("kurgu", {}).get("gecis", "dissolve") not in TRANSITIONS:
         problems.append(f"kurgu.gecis {'/'.join(TRANSITIONS)} olmalı")
     for ci, ch in enumerate(data.get("chapters", [])):

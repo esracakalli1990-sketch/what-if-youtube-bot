@@ -44,11 +44,11 @@
   "use_speaker_boost": true
  },
  "pronunciations": {
-  "Mercidabık": "Merci Dâbık",
-  "Bâbüzzüveyle": "Bâbüz Züveyle",
+  "Mercidabık": "Merci-dâbık",
+  "Bâbüzzüveyle": "Bâbüz-züveyle",
   "Gavri": "Gavrî",
   "Ridaniye": "Rîdâniye",
-  "şirpençe": "şîr pençe"
+  "şirpençe": "şîr-pençe"
  },
  "ilk_yorum": "Sizce Yavuz'un en büyük hamlesi hangisiydi: Çaldıran mı, Mercidabık mı, yoksa ordusuyla Sina Çölü'nü geçmesi mi? Yorumlarda tartışalım.\n\n🔔 Sıradaki belgesel: Kanuni Sultan Süleyman.",
  "kurgu": {
@@ -81,10 +81,2751 @@
    "commons": "File:Kevin MacLeod - Silver Blue Light.ogg"
   }
  },
- "images": {},
- "stock": {},
+ "images": {
+  "dunya": {
+   "commons": "File:Whole world - land and oceans 12000.jpg",
+   "original": true
+  }
+ },
+ "stock": {
+  "s_yavuz_camii": {
+   "q": "Yavuz Selim mosque Istanbul"
+  }
+ },
  "films": {},
- "maps": {},
+ "maps": {
+  "m_osmanli_1500": {
+   "taban": "dunya",
+   "bounds": {
+    "west": 25.0,
+    "east": 49.0,
+    "south": 33.25,
+    "north": 46.75
+   },
+   "durationSec": 12,
+   "title": "İmparatorluğun Uç Köşesi",
+   "subtitle": "Osmanlı Devleti, 1500 civarı",
+   "regions": [
+    {
+     "name": "Osmanlı",
+     "color": "#b5302a",
+     "poly": [
+      [
+       16.5,
+       45.0
+      ],
+      [
+       19.3,
+       42.0
+      ],
+      [
+       19.4,
+       40.3
+      ],
+      [
+       21.0,
+       37.0
+      ],
+      [
+       23.0,
+       36.5
+      ],
+      [
+       24.0,
+       38.5
+      ],
+      [
+       26.0,
+       40.6
+      ],
+      [
+       26.3,
+       40.0
+      ],
+      [
+       26.5,
+       39.0
+      ],
+      [
+       27.2,
+       37.5
+      ],
+      [
+       28.5,
+       36.7
+      ],
+      [
+       30.5,
+       36.8
+      ],
+      [
+       32.5,
+       36.1
+      ],
+      [
+       34.0,
+       36.3
+      ],
+      [
+       35.0,
+       37.0
+      ],
+      [
+       35.5,
+       38.3
+      ],
+      [
+       37.0,
+       39.0
+      ],
+      [
+       38.5,
+       39.6
+      ],
+      [
+       40.5,
+       39.9
+      ],
+      [
+       41.5,
+       41.4
+      ],
+      [
+       39.0,
+       41.1
+      ],
+      [
+       36.0,
+       41.7
+      ],
+      [
+       33.0,
+       42.0
+      ],
+      [
+       31.0,
+       41.2
+      ],
+      [
+       29.2,
+       41.25
+      ],
+      [
+       28.0,
+       41.6
+      ],
+      [
+       28.6,
+       43.5
+      ],
+      [
+       29.6,
+       45.2
+      ],
+      [
+       28.2,
+       45.5
+      ],
+      [
+       22.5,
+       44.6
+      ],
+      [
+       21.5,
+       45.0
+      ],
+      [
+       19.0,
+       45.0
+      ]
+     ],
+     "start": 0.6,
+     "label": [
+      31.0,
+      39.0
+     ]
+    },
+    {
+     "name": "Safevîler",
+     "color": "#3f7d4e",
+     "poly": [
+      [
+       44.5,
+       39.7
+      ],
+      [
+       46.5,
+       39.9
+      ],
+      [
+       48.6,
+       39.2
+      ],
+      [
+       48.0,
+       37.5
+      ],
+      [
+       47.0,
+       37.0
+      ],
+      [
+       45.5,
+       37.2
+      ],
+      [
+       44.8,
+       38.2
+      ]
+     ],
+     "start": 7.5,
+     "label": [
+      46.6,
+      38.4
+     ]
+    }
+   ],
+   "cities": [
+    {
+     "at": [
+      28.97,
+      41.01
+     ],
+     "label": "İstanbul",
+     "start": 0.5,
+     "side": "left"
+    },
+    {
+     "at": [
+      35.83,
+      40.65
+     ],
+     "label": "Amasya",
+     "start": 1.5
+    },
+    {
+     "at": [
+      39.72,
+      41.0
+     ],
+     "label": "Trabzon",
+     "start": 3.0,
+     "major": true,
+     "side": "right"
+    }
+   ],
+   "labels": [
+    {
+     "at": [
+      34.5,
+      43.3
+     ],
+     "text": "Karadeniz",
+     "start": 0.4,
+     "kind": "sea"
+    },
+    {
+     "at": [
+      43.5,
+      42.3
+     ],
+     "text": "Gürcü beylikleri",
+     "start": 4.5,
+     "kind": "land"
+    }
+   ],
+   "years": [
+    {
+     "t": 0.5,
+     "text": "1500"
+    },
+    {
+     "t": 7.5,
+     "text": "1501"
+    }
+   ],
+   "note": "Sınırlar yaklaşıktır",
+   "camera": [
+    {
+     "t": 0,
+     "center": [
+      33.0,
+      40.0
+     ],
+     "zoom": 1.0
+    },
+    {
+     "t": 3.0,
+     "center": [
+      39.5,
+      40.5
+     ],
+     "zoom": 1.7
+    },
+    {
+     "t": 7.0,
+     "center": [
+      42.5,
+      40.0
+     ],
+     "zoom": 1.4
+    }
+   ]
+  },
+  "m_safevi": {
+   "taban": "dunya",
+   "bounds": {
+    "west": 29.0,
+    "east": 61.0,
+    "south": 26.5,
+    "north": 44.5
+   },
+   "durationSec": 13,
+   "title": "Doğudan Gelen Fırtına",
+   "subtitle": "Safevî Devleti, 1501–1510",
+   "regions": [
+    {
+     "name": "Osmanlı",
+     "color": "#b5302a",
+     "poly": [
+      [
+       16.5,
+       45.0
+      ],
+      [
+       19.3,
+       42.0
+      ],
+      [
+       19.4,
+       40.3
+      ],
+      [
+       21.0,
+       37.0
+      ],
+      [
+       23.0,
+       36.5
+      ],
+      [
+       24.0,
+       38.5
+      ],
+      [
+       26.0,
+       40.6
+      ],
+      [
+       26.3,
+       40.0
+      ],
+      [
+       26.5,
+       39.0
+      ],
+      [
+       27.2,
+       37.5
+      ],
+      [
+       28.5,
+       36.7
+      ],
+      [
+       30.5,
+       36.8
+      ],
+      [
+       32.5,
+       36.1
+      ],
+      [
+       34.0,
+       36.3
+      ],
+      [
+       35.0,
+       37.0
+      ],
+      [
+       35.5,
+       38.3
+      ],
+      [
+       37.0,
+       39.0
+      ],
+      [
+       38.5,
+       39.6
+      ],
+      [
+       40.5,
+       39.9
+      ],
+      [
+       41.5,
+       41.4
+      ],
+      [
+       39.0,
+       41.1
+      ],
+      [
+       36.0,
+       41.7
+      ],
+      [
+       33.0,
+       42.0
+      ],
+      [
+       31.0,
+       41.2
+      ],
+      [
+       29.2,
+       41.25
+      ],
+      [
+       28.0,
+       41.6
+      ],
+      [
+       28.6,
+       43.5
+      ],
+      [
+       29.6,
+       45.2
+      ],
+      [
+       28.2,
+       45.5
+      ],
+      [
+       22.5,
+       44.6
+      ],
+      [
+       21.5,
+       45.0
+      ],
+      [
+       19.0,
+       45.0
+      ]
+     ],
+     "start": 0.4
+    },
+    {
+     "name": "",
+     "color": "#3f7d4e",
+     "poly": [
+      [
+       44.5,
+       39.7
+      ],
+      [
+       46.5,
+       39.9
+      ],
+      [
+       48.6,
+       39.2
+      ],
+      [
+       48.0,
+       37.5
+      ],
+      [
+       47.0,
+       37.0
+      ],
+      [
+       45.5,
+       37.2
+      ],
+      [
+       44.8,
+       38.2
+      ]
+     ],
+     "start": 0.8,
+     "end": 4.5
+    },
+    {
+     "name": "Safevîler · 1510",
+     "color": "#3f7d4e",
+     "poly": [
+      [
+       44.0,
+       39.8
+      ],
+      [
+       46.5,
+       39.8
+      ],
+      [
+       48.5,
+       41.0
+      ],
+      [
+       49.5,
+       40.3
+      ],
+      [
+       49.0,
+       38.5
+      ],
+      [
+       51.0,
+       37.0
+      ],
+      [
+       54.0,
+       37.3
+      ],
+      [
+       57.0,
+       38.2
+      ],
+      [
+       61.0,
+       36.5
+      ],
+      [
+       61.5,
+       31.0
+      ],
+      [
+       61.0,
+       26.0
+      ],
+      [
+       57.5,
+       25.5
+      ],
+      [
+       54.0,
+       26.5
+      ],
+      [
+       51.5,
+       27.8
+      ],
+      [
+       50.0,
+       30.0
+      ],
+      [
+       48.0,
+       30.0
+      ],
+      [
+       47.5,
+       30.9
+      ],
+      [
+       45.5,
+       32.5
+      ],
+      [
+       44.0,
+       33.5
+      ],
+      [
+       42.5,
+       34.5
+      ],
+      [
+       42.0,
+       36.8
+      ],
+      [
+       43.5,
+       37.5
+      ],
+      [
+       44.3,
+       38.4
+      ]
+     ],
+     "start": 4.5,
+     "label": [
+      54.0,
+      32.0
+     ]
+    }
+   ],
+   "routes": [
+    {
+     "points": [
+      [
+       46.29,
+       38.08
+      ],
+      [
+       42.5,
+       39.0
+      ],
+      [
+       38.5,
+       39.2
+      ],
+      [
+       34.5,
+       38.8
+      ]
+     ],
+     "color": "#3f7d4e",
+     "start": 8.0,
+     "duration": 3.0,
+     "label": "Kızılbaş propagandası",
+     "dashed": true,
+     "army": false
+    }
+   ],
+   "cities": [
+    {
+     "at": [
+      46.29,
+      38.08
+     ],
+     "label": "Tebriz",
+     "start": 0.8,
+     "major": true,
+     "side": "right"
+    },
+    {
+     "at": [
+      44.36,
+      33.31
+     ],
+     "label": "Bağdat",
+     "start": 6.0
+    },
+    {
+     "at": [
+      51.67,
+      32.65
+     ],
+     "label": "İsfahan",
+     "start": 6.5
+    }
+   ],
+   "labels": [
+    {
+     "at": [
+      34.5,
+      43.3
+     ],
+     "text": "Karadeniz",
+     "start": 0.4,
+     "kind": "sea"
+    },
+    {
+     "at": [
+      51.0,
+      41.5
+     ],
+     "text": "Hazar Denizi",
+     "start": 0.4,
+     "kind": "sea"
+    }
+   ],
+   "years": [
+    {
+     "t": 0.5,
+     "text": "1501"
+    },
+    {
+     "t": 4.5,
+     "text": "1510"
+    }
+   ],
+   "note": "Sınırlar yaklaşıktır"
+  },
+  "m_selim_yolu": {
+   "taban": "dunya",
+   "bounds": {
+    "west": 23.0,
+    "east": 41.0,
+    "south": 37.5375,
+    "north": 47.6625
+   },
+   "durationSec": 12,
+   "title": "Şehzadenin Yolu",
+   "subtitle": "Trabzon'dan Edirne'ye, 1510–1511",
+   "routes": [
+    {
+     "points": [
+      [
+       39.72,
+       41.0
+      ],
+      [
+       36.5,
+       42.6
+      ],
+      [
+       35.38,
+       45.03
+      ]
+     ],
+     "color": "#e3b04b",
+     "start": 1.0,
+     "duration": 2.5,
+     "label": "Denizden Kırım'a",
+     "dashed": true,
+     "army": false
+    },
+    {
+     "points": [
+      [
+       35.38,
+       45.03
+      ],
+      [
+       33.0,
+       46.2
+      ],
+      [
+       30.35,
+       46.2
+      ],
+      [
+       28.6,
+       44.2
+      ],
+      [
+       27.5,
+       42.6
+      ],
+      [
+       26.56,
+       41.68
+      ]
+     ],
+     "color": "#b5302a",
+     "start": 4.0,
+     "duration": 4.0,
+     "label": "Selim'in ordusu",
+     "dashed": true
+    }
+   ],
+   "clashes": [
+    {
+     "at": [
+      27.85,
+      41.2
+     ],
+     "start": 9.0
+    }
+   ],
+   "cities": [
+    {
+     "at": [
+      39.72,
+      41.0
+     ],
+     "label": "Trabzon",
+     "start": 0.5,
+     "major": true,
+     "side": "right"
+    },
+    {
+     "at": [
+      35.38,
+      45.03
+     ],
+     "label": "Kefe",
+     "start": 2.8
+    },
+    {
+     "at": [
+      30.35,
+      46.2
+     ],
+     "label": "Akkerman",
+     "start": 5.0
+    },
+    {
+     "at": [
+      26.56,
+      41.68
+     ],
+     "label": "Edirne",
+     "start": 7.0,
+     "side": "left"
+    },
+    {
+     "at": [
+      28.97,
+      41.01
+     ],
+     "label": "İstanbul",
+     "start": 0.5
+    },
+    {
+     "at": [
+      27.8,
+      41.16
+     ],
+     "label": "Çorlu · Uğraşdere",
+     "start": 8.8,
+     "side": "left"
+    }
+   ],
+   "labels": [
+    {
+     "at": [
+      34.5,
+      43.3
+     ],
+     "text": "Karadeniz",
+     "start": 0.4,
+     "kind": "sea"
+    }
+   ],
+   "years": [
+    {
+     "t": 0.5,
+     "text": "1510"
+    },
+    {
+     "t": 8.5,
+     "text": "1511"
+    }
+   ],
+   "note": "Güzergâh temsilidir"
+  },
+  "m_caldiran_seferi": {
+   "taban": "dunya",
+   "bounds": {
+    "west": 27.0,
+    "east": 48.0,
+    "south": 33.3937,
+    "north": 45.2062
+   },
+   "durationSec": 13,
+   "title": "Doğu Seferi",
+   "subtitle": "İstanbul'dan Çaldıran'a, 1514",
+   "routes": [
+    {
+     "points": [
+      [
+       28.97,
+       41.01
+      ],
+      [
+       30.5,
+       40.75
+      ],
+      [
+       32.85,
+       39.93
+      ],
+      [
+       34.8,
+       39.8
+      ],
+      [
+       37.02,
+       39.75
+      ],
+      [
+       39.49,
+       39.75
+      ],
+      [
+       41.27,
+       39.9
+      ],
+      [
+       42.8,
+       39.5
+      ],
+      [
+       43.95,
+       39.14
+      ]
+     ],
+     "color": "#b5302a",
+     "start": 1.0,
+     "duration": 8.0,
+     "label": "Osmanlı ordusu",
+     "dashed": true
+    },
+    {
+     "points": [
+      [
+       46.29,
+       38.08
+      ],
+      [
+       45.2,
+       38.7
+      ],
+      [
+       44.2,
+       39.05
+      ]
+     ],
+     "color": "#3f7d4e",
+     "start": 6.0,
+     "duration": 3.0,
+     "label": "Safevî ordusu",
+     "dashed": true
+    }
+   ],
+   "clashes": [
+    {
+     "at": [
+      43.95,
+      39.14
+     ],
+     "start": 9.4
+    }
+   ],
+   "cities": [
+    {
+     "at": [
+      28.97,
+      41.01
+     ],
+     "label": "İstanbul",
+     "start": 0.5,
+     "side": "left"
+    },
+    {
+     "at": [
+      37.02,
+      39.75
+     ],
+     "label": "Sivas",
+     "start": 4.0
+    },
+    {
+     "at": [
+      39.49,
+      39.75
+     ],
+     "label": "Erzincan",
+     "start": 5.5
+    },
+    {
+     "at": [
+      43.95,
+      39.14
+     ],
+     "label": "Çaldıran",
+     "start": 9.0,
+     "major": true,
+     "side": "left"
+    },
+    {
+     "at": [
+      46.29,
+      38.08
+     ],
+     "label": "Tebriz",
+     "start": 5.8,
+     "side": "right"
+    }
+   ],
+   "labels": [
+    {
+     "at": [
+      34.5,
+      43.3
+     ],
+     "text": "Karadeniz",
+     "start": 0.4,
+     "kind": "sea"
+    }
+   ],
+   "years": [
+    {
+     "t": 0.5,
+     "text": "Nisan 1514"
+    },
+    {
+     "t": 9.4,
+     "text": "23 Ağustos 1514"
+    }
+   ],
+   "note": "Güzergâh yaklaşıktır",
+   "camera": [
+    {
+     "t": 0,
+     "center": [
+      37.5,
+      39.3
+     ],
+     "zoom": 1.0
+    },
+    {
+     "t": 8.5,
+     "center": [
+      43.0,
+      39.0
+     ],
+     "zoom": 1.8
+    }
+   ]
+  },
+  "m_1515": {
+   "taban": "dunya",
+   "bounds": {
+    "west": 31.5,
+    "east": 45.5,
+    "south": 34.6625,
+    "north": 42.5375
+   },
+   "durationSec": 12,
+   "title": "Doğu Tamamlanıyor",
+   "subtitle": "1514–1516",
+   "regions": [
+    {
+     "name": "Osmanlı",
+     "color": "#b5302a",
+     "poly": [
+      [
+       16.5,
+       45.0
+      ],
+      [
+       19.3,
+       42.0
+      ],
+      [
+       19.4,
+       40.3
+      ],
+      [
+       21.0,
+       37.0
+      ],
+      [
+       23.0,
+       36.5
+      ],
+      [
+       24.0,
+       38.5
+      ],
+      [
+       26.0,
+       40.6
+      ],
+      [
+       26.3,
+       40.0
+      ],
+      [
+       26.5,
+       39.0
+      ],
+      [
+       27.2,
+       37.5
+      ],
+      [
+       28.5,
+       36.7
+      ],
+      [
+       30.5,
+       36.8
+      ],
+      [
+       32.5,
+       36.1
+      ],
+      [
+       34.0,
+       36.3
+      ],
+      [
+       35.0,
+       37.0
+      ],
+      [
+       35.5,
+       38.3
+      ],
+      [
+       37.0,
+       39.0
+      ],
+      [
+       38.5,
+       39.6
+      ],
+      [
+       40.5,
+       39.9
+      ],
+      [
+       41.5,
+       41.4
+      ],
+      [
+       39.0,
+       41.1
+      ],
+      [
+       36.0,
+       41.7
+      ],
+      [
+       33.0,
+       42.0
+      ],
+      [
+       31.0,
+       41.2
+      ],
+      [
+       29.2,
+       41.25
+      ],
+      [
+       28.0,
+       41.6
+      ],
+      [
+       28.6,
+       43.5
+      ],
+      [
+       29.6,
+       45.2
+      ],
+      [
+       28.2,
+       45.5
+      ],
+      [
+       22.5,
+       44.6
+      ],
+      [
+       21.5,
+       45.0
+      ],
+      [
+       19.0,
+       45.0
+      ]
+     ],
+     "start": 0.4
+    },
+    {
+     "name": "",
+     "color": "#b5302a",
+     "poly": [
+      [
+       38.5,
+       39.6
+      ],
+      [
+       40.5,
+       39.9
+      ],
+      [
+       41.5,
+       41.4
+      ],
+      [
+       43.0,
+       41.0
+      ],
+      [
+       43.8,
+       40.0
+      ],
+      [
+       43.0,
+       39.0
+      ],
+      [
+       41.5,
+       38.8
+      ],
+      [
+       40.0,
+       39.0
+      ],
+      [
+       38.0,
+       39.0
+      ]
+     ],
+     "start": 1.0
+    },
+    {
+     "name": "Dulkadir",
+     "color": "#8a8a8a",
+     "poly": [
+      [
+       35.8,
+       37.3
+      ],
+      [
+       37.6,
+       37.2
+      ],
+      [
+       38.3,
+       38.0
+      ],
+      [
+       38.0,
+       38.9
+      ],
+      [
+       36.5,
+       39.0
+      ],
+      [
+       35.6,
+       38.2
+      ]
+     ],
+     "start": 0.6,
+     "end": 5.0,
+     "label": [
+      36.9,
+      38.2
+     ]
+    },
+    {
+     "name": "",
+     "color": "#b5302a",
+     "poly": [
+      [
+       35.8,
+       37.3
+      ],
+      [
+       37.6,
+       37.2
+      ],
+      [
+       38.3,
+       38.0
+      ],
+      [
+       38.0,
+       38.9
+      ],
+      [
+       36.5,
+       39.0
+      ],
+      [
+       35.6,
+       38.2
+      ]
+     ],
+     "start": 5.0
+    },
+    {
+     "name": "Diyarbakır",
+     "color": "#8a8a8a",
+     "poly": [
+      [
+       38.3,
+       37.0
+      ],
+      [
+       41.5,
+       36.9
+      ],
+      [
+       42.8,
+       37.6
+      ],
+      [
+       42.0,
+       38.6
+      ],
+      [
+       40.0,
+       38.9
+      ],
+      [
+       38.6,
+       38.3
+      ]
+     ],
+     "start": 0.6,
+     "end": 8.0,
+     "label": [
+      40.6,
+      37.7
+     ]
+    },
+    {
+     "name": "",
+     "color": "#b5302a",
+     "poly": [
+      [
+       38.3,
+       37.0
+      ],
+      [
+       41.5,
+       36.9
+      ],
+      [
+       42.8,
+       37.6
+      ],
+      [
+       42.0,
+       38.6
+      ],
+      [
+       40.0,
+       38.9
+      ],
+      [
+       38.6,
+       38.3
+      ]
+     ],
+     "start": 8.0
+    },
+    {
+     "name": "Memlûkler",
+     "color": "#c99a2e",
+     "poly": [
+      [
+       25.0,
+       31.6
+      ],
+      [
+       29.0,
+       31.0
+      ],
+      [
+       32.3,
+       31.3
+      ],
+      [
+       34.2,
+       31.3
+      ],
+      [
+       34.9,
+       32.5
+      ],
+      [
+       35.5,
+       34.5
+      ],
+      [
+       35.8,
+       36.0
+      ],
+      [
+       36.2,
+       36.8
+      ],
+      [
+       38.5,
+       36.8
+      ],
+      [
+       38.5,
+       35.0
+      ],
+      [
+       38.0,
+       33.5
+      ],
+      [
+       37.0,
+       31.0
+      ],
+      [
+       38.0,
+       28.0
+      ],
+      [
+       39.0,
+       25.0
+      ],
+      [
+       40.5,
+       21.5
+      ],
+      [
+       41.5,
+       19.0
+      ],
+      [
+       39.5,
+       18.5
+      ],
+      [
+       38.5,
+       21.0
+      ],
+      [
+       36.5,
+       24.5
+      ],
+      [
+       35.0,
+       27.5
+      ],
+      [
+       34.5,
+       28.5
+      ],
+      [
+       33.5,
+       27.5
+      ],
+      [
+       34.5,
+       25.0
+      ],
+      [
+       35.5,
+       23.5
+      ],
+      [
+       36.0,
+       22.0
+      ],
+      [
+       31.0,
+       22.0
+      ],
+      [
+       25.0,
+       22.0
+      ]
+     ],
+     "start": 10.0,
+     "label": [
+      36.8,
+      35.0
+     ]
+    }
+   ],
+   "cities": [
+    {
+     "at": [
+      39.03,
+      39.6
+     ],
+     "label": "Kemah",
+     "start": 2.0,
+     "side": "left"
+    },
+    {
+     "at": [
+      36.93,
+      37.58
+     ],
+     "label": "Maraş",
+     "start": 4.5
+    },
+    {
+     "at": [
+      37.2,
+      38.2
+     ],
+     "label": "Elbistan",
+     "start": 4.8,
+     "side": "right"
+    },
+    {
+     "at": [
+      40.22,
+      37.91
+     ],
+     "label": "Diyarbakır",
+     "start": 7.5,
+     "major": true
+    },
+    {
+     "at": [
+      37.16,
+      36.2
+     ],
+     "label": "Halep",
+     "start": 10.0
+    }
+   ],
+   "years": [
+    {
+     "t": 0.5,
+     "text": "1514"
+    },
+    {
+     "t": 2.0,
+     "text": "1515"
+    },
+    {
+     "t": 8.0,
+     "text": "1516"
+    }
+   ],
+   "note": "Sınırlar yaklaşıktır"
+  },
+  "m_memluk": {
+   "taban": "dunya",
+   "bounds": {
+    "west": 19.0,
+    "east": 49.0,
+    "south": 22.0625,
+    "north": 38.9375
+   },
+   "durationSec": 12,
+   "title": "Memlûk Devleti",
+   "subtitle": "Mısır, Suriye ve Hicaz, 1516",
+   "regions": [
+    {
+     "name": "Osmanlı",
+     "color": "#b5302a",
+     "poly": [
+      [
+       16.5,
+       45.0
+      ],
+      [
+       19.3,
+       42.0
+      ],
+      [
+       19.4,
+       40.3
+      ],
+      [
+       21.0,
+       37.0
+      ],
+      [
+       23.0,
+       36.5
+      ],
+      [
+       24.0,
+       38.5
+      ],
+      [
+       26.0,
+       40.6
+      ],
+      [
+       26.3,
+       40.0
+      ],
+      [
+       26.5,
+       39.0
+      ],
+      [
+       27.2,
+       37.5
+      ],
+      [
+       28.5,
+       36.7
+      ],
+      [
+       30.5,
+       36.8
+      ],
+      [
+       32.5,
+       36.1
+      ],
+      [
+       34.0,
+       36.3
+      ],
+      [
+       35.0,
+       37.0
+      ],
+      [
+       35.5,
+       38.3
+      ],
+      [
+       37.0,
+       39.0
+      ],
+      [
+       38.5,
+       39.6
+      ],
+      [
+       40.5,
+       39.9
+      ],
+      [
+       41.5,
+       41.4
+      ],
+      [
+       39.0,
+       41.1
+      ],
+      [
+       36.0,
+       41.7
+      ],
+      [
+       33.0,
+       42.0
+      ],
+      [
+       31.0,
+       41.2
+      ],
+      [
+       29.2,
+       41.25
+      ],
+      [
+       28.0,
+       41.6
+      ],
+      [
+       28.6,
+       43.5
+      ],
+      [
+       29.6,
+       45.2
+      ],
+      [
+       28.2,
+       45.5
+      ],
+      [
+       22.5,
+       44.6
+      ],
+      [
+       21.5,
+       45.0
+      ],
+      [
+       19.0,
+       45.0
+      ]
+     ],
+     "start": 0.4,
+     "label": [
+      31.0,
+      39.0
+     ]
+    },
+    {
+     "name": "",
+     "color": "#b5302a",
+     "poly": [
+      [
+       38.5,
+       39.6
+      ],
+      [
+       40.5,
+       39.9
+      ],
+      [
+       41.5,
+       41.4
+      ],
+      [
+       43.0,
+       41.0
+      ],
+      [
+       43.8,
+       40.0
+      ],
+      [
+       43.0,
+       39.0
+      ],
+      [
+       41.5,
+       38.8
+      ],
+      [
+       40.0,
+       39.0
+      ],
+      [
+       38.0,
+       39.0
+      ]
+     ],
+     "start": 0.4
+    },
+    {
+     "name": "",
+     "color": "#b5302a",
+     "poly": [
+      [
+       35.8,
+       37.3
+      ],
+      [
+       37.6,
+       37.2
+      ],
+      [
+       38.3,
+       38.0
+      ],
+      [
+       38.0,
+       38.9
+      ],
+      [
+       36.5,
+       39.0
+      ],
+      [
+       35.6,
+       38.2
+      ]
+     ],
+     "start": 0.4
+    },
+    {
+     "name": "",
+     "color": "#b5302a",
+     "poly": [
+      [
+       38.3,
+       37.0
+      ],
+      [
+       41.5,
+       36.9
+      ],
+      [
+       42.8,
+       37.6
+      ],
+      [
+       42.0,
+       38.6
+      ],
+      [
+       40.0,
+       38.9
+      ],
+      [
+       38.6,
+       38.3
+      ]
+     ],
+     "start": 0.4
+    },
+    {
+     "name": "Memlûkler",
+     "color": "#c99a2e",
+     "poly": [
+      [
+       25.0,
+       31.6
+      ],
+      [
+       29.0,
+       31.0
+      ],
+      [
+       32.3,
+       31.3
+      ],
+      [
+       34.2,
+       31.3
+      ],
+      [
+       34.9,
+       32.5
+      ],
+      [
+       35.5,
+       34.5
+      ],
+      [
+       35.8,
+       36.0
+      ],
+      [
+       36.2,
+       36.8
+      ],
+      [
+       38.5,
+       36.8
+      ],
+      [
+       38.5,
+       35.0
+      ],
+      [
+       38.0,
+       33.5
+      ],
+      [
+       37.0,
+       31.0
+      ],
+      [
+       38.0,
+       28.0
+      ],
+      [
+       39.0,
+       25.0
+      ],
+      [
+       40.5,
+       21.5
+      ],
+      [
+       41.5,
+       19.0
+      ],
+      [
+       39.5,
+       18.5
+      ],
+      [
+       38.5,
+       21.0
+      ],
+      [
+       36.5,
+       24.5
+      ],
+      [
+       35.0,
+       27.5
+      ],
+      [
+       34.5,
+       28.5
+      ],
+      [
+       33.5,
+       27.5
+      ],
+      [
+       34.5,
+       25.0
+      ],
+      [
+       35.5,
+       23.5
+      ],
+      [
+       36.0,
+       22.0
+      ],
+      [
+       31.0,
+       22.0
+      ],
+      [
+       25.0,
+       22.0
+      ]
+     ],
+     "start": 1.5,
+     "label": [
+      30.0,
+      26.5
+     ]
+    }
+   ],
+   "cities": [
+    {
+     "at": [
+      31.24,
+      30.04
+     ],
+     "label": "Kahire",
+     "start": 2.5,
+     "major": true,
+     "side": "left"
+    },
+    {
+     "at": [
+      36.29,
+      33.51
+     ],
+     "label": "Şam",
+     "start": 3.5
+    },
+    {
+     "at": [
+      37.16,
+      36.2
+     ],
+     "label": "Halep",
+     "start": 4.0
+    },
+    {
+     "at": [
+      39.83,
+      21.42
+     ],
+     "label": "Mekke",
+     "start": 5.0,
+     "major": true
+    },
+    {
+     "at": [
+      39.61,
+      24.47
+     ],
+     "label": "Medine",
+     "start": 5.3
+    },
+    {
+     "at": [
+      28.97,
+      41.01
+     ],
+     "label": "İstanbul",
+     "start": 0.5
+    }
+   ],
+   "labels": [
+    {
+     "at": [
+      27.0,
+      34.0
+     ],
+     "text": "Akdeniz",
+     "start": 0.4,
+     "kind": "sea"
+    },
+    {
+     "at": [
+      37.5,
+      22.5
+     ],
+     "text": "Kızıldeniz",
+     "start": 0.4,
+     "kind": "sea"
+    }
+   ],
+   "clashes": [
+    {
+     "at": [
+      36.9,
+      36.9
+     ],
+     "start": 8.0
+    }
+   ],
+   "years": [
+    {
+     "t": 0.5,
+     "text": "1516"
+    }
+   ],
+   "note": "Sınırlar yaklaşıktır",
+   "camera": [
+    {
+     "t": 0,
+     "center": [
+      34.0,
+      30.5
+     ],
+     "zoom": 1.0
+    },
+    {
+     "t": 7.0,
+     "center": [
+      36.5,
+      34.5
+     ],
+     "zoom": 1.6
+    }
+   ]
+  },
+  "m_sina": {
+   "taban": "dunya",
+   "bounds": {
+    "west": 29.1,
+    "east": 38.1,
+    "south": 28.8687,
+    "north": 33.9312
+   },
+   "durationSec": 13,
+   "title": "Çöl Yolu",
+   "subtitle": "Şam'dan Kahire'ye, Aralık 1516 – Ocak 1517",
+   "routes": [
+    {
+     "points": [
+      [
+       36.29,
+       33.51
+      ],
+      [
+       35.6,
+       32.6
+      ],
+      [
+       34.9,
+       31.9
+      ],
+      [
+       34.47,
+       31.5
+      ]
+     ],
+     "color": "#b5302a",
+     "start": 0.8,
+     "duration": 3.0,
+     "label": "",
+     "dashed": true
+    },
+    {
+     "points": [
+      [
+       34.47,
+       31.5
+      ],
+      [
+       33.8,
+       31.13
+      ],
+      [
+       32.6,
+       30.95
+      ],
+      [
+       31.9,
+       30.8
+      ],
+      [
+       31.5,
+       30.4
+      ],
+      [
+       31.24,
+       30.04
+      ]
+     ],
+     "color": "#b5302a",
+     "start": 4.0,
+     "duration": 7.0,
+     "label": "Osmanlı ordusu",
+     "dashed": true
+    }
+   ],
+   "cities": [
+    {
+     "at": [
+      36.29,
+      33.51
+     ],
+     "label": "Şam",
+     "start": 0.5,
+     "side": "right"
+    },
+    {
+     "at": [
+      34.47,
+      31.5
+     ],
+     "label": "Gazze",
+     "start": 3.6
+    },
+    {
+     "at": [
+      31.24,
+      30.04
+     ],
+     "label": "Kahire",
+     "start": 10.5,
+     "major": true,
+     "side": "left"
+    }
+   ],
+   "labels": [
+    {
+     "at": [
+      27.0,
+      34.0
+     ],
+     "text": "Akdeniz",
+     "start": 0.4,
+     "kind": "sea"
+    },
+    {
+     "at": [
+      33.6,
+      29.9
+     ],
+     "text": "Sina Çölü",
+     "start": 3.5,
+     "kind": "land"
+    }
+   ],
+   "years": [
+    {
+     "t": 0.5,
+     "text": "Aralık 1516"
+    },
+    {
+     "t": 4.0,
+     "text": "Ocak 1517"
+    }
+   ],
+   "note": "Güzergâh temsilidir",
+   "camera": [
+    {
+     "t": 0,
+     "center": [
+      33.6,
+      31.4
+     ],
+     "zoom": 1.0
+    },
+    {
+     "t": 5.0,
+     "center": [
+      32.7,
+      30.9
+     ],
+     "zoom": 1.4
+    }
+   ]
+  },
+  "m_ridaniye": {
+   "taban": "parsomen",
+   "bounds": {
+    "west": 31.16,
+    "east": 31.46,
+    "south": 29.9856,
+    "north": 30.1544
+   },
+   "durationSec": 14,
+   "title": "Ridaniye",
+   "subtitle": "Kahire'nin kuzeydoğusu",
+   "rivers": [
+    {
+     "points": [
+      [
+       31.2,
+       29.94
+      ],
+      [
+       31.225,
+       30.0
+      ],
+      [
+       31.23,
+       30.05
+      ],
+      [
+       31.225,
+       30.1
+      ],
+      [
+       31.21,
+       30.18
+      ]
+     ],
+     "name": "Nil",
+     "start": 0.3,
+     "labelAt": [
+      31.205,
+      30.0
+     ]
+    }
+   ],
+   "lines": [
+    {
+     "points": [
+      [
+       31.28,
+       30.068
+      ],
+      [
+       31.3,
+       30.085
+      ],
+      [
+       31.32,
+       30.101
+      ]
+     ],
+     "kind": "trench",
+     "start": 0.8,
+     "duration": 1.5,
+     "color": "#c99a2e",
+     "label": "Hendek ve sabit toplar",
+     "labelAt": [
+      31.262,
+      30.104
+     ]
+    }
+   ],
+   "units": [
+    {
+     "label": "Memlûk hattı",
+     "color": "#c99a2e",
+     "path": [
+      [
+       31.296,
+       30.08
+      ],
+      [
+       31.296,
+       30.08
+      ]
+     ],
+     "start": 1.0,
+     "duration": 0.5,
+     "labelSide": "below"
+    },
+    {
+     "label": "Osmanlı ana ordusu",
+     "color": "#b5302a",
+     "path": [
+      [
+       31.445,
+       30.135
+      ],
+      [
+       31.375,
+       30.112
+      ]
+     ],
+     "start": 2.5,
+     "duration": 2.5,
+     "labelSide": "above"
+    },
+    {
+     "label": "Kuşatma kolu",
+     "color": "#d9663f",
+     "path": [
+      [
+       31.43,
+       30.095
+      ],
+      [
+       31.395,
+       30.035
+      ],
+      [
+       31.335,
+       30.017
+      ],
+      [
+       31.305,
+       30.052
+      ]
+     ],
+     "start": 5.0,
+     "duration": 4.0,
+     "labelSide": "below"
+    },
+    {
+     "label": "Tomanbay'ın hücumu",
+     "color": "#c99a2e",
+     "path": [
+      [
+       31.31,
+       30.088
+      ],
+      [
+       31.362,
+       30.106
+      ]
+     ],
+     "start": 9.5,
+     "duration": 1.8,
+     "labelSide": "below"
+    }
+   ],
+   "clashes": [
+    {
+     "at": [
+      31.302,
+      30.064
+     ],
+     "start": 9.0
+    },
+    {
+     "at": [
+      31.368,
+      30.109
+     ],
+     "start": 11.4
+    }
+   ],
+   "cities": [
+    {
+     "at": [
+      31.24,
+      30.04
+     ],
+     "label": "Kahire",
+     "start": 0.5,
+     "major": true,
+     "side": "left"
+    }
+   ],
+   "labels": [
+    {
+     "at": [
+      31.35,
+      30.008
+     ],
+     "text": "Mukattam tepeleri",
+     "start": 4.5,
+     "kind": "land"
+    }
+   ],
+   "years": [
+    {
+     "t": 0.5,
+     "text": "22 Ocak 1517"
+    }
+   ],
+   "note": "Konumlar yaklaşıktır",
+   "camera": [
+    {
+     "t": 0,
+     "center": [
+      31.31,
+      30.07
+     ],
+     "zoom": 1.0
+    },
+    {
+     "t": 14,
+     "center": [
+      31.33,
+      30.07
+     ],
+     "zoom": 1.12
+    }
+   ]
+  },
+  "m_sinirlar": {
+   "taban": "dunya",
+   "bounds": {
+    "west": 10.0,
+    "east": 54.0,
+    "south": 20.625,
+    "north": 45.375
+   },
+   "durationSec": 12,
+   "title": "Sekiz Yılda",
+   "subtitle": "Osmanlı toprakları, 1512 → 1520",
+   "regions": [
+    {
+     "name": "Osmanlı · 1512",
+     "color": "#b5302a",
+     "poly": [
+      [
+       16.5,
+       45.0
+      ],
+      [
+       19.3,
+       42.0
+      ],
+      [
+       19.4,
+       40.3
+      ],
+      [
+       21.0,
+       37.0
+      ],
+      [
+       23.0,
+       36.5
+      ],
+      [
+       24.0,
+       38.5
+      ],
+      [
+       26.0,
+       40.6
+      ],
+      [
+       26.3,
+       40.0
+      ],
+      [
+       26.5,
+       39.0
+      ],
+      [
+       27.2,
+       37.5
+      ],
+      [
+       28.5,
+       36.7
+      ],
+      [
+       30.5,
+       36.8
+      ],
+      [
+       32.5,
+       36.1
+      ],
+      [
+       34.0,
+       36.3
+      ],
+      [
+       35.0,
+       37.0
+      ],
+      [
+       35.5,
+       38.3
+      ],
+      [
+       37.0,
+       39.0
+      ],
+      [
+       38.5,
+       39.6
+      ],
+      [
+       40.5,
+       39.9
+      ],
+      [
+       41.5,
+       41.4
+      ],
+      [
+       39.0,
+       41.1
+      ],
+      [
+       36.0,
+       41.7
+      ],
+      [
+       33.0,
+       42.0
+      ],
+      [
+       31.0,
+       41.2
+      ],
+      [
+       29.2,
+       41.25
+      ],
+      [
+       28.0,
+       41.6
+      ],
+      [
+       28.6,
+       43.5
+      ],
+      [
+       29.6,
+       45.2
+      ],
+      [
+       28.2,
+       45.5
+      ],
+      [
+       22.5,
+       44.6
+      ],
+      [
+       21.5,
+       45.0
+      ],
+      [
+       19.0,
+       45.0
+      ]
+     ],
+     "start": 0.6,
+     "end": 5.0,
+     "label": [
+      30.0,
+      40.0
+     ]
+    },
+    {
+     "name": "Osmanlı · 1520",
+     "color": "#b5302a",
+     "poly": [
+      [
+       16.0,
+       45.0
+      ],
+      [
+       19.3,
+       40.5
+      ],
+      [
+       21.0,
+       37.5
+      ],
+      [
+       26.0,
+       39.5
+      ],
+      [
+       27.0,
+       37.0
+      ],
+      [
+       30.0,
+       36.3
+      ],
+      [
+       33.0,
+       36.0
+      ],
+      [
+       35.8,
+       36.2
+      ],
+      [
+       34.9,
+       32.0
+      ],
+      [
+       32.6,
+       31.3
+      ],
+      [
+       29.0,
+       31.0
+      ],
+      [
+       25.2,
+       31.6
+      ],
+      [
+       25.0,
+       22.5
+      ],
+      [
+       36.0,
+       22.5
+      ],
+      [
+       38.5,
+       21.0
+      ],
+      [
+       39.5,
+       18.5
+      ],
+      [
+       41.5,
+       19.0
+      ],
+      [
+       40.5,
+       21.5
+      ],
+      [
+       39.0,
+       25.0
+      ],
+      [
+       38.0,
+       28.0
+      ],
+      [
+       37.0,
+       31.0
+      ],
+      [
+       38.0,
+       33.5
+      ],
+      [
+       38.5,
+       35.0
+      ],
+      [
+       41.5,
+       36.9
+      ],
+      [
+       42.8,
+       37.6
+      ],
+      [
+       43.8,
+       40.0
+      ],
+      [
+       43.0,
+       41.0
+      ],
+      [
+       41.5,
+       41.5
+      ],
+      [
+       36.0,
+       41.8
+      ],
+      [
+       31.0,
+       41.3
+      ],
+      [
+       29.2,
+       41.3
+      ],
+      [
+       28.0,
+       44.0
+      ],
+      [
+       30.0,
+       45.5
+      ],
+      [
+       22.0,
+       46.5
+      ]
+     ],
+     "start": 5.0,
+     "label": [
+      31.0,
+      27.0
+     ]
+    }
+   ],
+   "cities": [
+    {
+     "at": [
+      28.97,
+      41.01
+     ],
+     "label": "İstanbul",
+     "start": 0.5,
+     "major": true
+    },
+    {
+     "at": [
+      31.24,
+      30.04
+     ],
+     "label": "Kahire",
+     "start": 5.5
+    },
+    {
+     "at": [
+      39.83,
+      21.42
+     ],
+     "label": "Mekke",
+     "start": 6.0
+    },
+    {
+     "at": [
+      40.22,
+      37.91
+     ],
+     "label": "Diyarbakır",
+     "start": 6.5
+    }
+   ],
+   "labels": [
+    {
+     "at": [
+      27.0,
+      34.0
+     ],
+     "text": "Akdeniz",
+     "start": 0.4,
+     "kind": "sea"
+    },
+    {
+     "at": [
+      34.5,
+      43.3
+     ],
+     "text": "Karadeniz",
+     "start": 0.4,
+     "kind": "sea"
+    },
+    {
+     "at": [
+      37.5,
+      22.5
+     ],
+     "text": "Kızıldeniz",
+     "start": 0.4,
+     "kind": "sea"
+    }
+   ],
+   "years": [
+    {
+     "t": 0.5,
+     "text": "1512"
+    },
+    {
+     "t": 5.0,
+     "text": "1520"
+    }
+   ],
+   "note": "Sınırlar yaklaşıktır"
+  },
+  "k_sehzadeler": {
+   "bilesen": "Infographic",
+   "type": "zaman",
+   "title": "Üç Şehzade",
+   "subtitle": "II. Bayezid'in tahta aday oğulları",
+   "durationSec": 10,
+   "events": [
+    {
+     "date": "Ahmed",
+     "text": "Amasya · vezirlerin gözdesi"
+    },
+    {
+     "date": "Korkud",
+     "text": "Manisa · âlim, sakin"
+    },
+    {
+     "date": "Selim",
+     "text": "Trabzon · ordunun gözdesi"
+    }
+   ]
+  }
+ },
  "chapters": [
   {
    "title": "Soğuk Açılış",
@@ -165,7 +2906,7 @@
      "text": "Selim yaklaşık yirmi beş yıl Trabzon'da kaldı. Burası imparatorluğun en uç köşesiydi; doğusunda Gürcü beylikleri, güneyinde Türkmen boyları vardı. Selim bu yıllarda sınırın ötesine akınlar düzenledi, savaşmayı kitaplardan değil, sahadan öğrendi.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "map": "m_osmanli_1500"
       }
      ]
     },
@@ -219,7 +2960,7 @@
      "text": "On yıl içinde İran'ın tamamını, Irak'ı, Azerbaycan'ı aldı. Ama onu Osmanlı için asıl tehlikeli yapan, ordusu değil, Anadolu'daki etkisiydi. Şah İsmail, Türkçe şiirler yazıyordu. Anadolu'nun Türkmen boylarına kendi dillerinde sesleniyordu. Ve binlerce Türkmen, ona katılmak için doğuya göç ediyordu.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "map": "m_safevi"
       }
      ]
     },
@@ -257,7 +2998,7 @@
      "text": "[sakin] Bayezid'in hayatta olan üç oğlu vardı. En büyükleri Ahmed, vezirlerin ve babasının gözdesiydi. Korkud, âlim ve sakin bir şehzadeydi. Selim ise en uzaktaydı, en az sevileniydi. Ama ordunun, özellikle de yeniçerilerin kalbi ondan yanaydı. Onlar, doğudaki tehlikeye karşı savaşacak bir padişah istiyordu.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "map": "k_sehzadeler"
       }
      ]
     },
@@ -265,7 +3006,7 @@
      "text": "Selim beklemedi. Karadeniz'i geçip Kırım'a, oradan Rumeli'ye geçti ve ordusuyla Edirne'ye yürüdü. Bu, babasına karşı açık bir meydan okumaydı.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "map": "m_selim_yolu"
       }
      ]
     },
@@ -311,7 +3052,7 @@
      "text": "[gerilim] Bin beş yüz on dört baharında Selim, büyük bir orduyla doğuya yürüdü. Seferden önce Anadolu'da Şah İsmail'e bağlı olanlar kayda geçirildi; bir kısmı sürgün edildi, bir kısmı öldürüldü. Kaynaklarda geçen rakamlar büyüktür ve bugün de tartışılır. Bu, Anadolu tarihinin hâlâ acıyla hatırlanan bir sayfasıdır.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "map": "m_caldiran_seferi"
       }
      ]
     },
@@ -410,7 +3151,7 @@
      "text": "Ertesi yıl Selim, doğudaki işini tamamladı. Kemah kalesini aldı. Maraş ve Elbistan'da hüküm süren Dulkadir beyliğine son verdi. Bilge bir devlet adamı olan İdris-i Bitlisî'nin yardımıyla, Diyarbakır ve çevresindeki Kürt beyleri de Osmanlı'ya bağlandı. [vurgulu] Böylece Osmanlı ile Memlûkler arasında artık hiçbir tampon kalmamıştı. İki büyük güç, sınır sınıra gelmişti.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "map": "m_1515"
       }
      ]
     }
@@ -428,7 +3169,7 @@
      "text": "[sakin] Selim'in gözü artık güneydeydi. Orada, iki buçuk asırdır ayakta duran güçlü bir devlet vardı: Memlûkler. Mısır'ı, Suriye'yi ve İslam'ın kutsal şehirleri Mekke ile Medine'yi yönetiyorlardı. Kahire, İslam dünyasının en zengin, en kalabalık şehriydi.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "map": "m_memluk"
       }
      ]
     },
@@ -518,7 +3259,7 @@
      "text": "Çölü bir orduyla geçmek, o güne kadar pek az hükümdarın göze alabildiği bir işti. Yüzlerce kilometre boyunca su yoktu, gölge yoktu. Selim binlerce deveye su tulumları yükletti. Ve bin beş yüz on yedi yılının Ocak ayında, ordu kumların içine girdi.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "map": "m_sina"
       }
      ]
     },
@@ -572,7 +3313,7 @@
      "text": "[hayret] Ama Selim bu tuzağı fark etti. Ordusunun bir kısmını, Mukattam tepelerinin arkasından dolaştırdı. Memlûk topları yere sabitlenmişti; dönemiyorlardı. Osmanlı birlikleri hattı yandan ve arkadan vurdu.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "map": "m_ridaniye"
       }
      ]
     },
@@ -683,6 +3424,10 @@
      "shots": [
       {
        "clip": "klipler/y34.mp4"
+      },
+      {
+       "map": "m_sinirlar",
+       "transition": "cut"
       }
      ]
     }

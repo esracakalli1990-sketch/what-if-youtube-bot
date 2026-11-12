@@ -145,3 +145,9 @@ def test_yavuz_draft_scenario_is_valid():
     folder = Path(__file__).resolve().parent.parent / "belgeseller" / "04-yavuz"
     data = dt.load_scenario(folder, draft=True)
     assert len(data["chapters"]) >= 10 and data["kurgu"]["gecis"] == "cut"
+
+
+def test_validate_rejects_multiword_pronunciation():
+    data = {"slug": "s", "title": "t", "images": {}, "pronunciations": {"Bâbüzzüveyle": "Bâbüz Züveyle"},
+            "chapters": [{"title": "c", "paragraphs": [{"text": "a", "shots": [{"clip": "k.mp4"}]}]}]}
+    assert any("okunuş" in p for p in dt.validate(data, draft=True))

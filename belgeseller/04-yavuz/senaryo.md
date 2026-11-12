@@ -53,7 +53,7 @@ Tepede, atının üstünde, bütün bunları sessizce izleyen bir adam var. [dur
 
 [sakin] Selim bin dört yüz yetmiş yılında Amasya'da doğdu. Babası, Fatih Sultan Mehmed'in oğlu şehzade Bayezid'di. Selim henüz gençken, Karadeniz kıyısındaki Trabzon'a sancakbeyi olarak gönderildi. Osmanlı geleneğinde şehzadeler böyle yetişirdi: uzak bir eyalette, devlet yönetmeyi bizzat yaşayarak öğrenirlerdi.
 
-[EKRAN: HARİTA — Osmanlı Devleti 1500; Trabzon parlar, doğuda boş sınır bölgesi; Safevî alanı kırmızıyla belirmeye başlar]
+[EKRAN: HARİTA m_osmanli_1500 — Osmanlı Devleti 1500; Trabzon parlar, doğuda boş sınır bölgesi; Safevî alanı kırmızıyla belirmeye başlar]
 
 Selim yaklaşık yirmi beş yıl Trabzon'da kaldı. Burası imparatorluğun en uç köşesiydi; doğusunda Gürcü beylikleri, güneyinde Türkmen boyları vardı. Selim bu yıllarda sınırın ötesine akınlar düzenledi, savaşmayı kitaplardan değil, sahadan öğrendi.
 
@@ -78,7 +78,7 @@ Ama onu yalnızca bir asker olarak düşünmek yanlış olur. [hayret] Selim Far
 
 [sakin] Bin beş yüz bir yılında, henüz on dört yaşında bir genç Tebriz'e girdi ve kendini şah ilan etti. İsmail, Safevî tarikatının şeyhlerinin soyundan geliyordu. Müritleri, başlarına taktıkları on iki dilimli kırmızı taç yüzünden "Kızılbaş" diye anılıyordu.
 
-[EKRAN: HARİTA — Safevî topraklarının büyüme animasyonu 1501–1510: İran, Irak, Azerbaycan; ok Anadolu'ya doğru]
+[EKRAN: HARİTA m_safevi — Safevî topraklarının büyüme animasyonu 1501–1510: İran, Irak, Azerbaycan; ok Anadolu'ya doğru]
 
 On yıl içinde İran'ın tamamını, Irak'ı, Azerbaycan'ı aldı. Ama onu Osmanlı için asıl tehlikeli yapan, ordusu değil, Anadolu'daki etkisiydi. Şah İsmail, Türkçe şiirler yazıyordu. Anadolu'nun Türkmen boylarına kendi dillerinde sesleniyordu. Ve binlerce Türkmen, ona katılmak için doğuya göç ediyordu.
 
@@ -95,11 +95,11 @@ On yıl içinde İran'ın tamamını, Irak'ı, Azerbaycan'ı aldı. Ama onu Osma
 ## BÖLÜM III — TAHT KAVGASI
 *Kart: BÖLÜM III · Taht Kavgası · 1511–1513 · Edirne, İstanbul*
 
-[EKRAN: KART — üç şehzade: Ahmed (Amasya), Korkud (Manisa), Selim (Trabzon); sırayla belirir]
+[EKRAN: KART k_sehzadeler — üç şehzade: Ahmed (Amasya), Korkud (Manisa), Selim (Trabzon); sırayla belirir]
 
 [sakin] Bayezid'in hayatta olan üç oğlu vardı. En büyükleri Ahmed, vezirlerin ve babasının gözdesiydi. Korkud, âlim ve sakin bir şehzadeydi. Selim ise en uzaktaydı, en az sevileniydi. Ama ordunun, özellikle de yeniçerilerin kalbi ondan yanaydı. Onlar, doğudaki tehlikeye karşı savaşacak bir padişah istiyordu.
 
-[EKRAN: HARİTA — Selim'in yolu: Trabzon → Kefe (Kırım) → Rumeli; ok Edirne'ye uzanır]
+[EKRAN: HARİTA m_selim_yolu — Selim'in yolu: Trabzon → Kefe (Kırım) → Rumeli; ok Edirne'ye uzanır]
 
 Selim beklemedi. Karadeniz'i geçip Kırım'a, oradan Rumeli'ye geçti ve ordusuyla Edirne'ye yürüdü. Bu, babasına karşı açık bir meydan okumaydı.
 
@@ -120,7 +120,7 @@ Ama İstanbul'da yeniçeriler ayaklandı. Ahmed'in tahta çıkmasını istemiyor
 ## BÖLÜM IV — ÇALDIRAN
 *Kart: BÖLÜM IV · Çaldıran · 1514 · Doğu Anadolu*
 
-[EKRAN: HARİTA — sefer yolu: İstanbul → Sivas → Erzincan → Çaldıran; ordu simgesi soldan sağa ilerler; gün sayacı]
+[EKRAN: HARİTA m_caldiran_seferi — sefer yolu: İstanbul → Sivas → Erzincan → Çaldıran; ordu simgesi soldan sağa ilerler; gün sayacı]
 
 [gerilim] Bin beş yüz on dört baharında Selim, büyük bir orduyla doğuya yürüdü. Seferden önce Anadolu'da Şah İsmail'e bağlı olanlar kayda geçirildi; bir kısmı sürgün edildi, bir kısmı öldürüldü. Kaynaklarda geçen rakamlar büyüktür ve bugün de tartışılır. Bu, Anadolu tarihinin hâlâ acıyla hatırlanan bir sayfasıdır.
 
@@ -152,7 +152,7 @@ Ve sonunda, Çaldıran ovasında iki ordu karşı karşıya geldi. Selim'in elin
 
 Birkaç gün sonra Osmanlı ordusu Safevî başkenti Tebriz'e girdi. Selim orada kışlamak istedi ama ordu buna karşı çıktı. Selim şehirden ayrılırken yanında Tebriz'in en usta sanatkârlarını İstanbul'a götürdü. Doğu Anadolu artık Osmanlı'ya bağlanmıştı.
 
-[EKRAN: HARİTA — 1515: Kemah kalesi ve Dulkadir beyliği (Maraş, Elbistan) Osmanlı rengine döner; Diyarbakır bölgesi]
+[EKRAN: HARİTA m_1515 — 1515: Kemah kalesi ve Dulkadir beyliği (Maraş, Elbistan) Osmanlı rengine döner; Diyarbakır bölgesi]
 
 Ertesi yıl Selim, doğudaki işini tamamladı. Kemah kalesini aldı. Maraş ve Elbistan'da hüküm süren Dulkadir beyliğine son verdi. Bilge bir devlet adamı olan İdris-i Bitlisî'nin yardımıyla, Diyarbakır ve çevresindeki Kürt beyleri de Osmanlı'ya bağlandı. [vurgulu] Böylece Osmanlı ile Memlûkler arasında artık hiçbir tampon kalmamıştı. İki büyük güç, sınır sınıra gelmişti.
 
@@ -161,7 +161,7 @@ Ertesi yıl Selim, doğudaki işini tamamladı. Kemah kalesini aldı. Maraş ve 
 ## BÖLÜM V — MERCİDABIK
 *Kart: BÖLÜM V · Mercidabık · 1516 · Halep'in kuzeyi*
 
-[EKRAN: HARİTA — 1515 sonrası Osmanlı; güneyde büyük Memlûk Devleti: Mısır, Suriye, Hicaz; sınır gerilir]
+[EKRAN: HARİTA m_memluk — 1515 sonrası Osmanlı; güneyde büyük Memlûk Devleti: Mısır, Suriye, Hicaz; sınır gerilir]
 
 [sakin] Selim'in gözü artık güneydeydi. Orada, iki buçuk asırdır ayakta duran güçlü bir devlet vardı: Memlûkler. Mısır'ı, Suriye'yi ve İslam'ın kutsal şehirleri Mekke ile Medine'yi yönetiyorlardı. Kahire, İslam dünyasının en zengin, en kalabalık şehriydi.
 
@@ -194,7 +194,7 @@ Halep savaşmadan teslim oldu. Ardından Şam. [hayret] Birkaç hafta içinde b�
 
 [ağır] Memlûkler henüz bitmemişti. Kahire'de yeni bir sultan seçmişlerdi: Tomanbay. Genç, cesur ve kararlı bir komutandı. Selim'in ona ulaşabilmesi için ise önünde yalnızca bir yol vardı: Sina Çölü.
 
-[EKRAN: HARİTA — Şam → Gazze → Sina → Kahire; çöl kumla dolar, ordu simgesi yavaş ilerler; gün sayacı]
+[EKRAN: HARİTA m_sina — Şam → Gazze → Sina → Kahire; çöl kumla dolar, ordu simgesi yavaş ilerler; gün sayacı]
 
 Çölü bir orduyla geçmek, o güne kadar pek az hükümdarın göze alabildiği bir işti. Yüzlerce kilometre boyunca su yoktu, gölge yoktu. Selim binlerce deveye su tulumları yükletti. Ve bin beş yüz on yedi yılının Ocak ayında, ordu kumların içine girdi.
 
@@ -215,7 +215,7 @@ Ordunun büyük kısmı, çölü yaklaşık iki haftada geçti. [vurgulu] Ve Oca
 
 [sakin] Tomanbay hazırlıklıydı. Mercidabık'tan ders almıştı. Kahire'nin kuzeyindeki Ridaniye'de hendekler kazdırmış, toplarını yerleştirmişti. Osmanlı ordusu bu hattın önüne geldiğinde, toplar onları bekliyor olacaktı.
 
-[EKRAN: HARİTA (SAVAŞ) — Memlûk hattı ve sabit toplar; Osmanlı ana kuvveti karşıda; bir kol Mukattam tepelerinden dolanır; Memlûk toplarının ateş yönü oklarla]
+[EKRAN: HARİTA m_ridaniye (SAVAŞ) — Memlûk hattı ve sabit toplar; Osmanlı ana kuvveti karşıda; bir kol Mukattam tepelerinden dolanır; Memlûk toplarının ateş yönü oklarla]
 
 [hayret] Ama Selim bu tuzağı fark etti. Ordusunun bir kısmını, Mukattam tepelerinin arkasından dolaştırdı. Memlûk topları yere sabitlenmişti; dönemiyorlardı. Osmanlı birlikleri hattı yandan ve arkadan vurdu.
 
@@ -256,7 +256,7 @@ Mekke şerifi, oğlunu Kahire'ye göndermişti. Getirdiği şey, Kâbe'nin anaht
 
 Halifeliğe gelince: Son Abbasi halifesi de Kahire'den İstanbul'a götürüldü. Halifeliğin o gün resmî bir törenle Osmanlı'ya devredildiği anlatısı, aslında çok daha sonraki yüzyıllarda yaygınlaştı ve tarihçiler arasında tartışmalıdır. Kesin olan şu: Osmanlı sultanları bu tarihten sonra İslam dünyasının önderi olarak görülmeye başlandı.
 
-[EKRAN: y34 (Osmanlı donanması denizde) /kes/ HARİTA — 1512 ve 1520 sınırları karşılaştırması; alan sayacı]
+[EKRAN: y34 (Osmanlı donanması denizde) /kes/ HARİTA m_sinirlar — 1512 ve 1520 sınırları karşılaştırması; alan sayacı]
 
 [hayret] Selim, bin beş yüz on sekizde İstanbul'a döndüğünde, imparatorluğun toprakları tahta çıktığı günden çok daha büyüktü. Kaynaklara göre neredeyse iki buçuk katına çıkmıştı. Hem de yalnızca altı yıl içinde.
 
@@ -281,7 +281,7 @@ Kaynaklar, son gecesinde yanında yakın dostu ve nedimi Hasan Can'ın bulunduğ
 
 Ölümü bir süre gizli tutuldu. Haber, oğlu Süleyman'a ulaştırıldı. Süleyman İstanbul'a gelip tahta oturdu. [vurgulu] O, tarihe Kanuni adıyla geçecek, babasının kurduğu bu dev imparatorluğu zirveye taşıyacaktı.
 
-[EKRAN: STOK — Yavuz Selim Camii ve türbesi bugün, Haliç'e bakan tepe, gün batımı (Pexels/Commons gerçek görüntü) · alt bant "BUGÜN · Yavuz Selim Camii, İstanbul" /karart/]
+[EKRAN: STOK s_yavuz_camii — Yavuz Selim Camii ve türbesi bugün, Haliç'e bakan tepe, gün batımı (Pexels/Commons gerçek görüntü) · alt bant "BUGÜN · Yavuz Selim Camii, İstanbul" /karart/]
 
 ---
 
