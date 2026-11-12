@@ -493,24 +493,49 @@ def music_bed(segments: list[tuple[str | None, float, float]], total: float,
     return buf
 
 
-def decode_span(path: str, start: float, duration: float, sr: int = SR) -> np.ndarray:
-    """Videonun/sesin belirli bir aralığındaki sesi (ses izi yoksa boş dizi)."""
+def decode_span(path: str, start: float, duration: float, sr: int = SR, speed: float = 1.0) -> np.ndarray:
+    """
+    Videonun/sesin belirli bir aralığındaki sesi (ses izi yoksa boş dizi).
+    speed < 1: görüntü yavaşlatıldıysa ses de aynı oranda uzatılır (perde korunur);
+    dönen ses yine `duration` saniyedir.
+    """
+    tempo = ["-af", f"atempo={speed:.4f}"] if abs(speed - 1.0) > 1e-3 else []
     out = subprocess.run(
-        ["ffmpeg", "-v", "error", "-ss", f"{start:.3f}", "-t", f"{duration:.3f}", "-i", str(path),
-         "-vn", "-f", "f32le", "-ac", "1", "-ar", str(sr), "-"], capture_output=True)
+        ["ffmpeg", "-v", "error", "-ss", f"{start:.3f}", "-t", f"{duration * speed:.3f}", "-i", str(path),
+         "-vn", *tempo, "-f", "f32le", "-ac", "1", "-ar", str(sr), "-"], capture_output=True)
     return np.frombuffer(out.stdout, np.float32) if out.returncode == 0 else np.zeros(0, np.float32)
 
 
-def sfx_bed(events: list[tuple[str, float, float, float]], total: float,
-            level_db: float = BED_RMS_DB + 2, fade: float = 0.5, sr: int = SR) -> np.ndarray:
+# L-kesme: klibin sesi görüntü kesildikten sonra bu kadar daha sürer ve sönerek
+# bir sonraki çekime bağlanır. Sinemada kesmeyi "görünmez" yapan temel tekniktir.
+SFX_OVERLAP = 0.6
+
+
+def shot_sfx_events(shots: list[dict], t0: float = 0.0, overlap: float = SFX_OVERLAP) -> list[tuple]:
+    """Çekim listesinden doğal ses olayları: (video, başlangıç, yer, süre, hız)."""
+    from scripts.doc_render import effective_speed
+    events, t = [], t0
+    for s in shots:
+        if s.get("sfx"):
+            start = s.get("start", 0.0)
+            speed = effective_speed(s["path"], start, s["duration"], s.get("speed", 0.0))
+            events.append((s["path"], start, t, s["duration"] + overlap, speed))
+        t += s["duration"]
+    return events
+
+
+def sfx_bed(events: list[tuple], total: float,
+            level_db: float = BED_RMS_DB + 2, fade: float = SFX_OVERLAP, sr: int = SR) -> np.ndarray:
     """
-    Doğal ses izi: [(video, videodaki başlangıç, zaman çizelgesindeki yer, süre)].
+    Doğal ses izi: [(video, videodaki başlangıç, zaman çizelgesindeki yer, süre[, hız])].
     Her klibin sesi eşitlenir, kenarları yumuşatılır. Anlatım altında master'daki
     sidechain ile müzikle birlikte alçalır.
     """
     buf = np.zeros(int(round(total * sr)), np.float32)
-    for path, src_start, at, dur in events:
-        seg = decode_span(path, src_start, dur, sr)
+    for ev in events:
+        path, src_start, at, dur = ev[:4]
+        speed = ev[4] if len(ev) > 4 else 1.0
+        seg = decode_span(path, src_start, dur, sr, speed)
         if not len(seg):
             continue
         seg = _fade(normalize_rms(seg.copy(), level_db), fade, sr)

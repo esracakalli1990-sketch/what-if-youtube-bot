@@ -24,6 +24,7 @@ CUT_LEAD = 0.12         # kesme, kelimeden hemen önce
 
 
 SHOT_SOURCES = ("image", "clip", "map", "stock", "film")
+TRANSITIONS = ("cut", "dissolve", "black", "flash")
 
 
 class ScenarioError(Exception):
@@ -56,6 +57,8 @@ def validate(data: dict, folder: Path | None = None) -> list[str]:
             if m.get("taban", "dunya") == "dunya" and "dunya" not in images:
                 problems.append(f"harita {name}: 'dunya' taban görseli images içinde yok "
                                 f"(File:Whole world - land and oceans 12000.jpg, original: true)")
+    if data.get("kurgu", {}).get("gecis", "dissolve") not in TRANSITIONS:
+        problems.append(f"kurgu.gecis {'/'.join(TRANSITIONS)} olmalı")
     for ci, ch in enumerate(data.get("chapters", [])):
         if not ch.get("title"):
             problems.append(f"bölüm {ci}: başlık yok")
@@ -84,6 +87,8 @@ def validate(data: dict, folder: Path | None = None) -> list[str]:
                     problems.append(f"{where} çekim {si}: katman tanımsız ({shot['overlay']})")
                 if "label" in shot and not (isinstance(shot["label"], dict) and shot["label"].get("title")):
                     problems.append(f"{where} çekim {si}: etiket {{\"title\", \"subtitle\"}} biçiminde olmalı")
+                if shot.get("transition", "dissolve") not in TRANSITIONS:
+                    problems.append(f"{where} çekim {si}: geçiş {'/'.join(TRANSITIONS)} olmalı")
                 if not any(k in shot for k in SHOT_SOURCES):
                     problems.append(f"{where} çekim {si}: {'/'.join(SHOT_SOURCES)} biri gerekli")
     return problems
@@ -141,13 +146,20 @@ def _cut_points(words: list[dict], n_shots: int, duration: float) -> list[float]
 
 def chapter_shots(chapter: dict, audio: list[dict], layout: ChapterLayout,
                   image_paths: dict, folder: Path, card_clip: str | None = None,
-                  stock_paths: dict | None = None, film_paths: dict | None = None) -> list[dict]:
+                  stock_paths: dict | None = None, film_paths: dict | None = None,
+                  kurgu: dict | None = None) -> list[dict]:
     """
     Bölümün çekim listesi (doc_render.Shot alanlarıyla sözlükler).
+    kurgu: belgesel geneli kurgu ayarları (senaryodaki "kurgu" alanı):
+      "gecis"      varsayılan geçiş türü (cut | dissolve | black | flash), yoksa dissolve
+      "ton_esitle" video çekimlerinde ton eşitleme gücü (0..1), yoksa 0
     Her paragrafın çekimleri bir sonraki paragrafın başına kadar sürer.
     stock_paths / film_paths: indirilmiş Pexels videoları ve uzun filmler.
     """
     stock_paths, film_paths = stock_paths or {}, film_paths or {}
+    kurgu = kurgu or {}
+    default_tr = kurgu.get("gecis", "dissolve")
+    tone = float(kurgu.get("ton_esitle", 0.0))
     shots = []
     if chapter.get("card"):
         if not card_clip:
@@ -171,24 +183,27 @@ def chapter_shots(chapter: dict, audio: list[dict], layout: ChapterLayout,
                 "move": spec.get("move", "in"),
                 "focus": tuple(spec.get("focus", (0.5, 0.5))),
                 "fit": spec.get("fit", "auto"),
-                "transition": spec.get("transition", "dissolve"),
+                "transition": spec.get("transition", default_tr),
+                "xfade": spec.get("xfade", 0.0),
                 "label": spec.get("label"),
                 "note": spec.get("note", ""),
             }
+            video_opts = {k: spec[k] for k in ("flip", "speed") if k in spec}
+            video_opts["match"] = spec.get("ton", tone)
             if "clip" in spec:
                 shot.update(kind="video", path=str(Path(folder) / spec["clip"]),
-                            note=spec.get("note", "Temsili canlandırma"),
-                            sfx=spec.get("sfx", True))   # Gemini kliplerinin doğal sesi
+                            note=spec.get("note", "Temsili canlandırma"), start=spec.get("start", 0.0),
+                            sfx=spec.get("sfx", True), **video_opts)   # klibin doğal sesi
             elif "map" in spec:
                 # Remotion harita sahnesi; renk tonu bileşende uygulanmış durumda
                 shot.update(kind="video", path=str(Path(folder) / "build" / "maps" / f"{spec['map']}.mp4"),
                             grade=False)
             elif "stock" in spec:
                 shot.update(kind="video", path=stock_paths[spec["stock"]], start=spec.get("start", 0.0),
-                            sfx=spec.get("sfx", False))
+                            sfx=spec.get("sfx", False), **video_opts)
             elif "film" in spec:
                 shot.update(kind="video", path=film_paths[spec["film"]], start=spec.get("start", 0.0),
-                            sfx=spec.get("sfx", False))
+                            sfx=spec.get("sfx", False), **video_opts)
             else:
                 shot.update(kind="image", path=image_paths[spec["image"]])
             if spec.get("overlay"):

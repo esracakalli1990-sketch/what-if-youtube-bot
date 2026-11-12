@@ -252,7 +252,8 @@ class Shot:
     move: str = "in"
     focus: tuple = (0.5, 0.5)
     fit: str = "auto"
-    transition: str = "dissolve"     # bu çekime GİRİŞ: "dissolve" | "cut"
+    transition: str = "dissolve"     # bu çekime GİRİŞ: "dissolve" | "cut" | "black" | "flash"
+    xfade: float = 0.0               # geçiş süresi (0: türün varsayılanı)
     label: dict | None = None        # {"title": ..., "subtitle": ...}
     note: str = ""                   # sağ üst not
     grade: bool = True               # video çekimlerinde renk tonu (grafik kartlarında kapalı)
@@ -260,6 +261,9 @@ class Shot:
     overlay: str = ""                # atmosfer katmanı videosu (toz, sis, kıvılcım…)
     overlay_opacity: float = 0.55
     sfx: bool = False                # videonun kendi sesi doğal ses izine eklenir (birleştirmede)
+    flip: bool = False               # yatay ayna: ekran yönü kuralı (ordu soldan sağa vb.)
+    speed: float = 0.0               # sabit hız (ör. 0.8 ağır çekim); 0: gerekirse otomatik yavaşlat
+    match: float = 0.0               # ton eşitleme gücü 0..1 (farklı kliplerin parlaklık/kontrastı)
     _state: dict = field(default_factory=dict, repr=False)
 
 
@@ -334,6 +338,44 @@ class ImageSource:
                               borderMode=cv2.BORDER_REFLECT)
 
 
+# Sinematik hedef: orta-koyu ortalama, belirgin ama sert olmayan kontrast
+TONE_TARGET = (100.0, 52.0)   # gri düzey ortalaması, standart sapması (0-255)
+
+
+def tone_params(path: str, start: float = 0.0, strength: float = 0.5,
+                samples: int = 6) -> tuple[float, float] | None:
+    """
+    Klibin genel parlaklık/kontrastını hedefe yaklaştıran sabit (kazanç, kayma).
+    Kare kare değil klip başına hesaplanır: titreme olmaz. strength=1 tam eşitler,
+    0.5 yarı yola getirir (gece sahnesi yine karanlık kalır, ama "başka film" gibi durmaz).
+    """
+    dur = probe_duration(path) - start
+    if dur <= 0:
+        return None
+    fps = samples / dur
+    out = subprocess.run(["ffmpeg", "-v", "error", "-ss", f"{start:.3f}", "-i", str(path),
+                          "-vf", f"fps={fps:.5f},scale=320:-2,format=gray", "-frames:v", str(samples),
+                          "-f", "rawvideo", "-"], capture_output=True)
+    px = np.frombuffer(out.stdout, np.uint8).astype(np.float32)
+    if px.size < 100:
+        return None
+    mean, std = float(px.mean()), max(float(px.std()), 1.0)
+    tm, ts = TONE_TARGET
+    gain = float(np.clip((ts / std) ** strength, 0.8, 1.25))
+    new_mean = mean + strength * (tm - mean)
+    beta = float(np.clip(new_mean - gain * mean, -30, 30))
+    return gain, beta
+
+
+def effective_speed(path: str, start: float, span: float, speed: float = 0.0) -> float:
+    """Oynatma hızı: istenen hız (yoksa 1); kaynak yetmezse en fazla %40 yavaşlatılır."""
+    speed = speed or 1.0
+    available = probe_duration(path) - start
+    if 0 < available < span * speed:
+        speed = max(available / span, 0.6)
+    return speed
+
+
 class VideoSource:
     """
     Klibi 1440p'ye ölçekleyip sırayla okur.
@@ -346,12 +388,11 @@ class VideoSource:
     def __init__(self, shot: Shot, span: float = 0.0, loop: bool = False, do_grade: bool | None = None):
         self.shot = shot
         self.do_grade = shot.grade if do_grade is None else do_grade
-        speed = 1.0
-        if span and not loop:
-            available = probe_duration(shot.path) - shot.start
-            if 0 < available < span:
-                speed = max(available / span, 0.6)
-        vf = (f"setpts=PTS/{speed:.4f},"
+        speed = effective_speed(shot.path, shot.start, span, shot.speed) if span and not loop else 1.0
+        self.speed = speed
+        flip = "hflip," if shot.flip else ""
+        self.tone = tone_params(shot.path, shot.start, shot.match) if shot.match and not loop else None
+        vf = (f"setpts=PTS/{speed:.4f},{flip}"
               f"scale={OUT_W}:{OUT_H}:force_original_aspect_ratio=increase:flags=lanczos,"
               f"crop={OUT_W}:{OUT_H},fps={FPS}")
         cmd = ["ffmpeg", "-loglevel", "error"]
@@ -374,6 +415,8 @@ class VideoSource:
                 self.ended = True
                 break
             frame = np.frombuffer(buf, np.uint8).reshape(OUT_H, OUT_W, 3)
+            if self.tone:
+                frame = cv2.convertScaleAbs(frame, alpha=self.tone[0], beta=self.tone[1])
             self.last = grade(frame) if self.do_grade else frame.copy()
             self.pos += 1
         return self.last
@@ -387,6 +430,41 @@ class VideoSource:
 # ─────────────────────────────────────────────
 # Bölüm render'ı
 # ─────────────────────────────────────────────
+
+# Geçiş türleri (çekime giriş):
+#   cut      düz kesme: aynı sahnede, aksiyon devam ederken (sinemanın temel dili)
+#   dissolve çapraz geçiş: zaman/mekân atlaması, sakin anlatım
+#   black    siyaha inip açılma: bölüm içi büyük sahne değişimi, "aradan yıllar geçti"
+#   flash    beyaz parlama + kesme: top atışı, darbe anı
+TRANSITION_DEFAULTS = {"dissolve": 0.5, "black": 1.2, "flash": 0.4}
+WHITE = None
+
+
+def _transition(frame, i, t, starts, trans, tlen, shot_frame, n):
+    """Sınırın iki yanındaki geçiş efektini uygula (çekim i'nin karesi üzerinde)."""
+    global WHITE
+    s0 = starts[i]
+    L = tlen[i]
+    if i > 0 and L:
+        if trans[i] == "dissolve" and t < s0 + L / 2:
+            a = 0.5 + (t - s0) / L
+            frame = cv2.addWeighted(frame, a, shot_frame(i - 1, t), 1 - a, 0)
+        elif trans[i] == "black" and t < s0 + L / 2:
+            frame = cv2.convertScaleAbs(frame, alpha=float(np.clip((t - s0) / (L / 2), 0, 1)))
+        elif trans[i] == "flash" and t < s0 + L:
+            if WHITE is None or WHITE.shape != frame.shape:
+                WHITE = np.full(frame.shape, 255, np.uint8)
+            w = 0.85 * (1 - (t - s0) / L) ** 2
+            frame = cv2.addWeighted(frame, 1 - w, WHITE, w, 0)
+    if i < n - 1:
+        s1, L1 = starts[i + 1], tlen[i + 1]
+        if L1 and trans[i + 1] == "dissolve" and t >= s1 - L1 / 2:
+            a = 0.5 - (s1 - t) / L1
+            frame = cv2.addWeighted(shot_frame(i + 1, t), a, frame, 1 - a, 0)
+        elif L1 and trans[i + 1] == "black" and t >= s1 - L1 / 2:
+            frame = cv2.convertScaleAbs(frame, alpha=float(np.clip((s1 - t) / (L1 / 2), 0, 1)))
+    return frame
+
 
 def render_chapter(shots: list[Shot], out_path: str, xfade: float = 0.5,
                    fade_in: float = 0.6, fade_out: float = 0.8,
@@ -402,7 +480,20 @@ def render_chapter(shots: list[Shot], out_path: str, xfade: float = 0.5,
     starts = np.cumsum([0.0] + [s.duration for s in shots])
     total = float(starts[-1])
     n_frames = int(round(total * FPS))
-    half = xfade / 2
+    # Her sınırın geçiş türü ve süresi (çekim i'ye giriş). Çapraz geçişte iki
+    # kaynak üst üste biner, bu yüzden kaynak geçiş payının yarısı kadar önce başlar.
+    trans = [shots[i].transition if i else "cut" for i in range(len(shots))]
+    tlen = []
+    for i, sh in enumerate(shots):
+        if trans[i] == "cut":
+            L = 0.0
+        else:
+            L = sh.xfade or (xfade if trans[i] == "dissolve" else TRANSITION_DEFAULTS.get(trans[i], xfade))
+        if i:   # geçiş, iki komşu çekimden kısasından uzun olamaz
+            L = min(L, sh.duration, shots[i - 1].duration)
+        tlen.append(L)
+    lead = [tlen[i] / 2 if trans[i] == "dissolve" else 0.0 for i in range(len(shots))]
+    tail = lead[1:] + [0.0]
     canvas_cache: dict = {}
     sources: dict[int, object] = {}
     overlays: dict[int, list] = {}
@@ -410,7 +501,7 @@ def render_chapter(shots: list[Shot], out_path: str, xfade: float = 0.5,
     def source(i: int):
         if i not in sources:
             s = shots[i]
-            span = s.duration + xfade
+            span = s.duration + lead[i] + tail[i]
             src = VideoSource(s, span) if s.kind == "video" else ImageSource(s, span, canvas_cache)
             sources[i] = AtmosSource(src, s) if s.overlay else src
             ov = []
@@ -436,7 +527,7 @@ def render_chapter(shots: list[Shot], out_path: str, xfade: float = 0.5,
 
     def shot_frame(i: int, t_global: float) -> np.ndarray:
         local = t_global - starts[i]          # çekim başlangıcına göre
-        frame = source(i).frame(local + half)  # kaynak, geçiş payı kadar önce başlar
+        frame = source(i).frame(local + lead[i])  # kaynak, geçiş payı kadar önce başlar
         return frame
 
     Path(out_path).parent.mkdir(parents=True, exist_ok=True)
@@ -457,15 +548,7 @@ def render_chapter(shots: list[Shot], out_path: str, xfade: float = 0.5,
                 release(i - 1) if i > 0 else None
                 i += 1
             frame = shot_frame(i, t).copy()
-            # Önceki çekimden çapraz geçiş (sınırın ilk yarısı bu çekimde)
-            if i > 0 and shots[i].transition == "dissolve" and t < starts[i] + half:
-                a = 0.5 + (t - starts[i]) / xfade
-                frame = cv2.addWeighted(frame, a, shot_frame(i - 1, t), 1 - a, 0)
-            # Sonraki çekime çapraz geçiş (sınırın son yarısı)
-            if (i < len(shots) - 1 and shots[i + 1].transition == "dissolve"
-                    and t >= starts[i + 1] - half):
-                a = 0.5 - (starts[i + 1] - t) / xfade
-                frame = cv2.addWeighted(shot_frame(i + 1, t), a, frame, 1 - a, 0)
+            frame = _transition(frame, i, t, starts, trans, tlen, shot_frame, len(shots))
             frame = look.apply(frame, n)
             local = t - starts[i]
             for ov, pos in overlays.get(i, []):
