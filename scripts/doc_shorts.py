@@ -121,7 +121,7 @@ def build_short(prod, spec: dict, out_dir: Path) -> dict:
     stock = {k: str(prod.build / v["path"]) for k, v in videos["stock"].items()}
     films = {k: str(prod.build / v["path"]) for k, v in videos["films"].items()}
     shots = doc_timeline.chapter_shots(pseudo, audio, layout, images, prod.folder,
-                                       stock_paths=stock, film_paths=films)
+                                       stock_paths=stock, film_paths=films, kurgu=data.get("kurgu"))
     for s in shots:
         s["label"] = None            # dikey kadrajda alt bant okunmaz; bilgi altyazıda
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -133,12 +133,7 @@ def build_short(prod, spec: dict, out_dir: Path) -> dict:
     total = layout.total + CTA_SECONDS
     voice = out_dir / f"{spec['id']}_anlatim.wav"
     doc_audio.write_wav(doc_audio.place([(a["path"], t) for a, t in zip(audio, layout.para_starts)], total), voice)
-    events, t = [], 0.0
-    for s in shots:
-        if s.get("sfx"):
-            events.append((s["path"], s.get("start", 0.0), t, s["duration"]))
-        t += s["duration"]
-    bed = doc_audio.sfx_bed(events, total)
+    bed = doc_audio.sfx_bed(doc_audio.shot_sfx_events(shots), total)
     music_file = prod._music_for(spec.get("muzik"))
     if music_file:
         bed = bed + doc_audio.music_bed([(music_file, 0.0, total)], total, fade=2.0)

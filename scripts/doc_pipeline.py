@@ -313,18 +313,14 @@ class Production:
         return [doc_timeline.chapter_shots(
                     ch, audio[ci], layouts[ci], images, self.folder,
                     card_clip=str(self.path("cards", f"c{ci:02d}.mp4")) if ch.get("card") else None,
-                    stock_paths=stock, film_paths=films)
+                    stock_paths=stock, film_paths=films, kurgu=self.data.get("kurgu"))
                 for ci, ch in enumerate(self.data["chapters"])]
 
-    def sfx_events(self, chapter_starts: list[float]) -> list[tuple[str, float, float, float]]:
-        """Doğal sesi açık video çekimleri: (video, kaynaktaki başlangıç, zamandaki yer, süre)."""
+    def sfx_events(self, chapter_starts: list[float]) -> list[tuple]:
+        """Doğal sesi açık video çekimleri: (video, kaynaktaki başlangıç, zamandaki yer, süre, hız)."""
         events = []
         for ci, shots in enumerate(self.chapter_shot_lists()):
-            t = chapter_starts[ci]
-            for s in shots:
-                if s.get("sfx"):
-                    events.append((s["path"], s.get("start", 0.0), t, s["duration"]))
-                t += s["duration"]
+            events += doc_audio.shot_sfx_events(shots, chapter_starts[ci])
         return events
 
     def stage_bolum(self, only: int | None = None):
