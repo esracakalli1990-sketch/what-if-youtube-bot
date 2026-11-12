@@ -23,7 +23,7 @@ on:
       mod:
         description: "ornek = önizleme, tam = YouTube'a gizli yükleme"
         type: choice
-        options: [inceleme, ornek, tam, shorts]
+        options: [inceleme, ornek, tam, shorts, sosyal]
         default: ornek
       ornek_bolum:
         description: "Örnekte kaç bölüm (giriş + ilk bölüm = 2)"
@@ -164,7 +164,24 @@ jobs:
       - name: Shorts üret ve gizli + planlı yükle
         if: inputs.mod == 'shorts'
         # Belgeselin önbellekteki sesi ve görselleri kullanılır: yeni ElevenLabs kredisi yok
-        run: python -m scripts.doc_shorts "$KLASOR" --yukle
+        run: python -m scripts.doc_shorts "$KLASOR" --yukle --sosyal
+
+      - name: Sosyal medya paketi üret (YouTube'a yüklemeden)
+        if: inputs.mod == 'sosyal'
+        # Önceden yüklenmiş Short'lar için TikTok/Instagram/Facebook kopyaları; kredi harcanmaz
+        run: python -m scripts.doc_shorts "$KLASOR" --sosyal
+
+      - name: Sosyal medya paketini Release'e yükle
+        if: inputs.mod == 'shorts' || inputs.mod == 'sosyal'
+        # Release dosyaları artifact kotasına girmez; günlük sosyal.yml buradan indirir
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="sosyal-$(basename "$KLASOR")"
+          gh release view "$TAG" >/dev/null 2>&1 || \
+            gh release create "$TAG" --title "Sosyal medya: $(basename "$KLASOR")" \
+              --notes "Shorts'ların TikTok/Instagram/Facebook kopyaları (otomatik)." --latest=false
+          gh release upload "$TAG" "$KLASOR"/build/sosyal/*.mp4 "$KLASOR"/build/sosyal/manifest.json --clobber
 
       - name: Shorts dosyalarını paylaş
         if: inputs.mod == 'shorts'
@@ -229,6 +246,10 @@ jobs:
               rows = json.loads(Path(klasor, "build", "shorts", "shorts.json").read_text())
               send_message("📱 Shorts GİZLİ yüklendi ve planlandı:\n" + "\n".join(
                   f"• {r['id']} ({r['seconds']:.0f} sn) → {r.get('url')} · yayın {r.get('yayin')}" for r in rows))
+          elif mod == "sosyal":
+              rows = json.loads(Path(klasor, "build", "sosyal", "manifest.json").read_text())
+              send_message(f"📦 Sosyal medya paketi hazır ({len(rows)} Short): {klasor}\n"
+                           + "\n".join(f"• {r['id']} ({r['sure']:.0f} sn)" for r in rows))
           elif mod == "ornek":
               send_message(f"🎬 Örnek önizleme hazır: {klasor}\nİndirme (Artifacts → ornek-onizleme): {url}")
           else:
