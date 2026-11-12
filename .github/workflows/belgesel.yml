@@ -103,6 +103,19 @@ jobs:
           key: belgesel-${{ inputs.klasor }}-${{ github.run_id }}
           restore-keys: belgesel-${{ inputs.klasor }}-
 
+      - name: Ses yedeğini geri yükle (önbellekte yoksa)
+        # GitHub önbelleği 10 GB'ı aşınca eski kayıtları siler; ses kalıcı olarak
+        # "yedek-<klasör>" Release'inde de tutulur. Önbellekte yoksa oradan alınır.
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="yedek-$(basename "$KLASOR")"
+          if [ ! -f "$KLASOR/build/audio/manifest.json" ] && gh release view "$TAG" >/dev/null 2>&1; then
+            gh release download "$TAG" -p ses.tar.gz -D /tmp --clobber
+            mkdir -p "$KLASOR/build" && tar -xzf /tmp/ses.tar.gz -C "$KLASOR/build"
+            echo "Ses yedeği geri yüklendi: $(ls "$KLASOR/build/audio" | wc -l) dosya"
+          fi
+
       - name: Senaryoyu doğrula
         if: inputs.mod != 'inceleme'
         run: python -m scripts.doc_pipeline "$KLASOR" dogrula
@@ -219,6 +232,21 @@ jobs:
             ${{ inputs.klasor }}/build/stock
             ${{ inputs.klasor }}/build/music
           key: belgesel-${{ inputs.klasor }}-${{ github.run_id }}-${{ github.run_attempt }}
+
+      - name: Sesi kalıcı yedekle (Release)
+        # Ses ElevenLabs kredisidir; önbellek silinse bile kaybolmasın
+        if: always() && inputs.mod != 'inceleme'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          [ -f "$KLASOR/build/audio/manifest.json" ] || exit 0
+          TAG="yedek-$(basename "$KLASOR")"
+          tar -czf /tmp/ses.tar.gz -C "$KLASOR/build" audio
+          gh release view "$TAG" >/dev/null 2>&1 || \
+            gh release create "$TAG" --title "Ses yedeği: $(basename "$KLASOR")" \
+              --notes "ElevenLabs seslendirmesinin kalıcı yedeği (otomatik)." --latest=false
+          gh release upload "$TAG" /tmp/ses.tar.gz --clobber
 
       - name: Telegram bildirimi
         if: always()
