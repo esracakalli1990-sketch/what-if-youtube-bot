@@ -189,3 +189,19 @@ M["k_sehzadeler"] = {"bilesen": "Infographic", "type": "zaman", "title": "Üç �
     "events": [{"date": "Ahmed", "text": "Amasya · vezirlerin gözdesi"},
                {"date": "Korkud", "text": "Manisa · âlim, sakin"},
                {"date": "Selim", "text": "Trabzon · ordunun gözdesi"}]}
+
+
+def esnet(spec: dict, seconds: float) -> dict:
+    """Haritayı yuvaya göre uzat: bütün zamanlar orantılı ölçeklenir (sona boş bekleme kalmaz)."""
+    if spec.get("bilesen"):
+        return {**spec, "durationSec": round(seconds, 1)}
+    k = seconds / spec["durationSec"]
+    out = {**spec, "durationSec": round(seconds, 1)}
+    for key in ("regions", "routes", "units", "clashes", "cities", "labels", "rivers", "lines", "convoys"):
+        if key in spec:
+            out[key] = [{**it, **{f: round(it[f] * k, 2) for f in ("start", "end", "duration") if f in it}}
+                        for it in spec[key]]
+    for key in ("years", "camera"):
+        if key in spec:
+            out[key] = [{**it, "t": round(it["t"] * k, 2)} for it in spec[key]]
+    return out

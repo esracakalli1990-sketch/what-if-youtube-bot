@@ -47,7 +47,7 @@
 | `z04.mp4` | B | 8 sn | — | Extreme close-up of a hand writing elegant Persian calligraphy with a reed pen on cream paper, ink glistening, oil lamp light flickering, shallow depth of field. |
 | `z05.mp4` | A | 10 sn | — | A lonely wooden border watchtower on a windy highland ridge, an Ottoman guard looking toward the horizon; far away on the right, a line of horsemen in tall red caps appears over the hill, moving right to left, grass blowing in the wind, overcast sky. |
 | `z06.mp4` | B | 10 sn | — | Night, a rural Anatolian village on fire seen from a distance across a valley, orange glow and smoke under a dark sky, silhouettes of horsemen riding past in the foreground from right to left. No violence shown. |
-| `z07.mp4` | B | 8 sn | — | Defeated Ottoman cavalrymen retreating in disorder across a dusty plain, moving left to right away from the camera, dropped banner on the ground, dust and smoke, handheld camera. |
+| `z07.mp4` | B | 12 sn | — | Defeated Ottoman cavalrymen retreating in disorder across a dusty plain, moving left to right away from the camera, dropped banner on the ground, dust and smoke, handheld camera. |
 | `z08.mp4` | A | 10 sn | K6 | Inside a dim Ottoman palace hall with tiled walls, the elderly sultan from the reference image sitting on a low golden throne, tired and ill, leaning on cushions, courtiers standing silently in the shadows, cold window light, slow push-in. |
 | `z09.mp4` | B | 12 sn | — | Two Ottoman armies facing each other across a grey, cloudy plain in Thrace in summer, lines of cavalry and infantry with red and green banners, tense stillness before battle, wide aerial shot. |
 | `z10.mp4` | A | 10 sn | K5 | The prince from the reference image, now a little older with a dark mustache, galloping fast with a handful of riders, fleeing after a lost battle, moving left to right, dust and dusk light, tracking shot. |
@@ -56,10 +56,10 @@
 | `z13.mp4` | A | 10 sn | — | Burned wheat fields and an abandoned mud-brick village on a highland plain, smoke still rising, no people, wind blowing ash, an army column appearing in the far distance moving left to right, bleak light. |
 | `z14.mp4` | A | 12 sn | — | A great Ottoman army marching south through hot dry Syrian plains, moving left to right, cavalry, janissaries, camels and cannons, dust in golden afternoon light, wide tracking shot. |
 | `z15.mp4` | A | 12 sn | — | A massive medieval stone citadel on a high mound above a Syrian city, a huge fortified gate bridge leading up to it, Ottoman cavalry riding up the bridge, moving left to right, warm afternoon light, wide shot. |
-| `z16.mp4` | B | 10 sn | — | The vast marble-paved courtyard of a great early medieval mosque in Damascus with arcades and golden mosaics on the facade, Ottoman soldiers and local people walking quietly, morning light, slow dolly. |
+| `z16.mp4` | B | 12 sn | — | The vast marble-paved courtyard of a great early medieval mosque in Damascus with arcades and golden mosaics on the facade, Ottoman soldiers and local people walking quietly, morning light, slow dolly. |
 | `z17.mp4` | A | 12 sn | K1, K4 | Inside an Ottoman campaign tent, the sultan from reference k1 sitting on cushions, facing the Mamluk commander from reference k4 who stands in chains, proud and unbowed; the two men look at each other in silence, oil lamp light, over-the-shoulder shots. |
 | `z18.mp4` | B | 12 sn | K1 | The sultan from the reference image standing on the bank of the Nile at sunset, palm trees and feluccas on the river, the pyramids faint on the far horizon, wind moving his kaftan, contemplative, wide shot then slow push-in. |
-| `z19.mp4` | A | 10 sn | — | Close-up of hands opening an ornate silver box on a carpet, revealing large old ornate iron keys on green silk; a young Arab nobleman in white robes presenting it, oil lamp light, reverent atmosphere. |
+| `z19.mp4` | A | 14 sn | — | Close-up of hands opening an ornate silver box on a carpet, revealing large old ornate iron keys on green silk; a young Arab nobleman in white robes presenting it, oil lamp light, reverent atmosphere. |
 | `z20.mp4` | B | 10 sn | — | An empty 16th century Ottoman chamber with walls covered in blue and white Iznik tiles, a domed ceiling, a gilded silver canopy over a closed chest in the center, morning light beams, no people, slow dolly forward. |
 | `z21.mp4` | B | 12 sn | — | Aerial shot of a busy 16th century Ottoman shipyard on the shore of the Golden Horn, wooden galleys under construction on slipways, workers, smoke from forges, the old city with domes on the far shore, morning light. |
 | `z22.mp4` | A | 10 sn | — | Night on a quiet roadside in Thrace, a large Ottoman imperial tent lit from inside by oil lamps, guards standing still with spears, horses tied nearby, a few campfires, cold blue moonlight, wide static shot slowly pushing in. |
@@ -67,9 +67,9 @@
 | `z24.mp4` | B | 10 sn | — | A single messenger on horseback galloping along a coastal road by the Black Sea at early morning, moving left to right, cloak flying, mist over the sea, tracking shot. |
 | `z25.mp4` | B | 10 sn | — | A young Ottoman prince in his mid-twenties seen only as a silhouette against a bright palace window, receiving a sealed letter, slowly lowering it, quiet and grave, cold morning light. |
 | `z27.mp4` | B | 10 sn | — | A balcony of a stone palace above the Black Sea at sunrise, a young woman in 15th century Ottoman dress and veil holding a newborn baby wrapped in white cloth, gentle wind, warm soft light, faces soft and peaceful. |
-| `z28.mp4` | A | 8 sn | — | Close-up of a small ornate golden box on a dark wooden table being opened slowly by a hand, revealing dark resin inside, candle light, tense and mocking atmosphere. |
+| `z28.mp4` | A | 10 sn | — | Close-up of a small ornate golden box on a dark wooden table being opened slowly by a hand, revealing dark resin inside, candle light, tense and mocking atmosphere. |
 | `z29.mp4` | A | 12 sn | K1 | Inside an Ottoman campaign tent, a sea captain in a turban unrolls a large parchment world map on gazelle skin before the sultan from the reference image; close-up on the map showing hand-drawn coasts, ships and compass lines, the sultan leaning forward with interest, warm lamp light. |
-| `z30.mp4` | B | 10 sn | — | Early morning mist in front of a large closed Ottoman imperial tent, guards standing silently with heads bowed, a horse without rider, grey light, very still, slow push-in. |
+| `z30.mp4` | B | 14 sn | — | Early morning mist in front of a large closed Ottoman imperial tent, guards standing silently with heads bowed, a horse without rider, grey light, very still, slow push-in. |
 
 (`z26` yok, o sahnede gerçek görüntü kullanılacak.)
 

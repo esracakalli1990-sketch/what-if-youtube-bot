@@ -102,7 +102,7 @@
     "south": 33.25,
     "north": 46.75
    },
-   "durationSec": 12,
+   "durationSec": 20.3,
    "title": "İmparatorluğun Uç Köşesi",
    "subtitle": "Osmanlı Devleti, 1500 civarı",
    "regions": [
@@ -239,7 +239,7 @@
        45.0
       ]
      ],
-     "start": 0.6,
+     "start": 1.01,
      "label": [
       31.0,
       39.0
@@ -278,7 +278,7 @@
        38.2
       ]
      ],
-     "start": 7.5,
+     "start": 12.68,
      "label": [
       46.6,
       38.4
@@ -292,7 +292,7 @@
       41.01
      ],
      "label": "İstanbul",
-     "start": 0.5,
+     "start": 0.85,
      "side": "left"
     },
     {
@@ -301,7 +301,7 @@
       40.65
      ],
      "label": "Amasya",
-     "start": 1.5
+     "start": 2.54
     },
     {
      "at": [
@@ -309,7 +309,7 @@
       41.0
      ],
      "label": "Trabzon",
-     "start": 3.0,
+     "start": 5.07,
      "major": true,
      "side": "right"
     }
@@ -321,7 +321,7 @@
       43.3
      ],
      "text": "Karadeniz",
-     "start": 0.4,
+     "start": 0.68,
      "kind": "sea"
     },
     {
@@ -330,24 +330,24 @@
       42.3
      ],
      "text": "Gürcü beylikleri",
-     "start": 4.5,
+     "start": 7.61,
      "kind": "land"
     }
    ],
    "years": [
     {
-     "t": 0.5,
+     "t": 0.85,
      "text": "1500"
     },
     {
-     "t": 7.5,
+     "t": 12.68,
      "text": "1501"
     }
    ],
    "note": "Sınırlar yaklaşıktır",
    "camera": [
     {
-     "t": 0,
+     "t": 0.0,
      "center": [
       33.0,
       40.0
@@ -355,7 +355,7 @@
      "zoom": 1.0
     },
     {
-     "t": 3.0,
+     "t": 5.07,
      "center": [
       39.5,
       40.5
@@ -363,7 +363,7 @@
      "zoom": 1.7
     },
     {
-     "t": 7.0,
+     "t": 11.84,
      "center": [
       42.5,
       40.0
@@ -380,7 +380,7 @@
     "south": 26.5,
     "north": 44.5
    },
-   "durationSec": 13,
+   "durationSec": 24.9,
    "title": "Doğudan Gelen Fırtına",
    "subtitle": "Safevî Devleti, 1501–1510",
    "regions": [
@@ -517,7 +517,7 @@
        45.0
       ]
      ],
-     "start": 0.4
+     "start": 0.77
     },
     {
      "name": "",
@@ -552,8 +552,8 @@
        38.2
       ]
      ],
-     "start": 0.8,
-     "end": 4.5
+     "start": 1.53,
+     "end": 8.63
     },
     {
      "name": "Safevîler · 1510",
@@ -652,7 +652,7 @@
        38.4
       ]
      ],
-     "start": 4.5,
+     "start": 8.63,
      "label": [
       54.0,
       32.0
@@ -680,8 +680,8 @@
       ]
      ],
      "color": "#3f7d4e",
-     "start": 8.0,
-     "duration": 3.0,
+     "start": 15.34,
+     "duration": 5.75,
      "label": "Kızılbaş propagandası",
      "dashed": true,
      "army": false
@@ -694,7 +694,7 @@
       38.08
      ],
      "label": "Tebriz",
-     "start": 0.8,
+     "start": 1.53,
      "major": true,
      "side": "right"
     },
@@ -704,7 +704,7 @@
       33.31
      ],
      "label": "Bağdat",
-     "start": 6.0
+     "start": 11.51
     },
     {
      "at": [
@@ -712,7 +712,7 @@
       32.65
      ],
      "label": "İsfahan",
-     "start": 6.5
+     "start": 12.46
     }
    ],
    "labels": [
@@ -722,7 +722,7 @@
       43.3
      ],
      "text": "Karadeniz",
-     "start": 0.4,
+     "start": 0.77,
      "kind": "sea"
     },
     {
@@ -731,17 +731,17 @@
       41.5
      ],
      "text": "Hazar Denizi",
-     "start": 0.4,
+     "start": 0.77,
      "kind": "sea"
     }
    ],
    "years": [
     {
-     "t": 0.5,
+     "t": 0.96,
      "text": "1501"
     },
     {
-     "t": 4.5,
+     "t": 8.63,
      "text": "1510"
     }
    ],
@@ -755,7 +755,7 @@
     "south": 37.5375,
     "north": 47.6625
    },
-   "durationSec": 12,
+   "durationSec": 12.8,
    "title": "Şehzadenin Yolu",
    "subtitle": "Trabzon'dan Edirne'ye, 1510–1511",
    "routes": [
@@ -775,8 +775,8 @@
       ]
      ],
      "color": "#e3b04b",
-     "start": 1.0,
-     "duration": 2.5,
+     "start": 1.06,
+     "duration": 2.66,
      "label": "Denizden Kırım'a",
      "dashed": true,
      "army": false
@@ -809,8 +809,8 @@
       ]
      ],
      "color": "#b5302a",
-     "start": 4.0,
-     "duration": 4.0,
+     "start": 4.26,
+     "duration": 4.26,
      "label": "Selim'in ordusu",
      "dashed": true
     }
@@ -821,7 +821,7 @@
       27.85,
       41.2
      ],
-     "start": 9.0
+     "start": 9.58
     }
    ],
    "cities": [
@@ -831,7 +831,7 @@
       41.0
      ],
      "label": "Trabzon",
-     "start": 0.5,
+     "start": 0.53,
      "major": true,
      "side": "right"
     },
@@ -841,7 +841,7 @@
       45.03
      ],
      "label": "Kefe",
-     "start": 2.8
+     "start": 2.98
     },
     {
      "at": [
@@ -849,7 +849,7 @@
       46.2
      ],
      "label": "Akkerman",
-     "start": 5.0
+     "start": 5.32
     },
     {
      "at": [
@@ -857,7 +857,7 @@
       41.68
      ],
      "label": "Edirne",
-     "start": 7.0,
+     "start": 7.45,
      "side": "left"
     },
     {
@@ -866,7 +866,7 @@
       41.01
      ],
      "label": "İstanbul",
-     "start": 0.5
+     "start": 0.53
     },
     {
      "at": [
@@ -874,7 +874,7 @@
       41.16
      ],
      "label": "Çorlu · Uğraşdere",
-     "start": 8.8,
+     "start": 9.36,
      "side": "left"
     }
    ],
@@ -885,17 +885,17 @@
       43.3
      ],
      "text": "Karadeniz",
-     "start": 0.4,
+     "start": 0.43,
      "kind": "sea"
     }
    ],
    "years": [
     {
-     "t": 0.5,
+     "t": 0.53,
      "text": "1510"
     },
     {
-     "t": 8.5,
+     "t": 9.05,
      "text": "1511"
     }
    ],
@@ -909,7 +909,7 @@
     "south": 33.3937,
     "north": 45.2062
    },
-   "durationSec": 13,
+   "durationSec": 24.8,
    "title": "Doğu Seferi",
    "subtitle": "İstanbul'dan Çaldıran'a, 1514",
    "routes": [
@@ -953,8 +953,8 @@
       ]
      ],
      "color": "#b5302a",
-     "start": 1.0,
-     "duration": 8.0,
+     "start": 1.91,
+     "duration": 15.24,
      "label": "Osmanlı ordusu",
      "dashed": true
     },
@@ -974,8 +974,8 @@
       ]
      ],
      "color": "#3f7d4e",
-     "start": 6.0,
-     "duration": 3.0,
+     "start": 11.43,
+     "duration": 5.72,
      "label": "Safevî ordusu",
      "dashed": true
     }
@@ -986,7 +986,7 @@
       43.95,
       39.14
      ],
-     "start": 9.4
+     "start": 17.91
     }
    ],
    "cities": [
@@ -996,7 +996,7 @@
       41.01
      ],
      "label": "İstanbul",
-     "start": 0.5,
+     "start": 0.95,
      "side": "left"
     },
     {
@@ -1005,7 +1005,7 @@
       39.75
      ],
      "label": "Sivas",
-     "start": 4.0
+     "start": 7.62
     },
     {
      "at": [
@@ -1013,7 +1013,7 @@
       39.75
      ],
      "label": "Erzincan",
-     "start": 5.5
+     "start": 10.48
     },
     {
      "at": [
@@ -1021,7 +1021,7 @@
       39.14
      ],
      "label": "Çaldıran",
-     "start": 9.0,
+     "start": 17.15,
      "major": true,
      "side": "left"
     },
@@ -1031,7 +1031,7 @@
       38.08
      ],
      "label": "Tebriz",
-     "start": 5.8,
+     "start": 11.05,
      "side": "right"
     }
    ],
@@ -1042,24 +1042,24 @@
       43.3
      ],
      "text": "Karadeniz",
-     "start": 0.4,
+     "start": 0.76,
      "kind": "sea"
     }
    ],
    "years": [
     {
-     "t": 0.5,
+     "t": 0.95,
      "text": "Nisan 1514"
     },
     {
-     "t": 9.4,
+     "t": 17.91,
      "text": "23 Ağustos 1514"
     }
    ],
    "note": "Güzergâh yaklaşıktır",
    "camera": [
     {
-     "t": 0,
+     "t": 0.0,
      "center": [
       37.5,
       39.3
@@ -1067,7 +1067,7 @@
      "zoom": 1.0
     },
     {
-     "t": 8.5,
+     "t": 16.2,
      "center": [
       43.0,
       39.0
@@ -1084,7 +1084,7 @@
     "south": 34.6625,
     "north": 42.5375
    },
-   "durationSec": 12,
+   "durationSec": 28.4,
    "title": "Doğu Tamamlanıyor",
    "subtitle": "1514–1516",
    "regions": [
@@ -1221,7 +1221,7 @@
        45.0
       ]
      ],
-     "start": 0.4
+     "start": 0.95
     },
     {
      "name": "",
@@ -1264,7 +1264,7 @@
        39.0
       ]
      ],
-     "start": 1.0
+     "start": 2.36
     },
     {
      "name": "Dulkadir",
@@ -1295,8 +1295,8 @@
        38.2
       ]
      ],
-     "start": 0.6,
-     "end": 5.0,
+     "start": 1.42,
+     "end": 11.82,
      "label": [
       36.9,
       38.2
@@ -1331,7 +1331,7 @@
        38.2
       ]
      ],
-     "start": 5.0
+     "start": 11.82
     },
     {
      "name": "Diyarbakır",
@@ -1362,8 +1362,8 @@
        38.3
       ]
      ],
-     "start": 0.6,
-     "end": 8.0,
+     "start": 1.42,
+     "end": 18.91,
      "label": [
       40.6,
       37.7
@@ -1398,7 +1398,7 @@
        38.3
       ]
      ],
-     "start": 8.0
+     "start": 18.91
     },
     {
      "name": "Memlûkler",
@@ -1513,7 +1513,7 @@
        22.0
       ]
      ],
-     "start": 10.0,
+     "start": 23.64,
      "label": [
       36.8,
       35.0
@@ -1527,7 +1527,7 @@
       39.6
      ],
      "label": "Kemah",
-     "start": 2.0,
+     "start": 4.73,
      "side": "left"
     },
     {
@@ -1536,7 +1536,7 @@
       37.58
      ],
      "label": "Maraş",
-     "start": 4.5
+     "start": 10.64
     },
     {
      "at": [
@@ -1544,7 +1544,7 @@
       38.2
      ],
      "label": "Elbistan",
-     "start": 4.8,
+     "start": 11.35,
      "side": "right"
     },
     {
@@ -1553,7 +1553,7 @@
       37.91
      ],
      "label": "Diyarbakır",
-     "start": 7.5,
+     "start": 17.73,
      "major": true
     },
     {
@@ -1562,20 +1562,20 @@
       36.2
      ],
      "label": "Halep",
-     "start": 10.0
+     "start": 23.64
     }
    ],
    "years": [
     {
-     "t": 0.5,
+     "t": 1.18,
      "text": "1514"
     },
     {
-     "t": 2.0,
+     "t": 4.73,
      "text": "1515"
     },
     {
-     "t": 8.0,
+     "t": 18.91,
      "text": "1516"
     }
    ],
@@ -1589,7 +1589,7 @@
     "south": 22.0625,
     "north": 38.9375
    },
-   "durationSec": 12,
+   "durationSec": 21.6,
    "title": "Memlûk Devleti",
    "subtitle": "Mısır, Suriye ve Hicaz, 1516",
    "regions": [
@@ -1726,7 +1726,7 @@
        45.0
       ]
      ],
-     "start": 0.4,
+     "start": 0.72,
      "label": [
       31.0,
       39.0
@@ -1773,7 +1773,7 @@
        39.0
       ]
      ],
-     "start": 0.4
+     "start": 0.72
     },
     {
      "name": "",
@@ -1804,7 +1804,7 @@
        38.2
       ]
      ],
-     "start": 0.4
+     "start": 0.72
     },
     {
      "name": "",
@@ -1835,7 +1835,7 @@
        38.3
       ]
      ],
-     "start": 0.4
+     "start": 0.72
     },
     {
      "name": "Memlûkler",
@@ -1950,7 +1950,7 @@
        22.0
       ]
      ],
-     "start": 1.5,
+     "start": 2.71,
      "label": [
       30.0,
       26.5
@@ -1964,7 +1964,7 @@
       30.04
      ],
      "label": "Kahire",
-     "start": 2.5,
+     "start": 4.51,
      "major": true,
      "side": "left"
     },
@@ -1974,7 +1974,7 @@
       33.51
      ],
      "label": "Şam",
-     "start": 3.5
+     "start": 6.31
     },
     {
      "at": [
@@ -1982,7 +1982,7 @@
       36.2
      ],
      "label": "Halep",
-     "start": 4.0
+     "start": 7.22
     },
     {
      "at": [
@@ -1990,7 +1990,7 @@
       21.42
      ],
      "label": "Mekke",
-     "start": 5.0,
+     "start": 9.02,
      "major": true
     },
     {
@@ -1999,7 +1999,7 @@
       24.47
      ],
      "label": "Medine",
-     "start": 5.3
+     "start": 9.56
     },
     {
      "at": [
@@ -2007,7 +2007,7 @@
       41.01
      ],
      "label": "İstanbul",
-     "start": 0.5
+     "start": 0.9
     }
    ],
    "labels": [
@@ -2017,7 +2017,7 @@
       34.0
      ],
      "text": "Akdeniz",
-     "start": 0.4,
+     "start": 0.72,
      "kind": "sea"
     },
     {
@@ -2026,7 +2026,7 @@
       22.5
      ],
      "text": "Kızıldeniz",
-     "start": 0.4,
+     "start": 0.72,
      "kind": "sea"
     }
    ],
@@ -2036,19 +2036,19 @@
       36.9,
       36.9
      ],
-     "start": 8.0
+     "start": 14.43
     }
    ],
    "years": [
     {
-     "t": 0.5,
+     "t": 0.9,
      "text": "1516"
     }
    ],
    "note": "Sınırlar yaklaşıktır",
    "camera": [
     {
-     "t": 0,
+     "t": 0.0,
      "center": [
       34.0,
       30.5
@@ -2056,7 +2056,7 @@
      "zoom": 1.0
     },
     {
-     "t": 7.0,
+     "t": 12.63,
      "center": [
       36.5,
       34.5
@@ -2073,7 +2073,7 @@
     "south": 28.8687,
     "north": 33.9312
    },
-   "durationSec": 13,
+   "durationSec": 20.5,
    "title": "Çöl Yolu",
    "subtitle": "Şam'dan Kahire'ye, Aralık 1516 – Ocak 1517",
    "routes": [
@@ -2097,8 +2097,8 @@
       ]
      ],
      "color": "#b5302a",
-     "start": 0.8,
-     "duration": 3.0,
+     "start": 1.26,
+     "duration": 4.74,
      "label": "",
      "dashed": true
     },
@@ -2130,8 +2130,8 @@
       ]
      ],
      "color": "#b5302a",
-     "start": 4.0,
-     "duration": 7.0,
+     "start": 6.32,
+     "duration": 11.05,
      "label": "Osmanlı ordusu",
      "dashed": true
     }
@@ -2143,7 +2143,7 @@
       33.51
      ],
      "label": "Şam",
-     "start": 0.5,
+     "start": 0.79,
      "side": "right"
     },
     {
@@ -2152,7 +2152,7 @@
       31.5
      ],
      "label": "Gazze",
-     "start": 3.6
+     "start": 5.69
     },
     {
      "at": [
@@ -2160,7 +2160,7 @@
       30.04
      ],
      "label": "Kahire",
-     "start": 10.5,
+     "start": 16.58,
      "major": true,
      "side": "left"
     }
@@ -2172,7 +2172,7 @@
       34.0
      ],
      "text": "Akdeniz",
-     "start": 0.4,
+     "start": 0.63,
      "kind": "sea"
     },
     {
@@ -2181,24 +2181,24 @@
       29.9
      ],
      "text": "Sina Çölü",
-     "start": 3.5,
+     "start": 5.53,
      "kind": "land"
     }
    ],
    "years": [
     {
-     "t": 0.5,
+     "t": 0.79,
      "text": "Aralık 1516"
     },
     {
-     "t": 4.0,
+     "t": 6.32,
      "text": "Ocak 1517"
     }
    ],
    "note": "Güzergâh temsilidir",
    "camera": [
     {
-     "t": 0,
+     "t": 0.0,
      "center": [
       33.6,
       31.4
@@ -2206,7 +2206,7 @@
      "zoom": 1.0
     },
     {
-     "t": 5.0,
+     "t": 7.9,
      "center": [
       32.7,
       30.9
@@ -2223,7 +2223,7 @@
     "south": 29.9856,
     "north": 30.1544
    },
-   "durationSec": 14,
+   "durationSec": 15.8,
    "title": "Ridaniye",
    "subtitle": "Kahire'nin kuzeydoğusu",
    "rivers": [
@@ -2251,7 +2251,7 @@
       ]
      ],
      "name": "Nil",
-     "start": 0.3,
+     "start": 0.34,
      "labelAt": [
       31.205,
       30.0
@@ -2275,8 +2275,8 @@
       ]
      ],
      "kind": "trench",
-     "start": 0.8,
-     "duration": 1.5,
+     "start": 0.9,
+     "duration": 1.69,
      "color": "#c99a2e",
      "label": "Hendek ve sabit toplar",
      "labelAt": [
@@ -2299,8 +2299,8 @@
        30.08
       ]
      ],
-     "start": 1.0,
-     "duration": 0.5,
+     "start": 1.13,
+     "duration": 0.56,
      "labelSide": "below"
     },
     {
@@ -2316,8 +2316,8 @@
        30.112
       ]
      ],
-     "start": 2.5,
-     "duration": 2.5,
+     "start": 2.82,
+     "duration": 2.82,
      "labelSide": "above"
     },
     {
@@ -2341,8 +2341,8 @@
        30.052
       ]
      ],
-     "start": 5.0,
-     "duration": 4.0,
+     "start": 5.65,
+     "duration": 4.52,
      "labelSide": "below"
     },
     {
@@ -2358,8 +2358,8 @@
        30.106
       ]
      ],
-     "start": 9.5,
-     "duration": 1.8,
+     "start": 10.73,
+     "duration": 2.03,
      "labelSide": "below"
     }
    ],
@@ -2369,14 +2369,14 @@
       31.302,
       30.064
      ],
-     "start": 9.0
+     "start": 10.16
     },
     {
      "at": [
       31.368,
       30.109
      ],
-     "start": 11.4
+     "start": 12.87
     }
    ],
    "cities": [
@@ -2386,7 +2386,7 @@
       30.04
      ],
      "label": "Kahire",
-     "start": 0.5,
+     "start": 0.56,
      "major": true,
      "side": "left"
     }
@@ -2398,20 +2398,20 @@
       30.008
      ],
      "text": "Mukattam tepeleri",
-     "start": 4.5,
+     "start": 5.08,
      "kind": "land"
     }
    ],
    "years": [
     {
-     "t": 0.5,
+     "t": 0.56,
      "text": "22 Ocak 1517"
     }
    ],
    "note": "Konumlar yaklaşıktır",
    "camera": [
     {
-     "t": 0,
+     "t": 0.0,
      "center": [
       31.31,
       30.07
@@ -2419,7 +2419,7 @@
      "zoom": 1.0
     },
     {
-     "t": 14,
+     "t": 15.81,
      "center": [
       31.33,
       30.07
@@ -2436,7 +2436,7 @@
     "south": 20.625,
     "north": 45.375
    },
-   "durationSec": 12,
+   "durationSec": 14.9,
    "title": "Sekiz Yılda",
    "subtitle": "Osmanlı toprakları, 1512 → 1520",
    "regions": [
@@ -2573,8 +2573,8 @@
        45.0
       ]
      ],
-     "start": 0.6,
-     "end": 5.0,
+     "start": 0.75,
+     "end": 6.22,
      "label": [
       30.0,
       40.0
@@ -2721,7 +2721,7 @@
        46.5
       ]
      ],
-     "start": 5.0,
+     "start": 6.22,
      "label": [
       31.0,
       27.0
@@ -2735,7 +2735,7 @@
       41.01
      ],
      "label": "İstanbul",
-     "start": 0.5,
+     "start": 0.62,
      "major": true
     },
     {
@@ -2744,7 +2744,7 @@
       30.04
      ],
      "label": "Kahire",
-     "start": 5.5
+     "start": 6.84
     },
     {
      "at": [
@@ -2752,7 +2752,7 @@
       21.42
      ],
      "label": "Mekke",
-     "start": 6.0
+     "start": 7.46
     },
     {
      "at": [
@@ -2760,7 +2760,7 @@
       37.91
      ],
      "label": "Diyarbakır",
-     "start": 6.5
+     "start": 8.09
     }
    ],
    "labels": [
@@ -2770,7 +2770,7 @@
       34.0
      ],
      "text": "Akdeniz",
-     "start": 0.4,
+     "start": 0.5,
      "kind": "sea"
     },
     {
@@ -2779,7 +2779,7 @@
       43.3
      ],
      "text": "Karadeniz",
-     "start": 0.4,
+     "start": 0.5,
      "kind": "sea"
     },
     {
@@ -2788,17 +2788,17 @@
       22.5
      ],
      "text": "Kızıldeniz",
-     "start": 0.4,
+     "start": 0.5,
      "kind": "sea"
     }
    ],
    "years": [
     {
-     "t": 0.5,
+     "t": 0.62,
      "text": "1512"
     },
     {
-     "t": 5.0,
+     "t": 6.22,
      "text": "1520"
     }
    ],
@@ -2809,7 +2809,7 @@
    "type": "zaman",
    "title": "Üç Şehzade",
    "subtitle": "II. Bayezid'in tahta aday oğulları",
-   "durationSec": 10,
+   "durationSec": 8.1,
    "events": [
     {
      "date": "Ahmed",
@@ -2837,12 +2837,11 @@
        "clip": "klipler/y01.mp4"
       },
       {
-       "clip": "klipler/y02.mp4",
-       "transition": "cut"
+       "clip": "klipler/y02.mp4"
       },
       {
        "clip": "klipler/y04.mp4",
-       "transition": "cut"
+       "start": 6.0
       }
      ]
     },
@@ -2850,11 +2849,11 @@
      "text": "Karşılarında, kırmızı başlıklarıyla ünlü Kızılbaş süvarileri var. Yenilgi nedir bilmeyen bir ordu. Ve onların başında, yirmi yedi yaşında, kendisine neredeyse kutsal bir varlık gibi inanılan bir hükümdar: Şah İsmail.",
      "shots": [
       {
-       "clip": "klipler/y07.mp4"
+       "clip": "klipler/y07.mp4",
+       "start": 0.0
       },
       {
-       "clip": "klipler/y06.mp4",
-       "transition": "cut"
+       "clip": "klipler/y06.mp4"
       }
      ]
     },
@@ -2863,6 +2862,9 @@
      "shots": [
       {
        "clip": "klipler/y05.mp4"
+      },
+      {
+       "clip": "klipler/w01.mp4"
       }
      ]
     },
@@ -2870,17 +2872,21 @@
      "text": "[dramatik] Önümüzdeki altı yıl içinde bu adam doğuda bir imparatorluğu durduracak, güneyde iki yüz altmış yıllık bir devleti yıkacak, bir orduyu çölün içinden geçirecek ve İslam dünyasının en kutsal emanetlerini İstanbul'a getirecek. Tarih ona tek bir kelimeyle seslenecek: [ağır] Yavuz.",
      "shots": [
       {
-       "clip": "klipler/y08.mp4"
+       "clip": "klipler/y08.mp4",
+       "start": 0.0
       },
       {
        "clip": "klipler/y20.mp4",
-       "transition": "flash"
+       "transition": "flash",
+       "start": 8.0
       },
       {
-       "clip": "klipler/y28.mp4"
+       "clip": "klipler/y28.mp4",
+       "start": 9.0
       },
       {
-       "clip": "klipler/y32.mp4"
+       "clip": "klipler/y32.mp4",
+       "start": 6.0
       }
      ]
     }
@@ -2897,8 +2903,10 @@
        "clip": "klipler/z01.mp4"
       },
       {
-       "clip": "klipler/z02.mp4",
-       "transition": "cut"
+       "clip": "klipler/z02.mp4"
+      },
+      {
+       "clip": "klipler/w02.mp4"
       }
      ]
     },
@@ -2906,7 +2914,8 @@
      "text": "Selim yaklaşık yirmi beş yıl Trabzon'da kaldı. Burası imparatorluğun en uç köşesiydi; doğusunda Gürcü beylikleri, güneyinde Türkmen boyları vardı. Selim bu yıllarda sınırın ötesine akınlar düzenledi, savaşmayı kitaplardan değil, sahadan öğrendi.",
      "shots": [
       {
-       "map": "m_osmanli_1500"
+       "map": "m_osmanli_1500",
+       "transition": "dissolve"
       }
      ]
     },
@@ -2914,7 +2923,11 @@
      "text": "Trabzon yılları ona bir şey daha verdi. Bin dört yüz doksan dört yılında, burada bir oğlu dünyaya geldi. Adını Süleyman koydular. [duraksama 0.6] Bu çocuk bir gün, babasından devraldığı imparatorluğu dünyanın en güçlü devleti yapacaktı. Ama o günler çok uzaktaydı.",
      "shots": [
       {
-       "clip": "klipler/z27.mp4"
+       "clip": "klipler/z27.mp4",
+       "transition": "dissolve"
+      },
+      {
+       "clip": "klipler/w03.mp4"
       }
      ]
     },
@@ -2922,11 +2935,11 @@
      "text": "Ama onu yalnızca bir asker olarak düşünmek yanlış olur. [hayret] Selim Farsça şiirler yazan, divanı olan bir şairdi. Sert yüzünün ardında, edebiyatı ve tarihi seven, gece geç saatlere kadar okuyan bir adam vardı.",
      "shots": [
       {
-       "clip": "klipler/z03.mp4"
+       "clip": "klipler/z03.mp4",
+       "transition": "dissolve"
       },
       {
-       "clip": "klipler/z04.mp4",
-       "transition": "dissolve"
+       "clip": "klipler/z04.mp4"
       }
      ]
     },
@@ -2934,7 +2947,8 @@
      "text": "[gerilim] Ve Trabzon'dan doğuya bakan Selim, herkesten önce bir tehlikeyi fark etti. Sınırın hemen ötesinde, yeni bir güç doğuyordu.",
      "shots": [
       {
-       "clip": "klipler/z05.mp4"
+       "clip": "klipler/z05.mp4",
+       "transition": "dissolve"
       }
      ]
     }
@@ -2952,7 +2966,10 @@
      "text": "[sakin] Bin beş yüz bir yılında, henüz on dört yaşında bir genç Tebriz'e girdi ve kendini şah ilan etti. İsmail, Safevî tarikatının şeyhlerinin soyundan geliyordu. Müritleri, başlarına taktıkları on iki dilimli kırmızı taç yüzünden \"Kızılbaş\" diye anılıyordu.",
      "shots": [
       {
-       "clip": "klipler/y13.mp4"
+       "clip": "klipler/w04.mp4"
+      },
+      {
+       "clip": "klipler/w05.mp4"
       }
      ]
     },
@@ -2960,7 +2977,8 @@
      "text": "On yıl içinde İran'ın tamamını, Irak'ı, Azerbaycan'ı aldı. Ama onu Osmanlı için asıl tehlikeli yapan, ordusu değil, Anadolu'daki etkisiydi. Şah İsmail, Türkçe şiirler yazıyordu. Anadolu'nun Türkmen boylarına kendi dillerinde sesleniyordu. Ve binlerce Türkmen, ona katılmak için doğuya göç ediyordu.",
      "shots": [
       {
-       "map": "m_safevi"
+       "map": "m_safevi",
+       "transition": "dissolve"
       }
      ]
     },
@@ -2968,11 +2986,14 @@
      "text": "[gerilim] Bin beş yüz on bir yılında Antalya yöresinde Şahkulu adında bir derviş isyan bayrağını kaldırdı. Çevresinde toplanan kalabalık, üzerine gönderilen Osmanlı kuvvetlerini birer birer yendi. Sonunda sadrazam Hadım Ali Paşa'nın ordusuyla karşılaştılar. [duraksama 0.6] Şahkulu öldü. Ama sadrazam da o savaşta hayatını kaybetti.",
      "shots": [
       {
+       "clip": "klipler/w06.mp4",
+       "transition": "dissolve"
+      },
+      {
        "clip": "klipler/z06.mp4"
       },
       {
-       "clip": "klipler/z07.mp4",
-       "transition": "cut"
+       "clip": "klipler/z07.mp4"
       }
      ]
     },
@@ -2980,7 +3001,11 @@
      "text": "[ağır] İstanbul'da tahtta, yaşlı ve hasta Sultan İkinci Bayezid oturuyordu. Barışı seven, savaştan uzak duran bir hükümdardı. Doğudan gelen fırtınayı durduracak gücü kalmamıştı. Ve sarayda herkes aynı soruyu soruyordu: Ondan sonra tahta kim geçecek?",
      "shots": [
       {
-       "clip": "klipler/z08.mp4"
+       "clip": "klipler/z08.mp4",
+       "transition": "black"
+      },
+      {
+       "clip": "klipler/w07.mp4"
       }
      ]
     }
@@ -2998,7 +3023,13 @@
      "text": "[sakin] Bayezid'in hayatta olan üç oğlu vardı. En büyükleri Ahmed, vezirlerin ve babasının gözdesiydi. Korkud, âlim ve sakin bir şehzadeydi. Selim ise en uzaktaydı, en az sevileniydi. Ama ordunun, özellikle de yeniçerilerin kalbi ondan yanaydı. Onlar, doğudaki tehlikeye karşı savaşacak bir padişah istiyordu.",
      "shots": [
       {
+       "clip": "klipler/w08.mp4"
+      },
+      {
        "map": "k_sehzadeler"
+      },
+      {
+       "clip": "klipler/w09.mp4"
       }
      ]
     },
@@ -3006,7 +3037,8 @@
      "text": "Selim beklemedi. Karadeniz'i geçip Kırım'a, oradan Rumeli'ye geçti ve ordusuyla Edirne'ye yürüdü. Bu, babasına karşı açık bir meydan okumaydı.",
      "shots": [
       {
-       "map": "m_selim_yolu"
+       "map": "m_selim_yolu",
+       "transition": "dissolve"
       }
      ]
     },
@@ -3014,11 +3046,11 @@
      "text": "[dramatik] Bin beş yüz on bir yazında, Çorlu yakınlarında, oğul ile babanın askerleri karşı karşıya geldi. [duraksama 0.6] Selim yenildi. Canını zor kurtardı, gemiyle Kırım'a kaçtı. Herkes onun hikâyesinin bittiğini düşündü.",
      "shots": [
       {
-       "clip": "klipler/z09.mp4"
+       "clip": "klipler/z09.mp4",
+       "transition": "dissolve"
       },
       {
-       "clip": "klipler/z10.mp4",
-       "transition": "cut"
+       "clip": "klipler/z10.mp4"
       }
      ]
     },
@@ -3026,7 +3058,15 @@
      "text": "Ama İstanbul'da yeniçeriler ayaklandı. Ahmed'in tahta çıkmasını istemiyorlardı. Selim'i çağırdılar. Bin beş yüz on iki baharında Selim İstanbul'a girdi. Yaşlı Bayezid tahttan çekildi ve doğduğu topraklara, Dimetoka'ya gitmek üzere yola çıktı. Ama oraya varamadan yolda öldü.",
      "shots": [
       {
-       "clip": "klipler/z11.mp4"
+       "clip": "klipler/z11.mp4",
+       "transition": "dissolve"
+      },
+      {
+       "clip": "klipler/w10.mp4"
+      },
+      {
+       "clip": "klipler/w11.mp4",
+       "transition": "dissolve"
       }
      ]
     },
@@ -3034,7 +3074,11 @@
      "text": "[ağır] Selim artık padişahtı. Ama kardeşleri hâlâ hayattaydı ve ikisinin de tahtta gözü vardı. Ertesi yıl Ahmed, Bursa yakınlarındaki Yenişehir'de yenildi ve öldürüldü. Korkud da aynı yıl yakalandı. Osmanlı'nın acımasız taht kuralı bir kez daha işlemişti. Selim, tahtın tek sahibi olarak doğuya döndü.",
      "shots": [
       {
-       "clip": "klipler/z12.mp4"
+       "clip": "klipler/z12.mp4",
+       "transition": "dissolve"
+      },
+      {
+       "clip": "klipler/w12.mp4"
       }
      ]
     }
@@ -3060,11 +3104,11 @@
      "text": "Şah İsmail, savaşı kabul etmedi. Geri çekildi ve arkasında yakılmış tarlalar, boşaltılmış köyler bıraktı. Osmanlı ordusu yüzlerce kilometre boyunca yiyecek bulamadı. Askerler açtı, yorgundu. [hayret] Yeniçeriler, padişahın çadırına ok atacak kadar öfkelendi.",
      "shots": [
       {
-       "clip": "klipler/z13.mp4"
+       "clip": "klipler/z13.mp4",
+       "transition": "dissolve"
       },
       {
-       "clip": "klipler/y21.mp4",
-       "transition": "cut"
+       "clip": "klipler/w13.mp4"
       }
      ]
     },
@@ -3072,11 +3116,11 @@
      "text": "Selim geri dönmedi. Rivayete göre ordunun önüne çıktı ve dönmek isteyenin dönebileceğini, kendisinin tek başına da olsa yoluna devam edeceğini söyledi. [duraksama 0.6] Kimse dönmedi.",
      "shots": [
       {
-       "clip": "klipler/y36.mp4"
+       "clip": "klipler/y36.mp4",
+       "transition": "dissolve"
       },
       {
-       "clip": "klipler/y05.mp4",
-       "transition": "cut"
+       "clip": "klipler/w14.mp4"
       }
      ]
     },
@@ -3084,11 +3128,14 @@
      "text": "Bu yürüyüş sırasında iki hükümdar arasında mektuplar da gidip geldi. Kaynaklarda bu mektupların ne kadar sert ve alaycı olduğu anlatılır. [hayret] Rivayete göre Şah İsmail, Selim'in mektuplarını uyuşturucu etkisinde yazılmış sayarak ona altın bir kutu içinde afyon gönderdi. Bu bir aşağılamaydı. Ve Selim artık savaştan başka bir cevabın olmadığını biliyordu.",
      "shots": [
       {
+       "clip": "klipler/w15.mp4",
+       "transition": "dissolve"
+      },
+      {
        "clip": "klipler/z28.mp4"
       },
       {
-       "clip": "klipler/y06.mp4",
-       "transition": "cut"
+       "clip": "klipler/w16.mp4"
       }
      ]
     },
@@ -3096,11 +3143,12 @@
      "text": "Ve sonunda, Çaldıran ovasında iki ordu karşı karşıya geldi. Selim'in elinde Şah'ın sahip olmadığı bir şey vardı: toplar ve tüfekler. Osmanlı topçuları arabaları zincirleyerek bir duvar kurdu. Yeniçeriler bu duvarın arkasına yerleşti.",
      "shots": [
       {
-       "clip": "klipler/y03.mp4"
+       "clip": "klipler/y03.mp4",
+       "transition": "dissolve"
       },
       {
        "clip": "klipler/y04.mp4",
-       "transition": "cut"
+       "start": 0.0
       }
      ]
     },
@@ -3108,11 +3156,11 @@
      "text": "[dramatik] Kızılbaş süvarileri, efsanevi bir cesaretle hücuma kalktı. Kanatlardan saldırdılar ve bir an için Osmanlı hattını zorladılar. Ama sonra toplar konuştu. [duraksama 0.5] Duman ovayı kapladı. Tüfeklerin sesi, atları ürküttü. Hücum dalgaları zincirli arabaların önünde birer birer kırıldı.",
      "shots": [
       {
-       "clip": "klipler/y07.mp4"
+       "clip": "klipler/y07.mp4",
+       "start": 4.0
       },
       {
-       "clip": "klipler/y16.mp4",
-       "transition": "cut"
+       "clip": "klipler/w17.mp4"
       },
       {
        "clip": "klipler/y08.mp4"
@@ -3122,8 +3170,7 @@
        "transition": "flash"
       },
       {
-       "clip": "klipler/y10.mp4",
-       "transition": "cut"
+       "clip": "klipler/y10.mp4"
       }
      ]
     },
@@ -3131,7 +3178,8 @@
      "text": "[ağır] Akşam olduğunda savaş bitmişti. Şah İsmail yaralanmış, zor kaçabilmişti. Hayatında ilk kez yenilmişti. [duraksama 1.0] Rivayete göre o günden sonra bir daha hiç savaşa bizzat çıkmadı.",
      "shots": [
       {
-       "clip": "klipler/y11.mp4"
+       "clip": "klipler/y11.mp4",
+       "transition": "dissolve"
       },
       {
        "clip": "klipler/y12.mp4",
@@ -3143,7 +3191,11 @@
      "text": "Birkaç gün sonra Osmanlı ordusu Safevî başkenti Tebriz'e girdi. Selim orada kışlamak istedi ama ordu buna karşı çıktı. Selim şehirden ayrılırken yanında Tebriz'in en usta sanatkârlarını İstanbul'a götürdü. Doğu Anadolu artık Osmanlı'ya bağlanmıştı.",
      "shots": [
       {
-       "clip": "klipler/y13.mp4"
+       "clip": "klipler/y13.mp4",
+       "transition": "black"
+      },
+      {
+       "clip": "klipler/w18.mp4"
       }
      ]
     },
@@ -3151,7 +3203,8 @@
      "text": "Ertesi yıl Selim, doğudaki işini tamamladı. Kemah kalesini aldı. Maraş ve Elbistan'da hüküm süren Dulkadir beyliğine son verdi. Bilge bir devlet adamı olan İdris-i Bitlisî'nin yardımıyla, Diyarbakır ve çevresindeki Kürt beyleri de Osmanlı'ya bağlandı. [vurgulu] Böylece Osmanlı ile Memlûkler arasında artık hiçbir tampon kalmamıştı. İki büyük güç, sınır sınıra gelmişti.",
      "shots": [
       {
-       "map": "m_1515"
+       "map": "m_1515",
+       "transition": "dissolve"
       }
      ]
     }
@@ -3177,11 +3230,11 @@
      "text": "Memlûk sultanı Kansu Gavri, yetmiş yaşını geçmiş, tecrübeli bir hükümdardı. Osmanlı ile Safevîler arasında arabuluculuk yapıyor görünüyordu ama Selim, onun Şah İsmail ile anlaştığından şüpheleniyordu. Bin beş yüz on altı yazında Kansu Gavri, büyük bir orduyla Halep'e geldi.",
      "shots": [
       {
-       "clip": "klipler/y15.mp4"
+       "clip": "klipler/y15.mp4",
+       "transition": "dissolve"
       },
       {
-       "clip": "klipler/y14.mp4",
-       "transition": "cut"
+       "clip": "klipler/y14.mp4"
       }
      ]
     },
@@ -3189,11 +3242,11 @@
      "text": "Selim, onun gelmesini beklemedi. Ordusunu güneye çevirdi. Yirmi dört Ağustos sabahı, Halep'in kuzeyindeki Mercidabık ovasında iki ordu karşılaştı. Çaldıran'dan neredeyse tam iki yıl sonra.",
      "shots": [
       {
-       "clip": "klipler/z14.mp4"
+       "clip": "klipler/z14.mp4",
+       "transition": "dissolve"
       },
       {
-       "clip": "klipler/y35.mp4",
-       "transition": "cut"
+       "clip": "klipler/y35.mp4"
       }
      ]
     },
@@ -3204,12 +3257,11 @@
        "clip": "klipler/y16.mp4"
       },
       {
-       "clip": "klipler/y17.mp4",
-       "transition": "cut"
+       "clip": "klipler/y17.mp4"
       },
       {
-       "clip": "klipler/y10.mp4",
-       "transition": "cut"
+       "clip": "klipler/w19.mp4",
+       "transition": "flash"
       }
      ]
     },
@@ -3220,8 +3272,7 @@
        "clip": "klipler/y18.mp4"
       },
       {
-       "clip": "klipler/y19.mp4",
-       "transition": "cut"
+       "clip": "klipler/y19.mp4"
       }
      ]
     },
@@ -3229,7 +3280,8 @@
      "text": "Halep savaşmadan teslim oldu. Ardından Şam. [hayret] Birkaç hafta içinde bütün Suriye, Osmanlı'nın olmuştu. Rivayete göre Halep'te okunan hutbede Selim'e \"iki kutsal şehrin hâkimi\" denince, Selim bunu düzelttirdi: \"Hâkimi değil, hizmetkârı.\"",
      "shots": [
       {
-       "clip": "klipler/z15.mp4"
+       "clip": "klipler/z15.mp4",
+       "transition": "black"
       },
       {
        "clip": "klipler/z16.mp4",
@@ -3259,7 +3311,8 @@
      "text": "Çölü bir orduyla geçmek, o güne kadar pek az hükümdarın göze alabildiği bir işti. Yüzlerce kilometre boyunca su yoktu, gölge yoktu. Selim binlerce deveye su tulumları yükletti. Ve bin beş yüz on yedi yılının Ocak ayında, ordu kumların içine girdi.",
      "shots": [
       {
-       "map": "m_sina"
+       "map": "m_sina",
+       "transition": "dissolve"
       }
      ]
     },
@@ -3267,15 +3320,14 @@
      "text": "[gerilim] Gündüz güneş, gece soğuk. Kum fırtınaları yolları siliyor, atlar yoruluyordu. Kaynaklar, Selim'in bu yolculuğun bir kısmını atından inip askerleriyle birlikte yürüyerek geçtiğini anlatır. [duraksama 0.6] Rivayete göre ordu en zor anındayken çöle beklenmedik bir yağmur yağdı ve tozu bastırdı.",
      "shots": [
       {
-       "clip": "klipler/y21.mp4"
+       "clip": "klipler/y21.mp4",
+       "transition": "dissolve"
       },
       {
-       "clip": "klipler/y22.mp4",
-       "transition": "cut"
+       "clip": "klipler/y22.mp4"
       },
       {
-       "clip": "klipler/y24.mp4",
-       "transition": "cut"
+       "clip": "klipler/y24.mp4"
       }
      ]
     },
@@ -3283,7 +3335,12 @@
      "text": "Ordunun büyük kısmı, çölü yaklaşık iki haftada geçti. [vurgulu] Ve Ocak ayının ortasında, ufukta Kahire'nin minareleri göründü.",
      "shots": [
       {
-       "clip": "klipler/y23.mp4"
+       "clip": "klipler/y23.mp4",
+       "transition": "dissolve"
+      },
+      {
+       "clip": "klipler/w20.mp4",
+       "transition": "dissolve"
       }
      ]
     }
@@ -3304,8 +3361,7 @@
        "clip": "klipler/y25.mp4"
       },
       {
-       "clip": "klipler/y27.mp4",
-       "transition": "cut"
+       "clip": "klipler/y27.mp4"
       }
      ]
     },
@@ -3313,7 +3369,8 @@
      "text": "[hayret] Ama Selim bu tuzağı fark etti. Ordusunun bir kısmını, Mukattam tepelerinin arkasından dolaştırdı. Memlûk topları yere sabitlenmişti; dönemiyorlardı. Osmanlı birlikleri hattı yandan ve arkadan vurdu.",
      "shots": [
       {
-       "map": "m_ridaniye"
+       "map": "m_ridaniye",
+       "transition": "dissolve"
       }
      ]
     },
@@ -3321,19 +3378,18 @@
      "text": "[dramatik] Tomanbay bir avuç seçme atlısıyla doğrudan Osmanlı karargâhına daldı. Hedefi Selim'di. Ama padişah sandıkları kişi, sadrazam Hadım Sinan Paşa'ydı. Sinan Paşa o hücumda hayatını kaybetti. Savaş ise birkaç saat içinde bitti. Memlûk hattı çöktü.",
      "shots": [
       {
-       "clip": "klipler/y26.mp4"
+       "clip": "klipler/y26.mp4",
+       "transition": "dissolve"
       },
       {
-       "clip": "klipler/y27.mp4",
-       "transition": "cut"
+       "clip": "klipler/w21.mp4"
       },
       {
-       "clip": "klipler/y08.mp4",
-       "transition": "cut"
+       "clip": "klipler/w22.mp4"
       },
       {
-       "clip": "klipler/y10.mp4",
-       "transition": "cut"
+       "clip": "klipler/w23.mp4",
+       "transition": "dissolve"
       }
      ]
     },
@@ -3341,11 +3397,11 @@
      "text": "Ama Kahire düşmedi. Tomanbay şehre çekildi ve günlerce sokak sokak, ev ev savaştı. Bu, Osmanlı ordusunun karşılaştığı en zor sokak savaşlarından biriydi. Sonunda Tomanbay şehirden çıkmak zorunda kaldı. Birkaç ay daha direndi, ama bir bedevi şeyhinin ihanetiyle yakalandı.",
      "shots": [
       {
-       "clip": "klipler/y28.mp4"
+       "clip": "klipler/y28.mp4",
+       "transition": "black"
       },
       {
-       "clip": "klipler/y29.mp4",
-       "transition": "cut"
+       "clip": "klipler/y29.mp4"
       }
      ]
     },
@@ -3353,11 +3409,12 @@
      "text": "[ağır] Kaynaklar, Selim'in onu karşısına aldığında cesaretinden etkilendiğini anlatır. Ama Tomanbay yaşadıkça Mısır'da direniş sönmeyecekti. Nisan ayında, Kahire'nin Bâbüzzüveyle kapısında idam edildi. [duraksama 1.0] İki yüz altmış yılı aşkın Memlûk hâkimiyeti böylece sona erdi.",
      "shots": [
       {
-       "clip": "klipler/z17.mp4"
+       "clip": "klipler/z17.mp4",
+       "transition": "dissolve"
       },
       {
        "clip": "klipler/y30.mp4",
-       "transition": "cut"
+       "transition": "dissolve"
       }
      ]
     }
@@ -3387,6 +3444,10 @@
      "text": "Mekke şerifi, oğlunu Kahire'ye göndermişti. Getirdiği şey, Kâbe'nin anahtarlarıydı. Bu bir teslimiyet işaretiydi. Mekke ve Medine, yani Hicaz, artık Osmanlı'nın korumasındaydı. Osmanlı padişahı, İslam dünyasının en kutsal iki şehrinin hizmetkârı olmuştu.",
      "shots": [
       {
+       "clip": "klipler/w24.mp4",
+       "transition": "dissolve"
+      },
+      {
        "clip": "klipler/z19.mp4"
       }
      ]
@@ -3395,7 +3456,11 @@
      "text": "[hayret] Kahire'de Selim'i şaşırtan bir hediye daha vardı. Bir Osmanlı denizcisi, Piri Reis, birkaç yıl önce çizdiği bir dünya haritasını padişaha sundu. Haritada Afrika'nın ve yeni keşfedilen Amerika kıyılarının bir kısmı görülüyordu. Bugün bu haritanın kalan parçası, Topkapı Sarayı'nda saklanıyor ve dünyanın en ünlü haritalarından biri sayılıyor.",
      "shots": [
       {
-       "clip": "klipler/z29.mp4"
+       "clip": "klipler/z29.mp4",
+       "transition": "dissolve"
+      },
+      {
+       "clip": "klipler/w25.mp4"
       }
      ]
     },
@@ -3403,7 +3468,8 @@
      "text": "[vurgulu] Kahire'den İstanbul'a yalnızca hazineler gitmedi. Kutsal emanetlerin bir kısmı, Hazreti Muhammed'e ve ilk halifelere ait olduğuna inanılan eşyalar da zamanla İstanbul'a getirildi. Bugün bu emanetlerin önemli bir kısmı Topkapı Sarayı'nda korunuyor.",
      "shots": [
       {
-       "clip": "klipler/y32.mp4"
+       "clip": "klipler/y32.mp4",
+       "transition": "dissolve"
       },
       {
        "clip": "klipler/y33.mp4",
@@ -3415,7 +3481,16 @@
      "text": "Halifeliğe gelince: Son Abbasi halifesi de Kahire'den İstanbul'a götürüldü. Halifeliğin o gün resmî bir törenle Osmanlı'ya devredildiği anlatısı, aslında çok daha sonraki yüzyıllarda yaygınlaştı ve tarihçiler arasında tartışmalıdır. Kesin olan şu: Osmanlı sultanları bu tarihten sonra İslam dünyasının önderi olarak görülmeye başlandı.",
      "shots": [
       {
-       "clip": "klipler/z20.mp4"
+       "clip": "klipler/z20.mp4",
+       "transition": "dissolve"
+      },
+      {
+       "clip": "klipler/w26.mp4",
+       "transition": "dissolve"
+      },
+      {
+       "clip": "klipler/w27.mp4",
+       "transition": "dissolve"
       }
      ]
     },
@@ -3423,11 +3498,8 @@
      "text": "[hayret] Selim, bin beş yüz on sekizde İstanbul'a döndüğünde, imparatorluğun toprakları tahta çıktığı günden çok daha büyüktü. Kaynaklara göre neredeyse iki buçuk katına çıkmıştı. Hem de yalnızca altı yıl içinde.",
      "shots": [
       {
-       "clip": "klipler/y34.mp4"
-      },
-      {
        "map": "m_sinirlar",
-       "transition": "cut"
+       "transition": "dissolve"
       }
      ]
     }
@@ -3453,11 +3525,14 @@
      "text": "[ağır] Bin beş yüz yirmi yazında Edirne'ye doğru yola çıktı. Ama Çorlu yakınlarındaki Sırtköy'de hastalandı. Kaynaklar, sırtında çıkan ve \"şirpençe\" denen bir yaradan söz eder. Bu yara hızla ilerledi. [duraksama 0.8] Yirmi iki Eylül gecesi, Sultan Selim hayata gözlerini yumdu. Henüz elli yaşındaydı. Tahtta sekiz yıldan az kalmıştı.",
      "shots": [
       {
-       "clip": "klipler/z22.mp4"
+       "clip": "klipler/z22.mp4",
+       "transition": "black"
       },
       {
-       "clip": "klipler/z23.mp4",
-       "transition": "cut"
+       "clip": "klipler/w28.mp4"
+      },
+      {
+       "clip": "klipler/z23.mp4"
       }
      ]
     },
@@ -3465,7 +3540,7 @@
      "text": "Kaynaklar, son gecesinde yanında yakın dostu ve nedimi Hasan Can'ın bulunduğunu anlatır. Rivayete göre Selim ona, \"Hasan, bu ne hâldir?\" diye sormuş, Hasan Can da onu Allah'a emanet etmişti. [duraksama 1.0] Doğuyu ve güneyi titreten sultan, bir yol kenarındaki çadırda, sessizce ölmüştü.",
      "shots": [
       {
-       "clip": "klipler/z23.mp4"
+       "clip": "klipler/w29.mp4"
       },
       {
        "clip": "klipler/z30.mp4",
@@ -3477,7 +3552,8 @@
      "text": "Ölümü bir süre gizli tutuldu. Haber, oğlu Süleyman'a ulaştırıldı. Süleyman İstanbul'a gelip tahta oturdu. [vurgulu] O, tarihe Kanuni adıyla geçecek, babasının kurduğu bu dev imparatorluğu zirveye taşıyacaktı.",
      "shots": [
       {
-       "clip": "klipler/z24.mp4"
+       "clip": "klipler/z24.mp4",
+       "transition": "dissolve"
       },
       {
        "clip": "klipler/z25.mp4",
@@ -3499,10 +3575,10 @@
      "text": "[sakin] Sekiz yıldan az süren bir saltanat. Bir taht kavgası, iki büyük savaş, bir çöl ve yıkılan bir devlet. Yavuz Sultan Selim, kimine göre acımasız bir hükümdar, kimine göre imparatorluğun kurtarıcısıydı. Halk arasında \"Yavuz'a vezir olasın\" diye bir beddua bile söylenirdi; çünkü vezirlerinin pek azı onun gazabından kurtulabildi.",
      "shots": [
       {
-       "clip": "klipler/y05.mp4"
+       "clip": "klipler/w30.mp4"
       },
       {
-       "clip": "klipler/y12.mp4",
+       "clip": "klipler/w31.mp4",
        "transition": "dissolve"
       }
      ]
@@ -3511,14 +3587,15 @@
      "text": "Ama bıraktığı miras tartışılmaz. Osmanlı, onun döneminde bir Anadolu ve Balkan devleti olmaktan çıktı; Mekke'den Tebriz'e, Kahire'den Belgrat'ın kapılarına uzanan bir dünya imparatorluğu oldu. [duraksama 0.8] [vurgulu] Ve bütün bunlar, Trabzon'daki o sessiz şehzadenin sekiz yılına sığdı.",
      "shots": [
       {
-       "clip": "klipler/y32.mp4"
-      },
-      {
-       "clip": "klipler/y34.mp4",
+       "stock": "s_yavuz_camii",
+       "label": {
+        "title": "BUGÜN",
+        "subtitle": "YAVUZ SELİM CAMİİ · İSTANBUL"
+       },
        "transition": "dissolve"
       },
       {
-       "clip": "klipler/y05.mp4",
+       "clip": "klipler/w32.mp4",
        "transition": "dissolve"
       }
      ]
@@ -3527,7 +3604,8 @@
      "text": "Serimizin sıradaki bölümünde, bu imparatorluğu devralan oğlunun, Kanuni Sultan Süleyman'ın hikâyesini anlatacağız. Kanalımıza abone olmayı unutmayın.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "clip": "klipler/y34.mp4",
+       "transition": "dissolve"
       }
      ]
     }
