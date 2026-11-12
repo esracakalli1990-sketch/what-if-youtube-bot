@@ -45,7 +45,7 @@ def is_configured() -> bool:
     return bool(token and chat_id and "buraya" not in token)
 
 
-def send_message(text: str, chat_id: str | None = None) -> bool:
+def send_message(text: str, chat_id: str | None = None, parse_mode: str | None = "HTML") -> bool:
     """
     Telegram'a mesaj gönder (HTML biçimli).
 
@@ -65,7 +65,7 @@ def send_message(text: str, chat_id: str | None = None) -> bool:
             json={
                 "chat_id": chat_id,
                 "text": text[:4096],  # Telegram mesaj limiti
-                "parse_mode": "HTML",
+                **({"parse_mode": parse_mode} if parse_mode else {}),
                 "disable_web_page_preview": True,
             },
             timeout=15,
@@ -97,6 +97,28 @@ def send_photo(photo_path: str, caption: str = "") -> bool:
         return response.status_code == 200
     except Exception as e:
         logger.warning("Telegram fotoğraf gönderim hatası: %s", e)
+        return False
+
+
+def send_video(path: str, caption: str = "") -> bool:
+    """Telegram'a video gönder (telefonda oynatılır ve kaydedilir; bot sınırı 50 MB)."""
+    token, chat_id = _config()
+    if not token or not chat_id or "buraya" in token:
+        return False
+
+    try:
+        with open(path, "rb") as f:
+            response = requests.post(
+                f"{TELEGRAM_API}/bot{token}/sendVideo",
+                data={"chat_id": chat_id, "caption": caption[:1024], "supports_streaming": "true"},
+                files={"video": f},
+                timeout=300,
+            )
+        if response.status_code != 200:
+            logger.warning("Telegram video hatası (%d): %s", response.status_code, response.text[:200])
+        return response.status_code == 200
+    except Exception as e:
+        logger.warning("Telegram video gönderim hatası: %s", e)
         return False
 
 

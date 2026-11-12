@@ -1,0 +1,66 @@
+# Sosyal medya: o günün Short'unu paylaş
+#   - Telegram: video + kopyalanabilir açıklama (TikTok'a elle, ~1 dk)
+#   - Instagram Reels + Facebook Reels: META_* anahtarları eklenince otomatik
+# Takvim: belgeseller/*/shorts.json → her Short'un "sosyal" (yoksa "yayin") tarihi.
+# Dosyalar: belgesel.yml (mod=shorts veya mod=sosyal) "sosyal-<klasör>" Release'ine yükler.
+#
+# İsteğe bağlı secrets (yoksa yalnızca Telegram çalışır):
+#   META_PAGE_TOKEN   Facebook Sayfası erişim anahtarı (süresiz)
+#   META_IG_USER_ID   Instagram profesyonel hesap kimliği
+#   META_PAGE_ID      Facebook Sayfası kimliği
+# Kurulum: docs/SOSYAL_MEDYA_KURULUM.md
+
+name: Sosyal Medya Paylaşımı
+
+on:
+  schedule:
+    - cron: "5 15 * * *"      # her gün 15:05 UTC = 18:05 TR (YouTube Short'uyla aynı akşam)
+  workflow_dispatch:
+    inputs:
+      tarih:
+        description: "Gün (YYYY-MM-DD). Boşsa bugün."
+        required: false
+      klasor:
+        description: "Tek Short için klasör (ör. belgeseller/03-istanbul)"
+        required: false
+      id:
+        description: "Tek Short kimliği (ör. gemiler) — tarihe bakmadan paylaşır"
+        required: false
+      deneme:
+        description: "Deneme: yalnızca indir, hiçbir yere gönderme"
+        type: boolean
+        default: false
+
+concurrency:
+  group: sosyal
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  paylas:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      GH_TOKEN: ${{ github.token }}
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      META_PAGE_TOKEN: ${{ secrets.META_PAGE_TOKEN }}
+      META_IG_USER_ID: ${{ secrets.META_IG_USER_ID }}
+      META_PAGE_ID: ${{ secrets.META_PAGE_ID }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Bağımlılıklar
+        run: pip install requests python-dotenv rich
+      - name: Paylaş
+        run: |
+          ARGS=""
+          [ -n "${{ inputs.tarih }}" ] && ARGS="$ARGS --tarih ${{ inputs.tarih }}"
+          [ -n "${{ inputs.klasor }}" ] && ARGS="$ARGS --klasor ${{ inputs.klasor }}"
+          [ -n "${{ inputs.id }}" ] && ARGS="$ARGS --id ${{ inputs.id }}"
+          [ "${{ inputs.deneme }}" = "true" ] && ARGS="$ARGS --deneme"
+          python -m scripts.social paylas $ARGS

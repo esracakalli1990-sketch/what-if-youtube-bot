@@ -1,31 +1,87 @@
 {
  "tam_video": "https://youtu.be/ibuMFDr7rmI",
- "etiketler": ["hititler", "tarih", "belgesel", "anadolu tarihi", "hattuşa", "antik tarih", "shorts"],
+ "etiketler": [
+  "hititler",
+  "tarih",
+  "belgesel",
+  "anadolu tarihi",
+  "hattuşa",
+  "antik tarih",
+  "shorts"
+ ],
  "shorts": [
-  {"id": "giris", "paragraflar": ["0.0", "0.1", "0.2"], "muzik": "gizem",
+  {
+   "id": "giris",
+   "paragraflar": [
+    "0.0",
+    "0.1",
+    "0.2"
+   ],
+   "muzik": "gizem",
    "kanca": "ADI 3000 YIL\nUNUTULAN İMPARATORLUK",
    "baslik": "3000 yıl boyunca adı unutulan imparatorluk: Hititler #shorts",
    "aciklama": "Çorum'un tepelerinde, taş aslanların beklediği bir kapı… Bir zamanlar Mısır'la eşit konuşan Hitit İmparatorluğu'nun hikâyesi.",
-   "yayin": "2026-11-02T10:00:00Z"},
-  {"id": "hrozny", "paragraflar": ["1.7", "1.8", "1.9", "1.10"], "muzik": "gizem",
+   "yayin": "2026-11-02T10:00:00Z",
+   "sosyal": "2026-11-26T15:00:00Z"
+  },
+  {
+   "id": "hrozny",
+   "paragraflar": [
+    "1.7",
+    "1.8",
+    "1.9",
+    "1.10"
+   ],
+   "muzik": "gizem",
    "kanca": "KAYIP BİR DİL\nTEK CÜMLEYLE ÇÖZÜLDÜ",
    "baslik": "Kayıp Hitit dili tek bir cümleyle nasıl çözüldü? #shorts",
    "aciklama": "\"Şimdi ekmek yiyeceksiniz ve su içeceksiniz.\" Bedřich Hrozný'nin 1915'te çözdüğü bu cümle, Hititçenin Hint-Avrupa dili olduğunu gösterdi.",
-   "yayin": "2026-11-03T10:00:00Z"},
-  {"id": "kralice", "paragraflar": ["4.4", "4.5", "4.6", "4.9"], "muzik": "agir",
+   "yayin": "2026-11-03T10:00:00Z",
+   "sosyal": "2026-11-27T15:00:00Z"
+  },
+  {
+   "id": "kralice",
+   "paragraflar": [
+    "4.4",
+    "4.5",
+    "4.6",
+    "4.9"
+   ],
+   "muzik": "agir",
    "kanca": "MISIR KRALİÇESİNİN\nGİZEMLİ MEKTUBU",
    "baslik": "Mısır kraliçesi Hitit kralından neden koca istedi? #shorts",
    "aciklama": "Kocası ölen bir Mısır kraliçesi, ezeli rakibi Hitit kralına mektup yazdı. Bu kraliçenin kimliği bugün hâlâ tartışılıyor.",
-   "yayin": "2026-11-04T10:00:00Z"},
-  {"id": "kades", "paragraflar": ["5.9", "5.10", "5.11"], "muzik": "karanlik",
+   "yayin": "2026-11-04T10:00:00Z",
+   "sosyal": "2026-11-28T15:00:00Z"
+  },
+  {
+   "id": "kades",
+   "paragraflar": [
+    "5.9",
+    "5.10",
+    "5.11"
+   ],
+   "muzik": "karanlik",
    "kanca": "KADEŞ SAVAŞINI\nKİM KAZANDI?",
    "baslik": "Kadeş Savaşı'nı gerçekten kim kazandı? #shorts",
    "aciklama": "II. Ramses Kadeş'i büyük bir zafer olarak anlattı. Ama sonuçlar başka bir şey söylüyor: tarihin ilk büyük propaganda savaşı.",
-   "yayin": "2026-11-05T10:00:00Z"},
-  {"id": "son", "paragraflar": ["8.8", "8.9", "8.10", "8.11"], "muzik": "karanlik",
+   "yayin": "2026-11-05T10:00:00Z",
+   "sosyal": "2026-11-29T15:00:00Z"
+  },
+  {
+   "id": "son",
+   "paragraflar": [
+    "8.8",
+    "8.9",
+    "8.10",
+    "8.11"
+   ],
+   "muzik": "karanlik",
    "kanca": "BİR İMPARATORLUK\nNASIL KAYBOLUR?",
    "baslik": "Hitit başkenti Hattuşa nasıl terk edildi? #shorts",
    "aciklama": "Hattuşa'nın sonu uzun süre büyük bir yıkım sahnesi olarak anlatıldı. Kazılar ise başka bir hikâye anlatıyor.",
-   "yayin": "2026-11-06T10:00:00Z"}
+   "yayin": "2026-11-06T10:00:00Z",
+   "sosyal": "2026-11-30T15:00:00Z"
+  }
  ]
 }

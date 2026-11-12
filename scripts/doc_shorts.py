@@ -90,11 +90,13 @@ def ass_subtitles(chunks: list[tuple[float, float, str]]) -> str:
     return head + "\n".join(lines) + "\n"
 
 
-def short_description(spec: dict, full_url: str, credits: list[str], ai_note: str = "") -> str:
-    parts = [spec.get("aciklama", "").strip(), "", f"▶️ Tam belgesel (37 dk): {full_url}", ""]
+def short_description(spec: dict, full_url: str, credits: list[str], ai_note: str = "",
+                      tags: list[str] | None = None) -> str:
+    from scripts.social import hashtags
+    parts = [spec.get("aciklama", "").strip(), "", f"▶️ Tam belgesel: {full_url}", ""]
     if ai_note:
         parts += [f"ℹ️ {ai_note}", ""]
-    parts += ["#tarih #hititler #belgesel #shorts", ""]
+    parts += [" ".join(hashtags(tags or [], limit=4) + ["#shorts"]), ""]
     if credits:
         parts += ["Kaynaklar ve lisanslar:"] + [f"• {c}" for c in dict.fromkeys(credits)]
     return "\n".join(parts)[:4900]
@@ -216,6 +218,8 @@ def main(argv=None):
     ap.add_argument("klasor")
     ap.add_argument("--yukle", action="store_true", help="YouTube'a gizli + planlı yükle")
     ap.add_argument("--sadece", default=None, help="yalnızca bu Short kimliği")
+    ap.add_argument("--sosyal", action="store_true",
+                    help="TikTok/Instagram/Facebook paketi de hazırla (build/sosyal)")
     args = ap.parse_args(argv)
     folder = Path(args.klasor).resolve()
     cfg = json.loads((folder / "shorts.json").read_text(encoding="utf-8"))
@@ -231,7 +235,8 @@ def main(argv=None):
             from scripts.youtube_uploader import upload_documentary, last_upload_error
             when = datetime.fromisoformat(spec["yayin"].replace("Z", "+00:00"))
             desc = short_description(spec, cfg["tam_video"], r["credits"],
-                                     prod.data.get("ai_disclosure", "") if r["uses_clip"] else "")
+                                     prod.data.get("ai_disclosure", "") if r["uses_clip"] else "",
+                                     cfg.get("etiketler", []))
             vid = upload_documentary(r["video"], spec["baslik"], desc, cfg.get("etiketler", []),
                                      publish_at=when, synthetic_media=r["uses_clip"])
             if not vid:
@@ -240,6 +245,9 @@ def main(argv=None):
         results.append(r)
         logger.info("Short hazır: %s (%.0f sn)", r["id"], r["seconds"])
     (out_dir / "shorts.json").write_text(json.dumps(results, ensure_ascii=False, indent=1), encoding="utf-8")
+    if args.sosyal:
+        from scripts.social import package
+        package(folder, cfg, results, prod.data.get("ai_disclosure", ""))
     print(json.dumps(results, ensure_ascii=False, indent=1))
     return 0
 
