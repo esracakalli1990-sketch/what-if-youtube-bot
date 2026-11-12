@@ -12,6 +12,9 @@ import re
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
+import sys  # noqa: E402
+sys.path.insert(0, str(HERE))
+from haritalar import M as MAPS  # noqa: E402
 ROOT = HERE.parent
 GECIS = {"kes": "cut", "erit": "dissolve", "karart": "black", "parla": "flash"}
 MUZIK = ["karanlik", "gizem", "agir", "karanlik", "derin", "karanlik", "agir", "derin", "isik", "huzun", "huzun"]
@@ -29,7 +32,14 @@ def tr_title(text: str) -> str:
 def ekran_shots(line: str) -> list[dict]:
     """[EKRAN: …] satırından klip sırası ve her klibe GİRİŞ geçişi."""
     shots, pending = [], None
-    for tok in re.finditer(r"/(kes|erit|karart|parla)/|\b([yz]\d\d)\b", line):
+    for tok in re.finditer(r"/(kes|erit|karart|parla)/|\b([yz]\d\d)\b|\b((?:m|k)_\w+)\b|\b(s_\w+)\b", line):
+        if tok.group(3) or tok.group(4):          # harita / kart / stok video
+            s = {"map": tok.group(3)} if tok.group(3) else {"stock": tok.group(4)}
+            if pending:
+                s["transition"] = pending
+            shots.append(s)
+            pending = None
+            continue
         if tok.group(1):
             if tok.group(1) == "parla" and shots:      # parlama: klibin İÇİNDEKİ top atışından sonraki kesme
                 pending = "flash"
@@ -37,7 +47,7 @@ def ekran_shots(line: str) -> list[dict]:
                 pending = GECIS[tok.group(1)]
         else:
             name = tok.group(2)
-            if shots and shots[-1]["clip"].endswith(f"/{name}.mp4"):
+            if shots and shots[-1].get("clip", "").endswith(f"/{name}.mp4"):
                 continue
             s = {"clip": f"klipler/{name}.mp4"}
             if pending:
@@ -115,10 +125,10 @@ def main():
                       "🔔 Sıradaki belgesel: Kanuni Sultan Süleyman."),
         "kurgu": {"gecis": "cut", "ton_esitle": 0.5},
         "music_sources": ist["music_sources"],
-        "images": {},
-        "stock": {},
+        "images": {"dunya": {"commons": "File:Whole world - land and oceans 12000.jpg", "original": True}},
+        "stock": {"s_yavuz_camii": {"q": "Yavuz Selim mosque Istanbul"}},
         "films": {},
-        "maps": {},
+        "maps": MAPS,
         "chapters": parse(md),
     }
     (ROOT / "senaryo.json").write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
