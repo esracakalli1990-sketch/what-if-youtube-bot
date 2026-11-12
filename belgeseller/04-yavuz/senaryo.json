@@ -1,0 +1,793 @@
+{
+ "slug": "04-yavuz",
+ "title": "Yavuz Sultan Selim: 8 Yılda Bir Dünya İmparatorluğu | Çaldıran'dan Kahire'ye",
+ "description": "1514 yazı, Çaldıran ovası. Zincirlenmiş toplar, kırmızı başlıklı Kızılbaş süvarileri ve tepede her şeyi tek bir savaşa yatırmış bir sultan.\n\nBu belgeselde Yavuz Sultan Selim'in hikâyesini anlatıyoruz: Trabzon'daki şehzadelik yıllarından babasına karşı verdiği taht mücadelesine, Çaldıran'da Şah İsmail'le hesaplaşmasından Mercidabık ve Ridaniye'ye, Sina Çölü'nü bir orduyla geçişinden Kahire'ye ve kutsal emanetlere kadar. Tartışmalı bilgiler anlatımda \"rivayete göre\" ya da \"kaynaklara göre\" diye belirtilmiştir.\n\nSerinin önceki bölümleri: İstanbul'un Fethi → https://youtu.be/AI-RfRzQfos · Antik Mısır → https://youtu.be/Ns-ozDX_Y6g · Hitit İmparatorluğu → https://youtu.be/ibuMFDr7rmI",
+ "tags": [
+  "yavuz sultan selim",
+  "çaldıran savaşı",
+  "mercidabık",
+  "ridaniye",
+  "şah ismail",
+  "osmanlı tarihi",
+  "memlükler",
+  "tomanbay",
+  "kansu gavri",
+  "kutsal emanetler",
+  "osmanlı belgeseli",
+  "tarih belgeseli",
+  "türk tarihi",
+  "1514",
+  "1517",
+  "belgesel",
+  "türkçe belgesel"
+ ],
+ "hashtags": [
+  "#YavuzSultanSelim",
+  "#Çaldıran",
+  "#OsmanlıTarihi",
+  "#Belgesel",
+  "#Tarih"
+ ],
+ "ai_disclosure": "Bu belgeseldeki canlandırma sahneleri yapay zekâ ile üretilmiştir ve temsilidir; videoda \"Temsili canlandırma\" olarak işaretlidir.",
+ "sources": [
+  "Feridun M. Emecen, Yavuz Sultan Selim",
+  "Halil İnalcık, Osmanlı İmparatorluğu Klasik Çağ (1300–1600)",
+  "TDV İslâm Ansiklopedisi: Selim I, Bayezid II, Çaldıran Savaşı, Mercidabık Savaşı, Ridaniye Savaşı, Kansu Gavri, Tomanbay, Şahkulu, Şah İsmail, Pîrî Reis, İdrîs-i Bitlisî",
+  "Roger Savory, Iran under the Safavids",
+  "Celalzade Mustafa, Selimnâme; Hoca Sadeddin, Tâcü't-Tevârîh"
+ ],
+ "tts_model": "eleven_v4",
+ "voice_settings": {
+  "stability": 0.55,
+  "similarity_boost": 0.8,
+  "style": 0.1,
+  "use_speaker_boost": true
+ },
+ "pronunciations": {
+  "Mercidabık": "Merci Dâbık",
+  "Bâbüzzüveyle": "Bâbüz Züveyle",
+  "Gavri": "Gavrî",
+  "Ridaniye": "Rîdâniye",
+  "şirpençe": "şîr pençe"
+ },
+ "ilk_yorum": "Sizce Yavuz'un en büyük hamlesi hangisiydi: Çaldıran mı, Mercidabık mı, yoksa ordusuyla Sina Çölü'nü geçmesi mi? Yorumlarda tartışalım.\n\n🔔 Sıradaki belgesel: Kanuni Sultan Süleyman.",
+ "kurgu": {
+  "gecis": "cut",
+  "ton_esitle": 0.5
+ },
+ "music_sources": {
+  "gizem": {
+   "commons": "File:Heart of Nowhere (MacLeod, Kevin) (ISRC USUAN1400045).oga"
+  },
+  "agir": {
+   "commons": "File:Earth Prelude (MacLeod, Kevin) (ISRC USUAN1100247).oga"
+  },
+  "karanlik": {
+   "commons": "File:Kevin MacLeod - Ritual.ogg"
+  },
+  "huzun": {
+   "commons": "File:Kevin MacLeod - 06 - Impact Lento.ogg"
+  },
+  "tapinak": {
+   "commons": "File:Kevin MacLeod - Temple of the Manes.ogg"
+  },
+  "ses": {
+   "commons": "File:The Voices (MacLeod, Kevin) (ISRC USUAN1100046).oga"
+  },
+  "isik": {
+   "commons": "File:Kevin MacLeod - Bathed in the Light.ogg"
+  },
+  "derin": {
+   "commons": "File:Kevin MacLeod - Silver Blue Light.ogg"
+  }
+ },
+ "images": {},
+ "stock": {},
+ "films": {},
+ "maps": {},
+ "chapters": [
+  {
+   "title": "Soğuk Açılış",
+   "paragraphs": [
+    {
+     "text": "[gerilim] Yirmi üç Ağustos, bin beş yüz on dört. Doğu Anadolu'nun yüksek ovalarında, Tebriz'e birkaç günlük mesafede bir sabah. Osmanlı askerleri yüzlerce top arabasını yan yana diziyor, birbirine zincirliyor. Arkalarında, ellerinde tüfekleriyle yeniçeriler bekliyor.",
+     "shots": [
+      {
+       "clip": "klipler/y01.mp4"
+      },
+      {
+       "clip": "klipler/y02.mp4",
+       "transition": "cut"
+      },
+      {
+       "clip": "klipler/y04.mp4",
+       "transition": "cut"
+      }
+     ]
+    },
+    {
+     "text": "Karşılarında, kırmızı başlıklarıyla ünlü Kızılbaş süvarileri var. Yenilgi nedir bilmeyen bir ordu. Ve onların başında, yirmi yedi yaşında, kendisine neredeyse kutsal bir varlık gibi inanılan bir hükümdar: Şah İsmail.",
+     "shots": [
+      {
+       "clip": "klipler/y07.mp4"
+      },
+      {
+       "clip": "klipler/y06.mp4",
+       "transition": "cut"
+      }
+     ]
+    },
+    {
+     "text": "Tepede, atının üstünde, bütün bunları sessizce izleyen bir adam var. [duraksama 0.8] [vurgulu] Sultan Selim. Tahtta henüz iki yıldır oturuyor. Ve bu sabah, her şeyi tek bir savaşa yatırmış durumda.",
+     "shots": [
+      {
+       "clip": "klipler/y05.mp4"
+      }
+     ]
+    },
+    {
+     "text": "[dramatik] Önümüzdeki altı yıl içinde bu adam doğuda bir imparatorluğu durduracak, güneyde iki yüz altmış yıllık bir devleti yıkacak, bir orduyu çölün içinden geçirecek ve İslam dünyasının en kutsal emanetlerini İstanbul'a getirecek. Tarih ona tek bir kelimeyle seslenecek: [ağır] Yavuz.",
+     "shots": [
+      {
+       "clip": "klipler/y08.mp4"
+      },
+      {
+       "clip": "klipler/y20.mp4",
+       "transition": "flash"
+      },
+      {
+       "clip": "klipler/y28.mp4"
+      },
+      {
+       "clip": "klipler/y32.mp4"
+      }
+     ]
+    }
+   ],
+   "music": "karanlik"
+  },
+  {
+   "title": "Trabzon'daki Şehzade",
+   "paragraphs": [
+    {
+     "text": "[sakin] Selim bin dört yüz yetmiş yılında Amasya'da doğdu. Babası, Fatih Sultan Mehmed'in oğlu şehzade Bayezid'di. Selim henüz gençken, Karadeniz kıyısındaki Trabzon'a sancakbeyi olarak gönderildi. Osmanlı geleneğinde şehzadeler böyle yetişirdi: uzak bir eyalette, devlet yönetmeyi bizzat yaşayarak öğrenirlerdi.",
+     "shots": [
+      {
+       "clip": "klipler/z01.mp4"
+      },
+      {
+       "clip": "klipler/z02.mp4",
+       "transition": "cut"
+      }
+     ]
+    },
+    {
+     "text": "Selim yaklaşık yirmi beş yıl Trabzon'da kaldı. Burası imparatorluğun en uç köşesiydi; doğusunda Gürcü beylikleri, güneyinde Türkmen boyları vardı. Selim bu yıllarda sınırın ötesine akınlar düzenledi, savaşmayı kitaplardan değil, sahadan öğrendi.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "Trabzon yılları ona bir şey daha verdi. Bin dört yüz doksan dört yılında, burada bir oğlu dünyaya geldi. Adını Süleyman koydular. [duraksama 0.6] Bu çocuk bir gün, babasından devraldığı imparatorluğu dünyanın en güçlü devleti yapacaktı. Ama o günler çok uzaktaydı.",
+     "shots": [
+      {
+       "clip": "klipler/z27.mp4"
+      }
+     ]
+    },
+    {
+     "text": "Ama onu yalnızca bir asker olarak düşünmek yanlış olur. [hayret] Selim Farsça şiirler yazan, divanı olan bir şairdi. Sert yüzünün ardında, edebiyatı ve tarihi seven, gece geç saatlere kadar okuyan bir adam vardı.",
+     "shots": [
+      {
+       "clip": "klipler/z03.mp4"
+      },
+      {
+       "clip": "klipler/z04.mp4",
+       "transition": "dissolve"
+      }
+     ]
+    },
+    {
+     "text": "[gerilim] Ve Trabzon'dan doğuya bakan Selim, herkesten önce bir tehlikeyi fark etti. Sınırın hemen ötesinde, yeni bir güç doğuyordu.",
+     "shots": [
+      {
+       "clip": "klipler/z05.mp4"
+      }
+     ]
+    }
+   ],
+   "card": {
+    "kicker": "BÖLÜM I",
+    "date": "1470–1510 · Amasya, Trabzon"
+   },
+   "music": "gizem"
+  },
+  {
+   "title": "Doğudan Gelen Fırtına",
+   "paragraphs": [
+    {
+     "text": "[sakin] Bin beş yüz bir yılında, henüz on dört yaşında bir genç Tebriz'e girdi ve kendini şah ilan etti. İsmail, Safevî tarikatının şeyhlerinin soyundan geliyordu. Müritleri, başlarına taktıkları on iki dilimli kırmızı taç yüzünden \"Kızılbaş\" diye anılıyordu.",
+     "shots": [
+      {
+       "clip": "klipler/y13.mp4"
+      }
+     ]
+    },
+    {
+     "text": "On yıl içinde İran'ın tamamını, Irak'ı, Azerbaycan'ı aldı. Ama onu Osmanlı için asıl tehlikeli yapan, ordusu değil, Anadolu'daki etkisiydi. Şah İsmail, Türkçe şiirler yazıyordu. Anadolu'nun Türkmen boylarına kendi dillerinde sesleniyordu. Ve binlerce Türkmen, ona katılmak için doğuya göç ediyordu.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "[gerilim] Bin beş yüz on bir yılında Antalya yöresinde Şahkulu adında bir derviş isyan bayrağını kaldırdı. Çevresinde toplanan kalabalık, üzerine gönderilen Osmanlı kuvvetlerini birer birer yendi. Sonunda sadrazam Hadım Ali Paşa'nın ordusuyla karşılaştılar. [duraksama 0.6] Şahkulu öldü. Ama sadrazam da o savaşta hayatını kaybetti.",
+     "shots": [
+      {
+       "clip": "klipler/z06.mp4"
+      },
+      {
+       "clip": "klipler/z07.mp4",
+       "transition": "cut"
+      }
+     ]
+    },
+    {
+     "text": "[ağır] İstanbul'da tahtta, yaşlı ve hasta Sultan İkinci Bayezid oturuyordu. Barışı seven, savaştan uzak duran bir hükümdardı. Doğudan gelen fırtınayı durduracak gücü kalmamıştı. Ve sarayda herkes aynı soruyu soruyordu: Ondan sonra tahta kim geçecek?",
+     "shots": [
+      {
+       "clip": "klipler/z08.mp4"
+      }
+     ]
+    }
+   ],
+   "card": {
+    "kicker": "BÖLÜM II",
+    "date": "1501–1511 · Tebriz, Anadolu"
+   },
+   "music": "agir"
+  },
+  {
+   "title": "Taht Kavgası",
+   "paragraphs": [
+    {
+     "text": "[sakin] Bayezid'in hayatta olan üç oğlu vardı. En büyükleri Ahmed, vezirlerin ve babasının gözdesiydi. Korkud, âlim ve sakin bir şehzadeydi. Selim ise en uzaktaydı, en az sevileniydi. Ama ordunun, özellikle de yeniçerilerin kalbi ondan yanaydı. Onlar, doğudaki tehlikeye karşı savaşacak bir padişah istiyordu.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "Selim beklemedi. Karadeniz'i geçip Kırım'a, oradan Rumeli'ye geçti ve ordusuyla Edirne'ye yürüdü. Bu, babasına karşı açık bir meydan okumaydı.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "[dramatik] Bin beş yüz on bir yazında, Çorlu yakınlarında, oğul ile babanın askerleri karşı karşıya geldi. [duraksama 0.6] Selim yenildi. Canını zor kurtardı, gemiyle Kırım'a kaçtı. Herkes onun hikâyesinin bittiğini düşündü.",
+     "shots": [
+      {
+       "clip": "klipler/z09.mp4"
+      },
+      {
+       "clip": "klipler/z10.mp4",
+       "transition": "cut"
+      }
+     ]
+    },
+    {
+     "text": "Ama İstanbul'da yeniçeriler ayaklandı. Ahmed'in tahta çıkmasını istemiyorlardı. Selim'i çağırdılar. Bin beş yüz on iki baharında Selim İstanbul'a girdi. Yaşlı Bayezid tahttan çekildi ve doğduğu topraklara, Dimetoka'ya gitmek üzere yola çıktı. Ama oraya varamadan yolda öldü.",
+     "shots": [
+      {
+       "clip": "klipler/z11.mp4"
+      }
+     ]
+    },
+    {
+     "text": "[ağır] Selim artık padişahtı. Ama kardeşleri hâlâ hayattaydı ve ikisinin de tahtta gözü vardı. Ertesi yıl Ahmed, Bursa yakınlarındaki Yenişehir'de yenildi ve öldürüldü. Korkud da aynı yıl yakalandı. Osmanlı'nın acımasız taht kuralı bir kez daha işlemişti. Selim, tahtın tek sahibi olarak doğuya döndü.",
+     "shots": [
+      {
+       "clip": "klipler/z12.mp4"
+      }
+     ]
+    }
+   ],
+   "card": {
+    "kicker": "BÖLÜM III",
+    "date": "1511–1513 · Edirne, İstanbul"
+   },
+   "music": "karanlik"
+  },
+  {
+   "title": "Çaldıran",
+   "paragraphs": [
+    {
+     "text": "[gerilim] Bin beş yüz on dört baharında Selim, büyük bir orduyla doğuya yürüdü. Seferden önce Anadolu'da Şah İsmail'e bağlı olanlar kayda geçirildi; bir kısmı sürgün edildi, bir kısmı öldürüldü. Kaynaklarda geçen rakamlar büyüktür ve bugün de tartışılır. Bu, Anadolu tarihinin hâlâ acıyla hatırlanan bir sayfasıdır.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "Şah İsmail, savaşı kabul etmedi. Geri çekildi ve arkasında yakılmış tarlalar, boşaltılmış köyler bıraktı. Osmanlı ordusu yüzlerce kilometre boyunca yiyecek bulamadı. Askerler açtı, yorgundu. [hayret] Yeniçeriler, padişahın çadırına ok atacak kadar öfkelendi.",
+     "shots": [
+      {
+       "clip": "klipler/z13.mp4"
+      },
+      {
+       "clip": "klipler/y21.mp4",
+       "transition": "cut"
+      }
+     ]
+    },
+    {
+     "text": "Selim geri dönmedi. Rivayete göre ordunun önüne çıktı ve dönmek isteyenin dönebileceğini, kendisinin tek başına da olsa yoluna devam edeceğini söyledi. [duraksama 0.6] Kimse dönmedi.",
+     "shots": [
+      {
+       "clip": "klipler/y36.mp4"
+      },
+      {
+       "clip": "klipler/y05.mp4",
+       "transition": "cut"
+      }
+     ]
+    },
+    {
+     "text": "Bu yürüyüş sırasında iki hükümdar arasında mektuplar da gidip geldi. Kaynaklarda bu mektupların ne kadar sert ve alaycı olduğu anlatılır. [hayret] Rivayete göre Şah İsmail, Selim'in mektuplarını uyuşturucu etkisinde yazılmış sayarak ona altın bir kutu içinde afyon gönderdi. Bu bir aşağılamaydı. Ve Selim artık savaştan başka bir cevabın olmadığını biliyordu.",
+     "shots": [
+      {
+       "clip": "klipler/z28.mp4"
+      },
+      {
+       "clip": "klipler/y06.mp4",
+       "transition": "cut"
+      }
+     ]
+    },
+    {
+     "text": "Ve sonunda, Çaldıran ovasında iki ordu karşı karşıya geldi. Selim'in elinde Şah'ın sahip olmadığı bir şey vardı: toplar ve tüfekler. Osmanlı topçuları arabaları zincirleyerek bir duvar kurdu. Yeniçeriler bu duvarın arkasına yerleşti.",
+     "shots": [
+      {
+       "clip": "klipler/y03.mp4"
+      },
+      {
+       "clip": "klipler/y04.mp4",
+       "transition": "cut"
+      }
+     ]
+    },
+    {
+     "text": "[dramatik] Kızılbaş süvarileri, efsanevi bir cesaretle hücuma kalktı. Kanatlardan saldırdılar ve bir an için Osmanlı hattını zorladılar. Ama sonra toplar konuştu. [duraksama 0.5] Duman ovayı kapladı. Tüfeklerin sesi, atları ürküttü. Hücum dalgaları zincirli arabaların önünde birer birer kırıldı.",
+     "shots": [
+      {
+       "clip": "klipler/y07.mp4"
+      },
+      {
+       "clip": "klipler/y16.mp4",
+       "transition": "cut"
+      },
+      {
+       "clip": "klipler/y08.mp4"
+      },
+      {
+       "clip": "klipler/y09.mp4",
+       "transition": "flash"
+      },
+      {
+       "clip": "klipler/y10.mp4",
+       "transition": "cut"
+      }
+     ]
+    },
+    {
+     "text": "[ağır] Akşam olduğunda savaş bitmişti. Şah İsmail yaralanmış, zor kaçabilmişti. Hayatında ilk kez yenilmişti. [duraksama 1.0] Rivayete göre o günden sonra bir daha hiç savaşa bizzat çıkmadı.",
+     "shots": [
+      {
+       "clip": "klipler/y11.mp4"
+      },
+      {
+       "clip": "klipler/y12.mp4",
+       "transition": "dissolve"
+      }
+     ]
+    },
+    {
+     "text": "Birkaç gün sonra Osmanlı ordusu Safevî başkenti Tebriz'e girdi. Selim orada kışlamak istedi ama ordu buna karşı çıktı. Selim şehirden ayrılırken yanında Tebriz'in en usta sanatkârlarını İstanbul'a götürdü. Doğu Anadolu artık Osmanlı'ya bağlanmıştı.",
+     "shots": [
+      {
+       "clip": "klipler/y13.mp4"
+      }
+     ]
+    },
+    {
+     "text": "Ertesi yıl Selim, doğudaki işini tamamladı. Kemah kalesini aldı. Maraş ve Elbistan'da hüküm süren Dulkadir beyliğine son verdi. Bilge bir devlet adamı olan İdris-i Bitlisî'nin yardımıyla, Diyarbakır ve çevresindeki Kürt beyleri de Osmanlı'ya bağlandı. [vurgulu] Böylece Osmanlı ile Memlûkler arasında artık hiçbir tampon kalmamıştı. İki büyük güç, sınır sınıra gelmişti.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    }
+   ],
+   "card": {
+    "kicker": "BÖLÜM IV",
+    "date": "1514 · Doğu Anadolu"
+   },
+   "music": "derin"
+  },
+  {
+   "title": "Mercidabık",
+   "paragraphs": [
+    {
+     "text": "[sakin] Selim'in gözü artık güneydeydi. Orada, iki buçuk asırdır ayakta duran güçlü bir devlet vardı: Memlûkler. Mısır'ı, Suriye'yi ve İslam'ın kutsal şehirleri Mekke ile Medine'yi yönetiyorlardı. Kahire, İslam dünyasının en zengin, en kalabalık şehriydi.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "Memlûk sultanı Kansu Gavri, yetmiş yaşını geçmiş, tecrübeli bir hükümdardı. Osmanlı ile Safevîler arasında arabuluculuk yapıyor görünüyordu ama Selim, onun Şah İsmail ile anlaştığından şüpheleniyordu. Bin beş yüz on altı yazında Kansu Gavri, büyük bir orduyla Halep'e geldi.",
+     "shots": [
+      {
+       "clip": "klipler/y15.mp4"
+      },
+      {
+       "clip": "klipler/y14.mp4",
+       "transition": "cut"
+      }
+     ]
+    },
+    {
+     "text": "Selim, onun gelmesini beklemedi. Ordusunu güneye çevirdi. Yirmi dört Ağustos sabahı, Halep'in kuzeyindeki Mercidabık ovasında iki ordu karşılaştı. Çaldıran'dan neredeyse tam iki yıl sonra.",
+     "shots": [
+      {
+       "clip": "klipler/z14.mp4"
+      },
+      {
+       "clip": "klipler/y35.mp4",
+       "transition": "cut"
+      }
+     ]
+    },
+    {
+     "text": "[gerilim] Memlûk süvarileri dünyanın en iyi eğitimli atlılarıydı. Ama tıpkı Kızılbaşlar gibi, ateşli silahları küçümsüyorlardı. Osmanlı topları ateş açtığında Memlûk hattı dağılmaya başladı. Üstelik Memlûk kanatlarından birinin komutanı Hayır Bey, savaşın ortasında birlikleriyle geri çekildi.",
+     "shots": [
+      {
+       "clip": "klipler/y16.mp4"
+      },
+      {
+       "clip": "klipler/y17.mp4",
+       "transition": "cut"
+      },
+      {
+       "clip": "klipler/y10.mp4",
+       "transition": "cut"
+      }
+     ]
+    },
+    {
+     "text": "[dramatik] Ve sonra kimsenin beklemediği bir şey oldu. Yaşlı Sultan Kansu Gavri, savaşın ortasında atından düştü. Kaynaklar onun bir felç ya da kalp kriziyle yere yığıldığını söyler. [duraksama 0.8] Cesedi hiçbir zaman bulunamadı. Liderini kaybeden Memlûk ordusu dağıldı.",
+     "shots": [
+      {
+       "clip": "klipler/y18.mp4"
+      },
+      {
+       "clip": "klipler/y19.mp4",
+       "transition": "cut"
+      }
+     ]
+    },
+    {
+     "text": "Halep savaşmadan teslim oldu. Ardından Şam. [hayret] Birkaç hafta içinde bütün Suriye, Osmanlı'nın olmuştu. Rivayete göre Halep'te okunan hutbede Selim'e \"iki kutsal şehrin hâkimi\" denince, Selim bunu düzelttirdi: \"Hâkimi değil, hizmetkârı.\"",
+     "shots": [
+      {
+       "clip": "klipler/z15.mp4"
+      },
+      {
+       "clip": "klipler/z16.mp4",
+       "transition": "dissolve"
+      }
+     ]
+    }
+   ],
+   "card": {
+    "kicker": "BÖLÜM V",
+    "date": "1516 · Halep'in kuzeyi"
+   },
+   "music": "karanlik"
+  },
+  {
+   "title": "Çöl",
+   "paragraphs": [
+    {
+     "text": "[ağır] Memlûkler henüz bitmemişti. Kahire'de yeni bir sultan seçmişlerdi: Tomanbay. Genç, cesur ve kararlı bir komutandı. Selim'in ona ulaşabilmesi için ise önünde yalnızca bir yol vardı: Sina Çölü.",
+     "shots": [
+      {
+       "clip": "klipler/y20.mp4"
+      }
+     ]
+    },
+    {
+     "text": "Çölü bir orduyla geçmek, o güne kadar pek az hükümdarın göze alabildiği bir işti. Yüzlerce kilometre boyunca su yoktu, gölge yoktu. Selim binlerce deveye su tulumları yükletti. Ve bin beş yüz on yedi yılının Ocak ayında, ordu kumların içine girdi.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "[gerilim] Gündüz güneş, gece soğuk. Kum fırtınaları yolları siliyor, atlar yoruluyordu. Kaynaklar, Selim'in bu yolculuğun bir kısmını atından inip askerleriyle birlikte yürüyerek geçtiğini anlatır. [duraksama 0.6] Rivayete göre ordu en zor anındayken çöle beklenmedik bir yağmur yağdı ve tozu bastırdı.",
+     "shots": [
+      {
+       "clip": "klipler/y21.mp4"
+      },
+      {
+       "clip": "klipler/y22.mp4",
+       "transition": "cut"
+      },
+      {
+       "clip": "klipler/y24.mp4",
+       "transition": "cut"
+      }
+     ]
+    },
+    {
+     "text": "Ordunun büyük kısmı, çölü yaklaşık iki haftada geçti. [vurgulu] Ve Ocak ayının ortasında, ufukta Kahire'nin minareleri göründü.",
+     "shots": [
+      {
+       "clip": "klipler/y23.mp4"
+      }
+     ]
+    }
+   ],
+   "card": {
+    "kicker": "BÖLÜM VI",
+    "date": "Ocak 1517 · Sina Yarımadası"
+   },
+   "music": "agir"
+  },
+  {
+   "title": "Ridaniye ve Kahire",
+   "paragraphs": [
+    {
+     "text": "[sakin] Tomanbay hazırlıklıydı. Mercidabık'tan ders almıştı. Kahire'nin kuzeyindeki Ridaniye'de hendekler kazdırmış, toplarını yerleştirmişti. Osmanlı ordusu bu hattın önüne geldiğinde, toplar onları bekliyor olacaktı.",
+     "shots": [
+      {
+       "clip": "klipler/y25.mp4"
+      },
+      {
+       "clip": "klipler/y27.mp4",
+       "transition": "cut"
+      }
+     ]
+    },
+    {
+     "text": "[hayret] Ama Selim bu tuzağı fark etti. Ordusunun bir kısmını, Mukattam tepelerinin arkasından dolaştırdı. Memlûk topları yere sabitlenmişti; dönemiyorlardı. Osmanlı birlikleri hattı yandan ve arkadan vurdu.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "[dramatik] Tomanbay bir avuç seçme atlısıyla doğrudan Osmanlı karargâhına daldı. Hedefi Selim'di. Ama padişah sandıkları kişi, sadrazam Hadım Sinan Paşa'ydı. Sinan Paşa o hücumda hayatını kaybetti. Savaş ise birkaç saat içinde bitti. Memlûk hattı çöktü.",
+     "shots": [
+      {
+       "clip": "klipler/y26.mp4"
+      },
+      {
+       "clip": "klipler/y27.mp4",
+       "transition": "cut"
+      },
+      {
+       "clip": "klipler/y08.mp4",
+       "transition": "cut"
+      },
+      {
+       "clip": "klipler/y10.mp4",
+       "transition": "cut"
+      }
+     ]
+    },
+    {
+     "text": "Ama Kahire düşmedi. Tomanbay şehre çekildi ve günlerce sokak sokak, ev ev savaştı. Bu, Osmanlı ordusunun karşılaştığı en zor sokak savaşlarından biriydi. Sonunda Tomanbay şehirden çıkmak zorunda kaldı. Birkaç ay daha direndi, ama bir bedevi şeyhinin ihanetiyle yakalandı.",
+     "shots": [
+      {
+       "clip": "klipler/y28.mp4"
+      },
+      {
+       "clip": "klipler/y29.mp4",
+       "transition": "cut"
+      }
+     ]
+    },
+    {
+     "text": "[ağır] Kaynaklar, Selim'in onu karşısına aldığında cesaretinden etkilendiğini anlatır. Ama Tomanbay yaşadıkça Mısır'da direniş sönmeyecekti. Nisan ayında, Kahire'nin Bâbüzzüveyle kapısında idam edildi. [duraksama 1.0] İki yüz altmış yılı aşkın Memlûk hâkimiyeti böylece sona erdi.",
+     "shots": [
+      {
+       "clip": "klipler/z17.mp4"
+      },
+      {
+       "clip": "klipler/y30.mp4",
+       "transition": "cut"
+      }
+     ]
+    }
+   ],
+   "card": {
+    "kicker": "BÖLÜM VII",
+    "date": "22 Ocak 1517 · Kahire"
+   },
+   "music": "derin"
+  },
+  {
+   "title": "Emanetler",
+   "paragraphs": [
+    {
+     "text": "[sakin] Selim Kahire'de birkaç ay kaldı. Nil'i, şehrin büyük camilerini, medreselerini gezdi. Mısır'ın yönetimini düzenledi. Ve bir gün Mekke'den bir heyet geldi.",
+     "shots": [
+      {
+       "clip": "klipler/y31.mp4"
+      },
+      {
+       "clip": "klipler/z18.mp4",
+       "transition": "dissolve"
+      }
+     ]
+    },
+    {
+     "text": "Mekke şerifi, oğlunu Kahire'ye göndermişti. Getirdiği şey, Kâbe'nin anahtarlarıydı. Bu bir teslimiyet işaretiydi. Mekke ve Medine, yani Hicaz, artık Osmanlı'nın korumasındaydı. Osmanlı padişahı, İslam dünyasının en kutsal iki şehrinin hizmetkârı olmuştu.",
+     "shots": [
+      {
+       "clip": "klipler/z19.mp4"
+      }
+     ]
+    },
+    {
+     "text": "[hayret] Kahire'de Selim'i şaşırtan bir hediye daha vardı. Bir Osmanlı denizcisi, Piri Reis, birkaç yıl önce çizdiği bir dünya haritasını padişaha sundu. Haritada Afrika'nın ve yeni keşfedilen Amerika kıyılarının bir kısmı görülüyordu. Bugün bu haritanın kalan parçası, Topkapı Sarayı'nda saklanıyor ve dünyanın en ünlü haritalarından biri sayılıyor.",
+     "shots": [
+      {
+       "clip": "klipler/z29.mp4"
+      }
+     ]
+    },
+    {
+     "text": "[vurgulu] Kahire'den İstanbul'a yalnızca hazineler gitmedi. Kutsal emanetlerin bir kısmı, Hazreti Muhammed'e ve ilk halifelere ait olduğuna inanılan eşyalar da zamanla İstanbul'a getirildi. Bugün bu emanetlerin önemli bir kısmı Topkapı Sarayı'nda korunuyor.",
+     "shots": [
+      {
+       "clip": "klipler/y32.mp4"
+      },
+      {
+       "clip": "klipler/y33.mp4",
+       "transition": "dissolve"
+      }
+     ]
+    },
+    {
+     "text": "Halifeliğe gelince: Son Abbasi halifesi de Kahire'den İstanbul'a götürüldü. Halifeliğin o gün resmî bir törenle Osmanlı'ya devredildiği anlatısı, aslında çok daha sonraki yüzyıllarda yaygınlaştı ve tarihçiler arasında tartışmalıdır. Kesin olan şu: Osmanlı sultanları bu tarihten sonra İslam dünyasının önderi olarak görülmeye başlandı.",
+     "shots": [
+      {
+       "clip": "klipler/z20.mp4"
+      }
+     ]
+    },
+    {
+     "text": "[hayret] Selim, bin beş yüz on sekizde İstanbul'a döndüğünde, imparatorluğun toprakları tahta çıktığı günden çok daha büyüktü. Kaynaklara göre neredeyse iki buçuk katına çıkmıştı. Hem de yalnızca altı yıl içinde.",
+     "shots": [
+      {
+       "clip": "klipler/y34.mp4"
+      }
+     ]
+    }
+   ],
+   "card": {
+    "kicker": "BÖLÜM VIII",
+    "date": "1517–1518 · Kahire, Mekke, İstanbul"
+   },
+   "music": "isik"
+  },
+  {
+   "title": "Son Yolculuk",
+   "paragraphs": [
+    {
+     "text": "[sakin] Selim durmadı. İstanbul'da büyük bir tersane kurdurdu, yeni bir donanma inşa ettirdi. Gözü artık denizlerdeydi. Rodos'tan, belki de daha uzaklardan söz ediliyordu.",
+     "shots": [
+      {
+       "clip": "klipler/z21.mp4"
+      }
+     ]
+    },
+    {
+     "text": "[ağır] Bin beş yüz yirmi yazında Edirne'ye doğru yola çıktı. Ama Çorlu yakınlarındaki Sırtköy'de hastalandı. Kaynaklar, sırtında çıkan ve \"şirpençe\" denen bir yaradan söz eder. Bu yara hızla ilerledi. [duraksama 0.8] Yirmi iki Eylül gecesi, Sultan Selim hayata gözlerini yumdu. Henüz elli yaşındaydı. Tahtta sekiz yıldan az kalmıştı.",
+     "shots": [
+      {
+       "clip": "klipler/z22.mp4"
+      },
+      {
+       "clip": "klipler/z23.mp4",
+       "transition": "cut"
+      }
+     ]
+    },
+    {
+     "text": "Kaynaklar, son gecesinde yanında yakın dostu ve nedimi Hasan Can'ın bulunduğunu anlatır. Rivayete göre Selim ona, \"Hasan, bu ne hâldir?\" diye sormuş, Hasan Can da onu Allah'a emanet etmişti. [duraksama 1.0] Doğuyu ve güneyi titreten sultan, bir yol kenarındaki çadırda, sessizce ölmüştü.",
+     "shots": [
+      {
+       "clip": "klipler/z23.mp4"
+      },
+      {
+       "clip": "klipler/z30.mp4",
+       "transition": "dissolve"
+      }
+     ]
+    },
+    {
+     "text": "Ölümü bir süre gizli tutuldu. Haber, oğlu Süleyman'a ulaştırıldı. Süleyman İstanbul'a gelip tahta oturdu. [vurgulu] O, tarihe Kanuni adıyla geçecek, babasının kurduğu bu dev imparatorluğu zirveye taşıyacaktı.",
+     "shots": [
+      {
+       "clip": "klipler/z24.mp4"
+      },
+      {
+       "clip": "klipler/z25.mp4",
+       "transition": "dissolve"
+      }
+     ]
+    }
+   ],
+   "card": {
+    "kicker": "BÖLÜM IX",
+    "date": "1520 · Sırtköy, Çorlu"
+   },
+   "music": "huzun"
+  },
+  {
+   "title": "Kapanış",
+   "paragraphs": [
+    {
+     "text": "[sakin] Sekiz yıldan az süren bir saltanat. Bir taht kavgası, iki büyük savaş, bir çöl ve yıkılan bir devlet. Yavuz Sultan Selim, kimine göre acımasız bir hükümdar, kimine göre imparatorluğun kurtarıcısıydı. Halk arasında \"Yavuz'a vezir olasın\" diye bir beddua bile söylenirdi; çünkü vezirlerinin pek azı onun gazabından kurtulabildi.",
+     "shots": [
+      {
+       "clip": "klipler/y05.mp4"
+      },
+      {
+       "clip": "klipler/y12.mp4",
+       "transition": "dissolve"
+      }
+     ]
+    },
+    {
+     "text": "Ama bıraktığı miras tartışılmaz. Osmanlı, onun döneminde bir Anadolu ve Balkan devleti olmaktan çıktı; Mekke'den Tebriz'e, Kahire'den Belgrat'ın kapılarına uzanan bir dünya imparatorluğu oldu. [duraksama 0.8] [vurgulu] Ve bütün bunlar, Trabzon'daki o sessiz şehzadenin sekiz yılına sığdı.",
+     "shots": [
+      {
+       "clip": "klipler/y32.mp4"
+      },
+      {
+       "clip": "klipler/y34.mp4",
+       "transition": "dissolve"
+      },
+      {
+       "clip": "klipler/y05.mp4",
+       "transition": "dissolve"
+      }
+     ]
+    },
+    {
+     "text": "Serimizin sıradaki bölümünde, bu imparatorluğu devralan oğlunun, Kanuni Sultan Süleyman'ın hikâyesini anlatacağız. Kanalımıza abone olmayı unutmayın.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    }
+   ],
+   "music": "huzun"
+  }
+ ]
+}

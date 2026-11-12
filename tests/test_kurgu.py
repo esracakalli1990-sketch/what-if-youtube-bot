@@ -131,3 +131,17 @@ def test_kurgu_check_and_strip(tmp_path):
     assert any(p.startswith("UZUN 0.2.0") for p in problems)
     sheets = dk.strip(tmp_path, tmp_path / "serit")
     assert len(sheets) == 1 and sheets[0].exists()
+
+
+def test_draft_validation_skips_missing_clips_and_images(tmp_path):
+    data = {"slug": "s", "title": "t", "images": {}, "chapters": [{"title": "c", "paragraphs": [
+        {"text": "a", "shots": [{"clip": "klipler/yok.mp4"}]}]}]}
+    assert any("klip yok" in p for p in dt.validate(data, tmp_path))
+    assert any("'images' eksik" in p for p in dt.validate(data, tmp_path))
+    assert dt.validate(data, tmp_path, draft=True) == []
+
+
+def test_yavuz_draft_scenario_is_valid():
+    folder = Path(__file__).resolve().parent.parent / "belgeseller" / "04-yavuz"
+    data = dt.load_scenario(folder, draft=True)
+    assert len(data["chapters"]) >= 10 and data["kurgu"]["gecis"] == "cut"

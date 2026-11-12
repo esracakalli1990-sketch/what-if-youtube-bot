@@ -31,19 +31,25 @@ class ScenarioError(Exception):
     pass
 
 
-def load_scenario(folder: Path) -> dict:
+def load_scenario(folder: Path, draft: bool = False) -> dict:
+    """draft=True: yalnızca ses üretimi için (klipler ve görseller henüz yokken)."""
     folder = Path(folder)
     data = json.loads((folder / "senaryo.json").read_text(encoding="utf-8"))
-    problems = validate(data, folder)
+    problems = validate(data, folder, draft=draft)
     if problems:
         raise ScenarioError("Senaryo hataları:\n- " + "\n- ".join(problems))
     return data
 
 
-def validate(data: dict, folder: Path | None = None) -> list[str]:
-    """Render'a girmeden önce yakalanabilecek senaryo hataları."""
+def validate(data: dict, folder: Path | None = None, draft: bool = False) -> list[str]:
+    """
+    Render'a girmeden önce yakalanabilecek senaryo hataları.
+    draft=True: taslak (yalnızca ses): klip dosyası ve görsel listesi aranmaz.
+    """
     problems = []
-    for key in ("slug", "title", "chapters", "images"):
+    if draft:
+        folder = None
+    for key in ("slug", "title", "chapters") + (() if draft else ("images",)):
         if not data.get(key):
             problems.append(f"'{key}' eksik")
     images = data.get("images", {})

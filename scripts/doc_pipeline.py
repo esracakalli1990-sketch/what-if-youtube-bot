@@ -42,11 +42,12 @@ def _env(name: str) -> str:
 
 
 class Production:
-    def __init__(self, folder: str, sample: int | None = None):
+    def __init__(self, folder: str, sample: int | None = None, draft: bool = False):
         """sample=N: yalnızca ilk N bölümle "örnek" üret (kalite onayı için;
         tüm videoya ses kredisi harcanmaz). Ses önbelleği tam üretimle ortak."""
         self.folder = Path(folder).resolve()
-        self.data = doc_timeline.load_scenario(self.folder)
+        self.data = doc_timeline.load_scenario(self.folder, draft=draft)
+        self.draft = draft
         self.sample = sample
         if sample:
             self.data = {**self.data, "chapters": self.data["chapters"][:sample]}
@@ -504,7 +505,11 @@ def main(argv=None):
     ap.add_argument("--yayin", default=None, help="planlı yayın, ISO-8601 (ör. 2026-11-04T16:00:00Z)")
     ap.add_argument("--ornek", type=int, default=None,
                     help="yalnızca ilk N bölümle örnek üret (build/ornek.mp4)")
+    ap.add_argument("--taslak", action="store_true",
+                    help="klipler/görseller henüz yokken yalnızca ses (aşama: ses veya dogrula)")
     args = ap.parse_args(argv)
+    if args.taslak and args.asama not in ("ses", "dogrula"):
+        ap.error("--taslak yalnızca 'ses' ve 'dogrula' aşamalarıyla kullanılır")
 
     if args.asama == "inceleme":
         # Çekim planı yazılmadan önce çalışır: senaryo.json yerine cekim_plani.json okunur
@@ -515,7 +520,7 @@ def main(argv=None):
             print(sheet)
         return 0
 
-    prod = Production(args.klasor, sample=args.ornek)
+    prod = Production(args.klasor, sample=args.ornek, draft=args.taslak)
     if args.ornek and args.asama == "yukle":
         ap.error("örnek YouTube'a yüklenmez")
     if args.asama == "dogrula":
