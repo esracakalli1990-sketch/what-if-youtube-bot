@@ -7,6 +7,8 @@ name: Belgesel Üret
 #               → "inceleme/<slug>" dalına commit (Claude kesit/ID seçer) + Telegram.
 #   mod=ornek : ilk N bölüm → 1080p önizleme (artifact). Kalite onayı için;
 #               tüm videoya ses kredisi harcanmaz.
+#   mod=ses   : yalnızca anlatım (ElevenLabs) → önbellek + kalıcı yedek. Klipler
+#               henüz yokken gerçek cümle sürelerini öğrenip kurguyu ona göre kurmak için.
 #   mod=tam   : tüm video → YouTube'a GİZLİ yükleme (yayin verilirse o saatte
 #               YouTube kendisi yayınlar). Siz izleyip onaylamadan herkese açılmaz.
 #
@@ -23,7 +25,7 @@ on:
       mod:
         description: "ornek = önizleme, tam = YouTube'a gizli yükleme"
         type: choice
-        options: [inceleme, ornek, tam, shorts, sosyal]
+        options: [inceleme, ses, ornek, tam, shorts, sosyal]
         default: ornek
       ornek_bolum:
         description: "Örnekte kaç bölüm (giriş + ilk bölüm = 2)"
@@ -117,8 +119,12 @@ jobs:
           fi
 
       - name: Senaryoyu doğrula
-        if: inputs.mod != 'inceleme'
+        if: inputs.mod != 'inceleme' && inputs.mod != 'ses'
         run: python -m scripts.doc_pipeline "$KLASOR" dogrula
+
+      - name: Yalnızca ses üret (taslak)
+        if: inputs.mod == 'ses'
+        run: python -m scripts.doc_pipeline "$KLASOR" ses --taslak
 
       - name: İnceleme sayfaları üret
         if: inputs.mod == 'inceleme'
@@ -278,6 +284,11 @@ jobs:
               rows = json.loads(Path(klasor, "build", "sosyal", "manifest.json").read_text())
               send_message(f"📦 Sosyal medya paketi hazır ({len(rows)} Short): {klasor}\n"
                            + "\n".join(f"• {r['id']} ({r['sure']:.0f} sn)" for r in rows))
+          elif mod == "ses":
+              man = json.loads(Path(klasor, "build", "audio", "manifest.json").read_text())
+              sure = sum(p["duration"] for ch in man for p in ch)
+              send_message(f"🎙️ Anlatım hazır: {klasor} · {sum(len(c) for c in man)} paragraf, "
+                           f"{sure/60:.1f} dk saf anlatım. Yedeklendi; kurgu bu sürelere göre kurulacak.\n{url}")
           elif mod == "ornek":
               send_message(f"🎬 Örnek önizleme hazır: {klasor}\nİndirme (Artifacts → ornek-onizleme): {url}")
           else:

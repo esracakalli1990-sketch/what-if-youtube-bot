@@ -250,7 +250,7 @@ Mekke şerifi, oğlunu Kahire'ye göndermişti. Getirdiği şey, Kâbe'nin anaht
 
 [EKRAN: y32 (loş salonda yaldızlı sandıklar yerleştiriliyor) /erit/ y33 (Nil boyunca yeşil örtülü sandıklarla kervan)]
 
-[vurgulu] Kahire'den İstanbul'a yalnızca hazineler gitmedi. Kutsal emanetlerin bir kısmı, Hz. Muhammed'e ve ilk halifelere ait olduğuna inanılan eşyalar da zamanla İstanbul'a getirildi. Bugün bu emanetlerin önemli bir kısmı Topkapı Sarayı'nda korunuyor.
+[vurgulu] Kahire'den İstanbul'a yalnızca hazineler gitmedi. Kutsal emanetlerin bir kısmı, Hazreti Muhammed'e ve ilk halifelere ait olduğuna inanılan eşyalar da zamanla İstanbul'a getirildi. Bugün bu emanetlerin önemli bir kısmı Topkapı Sarayı'nda korunuyor.
 
 [EKRAN: z20 (Topkapı Hırka-i Saadet dairesi gibi çinili bir oda, boş, sabah ışığı; insan yok)]
 
