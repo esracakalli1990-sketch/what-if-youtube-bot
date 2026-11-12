@@ -15,8 +15,8 @@ Kurulum bitene kadar yalnızca Telegram adımı çalışır, diğer adımlar hat
 | Tarihler | Short'lar |
 |---|---|
 | 16–20 Kasım | İstanbul |
-| 21–25 Kasım | Mısır |
-| 26–30 Kasım | Hitit |
+
+Mısır ve Hitit Short'ları şimdilik takvimde yok. Bu videoların kayıtlı sesi GitHub önbelleğinden silindiği için sosyal medya kopyaları üretilemedi. İsterseniz Studio'dan indirip elle paylaşabilirsiniz: İçerik → Shorts → ⋮ → **İndir**.
 
 Yeni belgesellerin Short'ları, YouTube'da yayınlandıkları gün paylaşılır.
 
