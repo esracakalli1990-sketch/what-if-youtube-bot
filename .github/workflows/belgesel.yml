@@ -182,6 +182,19 @@ jobs:
           path: ornek-1080p.mp4
           retention-days: 5
 
+      - name: Örneği ve haritaları Release'e yükle (Claude incelemesi için)
+        if: inputs.mod == 'ornek'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="onizleme-$(basename "$KLASOR")"
+          gh release view "$TAG" >/dev/null 2>&1 || \
+            gh release create "$TAG" --title "Önizleme: $(basename "$KLASOR")" \
+              --notes "Örnek render ve harita/kart dosyaları (otomatik)." --latest=false
+          tar -czf /tmp/haritalar.tar.gz -C "$KLASOR/build" maps cards thumbs 2>/dev/null || true
+          gh release upload "$TAG" ornek-1080p.mp4 /tmp/haritalar.tar.gz --clobber
+
       - name: Tam üretim
         if: inputs.mod == 'tam'
         run: python -m scripts.doc_pipeline "$KLASOR" hepsi
