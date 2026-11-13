@@ -45,6 +45,18 @@ Her klip 6 karelik temas sayfasıyla incelendi. "flip" = ekran yönü kuralı i�
 | y33 | 12.1 | ✅ | Nil kıyısında yeşil örtülü kervan. Çok iyi. |
 | y34 | 12.1 | ⚠️ | Donanma; son ~2 sn'de Viking tipi kalkanlı gemi → hız 0,8 ile yalnızca ilk ~8 sn kullanılır. |
 
+| k5 | — | ✅ | Genç şehzade Selim: k1 ile aynı yüz hatları, yeşil kaftan, okçu bilekliği. |
+| k6 | — | ✅ | II. Bayezid: uzun gri sakal, kürk yakalı kaftan, yorgun bakış. |
+| z01 | 8.0 | ✅ | Trabzon kalesi havadan, sisli tepeler. |
+| z02 | 8.0 | ✅ | Genç Selim ok atıyor (k5 ile uyumlu). |
+| z03 | 8.0 | ⚠️ | Çadırda yazan şehzade — ama CAMLI GAZ LAMBASI (19. yy) görünüyor. Anakronizm. **Yeniden üretilmeli.** |
+| z04 | 8.0 | ✅ | Kamış kalemle hat yakın plan. |
+| z05 | 8.0 | ✅ | Gözetleme kulesi, ufukta atlılar. |
+| z06 | 8.0 | ✅ | Gece yanan köy önünde atlı siluetler (sağdan sola). |
+
+> Not: Görev 2 klipleri 8 sn geliyor (tabloda 10–14 sn yazıyordu). Kurgu buna göre denetlendi.
+
 ## Düzeltme listesi (Cowork'e yeniden üretim)
 - **y10**: "Chaos on the battlefield: Persian Safavid cavalry in tall red caps and mail shirts, horses rearing in panic amid thick cannon smoke, riders falling, dust, handheld camera, desaturated. No European plate armor, no knights, no gore."
 - **y19**: "The fallen yellow silk banner of the Mamluk Sultanate decorated only with Arabic calligraphy (no animals, no eagles, no crosses) falling into the dust and trampled by horses, close-up, slow motion, smoke and sunlight."
+- **z03**: "Night, inside a campaign tent lit by a small open-flame brass oil lamp (no glass chimney, no glass lamp), a young Ottoman prince sitting cross-legged writing poetry in a small leather-bound book with a reed pen, thoughtful face, warm light, slow push-in." (Ref: k5)
