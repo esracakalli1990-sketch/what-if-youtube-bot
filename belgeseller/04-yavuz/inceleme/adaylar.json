@@ -1,0 +1,62 @@
+{
+ "s_yavuz_camii": {
+  "q": "Yavuz Selim mosque Istanbul",
+  "adaylar": [
+   {
+    "id": 40142119,
+    "duration": 8,
+    "width": 2560,
+    "height": 1440,
+    "link": "https://videos.pexels.com/video-files/40142119/17145140_2560_1440_50fps.mp4",
+    "preview": "https://images.pexels.com/videos/40142119/pexels-photo-40142119.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=630&w=1200",
+    "page": "https://www.pexels.com/video/twilight-over-bosphorus-with-bridge-view-40142119/",
+    "author": "Sururi Ballıdağ Director",
+    "author_url": "https://www.pexels.com/@drector"
+   },
+   {
+    "id": 31815453,
+    "duration": 8,
+    "width": 2560,
+    "height": 1440,
+    "link": "https://videos.pexels.com/video-files/31815453/13555388_2560_1440_60fps.mp4",
+    "preview": "https://images.pexels.com/videos/31815453/4k-drone-4k-drone-footage-4k-drone-shot-4k-drone-video-31815453.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=630&w=1200",
+    "page": "https://www.pexels.com/video/aerial-view-of-selimiye-mosque-edirne-turkey-31815453/",
+    "author": "Kenan Turguç",
+    "author_url": "https://www.pexels.com/@kenanturguc"
+   },
+   {
+    "id": 31835434,
+    "duration": 9,
+    "width": 2560,
+    "height": 1440,
+    "link": "https://videos.pexels.com/video-files/31835434/13563042_2560_1440_60fps.mp4",
+    "preview": "https://images.pexels.com/videos/31835434/4k-4k-resolution-4k-video-copyright-free-a-mosque-31835434.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=630&w=1200",
+    "page": "https://www.pexels.com/video/aerial-view-of-selimiye-mosque-edirne-31835434/",
+    "author": "Kenan Turguç",
+    "author_url": "https://www.pexels.com/@kenanturguc"
+   },
+   {
+    "id": 31801089,
+    "duration": 8,
+    "width": 2560,
+    "height": 1440,
+    "link": "https://videos.pexels.com/video-files/31801089/13548113_2560_1440_60fps.mp4",
+    "preview": "https://images.pexels.com/videos/31801089/4k-drone-4k-drone-footage-4k-drone-shot-4k-drone-video-31801089.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=630&w=1200",
+    "page": "https://www.pexels.com/video/aerial-view-of-selimiye-mosque-in-edirne-31801089/",
+    "author": "Kenan Turguç",
+    "author_url": "https://www.pexels.com/@kenanturguc"
+   },
+   {
+    "id": 31801090,
+    "duration": 8,
+    "width": 2560,
+    "height": 1440,
+    "link": "https://videos.pexels.com/video-files/31801090/13547986_2560_1440_60fps.mp4",
+    "preview": "https://images.pexels.com/videos/31801090/4k-drone-4k-drone-footage-4k-drone-shot-4k-drone-video-31801090.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=630&w=1200",
+    "page": "https://www.pexels.com/video/aerial-view-of-selimiye-mosque-in-edirne-turkey-31801090/",
+    "author": "Kenan Turguç",
+    "author_url": "https://www.pexels.com/@kenanturguc"
+   }
+  ]
+ }
+}
