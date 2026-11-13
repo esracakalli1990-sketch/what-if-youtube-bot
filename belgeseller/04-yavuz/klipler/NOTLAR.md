@@ -53,6 +53,8 @@ Her klip 6 karelik temas sayfasıyla incelendi. "flip" = ekran yönü kuralı i�
 | z04 | 8.0 | ✅ | Kamış kalemle hat yakın plan. |
 | z05 | 8.0 | ✅ | Gözetleme kulesi, ufukta atlılar. |
 | z06 | 8.0 | ✅ | Gece yanan köy önünde atlı siluetler (sağdan sola). |
+| y35 | 10.1 | ✅ | Mehter: davul ve boru yakın plan → gün doğumunda atlı siluetler. |
+| y36 | 12.1 | ✅ | Çadırda mum ışığında harita başında Yavuz ve komutanlar; yakın plana iniyor (k1 uyumlu). |
 
 > Not: Görev 2 klipleri 8 sn geliyor (tabloda 10–14 sn yazıyordu). Kurgu buna göre denetlendi.
 
