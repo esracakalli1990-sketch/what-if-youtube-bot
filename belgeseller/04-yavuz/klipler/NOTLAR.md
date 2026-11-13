@@ -68,6 +68,11 @@ Her klip 6 karelik temas sayfasıyla incelendi. "flip" = ekran yönü kuralı i�
 | z17 | 10.0 | ✅ zoom 1.08 | Çadırda Selim (k1) ve zırhlı Memlûk komutanı; zincir görünmüyor ama sahne işliyor. Aynı film çerçevesi → 1,08. |
 | z18 | 10.0 | ✅ | Selim Nil kıyısında gün batımı, yelkenliler, uzakta piramitler. |
 | z19 | 10.0 | ⚠️ (kullanılabilir) | Gümüş kutuda anahtarlar (ilk 5 sn çok iyi). Sonrasında genç adamın başlığı bugünkü Körfez tipi (agal'lı) — hafif dönem dışı. Süre kalırsa yeniden; yoksa olduğu gibi. |
+| z20 | 10.0 | ✅ | Çinili oda, yeşil örtülü sandık üstünde gümüş baldaken; insan yok. |
+| z21 | 10.0 | ✅ | Haliç tersanesi, kızaktaki kadırgalar; karşı kıyıda kubbeli camiler (1519'da Ayasofya, Fatih, Bayezid var — kabul edilebilir). |
+| z22 | 10.0 | ✅ | Gece yol kenarında otağ, nöbetçiler, ateşler. |
+| z23 | 10.0 | ✅ (küçük not) | Hasta elinde yüzük, tutan el. Arka planda flu, camlı lamba benzeri ışık — odak dışı, göze batmaz. |
+| z24 | 10.0 | ✅ | Ulak Karadeniz kıyısında soldan sağa dörtnala. |
 
 > Not: Görev 2 klipleri 8 sn geliyor (tabloda 10–14 sn yazıyordu). Kurgu buna göre denetlendi.
 
