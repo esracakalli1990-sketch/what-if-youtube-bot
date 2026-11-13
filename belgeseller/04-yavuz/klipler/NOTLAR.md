@@ -28,7 +28,7 @@ Her klip 6 karelik temas sayfasıyla incelendi. "flip" = ekran yönü kuralı i�
 | y16 | 10.1 | ✅ | Memlûk ağır süvarisi kameraya; ~6 sn'den sonra zırhlı yakın plan. |
 | y17 | 10.1 | ✅ | Duman önünde süvari hattı dağılıyor. |
 | y18 | 10.1 | ✅ | Kansu Gavri atından düşüyor, kavuk yere — çok güçlü. |
-| y19 | 10.1 | ⚠️ | Sancakta SİYAH ÇİFT BAŞLI KARTAL (Bizans/Habsburg simgesi) — Memlûk'e ait değil. Geçici: 4,5 sn'den sonrası (sancak yüzüstü). **Yeniden üretilmeli.** |
+| y19 | 10.1 | ✅ (yeniden) | Sarı ipek sancak düşüyor; düşerken hat yazısı görünüyor, yerde ÇİĞNENEN kısım düz sarı (yazı yok) — dini hassasiyet açısından uygun. Hayvan/kartal yok. |
 | y20 | 15.1 | ✅ | Sina'da kervan, havadan. Mükemmel. |
 | y21 | 10.1 | ✅ | Son damla su; asker yüzü. |
 | y22 | 12.1 | ✅ | Kum fırtınası, yüzünü örten asker, develer. |
@@ -59,4 +59,3 @@ Her klip 6 karelik temas sayfasıyla incelendi. "flip" = ekran yönü kuralı i�
 > Not: Görev 2 klipleri 8 sn geliyor (tabloda 10–14 sn yazıyordu). Kurgu buna göre denetlendi.
 
 ## Düzeltme listesi (Cowork'e yeniden üretim)
-- **y19**: "The fallen yellow silk banner of the Mamluk Sultanate decorated only with Arabic calligraphy (no animals, no eagles, no crosses) falling into the dust and trampled by horses, close-up, slow motion, smoke and sunlight."
