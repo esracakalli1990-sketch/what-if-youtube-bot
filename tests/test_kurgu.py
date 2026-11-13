@@ -151,3 +151,16 @@ def test_validate_rejects_multiword_pronunciation():
     data = {"slug": "s", "title": "t", "images": {}, "pronunciations": {"Bâbüzzüveyle": "Bâbüz Züveyle"},
             "chapters": [{"title": "c", "paragraphs": [{"text": "a", "shots": [{"clip": "k.mp4"}]}]}]}
     assert any("okunuş" in p for p in dt.validate(data, draft=True))
+
+
+def test_zoom_crops_frame_border(tmp_path):
+    # Beyaz klip, 16 px siyah çerçeve: 1.25 yakınlaştırınca kenar beyaz olmalı
+    clip = tmp_path / "c.mp4"
+    subprocess.run(["ffmpeg", "-y", "-v", "error", "-f", "lavfi", "-i", "color=c=white:s=320x180:d=1:r=30",
+                    "-vf", "drawbox=x=0:y=0:w=iw:h=ih:t=16:c=black", "-c:v", "libx264", "-pix_fmt", "yuv420p",
+                    str(clip)], check=True)
+    plain = dr.VideoSource(dr.Shot("video", str(clip), 1.0, grade=False), span=1.0)
+    zoomed = dr.VideoSource(dr.Shot("video", str(clip), 1.0, grade=False, zoom=1.25), span=1.0)
+    a, b = plain.frame(0.5), zoomed.frame(0.5)
+    plain.close(); zoomed.close()
+    assert a[:20].mean() < 60 and b[:20].mean() > 200

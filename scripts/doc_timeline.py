@@ -197,7 +197,7 @@ def chapter_shots(chapter: dict, audio: list[dict], layout: ChapterLayout,
                 "label": spec.get("label"),
                 "note": spec.get("note", ""),
             }
-            video_opts = {k: spec[k] for k in ("flip", "speed") if k in spec}
+            video_opts = {k: spec[k] for k in ("flip", "speed", "zoom") if k in spec}
             video_opts["match"] = spec.get("ton", tone)
             if "clip" in spec:
                 shot.update(kind="video", path=str(Path(folder) / spec["clip"]),
