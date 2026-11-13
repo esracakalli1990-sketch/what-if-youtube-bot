@@ -19,14 +19,14 @@ Her klip 6 karelik temas sayfasıyla incelendi. "flip" = ekran yönü kuralı i�
 | k2 | — | ✅ (küçük not) | Şah İsmail: genç, ince bıyık. Başlık on iki dilimli tac yerine düz kırmızı külah; klipte idare eder. |
 | k3 | — | ✅ | Kansu Gavri: boynuzlu Memlûk kavuğu, beyaz sakal, zırh üstü yeşil kaftan. Çok iyi. |
 | k4 | — | ✅ | Tomanbay: miğfer + sarık, zincir zırh, kırmızı kuşak, yara izi. |
-| y11 | 10.1 | ✅ | Yaralı genç Şah muhafızlarca çekiliyor, yakın plana iniyor; yüz k2 ile uyumlu. |
+| y11 | 10.1 | ✅ SESSİZ | Yaralı genç Şah muhafızlarca çekiliyor, yakın plana iniyor; yüz k2 ile uyumlu. |
 | y12 | 12.1 | ✅ | Savaş sonrası: tek kır at, yerde sancaklar, gün batımı ışık parlaması. Nefes çekimi. |
 | y13 | 12.1 | ✅ | Ordu mavi kubbeli şehre giriyor, surlarda halk. 4.7 (Tebriz) için. |
 | y14 | 12.1 | ✅ | Memlûk ordusu: sarı/kırmızı sancaklar, develer, beyaz sarıklı süvari. Çok iyi. |
-| y15 | 10.1 | ✅ | Kansu Gavri sarı şemsiye altında, k3 ile birebir. |
+| y15 | 10.1 | ⚠️ | Kansu Gavri sarı şemsiye altında (k3 birebir) — ama arkadaki sarı flamalarda HAÇ işareti var (kullanıcı fark etti). **Yeniden üretilmeli** (düzeltme 3). |
 
 | y16 | 10.1 | ✅ | Memlûk ağır süvarisi kameraya; ~6 sn'den sonra zırhlı yakın plan. |
-| y17 | 10.1 | ✅ | Duman önünde süvari hattı dağılıyor. |
+| y17 | 10.1 | ✅ SESSİZ | Duman önünde süvari hattı dağılıyor. |
 | y18 | 10.1 | ✅ | Kansu Gavri atından düşüyor, kavuk yere — çok güçlü. |
 | y19 | 10.1 | ✅ (yeniden) | Sarı ipek sancak düşüyor; düşerken hat yazısı görünüyor, yerde ÇİĞNENEN kısım düz sarı (yazı yok) — dini hassasiyet açısından uygun. Hayvan/kartal yok. |
 | y20 | 15.1 | ✅ | Sina'da kervan, havadan. Mükemmel. |
@@ -38,7 +38,7 @@ Her klip 6 karelik temas sayfasıyla incelendi. "flip" = ekran yönü kuralı i�
 | y26 | 12.1 | ✅ | 0–6 sn sırt boyunca Osmanlı süvarisi (kullanılan kısım); sonrası kılıçlı hücum. |
 | y27 | 10.1 | ✅ | Tomanbay hücumu (miğfer + sarık, k4 uyumlu). |
 | y28 | 15.1 | ✅ | Kahire havadan; ilk ~1,5 sn tamamen sis → giriş 1,5 sn. |
-| y29 | 10.1 | ✅ | Kahire sokağı; içinde kesmeler (kafes ardında yüz, pencere, atlılar). |
+| y29 | 10.1 | ✅ SESSİZ | Kahire sokağı; içinde kesmeler (kafes ardında yüz, pencere, atlılar). |
 | y30 | 12.1 | ✅ | Bâbüzzüveyle benzeri kapı, sessiz kalabalık. |
 | y31 | 10.1 | ✅ | Yavuz Kahire sokaklarında; yakın planlar k1 ile birebir. |
 | y32 | 12.1 | ✅ | Sandıklar, ipek bohçalar, loş salon. |
@@ -80,5 +80,7 @@ Her klip 6 karelik temas sayfasıyla incelendi. "flip" = ekran yönü kuralı i�
 | z30 | 10.0 | ✅ | Sisli sabah, otağ önünde başı eğik muhafızlar, binicisiz at. |
 
 > Not: Görev 2 klipleri 8 sn geliyor (tabloda 10–14 sn yazıyordu). Kurgu buna göre denetlendi.
+
+> Ses (kullanıcı dinledi): y11 (giriş bağırış), y17 (anlaşılır bağırış), y29 (saklananların konuşması), z29 → doğal ses kapatıldı. Kalabalık uğultusu kabul.
 
 ## Düzeltme listesi (Cowork'e yeniden üretim)

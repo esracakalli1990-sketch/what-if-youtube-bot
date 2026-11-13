@@ -3186,7 +3186,8 @@
      "shots": [
       {
        "clip": "klipler/y11.mp4",
-       "transition": "dissolve"
+       "transition": "dissolve",
+       "sfx": false
       },
       {
        "clip": "klipler/y12.mp4",
@@ -3264,7 +3265,8 @@
        "clip": "klipler/y16.mp4"
       },
       {
-       "clip": "klipler/y17.mp4"
+       "clip": "klipler/y17.mp4",
+       "sfx": false
       },
       {
        "clip": "klipler/w19.mp4",
@@ -3410,7 +3412,8 @@
        "start": 1.5
       },
       {
-       "clip": "klipler/y29.mp4"
+       "clip": "klipler/y29.mp4",
+       "sfx": false
       }
      ]
     },

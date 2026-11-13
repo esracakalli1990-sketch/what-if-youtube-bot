@@ -67,14 +67,14 @@ SHOTS = {
     "4.3": [c("w15", "erit"), c("z28"), c("w16")],
     "4.4": [c("y03", "erit"), c("y04", start=0.0)],
     "4.5": [c("y07", start=4.0), c("w17"), c("y08", start=5.0, flip=True), c("y09", "parla", flip=True), c("y10", start=1.5, flip=True)],
-    "4.6": [c("y11", "erit"), c("y12", "erit")],
+    "4.6": [c("y11", "erit", sfx=False), c("y12", "erit")],
     "4.7": [c("y13", "karart"), c("w18")],
     "4.8": [m("m_1515", "erit")],
     # ── V · Mercidabık ──
     "5.0": [m("m_memluk")],
     "5.1": [c("y15", "erit"), c("y14")],
     "5.2": [c("z14", "erit"), c("y35")],
-    "5.3": [c("y16"), c("y17"), c("w19", "parla")],
+    "5.3": [c("y16"), c("y17", sfx=False), c("w19", "parla")],
     "5.4": [c("y18"), c("y19")],
     "5.5": [c("z15", "karart"), c("z16", "erit", zoom=1.08)],
     # ── VI · Çöl ──
@@ -86,7 +86,7 @@ SHOTS = {
     "7.0": [c("y25"), c("y27")],
     "7.1": [m("m_ridaniye", "erit")],
     "7.2": [c("y26", "erit"), c("w21"), c("w22"), c("w23", "erit")],
-    "7.3": [c("y28", "karart", start=1.5), c("y29")],
+    "7.3": [c("y28", "karart", start=1.5), c("y29", sfx=False)],
     "7.4": [c("z17", "erit", zoom=1.08), c("y30", "erit")],
     # ── VIII · Emanetler ──
     "8.0": [c("y31"), c("z18", "erit")],
