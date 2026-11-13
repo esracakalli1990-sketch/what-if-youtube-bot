@@ -39,10 +39,10 @@ def st(name, tr=None, **kw):
 SHOTS = {
     # ── Soğuk açılış ──
     "0.0": [c("y01"), c("y02"), c("y04", start=6.0)],
-    "0.1": [c("y07", start=0.0), c("y06")],
+    "0.1": [c("y07", start=0.0), c("y06", flip=True)],
     "0.2": [c("y05"), c("w01")],
     # ön gösterim montajı: sonraki sahnelerin farklı anları (giriş noktası kaydırılır)
-    "0.3": [c("y08", start=0.0), c("y20", "parla", start=8.0), c("y28", start=9.0), c("y32", start=6.0)],
+    "0.3": [c("y08", start=0.0, flip=True), c("y20", "parla", start=8.0), c("y28", start=9.0), c("y32", start=6.0)],
     # ── I · Trabzon'daki Şehzade ──
     "1.0": [c("z01"), c("z02"), c("w02")],
     "1.1": [m("m_osmanli_1500", "erit")],
@@ -66,7 +66,7 @@ SHOTS = {
     "4.2": [c("y36", "erit"), c("w14")],
     "4.3": [c("w15", "erit"), c("z28"), c("w16")],
     "4.4": [c("y03", "erit"), c("y04", start=0.0)],
-    "4.5": [c("y07", start=4.0), c("w17"), c("y08"), c("y09", "parla"), c("y10")],
+    "4.5": [c("y07", start=4.0), c("w17"), c("y08", start=5.0, flip=True), c("y09", "parla", flip=True), c("y10")],
     "4.6": [c("y11", "erit"), c("y12", "erit")],
     "4.7": [c("y13", "karart"), c("w18")],
     "4.8": [m("m_1515", "erit")],
