@@ -130,7 +130,9 @@ jobs:
           KAYNAK: ${{ inputs.kaynak_url }}
         run: |
           pip install -q gdown
-          gdown --fuzzy "$KAYNAK" -O /tmp/kaynak.bin
+          # Bağlantıdan dosya kimliği (…/d/<id>/… ya da ?id=<id>)
+          ID=$(echo "$KAYNAK" | sed -E 's#.*/d/([^/?]+).*#\1#; s#.*[?&]id=([^&]+).*#\1#')
+          gdown "$ID" -O /tmp/kaynak.bin
           ls -la /tmp/kaynak.bin
           TAG="klipler-$(basename "$KLASOR")"
           NAME="drive-$(date -u +%Y%m%d-%H%M%S).zip"
