@@ -91,7 +91,7 @@ SHOTS = {
     # ── VIII · Emanetler ──
     "8.0": [c("y31"), c("z18", "erit")],
     "8.1": [c("w24", "erit"), c("z19")],
-    "8.2": [c("z29", "erit"), c("w25")],
+    "8.2": [c("z29", "erit", sfx=False), c("w25")],
     "8.3": [c("y32", "erit"), c("y33", "erit")],
     "8.4": [c("z20", "erit"), c("w26", "erit"), c("w27", "erit")],
     "8.5": [m("m_sinirlar", "erit")],
