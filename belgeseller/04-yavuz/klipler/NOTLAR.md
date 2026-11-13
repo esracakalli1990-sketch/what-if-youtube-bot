@@ -96,23 +96,23 @@ Her klip 6 karelik temas sayfasıyla incelendi. "flip" = ekran yönü kuralı i�
 | w07 | 10.0 | ✅ | Saray koridorunda fısıldaşan vezirler. |
 | w08 | 10.1 | ✅ | Bayezid mektup okuyor (k6). |
 | w09 | 12.1 | ✅ | Kışlada kazan başında yeniçeriler; börkler doğru. |
-| w10 | 10.0 | ⚠️ küçük | Selim şehre giriyor; solda kırmızı sancakta ZAMBAK (Avrupa armacılığı) benzeri simge, küçük. |
+| w10 | 10.0 | ✅ (yeniden) | Selim kale kapısından giriyor; kırmızı sancaklarda yalnız Arapça hat. Zambak yok. |
 | w11 | 12.1 | ✅ | Bayezid'in saraydan ayrılışı, sandıklar, araba. |
 | w12 | 10.0 | ✅ | Boş şehzade çadırı, sancak indiriliyor. |
 | w13 | 10.0 | ✅ zoom 1.27 | Gece ateş başında ekmek paylaşan askerler; ilk ~5 sn üst/alt siyah bant → kırpıldı. |
-| w14 | 10.0 | ❌ | Yavuz ordunun önünde — arkada KIRMIZI ÜZERİNE BEYAZ HİLAL-YILDIZ bayraklar (modern Türk bayrağı). **Yeniden üretilmeli.** |
-| w15 | 10.0 | ❌ | Elçi ordugâha geliyor — kırmızı-beyaz çizgili ve hilalli bayraklar. **Yeniden üretilmeli.** |
-| w16 | 10.0 | ❌ | Yavuz mektubu buruşturuyor — sağda çadır direğinde HAÇ şekli. **Yeniden üretilmeli.** |
+| w14 | 10.0 | ✅ (yeniden) | Yavuz ordunun önünde; kırmızı/yeşil sancaklar yalnız hatlı, hilal-yıldız yok. |
+| w15 | 10.0 | ✅ (yeniden) | Elçi ordugâhta; sancaklar düz kırmızı/yeşil + hat. Çizgi/hilal yok. |
+| w16 | 10.0 | ✅ (yeniden) | Yavuz mektubu buruşturuyor; düz çadır direkleri, haç yok. |
 | w17 | 10.0 | ✅ | Atlılar zincirli arabalara çarpıyor. |
 | w18 | 10.0 | ✅ | Tebriz çarşısından sanatkârlar, çini kasası. |
-| w19 | 10.0 | ⚠️ | Memlûk hattı dağılıyor — sarı sancakta KARTAL. Tarihte Memlûk armalarında kartal var ama tutarlılık için yeniden üretilmeli. |
+| w19 | 10.0 | ✅ (yeniden) | Memlûk hattı dağılıyor; sarı sancaklarda yalnız hat, kartal yok. |
 | w20 | 10.0 | ✅ | Kum tepesinden ufukta Kahire. |
 | w21 | 10.0 | ✅ | Memlûk atlıları Osmanlı çadırları arasında. |
 | w22 | 10.0 | ✅ zoom 1.05 | Sadrazam atından düşüyor; köşelerde hafif yuvarlak çerçeve → kırpıldı. |
 | w23 | 10.0 | ✅ | Terk edilmiş hendek, yere gömülü toplar. |
 | w24 | 10.0 | ✅ (not) | Arap heyeti kale kapısında; başlıklar bugünkü Körfez tipi (z19 ile aynı not). |
 | w25 | 10.0 | ✅ (not) | Eski harita yakın plan; bütün dünya çizili (Piri Reis yalnız Atlas) — genel "eski harita" olarak kabul. |
-| w26 | 10.0 | ⚠️ küçük | Halife gemiye biniyor; yanındaki adamda 19. yy FES'i. |
+| w26 | 10.0 | ✅ (yeniden) | Halife gemiye biniyor; yanındakiler beyaz sarıklı, fes yok. |
 | w27 | 10.0 | ✅ | Osmanlı saray avlusu, şadırvan. |
 | w28 | 10.0 | ✅ | Hekim havanda ilaç dövüyor, kandil. |
 | w29 | 10.0 | ✅ | Hasan Can yatak başında kitap okuyor. |
