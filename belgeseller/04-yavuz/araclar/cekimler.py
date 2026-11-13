@@ -75,7 +75,7 @@ SHOTS = {
     "5.1": [c("y15", "erit"), c("y14")],
     "5.2": [c("z14", "erit"), c("y35")],
     "5.3": [c("y16"), c("y17"), c("w19", "parla")],
-    "5.4": [c("y18"), c("y19")],
+    "5.4": [c("y18"), c("y19", start=4.5)],
     "5.5": [c("z15", "karart"), c("z16", "erit")],
     # ── VI · Çöl ──
     "6.0": [c("y20")],
@@ -86,7 +86,7 @@ SHOTS = {
     "7.0": [c("y25"), c("y27")],
     "7.1": [m("m_ridaniye", "erit")],
     "7.2": [c("y26", "erit"), c("w21"), c("w22"), c("w23", "erit")],
-    "7.3": [c("y28", "karart"), c("y29")],
+    "7.3": [c("y28", "karart", start=1.5), c("y29")],
     "7.4": [c("z17", "erit"), c("y30", "erit")],
     # ── VIII · Emanetler ──
     "8.0": [c("y31"), c("z18", "erit")],
@@ -104,5 +104,5 @@ SHOTS = {
     "10.0": [c("w30"), c("w31", "erit")],
     "10.1": [st("s_yavuz_camii", "erit", label={"title": "BUGÜN", "subtitle": "YAVUZ SELİM CAMİİ · İSTANBUL"}),
              c("w32", "erit")],
-    "10.2": [c("y34", "erit")],
+    "10.2": [c("y34", "erit", speed=0.8)],
 }

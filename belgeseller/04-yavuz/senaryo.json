@@ -2853,7 +2853,8 @@
        "start": 0.0
       },
       {
-       "clip": "klipler/y06.mp4"
+       "clip": "klipler/y06.mp4",
+       "flip": true
       }
      ]
     },
@@ -2873,7 +2874,8 @@
      "shots": [
       {
        "clip": "klipler/y08.mp4",
-       "start": 0.0
+       "start": 0.0,
+       "flip": true
       },
       {
        "clip": "klipler/y20.mp4",
@@ -3163,11 +3165,14 @@
        "clip": "klipler/w17.mp4"
       },
       {
-       "clip": "klipler/y08.mp4"
+       "clip": "klipler/y08.mp4",
+       "start": 5.0,
+       "flip": true
       },
       {
        "clip": "klipler/y09.mp4",
-       "transition": "flash"
+       "transition": "flash",
+       "flip": true
       },
       {
        "clip": "klipler/y10.mp4"
@@ -3272,7 +3277,8 @@
        "clip": "klipler/y18.mp4"
       },
       {
-       "clip": "klipler/y19.mp4"
+       "clip": "klipler/y19.mp4",
+       "start": 4.5
       }
      ]
     },
@@ -3398,7 +3404,8 @@
      "shots": [
       {
        "clip": "klipler/y28.mp4",
-       "transition": "black"
+       "transition": "black",
+       "start": 1.5
       },
       {
        "clip": "klipler/y29.mp4"
@@ -3605,7 +3612,8 @@
      "shots": [
       {
        "clip": "klipler/y34.mp4",
-       "transition": "dissolve"
+       "transition": "dissolve",
+       "speed": 0.8
       }
      ]
     }

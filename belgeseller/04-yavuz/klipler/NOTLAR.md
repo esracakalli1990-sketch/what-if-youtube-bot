@@ -25,5 +25,26 @@ Her klip 6 karelik temas sayfasıyla incelendi. "flip" = ekran yönü kuralı i�
 | y14 | 12.1 | ✅ | Memlûk ordusu: sarı/kırmızı sancaklar, develer, beyaz sarıklı süvari. Çok iyi. |
 | y15 | 10.1 | ✅ | Kansu Gavri sarı şemsiye altında, k3 ile birebir. |
 
+| y16 | 10.1 | ✅ | Memlûk ağır süvarisi kameraya; ~6 sn'den sonra zırhlı yakın plan. |
+| y17 | 10.1 | ✅ | Duman önünde süvari hattı dağılıyor. |
+| y18 | 10.1 | ✅ | Kansu Gavri atından düşüyor, kavuk yere — çok güçlü. |
+| y19 | 10.1 | ⚠️ | Sancakta SİYAH ÇİFT BAŞLI KARTAL (Bizans/Habsburg simgesi) — Memlûk'e ait değil. Geçici: 4,5 sn'den sonrası (sancak yüzüstü). **Yeniden üretilmeli.** |
+| y20 | 15.1 | ✅ | Sina'da kervan, havadan. Mükemmel. |
+| y21 | 10.1 | ✅ | Son damla su; asker yüzü. |
+| y22 | 12.1 | ✅ | Kum fırtınası, yüzünü örten asker, develer. |
+| y23 | 10.1 | ✅ | Çölde gece kampı, yüzlerce ateş. |
+| y24 | 10.1 | ✅ | Yavuz atını yedekte, çölde yürüyor (k1 ile uyumlu). |
+| y25 | 12.1 | ✅ | Hendekteki Memlûk topları, sarıklı topçu yakın. |
+| y26 | 12.1 | ✅ | 0–6 sn sırt boyunca Osmanlı süvarisi (kullanılan kısım); sonrası kılıçlı hücum. |
+| y27 | 10.1 | ✅ | Tomanbay hücumu (miğfer + sarık, k4 uyumlu). |
+| y28 | 15.1 | ✅ | Kahire havadan; ilk ~1,5 sn tamamen sis → giriş 1,5 sn. |
+| y29 | 10.1 | ✅ | Kahire sokağı; içinde kesmeler (kafes ardında yüz, pencere, atlılar). |
+| y30 | 12.1 | ✅ | Bâbüzzüveyle benzeri kapı, sessiz kalabalık. |
+| y31 | 10.1 | ✅ | Yavuz Kahire sokaklarında; yakın planlar k1 ile birebir. |
+| y32 | 12.1 | ✅ | Sandıklar, ipek bohçalar, loş salon. |
+| y33 | 12.1 | ✅ | Nil kıyısında yeşil örtülü kervan. Çok iyi. |
+| y34 | 12.1 | ⚠️ | Donanma; son ~2 sn'de Viking tipi kalkanlı gemi → hız 0,8 ile yalnızca ilk ~8 sn kullanılır. |
+
 ## Düzeltme listesi (Cowork'e yeniden üretim)
 - **y10**: "Chaos on the battlefield: Persian Safavid cavalry in tall red caps and mail shirts, horses rearing in panic amid thick cannon smoke, riders falling, dust, handheld camera, desaturated. No European plate armor, no knights, no gore."
+- **y19**: "The fallen yellow silk banner of the Mamluk Sultanate decorated only with Arabic calligraphy (no animals, no eagles, no crosses) falling into the dust and trampled by horses, close-up, slow motion, smoke and sunlight."
