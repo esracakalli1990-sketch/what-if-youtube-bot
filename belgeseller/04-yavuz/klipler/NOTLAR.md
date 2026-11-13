@@ -83,4 +83,41 @@ Her klip 6 karelik temas sayfasıyla incelendi. "flip" = ekran yönü kuralı i�
 
 > Ses (kullanıcı dinledi): y11 (giriş bağırış), y17 (anlaşılır bağırış), y29 (saklananların konuşması), z29 → doğal ses kapatıldı. Kalabalık uğultusu kabul.
 
+
+## Görev 3 (w01–w32) — 6'sı Higgsfield, 26'sı Google Flow (Omni Flash 1.1); hepsi 720p
+| Klip | Süre | Durum | Not |
+|---|---|---|---|
+| w01 | 10.1 | ✅ | Yavuz aşırı yakın, at kulakları arasından; k1 birebir. Mükemmel. |
+| w02 | 10.0 | ✅ | Genç Selim sahilde dörtnala. |
+| w03 | 10.0 | ✅ | Genç Selim bebek Süleyman'ı tutuyor. |
+| w04 | 10.1 | ✅ (not) | Taç giyme; kırmızı tac piskopos başlığına benziyor ama 12 dilimli Kızılbaş tacı olarak okunuyor. |
+| w05 | 14.1 | ✅ | Sarık sarma yakın plan → kırmızı taclı kalabalık. |
+| w06 | 10.0 | ✅ | Meşaleli köyde vaaz eden derviş. |
+| w07 | 10.0 | ✅ | Saray koridorunda fısıldaşan vezirler. |
+| w08 | 10.1 | ✅ | Bayezid mektup okuyor (k6). |
+| w09 | 12.1 | ✅ | Kışlada kazan başında yeniçeriler; börkler doğru. |
+| w10 | 10.0 | ⚠️ küçük | Selim şehre giriyor; solda kırmızı sancakta ZAMBAK (Avrupa armacılığı) benzeri simge, küçük. |
+| w11 | 12.1 | ✅ | Bayezid'in saraydan ayrılışı, sandıklar, araba. |
+| w12 | 10.0 | ✅ | Boş şehzade çadırı, sancak indiriliyor. |
+| w13 | 10.0 | ✅ zoom 1.27 | Gece ateş başında ekmek paylaşan askerler; ilk ~5 sn üst/alt siyah bant → kırpıldı. |
+| w14 | 10.0 | ❌ | Yavuz ordunun önünde — arkada KIRMIZI ÜZERİNE BEYAZ HİLAL-YILDIZ bayraklar (modern Türk bayrağı). **Yeniden üretilmeli.** |
+| w15 | 10.0 | ❌ | Elçi ordugâha geliyor — kırmızı-beyaz çizgili ve hilalli bayraklar. **Yeniden üretilmeli.** |
+| w16 | 10.0 | ❌ | Yavuz mektubu buruşturuyor — sağda çadır direğinde HAÇ şekli. **Yeniden üretilmeli.** |
+| w17 | 10.0 | ✅ | Atlılar zincirli arabalara çarpıyor. |
+| w18 | 10.0 | ✅ | Tebriz çarşısından sanatkârlar, çini kasası. |
+| w19 | 10.0 | ⚠️ | Memlûk hattı dağılıyor — sarı sancakta KARTAL. Tarihte Memlûk armalarında kartal var ama tutarlılık için yeniden üretilmeli. |
+| w20 | 10.0 | ✅ | Kum tepesinden ufukta Kahire. |
+| w21 | 10.0 | ✅ | Memlûk atlıları Osmanlı çadırları arasında. |
+| w22 | 10.0 | ✅ zoom 1.05 | Sadrazam atından düşüyor; köşelerde hafif yuvarlak çerçeve → kırpıldı. |
+| w23 | 10.0 | ✅ | Terk edilmiş hendek, yere gömülü toplar. |
+| w24 | 10.0 | ✅ (not) | Arap heyeti kale kapısında; başlıklar bugünkü Körfez tipi (z19 ile aynı not). |
+| w25 | 10.0 | ✅ (not) | Eski harita yakın plan; bütün dünya çizili (Piri Reis yalnız Atlas) — genel "eski harita" olarak kabul. |
+| w26 | 10.0 | ⚠️ küçük | Halife gemiye biniyor; yanındaki adamda 19. yy FES'i. |
+| w27 | 10.0 | ✅ | Osmanlı saray avlusu, şadırvan. |
+| w28 | 10.0 | ✅ | Hekim havanda ilaç dövüyor, kandil. |
+| w29 | 10.0 | ✅ | Hasan Can yatak başında kitap okuyor. |
+| w30 | 10.0 | ✅ zoom 1.05 | Yavuz tepede ordugâha bakıyor; yuvarlak çerçeve → kırpıldı. |
+| w31 | 10.0 | ✅ | Işık hüzmesinde boş taht. 16 sn yuvada 0,62 hızla — ağır çekim uygun. |
+| w32 | 10.0 | ✅ | Yavuz kameraya dönüyor, kandil ışığı (k1). İmza çekimi. |
+
 ## Düzeltme listesi (Cowork'e yeniden üretim)

@@ -62,7 +62,7 @@ SHOTS = {
     "3.4": [c("z12", "erit"), c("w12")],
     # ── IV · Çaldıran ──
     "4.0": [m("m_caldiran_seferi")],
-    "4.1": [c("z13", "erit"), c("w13")],
+    "4.1": [c("z13", "erit"), c("w13", zoom=1.27)],
     "4.2": [c("y36", "erit"), c("w14")],
     "4.3": [c("w15", "erit"), c("z28"), c("w16")],
     "4.4": [c("y03", "erit"), c("y04", start=0.0)],
@@ -85,7 +85,7 @@ SHOTS = {
     # ── VII · Ridaniye ve Kahire ──
     "7.0": [c("y25"), c("y27")],
     "7.1": [m("m_ridaniye", "erit")],
-    "7.2": [c("y26", "erit"), c("w21"), c("w22"), c("w23", "erit")],
+    "7.2": [c("y26", "erit"), c("w21"), c("w22", zoom=1.05), c("w23", "erit")],
     "7.3": [c("y28", "karart", start=1.5), c("y29", sfx=False)],
     "7.4": [c("z17", "erit", zoom=1.08), c("y30", "erit")],
     # ── VIII · Emanetler ──
@@ -101,7 +101,7 @@ SHOTS = {
     "9.2": [c("w29"), c("z30", "erit")],
     "9.3": [c("z24", "erit"), c("z25", "erit", start=1.0)],
     # ── Kapanış ──
-    "10.0": [c("w30"), c("w31", "erit")],
+    "10.0": [c("w30", zoom=1.05), c("w31", "erit")],
     "10.1": [st("s_yavuz_camii", "erit", label={"title": "BUGÜN", "subtitle": "HALİÇ · İSTANBUL"}),
              c("w32", "erit")],
     "10.2": [c("y34", "erit", speed=0.8)],

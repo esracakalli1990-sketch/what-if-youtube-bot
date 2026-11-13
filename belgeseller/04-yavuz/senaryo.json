@@ -3239,7 +3239,8 @@
        "transition": "dissolve"
       },
       {
-       "clip": "klipler/w13.mp4"
+       "clip": "klipler/w13.mp4",
+       "zoom": 1.27
       }
      ]
     },
@@ -3527,7 +3528,8 @@
        "clip": "klipler/w21.mp4"
       },
       {
-       "clip": "klipler/w22.mp4"
+       "clip": "klipler/w22.mp4",
+       "zoom": 1.05
       },
       {
        "clip": "klipler/w23.mp4",
@@ -3725,7 +3727,8 @@
      "text": "[sakin] Sekiz yıldan az süren bir saltanat. Bir taht kavgası, iki büyük savaş, bir çöl ve yıkılan bir devlet. Yavuz Sultan Selim, kimine göre acımasız bir hükümdar, kimine göre imparatorluğun kurtarıcısıydı. Halk arasında \"Yavuz'a vezir olasın\" diye bir beddua bile söylenirdi; çünkü vezirlerinin pek azı onun gazabından kurtulabildi.",
      "shots": [
       {
-       "clip": "klipler/w30.mp4"
+       "clip": "klipler/w30.mp4",
+       "zoom": 1.05
       },
       {
        "clip": "klipler/w31.mp4",
