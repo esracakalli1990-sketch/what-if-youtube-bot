@@ -23,7 +23,7 @@ Her klip 6 karelik temas sayfasıyla incelendi. "flip" = ekran yönü kuralı i�
 | y12 | 12.1 | ✅ | Savaş sonrası: tek kır at, yerde sancaklar, gün batımı ışık parlaması. Nefes çekimi. |
 | y13 | 12.1 | ✅ | Ordu mavi kubbeli şehre giriyor, surlarda halk. 4.7 (Tebriz) için. |
 | y14 | 12.1 | ✅ | Memlûk ordusu: sarı/kırmızı sancaklar, develer, beyaz sarıklı süvari. Çok iyi. |
-| y15 | 10.1 | ⚠️ | Kansu Gavri sarı şemsiye altında (k3 birebir) — ama arkadaki sarı flamalarda HAÇ işareti var (kullanıcı fark etti). **Yeniden üretilmeli** (düzeltme 3). |
+| y15 | 15.0 | ✅ (yeniden) | Kansu Gavri sarı şemsiye altında (k3 birebir); sancaklar yalnız Arapça hat (kelime-i tevhid), haç yok. Kare büyütülerek denetlendi. |
 
 | y16 | 10.1 | ✅ | Memlûk ağır süvarisi kameraya; ~6 sn'den sonra zırhlı yakın plan. |
 | y17 | 10.1 | ✅ SESSİZ | Duman önünde süvari hattı dağılıyor. |
