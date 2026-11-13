@@ -85,8 +85,133 @@
   "dunya": {
    "commons": "File:Whole world - land and oceans 12000.jpg",
    "original": true
+  },
+  "kart_trabzon": {
+   "file": "kareler/kart_trabzon.jpg",
+   "credit": {
+    "title": "Temsili canlandırma",
+    "artist": "Yapay zekâ ile üretildi (Higgsfield Seedance)",
+    "license": "—"
+   }
+  },
+  "kart_firtina": {
+   "file": "kareler/kart_firtina.jpg",
+   "credit": {
+    "title": "Temsili canlandırma",
+    "artist": "Yapay zekâ ile üretildi (Higgsfield Seedance)",
+    "license": "—"
+   }
+  },
+  "kart_taht": {
+   "file": "kareler/kart_taht.jpg",
+   "credit": {
+    "title": "Temsili canlandırma",
+    "artist": "Yapay zekâ ile üretildi (Higgsfield Seedance)",
+    "license": "—"
+   }
+  },
+  "kart_caldiran": {
+   "file": "kareler/kart_caldiran.jpg",
+   "credit": {
+    "title": "Temsili canlandırma",
+    "artist": "Yapay zekâ ile üretildi (Higgsfield Seedance)",
+    "license": "—"
+   }
+  },
+  "kart_mercidabik": {
+   "file": "kareler/kart_mercidabik.jpg",
+   "credit": {
+    "title": "Temsili canlandırma",
+    "artist": "Yapay zekâ ile üretildi (Higgsfield Seedance)",
+    "license": "—"
+   }
+  },
+  "kart_col": {
+   "file": "kareler/kart_col.jpg",
+   "credit": {
+    "title": "Temsili canlandırma",
+    "artist": "Yapay zekâ ile üretildi (Higgsfield Seedance)",
+    "license": "—"
+   }
+  },
+  "kart_kahire": {
+   "file": "kareler/kart_kahire.jpg",
+   "credit": {
+    "title": "Temsili canlandırma",
+    "artist": "Yapay zekâ ile üretildi (Higgsfield Seedance)",
+    "license": "—"
+   }
+  },
+  "kart_emanet": {
+   "file": "kareler/kart_emanet.jpg",
+   "credit": {
+    "title": "Temsili canlandırma",
+    "artist": "Yapay zekâ ile üretildi (Higgsfield Seedance)",
+    "license": "—"
+   }
+  },
+  "kart_son": {
+   "file": "kareler/kart_son.jpg",
+   "credit": {
+    "title": "Temsili canlandırma",
+    "artist": "Yapay zekâ ile üretildi (Higgsfield Seedance)",
+    "license": "—"
+   }
+  },
+  "kapak_yuz": {
+   "file": "kareler/kapak_yuz.jpg",
+   "credit": {
+    "title": "Temsili canlandırma",
+    "artist": "Yapay zekâ ile üretildi (Higgsfield Seedance)",
+    "license": "—"
+   }
+  },
+  "kapak_col": {
+   "file": "kareler/kapak_col.jpg",
+   "credit": {
+    "title": "Temsili canlandırma",
+    "artist": "Yapay zekâ ile üretildi (Higgsfield Seedance)",
+    "license": "—"
+   }
+  },
+  "kapak_hucum": {
+   "file": "kareler/kapak_hucum.jpg",
+   "credit": {
+    "title": "Temsili canlandırma",
+    "artist": "Yapay zekâ ile üretildi (Higgsfield Seedance)",
+    "license": "—"
+   }
   }
  },
+ "thumbnails": [
+  {
+   "sablon": "v2",
+   "arka_plan": "kapak_yuz",
+   "arka_plan_kadraj": "30% 30%",
+   "hale": "#ff7a1a",
+   "line1": "8 yılda",
+   "line2": "dünya gücü",
+   "vurgu": "#FFC83D"
+  },
+  {
+   "sablon": "v2",
+   "arka_plan": "kapak_col",
+   "arka_plan_kadraj": "50% 50%",
+   "hale": "#ff9a2e",
+   "line1": "Çölü geçti",
+   "line2": "Kahire düştü",
+   "vurgu": "#FFC83D"
+  },
+  {
+   "sablon": "v2",
+   "arka_plan": "kapak_hucum",
+   "arka_plan_kadraj": "50% 40%",
+   "hale": "#b5302a",
+   "line1": "Şah'a karşı",
+   "line2": "Çaldıran 1514",
+   "vurgu": "#FFC83D"
+  }
+ ],
  "stock": {
   "s_yavuz_camii": {
    "q": "Yavuz Selim mosque Istanbul"
@@ -2834,7 +2959,8 @@
      "text": "[gerilim] Yirmi üç Ağustos, bin beş yüz on dört. Doğu Anadolu'nun yüksek ovalarında, Tebriz'e birkaç günlük mesafede bir sabah. Osmanlı askerleri yüzlerce top arabasını yan yana diziyor, birbirine zincirliyor. Arkalarında, ellerinde tüfekleriyle yeniçeriler bekliyor.",
      "shots": [
       {
-       "clip": "klipler/y01.mp4"
+       "clip": "klipler/y01.mp4",
+       "start": 6.0
       },
       {
        "clip": "klipler/y02.mp4"
@@ -2957,7 +3083,8 @@
    ],
    "card": {
     "kicker": "BÖLÜM I",
-    "date": "1470–1510 · Amasya, Trabzon"
+    "date": "1470–1510 · Amasya, Trabzon",
+    "image": "kart_trabzon"
    },
    "music": "gizem"
   },
@@ -3014,7 +3141,8 @@
    ],
    "card": {
     "kicker": "BÖLÜM II",
-    "date": "1501–1511 · Tebriz, Anadolu"
+    "date": "1501–1511 · Tebriz, Anadolu",
+    "image": "kart_firtina"
    },
    "music": "agir"
   },
@@ -3087,7 +3215,8 @@
    ],
    "card": {
     "kicker": "BÖLÜM III",
-    "date": "1511–1513 · Edirne, İstanbul"
+    "date": "1511–1513 · Edirne, İstanbul",
+    "image": "kart_taht"
    },
    "music": "karanlik"
   },
@@ -3176,7 +3305,7 @@
       },
       {
        "clip": "klipler/y10.mp4",
-       "start": 1.5,
+       "start": 2.5,
        "flip": true
       }
      ]
@@ -3219,7 +3348,8 @@
    ],
    "card": {
     "kicker": "BÖLÜM IV",
-    "date": "1514 · Doğu Anadolu"
+    "date": "1514 · Doğu Anadolu",
+    "image": "kart_caldiran"
    },
    "music": "derin"
   },
@@ -3302,7 +3432,8 @@
    ],
    "card": {
     "kicker": "BÖLÜM V",
-    "date": "1516 · Halep'in kuzeyi"
+    "date": "1516 · Halep'in kuzeyi",
+    "image": "kart_mercidabik"
    },
    "music": "karanlik"
   },
@@ -3357,7 +3488,8 @@
    ],
    "card": {
     "kicker": "BÖLÜM VI",
-    "date": "Ocak 1517 · Sina Yarımadası"
+    "date": "Ocak 1517 · Sina Yarımadası",
+    "image": "kart_col"
    },
    "music": "agir"
   },
@@ -3434,7 +3566,8 @@
    ],
    "card": {
     "kicker": "BÖLÜM VII",
-    "date": "22 Ocak 1517 · Kahire"
+    "date": "22 Ocak 1517 · Kahire",
+    "image": "kart_kahire"
    },
    "music": "derin"
   },
@@ -3520,7 +3653,8 @@
    ],
    "card": {
     "kicker": "BÖLÜM VIII",
-    "date": "1517–1518 · Kahire, Mekke, İstanbul"
+    "date": "1517–1518 · Kahire, Mekke, İstanbul",
+    "image": "kart_emanet"
    },
    "music": "isik"
   },
@@ -3579,7 +3713,8 @@
    ],
    "card": {
     "kicker": "BÖLÜM IX",
-    "date": "1520 · Sırtköy, Çorlu"
+    "date": "1520 · Sırtköy, Çorlu",
+    "image": "kart_son"
    },
    "music": "huzun"
   },

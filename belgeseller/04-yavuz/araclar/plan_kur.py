@@ -17,6 +17,10 @@ sys.path.insert(0, str(HERE))
 from haritalar import M as MAPS, esnet  # noqa: E402
 from cekimler import SHOTS  # noqa: E402
 ROOT = HERE.parent
+AI_CREDIT = {"title": "Temsili canlandırma", "artist": "Yapay zekâ ile üretildi (Higgsfield Seedance)", "license": "—"}
+KART_GORSEL = ["kart_trabzon", "kart_firtina", "kart_taht", "kart_caldiran", "kart_mercidabik", "kart_col",
+               "kart_kahire", "kart_emanet", "kart_son"]
+KARELER = KART_GORSEL + ["kapak_yuz", "kapak_col", "kapak_hucum"]
 GECIS = {"kes": "cut", "erit": "dissolve", "karart": "black", "parla": "flash"}
 MUZIK = ["karanlik", "gizem", "agir", "karanlik", "derin", "karanlik", "agir", "derin", "isik", "huzun", "huzun"]
 
@@ -84,6 +88,8 @@ def parse(md: str) -> list[dict]:
         ekran = []
     for i, c in enumerate(chapters):
         c["music"] = MUZIK[i % len(MUZIK)]
+        if c.get("card") and 1 <= i <= len(KART_GORSEL):
+            c["card"]["image"] = KART_GORSEL[i - 1]
     return chapters
 
 
@@ -150,7 +156,15 @@ def main():
                       "🔔 Sıradaki belgesel: Kanuni Sultan Süleyman."),
         "kurgu": {"gecis": "cut", "ton_esitle": 0.5},
         "music_sources": ist["music_sources"],
-        "images": {"dunya": {"commons": "File:Whole world - land and oceans 12000.jpg", "original": True}},
+        "images": {"dunya": {"commons": "File:Whole world - land and oceans 12000.jpg", "original": True},
+                   **{k: {"file": f"kareler/{k}.jpg", "credit": AI_CREDIT} for k in KARELER}},
+        "thumbnails": [
+            {"sablon": "v2", "arka_plan": "kapak_yuz", "arka_plan_kadraj": "30% 30%", "hale": "#ff7a1a",
+             "line1": "8 yılda", "line2": "dünya gücü", "vurgu": "#FFC83D"},
+            {"sablon": "v2", "arka_plan": "kapak_col", "arka_plan_kadraj": "50% 50%", "hale": "#ff9a2e",
+             "line1": "Çölü geçti", "line2": "Kahire düştü", "vurgu": "#FFC83D"},
+            {"sablon": "v2", "arka_plan": "kapak_hucum", "arka_plan_kadraj": "50% 40%", "hale": "#b5302a",
+             "line1": "Şah'a karşı", "line2": "Çaldıran 1514", "vurgu": "#FFC83D"}],
         "stock": {"s_yavuz_camii": {"q": "Yavuz Selim mosque Istanbul"}},
         "films": {},
         "maps": MAPS,
