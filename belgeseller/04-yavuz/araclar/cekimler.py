@@ -66,7 +66,7 @@ SHOTS = {
     "4.2": [c("y36", "erit"), c("w14")],
     "4.3": [c("w15", "erit"), c("z28"), c("w16")],
     "4.4": [c("y03", "erit"), c("y04", start=0.0)],
-    "4.5": [c("y07", start=4.0), c("w17"), c("y08", start=5.0, flip=True), c("y09", "parla", flip=True), c("y10")],
+    "4.5": [c("y07", start=4.0), c("w17"), c("y08", start=5.0, flip=True), c("y09", "parla", flip=True), c("y10", start=1.5, flip=True)],
     "4.6": [c("y11", "erit"), c("y12", "erit")],
     "4.7": [c("y13", "karart"), c("w18")],
     "4.8": [m("m_1515", "erit")],

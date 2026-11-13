@@ -15,7 +15,7 @@ Her klip 6 karelik temas sayfasıyla incelendi. "flip" = ekran yönü kuralı i�
 | y07 | 12.1 | ✅ | Kırmızı tac + beyaz sarık süvari hücumu kameraya doğru. Çok iyi. |
 | y08 | 10.1 | ✅ flip | Toplar sola ateş ediyordu → aynalandı (Osmanlı sağa ateş eder). |
 | y09 | 10.1 | ✅ flip | Yeniçeri tüfek yaylımı sola → aynalandı. Börkler doğru. |
-| y10 | 10.1 | ⚠️ | 1,7 sn'den sonra TAM PLAKA ZIRHLI Avrupa şövalyeleri — dönem/taraf hatası. Yalnızca 0–1,6 sn (duman + at) kullanılabilir. **Yeniden üretilmeli** (düzeltme listesi). |
+| y10 | 10.1 | ✅ (yeniden) flip | Kırmızı taclı Kızılbaş atlılar dumanda, şaha kalkan atlar, düşen süvari; plaka zırh yok. İlk ~1,5 sn yalnız toz → giriş 1,5 sn. Atlar sağa bakıyordu → aynalandı. |
 | k2 | — | ✅ (küçük not) | Şah İsmail: genç, ince bıyık. Başlık on iki dilimli tac yerine düz kırmızı külah; klipte idare eder. |
 | k3 | — | ✅ | Kansu Gavri: boynuzlu Memlûk kavuğu, beyaz sakal, zırh üstü yeşil kaftan. Çok iyi. |
 | k4 | — | ✅ | Tomanbay: miğfer + sarık, zincir zırh, kırmızı kuşak, yara izi. |
@@ -57,5 +57,4 @@ Her klip 6 karelik temas sayfasıyla incelendi. "flip" = ekran yönü kuralı i�
 > Not: Görev 2 klipleri 8 sn geliyor (tabloda 10–14 sn yazıyordu). Kurgu buna göre denetlendi.
 
 ## Düzeltme listesi (Cowork'e yeniden üretim)
-- **y10**: "Chaos on the battlefield: Persian Safavid cavalry in tall red caps and mail shirts, horses rearing in panic amid thick cannon smoke, riders falling, dust, handheld camera, desaturated. No European plate armor, no knights, no gore."
 - **y19**: "The fallen yellow silk banner of the Mamluk Sultanate decorated only with Arabic calligraphy (no animals, no eagles, no crosses) falling into the dust and trampled by horses, close-up, slow motion, smoke and sunlight."

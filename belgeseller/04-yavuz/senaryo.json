@@ -3175,7 +3175,9 @@
        "flip": true
       },
       {
-       "clip": "klipler/y10.mp4"
+       "clip": "klipler/y10.mp4",
+       "start": 1.5,
+       "flip": true
       }
      ]
     },
