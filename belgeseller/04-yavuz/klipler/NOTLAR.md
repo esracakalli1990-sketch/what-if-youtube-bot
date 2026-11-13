@@ -55,6 +55,11 @@ Her klip 6 karelik temas sayfasıyla incelendi. "flip" = ekran yönü kuralı i�
 | z06 | 8.0 | ✅ | Gece yanan köy önünde atlı siluetler (sağdan sola). |
 | y35 | 10.1 | ✅ | Mehter: davul ve boru yakın plan → gün doğumunda atlı siluetler. |
 | y36 | 12.1 | ✅ | Çadırda mum ışığında harita başında Yavuz ve komutanlar; yakın plana iniyor (k1 uyumlu). |
+| z07 | 8.0 | ✅ | Yenik Osmanlı süvarisi tozlu ovada çekiliyor, yerde kırmızı sancak. |
+| z08 | 10.0 | ✅ | II. Bayezid çini salonda tahtta, yorgun; k6 ile birebir. Çok iyi. |
+| z09 | 10.0 | ✅ | Trakya'da iki ordu karşı karşıya, kırmızı-yeşil sancaklar, gri gök. |
+| z10 | 10.0 | ✅ | Selim (k5) gün batımında atlılarla kaçıyor. |
+| z11 | 10.0 | ✅ | Gece saray kapısında meşaleli yeniçeriler; börkler (yatırma) doğru. |
 
 > Not: Görev 2 klipleri 8 sn geliyor (tabloda 10–14 sn yazıyordu). Kurgu buna göre denetlendi.
 
