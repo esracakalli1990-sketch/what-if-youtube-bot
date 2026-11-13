@@ -99,7 +99,7 @@ SHOTS = {
     "9.0": [c("z21")],
     "9.1": [c("z22", "karart"), c("w28"), c("z23")],
     "9.2": [c("w29"), c("z30", "erit")],
-    "9.3": [c("z24", "erit"), c("z25", "erit")],
+    "9.3": [c("z24", "erit"), c("z25", "erit", start=1.0)],
     # ── Kapanış ──
     "10.0": [c("w30"), c("w31", "erit")],
     "10.1": [st("s_yavuz_camii", "erit", label={"title": "BUGÜN", "subtitle": "YAVUZ SELİM CAMİİ · İSTANBUL"}),

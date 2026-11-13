@@ -3567,7 +3567,8 @@
       },
       {
        "clip": "klipler/z25.mp4",
-       "transition": "dissolve"
+       "transition": "dissolve",
+       "start": 1.0
       }
      ]
     }

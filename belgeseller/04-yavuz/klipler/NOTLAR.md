@@ -73,6 +73,11 @@ Her klip 6 karelik temas sayfasıyla incelendi. "flip" = ekran yönü kuralı i�
 | z22 | 10.0 | ✅ | Gece yol kenarında otağ, nöbetçiler, ateşler. |
 | z23 | 10.0 | ✅ (küçük not) | Hasta elinde yüzük, tutan el. Arka planda flu, camlı lamba benzeri ışık — odak dışı, göze batmaz. |
 | z24 | 10.0 | ✅ | Ulak Karadeniz kıyısında soldan sağa dörtnala. |
+| z25 | 10.0 | ✅ giriş 1,0 | Pencere önünde siluet, mektup okuyor. İlk ~1 sn sol üstte YAZI ("…1520") var → 1,0 sn'den başlatıldı. |
+| z27 | 10.0 | ✅ | Balkonda bebeğini tutan genç anne, deniz, gün doğumu. Çok iyi. |
+| z28 | 10.0 | ✅ | Altın kutu açılıyor, içinde koyu reçine; mum ışığı. |
+| z29 | 10.0 | ⚠️ | Piri Reis sahnesi — ama harita BUGÜNKÜ DÜNYA HARİTASI gibi (bütün kıtalar) ve CAMLI LAMBA var. **Yeniden üretilmeli** (düzeltme 2). |
+| z30 | 10.0 | ✅ | Sisli sabah, otağ önünde başı eğik muhafızlar, binicisiz at. |
 
 > Not: Görev 2 klipleri 8 sn geliyor (tabloda 10–14 sn yazıyordu). Kurgu buna göre denetlendi.
 
