@@ -102,7 +102,7 @@ SHOTS = {
     "9.3": [c("z24", "erit"), c("z25", "erit", start=1.0)],
     # ── Kapanış ──
     "10.0": [c("w30"), c("w31", "erit")],
-    "10.1": [st("s_yavuz_camii", "erit", label={"title": "BUGÜN", "subtitle": "YAVUZ SELİM CAMİİ · İSTANBUL"}),
+    "10.1": [st("s_yavuz_camii", "erit", label={"title": "BUGÜN", "subtitle": "HALİÇ · İSTANBUL"}),
              c("w32", "erit")],
     "10.2": [c("y34", "erit", speed=0.8)],
 }

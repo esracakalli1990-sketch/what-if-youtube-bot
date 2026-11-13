@@ -165,7 +165,7 @@ def main():
              "line1": "Çölü geçti", "line2": "Kahire düştü", "vurgu": "#FFC83D"},
             {"sablon": "v2", "arka_plan": "kapak_hucum", "arka_plan_kadraj": "50% 40%", "hale": "#b5302a",
              "line1": "Şah'a karşı", "line2": "Çaldıran 1514", "vurgu": "#FFC83D"}],
-        "stock": {"s_yavuz_camii": {"q": "Yavuz Selim mosque Istanbul"}},
+        "stock": {"s_yavuz_camii": {"q": "Istanbul Golden Horn aerial old city mosques"}},
         "films": {},
         "maps": MAPS,
         "chapters": parse(md),

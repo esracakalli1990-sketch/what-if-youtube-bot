@@ -214,7 +214,7 @@
  ],
  "stock": {
   "s_yavuz_camii": {
-   "q": "Yavuz Selim mosque Istanbul"
+   "q": "Istanbul Golden Horn aerial old city mosques"
   }
  },
  "films": {},
@@ -3740,7 +3740,7 @@
        "stock": "s_yavuz_camii",
        "label": {
         "title": "BUGÜN",
-        "subtitle": "YAVUZ SELİM CAMİİ · İSTANBUL"
+        "subtitle": "HALİÇ · İSTANBUL"
        },
        "transition": "dissolve"
       },
