@@ -9,6 +9,8 @@ name: Belgesel Üret
 #               tüm videoya ses kredisi harcanmaz.
 #   mod=ses   : yalnızca anlatım (ElevenLabs) → önbellek + kalıcı yedek. Klipler
 #               henüz yokken gerçek cümle sürelerini öğrenip kurguyu ona göre kurmak için.
+#   mod=drive : herkese açık Google Drive dosyasını (klip zip'i) indirip "klipler-<klasör>"
+#               Release'ine yükler (bulut oturumu Drive'a erişemiyor; oradan alınır).
 #   mod=tam   : tüm video → YouTube'a GİZLİ yükleme (yayin verilirse o saatte
 #               YouTube kendisi yayınlar). Siz izleyip onaylamadan herkese açılmaz.
 #
@@ -25,13 +27,16 @@ on:
       mod:
         description: "ornek = önizleme, tam = YouTube'a gizli yükleme"
         type: choice
-        options: [inceleme, ses, ornek, tam, shorts, sosyal]
+        options: [inceleme, ses, ornek, tam, shorts, sosyal, drive]
         default: ornek
       ornek_bolum:
         description: "Örnekte kaç bölüm (giriş + ilk bölüm = 2)"
         default: "2"
       yayin:
         description: "Planlı yayın (ISO-8601 UTC, ör. 2026-11-04T16:00:00Z). Boşsa gizli kalır."
+        required: false
+      kaynak_url:
+        description: "mod=drive: herkese açık Google Drive dosya bağlantısı (klip zip'i)"
         required: false
 
 concurrency:
@@ -118,8 +123,27 @@ jobs:
             echo "Ses yedeği geri yüklendi: $(ls "$KLASOR/build/audio" | wc -l) dosya"
           fi
 
+      - name: Drive dosyasını Release'e aktar
+        if: inputs.mod == 'drive'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          KAYNAK: ${{ inputs.kaynak_url }}
+        run: |
+          pip install -q gdown
+          # Bağlantıdan dosya kimliği (…/d/<id>/… ya da ?id=<id>)
+          ID=$(echo "$KAYNAK" | sed -E 's#.*/d/([^/?]+).*#\1#; s#.*[?&]id=([^&]+).*#\1#')
+          gdown "$ID" -O /tmp/kaynak.bin
+          ls -la /tmp/kaynak.bin
+          TAG="klipler-$(basename "$KLASOR")"
+          NAME="drive-$(date -u +%Y%m%d-%H%M%S).zip"
+          mv /tmp/kaynak.bin "/tmp/$NAME"
+          gh release view "$TAG" >/dev/null 2>&1 || \
+            gh release create "$TAG" --title "Klipler: $(basename "$KLASOR")" \
+              --notes "Drive'dan aktarılan klip paketleri (otomatik)." --latest=false
+          gh release upload "$TAG" "/tmp/$NAME" --clobber
+
       - name: Senaryoyu doğrula
-        if: inputs.mod != 'inceleme' && inputs.mod != 'ses'
+        if: inputs.mod != 'inceleme' && inputs.mod != 'ses' && inputs.mod != 'drive'
         run: python -m scripts.doc_pipeline "$KLASOR" dogrula
 
       - name: Yalnızca ses üret (taslak)
@@ -157,6 +181,19 @@ jobs:
           name: ornek-onizleme
           path: ornek-1080p.mp4
           retention-days: 5
+
+      - name: Örneği ve haritaları Release'e yükle (Claude incelemesi için)
+        if: inputs.mod == 'ornek'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="onizleme-$(basename "$KLASOR")"
+          gh release view "$TAG" >/dev/null 2>&1 || \
+            gh release create "$TAG" --title "Önizleme: $(basename "$KLASOR")" \
+              --notes "Örnek render ve harita/kart dosyaları (otomatik)." --latest=false
+          tar -czf /tmp/haritalar.tar.gz -C "$KLASOR/build" maps cards thumbs 2>/dev/null || true
+          gh release upload "$TAG" ornek-1080p.mp4 /tmp/haritalar.tar.gz --clobber
 
       - name: Tam üretim
         if: inputs.mod == 'tam'
@@ -284,6 +321,8 @@ jobs:
               rows = json.loads(Path(klasor, "build", "sosyal", "manifest.json").read_text())
               send_message(f"📦 Sosyal medya paketi hazır ({len(rows)} Short): {klasor}\n"
                            + "\n".join(f"• {r['id']} ({r['sure']:.0f} sn)" for r in rows))
+          elif mod == "drive":
+              send_message(f"📥 Drive paketi Release'e aktarıldı: {klasor}\n{url}")
           elif mod == "ses":
               man = json.loads(Path(klasor, "build", "audio", "manifest.json").read_text())
               sure = sum(p["duration"] for ch in man for p in ch)

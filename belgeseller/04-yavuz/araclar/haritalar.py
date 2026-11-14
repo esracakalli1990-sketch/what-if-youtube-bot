@@ -69,7 +69,8 @@ M["m_osmanli_1500"] = {"taban": "dunya", "bounds": fit_bounds((37.0, 40.0), 24),
                 {"name": "Safevîler", "color": SAF, "poly": SAF_1502, "start": 7.5, "label": [46.6, 38.4]}],
     "cities": [city("İstanbul", 0.5, side="left"), city("Amasya", 1.5),
                city("Trabzon", 3.0, major=True, side="right")],
-    "labels": sea("Karadeniz") + [{"at": [43.5, 42.3], "text": "Gürcü beylikleri", "start": 4.5, "kind": "land"}],
+    "labels": [{"at": [34.0, 42.4], "text": "Karadeniz", "start": 0.4, "kind": "sea"},
+               {"at": [43.5, 42.3], "text": "Gürcü beylikleri", "start": 4.5, "kind": "land"}],
     "years": [{"t": 0.5, "text": "1500"}, {"t": 7.5, "text": "1501"}], "note": "Sınırlar yaklaşıktır",
     "camera": [{"t": 0, "center": [33.0, 40.0], "zoom": 1.0}, {"t": 3.0, "center": [39.5, 40.5], "zoom": 1.7},
                {"t": 7.0, "center": [42.5, 40.0], "zoom": 1.4}]}
@@ -78,11 +79,11 @@ M["m_safevi"] = {"taban": "dunya", "bounds": fit_bounds((45.0, 35.5), 32), "dura
     "title": "Doğudan Gelen Fırtına", "subtitle": "Safevî Devleti, 1501–1510",
     "regions": [{"name": "Osmanlı", "color": OSM, "poly": OSM_1500, "start": 0.4},
                 {"name": "", "color": SAF, "poly": SAF_1502, "start": 0.8, "end": 4.5},
-                {"name": "Safevîler · 1510", "color": SAF, "poly": SAF_1510, "start": 4.5, "label": [54.0, 32.0]}],
+                {"name": "Safevîler · 1510", "color": SAF, "poly": SAF_1510, "start": 4.5, "label": [56.5, 29.0]}],
     "routes": [{"points": [[46.29, 38.08], [42.5, 39.0], [38.5, 39.2], [34.5, 38.8]], "color": SAF, "start": 8.0,
                 "duration": 3.0, "label": "Kızılbaş propagandası", "dashed": True, "army": False}],
     "cities": [city("Tebriz", 0.8, major=True, side="right"), city("Bağdat", 6.0), city("İsfahan", 6.5)],
-    "labels": sea("Karadeniz", "Hazar Denizi"),
+    "labels": [{"at": [51.0, 40.0], "text": "Hazar Denizi", "start": 0.4, "kind": "sea"}],
     "years": [{"t": 0.5, "text": "1501"}, {"t": 4.5, "text": "1510"}], "note": "Sınırlar yaklaşıktır"}
 
 M["m_selim_yolu"] = {"taban": "dunya", "bounds": fit_bounds((32.0, 42.6), 18), "durationSec": 12,
@@ -92,7 +93,7 @@ M["m_selim_yolu"] = {"taban": "dunya", "bounds": fit_bounds((32.0, 42.6), 18), "
                {"points": [C["Kefe"], [33.0, 46.2], C["Akkerman"], [28.6, 44.2], [27.5, 42.6], C["Edirne"]],
                 "color": OSM, "start": 4.0, "duration": 4.0, "label": "Selim'in ordusu", "dashed": True}],
     "clashes": [{"at": [27.85, 41.2], "start": 9.0}],
-    "cities": [city("Trabzon", 0.5, major=True, side="right"), city("Kefe", 2.8), city("Akkerman", 5.0),
+    "cities": [city("Trabzon", 0.5, major=True, side="left"), city("Kefe", 2.8), city("Akkerman", 5.0),
                city("Edirne", 7.0, side="left"), city("İstanbul", 0.5), city("Çorlu", 8.8, side="left",
                label="Çorlu · Uğraşdere")],
     "labels": sea("Karadeniz"),
@@ -106,7 +107,7 @@ M["m_caldiran_seferi"] = {"taban": "dunya", "bounds": fit_bounds((37.5, 39.3), 2
                {"points": [C["Tebriz"], [45.2, 38.7], [44.2, 39.05]], "color": SAF, "start": 6.0, "duration": 3.0,
                 "label": "Safevî ordusu", "dashed": True}],
     "clashes": [{"at": C["Çaldıran"], "start": 9.4}],
-    "cities": [city("İstanbul", 0.5, side="left"), city("Sivas", 4.0), city("Erzincan", 5.5),
+    "cities": [city("İstanbul", 0.5, side="right"), city("Sivas", 4.0), city("Erzincan", 5.5),
                city("Çaldıran", 9.0, major=True, side="left"), city("Tebriz", 5.8, side="right")],
     "labels": sea("Karadeniz"),
     "years": [{"t": 0.5, "text": "Nisan 1514"}, {"t": 9.4, "text": "23 Ağustos 1514"}],
@@ -122,7 +123,7 @@ M["m_1515"] = {"taban": "dunya", "bounds": fit_bounds((38.5, 38.6), 14), "durati
                 {"name": "Diyarbakır", "color": GRI, "poly": DIYARBAKIR, "start": 0.6, "end": 8.0,
                  "label": [40.6, 37.7]},
                 {"name": "", "color": OSM, "poly": DIYARBAKIR, "start": 8.0},
-                {"name": "Memlûkler", "color": MEM, "poly": MEM_1516, "start": 10.0, "label": [36.8, 35.0]}],
+                {"name": "Memlûkler", "color": MEM, "poly": MEM_1516, "start": 10.0, "label": [37.4, 35.7]}],
     "cities": [city("Kemah", 2.0, side="left"), city("Maraş", 4.5), city("Elbistan", 4.8, side="right"),
                city("Diyarbakır", 7.5, major=True), city("Halep", 10.0)],
     "years": [{"t": 0.5, "text": "1514"}, {"t": 2.0, "text": "1515"}, {"t": 8.0, "text": "1516"}],
@@ -177,15 +178,31 @@ M["m_ridaniye"] = {"taban": "parsomen", "bounds": fit_bounds((31.31, 30.07), 0.3
 M["m_sinirlar"] = {"taban": "dunya", "bounds": fit_bounds((32.0, 33.0), 44), "durationSec": 12,
     "title": "Sekiz Yılda", "subtitle": "Osmanlı toprakları, 1512 → 1520",
     "regions": [{"name": "Osmanlı · 1512", "color": OSM, "poly": OSM_1500, "start": 0.6, "end": 5.0,
-                 "label": [30.0, 40.0]},
+                 "label": [33.0, 39.2]},
                 {"name": "Osmanlı · 1520", "color": OSM, "poly": OSM_1520, "start": 5.0, "label": [31.0, 27.0]}],
     "cities": [city("İstanbul", 0.5, major=True), city("Kahire", 5.5), city("Mekke", 6.0), city("Diyarbakır", 6.5)],
-    "labels": sea("Akdeniz", "Karadeniz", "Kızıldeniz"),
+    "labels": sea("Akdeniz", "Karadeniz"),
     "years": [{"t": 0.5, "text": "1512"}, {"t": 5.0, "text": "1520"}], "note": "Sınırlar yaklaşıktır"}
 
 # Bilgi grafikleri
 M["k_sehzadeler"] = {"bilesen": "Infographic", "type": "zaman", "title": "Üç Şehzade",
     "subtitle": "II. Bayezid'in tahta aday oğulları", "durationSec": 10,
-    "events": [{"date": "Ahmed", "text": "Amasya · vezirlerin gözdesi"},
-               {"date": "Korkud", "text": "Manisa · âlim, sakin"},
-               {"date": "Selim", "text": "Trabzon · ordunun gözdesi"}]}
+    "events": [{"date": "Ahmed", "text": "Amasya"},
+               {"date": "Korkud", "text": "Manisa"},
+               {"date": "Selim", "text": "Trabzon"}]}
+
+
+def esnet(spec: dict, seconds: float) -> dict:
+    """Haritayı yuvaya göre uzat: bütün zamanlar orantılı ölçeklenir (sona boş bekleme kalmaz)."""
+    if spec.get("bilesen"):
+        return {**spec, "durationSec": round(seconds, 1)}
+    k = seconds / spec["durationSec"]
+    out = {**spec, "durationSec": round(seconds, 1)}
+    for key in ("regions", "routes", "units", "clashes", "cities", "labels", "rivers", "lines", "convoys"):
+        if key in spec:
+            out[key] = [{**it, **{f: round(it[f] * k, 2) for f in ("start", "end", "duration") if f in it}}
+                        for it in spec[key]]
+    for key in ("years", "camera"):
+        if key in spec:
+            out[key] = [{**it, "t": round(it["t"] * k, 2)} for it in spec[key]]
+    return out

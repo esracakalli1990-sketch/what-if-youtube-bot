@@ -264,6 +264,7 @@ class Shot:
     flip: bool = False               # yatay ayna: ekran yönü kuralı (ordu soldan sağa vb.)
     speed: float = 0.0               # sabit hız (ör. 0.8 ağır çekim); 0: gerekirse otomatik yavaşlat
     match: float = 0.0               # ton eşitleme gücü 0..1 (farklı kliplerin parlaklık/kontrastı)
+    zoom: float = 1.0                # >1: kenarları kırp (ör. 1.06 → klipteki yuvarlak film çerçevesi)
     _state: dict = field(default_factory=dict, repr=False)
 
 
@@ -391,6 +392,8 @@ class VideoSource:
         speed = effective_speed(shot.path, shot.start, span, shot.speed) if span and not loop else 1.0
         self.speed = speed
         flip = "hflip," if shot.flip else ""
+        if shot.zoom and shot.zoom > 1.0:
+            flip += f"crop=iw/{shot.zoom:.4f}:ih/{shot.zoom:.4f},"
         self.tone = tone_params(shot.path, shot.start, shot.match) if shot.match and not loop else None
         vf = (f"setpts=PTS/{speed:.4f},{flip}"
               f"scale={OUT_W}:{OUT_H}:force_original_aspect_ratio=increase:flags=lanczos,"

@@ -14,8 +14,13 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 import sys  # noqa: E402
 sys.path.insert(0, str(HERE))
-from haritalar import M as MAPS  # noqa: E402
+from haritalar import M as MAPS, esnet  # noqa: E402
+from cekimler import SHOTS  # noqa: E402
 ROOT = HERE.parent
+AI_CREDIT = {"title": "Temsili canlandırma", "artist": "Yapay zekâ ile üretildi (Higgsfield Seedance)", "license": "—"}
+KART_GORSEL = ["kart_trabzon", "kart_firtina", "kart_taht", "kart_caldiran", "kart_mercidabik", "kart_col",
+               "kart_kahire", "kart_emanet", "kart_son"]
+KARELER = KART_GORSEL + ["kapak_yuz", "kapak_col", "kapak_hucum"]
 GECIS = {"kes": "cut", "erit": "dissolve", "karart": "black", "parla": "flash"}
 MUZIK = ["karanlik", "gizem", "agir", "karanlik", "derin", "karanlik", "agir", "derin", "isik", "huzun", "huzun"]
 
@@ -83,7 +88,33 @@ def parse(md: str) -> list[dict]:
         ekran = []
     for i, c in enumerate(chapters):
         c["music"] = MUZIK[i % len(MUZIK)]
+        if c.get("card") and 1 <= i <= len(KART_GORSEL):
+            c["card"]["image"] = KART_GORSEL[i - 1]
     return chapters
+
+
+def apply_shots(data: dict) -> None:
+    """cekimler.py'deki kesin çekim listesini uygula; haritaları gerçek yuva süresine esnet."""
+    for ci, ch in enumerate(data["chapters"]):
+        for pi, para in enumerate(ch["paragraphs"]):
+            if f"{ci}.{pi}" in SHOTS:
+                para["shots"] = SHOTS[f"{ci}.{pi}"]
+    manifest = ROOT / "build" / "audio" / "manifest.json"
+    if not manifest.exists():
+        return
+    from scripts import doc_timeline as dt
+    audio = json.loads(manifest.read_text(encoding="utf-8"))
+    for ci, ch in enumerate(data["chapters"]):
+        for pi, para in enumerate(ch["paragraphs"]):
+            au = audio[ci][pi]
+            words = json.loads((ROOT / "build" / au["words_path"]).read_text(encoding="utf-8")) \
+                if "words_path" in au else au.get("words", [])
+            cuts = dt._cut_points(words, len(para["shots"]), au["duration"])
+            bounds = [0.0] + cuts + [au["duration"] + dt.PARAGRAPH_GAP]
+            for si, shot in enumerate(para["shots"]):
+                if "map" in shot:
+                    slot = bounds[si + 1] - bounds[si] + 1.0
+                    data["maps"][shot["map"]] = esnet(data["maps"][shot["map"]], max(slot, 8.0))
 
 
 def main():
@@ -125,12 +156,21 @@ def main():
                       "🔔 Sıradaki belgesel: Kanuni Sultan Süleyman."),
         "kurgu": {"gecis": "cut", "ton_esitle": 0.5},
         "music_sources": ist["music_sources"],
-        "images": {"dunya": {"commons": "File:Whole world - land and oceans 12000.jpg", "original": True}},
-        "stock": {"s_yavuz_camii": {"q": "Yavuz Selim mosque Istanbul"}},
+        "images": {"dunya": {"commons": "File:Whole world - land and oceans 12000.jpg", "original": True},
+                   **{k: {"file": f"kareler/{k}.jpg", "credit": AI_CREDIT} for k in KARELER}},
+        "thumbnails": [
+            {"sablon": "v2", "arka_plan": "kapak_yuz", "arka_plan_kadraj": "30% 30%", "hale": "#ff7a1a",
+             "line1": "8 yılda", "line2": "dünya gücü", "vurgu": "#FFC83D"},
+            {"sablon": "v2", "arka_plan": "kapak_col", "arka_plan_kadraj": "50% 50%", "hale": "#ff9a2e",
+             "line1": "Çölü geçti", "line2": "Kahire düştü", "vurgu": "#FFC83D"},
+            {"sablon": "v2", "arka_plan": "kapak_hucum", "arka_plan_kadraj": "50% 40%", "hale": "#b5302a",
+             "line1": "Şah'a karşı", "line2": "Çaldıran 1514", "vurgu": "#FFC83D"}],
+        "stock": {"s_yavuz_camii": {"q": "Istanbul Golden Horn aerial old city mosques"}},
         "films": {},
         "maps": MAPS,
         "chapters": parse(md),
     }
+    apply_shots(data)
     (ROOT / "senaryo.json").write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
     n = sum(len(c["paragraphs"]) for c in data["chapters"])
     chars = sum(len(re.sub(r"\[[^\]]*\]", "", p["text"])) for c in data["chapters"] for p in c["paragraphs"])
