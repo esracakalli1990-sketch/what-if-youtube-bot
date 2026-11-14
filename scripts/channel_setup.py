@@ -285,9 +285,13 @@ def render_art(folder: Path, out_dir: Path) -> dict:
 # ─────────────────────────────────────────────
 
 def _plan_comment(folder: Path) -> str | None:
-    plan = Path(folder) / "cekim_plani.json"
-    if plan.exists():
-        return json.loads(plan.read_text(encoding="utf-8")).get("ilk_yorum")
+    """Belgeselin ilk yorum metni: cekim_plani.json, yoksa senaryo.json → "ilk_yorum"."""
+    for name in ("cekim_plani.json", "senaryo.json"):
+        path = Path(folder) / name
+        if path.exists():
+            text = json.loads(path.read_text(encoding="utf-8")).get("ilk_yorum")
+            if text:
+                return text
     return None
 
 
