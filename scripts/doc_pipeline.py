@@ -76,7 +76,8 @@ class Production:
 
     def layouts(self) -> list[doc_timeline.ChapterLayout]:
         audio = self.audio_manifest()
-        return [doc_timeline.layout_chapter(ch, [a["duration"] for a in audio[ci]])
+        tail = self.data.get("kurgu", {}).get("bolum_sonu")
+        return [doc_timeline.layout_chapter(ch, [a["duration"] for a in audio[ci]], tail=tail)
                 for ci, ch in enumerate(self.data["chapters"])]
 
     # ── aşamalar ─────────────────────────────
@@ -329,7 +330,8 @@ class Production:
         for ci, (ch, shots) in enumerate(zip(self.data["chapters"], self.chapter_shot_lists())):
             if only is not None and ci != only:
                 continue
-            fades = dict(fade_in=0.0 if ch.get("card") else 0.6)
+            fades = dict(fade_in=0.0 if ch.get("card") else 0.6,
+                         fade_out=self.data.get("kurgu", {}).get("bolum_karartma", 0.8))
             doc_render.render_chapter([doc_render.Shot(**s) for s in shots],
                                       str(self.path("chapters", f"c{ci:02d}.mp4")),
                                       look=look, **fades)

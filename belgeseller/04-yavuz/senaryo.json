@@ -44,7 +44,7 @@
   "use_speaker_boost": true
  },
  "pronunciations": {
-  "Mercidabık": "Merci-dâbık",
+  "Kahire": "Kâhire",
   "Bâbüzzüveyle": "Bâbüz-züveyle",
   "Gavri": "Gavrî",
   "Ridaniye": "Rîdâniye",
@@ -53,7 +53,9 @@
  "ilk_yorum": "Sizce Yavuz'un en büyük hamlesi hangisiydi: Çaldıran mı, Mercidabık mı, yoksa ordusuyla Sina Çölü'nü geçmesi mi? Yorumlarda tartışalım.\n\n🔔 Sıradaki belgesel: Kanuni Sultan Süleyman.",
  "kurgu": {
   "gecis": "cut",
-  "ton_esitle": 0.5
+  "ton_esitle": 0.5,
+  "bolum_sonu": 3.5,
+  "bolum_karartma": 2.0
  },
  "music_sources": {
   "gizem": {
@@ -3444,14 +3446,15 @@
      "text": "[gerilim] Gündüz güneş, gece soğuk. Kum fırtınaları yolları siliyor, atlar yoruluyordu. Kaynaklar, Selim'in bu yolculuğun bir kısmını atından inip askerleriyle birlikte yürüyerek geçtiğini anlatır. [duraksama 0.6] Rivayete göre ordu en zor anındayken çöle beklenmedik bir yağmur yağdı ve tozu bastırdı.",
      "shots": [
       {
-       "clip": "klipler/y21.mp4",
+       "clip": "klipler/y22.mp4",
        "transition": "dissolve"
       },
       {
-       "clip": "klipler/y22.mp4"
+       "clip": "klipler/y24.mp4"
       },
       {
-       "clip": "klipler/y24.mp4"
+       "clip": "klipler/y22.mp4",
+       "start": 7.0
       }
      ]
     },

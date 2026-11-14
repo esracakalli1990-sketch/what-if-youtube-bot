@@ -114,13 +114,15 @@ class ChapterLayout:
     total: float                 # bölüm süresi
 
 
-def layout_chapter(chapter: dict, durations: list[float]) -> ChapterLayout:
+def layout_chapter(chapter: dict, durations: list[float], tail: float | None = None) -> ChapterLayout:
+    """tail: bölüm sonu nefes payı (anlatım bittikten sonra görüntü + müzik); yoksa TAIL_SECONDS."""
     lead = CARD_SECONDS if chapter.get("card") else LEAD_SECONDS
     starts, t = [], lead
     for i, d in enumerate(durations):
         starts.append(round(t, 3))
         t += d + (PARAGRAPH_GAP if i < len(durations) - 1 else 0)
-    return ChapterLayout(lead=lead, para_starts=starts, total=round(t + TAIL_SECONDS, 3))
+    return ChapterLayout(lead=lead, para_starts=starts,
+                         total=round(t + (TAIL_SECONDS if tail is None else tail), 3))
 
 
 # ─────────────────────────────────────────────

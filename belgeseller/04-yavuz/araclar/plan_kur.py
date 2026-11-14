@@ -149,12 +149,12 @@ def main():
         ],
         "tts_model": ist.get("tts_model", "eleven_v4"),
         "voice_settings": ist["voice_settings"],
-        "pronunciations": {"Mercidabık": "Merci-dâbık", "Bâbüzzüveyle": "Bâbüz-züveyle",
+        "pronunciations": {"Kahire": "Kâhire", "Bâbüzzüveyle": "Bâbüz-züveyle",
                            "Gavri": "Gavrî", "Ridaniye": "Rîdâniye", "şirpençe": "şîr-pençe"},
         "ilk_yorum": ("Sizce Yavuz'un en büyük hamlesi hangisiydi: Çaldıran mı, Mercidabık mı, yoksa ordusuyla "
                       "Sina Çölü'nü geçmesi mi? Yorumlarda tartışalım.\n\n"
                       "🔔 Sıradaki belgesel: Kanuni Sultan Süleyman."),
-        "kurgu": {"gecis": "cut", "ton_esitle": 0.5},
+        "kurgu": {"gecis": "cut", "ton_esitle": 0.5, "bolum_sonu": 3.5, "bolum_karartma": 2.0},
         "music_sources": ist["music_sources"],
         "images": {"dunya": {"commons": "File:Whole world - land and oceans 12000.jpg", "original": True},
                    **{k: {"file": f"kareler/{k}.jpg", "credit": AI_CREDIT} for k in KARELER}},

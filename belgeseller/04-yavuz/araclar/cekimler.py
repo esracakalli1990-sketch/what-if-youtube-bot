@@ -80,7 +80,7 @@ SHOTS = {
     # ── VI · Çöl ──
     "6.0": [c("y20")],
     "6.1": [m("m_sina", "erit")],
-    "6.2": [c("y21", "erit"), c("y22"), c("y24")],
+    "6.2": [c("y22", "erit"), c("y24"), c("y22", start=7.0)],   # y21 çıkarıldı: askerler esir/köle gibi görünüyordu
     "6.3": [c("y23", "erit"), c("w20", "erit")],
     # ── VII · Ridaniye ve Kahire ──
     "7.0": [c("y25"), c("y27")],
