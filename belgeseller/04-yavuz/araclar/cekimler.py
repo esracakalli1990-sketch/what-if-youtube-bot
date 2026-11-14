@@ -80,14 +80,14 @@ SHOTS = {
     # ── VI · Çöl ──
     "6.0": [c("y20")],
     "6.1": [m("m_sina", "erit")],
-    "6.2": [c("y21", "erit"), c("y22"), c("y24")],
+    "6.2": [c("y22", "erit"), c("y24"), c("y22", start=7.0)],   # y21 çıkarıldı: askerler esir/köle gibi görünüyordu
     "6.3": [c("y23", "erit"), c("w20", "erit")],
     # ── VII · Ridaniye ve Kahire ──
     "7.0": [c("y25"), c("y27")],
     "7.1": [m("m_ridaniye", "erit")],
     "7.2": [c("y26", "erit"), c("w21"), c("w22", zoom=1.05), c("w23", "erit")],
     "7.3": [c("y28", "karart", start=1.5), c("y29", sfx=False)],
-    "7.4": [c("z17", "erit", zoom=1.08), c("y30", "erit")],
+    "7.4": [c("z17", "erit"), c("y30", "erit")],
     # ── VIII · Emanetler ──
     "8.0": [c("y31"), c("z18", "erit")],
     "8.1": [c("w24", "erit"), c("z19")],

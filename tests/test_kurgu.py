@@ -164,3 +164,9 @@ def test_zoom_crops_frame_border(tmp_path):
     a, b = plain.frame(0.5), zoomed.frame(0.5)
     plain.close(); zoomed.close()
     assert a[:20].mean() < 60 and b[:20].mean() > 200
+
+
+def test_layout_tail_override():
+    ch = {"title": "t", "paragraphs": [{"text": "a", "shots": []}]}
+    assert dt.layout_chapter(ch, [10.0]).total == round(dt.LEAD_SECONDS + 10 + dt.TAIL_SECONDS, 3)
+    assert dt.layout_chapter(ch, [10.0], tail=3.5).total == round(dt.LEAD_SECONDS + 13.5, 3)
