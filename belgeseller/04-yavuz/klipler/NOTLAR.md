@@ -65,7 +65,7 @@ Her klip 6 karelik temas sayfasıyla incelendi. "flip" = ekran yönü kuralı i�
 | z14 | 10.0 | ✅ | Ordu soldan sağa yürüyor; yeniçeriler, öküzlü top arabaları, develer. |
 | z15 | 10.0 | ✅ | Halep kalesi ve köprüsü, süvari çıkıyor. Çok iyi. |
 | z16 | 10.0 | ✅ zoom 1.08 | Emevî Camii avlusu. Kenarlarda yuvarlak koyu FİLM ÇERÇEVESİ var → 1,08 yakınlaştırmayla kırpıldı. |
-| z17 | 10.0 | ✅ zoom 1.08 | Çadırda Selim (k1) ve zırhlı Memlûk komutanı; zincir görünmüyor ama sahne işliyor. Aynı film çerçevesi → 1,08. |
+| z17 | 10.0 | ✅ (yeniden, Flow) | Çadırda oturan Selim (k1) ve zincirli ayakta Tomanbay (k4) — artık iki farklı kişi; kelepçe yakın planı var. |
 | z18 | 10.0 | ✅ | Selim Nil kıyısında gün batımı, yelkenliler, uzakta piramitler. |
 | z19 | 10.0 | ⚠️ (kullanılabilir) | Gümüş kutuda anahtarlar (ilk 5 sn çok iyi). Sonrasında genç adamın başlığı bugünkü Körfez tipi (agal'lı) — hafif dönem dışı. Süre kalırsa yeniden; yoksa olduğu gibi. |
 | z20 | 10.0 | ✅ | Çinili oda, yeşil örtülü sandık üstünde gümüş baldaken; insan yok. |

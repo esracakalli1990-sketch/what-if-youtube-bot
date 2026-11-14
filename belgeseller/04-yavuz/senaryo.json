@@ -3541,8 +3541,7 @@
      "shots": [
       {
        "clip": "klipler/z17.mp4",
-       "transition": "dissolve",
-       "zoom": 1.08
+       "transition": "dissolve"
       },
       {
        "clip": "klipler/y30.mp4",

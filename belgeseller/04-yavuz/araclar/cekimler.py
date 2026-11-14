@@ -87,7 +87,7 @@ SHOTS = {
     "7.1": [m("m_ridaniye", "erit")],
     "7.2": [c("y26", "erit"), c("w21"), c("w22", zoom=1.05), c("w23", "erit")],
     "7.3": [c("y28", "karart", start=1.5), c("y29", sfx=False)],
-    "7.4": [c("z17", "erit", zoom=1.08), c("y30", "erit")],
+    "7.4": [c("z17", "erit"), c("y30", "erit")],
     # ── VIII · Emanetler ──
     "8.0": [c("y31"), c("z18", "erit")],
     "8.1": [c("w24", "erit"), c("z19")],
