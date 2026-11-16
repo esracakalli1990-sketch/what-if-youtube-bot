@@ -15,6 +15,7 @@ name: Belgesel Üret
 #               YouTube kendisi yayınlar). Siz izleyip onaylamadan herkese açılmaz.
 #
 # Gerekli secrets: ELEVENLABS_API_KEY, TTS_VOICE_ID_TR (Türkçe ses),
+#   uyku belgeselleri için ELEVENLABS_API_KEY_UYKU, TTS_VOICE_ID_UYKU,
 #   YOUTUBE_CLIENT_SECRETS_B64, YOUTUBE_TOKEN_B64, TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID
 # İsteğe bağlı: DOC_PLAYLIST_ID (seri oynatma listesi)
 
@@ -52,8 +53,9 @@ jobs:
     # 35 dk video ≈ 2,5 saat render (2 çekirdek) + ses + yükleme
     timeout-minutes: 345
     env:
-      ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
-      TTS_VOICE_ID_TR: ${{ secrets.TTS_VOICE_ID_TR }}
+      # Uyku belgeselleri (klasör adında "uyku") ayrı ElevenLabs hesabı ve sesiyle seslendirilir
+      ELEVENLABS_API_KEY: ${{ contains(inputs.klasor, 'uyku') && secrets.ELEVENLABS_API_KEY_UYKU || secrets.ELEVENLABS_API_KEY }}
+      TTS_VOICE_ID_TR: ${{ contains(inputs.klasor, 'uyku') && secrets.TTS_VOICE_ID_UYKU || secrets.TTS_VOICE_ID_TR }}
       DOC_PLAYLIST_ID: ${{ secrets.DOC_PLAYLIST_ID }}
       PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
       TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
