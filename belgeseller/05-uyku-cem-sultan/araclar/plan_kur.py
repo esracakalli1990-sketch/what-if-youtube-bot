@@ -163,7 +163,7 @@ def main():
         "kurgu": {"gecis": "dissolve", "ton_esitle": 0.0, "bolum_sonu": 4.0, "bolum_karartma": 2.5},
         "music_sources": yavuz["music_sources"],
         "images": {"dunya": {"commons": "File:Whole world - land and oceans 12000.jpg", "original": True},
-                   **{k: {"file": f"gorseller/{k}.png", "credit": AI_CREDIT} for k in GORSELLER}},
+                   **{k: {"file": f"gorseller/{k}.jpg", "credit": AI_CREDIT} for k in GORSELLER}},
         "thumbnails": [
             {"sablon": "v2", "arka_plan": "kapak1", "arka_plan_kadraj": "50% 40%", "hale": "transparent",
              "line1": "13 yıl", "line2": "sürgün", "vurgu": "#FFC83D", "etiket": "Uyku Belgeseli"},
