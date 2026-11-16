@@ -1,0 +1,1789 @@
+{
+ "slug": "05-uyku-cem-sultan",
+ "title": "Kardeşine Yenilen Şehzade: Cem Sultan'ın 13 Yıllık Sürgünü | Uyku Belgeseli",
+ "description": "Işıkları kısın, rahatça uzanın. Bu gece Fatih Sultan Mehmed'in küçük oğlu Cem Sultan'ın hikâyesini dinliyoruz: Konya'daki şair şehzade, Bursa'daki on sekiz günlük saltanat, Kahire ve hac yolculuğu, Rodos şövalyeleri, Fransa'nın taş kuleleri, Roma ve Napoli'de geçen on üç yıllık sürgün.\n\nUykuya dalmanız için yavaş ve sakin bir anlatımla hazırlandı. Tartışmalı bilgiler anlatımda \"rivayete göre\" ya da \"kaynaklara göre\" diye belirtilmiştir.\n\nTarih Dosyaları belgeselleri: Yavuz Sultan Selim → https://youtu.be/J0DGI9Kqlqc · İstanbul'un Fethi → https://youtu.be/AI-RfRzQfos",
+ "tags": [
+  "cem sultan",
+  "uyku belgeseli",
+  "uyku için tarih",
+  "tarih uyku",
+  "osmanlı tarihi",
+  "fatih sultan mehmed",
+  "ii. bayezid",
+  "cem sultan sürgün",
+  "osmanlı şehzadeleri",
+  "uyku için belgesel",
+  "sesli tarih",
+  "türkçe belgesel",
+  "belgesel"
+ ],
+ "hashtags": [
+  "#CemSultan",
+  "#UykuBelgeseli",
+  "#OsmanlıTarihi",
+  "#Tarih"
+ ],
+ "ai_disclosure": "Bu belgeseldeki çizimler yapay zekâ ile üretilmiştir ve temsilidir.",
+ "sources": [
+  "TDV İslâm Ansiklopedisi: Cem Sultan, Bayezid II, Kayıtbay",
+  "Halil İnalcık, Osmanlı İmparatorluğu Klasik Çağ (1300–1600)",
+  "Halil İnalcık, \"A Case Study in Renaissance Diplomacy: The Agreement between Innocent VIII and Bayezid II on Djem Sultan\"",
+  "Nicolas Vatin, Sultan Djem: Un prince ottoman dans l'Europe du XVe siècle",
+  "Vâkıât-ı Sultan Cem"
+ ],
+ "tts_model": "eleven_v4",
+ "voice_settings": {
+  "stability": 0.65,
+  "similarity_boost": 0.8,
+  "style": 0.05,
+  "use_speaker_boost": true,
+  "speed": 0.9
+ },
+ "pronunciations": {
+  "d'Aubusson": "Dobüson",
+  "Bourganeuf": "Burganöf",
+  "Bourganeuf'te": "Burganöf'te",
+  "Sassenage": "Sasnaj",
+  "Innocentius": "İnnosentius",
+  "Nice'e": "Nis'e",
+  "Charles": "Şarl",
+  "Philippine-Hélène": "Filipin-Elen",
+  "Saint-Jean": "Sen-Jan"
+ },
+ "ilk_yorum": "Cem Sultan sizce Kudüs teklifini kabul etmeli miydi? Yorumlarda konuşalım.\n\n🌙 Uyku belgeselleri oynatma listemizde başka hikâyeler de var. İyi geceler.",
+ "kurgu": {
+  "gecis": "dissolve",
+  "ton_esitle": 0.0,
+  "bolum_sonu": 4.0,
+  "bolum_karartma": 2.5
+ },
+ "music_sources": {
+  "gizem": {
+   "commons": "File:Heart of Nowhere (MacLeod, Kevin) (ISRC USUAN1400045).oga"
+  },
+  "agir": {
+   "commons": "File:Earth Prelude (MacLeod, Kevin) (ISRC USUAN1100247).oga"
+  },
+  "karanlik": {
+   "commons": "File:Kevin MacLeod - Ritual.ogg"
+  },
+  "huzun": {
+   "commons": "File:Kevin MacLeod - 06 - Impact Lento.ogg"
+  },
+  "tapinak": {
+   "commons": "File:Kevin MacLeod - Temple of the Manes.ogg"
+  },
+  "ses": {
+   "commons": "File:The Voices (MacLeod, Kevin) (ISRC USUAN1100046).oga"
+  },
+  "isik": {
+   "commons": "File:Kevin MacLeod - Bathed in the Light.ogg"
+  },
+  "derin": {
+   "commons": "File:Kevin MacLeod - Silver Blue Light.ogg"
+  }
+ },
+ "images": {
+  "dunya": {
+   "commons": "File:Whole world - land and oceans 12000.jpg",
+   "original": true
+  },
+  "g01": {
+   "file": "gorseller/g01.png",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g02": {
+   "file": "gorseller/g02.png",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g03": {
+   "file": "gorseller/g03.png",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g04": {
+   "file": "gorseller/g04.png",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g05": {
+   "file": "gorseller/g05.png",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g06": {
+   "file": "gorseller/g06.png",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g07": {
+   "file": "gorseller/g07.png",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g08": {
+   "file": "gorseller/g08.png",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g09": {
+   "file": "gorseller/g09.png",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g10": {
+   "file": "gorseller/g10.png",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g11": {
+   "file": "gorseller/g11.png",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g12": {
+   "file": "gorseller/g12.png",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g13": {
+   "file": "gorseller/g13.png",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g14": {
+   "file": "gorseller/g14.png",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g15": {
+   "file": "gorseller/g15.png",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g16": {
+   "file": "gorseller/g16.png",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g17": {
+   "file": "gorseller/g17.png",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g18": {
+   "file": "gorseller/g18.png",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g19": {
+   "file": "gorseller/g19.png",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g20": {
+   "file": "gorseller/g20.png",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g21": {
+   "file": "gorseller/g21.png",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g22": {
+   "file": "gorseller/g22.png",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g23": {
+   "file": "gorseller/g23.png",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g24": {
+   "file": "gorseller/g24.png",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g25": {
+   "file": "gorseller/g25.png",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g26": {
+   "file": "gorseller/g26.png",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g27": {
+   "file": "gorseller/g27.png",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g28": {
+   "file": "gorseller/g28.png",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g29": {
+   "file": "gorseller/g29.png",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g30": {
+   "file": "gorseller/g30.png",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g31": {
+   "file": "gorseller/g31.png",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g32": {
+   "file": "gorseller/g32.png",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g33": {
+   "file": "gorseller/g33.png",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g34": {
+   "file": "gorseller/g34.png",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g35": {
+   "file": "gorseller/g35.png",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g36": {
+   "file": "gorseller/g36.png",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g37": {
+   "file": "gorseller/g37.png",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g38": {
+   "file": "gorseller/g38.png",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g39": {
+   "file": "gorseller/g39.png",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g40": {
+   "file": "gorseller/g40.png",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g41": {
+   "file": "gorseller/g41.png",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g42": {
+   "file": "gorseller/g42.png",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g43": {
+   "file": "gorseller/g43.png",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g44": {
+   "file": "gorseller/g44.png",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g45": {
+   "file": "gorseller/g45.png",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g46": {
+   "file": "gorseller/g46.png",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "kapak1": {
+   "file": "gorseller/kapak1.png",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "kapak2": {
+   "file": "gorseller/kapak2.png",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  }
+ },
+ "thumbnails": [
+  {
+   "sablon": "v2",
+   "arka_plan": "kapak1",
+   "arka_plan_kadraj": "50% 40%",
+   "hale": "transparent",
+   "line1": "13 yıl",
+   "line2": "sürgün",
+   "vurgu": "#FFC83D",
+   "etiket": "Uyku Belgeseli"
+  },
+  {
+   "sablon": "v2",
+   "arka_plan": "kapak2",
+   "arka_plan_kadraj": "50% 40%",
+   "hale": "transparent",
+   "line1": "Tahtı",
+   "line2": "kaybetti",
+   "vurgu": "#FFC83D",
+   "etiket": "Uyku Belgeseli"
+  }
+ ],
+ "stock": {},
+ "films": {},
+ "maps": {
+  "m_surgun": {
+   "taban": "dunya",
+   "bounds": {
+    "west": 0.5,
+    "east": 40.5,
+    "south": 25.25,
+    "north": 47.75
+   },
+   "durationSec": 24,
+   "title": "Cem Sultan'ın Yolculuğu",
+   "subtitle": "1481–1499",
+   "routes": [
+    {
+     "points": [
+      [
+       29.06,
+       40.18
+      ],
+      [
+       32.49,
+       37.87
+      ],
+      [
+       37.16,
+       36.2
+      ],
+      [
+       36.29,
+       33.51
+      ],
+      [
+       31.24,
+       30.04
+      ]
+     ],
+     "color": "#c99a2e",
+     "start": 1.0,
+     "duration": 5.0,
+     "label": "1481",
+     "dashed": true
+    },
+    {
+     "points": [
+      [
+       31.24,
+       30.04
+      ],
+      [
+       33.5,
+       33.0
+      ],
+      [
+       32.49,
+       37.87
+      ],
+      [
+       33.0,
+       36.3
+      ],
+      [
+       28.22,
+       36.44
+      ]
+     ],
+     "color": "#c99a2e",
+     "start": 6.5,
+     "duration": 3.5,
+     "label": "1482",
+     "dashed": true
+    },
+    {
+     "points": [
+      [
+       28.22,
+       36.44
+      ],
+      [
+       20.0,
+       36.0
+      ],
+      [
+       12.0,
+       38.5
+      ],
+      [
+       8.5,
+       42.0
+      ],
+      [
+       7.26,
+       43.7
+      ]
+     ],
+     "color": "#c99a2e",
+     "start": 10.5,
+     "duration": 3.5,
+     "label": "",
+     "dashed": true
+    },
+    {
+     "points": [
+      [
+       7.26,
+       43.7
+      ],
+      [
+       5.0,
+       45.0
+      ],
+      [
+       1.76,
+       45.95
+      ]
+     ],
+     "color": "#c99a2e",
+     "start": 14.2,
+     "duration": 2.0,
+     "label": "",
+     "dashed": true
+    },
+    {
+     "points": [
+      [
+       1.76,
+       45.95
+      ],
+      [
+       6.0,
+       44.5
+      ],
+      [
+       10.0,
+       43.0
+      ],
+      [
+       12.5,
+       41.9
+      ]
+     ],
+     "color": "#c99a2e",
+     "start": 16.5,
+     "duration": 2.5,
+     "label": "1489",
+     "dashed": true
+    },
+    {
+     "points": [
+      [
+       12.5,
+       41.9
+      ],
+      [
+       14.27,
+       40.85
+      ]
+     ],
+     "color": "#c99a2e",
+     "start": 19.3,
+     "duration": 1.2,
+     "label": "1495",
+     "dashed": true
+    }
+   ],
+   "cities": [
+    {
+     "at": [
+      29.06,
+      40.18
+     ],
+     "label": "Bursa",
+     "start": 0.5,
+     "major": true,
+     "side": "right"
+    },
+    {
+     "at": [
+      32.49,
+      37.87
+     ],
+     "label": "Konya",
+     "start": 1.6
+    },
+    {
+     "at": [
+      37.16,
+      36.2
+     ],
+     "label": "Halep",
+     "start": 3.2
+    },
+    {
+     "at": [
+      36.29,
+      33.51
+     ],
+     "label": "Şam",
+     "start": 4.2,
+     "side": "right"
+    },
+    {
+     "at": [
+      31.24,
+      30.04
+     ],
+     "label": "Kahire",
+     "start": 5.6,
+     "major": true,
+     "side": "left"
+    },
+    {
+     "at": [
+      28.22,
+      36.44
+     ],
+     "label": "Rodos",
+     "start": 9.8,
+     "side": "left"
+    },
+    {
+     "at": [
+      7.26,
+      43.7
+     ],
+     "label": "Nice",
+     "start": 13.8,
+     "side": "left"
+    },
+    {
+     "at": [
+      1.76,
+      45.95
+     ],
+     "label": "Bourganeuf",
+     "start": 15.8,
+     "side": "right"
+    },
+    {
+     "at": [
+      12.5,
+      41.9
+     ],
+     "label": "Roma",
+     "start": 18.6,
+     "major": true,
+     "side": "left"
+    },
+    {
+     "at": [
+      14.27,
+      40.85
+     ],
+     "label": "Napoli",
+     "start": 20.3,
+     "side": "right"
+    }
+   ],
+   "labels": [
+    {
+     "at": [
+      18.0,
+      34.0
+     ],
+     "text": "Akdeniz",
+     "start": 0.4,
+     "kind": "sea"
+    }
+   ],
+   "years": [
+    {
+     "t": 0.5,
+     "text": "1481"
+    },
+    {
+     "t": 6.5,
+     "text": "1482"
+    },
+    {
+     "t": 16.5,
+     "text": "1489"
+    },
+    {
+     "t": 19.3,
+     "text": "1495"
+    }
+   ],
+   "note": "Güzergâh temsilidir",
+   "camera": [
+    {
+     "t": 0,
+     "center": [
+      33.0,
+      35.5
+     ],
+     "zoom": 1.6
+    },
+    {
+     "t": 9.0,
+     "center": [
+      20.5,
+      37.0
+     ],
+     "zoom": 1.0
+    }
+   ]
+  }
+ },
+ "chapters": [
+  {
+   "title": "Giriş",
+   "paragraphs": [
+    {
+     "text": "[sakin] Işıkları biraz kısın. Rahatça uzanın, yorganınızı çekin. Bu gece sizi beş yüz yıl öncesine, bir şehzadenin uzun ve sessiz yolculuğuna götüreceğiz. [duraksama 1.5] Acele etmeyeceğiz. Hikâye yavaş yavaş akacak; siz de dilediğiniz yerde gözlerinizi kapatabilirsiniz.",
+     "shots": [
+      {
+       "image": "g01",
+       "move": "in",
+       "transition": "dissolve",
+       "xfade": 2.5
+      },
+      {
+       "image": "g02",
+       "move": "left",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Bu, bir tahtı kaybeden ve hayatının geri kalanını yabancı ülkelerde geçiren bir adamın hikâyesi. Adı Cem'di. Şair bir şehzadeydi. Mısır'ın sıcak çölünü, Rodos'un sarı taşlı kalesini, Fransa'nın soğuk kulelerini ve Roma'nın sarayını gördü. [duraksama 1.0] Ve yıllar boyunca, hep aynı şeyi özledi: evini.",
+     "shots": [
+      {
+       "image": "g03",
+       "move": "out",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Hikâyemiz on beşinci yüzyılın ikinci yarısında geçiyor. Osmanlı Devleti, İstanbul'un fethinden sonra hızla büyüyen genç bir imparatorluk. Avrupa'da ise Rönesans başlıyor; ressamlar, mimarlar ve şairler yeni bir dünyanın kapısını aralıyor. [duraksama 1.0] Cem Sultan, bu iki dünyanın arasında, ikisine de tam olarak ait olamadan yaşadı. Şimdi en başa, onun doğduğu güne dönelim.",
+     "shots": [
+      {
+       "image": "g02",
+       "move": "right",
+       "transition": "dissolve",
+       "xfade": 2.5
+      },
+      {
+       "image": "g33",
+       "move": "in",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    }
+   ],
+   "music": "derin"
+  },
+  {
+   "title": "Fatih'in Küçük Oğlu",
+   "paragraphs": [
+    {
+     "text": "[sakin] Cem, bin dört yüz elli dokuz yılının Aralık ayında, karlı bir kış gününde Edirne'de dünyaya geldi. Babası, altı yıl önce İstanbul'u fethetmiş olan Sultan İkinci Mehmed'di; tarihin Fatih diye andığı padişah. Annesi Çiçek Hatun'du. Sarayın kalın duvarlarının ardında, ocakların sıcaklığında büyüdü.",
+     "shots": [
+      {
+       "image": "g04",
+       "move": "left",
+       "transition": "dissolve",
+       "xfade": 2.5
+      },
+      {
+       "image": "g05",
+       "move": "out",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "O yıllarda Edirne, imparatorluğun en sevilen şehirlerinden biriydi. Tunca ve Meriç nehirlerinin kıyısında, geniş bahçelerin ortasında yeni bir saray yükseliyordu. İstanbul henüz yeniden imar ediliyordu; padişahın gönlü ise hâlâ Edirne'nin yeşil çayırlarındaydı. [duraksama 1.0] Küçük Cem'in ilk hatıraları, belki de bu saray bahçelerinin serin gölgeleriydi.",
+     "shots": [
+      {
+       "image": "g04",
+       "move": "right",
+       "transition": "dissolve",
+       "xfade": 2.5
+      },
+      {
+       "image": "g05",
+       "move": "in",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Osmanlı sarayında şehzadeler erken yaşta eğitime başlardı. Cem de hocalarından Arapça ve Farsça öğrendi, tarih okudu, şiir ezberledi. Ok atmayı, ata binmeyi, kılıç kullanmayı da öğrendi. Ama onu en çok kelimeler büyülüyordu. [duraksama 1.0] Sessiz saatlerde, kâğıdın üzerine eğilir, aklındaki dizeleri yazmaya çalışırdı.",
+     "shots": [
+      {
+       "image": "g06",
+       "move": "left",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Kaynaklar, Fatih'in küçük oğluna ayrı bir sevgi beslediğini anlatır. Cem zeki, hazırcevap ve yakışıklı bir çocuktu. Babası gibi o da kitapları seviyordu. [duraksama 1.0] Fatih'in sarayına Doğu'dan ve Batı'dan âlimler, ressamlar gelirdi. Cem, çocukluğunu bu renkli dünyanın içinde, farklı dillerin ve farklı fikirlerin arasında geçirdi.",
+     "shots": [
+      {
+       "image": "g06",
+       "move": "out",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Fatih'in son yıllarında, Venedik'ten ünlü bir ressam İstanbul'a geldi ve padişahın portresini yaptı. Sarayın duvarlarında Doğu'nun minyatürleri ile Batı'nın tabloları yan yana duruyordu. [duraksama 1.0] Cem bu iki dünyayı da gördü. Belki de yıllar sonra Avrupa'nın şatolarında yaşarken, babasının sarayında gördüğü o yabancı yüzleri hatırladı.",
+     "shots": [
+      {
+       "image": "g09",
+       "move": "right",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Henüz çocukken önce Kastamonu'ya, sonra da büyük ağabeyi Mustafa'nın ölümünün ardından Konya'ya, Karaman diyarına sancakbeyi olarak gönderildi. Konya, Mevlânâ'nın şehriydi; şairlerin, âlimlerin, dervişlerin şehri. Cem burada gençliğinin en huzurlu yıllarını geçirdi. Sarayının avlusunda şairler toplanır, akşamları şiirler okunurdu.",
+     "shots": [
+      {
+       "image": "g07",
+       "move": "in",
+       "transition": "dissolve",
+       "xfade": 2.5
+      },
+      {
+       "image": "g08",
+       "move": "left",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Konya'nın bahçeleri ilkbaharda çiçek açar, yazın meyveyle dolardı. Şehrin kubbeleri, Selçuklulardan kalma medreseleri, çinileri, sabahları yükselen ezan sesleri genç şehzadenin şiirlerine karıştı. [duraksama 1.0] Cem burada sadece bir şair olarak değil, bir yönetici olarak da yetişti. Divanda oturdu, şikâyetleri dinledi, kararlar verdi. Babası gibi bir gün büyük bir devleti yönetmeyi hayal ediyordu.",
+     "shots": [
+      {
+       "image": "g08",
+       "move": "out",
+       "transition": "dissolve",
+       "xfade": 2.5
+      },
+      {
+       "image": "g07",
+       "move": "right",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "[merak] Cem, Türkçe şiirleriyle tanındı. Bir divan bıraktı. Farsça yazılmış \"Cemşid ü Hurşid\" adlı uzun bir aşk hikâyesini Türkçeye uyarladı ve kitabı babasına sundu. [duraksama 1.0] Kaynaklara göre Fatih, oğlunun bu hevesine sevinmişti. Ama sarayda herkes biliyordu: Bir gün iki kardeşten yalnızca biri tahta oturacaktı.",
+     "shots": [
+      {
+       "image": "g09",
+       "move": "in",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Cem'in on iki yaş büyük ağabeyi Bayezid, Amasya'da sancakbeyiydi. Sakin, dindar, ölçülü bir adamdı. Cem ise genç, parlak ve hırslıydı. İki kardeş birbirinden yüzlerce kilometre uzakta yaşıyor, aralarındaki mesafe sanki her yıl biraz daha büyüyordu.",
+     "shots": [
+      {
+       "image": "g10",
+       "move": "left",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Osmanlı'da tahtın kime geçeceğine dair yazılı bir kural yoktu. Padişah öldüğünde, şehzadelerden hangisi önce başkente ulaşır, orduyu ve devlet adamlarını yanına alırsa, tahta o otururdu. [duraksama 1.0] Bu yüzden şehzadelerin başkente uzaklığı çok önemliydi. Amasya da, Konya da İstanbul'a günlerce uzaktaydı. Kimin önce varacağını, belki de bir ulağın atının ne kadar hızlı koştuğu belirleyecekti.",
+     "shots": [
+      {
+       "image": "g10",
+       "move": "out",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    }
+   ],
+   "card": {
+    "kicker": "BÖLÜM I",
+    "date": "1459–1481 · Edirne, Konya",
+    "image": "g07"
+   },
+   "music": "isik"
+  },
+  {
+   "title": "Bir Bahar Sabahı Gelen Haber",
+   "paragraphs": [
+    {
+     "text": "[sakin] Bin dört yüz seksen bir yılının baharında, Fatih Sultan Mehmed büyük bir ordunun başında yeniden sefere çıkmıştı. Ordunun nereye gittiğini kimse tam bilmiyordu. Gebze yakınlarında, Hünkâr Çayırı denen yerde ordugâh kuruldu. [duraksama 1.0] Ve üç Mayıs günü, elli yaşına bile gelmemiş olan padişah, otağında hayata gözlerini yumdu.",
+     "shots": [
+      {
+       "image": "g11",
+       "move": "right",
+       "transition": "dissolve",
+       "xfade": 2.5
+      },
+      {
+       "image": "g12",
+       "move": "in",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Sultanın ölümü bir süre gizli tutuldu. Sonra iki ulak yola çıktı. Biri Amasya'ya, Bayezid'e gidiyordu. Diğeri Konya'ya, Cem'e. [duraksama 1.0] Kaynaklara göre Cem'e giden ulak yolda yakalandı. Bayezid'in yolu ise açıktı.",
+     "shots": [
+      {
+       "image": "g13",
+       "move": "left",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Sadrazam Karamânî Mehmed Paşa'nın Cem'i tuttuğu söylenir. Kaynaklara göre Fatih'in ölümünü gizlemeye çalıştı ve haberi önce Cem'e ulaştırmak istedi. Ama sır uzun süre saklanamadı. [duraksama 1.0] Yeniçeriler durumu öğrenince öfkelendi; sadrazam bu karışıklık içinde hayatını kaybetti. İstanbul, birkaç gün boyunca sahipsiz kaldı.",
+     "shots": [
+      {
+       "image": "g12",
+       "move": "out",
+       "transition": "dissolve",
+       "xfade": 2.5
+      },
+      {
+       "image": "g13",
+       "move": "right",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Amasya'da haberi alan Bayezid hiç vakit kaybetmedi. Az sayıda adamıyla birlikte yola koyuldu. Kaynaklara göre Anadolu'yu boydan boya geçen bu yolculuğu yalnızca birkaç günde tamamladı. Gece gündüz at sürdüler, yalnızca atları değiştirmek için durdular. [duraksama 1.0] Üsküdar'a vardığında, karşı kıyıda onu bekleyen bir şehir ve bir taht vardı.",
+     "shots": [
+      {
+       "image": "g10",
+       "move": "in",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "İstanbul'da yeniçeriler ayaklanmıştı. Bayezid'in tahta çıkmasını istiyorlardı. Bayezid haberi alır almaz yola koyuldu ve kardeşinden önce başkente ulaştı. Mayıs ayının sonunda Sultan İkinci Bayezid olarak tahta oturdu. [duraksama 1.5] Cem haberi aldığında, artık her şey olup bitmişti.",
+     "shots": [
+      {
+       "image": "g14",
+       "move": "left",
+       "transition": "dissolve",
+       "xfade": 2.5
+      },
+      {
+       "image": "g15",
+       "move": "out",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "[hüzün] Babasının ölüm haberi Konya'ya ulaştığında, Cem için bu hem bir yas hem de büyük bir kırılmaydı. Bir yanda babasını kaybetmişti. Öte yanda, hayatı boyunca hazırlandığı gelecek bir anda elinden kayıp gitmişti. [duraksama 1.5] Kaynaklar onun birkaç gün boyunca ne yapacağını düşündüğünü anlatır. Sonra kararını verdi.",
+     "shots": [
+      {
+       "image": "g08",
+       "move": "right",
+       "transition": "dissolve",
+       "xfade": 2.5
+      },
+      {
+       "image": "g07",
+       "move": "in",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    }
+   ],
+   "card": {
+    "kicker": "BÖLÜM II",
+    "date": "Mayıs 1481 · Gebze, İstanbul",
+    "image": "g11"
+   },
+   "music": "huzun"
+  },
+  {
+   "title": "Bursa'da On Sekiz Gün",
+   "paragraphs": [
+    {
+     "text": "[sakin] Ama Cem pes etmedi. Askerlerini toplayıp Konya'dan kuzeye yürüdü ve Osmanlı'nın eski başkenti Bursa'ya girdi. Şehir ona kapılarını açtı. Cuma hutbesi onun adına okundu, onun adına sikke basıldı. [merak] Cem, Bursa'da padişah olarak ilan edildi.",
+     "shots": [
+      {
+       "image": "g16",
+       "move": "left",
+       "transition": "dissolve",
+       "xfade": 2.5
+      },
+      {
+       "image": "g02",
+       "move": "out",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Bursa, Osmanlı'nın ilk başkentiydi. Uludağ'ın eteklerine yaslanmış, ipek çarşıları, sıcak su kaynakları ve yeşil bahçeleriyle ünlü bir şehirdi. Osman Gazi'nin, Orhan Gazi'nin ve daha nice sultanın türbesi buradaydı. [duraksama 1.0] Cem, atalarının yattığı bu şehirde kendini evinde hissetti. Belki de bir süreliğine, her şeyin yoluna gireceğine inandı.",
+     "shots": [
+      {
+       "image": "g02",
+       "move": "right",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Bursa'daki o kısa günlerde Cem, bir padişah gibi yaşadı. Divan kurdu, emirler verdi, adamlarına görevler dağıttı. Ama içten içe, ağabeyinin ordusunun yaklaştığını biliyordu. [duraksama 1.0] Geceleri sarayın pencerelerinden şehrin ışıklarını izlerken, kardeşine yazacağı mektubun kelimelerini düşündü.",
+     "shots": [
+      {
+       "image": "g17",
+       "move": "in",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Cem, ağabeyine bir mektup yazdı. Kaynaklara göre teklifi şuydu: İmparatorluğu ikiye bölelim. Rumeli senin olsun, Anadolu benim. [duraksama 1.0] Bayezid bu teklifi kabul etmedi. Rivayete göre verdiği cevap kısaydı: Padişahlar arasında akrabalık olmaz. Bir ülkenin iki sultanı olamazdı.",
+     "shots": [
+      {
+       "image": "g17",
+       "move": "left",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Cem'in Bursa'daki saltanatı yalnızca on sekiz gün sürdü. Haziran ayında, Yenişehir ovasında iki kardeşin ordusu karşı karşıya geldi. Bayezid'in ordusu daha kalabalık ve daha tecrübeliydi. [duraksama 1.0] Akşam olduğunda Cem'in ordusu dağılmıştı. Genç şehzade birkaç sadık adamıyla birlikte güneye doğru yola çıktı.",
+     "shots": [
+      {
+       "image": "g18",
+       "move": "out",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "[hüzün] O gece Cem, yanında kalan birkaç adamıyla birlikte dağ yollarında ilerledi. Arkasında Bursa'nın ışıkları gittikçe küçülüyordu. [duraksama 1.5] Henüz yirmi bir yaşındaydı. Ve o gece, bir daha hiç göremeyeceği bir memleketten ilk kez ayrılıyordu.",
+     "shots": [
+      {
+       "image": "g18",
+       "move": "right",
+       "transition": "dissolve",
+       "xfade": 2.5
+      },
+      {
+       "image": "g23",
+       "move": "in",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    }
+   ],
+   "card": {
+    "kicker": "BÖLÜM III",
+    "date": "Haziran 1481 · Bursa, Yenişehir",
+    "image": "g02"
+   },
+   "music": "derin"
+  },
+  {
+   "title": "Çöl ve Kâbe",
+   "paragraphs": [
+    {
+     "text": "[sakin] Cem'in yolculuğu böyle başladı. Önce Konya'ya döndü, sonra Toroslar'ı aşıp Halep'e, oradan Şam'a ve sonunda Kahire'ye vardı. Mısır'da o yıllarda Memlûk Sultanı Kayıtbay hüküm sürüyordu. Kayıtbay sürgündeki şehzadeyi büyük bir saygıyla karşıladı.",
+     "shots": [
+      {
+       "map": "m_surgun",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Kahire o zamanlar dünyanın en büyük şehirlerinden biriydi. Dar sokaklarında çarşılar, medreseler, sebiller vardı. Cem burada annesi ve ailesiyle yeniden bir araya geldi. Birkaç ay boyunca, belki hayatının son huzurlu günlerini yaşadı.",
+     "shots": [
+      {
+       "image": "g19",
+       "move": "left",
+       "transition": "dissolve",
+       "xfade": 2.5
+      },
+      {
+       "image": "g20",
+       "move": "out",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Kahire'nin akşamları serindi. Nil'in kıyısında yelkenliler süzülür, minarelerden ezan sesleri yükselirdi. Çarşılarda baharat, kumaş ve kitap satılırdı. [duraksama 1.0] Cem bu şehirde âlimlerle sohbet etti, camileri gezdi, şiirler yazdı. Kayıtbay ona saray gibi bir konak ayırmıştı. Ama Cem'in aklı, hep kuzeyde, kaybettiği topraklardaydı.",
+     "shots": [
+      {
+       "image": "g19",
+       "move": "right",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "[hüzün] Cem'in annesi Çiçek Hatun da oğlunun yanına, Kahire'ye gelmişti. Ana oğul, sürgünde birkaç ay birlikte yaşadı. [duraksama 1.0] Cem Kahire'den ayrıldığında, annesi bu şehirde kaldı. Ve kaynaklara göre, ana oğul bir daha hiç görüşemedi. Çiçek Hatun, oğlundan birkaç yıl sonra Kahire'de hayata gözlerini yumdu.",
+     "shots": [
+      {
+       "image": "g05",
+       "move": "in",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Bin dört yüz seksen iki yılında Cem, hac kervanına katıldı. Haftalar süren bir çöl yolculuğunun sonunda Mekke'ye ulaştı ve haccını yerine getirdi. [merak] Kaynaklar onu, hacca giden tek Osmanlı şehzadesi olarak anar. [duraksama 1.5] Kâbe'nin önünde neler düşündüğünü bilmiyoruz. Ama döndüğünde, kararını vermişti: Tahtı yeniden denemek istiyordu.",
+     "shots": [
+      {
+       "image": "g21",
+       "move": "left",
+       "transition": "dissolve",
+       "xfade": 2.5
+      },
+      {
+       "image": "g22",
+       "move": "out",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Hac yolculuğu o çağda kolay bir yolculuk değildi. Kervanlar geceleri yol alır, gündüzleri sıcaktan korunmak için mola verirdi. Develerin boyunlarındaki çanlar, kumun üzerindeki sessiz adımlar, gökyüzünü dolduran sayısız yıldız. [duraksama 1.5] Cem bu gecelerde ne düşündü, bilmiyoruz. Ama belki de ilk kez, kaderin onu nereye götüreceğini merak ediyordu.",
+     "shots": [
+      {
+       "image": "g21",
+       "move": "right",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Karamanoğlu Kasım Bey ile birlikte Anadolu'ya döndü. Ama bu deneme de başarısız oldu. Konya'yı alamadı, destekçileri dağıldı. [hüzün] Bayezid'in ona bir teklifi vardı: Kudüs'e yerleş, sana her yıl gelir gönderelim. Cem bunu kabul etmedi. Ve hayatının en büyük kararını verdi.",
+     "shots": [
+      {
+       "image": "g23",
+       "move": "in",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "[merak] Cem'in bu kararı, tarihçileri yüzyıllardır düşündürür. Neden Kudüs'teki sakin bir hayatı reddetti? Belki gururu buna izin vermedi. Belki hâlâ tahtı geri alabileceğine inanıyordu. [duraksama 1.0] Belki de sadece genç ve sabırsızdı. Hangisi olursa olsun, bu karar onu evinden her zamankinden daha uzağa götürecekti.",
+     "shots": [
+      {
+       "image": "g24",
+       "move": "left",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    }
+   ],
+   "card": {
+    "kicker": "BÖLÜM IV",
+    "date": "1481–1482 · Kahire, Mekke",
+    "image": "g19"
+   },
+   "music": "gizem"
+  },
+  {
+   "title": "Rodos'un Şövalyeleri",
+   "paragraphs": [
+    {
+     "text": "[sakin] Cem, Akdeniz'deki Rodos adasının hâkimleri olan Saint-Jean şövalyelerine haber gönderdi. Onlardan yardım istedi. Şövalyeler, Osmanlı'nın düşmanıydı; yalnızca iki yıl önce Fatih'in ordusu adalarını kuşatmıştı. Ama Cem, onların gemileriyle Avrupa'ya geçip oradan Rumeli'ye dönebileceğini umuyordu.",
+     "shots": [
+      {
+       "image": "g24",
+       "move": "out",
+       "transition": "dissolve",
+       "xfade": 2.5
+      },
+      {
+       "image": "g03",
+       "move": "right",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Temmuz ayında Rodos limanına ulaştı. Şövalyeler onu törenle karşıladılar. Büyük Üstat Pierre d'Aubusson, genç şehzadeye ziyafetler verdi. [duraksama 1.0] Ama Cem bilmiyordu: Bu sıcak karşılama, aslında bir kafesin kapısıydı.",
+     "shots": [
+      {
+       "image": "g25",
+       "move": "in",
+       "transition": "dissolve",
+       "xfade": 2.5
+      },
+      {
+       "image": "g26",
+       "move": "left",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Rodos, Ege'nin güneyinde, sarı taşlardan yapılmış güçlü surları olan bir adaydı. Saint-Jean şövalyeleri buraya yaklaşık iki yüz yıl önce yerleşmişti. Adanın dar sokaklarında şövalyelerin konakları sıralanır, limanda Akdeniz'in dört bir yanından gelen gemiler demir atardı. [duraksama 1.0] Cem birkaç hafta boyunca bu şehirde dolaştı, ziyafetlere katıldı, denize bakan pencerelerden ufku izledi.",
+     "shots": [
+      {
+       "image": "g25",
+       "move": "out",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "[hüzün] Şövalyeler çok geçmeden Bayezid'le anlaştılar. Kaynaklara göre Bayezid, Cem'i yanlarında tuttukları sürece onlara her yıl kırk bin altından fazla para ödemeyi kabul etti. Cem artık bir misafir değil, değerli bir rehineydi.",
+     "shots": [
+      {
+       "image": "g27",
+       "move": "right",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Bu anlaşma, Avrupa'nın sarayları için de büyük bir fırsattı. Elinde Osmanlı padişahının kardeşini tutan, padişaha karşı güçlü bir koz tutmuş olurdu. [duraksama 1.0] Şövalyeler bunu çok iyi biliyorlardı. Cem'i değerli bir hazine gibi koruyacak, ama asla serbest bırakmayacaklardı. [duraksama 1.5] Birkaç hafta sonra, onu Fransa'ya götürecek bir gemiye bindirdiler.",
+     "shots": [
+      {
+       "image": "g26",
+       "move": "in",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "[hüzün] Cem, Rodos'tan ayrılırken bu yolculuğun bu kadar uzun süreceğini bilmiyordu. Kendisine Macaristan'a götürüleceği, oradan bir orduyla memleketine döneceği söylenmişti. [duraksama 1.0] Gemi batıya doğru açıldıkça, Anadolu'nun kıyıları ufukta kayboldu. Bir daha o kıyıları hiç göremeyecekti.",
+     "shots": [
+      {
+       "image": "g27",
+       "move": "left",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    }
+   ],
+   "card": {
+    "kicker": "BÖLÜM V",
+    "date": "Temmuz 1482 · Rodos",
+    "image": "g25"
+   },
+   "music": "huzun"
+  },
+  {
+   "title": "Fransa'nın Taş Kuleleri",
+   "paragraphs": [
+    {
+     "text": "[sakin] Cem, bin dört yüz seksen iki yılının sonbaharında Nice'e indi. Ona burada bir süre kalacağı, sonra yoluna devam edeceği söylendi. Ama yol hiç açılmadı. Sonraki yedi yıl boyunca bir şatodan diğerine taşındı. Her seferinde daha uzak, her seferinde daha yüksek duvarlar.",
+     "shots": [
+      {
+       "image": "g28",
+       "move": "out",
+       "transition": "dissolve",
+       "xfade": 2.5
+      },
+      {
+       "image": "g29",
+       "move": "right",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Avrupa'nın kralları bu yıllarda Cem için birbirleriyle yarışıyordu. Macaristan Kralı onu istiyordu, Napoli Kralı onu istiyordu. Mısır'daki Kayıtbay bile onu geri almak için elçiler gönderdi. [duraksama 1.0] Herkes, bu genç şehzadenin elindeki en değerli koz olduğunu biliyordu. Cem ise bu pazarlıkların ortasında, yalnızca bekliyordu.",
+     "shots": [
+      {
+       "image": "g29",
+       "move": "in",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Fransız köylüleri onu merakla izlerdi. Uzun kaftanlı, sarıklı, hüzünlü bakışlı yabancı şehzade, yerel halk arasında bir efsane gibiydi. Ona \"Zizim\" diyorlardı. [duraksama 1.0] Cem'in yanında birkaç sadık adamı kalmıştı. Onlarla birlikte ava çıkar, satranç oynar, akşamları eski şarkıları söylerdi.",
+     "shots": [
+      {
+       "image": "g30",
+       "move": "left",
+       "transition": "dissolve",
+       "xfade": 2.5
+      },
+      {
+       "image": "g31",
+       "move": "out",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Yanındaki adamlardan biri, bu yılları gün gün kaydetti. Bugün \"Vâkıât-ı Sultan Cem\" adıyla bilinen bu hatırat, şehzadenin sürgün hayatını en yakından anlatan kaynaktır. [duraksama 1.0] Bu satırlarda Cem'in sabrı da, öfkesi de, hüznü de var. Memleketten gelen her haber, her mektup, günlerce konuşulurdu. Sonra yine sessizlik, yine bekleyiş.",
+     "shots": [
+      {
+       "image": "g31",
+       "move": "right",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Mevsimler geçti. İlkbaharda şatonun bahçesindeki ağaçlar çiçek açtı, yazın tarlalar sarardı, sonbaharda yapraklar döküldü, kışın her yer karla örtüldü. [duraksama 1.5] Cem bu mevsimleri pencereden izledi. Şiirlerinde gurbetin acısı, ayrılığın hüznü, memleket özlemi giderek daha çok yer almaya başladı. Anadolu'nun bozkırları, Konya'nın bahçeleri, Bursa'nın kubbeleri hep aklındaydı.",
+     "shots": [
+      {
+       "image": "g30",
+       "move": "in",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "[merak] Bu yıllardan kalan bir hikâye de var. Rivayete göre Cem, kaldığı şatolardan birinde, Sassenage ailesinden Philippine-Hélène adında genç bir hanımla tanıştı ve ikisi birbirine bağlandı. [duraksama 1.0] Bu hikâyenin ne kadarı gerçek, ne kadarı sonradan eklenmiş, bilmiyoruz. Ama yüzyıllar boyunca o bölgede anlatılmaya devam etti.",
+     "shots": [
+      {
+       "image": "g32",
+       "move": "left",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Sonunda Cem, Bourganeuf adlı küçük bir kasabaya götürüldü. Şövalyeler orada onun için yüksek, yuvarlak bir taş kule yaptırdılar. Kalın duvarlar, dar pencereler. [hüzün] Bu kule bugün hâlâ ayakta ve yerel halk ona hâlâ \"Zizim Kulesi\" diyor.",
+     "shots": [
+      {
+       "image": "g33",
+       "move": "out",
+       "transition": "dissolve",
+       "xfade": 2.5
+      },
+      {
+       "image": "g01",
+       "move": "right",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Cem bu yıllarda şiir yazmayı hiç bırakmadı. Rivayete göre ağabeyine şöyle bir beyit gönderdi: [duraksama 1.0] \"Sen bister-i gül üzre yatasın şevk ile handan, ben kül döşenem külhan-ı mihnette, sebep ne?\" [duraksama 1.0] Yani: Sen gül yatağında mutlu mutlu uyurken, ben dert ocağında küllerin üstünde yatıyorum. Bunun sebebi ne?",
+     "shots": [
+      {
+       "image": "g34",
+       "move": "in",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Bayezid'in cevabı da bir beyitti: [duraksama 1.0] \"Çün rûz-ı ezel kısmet olunmuş bize devlet, takdîre rızâ vermeyesin, bu sebep ne?\" [duraksama 1.0] Yani: Ezelde saltanat bize nasip olmuşsa, sen kadere neden razı olmuyorsun? [duraksama 1.5] İki kardeş, iki şair. Aralarında bir imparatorluk ve bir deniz.",
+     "shots": [
+      {
+       "image": "g35",
+       "move": "left",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    }
+   ],
+   "card": {
+    "kicker": "BÖLÜM VI",
+    "date": "1482–1489 · Nice, Bourganeuf",
+    "image": "g33"
+   },
+   "music": "derin"
+  },
+  {
+   "title": "Roma'da Bir Misafir",
+   "paragraphs": [
+    {
+     "text": "[sakin] Bin dört yüz seksen dokuz yılının Mart ayında Cem, Roma'ya getirildi. Avrupa'nın krallıkları onun için yıllarca pazarlık yapmıştı. Sonunda Papa Sekizinci Innocentius onu yanına aldı. Cem, şehre büyük bir törenle girdi. Halk sokaklara dökülüp bu ünlü yabancıyı görmek istedi.",
+     "shots": [
+      {
+       "image": "g36",
+       "move": "out",
+       "transition": "dissolve",
+       "xfade": 2.5
+      },
+      {
+       "image": "g37",
+       "move": "right",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "[merak] Rivayete göre Papa'nın huzuruna çıkarıldığında, Cem saray âdetine uymayı reddetti. Papa'nın ayağını öpmedi; yalnızca hafifçe başını eğdi ve omzunu öptü. [duraksama 1.0] Bir sürgün olsa da, hâlâ bir sultanın oğlu olduğunu unutmamıştı. Roma halkı bu gururlu yabancıyı uzun süre konuştu.",
+     "shots": [
+      {
+       "image": "g36",
+       "move": "in",
+       "transition": "dissolve",
+       "xfade": 2.5
+      },
+      {
+       "image": "g37",
+       "move": "left",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Avrupa'da bazıları Cem'i bir haçlı seferinin başına geçirmeyi hayal ediyordu. Ona bir ordu verip Osmanlı topraklarına göndermek, imparatorluğu içeriden bölmek istiyorlardı. [duraksama 1.0] Ama bu planlar hep kâğıt üzerinde kaldı. Cem'in değeri, bir silah olmasında değil, bir rehine olarak tutulmasındaydı.",
+     "shots": [
+      {
+       "image": "g38",
+       "move": "out",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Rönesans Roma'sı, sanatın ve ihtişamın şehriydi. Ressamlar duvarları süslüyor, mimarlar yeni saraylar yükseltiyordu. Cem bu güzelliklerin arasında yaşadı ama hiçbirinin parçası olmadı. [duraksama 1.0] Sabahları sarayın bahçelerinde yürür, akşamları adamlarıyla birlikte Türkçe şiirler okurdu. Kendi dilinde konuşabildiği insan sayısı her yıl biraz daha azalıyordu.",
+     "shots": [
+      {
+       "image": "g38",
+       "move": "right",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "[merak] Bayezid de bunu biliyordu. Kaynaklara göre Papa'ya her yıl kırk bin altın gönderdi; kardeşi Roma'da kaldığı sürece. Elçiler gidip geldi, hediyeler sunuldu. [duraksama 1.5] İstanbul'dan Roma'ya uzanan bu tuhaf anlaşma, iki kardeşi yıllarca birbirine bağlayan görünmez bir zincir gibiydi.",
+     "shots": [
+      {
+       "image": "g39",
+       "move": "in",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Cem Roma'da beş yıl yaşadı. Rahattı ama özgür değildi. Kaynaklar onun giderek daha sessiz, daha içine kapanık biri olduğunu anlatır. Yaşı otuzları geçmişti. Ömrünün neredeyse üçte biri sürgünde geçmişti.",
+     "shots": [
+      {
+       "image": "g40",
+       "move": "left",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Bu yıllarda Roma'da Papa değişti. Sekizinci Innocentius öldü, yerine Rodrigo Borgia, Altıncı Aleksandr adıyla Papa oldu. Cem için ise hiçbir şey değişmedi. [duraksama 1.0] Anlaşmalar yenilendi, ödemeler sürdü. Şehzade, yeni Papa'nın sarayında da aynı sessiz hayatı yaşamaya devam etti.",
+     "shots": [
+      {
+       "image": "g36",
+       "move": "out",
+       "transition": "dissolve",
+       "xfade": 2.5
+      },
+      {
+       "image": "g40",
+       "move": "right",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    }
+   ],
+   "card": {
+    "kicker": "BÖLÜM VII",
+    "date": "1489–1494 · Roma",
+    "image": "g36"
+   },
+   "music": "isik"
+  },
+  {
+   "title": "Napoli'de Son Kış",
+   "paragraphs": [
+    {
+     "text": "[sakin] Bin dört yüz doksan dört yılında Fransa Kralı Sekizinci Charles, büyük bir orduyla İtalya'ya girdi. Hedefi Napoli Krallığı'ydı. Roma'dan geçerken yeni Papa Altıncı Aleksandr'dan Cem'i kendisine teslim etmesini istedi. Ve bin dört yüz doksan beş yılının Ocak ayında Cem, bir kez daha el değiştirdi.",
+     "shots": [
+      {
+       "image": "g41",
+       "move": "in",
+       "transition": "dissolve",
+       "xfade": 2.5
+      },
+      {
+       "image": "g42",
+       "move": "left",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Kış ortasında Fransız ordusuyla birlikte güneye doğru yola çıktılar. Yollar çamurlu, hava soğuktu. Cem artık yorgundu. [duraksama 1.0] On üç yıldır bir yerden bir yere taşınıyordu. Kaynaklar onun bu son yolculukta sessiz kaldığını, çoğu zaman pencereden dışarıyı izlediğini anlatır.",
+     "shots": [
+      {
+       "image": "g42",
+       "move": "out",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Napoli, Akdeniz'in kıyısında, Vezüv Dağı'nın eteklerinde kurulmuş eski bir şehirdi. Kışın denizden nemli rüzgârlar eserdi. [duraksama 1.0] Cem, hayatı boyunca Akdeniz'in bir ucundan öbür ucuna taşınmıştı. Şimdi yine bu denizin kıyısındaydı. Belki de son günlerinde, bu dalgaların bir yerde Anadolu'nun kıyılarına da vurduğunu düşündü.",
+     "shots": [
+      {
+       "image": "g44",
+       "move": "right",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "[hüzün] Fransız ordusu güneye ilerlerken Cem hastalandı. Napoli'ye vardıklarında durumu ağırlaşmıştı. Yirmi beş Şubat günü, otuz beş yaşındayken, yanında son sadık adamları varken hayata gözlerini yumdu. [duraksama 1.5] Hacca giden, Kâbe'yi gören, Akdeniz'i aşan şehzade, evinden çok uzakta, yabancı bir şehirde öldü.",
+     "shots": [
+      {
+       "image": "g43",
+       "move": "in",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Ölümünün ardından dedikodular yayıldı. Rivayete göre zehirlenmişti; kimi Papa'yı, kimi başkalarını suçladı. [duraksama 1.0] Ama bugün tarihçilerin çoğu, Cem'in yolculuk sırasında yakalandığı bir hastalıktan öldüğünü düşünüyor. Gerçeği hiçbir zaman tam olarak bilemeyeceğiz.",
+     "shots": [
+      {
+       "image": "g44",
+       "move": "left",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    }
+   ],
+   "card": {
+    "kicker": "BÖLÜM VIII",
+    "date": "1494–1495 · Roma, Napoli",
+    "image": "g44"
+   },
+   "music": "huzun"
+  },
+  {
+   "title": "Eve Dönüş",
+   "paragraphs": [
+    {
+     "text": "[sakin] Cem'in naaşı uzun süre İtalya'da kaldı. Bayezid kardeşinin cesedini geri istedi, mektuplar yazdı, elçiler gönderdi. Ve yaklaşık dört yıl sonra, bin dört yüz doksan dokuz yılında, Cem sonunda eve döndü.",
+     "shots": [
+      {
+       "image": "g45",
+       "move": "out",
+       "transition": "dissolve",
+       "xfade": 2.5
+      },
+      {
+       "image": "g02",
+       "move": "right",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Gemi, Akdeniz'i bu kez doğuya doğru geçti. Cem'in yıllar önce batıya doğru gittiği yolun tam tersi. [duraksama 1.5] Rodos'un önünden, Ege'nin adalarının arasından, Çanakkale Boğazı'ndan geçerek Marmara'ya ulaştı. Şehzade, hayattayken dönemediği memleketine, sessizce geri geliyordu.",
+     "shots": [
+      {
+       "image": "g45",
+       "move": "in",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Onu Bursa'ya, Muradiye Külliyesi'ne, atalarının yanına defnettiler. Yeşil bahçelerin, yaşlı çınarların arasındaki sessiz türbesi bugün hâlâ orada.",
+     "shots": [
+      {
+       "image": "g46",
+       "move": "left",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Bugün Bursa'ya giderseniz, Muradiye'nin huzurlu bahçesinde Cem Sultan'ın türbesini ziyaret edebilirsiniz. Türbenin içi, zarif çinilerle süslüdür. Bahçede kuş sesleri, çınarların hışırtısı, uzaktan gelen şehir uğultusu. [duraksama 1.5] Cem'in Avrupa'daki hikâyesi ise yüzyıllar boyunca anlatılmaya devam etti. Fransa'da, İtalya'da onun adını taşıyan kuleler, şarkılar, kitaplar var.",
+     "shots": [
+      {
+       "image": "g46",
+       "move": "out",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "[sakin] Ağabeyi Bayezid ise otuz yıldan fazla tahtta kaldı. Sakin ve dindar bir padişah olarak hatırlandı. Ama onun hikâyesi de beklenmedik bir sonla bitti. [duraksama 1.0] Yıllar sonra kendi oğlu Selim, tıpkı Cem'in bir zamanlar yapmak istediği gibi, tahta doğru yürüdü ve Bayezid'i tahttan indirdi. Kanalımızda Yavuz Sultan Selim'in hikâyesini de anlattık; isterseniz bir başka gece onu da dinleyebilirsiniz. Yirmi bir yaşında Yenişehir'de başlayan yolculuk, on sekiz yıl sonra, Osmanlı'nın ilk başkentinde sona ermişti.",
+     "shots": [
+      {
+       "image": "g35",
+       "move": "right",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "[sakin] Cem tahtı kazanamadı. Bir orduya komuta edemedi, bir imparatorluk yönetemedi. Ama geride şiirlerini bıraktı. Ve bir de hikâyesini: Kaderle uzlaşamayan, evini hiç unutmayan bir şehzadenin hikâyesini. [duraksama 1.5] Şimdi siz de gözlerinizi dinlendirin. Hikâye burada bitiyor. İyi geceler.",
+     "shots": [
+      {
+       "image": "g34",
+       "move": "in",
+       "transition": "dissolve",
+       "xfade": 2.5
+      },
+      {
+       "image": "g01",
+       "move": "left",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    }
+   ],
+   "card": {
+    "kicker": "BÖLÜM IX",
+    "date": "1499 · Bursa",
+    "image": "g46"
+   },
+   "music": "derin"
+  }
+ ]
+}
