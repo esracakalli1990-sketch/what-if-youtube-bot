@@ -170,3 +170,9 @@ def test_layout_tail_override():
     ch = {"title": "t", "paragraphs": [{"text": "a", "shots": []}]}
     assert dt.layout_chapter(ch, [10.0]).total == round(dt.LEAD_SECONDS + 10 + dt.TAIL_SECONDS, 3)
     assert dt.layout_chapter(ch, [10.0], tail=3.5).total == round(dt.LEAD_SECONDS + 13.5, 3)
+
+
+def test_missing_source_raises_instead_of_black(tmp_path):
+    import pytest
+    with pytest.raises(FileNotFoundError):
+        dr.VideoSource(dr.Shot("video", str(tmp_path / "yok.mp4"), 1.0, grade=False), span=1.0)

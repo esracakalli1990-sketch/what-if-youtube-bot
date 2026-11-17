@@ -387,6 +387,8 @@ class VideoSource:
     """
 
     def __init__(self, shot: Shot, span: float = 0.0, loop: bool = False, do_grade: bool | None = None):
+        if not Path(shot.path).exists():
+            raise FileNotFoundError(f"Çekim kaynağı yok (siyah ekran olurdu): {shot.path}")
         self.shot = shot
         self.do_grade = shot.grade if do_grade is None else do_grade
         speed = effective_speed(shot.path, shot.start, span, shot.speed) if span and not loop else 1.0

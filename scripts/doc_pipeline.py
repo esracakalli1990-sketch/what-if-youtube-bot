@@ -248,13 +248,23 @@ class Production:
             self._remotion(["render", "src/index.ts", "ChapterCard",
                             str(self.path("cards", f"c{ci:02d}.mp4")),
                             f"--props={json.dumps(props, ensure_ascii=False)}", "--crf=16"])
-        for name, props in self.data.get("maps", {}).items():
-            if "bounds" in props:            # coğrafi harita (MapStory, gerçek enlem/boylam)
-                self._render_geo_map(name, dict(props))
-                continue
-            if props.get("bilesen"):         # bilgi grafiği / karakter kartı (Infographic, PortraitCard)
-                self._render_component(name, dict(props))
-                continue
+        for name in self.data.get("maps", {}):
+            self.render_map(name)
+        for ti, th in enumerate(self.data.get("thumbnails", [])):
+            comp, props = thumbnail_props(th, self._stage_image)
+            self._remotion(["still", "src/index.ts", comp,
+                            str(self.path("thumbs", f"kapak{ti + 1}.jpg")),
+                            f"--props={json.dumps(props, ensure_ascii=False)}",
+                            "--image-format=jpeg", "--jpeg-quality=90"])
+
+    def render_map(self, name: str) -> Path:
+        """Tek bir harita / bilgi grafiği klibini üret (build/maps/<ad>.mp4)."""
+        props = self.data["maps"][name]
+        if "bounds" in props:            # coğrafi harita (MapStory, gerçek enlem/boylam)
+            self._render_geo_map(name, dict(props))
+        elif props.get("bilesen"):       # bilgi grafiği / karakter kartı (Infographic, PortraitCard)
+            self._render_component(name, dict(props))
+        else:
             props = dict(props)
             image = self._stage_image(props.get("image", ""))
             if props.pop("crop", None) and image:
@@ -263,12 +273,7 @@ class Production:
             self._remotion(["render", "src/index.ts", "MapMoves",
                             str(self.path("maps", f"{name}.mp4")),
                             f"--props={json.dumps(props, ensure_ascii=False)}", "--crf=16"])
-        for ti, th in enumerate(self.data.get("thumbnails", [])):
-            comp, props = thumbnail_props(th, self._stage_image)
-            self._remotion(["still", "src/index.ts", comp,
-                            str(self.path("thumbs", f"kapak{ti + 1}.jpg")),
-                            f"--props={json.dumps(props, ensure_ascii=False)}",
-                            "--image-format=jpeg", "--jpeg-quality=90"])
+        return self.path("maps", f"{name}.mp4")
 
     def _render_component(self, name: str, props: dict):
         """Remotion grafik bileşeni: görsel alanları (image/background) public/'e kopyalanır."""
