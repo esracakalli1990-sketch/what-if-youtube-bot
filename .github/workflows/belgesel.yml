@@ -39,6 +39,9 @@ on:
       kaynak_url:
         description: "mod=drive: herkese açık Google Drive dosya bağlantısı (klip zip'i)"
         required: false
+      sadece:
+        description: "mod=shorts: yalnızca bu Short kimliğini yeniden üret ve yükle (ör. col). Sosyal paket bu çalışmada güncellenmez."
+        required: false
 
 concurrency:
   group: belgesel-${{ inputs.klasor }}
@@ -222,7 +225,12 @@ jobs:
       - name: Shorts üret ve gizli + planlı yükle
         if: inputs.mod == 'shorts'
         # Belgeselin önbellekteki sesi ve görselleri kullanılır: yeni ElevenLabs kredisi yok
-        run: python -m scripts.doc_shorts "$KLASOR" --yukle --sosyal
+        run: |
+          if [ -n "${{ inputs.sadece }}" ]; then
+            python -m scripts.doc_shorts "$KLASOR" --yukle --sadece "${{ inputs.sadece }}"
+          else
+            python -m scripts.doc_shorts "$KLASOR" --yukle --sosyal
+          fi
 
       - name: Sosyal medya paketi üret (YouTube'a yüklemeden)
         if: inputs.mod == 'sosyal'
@@ -230,7 +238,7 @@ jobs:
         run: python -m scripts.doc_shorts "$KLASOR" --sosyal
 
       - name: Sosyal medya paketini Release'e yükle
-        if: inputs.mod == 'shorts' || inputs.mod == 'sosyal'
+        if: (inputs.mod == 'shorts' && inputs.sadece == '') || inputs.mod == 'sosyal'
         # Release dosyaları artifact kotasına girmez; günlük sosyal.yml buradan indirir
         env:
           GH_TOKEN: ${{ github.token }}

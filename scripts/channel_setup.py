@@ -246,8 +246,11 @@ CHANNEL_ART_PLAN = PROJECT_ROOT / "belgeseller" / "01-hititler" / "cekim_plani.j
 
 def render_art(folder: Path, out_dir: Path) -> dict:
     """Banner, profil resmi ve 3 kapak."""
-    plan = json.loads((folder / "cekim_plani.json").read_text(encoding="utf-8"))
-    thumbs = [t for t in plan.get("thumbnails", []) if t.get("image") or t.get("arka_plan") or t.get("odak")]
+    plan_path = folder / "cekim_plani.json"
+    if not plan_path.exists():                      # uyku belgeselleri: yalnızca senaryo.json var
+        plan_path = folder / "senaryo.json"
+    plan = json.loads(plan_path.read_text(encoding="utf-8"))
+    thumbs =[t for t in plan.get("thumbnails", []) if t.get("image") or t.get("arka_plan") or t.get("odak")]
     # Kanal kimliği (banner, profil) her zaman seri görselleriyle: Hitit planından
     art_plan = json.loads(CHANNEL_ART_PLAN.read_text(encoding="utf-8"))
     paths = _fetch(art_plan, ["buyuk_mabet_3", "aslan_kapi_1"], out_dir / "gorseller")

@@ -124,10 +124,18 @@ def build_short(prod, spec: dict, out_dir: Path) -> dict:
                                        stock_paths=stock, film_paths=films, kurgu=data.get("kurgu"))
     for s in shots:
         s["label"] = None            # dikey kadrajda alt bant okunmaz; bilgi altyazıda
+    # Haritalar önbellekte tutulmaz: Short'ta kullanılan eksik haritayı şimdi üret
+    # (eksik dosya önceden sessizce siyah ekran olarak çıkıyordu)
+    for p in paras:
+        for spec_shot in p["shots"]:
+            if "map" in spec_shot and not prod.path("maps", f"{spec_shot['map']}.mp4").exists():
+                prod.render_map(spec_shot["map"])
+    # Kapanış çağrısı boyunca görüntü donmasın: son çekim CTA süresince devam eder ve kararır
+    shots[-1]["duration"] = round(shots[-1]["duration"] + CTA_SECONDS, 3)
     out_dir.mkdir(parents=True, exist_ok=True)
     wide = out_dir / f"{spec['id']}_yatay.mp4"
     doc_render.render_chapter([doc_render.Shot(**s) for s in shots], str(wide),
-                              look=doc_render.Look(), fade_in=0.3, fade_out=0.0)
+                              look=doc_render.Look(), fade_in=0.3, fade_out=1.5)
 
     # Ses: anlatım + müzik + doğal ses → master
     total = layout.total + CTA_SECONDS
@@ -168,7 +176,7 @@ def build_short(prod, spec: dict, out_dir: Path) -> dict:
         f"[a]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},boxblur=28:2,"
         f"eq=brightness=-0.22:saturation=0.8[bg];"
         f"[b]scale=-2:{FG_H},crop={W}:{FG_H}[fg];"
-        f"[bg][fg]overlay=0:{FG_Y},tpad=stop_mode=clone:stop_duration={CTA_SECONDS},"
+        f"[bg][fg]overlay=0:{FG_Y},"
         f"{hook_draw}"
         f"drawbox=x=(iw-160)/2:y=215:w=160:h=5:color=0xC9A45C:t=fill,"
         f"subtitles={ass}:fontsdir={FONTS},"
