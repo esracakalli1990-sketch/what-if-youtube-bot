@@ -87,7 +87,8 @@ class Production:
         before = doc_audio.elevenlabs_balance(key) if key else None
         results = doc_audio.synthesize(
             [t for _, _, t in flat], self.path("audio", "x").parent,
-            voice_id=_env("TTS_VOICE_ID_TR"),
+            # Senaryo kendi sesini seçebilir (ör. uyku hesabıyla Seyfullah Kartal); yoksa secret
+            voice_id=self.data.get("voice_id") or _env("TTS_VOICE_ID_TR"),
             api_key=_env("ELEVENLABS_API_KEY"),
             pronunciations=self.data.get("pronunciations", {}),
             engine=os.getenv("DOC_TTS_ENGINE", "auto"),
