@@ -9,6 +9,11 @@ Görev iki bölüm: **A)** Gemini'de karakter ve kapak görselleri, **B)** Googl
 
 ## 0. Genel kurallar (Claude için)
 
+> **Kullanıcının ek talimatları (önemli):**
+> 1. Bütün görselleri ve videoları **2K / 1080p** (en yüksek) çözünürlükte indir.
+> 2. **İlk indirmeden sonra dur ve kullanıcıdan onay al.** İlk görseli (`K_genc`) üretip indirince kullanıcıya göster ve "devam edeyim mi?" diye sor. Onay gelince işin geri kalanını **kendi kendine, bitene kadar** sürdür.
+> 3. Herhangi bir **sorun çıkarsa** (kredi biter, Flow/Gemini hata verir, model bulunamaz, bir klip iki denemede de olmaz…) **işi beklet ve kullanıcıya yaz.** Tahminle devam etme.
+
 - Kullanıcı Gemini'de ve Flow'da (https://labs.google/fx/tools/flow) zaten oturum açmış. Açık sekmeleri kullan, yeni hesap açma, şifre girme.
 - **Çıktı klasörü:** `Belgeler/Kanuni/`. Alt klasörler: `referans/` (A bölümü), `klipler/` (B bölümü). Yoksa oluştur.
 - **İlerleme dosyası:** `Belgeler/Kanuni/rapor.md`. Her görselden/klipten sonra bir satır ekle: `c01 — TAMAM`, `c07 — TAMAM (2. deneme)`, `c19 — SORUNLU: …`. Görev yarıda kesilirse bu dosyaya bakıp **kaldığın yerden** devam et. `TAMAM` olanları tekrar üretme.
