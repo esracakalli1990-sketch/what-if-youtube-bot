@@ -28,7 +28,7 @@ on:
       mod:
         description: "ornek = önizleme, tam = YouTube'a gizli yükleme"
         type: choice
-        options: [inceleme, ses, ornek, tam, shorts, sosyal, drive]
+        options: [inceleme, ses, ornek, tam, shorts, sosyal, drive, seskontrol]
         default: ornek
       ornek_bolum:
         description: "Örnekte kaç bölüm (giriş + ilk bölüm = 2)"
@@ -152,8 +152,38 @@ jobs:
               --notes "Drive'dan aktarılan klip paketleri (otomatik)." --latest=false
           gh release upload "$TAG" "/tmp/$NAME" --clobber
 
+      - name: ElevenLabs hesap ve ses kontrolü (kredi harcamaz)
+        if: inputs.mod == 'seskontrol'
+        run: |
+          python - <<'PY'
+          import json, os, requests
+          from pathlib import Path
+          from scripts.notifier import send_message
+          key = os.environ["ELEVENLABS_API_KEY"]
+          scen = Path(os.environ["KLASOR"], "senaryo.json")
+          vid = (json.loads(scen.read_text(encoding="utf-8")).get("voice_id") if scen.exists() else None) \
+              or os.environ.get("TTS_VOICE_ID_TR", "")
+          h = {"xi-api-key": key}
+          sub = requests.get("https://api.elevenlabs.io/v1/user/subscription", headers=h, timeout=30).json()
+          kalan = sub.get("character_limit", 0) - sub.get("character_count", 0)
+          voices = requests.get("https://api.elevenlabs.io/v1/voices", headers=h, timeout=30).json().get("voices", [])
+          mine = {v["voice_id"]: v["name"] for v in voices}
+          if vid in mine:
+              durum = f"✅ Ses hesapta var: {mine[vid]}"
+          else:
+              r = requests.get(f"https://api.elevenlabs.io/v1/voices/{vid}", headers=h, timeout=30)
+              durum = (f"⚠️ Ses 'My Voices' listesinde yok, ama API erişebiliyor ({r.json().get('name')})"
+                       if r.ok else "❌ Ses bu hesapta yok: Voice Library → Add to My Voices gerekli")
+          msg = (f"🔎 ElevenLabs kontrolü ({os.environ['KLASOR']}, hesap: {os.environ.get('SES_HESABI')})\n"
+                 f"{durum}\nKalan kredi: {kalan:,} · Hesaptaki sesler: {', '.join(mine.values())[:300]}")
+          print(msg)
+          send_message(msg, parse_mode=None)
+          PY
+        env:
+          SES_HESABI: ${{ inputs.ses_hesabi }}
+
       - name: Senaryoyu doğrula
-        if: inputs.mod != 'inceleme' && inputs.mod != 'ses' && inputs.mod != 'drive'
+        if: inputs.mod != 'inceleme' && inputs.mod != 'ses' && inputs.mod != 'drive' && inputs.mod != 'seskontrol'
         run: python -m scripts.doc_pipeline "$KLASOR" dogrula
 
       - name: Yalnızca ses üret (taslak)
@@ -336,6 +366,8 @@ jobs:
               rows = json.loads(Path(klasor, "build", "sosyal", "manifest.json").read_text())
               send_message(f"📦 Sosyal medya paketi hazır ({len(rows)} Short): {klasor}\n"
                            + "\n".join(f"• {r['id']} ({r['sure']:.0f} sn)" for r in rows))
+          elif mod == "seskontrol":
+              pass
           elif mod == "drive":
               send_message(f"📥 Drive paketi Release'e aktarıldı: {klasor}\n{url}")
           elif mod == "ses":
