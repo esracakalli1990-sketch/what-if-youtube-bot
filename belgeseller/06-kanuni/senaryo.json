@@ -1,0 +1,896 @@
+{
+ "slug": "06-kanuni",
+ "title": "Kanuni Sultan Süleyman: 46 Yıl, 13 Sefer, Tek Bir Sır | Mohaç'tan Zigetvar'a",
+ "description": "Eylül 1566, Zigetvar. Yetmiş bir yaşındaki padişah gece yarısı öldü ve bu ölüm 48 gün saklandı.\n\nBu belgeselde Kanuni Sultan Süleyman'ın hikâyesini anlatıyoruz: Trabzon'daki doğumundan Belgrad ve Rodos'a, Mohaç'tan Viyana kapılarına, Barbaros ve Preveze'den kanunlara ve Mimar Sinan'ın kubbelerine, İbrahim Paşa, Hürrem ve Şehzade Mustafa'dan Zigetvar'daki son sefere kadar. Tartışmalı bilgiler anlatımda \"rivayete göre\" ya da \"kaynaklara göre\" diye belirtilmiştir.\n\nSerinin önceki bölümleri: Yavuz Sultan Selim → https://youtu.be/J0DGI9Kqlqc · İstanbul'un Fethi → https://youtu.be/AI-RfRzQfos",
+ "tags": [
+  "kanuni sultan süleyman",
+  "muhteşem süleyman",
+  "mohaç",
+  "viyana kuşatması",
+  "preveze",
+  "barbaros",
+  "mimar sinan",
+  "hürrem sultan",
+  "ibrahim paşa",
+  "şehzade mustafa",
+  "zigetvar",
+  "osmanlı tarihi",
+  "osmanlı belgeseli",
+  "tarih belgeseli",
+  "belgesel",
+  "türkçe belgesel"
+ ],
+ "hashtags": [
+  "#KanuniSultanSüleyman",
+  "#Mohaç",
+  "#OsmanlıTarihi",
+  "#Belgesel",
+  "#Tarih"
+ ],
+ "ai_disclosure": "Bu belgeseldeki canlandırma sahneleri yapay zekâ ile üretilmiştir ve temsilidir; videoda \"Temsili canlandırma\" olarak işaretlidir.",
+ "sources": [
+  "TDV İslâm Ansiklopedisi: Süleyman I, İbrâhim Paşa (Makbul), Hürrem Sultan, Mustafa Sultan, Mohaç, Viyana Kuşatması, Preveze, Zigetvar Seferi, Barbaros Hayreddin, Mimar Sinan",
+  "Halil İnalcık, Osmanlı İmparatorluğu Klasik Çağ (1300–1600)",
+  "Feridun M. Emecen, Kanuni Sultan Süleyman ve Zamanı",
+  "Arifî, Süleymanname (Topkapı Sarayı Müzesi)",
+  "Selânikî Mustafa Efendi, Tarih-i Selânikî"
+ ],
+ "tts_model": "eleven_v4",
+ "voice_id": "mF7tIc9VLrznhGooGjaT",
+ "voice_settings": {
+  "stability": 0.55,
+  "similarity_boost": 0.8,
+  "style": 0.1,
+  "use_speaker_boost": true
+ },
+ "pronunciations": {
+  "Zrinyi": "Zirinyi",
+  "Roxelana": "Roksolana",
+  "Muhibbi": "Muhibbî",
+  "François": "Fransuva",
+  "Toulon'da": "Tulon'da",
+  "Zapolya": "Zapolya",
+  "Layoş": "Layoş"
+ },
+ "ilk_yorum": "Sizce Kanuni'nin en büyük başarısı hangisiydi: Mohaç mı, kanunlar mı, yoksa Süleymaniye mi? Yorumlarda konuşalım.\n\n🔔 Serinin sıradaki bölümü için kanala abone olun.",
+ "kurgu": {
+  "gecis": "cut",
+  "ton_esitle": 0.5,
+  "bolum_sonu": 3.5,
+  "bolum_karartma": 2.0
+ },
+ "music_sources": {
+  "gizem": {
+   "commons": "File:Heart of Nowhere (MacLeod, Kevin) (ISRC USUAN1400045).oga"
+  },
+  "agir": {
+   "commons": "File:Earth Prelude (MacLeod, Kevin) (ISRC USUAN1100247).oga"
+  },
+  "karanlik": {
+   "commons": "File:Kevin MacLeod - Ritual.ogg"
+  },
+  "huzun": {
+   "commons": "File:Kevin MacLeod - 06 - Impact Lento.ogg"
+  },
+  "tapinak": {
+   "commons": "File:Kevin MacLeod - Temple of the Manes.ogg"
+  },
+  "ses": {
+   "commons": "File:The Voices (MacLeod, Kevin) (ISRC USUAN1100046).oga"
+  },
+  "derin": {
+   "commons": "File:Kevin MacLeod - Silver Blue Light.ogg"
+  }
+ },
+ "images": {
+  "r_suleymanname_mohac": {
+   "file": "gorseller/r_suleymanname_mohac.jpg",
+   "credit": {
+    "title": "TBD",
+    "artist": "",
+    "license": ""
+   }
+  },
+  "r_kanuni_genc": {
+   "file": "gorseller/r_kanuni_genc.jpg",
+   "credit": {
+    "title": "TBD",
+    "artist": "",
+    "license": ""
+   }
+  },
+  "r_lorck_kanuni": {
+   "file": "gorseller/r_lorck_kanuni.jpg",
+   "credit": {
+    "title": "TBD",
+    "artist": "",
+    "license": ""
+   }
+  },
+  "r_barbaros": {
+   "file": "gorseller/r_barbaros.jpg",
+   "credit": {
+    "title": "TBD",
+    "artist": "",
+    "license": ""
+   }
+  },
+  "r_piri_reis_harita": {
+   "file": "gorseller/r_piri_reis_harita.jpg",
+   "credit": {
+    "title": "TBD",
+    "artist": "",
+    "license": ""
+   }
+  },
+  "r_sinan": {
+   "file": "gorseller/r_sinan.jpg",
+   "credit": {
+    "title": "TBD",
+    "artist": "",
+    "license": ""
+   }
+  },
+  "r_sehzade_mustafa": {
+   "file": "gorseller/r_sehzade_mustafa.jpg",
+   "credit": {
+    "title": "TBD",
+    "artist": "",
+    "license": ""
+   }
+  },
+  "r_lorck_kanuni_yasli": {
+   "file": "gorseller/r_lorck_kanuni_yasli.jpg",
+   "credit": {
+    "title": "TBD",
+    "artist": "",
+    "license": ""
+   }
+  }
+ },
+ "thumbnails": [],
+ "stock": {},
+ "films": {},
+ "maps": {
+  "m_belgrad_rodos": {
+   "bilesen": "Infographic",
+   "type": "zaman",
+   "title": "m_belgrad_rodos",
+   "durationSec": 10,
+   "events": []
+  },
+  "m_mohac_seferi": {
+   "bilesen": "Infographic",
+   "type": "zaman",
+   "title": "m_mohac_seferi",
+   "durationSec": 10,
+   "events": []
+  },
+  "m_mohac_savasi": {
+   "bilesen": "Infographic",
+   "type": "zaman",
+   "title": "m_mohac_savasi",
+   "durationSec": 10,
+   "events": []
+  },
+  "m_viyana": {
+   "bilesen": "Infographic",
+   "type": "zaman",
+   "title": "m_viyana",
+   "durationSec": 10,
+   "events": []
+  },
+  "m_bagdat": {
+   "bilesen": "Infographic",
+   "type": "zaman",
+   "title": "m_bagdat",
+   "durationSec": 10,
+   "events": []
+  },
+  "m_preveze": {
+   "bilesen": "Infographic",
+   "type": "zaman",
+   "title": "m_preveze",
+   "durationSec": 10,
+   "events": []
+  },
+  "m_zigetvar": {
+   "bilesen": "Infographic",
+   "type": "zaman",
+   "title": "m_zigetvar",
+   "durationSec": 10,
+   "events": []
+  }
+ },
+ "chapters": [
+  {
+   "title": "Soğuk Açılış",
+   "paragraphs": [
+    {
+     "text": "[gerilim] Eylül bin beş yüz altmış altı. Macaristan'da, Zigetvar kalesinin önünde dev bir Osmanlı ordusu bekliyor. Kale düşmek üzere. Ama ordugâhın ortasındaki büyük otağda, kimsenin bilmediği bir şey oldu. [duraksama 1.0] Yetmiş bir yaşındaki padişah, gece yarısı sessizce hayata gözlerini yumdu.",
+     "shots": [
+      {
+       "clip": "klipler/c01.mp4"
+      },
+      {
+       "clip": "klipler/c02.mp4",
+       "transition": "cut"
+      }
+     ]
+    },
+    {
+     "text": "Sadrazam Sokullu Mehmed Paşa bir karar verdi: Bu ölüm saklanacaktı. Askerlere, padişahın hasta olduğu söylendi. Emirler onun adıyla yazılmaya devam etti. [vurgulu] Ve sır, tam kırk sekiz gün boyunca korundu.",
+     "shots": [
+      {
+       "clip": "klipler/c03.mp4"
+      }
+     ]
+    },
+    {
+     "text": "[dramatik] Bu adam kırk altı yıl boyunca dünyanın en güçlü devletini yönetti. Bir krallığı iki saat süren bir savaşla yıktı, Viyana'nın kapılarına dayandı, Akdeniz'i bir Türk gölüne çevirdi, İstanbul'a bugün hâlâ ayakta duran camiler bıraktı. Avrupa ona \"Muhteşem\" dedi. Kendi halkı ise başka bir isim verdi: [ağır] Kanuni.",
+     "shots": [
+      {
+       "clip": "klipler/c04.mp4"
+      },
+      {
+       "image": "r_suleymanname_mohac",
+       "move": "in",
+       "transition": "cut"
+      },
+      {
+       "clip": "klipler/c05.mp4",
+       "transition": "cut"
+      },
+      {
+       "clip": "klipler/c06.mp4",
+       "transition": "cut"
+      },
+      {
+       "clip": "klipler/c07.mp4",
+       "transition": "cut"
+      }
+     ]
+    }
+   ],
+   "music": "karanlik"
+  },
+  {
+   "title": "Trabzon'da Doğan Şehzade",
+   "paragraphs": [
+    {
+     "text": "[sakin] Süleyman, bin dört yüz doksan dört yılında Karadeniz kıyısındaki Trabzon'da doğdu. Babası, o yıllarda Trabzon sancakbeyi olan Şehzade Selim'di. Yani tarihin Yavuz diye andığı padişah. Annesi Hafsa Sultan'dı. [duraksama 0.8] Kanalımızın Yavuz belgeselini izlediyseniz, bu çocuğun doğduğu sahneyi hatırlarsınız.",
+     "shots": [
+      {
+       "clip": "klipler/c08.mp4"
+      },
+      {
+       "clip": "klipler/c09.mp4",
+       "transition": "dissolve"
+      }
+     ]
+    },
+    {
+     "text": "Süleyman çocukluğunu Trabzon'da, babasının sarayında geçirdi. Hocalarından Kuran, tarih ve edebiyat öğrendi. Kuyumculuk eğitimi de aldı; Osmanlı şehzadeleri bir zanaat öğrenirdi. [duraksama 0.8] Babası gibi sert değildi. Kaynaklar onu sakin, düşünceli ve az konuşan bir genç olarak anlatır.",
+     "shots": [
+      {
+       "clip": "klipler/c10.mp4"
+      },
+      {
+       "image": "r_kanuni_genc",
+       "move": "in",
+       "transition": "dissolve"
+      }
+     ]
+    },
+    {
+     "text": "Tahta çıktığı yıl onu gören bir Venedik elçisi, genç sultanı şöyle tarif etmişti: Uzun boylu ama ince yapılı, yüzü zayıf, burnu kartal gagası gibi kıvrık, hafif bir bıyığı ve kısa bir sakalı var. Teni solgun. Ama bakışlarında bir ağırbaşlılık, bir sakinlik. [duraksama 0.8] Elçi, onun bilgili ve sağduyulu biri olduğunu, herkesin ondan iyi bir yönetim beklediğini de yazmıştı.",
+     "shots": [
+      {
+       "image": "r_kanuni_genc",
+       "move": "in"
+      }
+     ]
+    },
+    {
+     "text": "Babası tahta çıktıktan sonra Süleyman, Manisa'ya sancakbeyi olarak gönderildi. Manisa, şehzadelerin devlet yönetmeyi öğrendiği okul gibiydi. Burada yanında genç bir dostu vardı: Parga'dan gelen, keman çalan, birkaç dil bilen zeki bir genç. Adı İbrahim'di. [duraksama 0.8] Bu dostluk, yıllar sonra imparatorluğun kaderini etkileyecekti.",
+     "shots": [
+      {
+       "clip": "klipler/c11.mp4"
+      }
+     ]
+    },
+    {
+     "text": "[vurgulu] Bin beş yüz yirmi yılının Eylül ayında Yavuz Sultan Selim öldü. Süleyman, yirmi altı yaşında, rakipsiz olarak tahta çıktı. Babasının aksine, onun tahta giden yolunda ne bir kardeş kavgası vardı ne de bir savaş. [duraksama 1.0] Ama Avrupa'da birçok kişi rahat bir nefes aldı. Korkunç Selim gitmiş, yerine sessiz, genç bir padişah gelmişti. [gerilim] Yanılıyorlardı.",
+     "shots": [
+      {
+       "clip": "klipler/c12.mp4"
+      }
+     ]
+    }
+   ],
+   "card": {
+    "kicker": "BÖLÜM I",
+    "date": "1494–1520 · Trabzon, Manisa"
+   },
+   "music": "gizem"
+  },
+  {
+   "title": "Belgrad ve Rodos",
+   "paragraphs": [
+    {
+     "text": "[sakin] Genç padişah ilk seferine tahta çıktıktan sadece bir yıl sonra çıktı. Hedef, Tuna nehri kıyısındaki Belgrad'dı. Belgrad, Macaristan'ın güneydeki kapısıydı. Dedesi Fatih Sultan Mehmed bile bu kaleyi alamamıştı.",
+     "shots": [
+      {
+       "map": "m_belgrad_rodos"
+      }
+     ]
+    },
+    {
+     "text": "Osmanlı topları haftalarca surları dövdü. Ağustos bin beş yüz yirmi birde Belgrad teslim oldu. [hayret] Fatih'in yapamadığını, torunu ilk seferinde başarmıştı. Avrupa'ya giden yol artık açıktı.",
+     "shots": [
+      {
+       "clip": "klipler/c13.mp4"
+      },
+      {
+       "clip": "klipler/c14.mp4",
+       "transition": "dissolve"
+      }
+     ]
+    },
+    {
+     "text": "Ertesi yıl sıra Rodos'taydı. Adadaki Saint-Jean şövalyeleri, yıllardır Akdeniz'de Osmanlı gemilerine saldırıyordu. Fatih de bu adayı kuşatmış, alamamıştı. [duraksama 0.6] Kuşatma beş ay sürdü. Osmanlı lağımcıları surların altına tüneller kazdı, barutla duvarları havaya uçurdu.",
+     "shots": [
+      {
+       "clip": "klipler/c15.mp4"
+      },
+      {
+       "clip": "klipler/c16.mp4",
+       "transition": "dissolve"
+      }
+     ]
+    },
+    {
+     "text": "Aralık ayında şövalyeler teslim oldu. Süleyman onlara şaşırtıcı bir cömertlik gösterdi: Silahlarını ve eşyalarını alıp adayı onurla terk etmelerine izin verdi. [vurgulu] Yeni padişah hem sert hem de adil olabileceğini göstermişti. Ama asıl büyük sınav kuzeyde, Macaristan ovalarında bekliyordu.",
+     "shots": [
+      {
+       "clip": "klipler/c17.mp4"
+      }
+     ]
+    },
+    {
+     "text": "[hayret] Rodos'tan ayrılan şövalyeler yıllarca yer değiştirdi ve sonunda Malta adasına yerleşti. Kırk dört yıl sonra, bin beş yüz altmış beşte, yaşlı Kanuni'nin donanması Malta'yı da kuşatacak, ama bu kez kaleyi alamayacaktı. [duraksama 0.8] Akdeniz'de Osmanlı ile şövalyeler arasındaki bu uzun hesaplaşma, yüzyıl boyunca sürdü.",
+     "shots": [
+      {
+       "clip": "klipler/c17.mp4"
+      }
+     ]
+    }
+   ],
+   "card": {
+    "kicker": "BÖLÜM II",
+    "date": "1521–1522"
+   },
+   "music": "agir"
+  },
+  {
+   "title": "İki Saatte Bir Krallık",
+   "paragraphs": [
+    {
+     "text": "[sakin] Bin beş yüz yirmi altı baharında Süleyman büyük bir orduyla İstanbul'dan yola çıktı. Ordu aylarca yürüdü, yağmurlu yollardan, taşkın nehirlerden geçti. Ağustos sonunda Tuna nehrinin kıyısındaki Mohaç ovasına ulaştı.",
+     "shots": [
+      {
+       "map": "m_mohac_seferi"
+      }
+     ]
+    },
+    {
+     "text": "Karşılarında Macaristan Kralı İkinci Layoş vardı. Henüz yirmi yaşındaydı. Ordusu, Avrupa'nın en ağır zırhlı şövalyelerinden oluşuyordu. Macarlar, bu süvarilerin bir hücumuyla Osmanlı hattını yarabileceklerine inanıyordu.",
+     "shots": [
+      {
+       "clip": "klipler/c18.mp4"
+      },
+      {
+       "clip": "klipler/c19.mp4",
+       "transition": "dissolve"
+      }
+     ]
+    },
+    {
+     "text": "[gerilim] Yirmi dokuz Ağustos öğleden sonra Macar şövalyeleri hücuma kalktı. Osmanlı öncü kuvvetleri geri çekildi, süvarileri ordunun içine doğru çekti. Ve şövalyeler, zincirlerle birbirine bağlanmış topların tam önüne geldi. [duraksama 0.6] Toplar konuştu.",
+     "shots": [
+      {
+       "clip": "klipler/c04.mp4"
+      },
+      {
+       "clip": "klipler/c20.mp4",
+       "transition": "cut"
+      }
+     ]
+    },
+    {
+     "text": "[dramatik] Savaş yaklaşık iki saat sürdü. Macar ordusu dağıldı. Kral Layoş savaş alanından kaçarken, yağmurla taşmış bir derede atıyla birlikte boğuldu. [duraksama 1.0] Yüzyıllardır ayakta duran Macaristan Krallığı, bir öğleden sonra içinde yıkılmıştı.",
+     "shots": [
+      {
+       "map": "m_mohac_savasi"
+      }
+     ]
+    },
+    {
+     "text": "Bu savaş, Süleymanname adlı Osmanlı kroniğinde renkli minyatürlerle resmedildi. Bugün İstanbul'da, Topkapı Sarayı'nda saklanıyor. [ağır] Macarlar için ise Mohaç, yüzyıllar boyunca bir yas sözcüğü olarak kaldı. Bugün bile Macarcada, başına bir talihsizlik gelen birini teselli etmek için \"Mohaç'ta daha fazlası kaybedildi\" denir.",
+     "shots": [
+      {
+       "image": "r_suleymanname_mohac",
+       "move": "in"
+      },
+      {
+       "clip": "klipler/c21.mp4",
+       "transition": "dissolve"
+      }
+     ]
+    },
+    {
+     "text": "Savaştan birkaç gün sonra Osmanlı ordusu, Macar başkenti Budin'e girdi. Süleyman sarayı gezdi, ünlü kütüphaneyi gördü. [duraksama 0.8] Ama Macaristan'ı hemen ilhak etmedi. Kışın gelmesiyle ordu geri döndü. Macaristan'ın kaderi, sonraki yıllarda verilecek yeni kararlara kalmıştı.",
+     "shots": [
+      {
+       "clip": "klipler/c48.mp4"
+      }
+     ]
+    }
+   ],
+   "card": {
+    "kicker": "BÖLÜM III",
+    "date": "29 Ağustos 1526 · Mohaç"
+   },
+   "music": "karanlik"
+  },
+  {
+   "title": "Viyana Kapılarında",
+   "paragraphs": [
+    {
+     "text": "[sakin] Mohaç'tan sonra Macaristan'da taht için iki aday çıktı. Biri Osmanlı'nın desteklediği Yanoş Zapolya, diğeri Avusturya'nın Habsburg hanedanından Ferdinand. Süleyman, Zapolya'yı korumak ve Habsburglara ders vermek için yeniden kuzeye yürüdü. Hedef, Habsburgların kalbi Viyana'ydı.",
+     "shots": [
+      {
+       "map": "m_viyana"
+      }
+     ]
+    },
+    {
+     "text": "Ama o yıl yağmurlar hiç durmadı. Yollar çamura dönüştü, nehirler taştı. Ağır kuşatma topları yolda bırakılmak zorunda kaldı. [duraksama 0.8] Osmanlı ordusu Eylül sonunda Viyana'ya ulaştığında, yanında surları yıkacak büyük toplar yoktu.",
+     "shots": [
+      {
+       "clip": "klipler/c05.mp4"
+      },
+      {
+       "clip": "klipler/c22.mp4",
+       "transition": "dissolve"
+      }
+     ]
+    },
+    {
+     "text": "[gerilim] Lağımcılar surların altına tüneller kazdı, patlatmalar yapıldı. Ama Viyanalılar karşı tüneller kazdı, her gediği kapattı. Kış yaklaşıyordu, erzak azalıyordu. [duraksama 1.0] Ekim ortasında Süleyman kuşatmayı kaldırdı ve geri döndü.",
+     "shots": [
+      {
+       "clip": "klipler/c16.mp4"
+      },
+      {
+       "clip": "klipler/c23.mp4",
+       "transition": "cut"
+      }
+     ]
+    },
+    {
+     "text": "Viyana alınamadı. Ama Avrupa, bir Osmanlı ordusunun ta Orta Avrupa'nın kalbine kadar gelebildiğini görmüştü. [ağır] Bu korku, yüzyıl boyunca Avrupa saraylarında konuşulmaya devam etti. Süleyman ise artık gözünü başka bir ufka, denizlere çevirecekti.",
+     "shots": [
+      {
+       "image": "r_lorck_kanuni",
+       "move": "in"
+      },
+      {
+       "clip": "klipler/c24.mp4",
+       "transition": "dissolve"
+      }
+     ]
+    },
+    {
+     "text": "Üç yıl sonra, bin beş yüz otuz ikide Süleyman yeniden kuzeye yürüdü. Bu kez Habsburg imparatorunu açık bir meydan savaşına çağırdı. Ama karşısına çıkan olmadı. Küçük Güns kalesindeki uzun bir direniş, seferin büyük kısmını aldı. [duraksama 0.8] Ertesi yıl imzalanan barışta Avusturya arşidükü Ferdinand, Osmanlı sadrazamını kendisine eşit sayan bir dil kullanmayı kabul etmek zorunda kaldı. Bu, Osmanlı'nın Avrupa'daki gücünün açık bir göstergesiydi.",
+     "shots": [
+      {
+       "clip": "klipler/c24.mp4"
+      },
+      {
+       "image": "r_lorck_kanuni",
+       "move": "in",
+       "transition": "dissolve"
+      }
+     ]
+    },
+    {
+     "text": "[sakin] Batıda işler yatışınca Süleyman doğuya döndü. Bin beş yüz otuz dörtte Safevîlerle savaşmak için büyük bir sefere çıktı. Tebriz'i aldı, ardından kışın ortasında Zagros dağlarını aşarak Bağdat'a girdi. [duraksama 0.8] Abbasi halifelerinin eski başkenti artık Osmanlı'nın olmuştu. Irak, yaklaşık dört yüz yıl Osmanlı yönetiminde kalacaktı.",
+     "shots": [
+      {
+       "map": "m_bagdat"
+      }
+     ]
+    }
+   ],
+   "card": {
+    "kicker": "BÖLÜM IV",
+    "date": "1529 · Viyana"
+   },
+   "music": "derin"
+  },
+  {
+   "title": "Denizlerin Hâkimi",
+   "paragraphs": [
+    {
+     "text": "[sakin] Akdeniz'in batısında, Cezayir'de, Türk denizciler yıllardır İspanyol gemileriyle savaşıyordu. Onların en ünlüsü, kızıl sakallı Hızır Reis'ti. Avrupalılar ona Barbarossa diyordu. Süleyman onu İstanbul'a çağırdı ve Osmanlı donanmasının başına, kaptan-ı derya olarak atadı. Tarih onu Barbaros Hayreddin Paşa olarak tanıyacaktı.",
+     "shots": [
+      {
+       "clip": "klipler/c25.mp4"
+      },
+      {
+       "image": "r_barbaros",
+       "move": "in",
+       "transition": "dissolve"
+      }
+     ]
+    },
+    {
+     "text": "Bin beş yüz otuz sekiz yılında Venedik, İspanya ve Papa'nın gemilerinden oluşan büyük bir Haçlı donanması toplandı. Başında, ünlü Cenevizli amiral Andrea Doria vardı. Gemi sayısı Osmanlı donanmasından çok fazlaydı.",
+     "shots": [
+      {
+       "map": "m_preveze"
+      }
+     ]
+    },
+    {
+     "text": "[dramatik] Yirmi sekiz Eylül sabahı iki donanma Preveze açıklarında karşılaştı. Barbaros, rüzgârı ve kıyıyı ustalıkla kullandı. Osmanlı kadırgaları düşman hattına daldı. Akşam olduğunda Haçlı donanması geri çekiliyordu. [duraksama 1.0] Bu zaferden sonra Akdeniz'in büyük kısmı, yaklaşık otuz yıl boyunca Osmanlı'nın denetiminde kaldı.",
+     "shots": [
+      {
+       "clip": "klipler/c06.mp4"
+      },
+      {
+       "clip": "klipler/c26.mp4",
+       "transition": "cut"
+      }
+     ]
+    },
+    {
+     "text": "[hayret] Osmanlı gemileri bu yıllarda yalnızca Akdeniz'de değil, Kızıldeniz'de ve Hint Okyanusu'nda da görüldü. Portekizlilerle Hindistan kıyılarında karşılaştılar. Süleyman'ın imparatorluğu artık üç kıtaya ve birçok denize yayılıyordu.",
+     "shots": [
+      {
+       "clip": "klipler/c27.mp4"
+      },
+      {
+       "image": "r_piri_reis_harita",
+       "move": "in",
+       "transition": "dissolve"
+      }
+     ]
+    },
+    {
+     "text": "[merak] Bu yıllarda Avrupa'dan beklenmedik bir müttefik de geldi. Fransa Kralı Birinci François, Habsburglara yenilip esir düşünce Süleyman'dan yardım istemişti. Kaynaklara göre Süleyman'ın cevabı şu sözlerle başlıyordu: \"Ben ki sultanlar sultanı, hakanlar hakanıyım…\" [duraksama 1.0] Bu ittifak yıllarca sürdü. Barbaros'un donanması bir kış boyunca Fransa'nın Toulon limanında konakladı. Bir Hristiyan krallığı ile Osmanlı arasındaki bu yakınlık, Avrupa'yı derinden şaşırtmıştı.",
+     "shots": [
+      {
+       "clip": "klipler/c49.mp4"
+      },
+      {
+       "clip": "klipler/c25.mp4",
+       "transition": "dissolve"
+      }
+     ]
+    }
+   ],
+   "card": {
+    "kicker": "BÖLÜM V",
+    "date": "1538 · Preveze"
+   },
+   "music": "derin"
+  },
+  {
+   "title": "Kanunlar ve Kubbeler",
+   "paragraphs": [
+    {
+     "text": "[sakin] Süleyman'ı Avrupa \"Muhteşem\" diye andı. Ama kendi halkı ona Kanuni dedi. Çünkü o, savaşlar kadar adaletle de ilgilendi. Bilgin Şeyhülislam Ebussuud Efendi ile birlikte, imparatorluğun dört bir yanında geçerli olacak kanunları düzenledi. Vergiler, toprak düzeni, ceza hükümleri yazılı hale getirildi.",
+     "shots": [
+      {
+       "clip": "klipler/c28.mp4"
+      },
+      {
+       "clip": "klipler/c29.mp4",
+       "transition": "dissolve"
+      }
+     ]
+    },
+    {
+     "text": "Bu kanunların amacı, uzak bir köydeki çiftçinin de sultanın adaletine ulaşabilmesiydi. [duraksama 0.8] Kaynaklar, Kanuni'nin halkın şikâyetlerine önem verdiğini, haksızlık yapan yöneticileri cezalandırdığını anlatır. Elbette her şey kâğıttaki kadar mükemmel değildi. Ama o dönem için düzenli ve öngörülebilir bir hukuk sistemi kurulmuştu.",
+     "shots": [
+      {
+       "clip": "klipler/c30.mp4"
+      }
+     ]
+    },
+    {
+     "text": "Bu dönemin bir başka büyük ismi, Kanuni'nin mimarıydı: Mimar Sinan. Yeniçeri ocağından yetişmiş, seferlerde köprüler ve gemiler yapmış bir ustaydı. Süleyman onu baş mimar yaptı. [hayret] Sinan, uzun ömrü boyunca yüzlerce yapı inşa etti.",
+     "shots": [
+      {
+       "image": "r_sinan",
+       "move": "in"
+      },
+      {
+       "clip": "klipler/c31.mp4",
+       "transition": "dissolve"
+      }
+     ]
+    },
+    {
+     "text": "[vurgulu] Bunların en görkemlilerinden biri, bin beş yüz elli yedide tamamlanan Süleymaniye Camii'ydi. Bugün hâlâ İstanbul'un siluetinde, Haliç'in üzerinde yükseliyor. [duraksama 1.0] Ve bu caminin bahçesinde, sultanın kendi türbesi bulunuyor.",
+     "shots": [
+      {
+       "clip": "klipler/c07.mp4"
+      },
+      {
+       "clip": "klipler/c32.mp4",
+       "transition": "dissolve"
+      }
+     ]
+    },
+    {
+     "text": "[hayret] Sinan'ın kendi eserleri hakkında söylediği anlatılan bir söz vardır: Şehzade Camii'ne \"çıraklık eserim\", Süleymaniye'ye \"kalfalık eserim\", Edirne'deki Selimiye'ye ise \"ustalık eserim\" demiş. [duraksama 1.0] Yani bugün bile nefes kesen Süleymaniye, ustanın gözünde henüz zirve değildi.",
+     "shots": [
+      {
+       "clip": "klipler/c32.mp4"
+      }
+     ]
+    }
+   ],
+   "card": {
+    "kicker": "BÖLÜM VI",
+    "date": "1530–1557 · İstanbul"
+   },
+   "music": "gizem"
+  },
+  {
+   "title": "Sarayın İçinde",
+   "paragraphs": [
+    {
+     "text": "[sakin] Saraya dönelim. Manisa'daki o genç dost, İbrahim, Süleyman tahta çıktıktan sonra hızla yükseldi. Bin beş yüz yirmi üç yılında, kimsenin beklemediği bir anda sadrazam yapıldı. Padişahın en yakın sırdaşıydı. Ona öyle güveniyordu ki, İbrahim Paşa'nın kendi sarayı Topkapı'nın hemen karşısında, At Meydanı'nda yükseliyordu. Bu bina bugün Türk ve İslam Eserleri Müzesi olarak hâlâ ayakta.",
+     "shots": [
+      {
+       "clip": "klipler/c33.mp4"
+      },
+      {
+       "clip": "klipler/c11.mp4",
+       "transition": "dissolve"
+      }
+     ]
+    },
+    {
+     "text": "Ama güç, İbrahim'i değiştirdi. Avrupalı elçilerle görüşürken kendini sultan kadar güçlü gösteren sözler söylediği anlatılır. Kendine \"serasker sultan\" unvanını kullandı. [duraksama 0.8] Sarayda düşmanları çoğaldı.",
+     "shots": [
+      {
+       "clip": "klipler/c34.mp4"
+      }
+     ]
+    },
+    {
+     "text": "[ağır] Bin beş yüz otuz altı yılının Mart ayında bir gece, İbrahim Paşa, Topkapı Sarayı'nda, sultanla birlikte iftar yaptıktan sonra kaldığı odada boğduruldu. Neden öldürüldüğü bugün bile tartışılır. [duraksama 1.0] Bazı tarihçiler aşırı gücünü, bazıları saraydaki entrikaları sebep gösterir. Kesin olan tek şey, Süleyman'ın en yakın dostunu kendi emriyle kaybettiğiydi.",
+     "shots": [
+      {
+       "clip": "klipler/c35.mp4"
+      }
+     ]
+    },
+    {
+     "text": "[merak] Bu entrikaların içinde sıkça anılan bir isim daha vardı: Hürrem. Doğu Avrupa'dan, bugünkü Ukrayna topraklarından gelen bir cariyeydi. Avrupalılar ona Roxelana diyordu. Süleyman ona âşık oldu. [duraksama 0.8] Ve Osmanlı tarihinde o güne kadar görülmemiş bir şey yaptı: Onu azat edip resmen nikâhladı.",
+     "shots": [
+      {
+       "clip": "klipler/c36.mp4"
+      }
+     ]
+    },
+    {
+     "text": "Süleyman seferdeyken Hürrem ona uzun mektuplar yazdı. Bu mektupların bir kısmı bugün hâlâ arşivlerde duruyor. Özlem dolu satırlarla, sarayda olup bitenleri anlatıyordu. [duraksama 0.8] Hürrem aynı zamanda İstanbul'da büyük bir külliye yaptırdı: Cami, medrese, aşevi ve hastane. Bu yapılar da Mimar Sinan'ın elinden çıktı. Avratpazarı denen semtteki bu külliye, bugün hâlâ onun adını taşıyor: Haseki.",
+     "shots": [
+      {
+       "clip": "klipler/c36.mp4"
+      },
+      {
+       "clip": "klipler/c50.mp4",
+       "transition": "dissolve"
+      }
+     ]
+    }
+   ],
+   "card": {
+    "kicker": "BÖLÜM VII",
+    "date": "1523–1536 · Topkapı"
+   },
+   "music": "huzun"
+  },
+  {
+   "title": "Şehzadeler",
+   "paragraphs": [
+    {
+     "text": "[sakin] Süleyman'ın birçok oğlu vardı. En büyüğü Şehzade Mustafa'ydı. Mahidevran Sultan'dan doğmuştu. Cesur, zeki ve askerin çok sevdiği bir şehzadeydi. Birçok kişi onu tahtın doğal varisi olarak görüyordu.",
+     "shots": [
+      {
+       "clip": "klipler/c37.mp4"
+      },
+      {
+       "image": "r_sehzade_mustafa",
+       "move": "in",
+       "transition": "dissolve"
+      }
+     ]
+    },
+    {
+     "text": "Süleyman'ın en sevdiği oğullarından Şehzade Mehmed ise bin beş yüz kırk üç yılında, henüz yirmi iki yaşındayken hastalıktan öldü. Yaslı baba, onun anısına İstanbul'da bir cami yaptırdı. Mimar Sinan'ın ilk büyük eseri olan Şehzade Camii. [duraksama 1.0] Ama asıl trajedi henüz gelmemişti.",
+     "shots": [
+      {
+       "clip": "klipler/c38.mp4"
+      }
+     ]
+    },
+    {
+     "text": "[ağır] Bin beş yüz elli üç yılında, İran seferine giden Süleyman, Konya Ereğlisi yakınında ordugâh kurdu. Mustafa babasını ziyarete geldi. Otağa girdi. [duraksama 1.5] Ve bir daha çıkmadı. Babasının emriyle orada boğduruldu.",
+     "shots": [
+      {
+       "clip": "klipler/c39.mp4"
+      },
+      {
+       "clip": "klipler/c40.mp4",
+       "transition": "cut"
+      }
+     ]
+    },
+    {
+     "text": "Sebebi tartışmalıdır. Kaynakların bir kısmı, Mustafa'nın babasına karşı isyan hazırladığına dair söylentileri gösterir. Bir kısmı ise Hürrem Sultan'ın ve damadı Rüstem Paşa'nın entrikalarını. [duraksama 1.0] Ordu yas tuttu. Şairler ağıtlar yazdı. Kanuni'nin hayatındaki bu karar, onun en çok tartışılan kararı olarak kaldı.",
+     "shots": [
+      {
+       "clip": "klipler/c41.mp4"
+      }
+     ]
+    },
+    {
+     "text": "[hüzün] Şair Taşlıcalı Yahya, Mustafa'nın ölümü üzerine bir mersiye yazdı. Bu ağıt, Osmanlı edebiyatının en bilinen yas şiirlerinden biri oldu ve halk arasında dilden dile dolaştı. [duraksama 1.0] Bir padişahın kararını açıkça eleştiren bu dizeler, o dönemde ne kadar büyük bir öfke ve üzüntü yaşandığını gösteriyordu.",
+     "shots": [
+      {
+       "clip": "klipler/c41.mp4"
+      },
+      {
+       "clip": "klipler/c47.mp4",
+       "transition": "dissolve"
+      }
+     ]
+    },
+    {
+     "text": "Yıllar sonra, oğulları Selim ile Bayezid arasında da taht kavgası çıktı. Bayezid yenildi, İran'a kaçtı ve bin beş yüz altmış birde orada öldürüldü. [ağır] Kanuni, imparatorluğunu genişletirken, ailesini birer birer kaybediyordu.",
+     "shots": [
+      {
+       "clip": "klipler/c42.mp4"
+      }
+     ]
+    }
+   ],
+   "card": {
+    "kicker": "BÖLÜM VIII",
+    "date": "1543–1561 · Konya Ereğlisi"
+   },
+   "music": "huzun"
+  },
+  {
+   "title": "Son Sefer",
+   "paragraphs": [
+    {
+     "text": "[sakin] Bin beş yüz altmış altı yılında Kanuni yetmiş bir yaşındaydı. Hastaydı, ata binemiyordu. Hürrem yıllar önce ölmüştü. Ama yine de son bir sefere çıkmak istedi. Hedef, yeniden Macaristan'dı.",
+     "shots": [
+      {
+       "image": "r_lorck_kanuni_yasli",
+       "move": "in"
+      },
+      {
+       "clip": "klipler/c43.mp4",
+       "transition": "dissolve"
+      }
+     ]
+    },
+    {
+     "text": "Ordu, Zigetvar kalesini kuşattı. Kaleyi, cesur Hırvat komutanı Nikola Zrinyi savunuyordu. Kuşatma haftalarca sürdü. Kale, bir bataklığın ortasındaydı ve almak çok zordu.",
+     "shots": [
+      {
+       "map": "m_zigetvar"
+      }
+     ]
+    },
+    {
+     "text": "[gerilim] Zrinyi ve adamları teslim olmayı reddetti. Kale yandığında, Zrinyi kalan askerleriyle birlikte kapıyı açtı ve son bir hücuma çıktı. Hepsi orada öldü. [duraksama 0.8] Hırvatlar ve Macarlar için Zrinyi bugün hâlâ bir kahramandır. Ama o gece, Osmanlı ordugâhında çok daha büyük bir sır saklanıyordu.",
+     "shots": [
+      {
+       "clip": "klipler/c51.mp4"
+      },
+      {
+       "clip": "klipler/c52.mp4",
+       "transition": "cut"
+      }
+     ]
+    },
+    {
+     "text": "[ağır] Ve hikâyemizin başına geri dönüyoruz. Altı Eylül'ü yedi Eylül'e bağlayan gece, Kanuni Sultan Süleyman, kalenin düşmesini göremeden, otağında hayata gözlerini yumdu. [duraksama 1.5] Birkaç saat sonra Zigetvar düştü.",
+     "shots": [
+      {
+       "clip": "klipler/c01.mp4"
+      },
+      {
+       "clip": "klipler/c02.mp4",
+       "transition": "cut"
+      }
+     ]
+    },
+    {
+     "text": "Sadrazam Sokullu Mehmed Paşa, ölümü sakladı. Çünkü ordunun ortasında bir taht boşluğu, isyana yol açabilirdi. Gizlice Kütahya'daki Şehzade Selim'e haber gönderdi. [duraksama 1.0] Sultanın cesedi, ordunun içinde, kapalı bir arabada taşındı. Ordu geri dönüş yoluna geçti. Ve Selim, Belgrad'a ulaşıp tahta çıkana kadar, kırk sekiz gün boyunca, askerlerin büyük çoğunluğu padişahlarının öldüğünü bilmedi.",
+     "shots": [
+      {
+       "clip": "klipler/c03.mp4"
+      },
+      {
+       "clip": "klipler/c44.mp4",
+       "transition": "dissolve"
+      }
+     ]
+    },
+    {
+     "text": "[dramatik] Haber sonunda açıklandığında, ordu yasa büründü. Kırk altı yıl boyunca onları seferden sefere götüren padişah artık yoktu. [duraksama 1.0] Kanuni'nin naaşı İstanbul'a getirildi ve Mimar Sinan'ın yaptığı Süleymaniye'nin bahçesindeki türbeye defnedildi.",
+     "shots": [
+      {
+       "clip": "klipler/c45.mp4"
+      }
+     ]
+    }
+   ],
+   "card": {
+    "kicker": "BÖLÜM IX",
+    "date": "1566 · Zigetvar"
+   },
+   "music": "agir"
+  },
+  {
+   "title": "Kapanış",
+   "paragraphs": [
+    {
+     "text": "[sakin] Kanuni Sultan Süleyman, Osmanlı tarihinde en uzun süre tahtta kalan padişah oldu. Kırk altı yıl. Bu sürede imparatorluk, Budapeşte'den Bağdat'a, Cezayir'den Yemen'e uzanan dev bir devlete dönüştü. Kanunlar yazıldı, kubbeler yükseldi, Akdeniz'in rüzgârı Osmanlı gemilerinin yelkenlerini doldurdu.",
+     "shots": [
+      {
+       "clip": "klipler/c07.mp4"
+      },
+      {
+       "clip": "klipler/c46.mp4",
+       "transition": "dissolve"
+      }
+     ]
+    },
+    {
+     "text": "Ama hayatının son yıllarında yalnız bir adamdı. En yakın dostunu, iki oğlunu ve sevdiği kadını kaybetmişti. Muhibbi mahlasıyla şiirler yazdı. En ünlü beyitlerinden biri şöyledir: [duraksama 1.0] \"Halk içinde muteber bir nesne yok devlet gibi. Olmaya devlet cihanda bir nefes sıhhat gibi.\" [duraksama 1.0] Yani: İnsanlar arasında devlet kadar değerli bir şey yoktur. Ama bu dünyada, bir nefeslik sağlık kadar değerli bir devlet de yoktur.",
+     "shots": [
+      {
+       "clip": "klipler/c42.mp4"
+      },
+      {
+       "clip": "klipler/c47.mp4",
+       "transition": "dissolve"
+      }
+     ]
+    },
+    {
+     "text": "[ağır] Dünyanın en büyük imparatorluklarından birini yöneten adam, sonunda bunu öğrenmişti. [duraksama 1.0] Tarih Dosyaları'nın bir sonraki bölümünde görüşmek üzere. Kanalımıza abone olmayı unutmayın.",
+     "shots": [
+      {
+       "clip": "klipler/c07.mp4"
+      }
+     ]
+    }
+   ],
+   "music": "huzun"
+  }
+ ]
+}
