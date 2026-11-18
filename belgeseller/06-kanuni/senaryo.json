@@ -83,69 +83,27 @@
   }
  },
  "images": {
-  "r_suleymanname_mohac": {
-   "file": "gorseller/r_suleymanname_mohac.jpg",
-   "credit": {
-    "title": "TBD",
-    "artist": "",
-    "license": ""
-   }
+  "dunya": {
+   "commons": "File:Whole world - land and oceans 12000.jpg",
+   "original": true
   },
   "r_kanuni_genc": {
-   "file": "gorseller/r_kanuni_genc.jpg",
-   "credit": {
-    "title": "TBD",
-    "artist": "",
-    "license": ""
-   }
+   "commons": "File:Istanbul, Topkapi Palace Museum MS Hazine 1563 fol. 47v Suleyman I by Nakkaş Osman.jpg"
+  },
+  "r_suleymanname_mohac": {
+   "commons": "File:1526-Sultan Suleiman during the Battle of Mohacs-Suleymanname.jpg"
   },
   "r_lorck_kanuni": {
-   "file": "gorseller/r_lorck_kanuni.jpg",
-   "credit": {
-    "title": "TBD",
-    "artist": "",
-    "license": ""
-   }
-  },
-  "r_barbaros": {
-   "file": "gorseller/r_barbaros.jpg",
-   "credit": {
-    "title": "TBD",
-    "artist": "",
-    "license": ""
-   }
-  },
-  "r_piri_reis_harita": {
-   "file": "gorseller/r_piri_reis_harita.jpg",
-   "credit": {
-    "title": "TBD",
-    "artist": "",
-    "license": ""
-   }
-  },
-  "r_sinan": {
-   "file": "gorseller/r_sinan.jpg",
-   "credit": {
-    "title": "TBD",
-    "artist": "",
-    "license": ""
-   }
-  },
-  "r_sehzade_mustafa": {
-   "file": "gorseller/r_sehzade_mustafa.jpg",
-   "credit": {
-    "title": "TBD",
-    "artist": "",
-    "license": ""
-   }
+   "commons": "File:EmperorSuleiman.jpg"
   },
   "r_lorck_kanuni_yasli": {
-   "file": "gorseller/r_lorck_kanuni_yasli.jpg",
-   "credit": {
-    "title": "TBD",
-    "artist": "",
-    "license": ""
-   }
+   "commons": "File:Melchior Lorck Sultan Suleiman.jpg"
+  },
+  "r_barbaros": {
+   "commons": "File:Agostino dei Musi, Barbarossa, Khair-ed-Din, 1535, NGA 46891.jpg"
+  },
+  "r_piri_reis_harita": {
+   "commons": "File:Piri reis world map 01.jpg"
   }
  },
  "thumbnails": [],
@@ -153,53 +111,1008 @@
  "films": {},
  "maps": {
   "m_belgrad_rodos": {
-   "bilesen": "Infographic",
-   "type": "zaman",
-   "title": "m_belgrad_rodos",
-   "durationSec": 10,
-   "events": []
+   "taban": "dunya",
+   "bounds": {
+    "west": 16.5,
+    "east": 32.5,
+    "south": 36.1,
+    "north": 45.1
+   },
+   "durationSec": 14,
+   "title": "İlk İki Sefer",
+   "subtitle": "Belgrad 1521 · Rodos 1522",
+   "routes": [
+    {
+     "points": [
+      [
+       28.97,
+       41.01
+      ],
+      [
+       26.56,
+       41.68
+      ],
+      [
+       23.32,
+       42.7
+      ],
+      [
+       21.9,
+       43.32
+      ],
+      [
+       20.46,
+       44.82
+      ]
+     ],
+     "color": "#b5302a",
+     "start": 1.0,
+     "duration": 5.0,
+     "label": "1521",
+     "dashed": true
+    },
+    {
+     "points": [
+      [
+       28.97,
+       41.01
+      ],
+      [
+       27.6,
+       40.4
+      ],
+      [
+       26.3,
+       39.6
+      ],
+      [
+       26.5,
+       38.2
+      ],
+      [
+       27.4,
+       37.3
+      ],
+      [
+       28.27,
+       36.85
+      ],
+      [
+       28.22,
+       36.44
+      ]
+     ],
+     "color": "#b5302a",
+     "start": 7.0,
+     "duration": 5.0,
+     "label": "1522",
+     "dashed": true
+    }
+   ],
+   "clashes": [
+    {
+     "at": [
+      20.46,
+      44.82
+     ],
+     "start": 6.0
+    },
+    {
+     "at": [
+      28.22,
+      36.44
+     ],
+     "start": 12.0
+    }
+   ],
+   "cities": [
+    {
+     "at": [
+      28.97,
+      41.01
+     ],
+     "label": "İstanbul",
+     "start": 0.5,
+     "major": true,
+     "side": "right"
+    },
+    {
+     "at": [
+      20.46,
+      44.82
+     ],
+     "label": "Belgrad",
+     "start": 5.6,
+     "major": true,
+     "side": "left"
+    },
+    {
+     "at": [
+      28.22,
+      36.44
+     ],
+     "label": "Rodos",
+     "start": 11.6,
+     "major": true,
+     "side": "right"
+    }
+   ],
+   "labels": [
+    {
+     "at": [
+      25.0,
+      35.2
+     ],
+     "text": "Akdeniz",
+     "start": 0.4,
+     "kind": "sea"
+    },
+    {
+     "at": [
+      30.5,
+      43.2
+     ],
+     "text": "Karadeniz",
+     "start": 0.4,
+     "kind": "sea"
+    }
+   ],
+   "years": [
+    {
+     "t": 0.5,
+     "text": "1521"
+    },
+    {
+     "t": 7.0,
+     "text": "1522"
+    }
+   ],
+   "note": "Güzergâh yaklaşıktır",
+   "camera": [
+    {
+     "t": 0,
+     "center": [
+      24.5,
+      41.5
+     ],
+     "zoom": 1.0
+    }
+   ]
   },
   "m_mohac_seferi": {
-   "bilesen": "Infographic",
-   "type": "zaman",
-   "title": "m_mohac_seferi",
-   "durationSec": 10,
-   "events": []
+   "taban": "dunya",
+   "bounds": {
+    "west": 16.5,
+    "east": 29.5,
+    "south": 40.5438,
+    "north": 47.8563
+   },
+   "durationSec": 13,
+   "title": "Mohaç Seferi",
+   "subtitle": "İstanbul'dan Mohaç'a, 1526",
+   "routes": [
+    {
+     "points": [
+      [
+       28.97,
+       41.01
+      ],
+      [
+       26.56,
+       41.68
+      ],
+      [
+       23.32,
+       42.7
+      ],
+      [
+       21.9,
+       43.32
+      ],
+      [
+       20.46,
+       44.82
+      ],
+      [
+       19.9,
+       45.25
+      ],
+      [
+       18.69,
+       45.55
+      ],
+      [
+       18.68,
+       45.99
+      ]
+     ],
+     "color": "#b5302a",
+     "start": 1.0,
+     "duration": 8.0,
+     "label": "Osmanlı ordusu",
+     "dashed": true
+    },
+    {
+     "points": [
+      [
+       19.04,
+       47.5
+      ],
+      [
+       18.9,
+       46.9
+      ],
+      [
+       18.75,
+       46.3
+      ]
+     ],
+     "color": "#3f5f8f",
+     "start": 6.5,
+     "duration": 2.5,
+     "label": "Macar ordusu",
+     "dashed": true
+    }
+   ],
+   "clashes": [
+    {
+     "at": [
+      18.68,
+      45.99
+     ],
+     "start": 9.5
+    }
+   ],
+   "cities": [
+    {
+     "at": [
+      28.97,
+      41.01
+     ],
+     "label": "İstanbul",
+     "start": 0.5,
+     "side": "right"
+    },
+    {
+     "at": [
+      20.46,
+      44.82
+     ],
+     "label": "Belgrad",
+     "start": 4.5
+    },
+    {
+     "at": [
+      19.04,
+      47.5
+     ],
+     "label": "Budin",
+     "start": 6.0,
+     "side": "right"
+    },
+    {
+     "at": [
+      18.68,
+      45.99
+     ],
+     "label": "Mohaç",
+     "start": 9.0,
+     "major": true,
+     "side": "left"
+    }
+   ],
+   "years": [
+    {
+     "t": 0.5,
+     "text": "Nisan 1526"
+    },
+    {
+     "t": 9.5,
+     "text": "29 Ağustos 1526"
+    }
+   ],
+   "note": "Güzergâh yaklaşıktır",
+   "camera": [
+    {
+     "t": 0,
+     "center": [
+      23.0,
+      44.2
+     ],
+     "zoom": 1.0
+    },
+    {
+     "t": 7.5,
+     "center": [
+      19.2,
+      46.2
+     ],
+     "zoom": 1.9
+    }
+   ]
   },
   "m_mohac_savasi": {
-   "bilesen": "Infographic",
-   "type": "zaman",
-   "title": "m_mohac_savasi",
-   "durationSec": 10,
-   "events": []
+   "taban": "parsomen",
+   "bounds": {
+    "west": 18.55,
+    "east": 18.77,
+    "south": 45.8981,
+    "north": 46.0219
+   },
+   "durationSec": 15,
+   "title": "Mohaç",
+   "subtitle": "29 Ağustos 1526, öğleden sonra",
+   "rivers": [
+    {
+     "points": [
+      [
+       18.72,
+       46.09
+      ],
+      [
+       18.7,
+       46.02
+      ],
+      [
+       18.69,
+       45.96
+      ],
+      [
+       18.7,
+       45.89
+      ]
+     ],
+     "name": "Tuna",
+     "start": 0.3,
+     "labelAt": [
+      18.735,
+      45.93
+     ]
+    }
+   ],
+   "units": [
+    {
+     "label": "Macar ağır süvarisi",
+     "color": "#3f5f8f",
+     "path": [
+      [
+       18.6,
+       46.02
+      ],
+      [
+       18.62,
+       45.985
+      ]
+     ],
+     "start": 1.0,
+     "duration": 3.0,
+     "labelSide": "above"
+    },
+    {
+     "label": "Osmanlı öncüleri (geri çekilir)",
+     "color": "#d9663f",
+     "path": [
+      [
+       18.62,
+       45.98
+      ],
+      [
+       18.63,
+       45.95
+      ]
+     ],
+     "start": 3.0,
+     "duration": 2.5,
+     "labelSide": "below"
+    },
+    {
+     "label": "Zincirli toplar ve yeniçeriler",
+     "color": "#b5302a",
+     "path": [
+      [
+       18.62,
+       45.935
+      ],
+      [
+       18.62,
+       45.935
+      ]
+     ],
+     "start": 1.5,
+     "duration": 0.5,
+     "labelSide": "below"
+    },
+    {
+     "label": "Kuşatan kanat",
+     "color": "#b5302a",
+     "path": [
+      [
+       18.56,
+       45.94
+      ],
+      [
+       18.57,
+       45.99
+      ],
+      [
+       18.6,
+       46.02
+      ]
+     ],
+     "start": 8.0,
+     "duration": 4.0,
+     "labelSide": "above"
+    }
+   ],
+   "clashes": [
+    {
+     "at": [
+      18.625,
+      45.945
+     ],
+     "start": 5.8
+    },
+    {
+     "at": [
+      18.61,
+      46.0
+     ],
+     "start": 11.5
+    }
+   ],
+   "cities": [
+    {
+     "at": [
+      18.68,
+      45.99
+     ],
+     "label": "Mohaç",
+     "start": 0.5,
+     "side": "right"
+    }
+   ],
+   "years": [
+    {
+     "t": 0.5,
+     "text": "29 Ağustos 1526"
+    }
+   ],
+   "note": "Konumlar yaklaşıktır",
+   "camera": [
+    {
+     "t": 0,
+     "center": [
+      18.64,
+      45.97
+     ],
+     "zoom": 1.0
+    }
+   ]
   },
   "m_viyana": {
-   "bilesen": "Infographic",
-   "type": "zaman",
-   "title": "m_viyana",
-   "durationSec": 10,
-   "events": []
+   "taban": "dunya",
+   "bounds": {
+    "west": 14.0,
+    "east": 24.0,
+    "south": 43.7875,
+    "north": 49.4125
+   },
+   "durationSec": 13,
+   "title": "Viyana Seferi",
+   "subtitle": "1529",
+   "routes": [
+    {
+     "points": [
+      [
+       20.46,
+       44.82
+      ],
+      [
+       19.9,
+       45.25
+      ],
+      [
+       18.68,
+       45.99
+      ],
+      [
+       19.04,
+       47.5
+      ],
+      [
+       17.6,
+       47.8
+      ],
+      [
+       16.37,
+       48.21
+      ]
+     ],
+     "color": "#b5302a",
+     "start": 1.0,
+     "duration": 7.0,
+     "label": "Osmanlı ordusu",
+     "dashed": true
+    },
+    {
+     "points": [
+      [
+       16.37,
+       48.21
+      ],
+      [
+       17.6,
+       47.6
+      ],
+      [
+       19.04,
+       47.5
+      ]
+     ],
+     "color": "#b5302a",
+     "start": 10.0,
+     "duration": 2.5,
+     "label": "Geri dönüş",
+     "dashed": true
+    }
+   ],
+   "clashes": [
+    {
+     "at": [
+      16.37,
+      48.21
+     ],
+     "start": 8.3
+    }
+   ],
+   "cities": [
+    {
+     "at": [
+      20.46,
+      44.82
+     ],
+     "label": "Belgrad",
+     "start": 0.5,
+     "side": "right"
+    },
+    {
+     "at": [
+      19.04,
+      47.5
+     ],
+     "label": "Budin",
+     "start": 4.5,
+     "side": "right"
+    },
+    {
+     "at": [
+      16.37,
+      48.21
+     ],
+     "label": "Viyana",
+     "start": 7.8,
+     "major": true,
+     "side": "left"
+    }
+   ],
+   "years": [
+    {
+     "t": 0.5,
+     "text": "Mayıs 1529"
+    },
+    {
+     "t": 8.3,
+     "text": "27 Eylül – 15 Ekim 1529"
+    }
+   ],
+   "note": "Güzergâh yaklaşıktır",
+   "camera": [
+    {
+     "t": 0,
+     "center": [
+      19.0,
+      46.6
+     ],
+     "zoom": 1.0
+    },
+    {
+     "t": 7.0,
+     "center": [
+      16.8,
+      48.0
+     ],
+     "zoom": 1.8
+    }
+   ]
   },
   "m_bagdat": {
-   "bilesen": "Infographic",
-   "type": "zaman",
-   "title": "m_bagdat",
-   "durationSec": 10,
-   "events": []
+   "taban": "dunya",
+   "bounds": {
+    "west": 27.0,
+    "east": 49.0,
+    "south": 31.6125,
+    "north": 43.9875
+   },
+   "durationSec": 13,
+   "title": "Irakeyn Seferi",
+   "subtitle": "Tebriz ve Bağdat, 1534",
+   "routes": [
+    {
+     "points": [
+      [
+       28.97,
+       41.01
+      ],
+      [
+       32.0,
+       40.0
+      ],
+      [
+       36.5,
+       39.5
+      ],
+      [
+       41.27,
+       39.9
+      ],
+      [
+       44.0,
+       39.0
+      ],
+      [
+       46.29,
+       38.08
+      ]
+     ],
+     "color": "#b5302a",
+     "start": 1.0,
+     "duration": 5.5,
+     "label": "1534",
+     "dashed": true
+    },
+    {
+     "points": [
+      [
+       46.29,
+       38.08
+      ],
+      [
+       46.0,
+       36.5
+      ],
+      [
+       45.5,
+       35.0
+      ],
+      [
+       44.36,
+       33.31
+      ]
+     ],
+     "color": "#b5302a",
+     "start": 7.0,
+     "duration": 4.0,
+     "label": "Zagros'u aşarak",
+     "dashed": true
+    }
+   ],
+   "cities": [
+    {
+     "at": [
+      28.97,
+      41.01
+     ],
+     "label": "İstanbul",
+     "start": 0.5,
+     "side": "right"
+    },
+    {
+     "at": [
+      46.29,
+      38.08
+     ],
+     "label": "Tebriz",
+     "start": 6.0,
+     "major": true,
+     "side": "right"
+    },
+    {
+     "at": [
+      44.36,
+      33.31
+     ],
+     "label": "Bağdat",
+     "start": 10.8,
+     "major": true,
+     "side": "left"
+    }
+   ],
+   "labels": [
+    {
+     "at": [
+      34.5,
+      43.3
+     ],
+     "text": "Karadeniz",
+     "start": 0.4,
+     "kind": "sea"
+    },
+    {
+     "at": [
+      51.0,
+      41.5
+     ],
+     "text": "Hazar Denizi",
+     "start": 0.4,
+     "kind": "sea"
+    }
+   ],
+   "years": [
+    {
+     "t": 0.5,
+     "text": "1534"
+    }
+   ],
+   "note": "Güzergâh yaklaşıktır",
+   "camera": [
+    {
+     "t": 0,
+     "center": [
+      38.0,
+      37.8
+     ],
+     "zoom": 1.0
+    },
+    {
+     "t": 7.0,
+     "center": [
+      44.0,
+      35.8
+     ],
+     "zoom": 1.6
+    }
+   ]
   },
   "m_preveze": {
-   "bilesen": "Infographic",
-   "type": "zaman",
-   "title": "m_preveze",
-   "durationSec": 10,
-   "events": []
+   "taban": "dunya",
+   "bounds": {
+    "west": 18.9,
+    "east": 22.1,
+    "south": 38.0,
+    "north": 39.8
+   },
+   "durationSec": 13,
+   "title": "Preveze",
+   "subtitle": "28 Eylül 1538",
+   "routes": [
+    {
+     "points": [
+      [
+       20.72,
+       38.97
+      ],
+      [
+       20.55,
+       38.9
+      ],
+      [
+       20.3,
+       38.85
+      ]
+     ],
+     "color": "#b5302a",
+     "start": 2.0,
+     "duration": 4.0,
+     "label": "Osmanlı donanması",
+     "dashed": false
+    },
+    {
+     "points": [
+      [
+       19.75,
+       38.95
+      ],
+      [
+       20.05,
+       38.88
+      ]
+     ],
+     "color": "#5a6f7f",
+     "start": 1.0,
+     "duration": 3.0,
+     "label": "Haçlı donanması",
+     "dashed": false
+    },
+    {
+     "points": [
+      [
+       20.05,
+       38.88
+      ],
+      [
+       19.7,
+       39.2
+      ]
+     ],
+     "color": "#5a6f7f",
+     "start": 9.0,
+     "duration": 3.0,
+     "label": "Geri çekilme",
+     "dashed": true
+    }
+   ],
+   "clashes": [
+    {
+     "at": [
+      20.18,
+      38.86
+     ],
+     "start": 6.5
+    }
+   ],
+   "cities": [
+    {
+     "at": [
+      20.75,
+      38.96
+     ],
+     "label": "Preveze",
+     "start": 0.5,
+     "major": true,
+     "side": "right"
+    }
+   ],
+   "labels": [
+    {
+     "at": [
+      20.0,
+      38.55
+     ],
+     "text": "İyon Denizi",
+     "start": 0.4,
+     "kind": "sea"
+    }
+   ],
+   "years": [
+    {
+     "t": 0.5,
+     "text": "28 Eylül 1538"
+    }
+   ],
+   "note": "Konumlar yaklaşıktır",
+   "camera": [
+    {
+     "t": 0,
+     "center": [
+      20.4,
+      38.95
+     ],
+     "zoom": 1.0
+    }
+   ]
   },
   "m_zigetvar": {
-   "bilesen": "Infographic",
-   "type": "zaman",
-   "title": "m_zigetvar",
-   "durationSec": 10,
-   "events": []
+   "taban": "dunya",
+   "bounds": {
+    "west": 16.0,
+    "east": 30.0,
+    "south": 40.0625,
+    "north": 47.9375
+   },
+   "durationSec": 13,
+   "title": "Son Sefer",
+   "subtitle": "İstanbul'dan Zigetvar'a, 1566",
+   "routes": [
+    {
+     "points": [
+      [
+       28.97,
+       41.01
+      ],
+      [
+       26.56,
+       41.68
+      ],
+      [
+       23.32,
+       42.7
+      ],
+      [
+       21.9,
+       43.32
+      ],
+      [
+       20.46,
+       44.82
+      ],
+      [
+       19.9,
+       45.25
+      ],
+      [
+       18.8,
+       45.6
+      ],
+      [
+       17.8,
+       46.05
+      ]
+     ],
+     "color": "#b5302a",
+     "start": 1.0,
+     "duration": 8.0,
+     "label": "Osmanlı ordusu",
+     "dashed": true
+    }
+   ],
+   "clashes": [
+    {
+     "at": [
+      17.8,
+      46.05
+     ],
+     "start": 9.5
+    }
+   ],
+   "cities": [
+    {
+     "at": [
+      28.97,
+      41.01
+     ],
+     "label": "İstanbul",
+     "start": 0.5,
+     "side": "right"
+    },
+    {
+     "at": [
+      20.46,
+      44.82
+     ],
+     "label": "Belgrad",
+     "start": 5.5,
+     "side": "right"
+    },
+    {
+     "at": [
+      17.8,
+      46.05
+     ],
+     "label": "Zigetvar",
+     "start": 9.0,
+     "major": true,
+     "side": "left"
+    }
+   ],
+   "years": [
+    {
+     "t": 0.5,
+     "text": "Mayıs 1566"
+    },
+    {
+     "t": 9.5,
+     "text": "Ağustos – Eylül 1566"
+    }
+   ],
+   "note": "Güzergâh yaklaşıktır",
+   "camera": [
+    {
+     "t": 0,
+     "center": [
+      23.0,
+      44.0
+     ],
+     "zoom": 1.0
+    },
+    {
+     "t": 8.0,
+     "center": [
+      18.6,
+      45.8
+     ],
+     "zoom": 1.9
+    }
+   ]
   }
  },
  "chapters": [
@@ -614,12 +1527,7 @@
      "text": "Bu dönemin bir başka büyük ismi, Kanuni'nin mimarıydı: Mimar Sinan. Yeniçeri ocağından yetişmiş, seferlerde köprüler ve gemiler yapmış bir ustaydı. Süleyman onu baş mimar yaptı. [hayret] Sinan, uzun ömrü boyunca yüzlerce yapı inşa etti.",
      "shots": [
       {
-       "image": "r_sinan",
-       "move": "in"
-      },
-      {
-       "clip": "klipler/c31.mp4",
-       "transition": "dissolve"
+       "clip": "klipler/c31.mp4"
       }
      ]
     },
@@ -716,11 +1624,6 @@
      "shots": [
       {
        "clip": "klipler/c37.mp4"
-      },
-      {
-       "image": "r_sehzade_mustafa",
-       "move": "in",
-       "transition": "dissolve"
       }
      ]
     },

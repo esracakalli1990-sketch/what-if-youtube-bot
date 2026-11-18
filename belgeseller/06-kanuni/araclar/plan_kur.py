@@ -17,6 +17,8 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
 sys.path.insert(0, str(ROOT.parents[1]))
+sys.path.insert(0, str(HERE))
+from haritalar import M as MAPS  # noqa: E402
 
 SEYFULLAH_KARTAL = "mF7tIc9VLrznhGooGjaT"       # ElevenLabs ses kütüphanesi (herkese açık kimlik)
 GECIS = {"kes": "cut", "erit": "dissolve", "karart": "black", "parla": "flash"}
@@ -118,11 +120,19 @@ def main():
                       "Yorumlarda konuşalım.\n\n🔔 Serinin sıradaki bölümü için kanala abone olun."),
         "kurgu": {"gecis": "cut", "ton_esitle": 0.5, "bolum_sonu": 3.5, "bolum_karartma": 2.0},
         "music_sources": {k: v for k, v in yavuz["music_sources"].items() if k != "isik"},   # "Bathed in the Light" telif talebi aldı
-        "images": {},
+        "images": {   # Wikimedia Commons, kamu malı / CC0
+            "dunya": {"commons": "File:Whole world - land and oceans 12000.jpg", "original": True},
+            "r_kanuni_genc": {"commons": "File:Istanbul, Topkapi Palace Museum MS Hazine 1563 fol. 47v Suleyman I by Nakkaş Osman.jpg"},
+            "r_suleymanname_mohac": {"commons": "File:1526-Sultan Suleiman during the Battle of Mohacs-Suleymanname.jpg"},
+            "r_lorck_kanuni": {"commons": "File:EmperorSuleiman.jpg"},
+            "r_lorck_kanuni_yasli": {"commons": "File:Melchior Lorck Sultan Suleiman.jpg"},
+            "r_barbaros": {"commons": "File:Agostino dei Musi, Barbarossa, Khair-ed-Din, 1535, NGA 46891.jpg"},
+            "r_piri_reis_harita": {"commons": "File:Piri reis world map 01.jpg"},
+        },
         "thumbnails": [],
         "stock": {},
         "films": {},
-        "maps": {},
+        "maps": dict(MAPS),
         "chapters": parse(md),
     }
     # Yer tutucular: harita ve Commons eserleri seslendirmeden sonra (haritalar.py / gerçek dosya adları) eklenecek
