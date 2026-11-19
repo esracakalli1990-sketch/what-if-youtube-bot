@@ -17,9 +17,15 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
 sys.path.insert(0, str(ROOT.parents[1]))
+sys.path.insert(0, str(HERE))
+from haritalar import M as MAPS, esnet  # noqa: E402
+from cekimler import SHOTS  # noqa: E402
 
 SEYFULLAH_KARTAL = "mF7tIc9VLrznhGooGjaT"       # ElevenLabs ses kütüphanesi (herkese açık kimlik)
 GECIS = {"kes": "cut", "erit": "dissolve", "karart": "black", "parla": "flash"}
+AI_CREDIT = {"title": "Temsili canlandırma", "artist": "Yapay zekâ ile üretildi (Google Flow / Gemini)", "license": "—"}
+KARELER = [f"kart{i}" for i in range(1, 10)] + ["kapak1", "kapak2", "kapak3"]
+SESSIZ = {"c45"}            # konuşma sesi içeren klipler: doğal sesi kapatılır
 MUZIK = ["karanlik", "gizem", "agir", "karanlik", "derin", "derin", "gizem", "huzun", "huzun", "agir", "huzun"]
 
 
@@ -77,7 +83,47 @@ def parse(md: str) -> list[dict]:
         ekran = []
     for i, c in enumerate(chapters):
         c["music"] = MUZIK[i % len(MUZIK)]
+        if c.get("card") and 1 <= i <= 9:
+            c["card"]["image"] = f"kart{i}"
+        for p in c["paragraphs"]:
+            for sh in p["shots"]:
+                if sh.get("clip", "").split("/")[-1][:-4] in SESSIZ:
+                    sh["sfx"] = False
     return chapters
+
+
+def apply_shots(data: dict) -> None:
+    """cekimler.py'deki listeyi uygula; ilk çekimin giriş geçişi senaryodaki gibi kalır."""
+    for ci, ch in enumerate(data["chapters"]):
+        for pi, para in enumerate(ch["paragraphs"]):
+            new = SHOTS.get(f"{ci}.{pi}")
+            if not new:
+                continue
+            new = [dict(s) for s in new]
+            tr = para["shots"][0].get("transition")
+            if tr and "transition" not in new[0]:
+                new[0]["transition"] = tr
+            para["shots"] = new
+
+
+def stretch_maps(data: dict) -> None:
+    """Haritaları gerçek ses yuvasına göre uzat (build/audio varsa)."""
+    manifest = ROOT / "build" / "audio" / "manifest.json"
+    if not manifest.exists():
+        return
+    from scripts import doc_timeline as dt
+    audio = json.loads(manifest.read_text(encoding="utf-8"))
+    for ci, ch in enumerate(data["chapters"]):
+        for pi, para in enumerate(ch["paragraphs"]):
+            au = audio[ci][pi]
+            words = json.loads((ROOT / "build" / au["words_path"]).read_text(encoding="utf-8")) \
+                if "words_path" in au else au.get("words", [])
+            cuts = dt._cut_points(words, len(para["shots"]), au["duration"])
+            bounds = [0.0] + cuts + [au["duration"] + dt.PARAGRAPH_GAP]
+            for si, shot in enumerate(para["shots"]):
+                if "map" in shot:
+                    slot = bounds[si + 1] - bounds[si] + 1.0
+                    data["maps"][shot["map"]] = esnet(data["maps"][shot["map"]], max(slot, 8.0))
 
 
 def main():
@@ -118,13 +164,35 @@ def main():
                       "Yorumlarda konuşalım.\n\n🔔 Serinin sıradaki bölümü için kanala abone olun."),
         "kurgu": {"gecis": "cut", "ton_esitle": 0.5, "bolum_sonu": 3.5, "bolum_karartma": 2.0},
         "music_sources": {k: v for k, v in yavuz["music_sources"].items() if k != "isik"},   # "Bathed in the Light" telif talebi aldı
-        "images": {},
-        "thumbnails": [],
+        "images": {   # Wikimedia Commons, kamu malı / CC0
+            "dunya": {"commons": "File:Whole world - land and oceans 12000.jpg", "original": True},
+            "r_kanuni_genc": {"commons": "File:Istanbul, Topkapi Palace Museum MS Hazine 1563 fol. 47v Suleyman I by Nakkaş Osman.jpg"},
+            "r_suleymanname_mohac": {"commons": "File:1526-Sultan Suleiman during the Battle of Mohacs-Suleymanname.jpg"},
+            "r_lorck_kanuni": {"commons": "File:EmperorSuleiman.jpg"},
+            "r_lorck_kanuni_yasli": {"commons": "File:Melchior Lorck Sultan Suleiman.jpg"},
+            "r_barbaros": {"commons": "File:Agostino dei Musi, Barbarossa, Khair-ed-Din, 1535, NGA 46891.jpg"},
+            "r_piri_reis_harita": {"commons": "File:Piri reis world map 01.jpg"},
+            "r_tugra": {"commons": "File:Tughra (Official Signature) of Sultan Süleiman the Magnificent (r. 1520–66) MET DP234753.jpg"},
+            "r_tugra2": {"commons": "File:Tughra (Official Signature) of Sultan Süleiman the Magnificent (r. 1520–66) MET 116663.jpg"},
+            "r_migferli": {"commons": "File:Emperor Turc - Sultan Suleyman the Magnificent Wearing the Jewel-Studded Helmet.jpg", "min_width": 1200},
+            "r_preveze": {"commons": "File:Battle of Preveza (1538).jpg", "min_width": 1200},
+            "r_lorck_camii": {"commons": "File:Sultan Süleyman and the Süleymaniye Mosque, Constantinople, 1574 (or earlier) , altered in 1688 to represent Ibrahim I MET DP146517.jpg"},
+            "r_hurrem": {"commons": "File:Titian - Portrait of a Woman (La Sultana Rossa).jpg", "min_width": 1200},
+            **{k: {"file": f"kareler/{k}.jpg", "credit": AI_CREDIT} for k in KARELER},
+        },
+        "thumbnails": [
+            {"sablon": "v2", "arka_plan": "kapak1", "arka_plan_kadraj": "50% 40%", "hale": "transparent",
+             "line1": "48 gün", "line2": "saklandı", "vurgu": "#FFC83D"},
+            {"sablon": "v2", "arka_plan": "kapak2", "arka_plan_kadraj": "50% 50%", "hale": "transparent",
+             "line1": "2 saatte", "line2": "bir krallık", "vurgu": "#FFC83D"},
+            {"sablon": "v2", "arka_plan": "kapak3", "arka_plan_kadraj": "50% 30%", "hale": "transparent",
+             "line1": "Viyana", "line2": "kapılarında", "vurgu": "#FFC83D"}],
         "stock": {},
         "films": {},
-        "maps": {},
+        "maps": dict(MAPS),
         "chapters": parse(md),
     }
+    apply_shots(data)
     # Yer tutucular: harita ve Commons eserleri seslendirmeden sonra (haritalar.py / gerçek dosya adları) eklenecek
     for c in data["chapters"]:
         for p in c["paragraphs"]:
@@ -135,6 +203,7 @@ def main():
                 if "map" in sh:
                     data["maps"].setdefault(sh["map"], {"bilesen": "Infographic", "type": "zaman",
                                                         "title": sh["map"], "durationSec": 10, "events": []})
+    stretch_maps(data)
     (ROOT / "senaryo.json").write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
     n = sum(len(c["paragraphs"]) for c in data["chapters"])
     chars = sum(len(re.sub(r"\[[^\]]*\]", "", p["text"])) for c in data["chapters"] for p in c["paragraphs"])

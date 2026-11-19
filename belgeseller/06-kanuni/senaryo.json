@@ -83,123 +83,1181 @@
   }
  },
  "images": {
-  "r_suleymanname_mohac": {
-   "file": "gorseller/r_suleymanname_mohac.jpg",
-   "credit": {
-    "title": "TBD",
-    "artist": "",
-    "license": ""
-   }
+  "dunya": {
+   "commons": "File:Whole world - land and oceans 12000.jpg",
+   "original": true
   },
   "r_kanuni_genc": {
-   "file": "gorseller/r_kanuni_genc.jpg",
-   "credit": {
-    "title": "TBD",
-    "artist": "",
-    "license": ""
-   }
+   "commons": "File:Istanbul, Topkapi Palace Museum MS Hazine 1563 fol. 47v Suleyman I by Nakkaş Osman.jpg"
+  },
+  "r_suleymanname_mohac": {
+   "commons": "File:1526-Sultan Suleiman during the Battle of Mohacs-Suleymanname.jpg"
   },
   "r_lorck_kanuni": {
-   "file": "gorseller/r_lorck_kanuni.jpg",
-   "credit": {
-    "title": "TBD",
-    "artist": "",
-    "license": ""
-   }
-  },
-  "r_barbaros": {
-   "file": "gorseller/r_barbaros.jpg",
-   "credit": {
-    "title": "TBD",
-    "artist": "",
-    "license": ""
-   }
-  },
-  "r_piri_reis_harita": {
-   "file": "gorseller/r_piri_reis_harita.jpg",
-   "credit": {
-    "title": "TBD",
-    "artist": "",
-    "license": ""
-   }
-  },
-  "r_sinan": {
-   "file": "gorseller/r_sinan.jpg",
-   "credit": {
-    "title": "TBD",
-    "artist": "",
-    "license": ""
-   }
-  },
-  "r_sehzade_mustafa": {
-   "file": "gorseller/r_sehzade_mustafa.jpg",
-   "credit": {
-    "title": "TBD",
-    "artist": "",
-    "license": ""
-   }
+   "commons": "File:EmperorSuleiman.jpg"
   },
   "r_lorck_kanuni_yasli": {
-   "file": "gorseller/r_lorck_kanuni_yasli.jpg",
+   "commons": "File:Melchior Lorck Sultan Suleiman.jpg"
+  },
+  "r_barbaros": {
+   "commons": "File:Agostino dei Musi, Barbarossa, Khair-ed-Din, 1535, NGA 46891.jpg"
+  },
+  "r_piri_reis_harita": {
+   "commons": "File:Piri reis world map 01.jpg"
+  },
+  "r_tugra": {
+   "commons": "File:Tughra (Official Signature) of Sultan Süleiman the Magnificent (r. 1520–66) MET DP234753.jpg"
+  },
+  "r_tugra2": {
+   "commons": "File:Tughra (Official Signature) of Sultan Süleiman the Magnificent (r. 1520–66) MET 116663.jpg"
+  },
+  "r_migferli": {
+   "commons": "File:Emperor Turc - Sultan Suleyman the Magnificent Wearing the Jewel-Studded Helmet.jpg",
+   "min_width": 1200
+  },
+  "r_preveze": {
+   "commons": "File:Battle of Preveza (1538).jpg",
+   "min_width": 1200
+  },
+  "r_lorck_camii": {
+   "commons": "File:Sultan Süleyman and the Süleymaniye Mosque, Constantinople, 1574 (or earlier) , altered in 1688 to represent Ibrahim I MET DP146517.jpg"
+  },
+  "r_hurrem": {
+   "commons": "File:Titian - Portrait of a Woman (La Sultana Rossa).jpg",
+   "min_width": 1200
+  },
+  "kart1": {
+   "file": "kareler/kart1.jpg",
    "credit": {
-    "title": "TBD",
-    "artist": "",
-    "license": ""
+    "title": "Temsili canlandırma",
+    "artist": "Yapay zekâ ile üretildi (Google Flow / Gemini)",
+    "license": "—"
+   }
+  },
+  "kart2": {
+   "file": "kareler/kart2.jpg",
+   "credit": {
+    "title": "Temsili canlandırma",
+    "artist": "Yapay zekâ ile üretildi (Google Flow / Gemini)",
+    "license": "—"
+   }
+  },
+  "kart3": {
+   "file": "kareler/kart3.jpg",
+   "credit": {
+    "title": "Temsili canlandırma",
+    "artist": "Yapay zekâ ile üretildi (Google Flow / Gemini)",
+    "license": "—"
+   }
+  },
+  "kart4": {
+   "file": "kareler/kart4.jpg",
+   "credit": {
+    "title": "Temsili canlandırma",
+    "artist": "Yapay zekâ ile üretildi (Google Flow / Gemini)",
+    "license": "—"
+   }
+  },
+  "kart5": {
+   "file": "kareler/kart5.jpg",
+   "credit": {
+    "title": "Temsili canlandırma",
+    "artist": "Yapay zekâ ile üretildi (Google Flow / Gemini)",
+    "license": "—"
+   }
+  },
+  "kart6": {
+   "file": "kareler/kart6.jpg",
+   "credit": {
+    "title": "Temsili canlandırma",
+    "artist": "Yapay zekâ ile üretildi (Google Flow / Gemini)",
+    "license": "—"
+   }
+  },
+  "kart7": {
+   "file": "kareler/kart7.jpg",
+   "credit": {
+    "title": "Temsili canlandırma",
+    "artist": "Yapay zekâ ile üretildi (Google Flow / Gemini)",
+    "license": "—"
+   }
+  },
+  "kart8": {
+   "file": "kareler/kart8.jpg",
+   "credit": {
+    "title": "Temsili canlandırma",
+    "artist": "Yapay zekâ ile üretildi (Google Flow / Gemini)",
+    "license": "—"
+   }
+  },
+  "kart9": {
+   "file": "kareler/kart9.jpg",
+   "credit": {
+    "title": "Temsili canlandırma",
+    "artist": "Yapay zekâ ile üretildi (Google Flow / Gemini)",
+    "license": "—"
+   }
+  },
+  "kapak1": {
+   "file": "kareler/kapak1.jpg",
+   "credit": {
+    "title": "Temsili canlandırma",
+    "artist": "Yapay zekâ ile üretildi (Google Flow / Gemini)",
+    "license": "—"
+   }
+  },
+  "kapak2": {
+   "file": "kareler/kapak2.jpg",
+   "credit": {
+    "title": "Temsili canlandırma",
+    "artist": "Yapay zekâ ile üretildi (Google Flow / Gemini)",
+    "license": "—"
+   }
+  },
+  "kapak3": {
+   "file": "kareler/kapak3.jpg",
+   "credit": {
+    "title": "Temsili canlandırma",
+    "artist": "Yapay zekâ ile üretildi (Google Flow / Gemini)",
+    "license": "—"
    }
   }
  },
- "thumbnails": [],
+ "thumbnails": [
+  {
+   "sablon": "v2",
+   "arka_plan": "kapak1",
+   "arka_plan_kadraj": "50% 40%",
+   "hale": "transparent",
+   "line1": "48 gün",
+   "line2": "saklandı",
+   "vurgu": "#FFC83D"
+  },
+  {
+   "sablon": "v2",
+   "arka_plan": "kapak2",
+   "arka_plan_kadraj": "50% 50%",
+   "hale": "transparent",
+   "line1": "2 saatte",
+   "line2": "bir krallık",
+   "vurgu": "#FFC83D"
+  },
+  {
+   "sablon": "v2",
+   "arka_plan": "kapak3",
+   "arka_plan_kadraj": "50% 30%",
+   "hale": "transparent",
+   "line1": "Viyana",
+   "line2": "kapılarında",
+   "vurgu": "#FFC83D"
+  }
+ ],
  "stock": {},
  "films": {},
  "maps": {
   "m_belgrad_rodos": {
-   "bilesen": "Infographic",
-   "type": "zaman",
-   "title": "m_belgrad_rodos",
-   "durationSec": 10,
-   "events": []
+   "taban": "dunya",
+   "bounds": {
+    "west": 16.5,
+    "east": 32.5,
+    "south": 36.1,
+    "north": 45.1
+   },
+   "durationSec": 16.7,
+   "title": "İlk İki Sefer",
+   "subtitle": "Belgrad 1521 · Rodos 1522",
+   "routes": [
+    {
+     "points": [
+      [
+       28.97,
+       41.01
+      ],
+      [
+       26.56,
+       41.68
+      ],
+      [
+       23.32,
+       42.7
+      ],
+      [
+       21.9,
+       43.32
+      ],
+      [
+       20.46,
+       44.82
+      ]
+     ],
+     "color": "#b5302a",
+     "start": 1.19,
+     "duration": 5.96,
+     "label": "1521",
+     "dashed": true
+    },
+    {
+     "points": [
+      [
+       28.97,
+       41.01
+      ],
+      [
+       27.6,
+       40.4
+      ],
+      [
+       26.3,
+       39.6
+      ],
+      [
+       26.5,
+       38.2
+      ],
+      [
+       27.4,
+       37.3
+      ],
+      [
+       28.27,
+       36.85
+      ],
+      [
+       28.22,
+       36.44
+      ]
+     ],
+     "color": "#b5302a",
+     "start": 8.34,
+     "duration": 5.96,
+     "label": "1522",
+     "dashed": true
+    }
+   ],
+   "clashes": [
+    {
+     "at": [
+      20.46,
+      44.82
+     ],
+     "start": 7.15
+    },
+    {
+     "at": [
+      28.22,
+      36.44
+     ],
+     "start": 14.31
+    }
+   ],
+   "cities": [
+    {
+     "at": [
+      28.97,
+      41.01
+     ],
+     "label": "İstanbul",
+     "start": 0.6,
+     "major": true,
+     "side": "right"
+    },
+    {
+     "at": [
+      20.46,
+      44.82
+     ],
+     "label": "Belgrad",
+     "start": 6.68,
+     "major": true,
+     "side": "left"
+    },
+    {
+     "at": [
+      28.22,
+      36.44
+     ],
+     "label": "Rodos",
+     "start": 13.83,
+     "major": true,
+     "side": "right"
+    }
+   ],
+   "labels": [
+    {
+     "at": [
+      25.0,
+      35.2
+     ],
+     "text": "Akdeniz",
+     "start": 0.48,
+     "kind": "sea"
+    },
+    {
+     "at": [
+      30.5,
+      43.2
+     ],
+     "text": "Karadeniz",
+     "start": 0.48,
+     "kind": "sea"
+    }
+   ],
+   "years": [
+    {
+     "t": 0.6,
+     "text": "1521"
+    },
+    {
+     "t": 8.34,
+     "text": "1522"
+    }
+   ],
+   "note": "Güzergâh yaklaşıktır",
+   "camera": [
+    {
+     "t": 0.0,
+     "center": [
+      24.5,
+      41.5
+     ],
+     "zoom": 1.0
+    }
+   ]
   },
   "m_mohac_seferi": {
-   "bilesen": "Infographic",
-   "type": "zaman",
-   "title": "m_mohac_seferi",
-   "durationSec": 10,
-   "events": []
+   "taban": "dunya",
+   "bounds": {
+    "west": 16.5,
+    "east": 29.5,
+    "south": 40.5438,
+    "north": 47.8563
+   },
+   "durationSec": 17.5,
+   "title": "Mohaç Seferi",
+   "subtitle": "İstanbul'dan Mohaç'a, 1526",
+   "routes": [
+    {
+     "points": [
+      [
+       28.97,
+       41.01
+      ],
+      [
+       26.56,
+       41.68
+      ],
+      [
+       23.32,
+       42.7
+      ],
+      [
+       21.9,
+       43.32
+      ],
+      [
+       20.46,
+       44.82
+      ],
+      [
+       19.9,
+       45.25
+      ],
+      [
+       18.69,
+       45.55
+      ],
+      [
+       18.68,
+       45.99
+      ]
+     ],
+     "color": "#b5302a",
+     "start": 1.35,
+     "duration": 10.76,
+     "label": "Osmanlı ordusu",
+     "dashed": true
+    },
+    {
+     "points": [
+      [
+       19.04,
+       47.5
+      ],
+      [
+       18.9,
+       46.9
+      ],
+      [
+       18.75,
+       46.3
+      ]
+     ],
+     "color": "#3f5f8f",
+     "start": 8.74,
+     "duration": 3.36,
+     "label": "Macar ordusu",
+     "dashed": true
+    }
+   ],
+   "clashes": [
+    {
+     "at": [
+      18.68,
+      45.99
+     ],
+     "start": 12.78
+    }
+   ],
+   "cities": [
+    {
+     "at": [
+      28.97,
+      41.01
+     ],
+     "label": "İstanbul",
+     "start": 0.67,
+     "side": "right"
+    },
+    {
+     "at": [
+      20.46,
+      44.82
+     ],
+     "label": "Belgrad",
+     "start": 6.05
+    },
+    {
+     "at": [
+      19.04,
+      47.5
+     ],
+     "label": "Budin",
+     "start": 8.07,
+     "side": "right"
+    },
+    {
+     "at": [
+      18.68,
+      45.99
+     ],
+     "label": "Mohaç",
+     "start": 12.11,
+     "major": true,
+     "side": "left"
+    }
+   ],
+   "years": [
+    {
+     "t": 0.67,
+     "text": "Nisan 1526"
+    },
+    {
+     "t": 12.78,
+     "text": "29 Ağustos 1526"
+    }
+   ],
+   "note": "Güzergâh yaklaşıktır",
+   "camera": [
+    {
+     "t": 0.0,
+     "center": [
+      23.0,
+      44.2
+     ],
+     "zoom": 1.0
+    },
+    {
+     "t": 10.09,
+     "center": [
+      19.2,
+      46.2
+     ],
+     "zoom": 1.9
+    }
+   ]
   },
   "m_mohac_savasi": {
-   "bilesen": "Infographic",
-   "type": "zaman",
-   "title": "m_mohac_savasi",
-   "durationSec": 10,
-   "events": []
+   "taban": "parsomen",
+   "bounds": {
+    "west": 18.55,
+    "east": 18.77,
+    "south": 45.8981,
+    "north": 46.0219
+   },
+   "durationSec": 18.7,
+   "title": "Mohaç",
+   "subtitle": "29 Ağustos 1526, öğleden sonra",
+   "rivers": [
+    {
+     "points": [
+      [
+       18.72,
+       46.09
+      ],
+      [
+       18.7,
+       46.02
+      ],
+      [
+       18.69,
+       45.96
+      ],
+      [
+       18.7,
+       45.89
+      ]
+     ],
+     "name": "Tuna",
+     "start": 0.37,
+     "labelAt": [
+      18.735,
+      45.93
+     ]
+    }
+   ],
+   "units": [
+    {
+     "label": "Macar ağır süvarisi",
+     "color": "#3f5f8f",
+     "path": [
+      [
+       18.6,
+       46.02
+      ],
+      [
+       18.62,
+       45.985
+      ]
+     ],
+     "start": 1.25,
+     "duration": 3.74,
+     "labelSide": "above"
+    },
+    {
+     "label": "Osmanlı öncüleri (geri çekilir)",
+     "color": "#d9663f",
+     "path": [
+      [
+       18.62,
+       45.98
+      ],
+      [
+       18.63,
+       45.95
+      ]
+     ],
+     "start": 3.74,
+     "duration": 3.11,
+     "labelSide": "below"
+    },
+    {
+     "label": "Zincirli toplar ve yeniçeriler",
+     "color": "#b5302a",
+     "path": [
+      [
+       18.62,
+       45.935
+      ],
+      [
+       18.62,
+       45.935
+      ]
+     ],
+     "start": 1.87,
+     "duration": 0.62,
+     "labelSide": "below"
+    },
+    {
+     "label": "Kuşatan kanat",
+     "color": "#b5302a",
+     "path": [
+      [
+       18.56,
+       45.94
+      ],
+      [
+       18.57,
+       45.99
+      ],
+      [
+       18.6,
+       46.02
+      ]
+     ],
+     "start": 9.97,
+     "duration": 4.98,
+     "labelSide": "above"
+    }
+   ],
+   "clashes": [
+    {
+     "at": [
+      18.625,
+      45.945
+     ],
+     "start": 7.23
+    },
+    {
+     "at": [
+      18.61,
+      46.0
+     ],
+     "start": 14.33
+    }
+   ],
+   "cities": [
+    {
+     "at": [
+      18.68,
+      45.99
+     ],
+     "label": "Mohaç",
+     "start": 0.62,
+     "side": "right"
+    }
+   ],
+   "years": [
+    {
+     "t": 0.62,
+     "text": "29 Ağustos 1526"
+    }
+   ],
+   "note": "Konumlar yaklaşıktır",
+   "camera": [
+    {
+     "t": 0.0,
+     "center": [
+      18.64,
+      45.97
+     ],
+     "zoom": 1.0
+    }
+   ]
   },
   "m_viyana": {
-   "bilesen": "Infographic",
-   "type": "zaman",
-   "title": "m_viyana",
-   "durationSec": 10,
-   "events": []
+   "taban": "dunya",
+   "bounds": {
+    "west": 14.0,
+    "east": 24.0,
+    "south": 43.7875,
+    "north": 49.4125
+   },
+   "durationSec": 22.5,
+   "title": "Viyana Seferi",
+   "subtitle": "1529",
+   "routes": [
+    {
+     "points": [
+      [
+       20.46,
+       44.82
+      ],
+      [
+       19.9,
+       45.25
+      ],
+      [
+       18.68,
+       45.99
+      ],
+      [
+       19.04,
+       47.5
+      ],
+      [
+       17.6,
+       47.8
+      ],
+      [
+       16.37,
+       48.21
+      ]
+     ],
+     "color": "#b5302a",
+     "start": 1.73,
+     "duration": 12.13,
+     "label": "Osmanlı ordusu",
+     "dashed": true
+    },
+    {
+     "points": [
+      [
+       16.37,
+       48.21
+      ],
+      [
+       17.6,
+       47.6
+      ],
+      [
+       19.04,
+       47.5
+      ]
+     ],
+     "color": "#b5302a",
+     "start": 17.33,
+     "duration": 4.33,
+     "label": "Geri dönüş",
+     "dashed": true
+    }
+   ],
+   "clashes": [
+    {
+     "at": [
+      16.37,
+      48.21
+     ],
+     "start": 14.38
+    }
+   ],
+   "cities": [
+    {
+     "at": [
+      20.46,
+      44.82
+     ],
+     "label": "Belgrad",
+     "start": 0.87,
+     "side": "right"
+    },
+    {
+     "at": [
+      19.04,
+      47.5
+     ],
+     "label": "Budin",
+     "start": 7.8,
+     "side": "right"
+    },
+    {
+     "at": [
+      16.37,
+      48.21
+     ],
+     "label": "Viyana",
+     "start": 13.52,
+     "major": true,
+     "side": "left"
+    }
+   ],
+   "years": [
+    {
+     "t": 0.87,
+     "text": "Mayıs 1529"
+    },
+    {
+     "t": 14.38,
+     "text": "27 Eylül – 15 Ekim 1529"
+    }
+   ],
+   "note": "Güzergâh yaklaşıktır",
+   "camera": [
+    {
+     "t": 0.0,
+     "center": [
+      19.0,
+      46.6
+     ],
+     "zoom": 1.0
+    },
+    {
+     "t": 12.13,
+     "center": [
+      16.8,
+      48.0
+     ],
+     "zoom": 1.8
+    }
+   ]
   },
   "m_bagdat": {
-   "bilesen": "Infographic",
-   "type": "zaman",
-   "title": "m_bagdat",
-   "durationSec": 10,
-   "events": []
+   "taban": "dunya",
+   "bounds": {
+    "west": 27.0,
+    "east": 49.0,
+    "south": 31.6125,
+    "north": 43.9875
+   },
+   "durationSec": 25.8,
+   "title": "Irakeyn Seferi",
+   "subtitle": "Tebriz ve Bağdat, 1534",
+   "routes": [
+    {
+     "points": [
+      [
+       28.97,
+       41.01
+      ],
+      [
+       32.0,
+       40.0
+      ],
+      [
+       36.5,
+       39.5
+      ],
+      [
+       41.27,
+       39.9
+      ],
+      [
+       44.0,
+       39.0
+      ],
+      [
+       46.29,
+       38.08
+      ]
+     ],
+     "color": "#b5302a",
+     "start": 1.99,
+     "duration": 10.92,
+     "label": "1534",
+     "dashed": true
+    },
+    {
+     "points": [
+      [
+       46.29,
+       38.08
+      ],
+      [
+       46.0,
+       36.5
+      ],
+      [
+       45.5,
+       35.0
+      ],
+      [
+       44.36,
+       33.31
+      ]
+     ],
+     "color": "#b5302a",
+     "start": 13.9,
+     "duration": 7.94,
+     "label": "Zagros'u aşarak",
+     "dashed": true
+    }
+   ],
+   "cities": [
+    {
+     "at": [
+      28.97,
+      41.01
+     ],
+     "label": "İstanbul",
+     "start": 0.99,
+     "side": "right"
+    },
+    {
+     "at": [
+      46.29,
+      38.08
+     ],
+     "label": "Tebriz",
+     "start": 11.91,
+     "major": true,
+     "side": "right"
+    },
+    {
+     "at": [
+      44.36,
+      33.31
+     ],
+     "label": "Bağdat",
+     "start": 21.44,
+     "major": true,
+     "side": "left"
+    }
+   ],
+   "labels": [
+    {
+     "at": [
+      34.5,
+      43.3
+     ],
+     "text": "Karadeniz",
+     "start": 0.79,
+     "kind": "sea"
+    },
+    {
+     "at": [
+      51.0,
+      41.5
+     ],
+     "text": "Hazar Denizi",
+     "start": 0.79,
+     "kind": "sea"
+    }
+   ],
+   "years": [
+    {
+     "t": 0.99,
+     "text": "1534"
+    }
+   ],
+   "note": "Güzergâh yaklaşıktır",
+   "camera": [
+    {
+     "t": 0.0,
+     "center": [
+      38.0,
+      37.8
+     ],
+     "zoom": 1.0
+    },
+    {
+     "t": 13.9,
+     "center": [
+      44.0,
+      35.8
+     ],
+     "zoom": 1.6
+    }
+   ]
   },
   "m_preveze": {
-   "bilesen": "Infographic",
-   "type": "zaman",
-   "title": "m_preveze",
-   "durationSec": 10,
-   "events": []
+   "taban": "dunya",
+   "bounds": {
+    "west": 18.9,
+    "east": 22.1,
+    "south": 38.0,
+    "north": 39.8
+   },
+   "durationSec": 17.7,
+   "title": "Preveze",
+   "subtitle": "28 Eylül 1538",
+   "routes": [
+    {
+     "points": [
+      [
+       20.72,
+       38.97
+      ],
+      [
+       20.55,
+       38.9
+      ],
+      [
+       20.3,
+       38.85
+      ]
+     ],
+     "color": "#b5302a",
+     "start": 2.73,
+     "duration": 5.46,
+     "label": "Osmanlı donanması",
+     "dashed": false
+    },
+    {
+     "points": [
+      [
+       19.75,
+       38.95
+      ],
+      [
+       20.05,
+       38.88
+      ]
+     ],
+     "color": "#5a6f7f",
+     "start": 1.36,
+     "duration": 4.09,
+     "label": "Haçlı donanması",
+     "dashed": false
+    },
+    {
+     "points": [
+      [
+       20.05,
+       38.88
+      ],
+      [
+       19.7,
+       39.2
+      ]
+     ],
+     "color": "#5a6f7f",
+     "start": 12.27,
+     "duration": 4.09,
+     "label": "Geri çekilme",
+     "dashed": true
+    }
+   ],
+   "clashes": [
+    {
+     "at": [
+      20.18,
+      38.86
+     ],
+     "start": 8.86
+    }
+   ],
+   "cities": [
+    {
+     "at": [
+      20.75,
+      38.96
+     ],
+     "label": "Preveze",
+     "start": 0.68,
+     "major": true,
+     "side": "right"
+    }
+   ],
+   "labels": [
+    {
+     "at": [
+      20.0,
+      38.55
+     ],
+     "text": "İyon Denizi",
+     "start": 0.55,
+     "kind": "sea"
+    }
+   ],
+   "years": [
+    {
+     "t": 0.68,
+     "text": "28 Eylül 1538"
+    }
+   ],
+   "note": "Konumlar yaklaşıktır",
+   "camera": [
+    {
+     "t": 0.0,
+     "center": [
+      20.4,
+      38.95
+     ],
+     "zoom": 1.0
+    }
+   ]
   },
   "m_zigetvar": {
-   "bilesen": "Infographic",
-   "type": "zaman",
-   "title": "m_zigetvar",
-   "durationSec": 10,
-   "events": []
+   "taban": "dunya",
+   "bounds": {
+    "west": 16.0,
+    "east": 30.0,
+    "south": 40.0625,
+    "north": 47.9375
+   },
+   "durationSec": 15.4,
+   "title": "Son Sefer",
+   "subtitle": "İstanbul'dan Zigetvar'a, 1566",
+   "routes": [
+    {
+     "points": [
+      [
+       28.97,
+       41.01
+      ],
+      [
+       26.56,
+       41.68
+      ],
+      [
+       23.32,
+       42.7
+      ],
+      [
+       21.9,
+       43.32
+      ],
+      [
+       20.46,
+       44.82
+      ],
+      [
+       19.9,
+       45.25
+      ],
+      [
+       18.8,
+       45.6
+      ],
+      [
+       17.8,
+       46.05
+      ]
+     ],
+     "color": "#b5302a",
+     "start": 1.19,
+     "duration": 9.48,
+     "label": "Osmanlı ordusu",
+     "dashed": true
+    }
+   ],
+   "clashes": [
+    {
+     "at": [
+      17.8,
+      46.05
+     ],
+     "start": 11.26
+    }
+   ],
+   "cities": [
+    {
+     "at": [
+      28.97,
+      41.01
+     ],
+     "label": "İstanbul",
+     "start": 0.59,
+     "side": "right"
+    },
+    {
+     "at": [
+      20.46,
+      44.82
+     ],
+     "label": "Belgrad",
+     "start": 6.52,
+     "side": "right"
+    },
+    {
+     "at": [
+      17.8,
+      46.05
+     ],
+     "label": "Zigetvar",
+     "start": 10.67,
+     "major": true,
+     "side": "left"
+    }
+   ],
+   "years": [
+    {
+     "t": 0.59,
+     "text": "Mayıs 1566"
+    },
+    {
+     "t": 11.26,
+     "text": "Ağustos – Eylül 1566"
+    }
+   ],
+   "note": "Güzergâh yaklaşıktır",
+   "camera": [
+    {
+     "t": 0.0,
+     "center": [
+      23.0,
+      44.0
+     ],
+     "zoom": 1.0
+    },
+    {
+     "t": 9.48,
+     "center": [
+      18.6,
+      45.8
+     ],
+     "zoom": 1.9
+    }
+   ]
   }
  },
  "chapters": [
@@ -223,6 +1281,10 @@
      "shots": [
       {
        "clip": "klipler/c03.mp4"
+      },
+      {
+       "image": "r_tugra",
+       "move": "in"
       }
      ]
     },
@@ -276,9 +1338,8 @@
        "clip": "klipler/c10.mp4"
       },
       {
-       "image": "r_kanuni_genc",
-       "move": "in",
-       "transition": "dissolve"
+       "clip": "klipler/c29.mp4",
+       "start": 1.0
       }
      ]
     },
@@ -288,6 +1349,13 @@
       {
        "image": "r_kanuni_genc",
        "move": "in"
+      },
+      {
+       "image": "r_lorck_kanuni",
+       "move": "left"
+      },
+      {
+       "clip": "klipler/c49.mp4"
       }
      ]
     },
@@ -296,6 +1364,9 @@
      "shots": [
       {
        "clip": "klipler/c11.mp4"
+      },
+      {
+       "clip": "klipler/c34.mp4"
       }
      ]
     },
@@ -303,14 +1374,24 @@
      "text": "[vurgulu] Bin beş yüz yirmi yılının Eylül ayında Yavuz Sultan Selim öldü. Süleyman, yirmi altı yaşında, rakipsiz olarak tahta çıktı. Babasının aksine, onun tahta giden yolunda ne bir kardeş kavgası vardı ne de bir savaş. [duraksama 1.0] Ama Avrupa'da birçok kişi rahat bir nefes aldı. Korkunç Selim gitmiş, yerine sessiz, genç bir padişah gelmişti. [gerilim] Yanılıyorlardı.",
      "shots": [
       {
+       "clip": "klipler/c02.mp4",
+       "start": 4.0
+      },
+      {
        "clip": "klipler/c12.mp4"
+      },
+      {
+       "clip": "klipler/c19.mp4",
+       "start": 3.0,
+       "flip": true
       }
      ]
     }
    ],
    "card": {
     "kicker": "BÖLÜM I",
-    "date": "1494–1520 · Trabzon, Manisa"
+    "date": "1494–1520 · Trabzon, Manisa",
+    "image": "kart1"
    },
    "music": "gizem"
   },
@@ -353,7 +1434,16 @@
      "text": "Aralık ayında şövalyeler teslim oldu. Süleyman onlara şaşırtıcı bir cömertlik gösterdi: Silahlarını ve eşyalarını alıp adayı onurla terk etmelerine izin verdi. [vurgulu] Yeni padişah hem sert hem de adil olabileceğini göstermişti. Ama asıl büyük sınav kuzeyde, Macaristan ovalarında bekliyordu.",
      "shots": [
       {
+       "clip": "klipler/c15.mp4",
+       "start": 5.0,
+       "flip": true
+      },
+      {
        "clip": "klipler/c17.mp4"
+      },
+      {
+       "clip": "klipler/c18.mp4",
+       "start": 4.0
       }
      ]
     },
@@ -361,14 +1451,25 @@
      "text": "[hayret] Rodos'tan ayrılan şövalyeler yıllarca yer değiştirdi ve sonunda Malta adasına yerleşti. Kırk dört yıl sonra, bin beş yüz altmış beşte, yaşlı Kanuni'nin donanması Malta'yı da kuşatacak, ama bu kez kaleyi alamayacaktı. [duraksama 0.8] Akdeniz'de Osmanlı ile şövalyeler arasındaki bu uzun hesaplaşma, yüzyıl boyunca sürdü.",
      "shots": [
       {
-       "clip": "klipler/c17.mp4"
+       "clip": "klipler/c17.mp4",
+       "start": 5.0
+      },
+      {
+       "clip": "klipler/c26.mp4",
+       "start": 4.0
+      },
+      {
+       "clip": "klipler/c06.mp4",
+       "start": 5.0,
+       "flip": true
       }
      ]
     }
    ],
    "card": {
     "kicker": "BÖLÜM II",
-    "date": "1521–1522"
+    "date": "1521–1522",
+    "image": "kart2"
    },
    "music": "agir"
   },
@@ -433,13 +1534,18 @@
      "shots": [
       {
        "clip": "klipler/c48.mp4"
+      },
+      {
+       "clip": "klipler/c22.mp4",
+       "start": 3.0
       }
      ]
     }
    ],
    "card": {
     "kicker": "BÖLÜM III",
-    "date": "29 Ağustos 1526 · Mohaç"
+    "date": "29 Ağustos 1526 · Mohaç",
+    "image": "kart3"
    },
    "music": "karanlik"
   },
@@ -495,12 +1601,22 @@
      "text": "Üç yıl sonra, bin beş yüz otuz ikide Süleyman yeniden kuzeye yürüdü. Bu kez Habsburg imparatorunu açık bir meydan savaşına çağırdı. Ama karşısına çıkan olmadı. Küçük Güns kalesindeki uzun bir direniş, seferin büyük kısmını aldı. [duraksama 0.8] Ertesi yıl imzalanan barışta Avusturya arşidükü Ferdinand, Osmanlı sadrazamını kendisine eşit sayan bir dil kullanmayı kabul etmek zorunda kaldı. Bu, Osmanlı'nın Avrupa'daki gücünün açık bir göstergesiydi.",
      "shots": [
       {
-       "clip": "klipler/c24.mp4"
+       "image": "r_migferli",
+       "move": "in"
       },
       {
-       "image": "r_lorck_kanuni",
-       "move": "in",
-       "transition": "dissolve"
+       "clip": "klipler/c13.mp4",
+       "start": 4.0,
+       "flip": true
+      },
+      {
+       "clip": "klipler/c23.mp4",
+       "start": 4.0
+      },
+      {
+       "clip": "klipler/c49.mp4",
+       "start": 4.0,
+       "flip": true
       }
      ]
     },
@@ -515,7 +1631,8 @@
    ],
    "card": {
     "kicker": "BÖLÜM IV",
-    "date": "1529 · Viyana"
+    "date": "1529 · Viyana",
+    "image": "kart4"
    },
    "music": "derin"
   },
@@ -530,8 +1647,12 @@
       },
       {
        "image": "r_barbaros",
-       "move": "in",
-       "transition": "dissolve"
+       "move": "in"
+      },
+      {
+       "clip": "klipler/c06.mp4",
+       "start": 3.0,
+       "flip": true
       }
      ]
     },
@@ -550,8 +1671,11 @@
        "clip": "klipler/c06.mp4"
       },
       {
-       "clip": "klipler/c26.mp4",
-       "transition": "cut"
+       "image": "r_preveze",
+       "move": "left"
+      },
+      {
+       "clip": "klipler/c26.mp4"
       }
      ]
     },
@@ -575,15 +1699,21 @@
        "clip": "klipler/c49.mp4"
       },
       {
+       "clip": "klipler/c29.mp4",
+       "start": 2.0
+      },
+      {
        "clip": "klipler/c25.mp4",
-       "transition": "dissolve"
+       "start": 2.0,
+       "flip": true
       }
      ]
     }
    ],
    "card": {
     "kicker": "BÖLÜM V",
-    "date": "1538 · Preveze"
+    "date": "1538 · Preveze",
+    "image": "kart5"
    },
    "music": "derin"
   },
@@ -607,6 +1737,15 @@
      "shots": [
       {
        "clip": "klipler/c30.mp4"
+      },
+      {
+       "clip": "klipler/c28.mp4",
+       "start": 4.0,
+       "flip": true
+      },
+      {
+       "image": "r_tugra2",
+       "move": "in"
       }
      ]
     },
@@ -614,12 +1753,11 @@
      "text": "Bu dönemin bir başka büyük ismi, Kanuni'nin mimarıydı: Mimar Sinan. Yeniçeri ocağından yetişmiş, seferlerde köprüler ve gemiler yapmış bir ustaydı. Süleyman onu baş mimar yaptı. [hayret] Sinan, uzun ömrü boyunca yüzlerce yapı inşa etti.",
      "shots": [
       {
-       "image": "r_sinan",
-       "move": "in"
+       "clip": "klipler/c31.mp4"
       },
       {
-       "clip": "klipler/c31.mp4",
-       "transition": "dissolve"
+       "clip": "klipler/c16.mp4",
+       "start": 4.0
       }
      ]
     },
@@ -639,14 +1777,24 @@
      "text": "[hayret] Sinan'ın kendi eserleri hakkında söylediği anlatılan bir söz vardır: Şehzade Camii'ne \"çıraklık eserim\", Süleymaniye'ye \"kalfalık eserim\", Edirne'deki Selimiye'ye ise \"ustalık eserim\" demiş. [duraksama 1.0] Yani bugün bile nefes kesen Süleymaniye, ustanın gözünde henüz zirve değildi.",
      "shots": [
       {
-       "clip": "klipler/c32.mp4"
+       "clip": "klipler/c38.mp4"
+      },
+      {
+       "clip": "klipler/c32.mp4",
+       "start": 3.0,
+       "flip": true
+      },
+      {
+       "image": "r_lorck_camii",
+       "move": "in"
       }
      ]
     }
    ],
    "card": {
     "kicker": "BÖLÜM VI",
-    "date": "1530–1557 · İstanbul"
+    "date": "1530–1557 · İstanbul",
+    "image": "kart6"
    },
    "music": "gizem"
   },
@@ -669,7 +1817,13 @@
      "text": "Ama güç, İbrahim'i değiştirdi. Avrupalı elçilerle görüşürken kendini sultan kadar güçlü gösteren sözler söylediği anlatılır. Kendine \"serasker sultan\" unvanını kullandı. [duraksama 0.8] Sarayda düşmanları çoğaldı.",
      "shots": [
       {
-       "clip": "klipler/c34.mp4"
+       "clip": "klipler/c34.mp4",
+       "start": 3.0,
+       "flip": true
+      },
+      {
+       "clip": "klipler/c28.mp4",
+       "start": 4.0
       }
      ]
     },
@@ -678,12 +1832,25 @@
      "shots": [
       {
        "clip": "klipler/c35.mp4"
+      },
+      {
+       "image": "r_lorck_kanuni",
+       "move": "out"
+      },
+      {
+       "clip": "klipler/c33.mp4",
+       "start": 2.0,
+       "flip": true
       }
      ]
     },
     {
      "text": "[merak] Bu entrikaların içinde sıkça anılan bir isim daha vardı: Hürrem. Doğu Avrupa'dan, bugünkü Ukrayna topraklarından gelen bir cariyeydi. Avrupalılar ona Roxelana diyordu. Süleyman ona âşık oldu. [duraksama 0.8] Ve Osmanlı tarihinde o güne kadar görülmemiş bir şey yaptı: Onu azat edip resmen nikâhladı.",
      "shots": [
+      {
+       "image": "r_hurrem",
+       "move": "in"
+      },
       {
        "clip": "klipler/c36.mp4"
       }
@@ -693,18 +1860,24 @@
      "text": "Süleyman seferdeyken Hürrem ona uzun mektuplar yazdı. Bu mektupların bir kısmı bugün hâlâ arşivlerde duruyor. Özlem dolu satırlarla, sarayda olup bitenleri anlatıyordu. [duraksama 0.8] Hürrem aynı zamanda İstanbul'da büyük bir külliye yaptırdı: Cami, medrese, aşevi ve hastane. Bu yapılar da Mimar Sinan'ın elinden çıktı. Avratpazarı denen semtteki bu külliye, bugün hâlâ onun adını taşıyor: Haseki.",
      "shots": [
       {
-       "clip": "klipler/c36.mp4"
+       "clip": "klipler/c47.mp4",
+       "start": 2.0
       },
       {
-       "clip": "klipler/c50.mp4",
-       "transition": "dissolve"
+       "clip": "klipler/c50.mp4"
+      },
+      {
+       "clip": "klipler/c31.mp4",
+       "start": 4.0,
+       "flip": true
       }
      ]
     }
    ],
    "card": {
     "kicker": "BÖLÜM VII",
-    "date": "1523–1536 · Topkapı"
+    "date": "1523–1536 · Topkapı",
+    "image": "kart7"
    },
    "music": "huzun"
   },
@@ -718,15 +1891,18 @@
        "clip": "klipler/c37.mp4"
       },
       {
-       "image": "r_sehzade_mustafa",
-       "move": "in",
-       "transition": "dissolve"
+       "clip": "klipler/c04.mp4",
+       "start": 4.0
       }
      ]
     },
     {
      "text": "Süleyman'ın en sevdiği oğullarından Şehzade Mehmed ise bin beş yüz kırk üç yılında, henüz yirmi iki yaşındayken hastalıktan öldü. Yaslı baba, onun anısına İstanbul'da bir cami yaptırdı. Mimar Sinan'ın ilk büyük eseri olan Şehzade Camii. [duraksama 1.0] Ama asıl trajedi henüz gelmemişti.",
      "shots": [
+      {
+       "clip": "klipler/c42.mp4",
+       "start": 3.0
+      },
       {
        "clip": "klipler/c38.mp4"
       }
@@ -748,6 +1924,14 @@
      "text": "Sebebi tartışmalıdır. Kaynakların bir kısmı, Mustafa'nın babasına karşı isyan hazırladığına dair söylentileri gösterir. Bir kısmı ise Hürrem Sultan'ın ve damadı Rüstem Paşa'nın entrikalarını. [duraksama 1.0] Ordu yas tuttu. Şairler ağıtlar yazdı. Kanuni'nin hayatındaki bu karar, onun en çok tartışılan kararı olarak kaldı.",
      "shots": [
       {
+       "clip": "klipler/c35.mp4",
+       "start": 4.0
+      },
+      {
+       "image": "r_hurrem",
+       "move": "out"
+      },
+      {
        "clip": "klipler/c41.mp4"
       }
      ]
@@ -756,17 +1940,22 @@
      "text": "[hüzün] Şair Taşlıcalı Yahya, Mustafa'nın ölümü üzerine bir mersiye yazdı. Bu ağıt, Osmanlı edebiyatının en bilinen yas şiirlerinden biri oldu ve halk arasında dilden dile dolaştı. [duraksama 1.0] Bir padişahın kararını açıkça eleştiren bu dizeler, o dönemde ne kadar büyük bir öfke ve üzüntü yaşandığını gösteriyordu.",
      "shots": [
       {
-       "clip": "klipler/c41.mp4"
+       "clip": "klipler/c47.mp4"
       },
       {
-       "clip": "klipler/c47.mp4",
-       "transition": "dissolve"
+       "clip": "klipler/c41.mp4",
+       "start": 4.0,
+       "flip": true
       }
      ]
     },
     {
      "text": "Yıllar sonra, oğulları Selim ile Bayezid arasında da taht kavgası çıktı. Bayezid yenildi, İran'a kaçtı ve bin beş yüz altmış birde orada öldürüldü. [ağır] Kanuni, imparatorluğunu genişletirken, ailesini birer birer kaybediyordu.",
      "shots": [
+      {
+       "clip": "klipler/c44.mp4",
+       "start": 2.0
+      },
       {
        "clip": "klipler/c42.mp4"
       }
@@ -775,7 +1964,8 @@
    ],
    "card": {
     "kicker": "BÖLÜM VIII",
-    "date": "1543–1561 · Konya Ereğlisi"
+    "date": "1543–1561 · Konya Ereğlisi",
+    "image": "kart8"
    },
    "music": "huzun"
   },
@@ -834,8 +2024,12 @@
        "clip": "klipler/c03.mp4"
       },
       {
-       "clip": "klipler/c44.mp4",
-       "transition": "dissolve"
+       "clip": "klipler/c44.mp4"
+      },
+      {
+       "clip": "klipler/c24.mp4",
+       "start": 3.0,
+       "flip": true
       }
      ]
     },
@@ -843,14 +2037,19 @@
      "text": "[dramatik] Haber sonunda açıklandığında, ordu yasa büründü. Kırk altı yıl boyunca onları seferden sefere götüren padişah artık yoktu. [duraksama 1.0] Kanuni'nin naaşı İstanbul'a getirildi ve Mimar Sinan'ın yaptığı Süleymaniye'nin bahçesindeki türbeye defnedildi.",
      "shots": [
       {
-       "clip": "klipler/c45.mp4"
+       "clip": "klipler/c45.mp4",
+       "sfx": false
+      },
+      {
+       "clip": "klipler/c46.mp4"
       }
      ]
     }
    ],
    "card": {
     "kicker": "BÖLÜM IX",
-    "date": "1566 · Zigetvar"
+    "date": "1566 · Zigetvar",
+    "image": "kart9"
    },
    "music": "agir"
   },
@@ -861,11 +2060,22 @@
      "text": "[sakin] Kanuni Sultan Süleyman, Osmanlı tarihinde en uzun süre tahtta kalan padişah oldu. Kırk altı yıl. Bu sürede imparatorluk, Budapeşte'den Bağdat'a, Cezayir'den Yemen'e uzanan dev bir devlete dönüştü. Kanunlar yazıldı, kubbeler yükseldi, Akdeniz'in rüzgârı Osmanlı gemilerinin yelkenlerini doldurdu.",
      "shots": [
       {
-       "clip": "klipler/c07.mp4"
+       "clip": "klipler/c48.mp4",
+       "start": 3.0
       },
       {
-       "clip": "klipler/c46.mp4",
-       "transition": "dissolve"
+       "clip": "klipler/c29.mp4",
+       "start": 6.0
+      },
+      {
+       "clip": "klipler/c32.mp4",
+       "start": 4.0,
+       "flip": true
+      },
+      {
+       "clip": "klipler/c06.mp4",
+       "start": 4.0,
+       "flip": true
       }
      ]
     },
@@ -877,7 +2087,11 @@
       },
       {
        "clip": "klipler/c47.mp4",
-       "transition": "dissolve"
+       "start": 2.0
+      },
+      {
+       "clip": "klipler/c46.mp4",
+       "start": 3.0
       }
      ]
     },

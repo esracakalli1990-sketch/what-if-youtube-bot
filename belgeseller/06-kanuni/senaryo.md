@@ -184,7 +184,7 @@ Bin beş yüz otuz sekiz yılında Venedik, İspanya ve Papa'nın gemilerinden o
 
 Bu kanunların amacı, uzak bir köydeki çiftçinin de sultanın adaletine ulaşabilmesiydi. [duraksama 0.8] Kaynaklar, Kanuni'nin halkın şikâyetlerine önem verdiğini, haksızlık yapan yöneticileri cezalandırdığını anlatır. Elbette her şey kâğıttaki kadar mükemmel değildi. Ama o dönem için düzenli ve öngörülebilir bir hukuk sistemi kurulmuştu.
 
-[EKRAN: r_sinan /erit/ c31 (inşaat halindeki Süleymaniye Camii, iskeleler, yüzlerce usta)]
+[EKRAN: c31 (inşaat halindeki Süleymaniye Camii, iskeleler, yüzlerce usta)]
 
 Bu dönemin bir başka büyük ismi, Kanuni'nin mimarıydı: Mimar Sinan. Yeniçeri ocağından yetişmiş, seferlerde köprüler ve gemiler yapmış bir ustaydı. Süleyman onu baş mimar yaptı. [hayret] Sinan, uzun ömrü boyunca yüzlerce yapı inşa etti.
 
@@ -226,7 +226,7 @@ Süleyman seferdeyken Hürrem ona uzun mektuplar yazdı. Bu mektupların bir kı
 ## BÖLÜM VIII — ŞEHZADELER
 *Kart: BÖLÜM VIII · Şehzadeler · 1543–1561 · Konya Ereğlisi*
 
-[EKRAN: c37 (genç, yakışıklı Şehzade Mustafa atının üstünde, askerler tezahürat ediyor) /erit/ r_sehzade_mustafa]
+[EKRAN: c37 (genç, yakışıklı Şehzade Mustafa atının üstünde, askerler tezahürat ediyor)]
 
 [sakin] Süleyman'ın birçok oğlu vardı. En büyüğü Şehzade Mustafa'ydı. Mahidevran Sultan'dan doğmuştu. Cesur, zeki ve askerin çok sevdiği bir şehzadeydi. Birçok kişi onu tahtın doğal varisi olarak görüyordu.
 
