@@ -164,11 +164,11 @@ def main():
         "music_sources": yavuz["music_sources"],
         "images": {"dunya": {"commons": "File:Whole world - land and oceans 12000.jpg", "original": True},
                    **{k: {"file": f"gorseller/{k}.jpg", "credit": AI_CREDIT} for k in GORSELLER}},
-        "thumbnails": [
+        "thumbnails": [   # uyku serisi kuralı: büyük yazı her zaman "UYKU BELGESELİ" (doc_timeline.validate denetler)
             {"sablon": "v2", "arka_plan": "kapak1", "arka_plan_kadraj": "50% 40%", "hale": "transparent",
-             "line1": "13 yıl", "line2": "sürgün", "vurgu": "#FFC83D", "etiket": "Uyku Belgeseli"},
+             "line1": "Uyku", "line2": "belgeseli", "vurgu": "#FFFFFF", "etiket": "Cem Sultan"},
             {"sablon": "v2", "arka_plan": "kapak2", "arka_plan_kadraj": "50% 40%", "hale": "transparent",
-             "line1": "Tahtı", "line2": "kaybetti", "vurgu": "#FFC83D", "etiket": "Uyku Belgeseli"}],
+             "line1": "Uyku", "line2": "belgeseli", "vurgu": "#FFFFFF", "etiket": "Cem Sultan"}],
         "stock": {},
         "films": {},
         "maps": MAPS,
