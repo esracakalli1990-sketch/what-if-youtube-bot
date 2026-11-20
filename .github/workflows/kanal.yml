@@ -27,6 +27,11 @@ on:
 permissions:
   contents: read
 
+# Kanal ayarları (banner, açıklama) tüm belgesellerde ortak: işler sırayla çalışır, iptal edilmez.
+concurrency:
+  group: kanal
+  cancel-in-progress: false
+
 jobs:
   kanal:
     runs-on: ubuntu-latest
