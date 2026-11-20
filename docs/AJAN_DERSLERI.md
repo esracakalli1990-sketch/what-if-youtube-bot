@@ -67,3 +67,4 @@ Son güncelleme: 2026-10-30. Kaynak: kullanıcının verdiği üç belge (Unfold
 - **Bu depo public kalmalı.** Public depolarda standart runner ücretsiz ve kotaya sayılmaz. Private yapılırsa tek bir belgesel üretimi (1–3 saat) kotanın büyük kısmını yer ve hesaptaki diğer depoları da durdurur.
 - Yeni cron eklerken aylık dakikayı hesapla: günlük çalışma × 30 × ortalama dakika (en az 1). Şu an tek cron `sosyal.yml` (günde 1).
 - Her iş akışında `timeout-minutes` ve `concurrency` olmalı.
+- Uyku belgeseli kapakları: büyük yazı her zaman "UYKU BELGESELİ" (rakip uyku kanallarındaki gibi), konu adı köşede küçük etiket. `doc_timeline.validate` slugında "uyku" geçen senaryoda bunu denetler.

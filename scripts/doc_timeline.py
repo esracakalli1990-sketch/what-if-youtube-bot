@@ -100,6 +100,11 @@ def validate(data: dict, folder: Path | None = None, draft: bool = False) -> lis
                     problems.append(f"{where} çekim {si}: geçiş {'/'.join(TRANSITIONS)} olmalı")
                 if not any(k in shot for k in SHOT_SOURCES):
                     problems.append(f"{where} çekim {si}: {'/'.join(SHOT_SOURCES)} biri gerekli")
+    if "uyku" in str(data.get("slug", "")):   # uyku belgeseli kapağı: rakiplerdeki gibi büyük "UYKU BELGESELİ"
+        for k, th in enumerate(data.get("thumbnails", []), 1):
+            text = f"{th.get('line1', '')} {th.get('line2', '')}".replace("İ", "i").lower().split()
+            if text != ["uyku", "belgeseli"]:
+                problems.append(f"kapak {k}: uyku belgeselinde büyük yazı 'Uyku / belgeseli' olmalı")
     return problems
 
 

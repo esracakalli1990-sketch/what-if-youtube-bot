@@ -479,20 +479,20 @@
    "arka_plan": "kapak1",
    "arka_plan_kadraj": "50% 40%",
    "hale": "transparent",
-   "line1": "13 yıl",
-   "line2": "sürgün",
-   "vurgu": "#FFC83D",
-   "etiket": "Uyku Belgeseli"
+   "line1": "Uyku",
+   "line2": "belgeseli",
+   "vurgu": "#FFFFFF",
+   "etiket": "Cem Sultan"
   },
   {
    "sablon": "v2",
    "arka_plan": "kapak2",
    "arka_plan_kadraj": "50% 40%",
    "hale": "transparent",
-   "line1": "Tahtı",
-   "line2": "kaybetti",
-   "vurgu": "#FFC83D",
-   "etiket": "Uyku Belgeseli"
+   "line1": "Uyku",
+   "line2": "belgeseli",
+   "vurgu": "#FFFFFF",
+   "etiket": "Cem Sultan"
   }
  ],
  "stock": {},

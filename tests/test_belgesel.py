@@ -918,3 +918,12 @@ def test_first_comment_uses_documentary_specific_text(tmp_path):
     text = first_comment("PL1", _plan_comment(tmp_path))
     assert "Mısır sorusu?" in text and "Hitit" not in text and "list=PL1" in text
     assert "Hititlerin" in first_comment(None, _plan_comment(tmp_path / "yok"))
+
+
+def test_validate_sleep_thumbnail_needs_big_label():
+    base = {"slug": "07-uyku-x", "title": "t", "chapters": [{"title": "a", "paragraphs": [{"text": "x", "shots": []}]}],
+            "images": {"a": {}}}
+    bad = dict(base, thumbnails=[{"sablon": "v2", "line1": "13 yıl", "line2": "sürgün"}])
+    good = dict(base, thumbnails=[{"sablon": "v2", "line1": "Uyku", "line2": "belgeseli"}])
+    assert any("uyku belgeselinde" in p for p in dt.validate(bad))
+    assert not any("uyku belgeselinde" in p for p in dt.validate(good))
