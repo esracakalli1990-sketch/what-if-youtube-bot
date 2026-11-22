@@ -1,0 +1,1476 @@
+{
+ "slug": "07-uyku-kosem-sultan",
+ "title": "Altı Padişah Gören Kadın: Kösem Sultan'ın Hikâyesi | Uyku Belgeseli",
+ "description": "Işıkları kısın, rahatça uzanın. Bu gece Ege'deki küçük bir adadan Topkapı Sarayı'na uzanan bir ömrü, Kösem Sultan'ın hikâyesini dinliyoruz: Harem'deki ilk yıllar, Sultan Birinci Ahmed ve Mavi Cami, Eski Saray'daki bekleyiş, valide sultanlık, Bağdat'ın fethi ve kaybedilen oğullar, İbrahim'in yılları ve büyük valide olarak geçen son günler.\n\nUykuya dalmanız için yavaş ve sakin bir anlatımla hazırlandı. Tartışmalı bilgiler anlatımda \"rivayete göre\" ya da \"kaynaklara göre\" diye belirtilmiştir.\n\nUyku belgeselleri: Cem Sultan → https://youtu.be/1WkEFLoVnWQ · Kanuni Sultan Süleyman → https://youtu.be/6V9KWu2zO8Y",
+ "tags": [
+  "kösem sultan",
+  "uyku belgeseli",
+  "uyku için tarih",
+  "tarih uyku",
+  "osmanlı tarihi",
+  "osmanlı harem",
+  "valide sultan",
+  "sultan ahmed",
+  "iv. murad",
+  "sultan ibrahim",
+  "uyku için belgesel",
+  "sesli tarih",
+  "türkçe belgesel",
+  "belgesel"
+ ],
+ "hashtags": [
+  "#KösemSultan",
+  "#UykuBelgeseli",
+  "#OsmanlıTarihi",
+  "#Tarih"
+ ],
+ "ai_disclosure": "Bu belgeseldeki çizimler yapay zekâ ile üretilmiştir ve temsilidir.",
+ "sources": [
+  "TDV İslâm Ansiklopedisi: Kösem Sultan, Ahmed I, Murad IV, İbrahim, Mehmed IV, Sultan Ahmed Camii",
+  "Leslie P. Peirce, The Imperial Harem: Women and Sovereignty in the Ottoman Empire",
+  "Halil İnalcık, Osmanlı İmparatorluğu Klasik Çağ (1300–1600)",
+  "Mustafa Naîmâ, Târih-i Naîmâ"
+ ],
+ "tts_model": "eleven_v4",
+ "voice_settings": {
+  "stability": 0.65,
+  "similarity_boost": 0.8,
+  "style": 0.05,
+  "use_speaker_boost": true,
+  "speed": 0.9
+ },
+ "pronunciations": {
+  "Mahpeyker": "Mahpeyker",
+  "Anastasia": "Anastasya",
+  "Bahtî": "Bahti",
+  "Revan": "Revan",
+  "Kemankeş": "Kemankeş",
+  "Muazzama": "Muazzama"
+ },
+ "ilk_yorum": "Sizce Kösem Sultan devleti mi ayakta tuttu, yoksa gücü bırakmak mı istemedi? Yorumlarda konuşalım.\n\n🌙 Uyku belgeselleri oynatma listemizde başka hikâyeler de var. İyi geceler.",
+ "kurgu": {
+  "gecis": "dissolve",
+  "ton_esitle": 0.0,
+  "bolum_sonu": 4.0,
+  "bolum_karartma": 2.5
+ },
+ "music_sources": {
+  "gizem": {
+   "commons": "File:Heart of Nowhere (MacLeod, Kevin) (ISRC USUAN1400045).oga"
+  },
+  "agir": {
+   "commons": "File:Earth Prelude (MacLeod, Kevin) (ISRC USUAN1100247).oga"
+  },
+  "karanlik": {
+   "commons": "File:Kevin MacLeod - Ritual.ogg"
+  },
+  "huzun": {
+   "commons": "File:Kevin MacLeod - 06 - Impact Lento.ogg"
+  },
+  "tapinak": {
+   "commons": "File:Kevin MacLeod - Temple of the Manes.ogg"
+  },
+  "ses": {
+   "commons": "File:The Voices (MacLeod, Kevin) (ISRC USUAN1100046).oga"
+  },
+  "derin": {
+   "commons": "File:Kevin MacLeod - Silver Blue Light.ogg"
+  }
+ },
+ "images": {
+  "g01": {
+   "file": "gorseller/g01.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g02": {
+   "file": "gorseller/g02.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g03": {
+   "file": "gorseller/g03.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g04": {
+   "file": "gorseller/g04.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g05": {
+   "file": "gorseller/g05.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g06": {
+   "file": "gorseller/g06.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g07": {
+   "file": "gorseller/g07.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g08": {
+   "file": "gorseller/g08.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g09": {
+   "file": "gorseller/g09.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g10": {
+   "file": "gorseller/g10.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g11": {
+   "file": "gorseller/g11.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g12": {
+   "file": "gorseller/g12.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g13": {
+   "file": "gorseller/g13.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g14": {
+   "file": "gorseller/g14.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g15": {
+   "file": "gorseller/g15.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g16": {
+   "file": "gorseller/g16.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g17": {
+   "file": "gorseller/g17.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g18": {
+   "file": "gorseller/g18.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g19": {
+   "file": "gorseller/g19.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g20": {
+   "file": "gorseller/g20.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g21": {
+   "file": "gorseller/g21.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g22": {
+   "file": "gorseller/g22.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g23": {
+   "file": "gorseller/g23.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g24": {
+   "file": "gorseller/g24.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g25": {
+   "file": "gorseller/g25.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g26": {
+   "file": "gorseller/g26.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g27": {
+   "file": "gorseller/g27.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g28": {
+   "file": "gorseller/g28.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g29": {
+   "file": "gorseller/g29.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g30": {
+   "file": "gorseller/g30.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g31": {
+   "file": "gorseller/g31.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g32": {
+   "file": "gorseller/g32.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g33": {
+   "file": "gorseller/g33.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g34": {
+   "file": "gorseller/g34.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g35": {
+   "file": "gorseller/g35.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g36": {
+   "file": "gorseller/g36.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g37": {
+   "file": "gorseller/g37.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g38": {
+   "file": "gorseller/g38.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g39": {
+   "file": "gorseller/g39.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g40": {
+   "file": "gorseller/g40.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g41": {
+   "file": "gorseller/g41.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g42": {
+   "file": "gorseller/g42.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g43": {
+   "file": "gorseller/g43.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g44": {
+   "file": "gorseller/g44.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g45": {
+   "file": "gorseller/g45.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g46": {
+   "file": "gorseller/g46.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g47": {
+   "file": "gorseller/g47.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g48": {
+   "file": "gorseller/g48.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g49": {
+   "file": "gorseller/g49.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g50": {
+   "file": "gorseller/g50.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g51": {
+   "file": "gorseller/g51.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g52": {
+   "file": "gorseller/g52.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "g53": {
+   "file": "gorseller/g53.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "kapak1": {
+   "file": "gorseller/kapak1.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  },
+  "kapak2": {
+   "file": "gorseller/kapak2.jpg",
+   "credit": {
+    "title": "Temsili çizim",
+    "artist": "Yapay zekâ ile üretildi (Gemini)",
+    "license": "—"
+   }
+  }
+ },
+ "thumbnails": [
+  {
+   "sablon": "v2",
+   "arka_plan": "kapak1",
+   "arka_plan_kadraj": "50% 40%",
+   "hale": "transparent",
+   "line1": "Uyku",
+   "line2": "belgeseli",
+   "vurgu": "#FFFFFF",
+   "etiket": "Kösem Sultan"
+  },
+  {
+   "sablon": "v2",
+   "arka_plan": "kapak2",
+   "arka_plan_kadraj": "50% 40%",
+   "hale": "transparent",
+   "line1": "Uyku",
+   "line2": "belgeseli",
+   "vurgu": "#FFFFFF",
+   "etiket": "Kösem Sultan"
+  }
+ ],
+ "stock": {},
+ "films": {},
+ "maps": {},
+ "chapters": [
+  {
+   "title": "Giriş",
+   "paragraphs": [
+    {
+     "text": "[sakin] Işıkları biraz kısın. Yorganınızı çekin, rahatça uzanın. Bu gece sizi dört yüz yıl öncesine, İstanbul'un en büyük sarayına götüreceğiz. [duraksama 1.5] Acele etmeyeceğiz. Hikâye yavaş yavaş akacak; siz de dilediğiniz yerde gözlerinizi kapatabilirsiniz.",
+     "shots": [
+      {
+       "image": "g01",
+       "move": "in",
+       "transition": "dissolve",
+       "xfade": 2.5
+      },
+      {
+       "image": "g02",
+       "move": "left",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Bu, küçük bir adadan gelip koca bir imparatorluğun kalbine yerleşen bir kadının hikâyesi. Adı Mahpeyker'di; ay yüzlü demekti. Ama tarih onu başka bir adla hatırlayacaktı: Kösem. [duraksama 1.0] Yaklaşık yarım asır boyunca Osmanlı sarayında yaşadı. Altı padişahın saltanatını gördü. Eşi bir padişahtı, iki oğlu padişah oldu, torunu da öyle.",
+     "shots": [
+      {
+       "image": "g03",
+       "move": "out",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Bu gece onunla birlikte sarayın sessiz koridorlarında yürüyeceğiz. Mermer avluları, çinili odaları, kafesli pencereleri göreceğiz. Mum ışığında yazılmış mektupları, Boğaz'dan geçen kayıkları, kubbelerin altında yankılanan ezanları duyacağız. [duraksama 1.0] Sadece dinleyin. Gerisini hayaliniz tamamlasın.",
+     "shots": [
+      {
+       "image": "g04",
+       "move": "right",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Hikâyemiz on yedinci yüzyılın başında geçiyor. Osmanlı Devleti hâlâ dünyanın en güçlü devletlerinden biri. Ama sarayın içinde yeni bir dönem başlıyor; artık padişahlar eskisi gibi uzak cephelerde değil, çoğu zaman İstanbul'da yaşıyor. Sarayın kadınları da bu yeni dünyada her zamankinden daha görünür oluyor. [duraksama 1.0] Kösem Sultan bu dönemin en tanınan yüzü olacaktı. Şimdi en başa, onun bir adada geçen çocukluğuna dönelim.",
+     "shots": [
+      {
+       "image": "g02",
+       "move": "in",
+       "transition": "dissolve",
+       "xfade": 2.5
+      },
+      {
+       "image": "g04",
+       "move": "left",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    }
+   ],
+   "music": "derin"
+  },
+  {
+   "title": "Adadan Gelen Kız",
+   "paragraphs": [
+    {
+     "text": "[sakin] Kösem'in çocukluğu hakkında bildiklerimiz çok azdır. Kaynakların çoğu onun bin beş yüz seksen dokuz ya da doksan yılı civarında doğduğunu söyler. Venedikli elçilerin raporlarına göre Rum asıllıydı; rivayete göre Ege'deki adalardan birinde, bir din adamının kızı olarak dünyaya geldi. [duraksama 1.0] Çocukluk adının Anastasia olduğu da anlatılır, ama bunu kesin olarak bilmiyoruz.",
+     "shots": [
+      {
+       "image": "g03",
+       "move": "out",
+       "transition": "dissolve",
+       "xfade": 2.5
+      },
+      {
+       "image": "g05",
+       "move": "right",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Belki de ilk hatıraları dalgaların sesi, beyaz badanalı evler ve rüzgârda sallanan zeytin ağaçlarıydı. Ada hayatı sakindi; günler balıkçı teknelerinin gidip gelmesiyle, çanların sesiyle, mevsimlerin yavaş dönüşüyle geçerdi. [duraksama 1.0] Ama bu küçük kızın hayatı, henüz çocukken, hiç beklemediği bir yöne dönecekti.",
+     "shots": [
+      {
+       "image": "g05",
+       "move": "in",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Akşamları evlerin avlularında ocaklar yakılır, sofralara ekmek, zeytin ve balık konurdu. Yaşlılar eski hikâyeler anlatır, çocuklar yıldızları sayarak uykuya dalardı. [duraksama 1.0] O yıllarda Ege'nin adaları, Osmanlı ile Venedik'in arasında, iki büyük dünyanın sınırında yaşıyordu. Denizden her gelen gemi, uzak limanlardan haberler getirirdi.",
+     "shots": [
+      {
+       "image": "g45",
+       "move": "left",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Kaynaklara göre on üç ya da on dört yaşlarındayken İstanbul'a getirildi. O dönemde sarayın kadınlar bölümüne, yani Harem'e, imparatorluğun dört bir yanından genç kızlar alınırdı. [duraksama 1.0] Uzun bir deniz yolculuğundan sonra, bir sabah, ufukta kubbeler ve minareler belirdi. Küçük adadan gelen kız, dünyanın en kalabalık şehirlerinden birine varmıştı.",
+     "shots": [
+      {
+       "image": "g06",
+       "move": "out",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Harem, dışarıdan bakıldığında gizemli bir yerdi. Ama içeride sıkı kuralları olan bir okul gibiydi. Yeni gelen kızlara Türkçe öğretilir, Kuran okumayı, yazı yazmayı, nakış işlemeyi, müzik çalmayı öğrenirlerdi. Her birinin üzerinde deneyimli kadınların gözü vardı. [duraksama 1.0] Genç kız burada yeni bir dil, yeni bir din ve yeni bir isim edindi: Mahpeyker.",
+     "shots": [
+      {
+       "image": "g07",
+       "move": "right",
+       "transition": "dissolve",
+       "xfade": 2.5
+      },
+      {
+       "image": "g08",
+       "move": "in",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Harem'in günleri belli bir düzen içinde akardı. Sabah ezanıyla uyanılır, avludaki çeşmelerde yüzler yıkanır, kahvaltının ardından dersler başlardı. Öğleden sonraları nakış işlenir, ud ve kanun çalınır, şiir okunurdu. [duraksama 1.0] Akşam olunca koridorlarda kandiller yakılır, kalın halıların üzerinde yumuşak adımlar duyulurdu. Hepsinin üzerinde, Harem'in en yaşlı ve en saygın kadınlarının sessiz gözetimi vardı.",
+     "shots": [
+      {
+       "image": "g46",
+       "move": "left",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Kaynaklar onun zekâsından, güzelliğinden ve çabuk öğrenmesinden söz eder. Kısa sürede Harem'in kurallarını, saray dilinin inceliklerini, kimin kime nasıl hitap edeceğini öğrendi. [duraksama 1.0] Sessiz ama dikkatli bir genç kızdı. Gözlerinden hiçbir şey kaçmıyordu.",
+     "shots": [
+      {
+       "image": "g08",
+       "move": "out",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Genç kız, bazen kafesli pencerelerin arkasından sarayın bahçelerine bakardı. Lale tarhları, uzun servi ağaçları, uzakta Boğaz'ın mavisi. [duraksama 1.0] Belki adasını, denizi, annesinin sesini hatırlıyordu. Ama geçmişe dönmek mümkün değildi. Önünde yepyeni bir hayat duruyordu ve o, bu hayatı anlamaya kararlıydı.",
+     "shots": [
+      {
+       "image": "g47",
+       "move": "right",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    }
+   ],
+   "card": {
+    "kicker": "BÖLÜM I",
+    "date": "1590–1605 · Ege, İstanbul",
+    "image": "g05"
+   },
+   "music": "huzun"
+  },
+  {
+   "title": "Genç Sultanın Hasekisi",
+   "paragraphs": [
+    {
+     "text": "[sakin] O sıralarda tahtta çok genç bir padişah vardı: Birinci Ahmed. Babasının ölümünden sonra, bin altı yüz üç yılında, henüz on üç yaşındayken padişah olmuştu. Ata binmeyi, ava çıkmayı ve şiir yazmayı seven, dindar bir gençti. [duraksama 1.0] Bahtî mahlasıyla şiirler yazdığı bilinir.",
+     "shots": [
+      {
+       "image": "g09",
+       "move": "in",
+       "transition": "dissolve",
+       "xfade": 2.5
+      },
+      {
+       "image": "g10",
+       "move": "left",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Genç padişah, Mahpeyker'i Harem'de fark etti. Kaynaklara göre kısa sürede onun en sevdiği kadın, yani hasekisi oldu. Mahpeyker'e o yıllarda Kösem adı verildi. [duraksama 1.0] Bu adın anlamı üzerine farklı görüşler vardır. Bir rivayete göre, sürüye yol gösteren öncü koyuna verilen addan gelir: yol gösteren, önde yürüyen. Yıllar sonra bu isim, ona gerçekten yakışacaktı.",
+     "shots": [
+      {
+       "image": "g10",
+       "move": "out",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Sultan Ahmed ava çıkmayı çok severdi. Sık sık Edirne'ye gider, oranın geniş çayırlarında, nehir kıyılarındaki av köşklerinde haftalar geçirirdi. [duraksama 1.0] Rivayete göre Kösem de bazen bu yolculuklarda ona eşlik ederdi. Uzun yolculuklar, konaklama yerleri, sabah sisinde yola çıkan atlılar; sarayın duvarları dışında geçen bu günler, onun için yeni bir dünyaydı.",
+     "shots": [
+      {
+       "image": "g10",
+       "move": "right",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Sonraki yıllarda Kösem'in birçok çocuğu oldu. Kızları Ayşe, Fatma, Gevherhan ve Hanzade doğdu. Oğulları Murad, Kasım, İbrahim dünyaya geldi. [duraksama 1.0] Sarayın bahçelerinde çocuk sesleri yükseliyordu. Kösem bu yıllarda çocuklarının eğitimiyle, Harem'in düzeniyle ilgilendi. Sultan Ahmed de onun fikirlerine önem veriyordu.",
+     "shots": [
+      {
+       "image": "g11",
+       "move": "in",
+       "transition": "dissolve",
+       "xfade": 2.5
+      },
+      {
+       "image": "g12",
+       "move": "left",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Venedikli elçiler, Kösem'in padişah üzerindeki etkisinden söz eder. Ama aynı raporlar, onun bu etkiyi dikkatle ve ölçülü kullandığını da anlatır. [duraksama 1.0] Sarayın kalabalık dünyasında her söz, her bakış önemliydi. Kösem, ne zaman konuşup ne zaman susması gerektiğini çok iyi biliyordu.",
+     "shots": [
+      {
+       "image": "g12",
+       "move": "out",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Akşamüstleri padişah bazen sarayın köşklerinden birinde dinlenir, Boğaz'dan geçen gemileri seyrederdi. Kaynaklar, Sultan Ahmed'in Kösem'le sohbet etmeyi sevdiğini, onun fikirlerini dinlediğini anlatır. [duraksama 1.0] Genç padişahın kısa ömründe, bu sakin akşamlar belki de en huzurlu anlarıydı.",
+     "shots": [
+      {
+       "image": "g48",
+       "move": "right",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    }
+   ],
+   "card": {
+    "kicker": "BÖLÜM II",
+    "date": "1605–1617 · Topkapı Sarayı",
+    "image": "g11"
+   },
+   "music": "derin"
+  },
+  {
+   "title": "Mavi Kubbeler",
+   "paragraphs": [
+    {
+     "text": "[sakin] Bin altı yüz dokuz yılında Sultan Ahmed, İstanbul'un en güzel yerlerinden birinde, eski Hipodrom'un yanında büyük bir cami yaptırmaya karar verdi. Mimarı, Mimar Sinan'ın öğrencilerinden Sedefkâr Mehmed Ağa'ydı. [duraksama 1.0] Yıllarca binlerce usta çalıştı. Taşlar yontuldu, kubbeler yükseldi, İznik'ten on binlerce çini getirildi.",
+     "shots": [
+      {
+       "image": "g13",
+       "move": "in",
+       "transition": "dissolve",
+       "xfade": 2.5
+      },
+      {
+       "image": "g02",
+       "move": "left",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Cami tamamlandığında, içi mavi ve beyaz çinilerle bezeli, altı minareli görkemli bir yapı ortaya çıkmıştı. Avrupalı gezginler ona bu yüzden \"Mavi Cami\" diyecekti. [duraksama 1.0] Pencerelerden süzülen ışık çinilerin üzerinde dolaşır, kubbenin altında sessiz bir huzur olurdu. Bugün de İstanbul'un en çok ziyaret edilen yapılarından biri.",
+     "shots": [
+      {
+       "image": "g14",
+       "move": "out",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Caminin etrafında bir medrese, bir hastane, bir imaret, bir çarşı ve çeşmeler de yapıldı. Böylece cami, sadece ibadet edilen bir yer değil, mahallenin kalbinde yaşayan bir külliye oldu. [duraksama 1.0] Kaynaklara göre padişah, temel atma töreninde kendi elleriyle toprak kazmıştı. Kösem de bu yapının yükselişini, sarayın pencerelerinden yıllarca izledi.",
+     "shots": [
+      {
+       "image": "g13",
+       "move": "right",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Ama Sultan Ahmed bu caminin tamamlandığını uzun süre göremedi. Bin altı yüz on yedi yılının Kasım ayında, henüz yirmi yedi yaşındayken hastalandı ve hayatını kaybetti. [duraksama 1.5] Kösem, yaklaşık on iki yıl paylaştığı eşini kaybetmişti. Çocukları henüz küçüktü. Ve sarayda, her şeyi değiştirecek bir karar verilmek üzereydi.",
+     "shots": [
+      {
+       "image": "g15",
+       "move": "in",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Sultan Ahmed, yaptırdığı caminin bahçesindeki türbeye defnedildi. [duraksama 1.0] Yıllar sonra, Kösem de onun yanına gelecekti.",
+     "shots": [
+      {
+       "image": "g16",
+       "move": "left",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Bugün o caminin içine girdiğinizde, başınızı kaldırıp kubbeye baktığınızda, binlerce mavi çininin arasında küçük çiçek desenlerini görürsünüz. Laleler, karanfiller, serviler. [duraksama 1.0] Hepsi, dört yüz yıl önce İznik'in atölyelerinde, sabırlı ustaların elinde tek tek boyandı. Ve hepsi, genç bir padişahın kısa ömrünün en kalıcı hatırası olarak orada duruyor.",
+     "shots": [
+      {
+       "image": "g14",
+       "move": "out",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    }
+   ],
+   "card": {
+    "kicker": "BÖLÜM III",
+    "date": "1609–1617 · İstanbul",
+    "image": "g14"
+   },
+   "music": "gizem"
+  },
+  {
+   "title": "Eski Saray'da Bekleyiş",
+   "paragraphs": [
+    {
+     "text": "[sakin] O güne kadar Osmanlı'da taht genellikle padişahın oğluna geçerdi. Ama Sultan Ahmed öldüğünde oğulları çok küçüktü. Bu yüzden devlet adamları farklı bir yol seçti: Tahta Ahmed'in kardeşi Mustafa çıkarıldı. [duraksama 1.0] Böylece Osmanlı tarihinde yeni bir dönem başladı. Bundan sonra taht, çoğu zaman hanedanın en yaşlı erkeğine geçecekti.",
+     "shots": [
+      {
+       "image": "g17",
+       "move": "right",
+       "transition": "dissolve",
+       "xfade": 2.5
+      },
+      {
+       "image": "g18",
+       "move": "in",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Yeni padişahın gelişiyle, eski padişahın kadınları saraydan ayrılırdı. Kösem de çocuklarıyla birlikte, bugün İstanbul Üniversitesi'nin bulunduğu yerdeki Eski Saray'a gönderildi. [duraksama 1.0] Burası sessiz bir yerdi. Bahçesinde yaşlı ağaçlar, avlularında çeşmeler vardı. Kösem burada yıllarca, uzaktan, sarayda olup bitenleri izledi.",
+     "shots": [
+      {
+       "image": "g19",
+       "move": "left",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Eski Saray'da zaman yavaş akardı. Kışın bahçeleri karla kaplanır, odalarda mangallar yakılırdı. Baharda ağaçlar çiçek açar, kuşlar avlulardaki havuzların başına konardı. [duraksama 1.0] Kösem bu yıllarda çocuklarının eğitimiyle ilgilendi. Oğullarına okumayı, yazmayı, sarayın kurallarını öğretti. Kızlarını büyüttü. Ve her gün, şehirden gelen haberleri dikkatle dinledi.",
+     "shots": [
+      {
+       "image": "g19",
+       "move": "out",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Bu yıllar Topkapı Sarayı için çok çalkantılı geçti. Sultan Mustafa kısa süre sonra tahttan indirildi; yerine Sultan Ahmed'in büyük oğlu genç Osman geçti. Genç Osman orduyu yeniden düzenlemek istiyordu, ama bu istek yeniçerileri öfkelendirdi. [duraksama 1.0] Bin altı yüz yirmi iki yılında çıkan bir ayaklanmada Sultan Osman tahtını ve hayatını kaybetti. Tarihte Genç Osman olarak anılacaktı.",
+     "shots": [
+      {
+       "image": "g20",
+       "move": "right",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Genç Osman, Kösem'in kendi oğlu değildi; Sultan Ahmed'in başka bir kadınından doğmuştu. Ama Kösem'in çocuklarıyla aynı sarayda büyümüştü. [duraksama 1.0] Onun ölüm haberi Eski Saray'a ulaştığında, Kösem belki de kendi oğullarının geleceğini düşündü. Saray, bir anda herkes için çok tehlikeli bir yer olmuştu.",
+     "shots": [
+      {
+       "image": "g20",
+       "move": "in",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Mustafa yeniden tahta çıkarıldı, ama devlet işleri iyi gitmiyordu. Hazine boşalmış, sokaklarda huzursuzluk artmıştı. [duraksama 1.0] Kösem bütün bu yıllarda sabırla bekledi. Mektuplar yazdı, sarayda dostlar edindi, devlet adamlarıyla bağlarını korudu. Oğlu Murad büyüyordu.",
+     "shots": [
+      {
+       "image": "g19",
+       "move": "left",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    }
+   ],
+   "card": {
+    "kicker": "BÖLÜM IV",
+    "date": "1617–1623 · İstanbul",
+    "image": "g19"
+   },
+   "music": "huzun"
+  },
+  {
+   "title": "On Bir Yaşında Bir Padişah",
+   "paragraphs": [
+    {
+     "text": "[sakin] Bin altı yüz yirmi üç yılının Eylül ayında devlet adamları Mustafa'yı tahttan indirdi. Yerine Kösem'in oğlu Murad padişah oldu. Dördüncü Murad henüz on bir yaşındaydı. [duraksama 1.5] Ve Kösem, Eski Saray'dan Topkapı'ya geri döndü. Ama bu kez başka bir unvanla: Valide Sultan, yani padişahın annesi.",
+     "shots": [
+      {
+       "image": "g21",
+       "move": "out",
+       "transition": "dissolve",
+       "xfade": 2.5
+      },
+      {
+       "image": "g22",
+       "move": "right",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Kösem'in Eski Saray'dan Topkapı'ya dönüşü, büyük bir törenle oldu. Osmanlı'da buna Valide Alayı denirdi. Süslü arabalar, atlı muhafızlar, devlet adamları; hepsi İstanbul'un sokaklarından ağır ağır geçti. [duraksama 1.0] Halk yol kenarlarına dizildi. Kaynaklara göre alay boyunca halka bahşiş dağıtıldı. Altı yıl sonra Kösem, sarayına geri dönüyordu.",
+     "shots": [
+      {
+       "image": "g53",
+       "move": "in",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Padişah çok küçük olduğu için devletin yönetiminde annesinin sözü büyüktü. Kaynaklara göre Kösem, vezirlerle yazışıyor, divanın kararlarını takip ediyor, önemli atamalarda fikrini söylüyordu. Bazen divan toplantılarını kafesli bir pencerenin ya da bir perdenin arkasından dinlerdi. [duraksama 1.0] Bu yıllarda imparatorluğun dizginleri, büyük ölçüde onun elindeydi.",
+     "shots": [
+      {
+       "image": "g22",
+       "move": "left",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Kolay yıllar değildi. Doğuda Bağdat elden çıkmıştı, hazine sıkıntıdaydı, askerler maaşlarını istiyordu. Kösem bu dönemde zaman zaman kendi hazinesinden ödemeler yaptı, kaynaklara göre değerli eşyalarını bile devlet için verdi. [duraksama 1.0] Bir yandan da oğlunu yetiştiriyordu. Genç Murad, annesinin yanında devlet yönetmeyi öğreniyordu.",
+     "shots": [
+      {
+       "image": "g23",
+       "move": "out",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Kösem'in o yıllardan kalan bazı mektupları bugün hâlâ arşivlerde duruyor. Sadrazama yazdığı bu kısa notlarda devletin işlerini soruyor, oğlunun sağlığından endişe ediyor, bazen de sabır tavsiye ediyordu. [duraksama 1.0] Satırların arasında, hem bir devlet adamının dikkati hem de bir annenin kaygısı okunur.",
+     "shots": [
+      {
+       "image": "g49",
+       "move": "right",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Yıllar geçtikçe Murad büyüdü ve güçlü bir genç adam oldu. Bin altı yüz otuz iki yılı civarında yönetimi tamamen kendi eline aldı. [duraksama 1.0] Kösem geri çekildi. Artık devletin ipleri genç padişahın elindeydi. Ama annesi her zaman yakınında, her zaman sarayın bir köşesindeydi.",
+     "shots": [
+      {
+       "image": "g24",
+       "move": "in",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Sultan Murad, İstanbul'u düzene sokmak için sert kararlar aldı. Rivayete göre geceleri kılık değiştirip şehrin sokaklarında dolaşır, halkın ne konuştuğunu kendi kulaklarıyla duymak isterdi. [duraksama 1.0] Bu hikâyelerin ne kadarı gerçek bilmiyoruz. Ama onun döneminde şehrin sokakları daha sessiz, daha düzenli hâle geldi.",
+     "shots": [
+      {
+       "image": "g50",
+       "move": "left",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    }
+   ],
+   "card": {
+    "kicker": "BÖLÜM V",
+    "date": "1623–1632 · Topkapı Sarayı",
+    "image": "g21"
+   },
+   "music": "derin"
+  },
+  {
+   "title": "Bağdat ve Yalnız Kalan Anne",
+   "paragraphs": [
+    {
+     "text": "[sakin] Sultan Murad sert ve kararlı bir padişah oldu. İstanbul'da düzeni yeniden kurdu, sonra ordusunun başında doğuya yürüdü. Önce Revan'ı aldı. Ardından, bin altı yüz otuz sekiz yılında, uzun bir kuşatmanın sonunda Bağdat'ı yeniden imparatorluğa kattı. [duraksama 1.0] Bu, onun en büyük zaferiydi. İstanbul'a döndüğünde şehir günlerce kutlama yaptı.",
+     "shots": [
+      {
+       "image": "g25",
+       "move": "out",
+       "transition": "dissolve",
+       "xfade": 2.5
+      },
+      {
+       "image": "g26",
+       "move": "right",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Oğlu seferlerdeyken Kösem İstanbul'da kalır, cepheden gelen haberleri beklerdi. Ulaklar haftalarca yol alır, mektuplar çöllerden, dağlardan geçerek saraya ulaşırdı. [duraksama 1.0] Her mektup bir rahatlama, her gecikme yeni bir endişe demekti. Kaynaklara göre Murad da annesine düzenli olarak haber gönderiyordu.",
+     "shots": [
+      {
+       "image": "g49",
+       "move": "in",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Kaynaklara göre Kösem bu yıllarda sarayda sessiz bir hayat sürüyordu. Hayır işleriyle ilgileniyor, kızlarını devletin önemli adamlarıyla evlendiriyordu. [duraksama 1.0] Ama bu zafer yıllarının gölgesinde, bir anne için çok zor günler de vardı.",
+     "shots": [
+      {
+       "image": "g27",
+       "move": "left",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Sultan Murad, zaferlerinin anısına Topkapı Sarayı'nın dördüncü avlusunda iki zarif köşk yaptırdı: Revan Köşkü ve Bağdat Köşkü. İçleri çinilerle, sedef ve fildişi kakmalı kapılarla süslüydü. [duraksama 1.0] Bugün sarayı ziyaret edenler, bu köşklerin penceresinden Haliç'e bakabilir; tıpkı dört yüz yıl önce saray halkının baktığı gibi.",
+     "shots": [
+      {
+       "image": "g51",
+       "move": "out",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "[hüzün] O dönemin acı geleneğine göre, padişahlar taht için tehlike gördükleri kardeşlerinden kurtulabiliyordu. Sultan Murad da sefer yıllarında kardeşlerinden Bayezid, Süleyman ve Kasım'ın ölümünü emretti. Kasım, Kösem'in kendi oğluydu. [duraksama 1.5] Kaynaklar, Kösem'in en küçük oğlu İbrahim'i korumak için büyük çaba gösterdiğini anlatır. İbrahim hayatta kaldı. Ama yıllarını sarayın kapalı odalarında, korku içinde geçirdi.",
+     "shots": [
+      {
+       "image": "g28",
+       "move": "right",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Sultan Murad, bin altı yüz kırk yılının Şubat ayında, henüz yirmi yedi yaşındayken hastalanarak öldü. [duraksama 1.5] Kösem bir oğlunu daha kaybetmişti. Hanedanın hayatta kalan son erkeği, kapalı odada yıllarını geçirmiş olan İbrahim'di.",
+     "shots": [
+      {
+       "image": "g29",
+       "move": "in",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    }
+   ],
+   "card": {
+    "kicker": "BÖLÜM VI",
+    "date": "1632–1640 · Revan, Bağdat",
+    "image": "g26"
+   },
+   "music": "huzun"
+  },
+  {
+   "title": "İbrahim'in Yılları",
+   "paragraphs": [
+    {
+     "text": "[sakin] Rivayete göre İbrahim'e tahta çıkacağı haber verildiğinde, önce inanmadı. Kardeşinin öldüğünü kendi gözleriyle görmek istedi. [duraksama 1.0] Bin altı yüz kırk yılında padişah oldu. Kösem yeniden Valide Sultan'dı. Ve hanedanın geleceği, şimdi tek bir kişinin omuzlarındaydı.",
+     "shots": [
+      {
+       "image": "g30",
+       "move": "left",
+       "transition": "dissolve",
+       "xfade": 2.5
+      },
+      {
+       "image": "g31",
+       "move": "out",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "İbrahim'in ilk yıllarında devleti büyük ölçüde deneyimli sadrazam Kemankeş Kara Mustafa Paşa ile Kösem yönetti. Hazine düzene sokuldu, harcamalar kısıldı. [duraksama 1.0] Kısa süre sonra İbrahim'in çocukları dünyaya gelmeye başladı. Hanedanın devamı artık güvendeydi. Bu, Kösem için büyük bir rahatlamaydı.",
+     "shots": [
+      {
+       "image": "g31",
+       "move": "right",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "İbrahim kürkleri, kokuları ve parlak kumaşları çok severdi. Rivayete göre sarayın odalarını samur kürklerle döşetir, amber kokuları yaktırırdı. [duraksama 1.0] Yıllarca kapalı bir odada yaşamış bir adam için dünya birden çok genişlemişti. Ve bu genişlik, ona hem yeni sevinçler hem de yeni korkular getirdi.",
+     "shots": [
+      {
+       "image": "g32",
+       "move": "in",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Sarayın bahçelerinde yeniden çocuk sesleri duyulmaya başladı. İbrahim'in oğulları Mehmed, Süleyman ve Ahmed doğdu. [duraksama 1.0] Kösem artık büyükanneydi. Kaynaklar, torunlarıyla yakından ilgilendiğini, onların eğitimine özen gösterdiğini anlatır. Yıllar sonra bu çocuklardan üçü de padişah olacaktı.",
+     "shots": [
+      {
+       "image": "g52",
+       "move": "left",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Ama zamanla işler değişti. Kaynaklar, İbrahim'in yıllarca yaşadığı korkunun onu derinden etkilediğini anlatır. Ani öfkeleri, büyük harcamaları ve kimseye danışmadan verdiği kararlar devleti sarsmaya başladı. Annesiyle arası da açıldı; Kösem bir süre saraydan uzaklaştırıldı. [duraksama 1.0] Tarih onu \"Deli İbrahim\" diye anacaktı, ama bugün birçok tarihçi, bu adın onu tam olarak anlatmadığını, yaşadıklarının onu hasta ettiğini söyler.",
+     "shots": [
+      {
+       "image": "g32",
+       "move": "out",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Bu yıllarda Akdeniz'de Venedik'le uzun bir savaş da başladı. Osmanlı donanması bin altı yüz kırk beş yılında Girit adasına çıktı. [duraksama 1.0] Bu savaş yirmi dört yıl sürecek, adanın son kalesi ancak Kösem'in ölümünden çok sonra alınabilecekti. İstanbul'da ise savaşın masrafları ve saraydaki huzursuzluk, her geçen gün biraz daha ağırlaşıyordu.",
+     "shots": [
+      {
+       "image": "g06",
+       "move": "right",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Bin altı yüz kırk sekiz yılında devlet adamları ve askerler İbrahim'in tahttan indirilmesine karar verdi. Kaynaklara göre Kösem, sonunda bu karara razı oldu. [duraksama 1.5] Yerine İbrahim'in altı yaşındaki oğlu Mehmed geçti. İbrahim kısa süre sonra hayatını kaybetti. Kösem, üçüncü oğlunu da yitirmişti.",
+     "shots": [
+      {
+       "image": "g33",
+       "move": "in",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    }
+   ],
+   "card": {
+    "kicker": "BÖLÜM VII",
+    "date": "1640–1648 · Topkapı Sarayı",
+    "image": "g31"
+   },
+   "music": "gizem"
+  },
+  {
+   "title": "Büyük Valide",
+   "paragraphs": [
+    {
+     "text": "[sakin] Yeni padişah Dördüncü Mehmed henüz altı yaşındaydı. Kösem artık padişahın büyükannesiydi; tarih onu \"Büyük Valide\" diye anar. Yaklaşık altmış yaşındaydı ve sarayda onun kadar deneyimli kimse yoktu. [duraksama 1.0] Devlet adamları, küçük padişahın yanında yine ona güvendi.",
+     "shots": [
+      {
+       "image": "g34",
+       "move": "left",
+       "transition": "dissolve",
+       "xfade": 2.5
+      },
+      {
+       "image": "g35",
+       "move": "out",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Kaynaklara göre Kösem küçük torununa çok düşkündü. Ona sarayın kurallarını, devletin işleyişini, büyük babalarının hikâyelerini anlatırdı. [duraksama 1.0] Belki akşamları, sarayın bir köşkünde, ona Sultan Ahmed'i, Mavi Cami'nin yükselişini, Bağdat'ın fethini anlatıyordu. Küçük Mehmed ileride kırk yıla yakın tahtta kalacak, Osmanlı tarihinin en uzun saltanatlarından birini sürecekti.",
+     "shots": [
+      {
+       "image": "g52",
+       "move": "right",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Ama sarayda bir valide daha vardı: küçük padişahın annesi Turhan Sultan. Turhan gençti, oğlunun yanında söz sahibi olmak istiyordu. [duraksama 1.0] İki kadın, iki farklı nesil, aynı sarayın iki ucunda yaşıyordu. Etraflarında da birbirine rakip devlet adamları ve askerler toplandı. Saray, sessiz bir gerginliğin içine girdi.",
+     "shots": [
+      {
+       "image": "g36",
+       "move": "in",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Kösem artık yaşlanmıştı. Uzun yıllar boyunca eşini, oğullarını ve torunlarını korumak için mücadele etmişti. [duraksama 1.0] Kaynaklara göre son yıllarında sık sık geçmişi düşünüyor, Eski Saray'da geçen sessiz yılları, Sultan Ahmed'le paylaştığı akşamları hatırlıyordu. Ama sarayın dünyası durmuyordu; her gün yeni bir hesap, yeni bir karar gerekiyordu.",
+     "shots": [
+      {
+       "image": "g35",
+       "move": "left",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Bu yıllarda hazine yine sıkıntıdaydı. Esnaf ağır vergilerden şikâyet ediyor, şehirde huzursuzluk artıyordu. [duraksama 1.0] Kösem ise yeniçerilerle uzun yıllardır süren yakın ilişkisine güveniyordu. Ama saray içindeki dengeler hızla değişiyordu ve bu gerginliğin nasıl biteceğini kimse bilmiyordu.",
+     "shots": [
+      {
+       "image": "g37",
+       "move": "out",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    }
+   ],
+   "card": {
+    "kicker": "BÖLÜM VIII",
+    "date": "1648–1651 · Topkapı Sarayı",
+    "image": "g35"
+   },
+   "music": "derin"
+  },
+  {
+   "title": "Son Gece ve Miras",
+   "paragraphs": [
+    {
+     "text": "[hüzün] Bin altı yüz elli bir yılının Eylül ayında, bir gece, sarayın koridorlarında hareketlilik oldu. Rakipleri Kösem'in dairesine ulaştı. [duraksama 1.5] Yaklaşık altmış iki yaşındaki Kösem Sultan, o gece hayatını kaybetti. Yarım asır boyunca yaşadığı sarayda, altı padişahın saltanatını gördükten sonra.",
+     "shots": [
+      {
+       "image": "g38",
+       "move": "right",
+       "transition": "dissolve",
+       "xfade": 2.5
+      },
+      {
+       "image": "g39",
+       "move": "in",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Kaynaklara göre haber duyulduğunda İstanbul halkı yas tuttu. Dükkânlar kapandı, şehir üç gün boyunca sessiz kaldı. [duraksama 1.0] Halk onu \"Valide-i Muazzama\", yani büyük valide diye anıyordu. Çünkü Kösem, sarayın içindeki gücü kadar, sarayın dışındaki iyilikleriyle de tanınıyordu.",
+     "shots": [
+      {
+       "image": "g40",
+       "move": "left",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Kösem'in hayatı, sarayın bütün inişlerini ve çıkışlarını içinde taşır. Bir adadan geldi, bir sarayda büyüdü, bir imparatorluğun en zor yıllarında söz sahibi oldu. [duraksama 1.0] Kayıplarla dolu bir ömürdü. Ama aynı zamanda sabrın, öğrenmenin ve ayakta kalmanın hikâyesiydi.",
+     "shots": [
+      {
+       "image": "g43",
+       "move": "out",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Üsküdar'da, bugün Çinili Cami diye bilinen zarif bir cami yaptırmıştı; içi İznik çinileriyle süslüydü. İstanbul'un kalbinde, Büyük Valide Han adıyla anılan büyük bir han inşa ettirdi; tüccarlar orada dinlenir, mallarını saklardı. [duraksama 1.0] Kaynaklara göre borcundan dolayı hapse düşenlerin borçlarını öder, yetim kızların çeyizini hazırlatır, her yıl kölelerini azat ederdi.",
+     "shots": [
+      {
+       "image": "g41",
+       "move": "right",
+       "transition": "dissolve",
+       "xfade": 2.5
+      },
+      {
+       "image": "g42",
+       "move": "in",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Büyük Valide Han, yüzyıllar boyunca İstanbul'un ticaret hayatının merkezlerinden biri oldu. Avlularında İran'dan gelen ipekler, Hindistan'dan gelen baharatlar, Anadolu'dan gelen halılar alınıp satıldı. [duraksama 1.0] Bugün hanın taş avlularında hâlâ küçük atölyeler çalışıyor. Kösem'in yaptırdığı bu yapı, dört yüz yıl sonra bile şehrin hayatına karışmaya devam ediyor.",
+     "shots": [
+      {
+       "image": "g42",
+       "move": "left",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Kösem Sultan, eşi Sultan Ahmed'in yanına, Mavi Cami'nin bahçesindeki türbeye defnedildi. [duraksama 1.5] Bir zamanlar adadan gelen küçük kız, otuz dört yıl önce kaybettiği eşinin yanında, kendi yaptırmasını izlediği kubbelerin gölgesinde, nihayet dinlenmeye çekildi.",
+     "shots": [
+      {
+       "image": "g43",
+       "move": "out",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Üsküdar'daki küçük camisi bugün hâlâ ayakta. Mahallenin dar sokaklarının arasında, yüksek bir yerde durur. İçeri girdiğinizde duvarları kaplayan mavi ve yeşil çiniler sizi karşılar. [duraksama 1.0] Avlusundaki çeşmeden hâlâ su akıyor. Dört yüz yıldır aynı ses, aynı serinlik.",
+     "shots": [
+      {
+       "image": "g41",
+       "move": "right",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    }
+   ],
+   "card": {
+    "kicker": "BÖLÜM IX",
+    "date": "1651 · İstanbul",
+    "image": "g43"
+   },
+   "music": "huzun"
+  },
+  {
+   "title": "Kapanış",
+   "paragraphs": [
+    {
+     "text": "[sakin] Kösem Sultan'ın hikâyesi, bir imparatorluğun en çalkantılı yıllarından birinin hikâyesidir. Tarihçiler onu farklı biçimlerde anlatır. Kimine göre devleti zor yıllarda ayakta tutan güçlü bir yönetici, kimine göre gücü bırakmak istemeyen bir saray kadınıydı. [duraksama 1.0] Belki de ikisi de biraz doğrudur.",
+     "shots": [
+      {
+       "image": "g44",
+       "move": "in",
+       "transition": "dissolve",
+       "xfade": 2.5
+      },
+      {
+       "image": "g02",
+       "move": "left",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Ama bir şey kesin: Küçük bir adadan gelen bir kız, kendi yolunu, kendi aklıyla açtı. Kayıplarla, korkularla, sabırla dolu uzun bir ömür sürdü. [duraksama 1.5] Bugün Sultanahmet'in kubbelerinin altından geçerken, Üsküdar'da küçük bir caminin avlusunda dururken, belki onun adını da hatırlarsınız.",
+     "shots": [
+      {
+       "image": "g44",
+       "move": "out",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "Sultanahmet'in bahçesindeki türbe bugün de ziyarete açık. İçeride Sultan Ahmed'in, oğullarının ve Kösem'in sandukaları yan yana durur. Pencerelerden giren ışık yeşil örtülerin üzerine düşer. [duraksama 1.0] Dışarıda turistlerin, martıların, şehrin uğultusu vardır. İçeride ise sessizlik. Tıpkı dört yüz yıl önceki gibi.",
+     "shots": [
+      {
+       "image": "g02",
+       "move": "right",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    },
+    {
+     "text": "[sakin] Şimdi gözlerinizi kapatın. Boğaz'ın sularının yavaş yavaş aktığını, sarayın bahçesinde rüzgârın servilerin arasından geçtiğini düşünün. [duraksama 1.5] Tarih Dosyaları'nda bu gecelik hikâyemiz burada bitiyor. İyi uykular.",
+     "shots": [
+      {
+       "image": "g01",
+       "move": "in",
+       "transition": "dissolve",
+       "xfade": 2.5
+      }
+     ]
+    }
+   ],
+   "music": "derin"
+  }
+ ]
+}
