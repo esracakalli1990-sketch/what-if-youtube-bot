@@ -265,7 +265,7 @@ Bin altı yüz kırk sekiz yılında devlet adamları ve askerler İbrahim'in ta
 
 Kaynaklara göre Kösem küçük torununa çok düşkündü. Ona sarayın kurallarını, devletin işleyişini, büyük babalarının hikâyelerini anlatırdı. [duraksama 1.0] Belki akşamları, sarayın bir köşkünde, ona Sultan Ahmed'i, Mavi Cami'nin yükselişini, Bağdat'ın fethini anlatıyordu. Küçük Mehmed ileride kırk yıla yakın tahtta kalacak, Osmanlı tarihinin en uzun saltanatlarından birini sürecekti.
 
-[EKRAN: g36 (genç bir anne, Turhan, başka bir odada, kucağında küçük oğlunun resmi duran bir minyatür)]
+[EKRAN: g36 (genç bir anne, Turhan, başka bir odada, küçük oğlunun yanında oturuyor)]
 
 Ama sarayda bir valide daha vardı: küçük padişahın annesi Turhan Sultan. Turhan gençti, oğlunun yanında söz sahibi olmak istiyordu. [duraksama 1.0] İki kadın, iki farklı nesil, aynı sarayın iki ucunda yaşıyordu. Etraflarında da birbirine rakip devlet adamları ve askerler toplandı. Saray, sessiz bir gerginliğin içine girdi.
 
