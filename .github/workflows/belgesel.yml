@@ -164,18 +164,32 @@ jobs:
           vid = (json.loads(scen.read_text(encoding="utf-8")).get("voice_id") if scen.exists() else None) \
               or os.environ.get("TTS_VOICE_ID_TR", "")
           h = {"xi-api-key": key}
-          sub = requests.get("https://api.elevenlabs.io/v1/user/subscription", headers=h, timeout=30).json()
+          def hata(r):   # ElevenLabs'in gerçek hata nedeni (ör. missing_permissions), anahtar yazılmaz
+              try:
+                  d = r.json().get("detail", {})
+                  return f"HTTP {r.status_code} {d.get('status', '') if isinstance(d, dict) else ''} {d.get('message', d) if isinstance(d, dict) else d}"[:200]
+              except ValueError:
+                  return f"HTTP {r.status_code}"
+          rs = requests.get("https://api.elevenlabs.io/v1/user/subscription", headers=h, timeout=30)
+          sub = rs.json() if rs.ok else {}
           kalan = sub.get("character_limit", 0) - sub.get("character_count", 0)
-          voices = requests.get("https://api.elevenlabs.io/v1/voices", headers=h, timeout=30).json().get("voices", [])
+          rv = requests.get("https://api.elevenlabs.io/v1/voices", headers=h, timeout=30)
+          voices = rv.json().get("voices", []) if rv.ok else []
           mine = {v["voice_id"]: v["name"] for v in voices}
           if vid in mine:
               durum = f"✅ Ses hesapta var: {mine[vid]}"
           else:
               r = requests.get(f"https://api.elevenlabs.io/v1/voices/{vid}", headers=h, timeout=30)
               durum = (f"⚠️ Ses 'My Voices' listesinde yok, ama API erişebiliyor ({r.json().get('name')})"
-                       if r.ok else "❌ Ses bu hesapta yok: Voice Library → Add to My Voices gerekli")
+                       if r.ok else f"❌ Ses okunamadı: {hata(r)}")
+          # Gerçek seslendirme denemesi (~10 karakter): anahtar TTS yapabiliyor mu?
+          rt = requests.post(f"https://api.elevenlabs.io/v1/text-to-speech/{vid}?output_format=mp3_44100_128",
+                             headers=h, json={"text": "Merhaba.", "model_id": "eleven_multilingual_v2"}, timeout=60)
+          tts = f"✅ Seslendirme denemesi çalıştı ({len(rt.content)} bayt)" if rt.ok else f"❌ Seslendirme denemesi: {hata(rt)}"
           msg = (f"🔎 ElevenLabs kontrolü ({os.environ['KLASOR']}, hesap: {os.environ.get('SES_HESABI')})\n"
-                 f"{durum}\nKalan kredi: {kalan:,} · Hesaptaki sesler: {', '.join(mine.values())[:300]}")
+                 f"{durum}\n{tts}\n"
+                 f"Kalan kredi: {f'{kalan:,}' if rs.ok else 'okunamadı → ' + hata(rs)}\n"
+                 f"Ses listesi: {', '.join(mine.values())[:300] if rv.ok else 'okunamadı → ' + hata(rv)}")
           print(msg)
           send_message(msg, parse_mode=None)
           PY
