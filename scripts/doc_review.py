@@ -78,6 +78,43 @@ def stock_sheet(key: str, query: str, candidates: list[dict], out_dir: Path) -> 
     return _sheet(cells, out_dir / f"stok_{key}.jpg", f"{key}: \"{query}\"")
 
 
+def commons_sheets(queries: dict, out_dir: Path, per_query: int = 10, min_width: int = 1200) -> list[Path]:
+    """Commons görsel adayları: her sorgu için lisansı uygun, yeterince büyük ilk N dosya.
+    Sonuç: commons_adaylar.json (başlık, boyut, lisans) + numaralı küçük resim sayfaları."""
+    import time
+    from io import BytesIO
+    from urllib.parse import quote
+    from scripts.archive_images import _session, file_infos, license_allowed, search_commons
+    session = _session()
+    sheets, report = [], {}
+    for key, q in queries.items():
+        try:
+            titles = search_commons(q, limit=per_query * 3, session=session)
+            infos = file_infos(titles, session=session) if titles else {}
+        except Exception as e:  # tek sorgu hatası tümünü durdurmasın
+            logger.warning("Commons araması başarısız (%s): %s", key, e)
+            continue
+        ok = [i for t in titles if (i := infos.get(t)) and str(i.get("mime", "")).startswith("image/")
+              and license_allowed(i.get("license", "")) and max(i["width"], i["height"]) >= min_width][:per_query]
+        report[key] = {"q": q, "adaylar": [{"n": n + 1, "title": i["title"], "w": i["width"], "h": i["height"],
+                                            "license": i["license"]} for n, i in enumerate(ok)]}
+        cells = []
+        for n, i in enumerate(ok):
+            url = f"https://commons.wikimedia.org/wiki/Special:FilePath/{quote(i['title'][5:])}?width=420"
+            try:
+                r = session.get(url, timeout=60)
+                r.raise_for_status()
+                im = Image.open(BytesIO(r.content))
+            except Exception:
+                im = Image.new("RGB", (CELL_W, CELL_H), "gray")
+            cells.append((im, f"{n + 1}. {i['width']}x{i['height']} {i['license'][:12]}"))
+            time.sleep(0.3)
+        if cells:
+            sheets.append(_sheet(cells, out_dir / f"commons_{key}.jpg", f"{key}: {q}"))
+    (out_dir / "commons_adaylar.json").write_text(json.dumps(report, ensure_ascii=False, indent=1), encoding="utf-8")
+    return sheets
+
+
 def run(folder: Path, plan: dict, every: float = 15.0, per_query: int = 5) -> list[Path]:
     """Plandaki filmler ve stok sorguları için inceleme sayfaları üret."""
     from scripts.archive_images import fetch_films
@@ -108,6 +145,9 @@ def run(folder: Path, plan: dict, every: float = 15.0, per_query: int = 5) -> li
         from scripts import doc_music
         ranked = doc_music.review(plan["muzik_arama"], folder / "build" / "muzik_adaylari")
         doc_music.write_report(ranked, out_dir / "muzik_adaylari.json")
+    ara = folder / "commons_ara.json"           # {anahtar: arama sorgusu} → Commons görsel adayları
+    if ara.exists():
+        sheets += commons_sheets(json.loads(ara.read_text(encoding="utf-8")), out_dir)
     from scripts import thumb_review
     sheets += thumb_review.run(folder)          # kapak_rakipler.json varsa rakip kapak analizi
     (out_dir / "adaylar.json").write_text(json.dumps(candidates, ensure_ascii=False, indent=1),

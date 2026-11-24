@@ -523,7 +523,8 @@ def main(argv=None):
         # Çekim planı yazılmadan önce çalışır: senaryo.json yerine cekim_plani.json okunur
         from scripts import doc_review
         folder = Path(args.klasor).resolve()
-        plan = json.loads((folder / "cekim_plani.json").read_text(encoding="utf-8"))
+        src = folder / "cekim_plani.json"
+        plan = json.loads((src if src.exists() else folder / "senaryo.json").read_text(encoding="utf-8"))
         for sheet in doc_review.run(folder, plan):
             print(sheet)
         return 0
