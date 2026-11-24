@@ -89,9 +89,377 @@
   "dunya": {
    "commons": "File:Whole world - land and oceans 12000.jpg",
    "original": true
+  },
+  "urnammu_yasa": {
+   "commons": "File:Ur Nammu code Istanbul.jpg",
+   "min_width": 800
+  },
+  "zig1": {
+   "commons": "File:Ziggurat of Ur Site in Nasiriyah 03.jpg",
+   "min_width": 800
+  },
+  "zig2": {
+   "commons": "File:Ziggurat of Ur Site in Nasiriyah 19.jpg",
+   "min_width": 800
+  },
+  "zig3": {
+   "commons": "File:Ziggurat of Ur Site in Nasiriyah 16.jpg",
+   "min_width": 800
+  },
+  "zig4": {
+   "commons": "File:Ziggurat of Ur Site in Nasiriyah 13.jpg",
+   "min_width": 800
+  },
+  "zig5": {
+   "commons": "File:Ziggurat of Ur Site in Nasiriyah 11.jpg",
+   "min_width": 800
+  },
+  "tab1": {
+   "commons": "File:Sumerian Cuneiform Clay Tablet (28211328681).jpg",
+   "min_width": 800
+  },
+  "tab2": {
+   "commons": "File:Sumerian Cuneiform Clay Tablet (28008146640).jpg",
+   "min_width": 800
+  },
+  "tab3": {
+   "commons": "File:Sumerian Cuneiform Clay Tablet (27673761004).jpg",
+   "min_width": 800
+  },
+  "tab4": {
+   "commons": "File:Sumerian Cuneiform Clay Tablet (28185829592).jpg",
+   "min_width": 800
+  },
+  "tab5": {
+   "commons": "File:Sumerian Cuneiform Clay Tablet (28008175880).jpg",
+   "min_width": 800
+  },
+  "puabi1": {
+   "commons": "File:Closeup of Queen Puabi's gold headdress recovered from the royal cemetery of Ur, Iraq 2550-2450 BCE.jpg",
+   "min_width": 800
+  },
+  "puabi2": {
+   "commons": "File:Closeup of Queen Puabi's gold headdress and gold jewelry recovered from the royal cemetery of Ur, Iraq 2550-2450 BCE (33434975442).jpg",
+   "min_width": 800
+  },
+  "puabi3": {
+   "commons": "File:Ornaments from the Great Death Pit.jpg",
+   "min_width": 800
+  },
+  "puabi4": {
+   "commons": "File:1. Part of the headdress of one of the attendants of queen Pu-Abi. Gold and lapis lazuli. From the Great Death Pit, Royal Cemetry of Ur, Iraq. 2600-2500 BCE. Sulaymaniyah Museum, Iraq.jpg",
+   "min_width": 800
+  },
+  "sancak_savas": {
+   "commons": "File:Standard of Ur - War side.jpg",
+   "min_width": 800
+  },
+  "sancak_on": {
+   "commons": "File:Denis Bourez - British Museum, London (8747049029) (2).jpg",
+   "min_width": 800
+  },
+  "sancak_baris": {
+   "commons": "File:Standard of Ur - Peace Panel - Sumer.jpg",
+   "min_width": 800
+  },
+  "sancak_araba": {
+   "commons": "File:Ur chariot.jpg",
+   "min_width": 800
+  },
+  "tufan1": {
+   "commons": "File:Tablet XI or the Flood Tablet of the Epic of Gilgamesh, currently housed in the British Museum in London.jpg",
+   "min_width": 800
+  },
+  "tufan2": {
+   "commons": "File:The Flood Tablet or Tablet XI of the Epic of Gilgamesh, currently housed in the British Museum in London.jpg",
+   "min_width": 800
+  },
+  "smith": {
+   "commons": "File:Mr. George Smith, the man who transliterated and read the so-called the Babylonian Flood Story of Tablet XI.jpg",
+   "min_width": 800
+  },
+  "smith2": {
+   "commons": "File:George Smith-Assyriologist 001.jpg",
+   "min_width": 800
+  },
+  "bataklik1": {
+   "commons": "File:The marshes of Iraq.jpg",
+   "min_width": 800
+  },
+  "bataklik2": {
+   "commons": "File:Mashoof 12.19.08 (1).jpg",
+   "min_width": 800
+  },
+  "bataklik3": {
+   "commons": "File:Mashoof 12.19.08 (2).jpg",
+   "min_width": 800
+  },
+  "bataklik4": {
+   "commons": "File:اهوار العراق ليلا.jpg",
+   "min_width": 800
+  },
+  "mudhif": {
+   "commons": "File:مضيف قصب سومري Sumerian Reed Mudhif.jpg",
+   "min_width": 800
+  },
+  "ubeyd1": {
+   "commons": "File:Ubaid III pottery 5300-4700 BC Louvre Museum.jpg",
+   "min_width": 800
+  },
+  "ubeyd2": {
+   "commons": "File:Ubaid 2 pottery - Oriental Institute Museum, University of Chicago - DSC06928.JPG",
+   "min_width": 800
+  },
+  "beyaz_tapinak": {
+   "commons": "File:White Temple ziggurat in Uruk.jpg",
+   "min_width": 800
+  },
+  "beyaz_cizim": {
+   "commons": "File:White Temple 'E at Uruk, 3500-3000 BCE.jpg",
+   "min_width": 800
+  },
+  "uruk_1930": {
+   "commons": "File:CH-NB - Irak, Uruk (Warka)- Zikurrat - Annemarie Schwarzenbach - SLA-Schwarzenbach-A-5-03-137.jpg",
+   "min_width": 800
+  },
+  "vazo_tam": {
+   "commons": "File:Warka Vase, Iraq Museum.jpg",
+   "min_width": 800
+  },
+  "vazo_ust": {
+   "commons": "File:Warka Vase, top register.jpg",
+   "min_width": 800
+  },
+  "vazo_ust2": {
+   "commons": "File:Warka Vase, Top Register.jpg",
+   "min_width": 800
+  },
+  "vazo_yakin": {
+   "commons": "File:Inanna receiving offerings on the Uruk Vase, circa 3200-3000 BCE.jpg",
+   "min_width": 800
+  },
+  "maske": {
+   "commons": "File:Warka Mask, Iraq Museum.jpg",
+   "min_width": 800
+  },
+  "maske_profil": {
+   "commons": "File:The Mask of Warka, in profile, the Iraq Museum in Baghdad.jpg",
+   "min_width": 800
+  },
+  "muhur1": {
+   "commons": "File:Present-day impression of a Sumerian cylinder seal, 4000-3100 BC, Vorderasiatisches Museum Berlin (01).jpg",
+   "min_width": 800
+  },
+  "muhur2": {
+   "commons": "File:Cylinder seal and modern impression. Worshiper pouring a libation before a seated god,ca. 2112–2004 B.C. Neo-Sumarian Mesopotamia Nippur.jpg",
+   "min_width": 800
+  },
+  "muhur3": {
+   "commons": "File:Sumerian Cylinder Seal of King Ur-Nammu.jpg",
+   "min_width": 800
+  },
+  "muhur4": {
+   "commons": "File:Present-day impression of a Sumerian cylinder seal, 4000-3100 BC, Vorderasiatisches Museum Berlin (02).jpg",
+   "min_width": 800
+  },
+  "ur_tablet_hesap": {
+   "commons": "File:Cuneiform tablet- administrative account of barley distribution with cylinder seal impression of a male figure, hunting dogs, and boars MET 011.alt.jpg",
+   "min_width": 800
+  },
+  "proto1": {
+   "commons": "File:Clay tablet, late Uruk period, 3300-3100 BCE. Proto-cuneiform signs, food issue list \" rations\" written by combining a human head and a bowl. Purchased via Christie's in 1989, with contribution from the British Museum Friends.jpg",
+   "min_width": 800
+  },
+  "proto2": {
+   "commons": "File:Clay tablet, record of barley and emmer. Late Uruk period, 3300-3100 BCE. Purchased via Christie's, no provenance.jpg",
+   "min_width": 800
+  },
+  "proto3": {
+   "commons": "File:Numerical and proto cuneiforms tablets - Oriental Institute.jpg",
+   "min_width": 800
+  },
+  "proto_bira": {
+   "commons": "File:Early writing tablet recording the allocation of beer.jpg",
+   "min_width": 800
+  },
+  "okul1": {
+   "commons": "File:Cuneiform Writing on Clay Tablet.jpg",
+   "min_width": 800
+  },
+  "okul2": {
+   "commons": "File:Writing exercise - DPLA - 85deac973aa7688e2dcbc9cfae71b2f0 (page 1).jpg",
+   "min_width": 800
+  },
+  "okul3": {
+   "commons": "File:Cuneiform tablet- school exercise tablet, Urra=hubullu, tablet 1 MET vs86 11 435.jpg",
+   "min_width": 800
+  },
+  "kral_listesi": {
+   "commons": "File:Sumerian King List, 1800 BC, Larsa, Iraq.jpg",
+   "min_width": 800
+  },
+  "kral_prizma": {
+   "commons": "File:Weld-Blundell Prism with transcription by Stephen Herbert Langdon (1876-1937).jpg",
+   "min_width": 800
+  },
+  "akbaba": {
+   "commons": "File:Stele of the Vultures in the Louvre Museum (enhanced composite).jpg",
+   "min_width": 800
+  },
+  "akbaba_savas": {
+   "commons": "File:Stele of the vultures (war).jpg",
+   "min_width": 800
+  },
+  "akbaba_akbaba": {
+   "commons": "File:Stele of the vultures (vultures).jpg",
+   "min_width": 800
+  },
+  "akbaba_yazi": {
+   "commons": "File:Stele of the vultures (inscriptions).jpg",
+   "min_width": 800
+  },
+  "urukagina": {
+   "commons": "File:Clay cone Urukagina Louvre AO4598ab.jpg",
+   "min_width": 800
+  },
+  "lir": {
+   "commons": "File:The Queen's lyre and the silver lyre, from the Royal Cemetery at Ur, southern Mesopotamia, Iraq. The British Museum, London..JPG",
+   "min_width": 800
+  },
+  "lir_boga": {
+   "commons": "File:Bull's head of the Queen's lyre from Pu-abi's grave PG 800, the Royal Cemetery at Ur, Southern Mesopotamia, Iraq. The British Museum, London..JPG",
+   "min_width": 800
+  },
+  "lir_altin": {
+   "commons": "File:The Great Golden Lyre from Ur, Iraq Museum.jpg",
+   "min_width": 800
+  },
+  "koc": {
+   "commons": "File:Penn Museum - \"Ram in a Thicket\" .jpg",
+   "min_width": 800
+  },
+  "migfer": {
+   "commons": "File:Golden helmet of Meskalamdug in the British Museum.jpg",
+   "min_width": 800
+  },
+  "olum_mucevher": {
+   "commons": "File:Jewelry from Great Death Pit.jpg",
+   "min_width": 800
+  },
+  "olum_diadem": {
+   "commons": "File:Diadem of Body 36 Great Death Pit Ur.jpg",
+   "min_width": 800
+  },
+  "geyik_kolye": {
+   "commons": "File:Lapis lazuli necklace with gold deer pendant recovered from the royal cemetery of Ur, Iraq 2550-2450 BCE.jpg",
+   "min_width": 800
+  },
+  "aslan_kutu": {
+   "commons": "File:Lapis Lazuli and Shell Cosmetic Box Lid depicting a lion devouring a ram recovered from the royal cemetery of Ur, Iraq 2550-2450 BCE.jpg",
+   "min_width": 800
+  },
+  "gilgamis": {
+   "commons": "File:Hero mastering a lion, AO19862 (1818).jpg",
+   "min_width": 800
+  },
+  "akad_bas": {
+   "commons": "File:Bronze head of an Akkadian ruler, discovered in Nineveh in 1931, presumably depicting either Sargon or Sargon's grandson Naram-Sin (Rijksmuseum van Oudheden).jpg",
+   "min_width": 800
+  },
+  "enheduanna": {
+   "commons": "File:Disk of Enheduanna.JPG",
+   "min_width": 800
+  },
+  "naram": {
+   "commons": "File:The Victory Stele of Naram-sin.jpg",
+   "min_width": 800
+  },
+  "naram2": {
+   "commons": "File:Victory stele of Naram Sin 9069.jpg",
+   "min_width": 800
+  },
+  "gudea1": {
+   "commons": "File:Gudea of Lagash Girsu.jpg",
+   "min_width": 800
+  },
+  "gudea2": {
+   "commons": "File:Gudea, Prince of Lagash, Louvre, Paris June 2014.jpg",
+   "min_width": 800
+  },
+  "istanbul_muze": {
+   "commons": "File:Entrance to the Museum of Ancient Orient, within the Istanbul Archaeology Museums. Turkey.jpg",
+   "min_width": 800
+  },
+  "istanbul_muze2": {
+   "commons": "File:Museum of the Ancient Orient, Istanbul Archaeology Museums.jpg",
+   "min_width": 800
+  },
+  "ask_siiri": {
+   "commons": "File:The oldest love poem. Sumerian terracotta tablet from Nippur, Iraq. Ur III period, 2037-2029 BCE. Ancient Orient Museum, Istanbul.jpg",
+   "min_width": 800
+  },
+  "ask_siiri_etiket": {
+   "commons": "File:A Love Song of Shu-Sin (Shu-Suen B) – Istanbul 2461.jpg",
+   "min_width": 800
+  },
+  "hammurabi": {
+   "commons": "File:Codex Hammurapi Stela top.jpg",
+   "min_width": 800
+  },
+  "plimpton": {
+   "commons": "File:Plimpton 322.jpg",
+   "min_width": 800
+  },
+  "ybc": {
+   "commons": "File:YBC-7289-OBV-REV.jpg",
+   "min_width": 800
+  },
+  "uydu_irak": {
+   "commons": "File:ISS002-E-7749 - View of Iraq.jpg",
+   "min_width": 800
+  },
+  "uydu_korfez": {
+   "commons": "File:Northern Persian Gulf (MODIS 2018-06-21).jpg",
+   "min_width": 800
+  },
+  "heykelcik": {
+   "commons": "File:State from the Tell Asmar, Iraq Museum.jpg",
+   "min_width": 800
+  },
+  "heykelcik2": {
+   "commons": "File:Statue from Tell Asmar.jpg",
+   "min_width": 800
   }
  },
- "thumbnails": [],
+ "thumbnails": [
+  {
+   "sablon": "v2",
+   "arka_plan": "tab1",
+   "arka_plan_kadraj": "60% 50%",
+   "hale": "transparent",
+   "line1": "İlk",
+   "line2": "yazı",
+   "vurgu": "#FFC83D"
+  },
+  {
+   "sablon": "v2",
+   "arka_plan": "puabi1",
+   "arka_plan_kadraj": "50% 40%",
+   "hale": "transparent",
+   "line1": "4500 yıllık",
+   "line2": "mezar",
+   "vurgu": "#FFC83D"
+  },
+  {
+   "sablon": "v2",
+   "arka_plan": "tufan2",
+   "arka_plan_kadraj": "50% 50%",
+   "hale": "transparent",
+   "line1": "Tufanı ilk",
+   "line2": "onlar yazdı",
+   "vurgu": "#FFC83D"
+  }
+ ],
  "stock": {
   "bugday_ruzgar": {
    "q": "wheat field wind",
@@ -114,32 +482,1323 @@
    "id": 28492353
   },
   "nehir_kamis": {
-   "q": "river reeds marsh sunrise"
+   "q": "river reeds marsh sunrise",
+   "id": 6444542
   },
   "kamis_kayik": {
-   "q": "wooden boat reeds marsh"
+   "q": "wooden boat reeds marsh",
+   "id": 11841031
   },
   "col_ruzgar": {
-   "q": "desert wind sand dunes sunset"
+   "q": "desert wind sand dunes sunset",
+   "id": 16442972
   },
   "kil_eller": {
-   "q": "hands clay pottery wheel"
+   "q": "hands clay pottery wheel",
+   "id": 9736574
   },
   "sulama_kanali": {
-   "q": "irrigation canal field water"
+   "q": "irrigation canal field water",
+   "id": 10815235
   },
   "nehir_gunbatimi": {
-   "q": "wide river sunset calm water"
+   "q": "wide river sunset calm water",
+   "id": 15393010
   },
   "harabe_gunbatimi": {
-   "q": "ancient mud brick ruins desert"
+   "q": "ancient mud brick ruins desert",
+   "id": 30546581
   },
   "saat_yelkovan": {
-   "q": "clock second hand close up"
+   "q": "clock second hand close up",
+   "id": 39488470
   }
  },
  "films": {},
- "maps": {},
+ "maps": {
+  "m_mezopotamya": {
+   "taban": "dunya",
+   "bounds": {
+    "west": 36.5,
+    "east": 49.5,
+    "south": 30.5438,
+    "north": 37.8563
+   },
+   "durationSec": 20.4,
+   "title": "Mezopotamya",
+   "subtitle": "İki nehrin arasındaki ülke",
+   "rivers": [
+    {
+     "points": [
+      [
+       39.3,
+       38.5
+      ],
+      [
+       40.2,
+       37.9
+      ],
+      [
+       41.5,
+       37.2
+      ],
+      [
+       43.1,
+       36.3
+      ],
+      [
+       43.7,
+       35.0
+      ],
+      [
+       44.4,
+       33.3
+      ],
+      [
+       45.8,
+       32.5
+      ],
+      [
+       46.7,
+       31.6
+      ],
+      [
+       47.4,
+       31.0
+      ],
+      [
+       47.8,
+       30.5
+      ],
+      [
+       48.5,
+       29.95
+      ]
+     ],
+     "name": "Dicle",
+     "start": 0.82,
+     "labelAt": [
+      43.9,
+      35.9
+     ]
+    },
+    {
+     "points": [
+      [
+       38.8,
+       38.8
+      ],
+      [
+       38.3,
+       37.5
+      ],
+      [
+       38.0,
+       36.7
+      ],
+      [
+       39.0,
+       35.95
+      ],
+      [
+       40.1,
+       35.3
+      ],
+      [
+       41.0,
+       34.5
+      ],
+      [
+       42.2,
+       33.6
+      ],
+      [
+       43.8,
+       33.35
+      ],
+      [
+       44.4,
+       32.5
+      ],
+      [
+       45.3,
+       31.3
+      ],
+      [
+       46.25,
+       31.05
+      ],
+      [
+       47.4,
+       31.0
+      ]
+     ],
+     "name": "Fırat",
+     "start": 1.91,
+     "labelAt": [
+      40.3,
+      34.7
+     ]
+    }
+   ],
+   "regions": [
+    {
+     "name": "Mezopotamya",
+     "color": "#5f8f4e",
+     "poly": [
+      [
+       38.6,
+       37.6
+      ],
+      [
+       41.5,
+       37.2
+      ],
+      [
+       43.3,
+       36.2
+      ],
+      [
+       44.9,
+       33.2
+      ],
+      [
+       47.5,
+       31.0
+      ],
+      [
+       47.6,
+       30.2
+      ],
+      [
+       46.0,
+       30.6
+      ],
+      [
+       44.0,
+       32.2
+      ],
+      [
+       42.0,
+       33.4
+      ],
+      [
+       40.0,
+       35.0
+      ],
+      [
+       38.4,
+       36.6
+      ]
+     ],
+     "start": 6.82,
+     "label": [
+      42.6,
+      34.4
+     ]
+    }
+   ],
+   "labels": [
+    {
+     "at": [
+      38.5,
+      39.6
+     ],
+     "text": "Anadolu",
+     "start": 0.55,
+     "kind": "land"
+    },
+    {
+     "at": [
+      49.6,
+      28.6
+     ],
+     "text": "Basra Körfezi",
+     "start": 0.55,
+     "kind": "sea"
+    },
+    {
+     "at": [
+      34.0,
+      34.0
+     ],
+     "text": "Akdeniz",
+     "start": 0.55,
+     "kind": "sea"
+    }
+   ],
+   "note": "Nehir yatakları bugünkü hâliyle",
+   "camera": [
+    {
+     "t": 0.0,
+     "center": [
+      41.5,
+      36.0
+     ],
+     "zoom": 1.0
+    },
+    {
+     "t": 12.27,
+     "center": [
+      45.5,
+      31.8
+     ],
+     "zoom": 1.8
+    }
+   ]
+  },
+  "m_sumer_sehirler": {
+   "taban": "dunya",
+   "bounds": {
+    "west": 43.8,
+    "east": 47.4,
+    "south": 30.6875,
+    "north": 32.7125
+   },
+   "durationSec": 16.1,
+   "title": "Sümer Şehirleri",
+   "subtitle": "MÖ 3500–2500",
+   "rivers": [
+    {
+     "points": [
+      [
+       39.3,
+       38.5
+      ],
+      [
+       40.2,
+       37.9
+      ],
+      [
+       41.5,
+       37.2
+      ],
+      [
+       43.1,
+       36.3
+      ],
+      [
+       43.7,
+       35.0
+      ],
+      [
+       44.4,
+       33.3
+      ],
+      [
+       45.8,
+       32.5
+      ],
+      [
+       46.7,
+       31.6
+      ],
+      [
+       47.4,
+       31.0
+      ],
+      [
+       47.8,
+       30.5
+      ],
+      [
+       48.5,
+       29.95
+      ]
+     ],
+     "name": "Dicle",
+     "start": 0.34,
+     "labelAt": [
+      43.9,
+      35.9
+     ]
+    },
+    {
+     "points": [
+      [
+       38.8,
+       38.8
+      ],
+      [
+       38.3,
+       37.5
+      ],
+      [
+       38.0,
+       36.7
+      ],
+      [
+       39.0,
+       35.95
+      ],
+      [
+       40.1,
+       35.3
+      ],
+      [
+       41.0,
+       34.5
+      ],
+      [
+       42.2,
+       33.6
+      ],
+      [
+       43.8,
+       33.35
+      ],
+      [
+       44.4,
+       32.5
+      ],
+      [
+       45.3,
+       31.3
+      ],
+      [
+       46.25,
+       31.05
+      ],
+      [
+       47.4,
+       31.0
+      ]
+     ],
+     "name": "Fırat",
+     "start": 1.26,
+     "labelAt": [
+      40.3,
+      34.7
+     ]
+    }
+   ],
+   "cities": [
+    {
+     "at": [
+      46.1,
+      30.82
+     ],
+     "label": "Eridu",
+     "start": 1.15,
+     "side": "left"
+    },
+    {
+     "at": [
+      46.1,
+      30.96
+     ],
+     "label": "Ur",
+     "start": 2.52,
+     "side": "right"
+    },
+    {
+     "at": [
+      45.64,
+      31.32
+     ],
+     "label": "Uruk",
+     "start": 3.9,
+     "major": true,
+     "side": "left"
+    },
+    {
+     "at": [
+      46.41,
+      31.41
+     ],
+     "label": "Lagaş",
+     "start": 5.28,
+     "side": "right"
+    },
+    {
+     "at": [
+      46.14,
+      31.56
+     ],
+     "label": "Girsu",
+     "start": 6.2,
+     "side": "right"
+    },
+    {
+     "at": [
+      45.89,
+      31.67
+     ],
+     "label": "Umma",
+     "start": 7.11,
+     "side": "left"
+    },
+    {
+     "at": [
+      45.23,
+      32.13
+     ],
+     "label": "Nippur",
+     "start": 8.49,
+     "side": "left"
+    },
+    {
+     "at": [
+      44.6,
+      32.54
+     ],
+     "label": "Kiş",
+     "start": 9.87,
+     "side": "left"
+    }
+   ],
+   "note": "Kıyı çizgisi bugünkü hâliyle",
+   "camera": [
+    {
+     "t": 0.0,
+     "center": [
+      45.6,
+      31.7
+     ],
+     "zoom": 1.0
+    },
+    {
+     "t": 10.9,
+     "center": [
+      45.6,
+      31.4
+     ],
+     "zoom": 1.4
+    }
+   ]
+  },
+  "m_sehir_devletleri": {
+   "taban": "dunya",
+   "bounds": {
+    "west": 44.9,
+    "east": 46.9,
+    "south": 31.0375,
+    "north": 32.1625
+   },
+   "durationSec": 24.8,
+   "title": "Şehir Devletleri",
+   "subtitle": "Lagaş ile Umma'nın sınır kavgası",
+   "rivers": [
+    {
+     "points": [
+      [
+       39.3,
+       38.5
+      ],
+      [
+       40.2,
+       37.9
+      ],
+      [
+       41.5,
+       37.2
+      ],
+      [
+       43.1,
+       36.3
+      ],
+      [
+       43.7,
+       35.0
+      ],
+      [
+       44.4,
+       33.3
+      ],
+      [
+       45.8,
+       32.5
+      ],
+      [
+       46.7,
+       31.6
+      ],
+      [
+       47.4,
+       31.0
+      ],
+      [
+       47.8,
+       30.5
+      ],
+      [
+       48.5,
+       29.95
+      ]
+     ],
+     "name": "Dicle",
+     "start": 0.57,
+     "labelAt": [
+      43.9,
+      35.9
+     ]
+    },
+    {
+     "points": [
+      [
+       38.8,
+       38.8
+      ],
+      [
+       38.3,
+       37.5
+      ],
+      [
+       38.0,
+       36.7
+      ],
+      [
+       39.0,
+       35.95
+      ],
+      [
+       40.1,
+       35.3
+      ],
+      [
+       41.0,
+       34.5
+      ],
+      [
+       42.2,
+       33.6
+      ],
+      [
+       43.8,
+       33.35
+      ],
+      [
+       44.4,
+       32.5
+      ],
+      [
+       45.3,
+       31.3
+      ],
+      [
+       46.25,
+       31.05
+      ],
+      [
+       47.4,
+       31.0
+      ]
+     ],
+     "name": "Fırat",
+     "start": 2.1,
+     "labelAt": [
+      40.3,
+      34.7
+     ]
+    }
+   ],
+   "cities": [
+    {
+     "at": [
+      46.41,
+      31.41
+     ],
+     "label": "Lagaş",
+     "start": 1.52,
+     "major": true,
+     "side": "right"
+    },
+    {
+     "at": [
+      46.14,
+      31.56
+     ],
+     "label": "Girsu",
+     "start": 2.67,
+     "side": "right"
+    },
+    {
+     "at": [
+      45.89,
+      31.67
+     ],
+     "label": "Umma",
+     "start": 3.81,
+     "major": true,
+     "side": "left"
+    },
+    {
+     "at": [
+      45.64,
+      31.32
+     ],
+     "label": "Uruk",
+     "start": 4.95,
+     "side": "left"
+    },
+    {
+     "at": [
+      46.1,
+      30.96
+     ],
+     "label": "Ur",
+     "start": 5.72,
+     "side": "left"
+    }
+   ],
+   "routes": [
+    {
+     "points": [
+      [
+       45.89,
+       31.67
+      ],
+      [
+       46.02,
+       31.62
+      ]
+     ],
+     "color": "#c99a2e",
+     "start": 8.57,
+     "duration": 3.81,
+     "label": "Umma",
+     "dashed": true
+    },
+    {
+     "points": [
+      [
+       46.41,
+       31.41
+      ],
+      [
+       46.12,
+       31.58
+      ]
+     ],
+     "color": "#b5302a",
+     "start": 9.53,
+     "duration": 3.81,
+     "label": "Lagaş",
+     "dashed": true
+    }
+   ],
+   "clashes": [
+    {
+     "at": [
+      46.07,
+      31.6
+     ],
+     "start": 13.72
+    }
+   ],
+   "labels": [
+    {
+     "at": [
+      46.05,
+      31.78
+     ],
+     "text": "Gu-edena (sınır toprağı)",
+     "start": 11.43,
+     "kind": "land"
+    }
+   ],
+   "note": "Konumlar yaklaşıktır",
+   "camera": [
+    {
+     "t": 0.0,
+     "center": [
+      45.9,
+      31.6
+     ],
+     "zoom": 1.0
+    }
+   ]
+  },
+  "m_akad": {
+   "taban": "dunya",
+   "bounds": {
+    "west": 34.0,
+    "east": 49.0,
+    "south": 29.7812,
+    "north": 38.2188
+   },
+   "durationSec": 28.9,
+   "title": "Akad İmparatorluğu",
+   "subtitle": "Sargon ve torunları, MÖ 2334–2154",
+   "rivers": [
+    {
+     "points": [
+      [
+       39.3,
+       38.5
+      ],
+      [
+       40.2,
+       37.9
+      ],
+      [
+       41.5,
+       37.2
+      ],
+      [
+       43.1,
+       36.3
+      ],
+      [
+       43.7,
+       35.0
+      ],
+      [
+       44.4,
+       33.3
+      ],
+      [
+       45.8,
+       32.5
+      ],
+      [
+       46.7,
+       31.6
+      ],
+      [
+       47.4,
+       31.0
+      ],
+      [
+       47.8,
+       30.5
+      ],
+      [
+       48.5,
+       29.95
+      ]
+     ],
+     "name": "Dicle",
+     "start": 0.58,
+     "labelAt": [
+      43.9,
+      35.9
+     ]
+    },
+    {
+     "points": [
+      [
+       38.8,
+       38.8
+      ],
+      [
+       38.3,
+       37.5
+      ],
+      [
+       38.0,
+       36.7
+      ],
+      [
+       39.0,
+       35.95
+      ],
+      [
+       40.1,
+       35.3
+      ],
+      [
+       41.0,
+       34.5
+      ],
+      [
+       42.2,
+       33.6
+      ],
+      [
+       43.8,
+       33.35
+      ],
+      [
+       44.4,
+       32.5
+      ],
+      [
+       45.3,
+       31.3
+      ],
+      [
+       46.25,
+       31.05
+      ],
+      [
+       47.4,
+       31.0
+      ]
+     ],
+     "name": "Fırat",
+     "start": 2.12,
+     "labelAt": [
+      40.3,
+      34.7
+     ]
+    }
+   ],
+   "regions": [
+    {
+     "name": "Akad",
+     "color": "#b5302a",
+     "poly": [
+      [
+       35.9,
+       36.2
+      ],
+      [
+       36.6,
+       37.4
+      ],
+      [
+       39.5,
+       37.8
+      ],
+      [
+       43.5,
+       37.3
+      ],
+      [
+       46.5,
+       35.2
+      ],
+      [
+       48.5,
+       32.3
+      ],
+      [
+       49.5,
+       29.8
+      ],
+      [
+       47.6,
+       29.4
+      ],
+      [
+       45.8,
+       30.6
+      ],
+      [
+       42.0,
+       32.6
+      ],
+      [
+       38.5,
+       33.5
+      ],
+      [
+       35.8,
+       34.6
+      ]
+     ],
+     "start": 12.54,
+     "label": [
+      41.0,
+      34.2
+     ]
+    }
+   ],
+   "routes": [
+    {
+     "points": [
+      [
+       44.1,
+       33.1
+      ],
+      [
+       40.89,
+       34.55
+      ],
+      [
+       36.8,
+       35.8
+      ],
+      [
+       35.95,
+       35.6
+      ]
+     ],
+     "color": "#b5302a",
+     "start": 2.89,
+     "duration": 7.71,
+     "label": "Akdeniz'e",
+     "dashed": true
+    },
+    {
+     "points": [
+      [
+       40.89,
+       34.55
+      ],
+      [
+       38.0,
+       37.2
+      ],
+      [
+       35.8,
+       37.3
+      ]
+     ],
+     "color": "#b5302a",
+     "start": 6.75,
+     "duration": 5.79,
+     "label": "Toroslar",
+     "dashed": true
+    },
+    {
+     "points": [
+      [
+       44.1,
+       33.1
+      ],
+      [
+       46.1,
+       30.96
+      ],
+      [
+       48.5,
+       29.9
+      ]
+     ],
+     "color": "#b5302a",
+     "start": 1.93,
+     "duration": 5.79,
+     "label": "Körfez'e",
+     "dashed": true
+    }
+   ],
+   "cities": [
+    {
+     "at": [
+      44.1,
+      33.1
+     ],
+     "label": "Akad (?)",
+     "start": 0.96,
+     "major": true,
+     "side": "right"
+    },
+    {
+     "at": [
+      46.1,
+      30.96
+     ],
+     "label": "Ur",
+     "start": 4.82,
+     "side": "right"
+    },
+    {
+     "at": [
+      40.89,
+      34.55
+     ],
+     "label": "Mari",
+     "start": 5.79,
+     "side": "left"
+    },
+    {
+     "at": [
+      36.8,
+      35.8
+     ],
+     "label": "Ebla",
+     "start": 9.26,
+     "side": "left"
+    },
+    {
+     "at": [
+      48.26,
+      32.19
+     ],
+     "label": "Susa",
+     "start": 10.61,
+     "side": "right"
+    }
+   ],
+   "labels": [
+    {
+     "at": [
+      34.0,
+      34.0
+     ],
+     "text": "Akdeniz",
+     "start": 0.77,
+     "kind": "sea"
+    },
+    {
+     "at": [
+      49.6,
+      28.6
+     ],
+     "text": "Basra Körfezi",
+     "start": 0.77,
+     "kind": "sea"
+    },
+    {
+     "at": [
+      36.0,
+      38.6
+     ],
+     "text": "Anadolu",
+     "start": 0.77,
+     "kind": "land"
+    }
+   ],
+   "years": [
+    {
+     "t": 0.96,
+     "text": "MÖ ~2300"
+    }
+   ],
+   "note": "Yaklaşık sınırlar",
+   "camera": [
+    {
+     "t": 0.0,
+     "center": [
+      43.0,
+      33.5
+     ],
+     "zoom": 1.2
+    },
+    {
+     "t": 11.57,
+     "center": [
+      41.5,
+      34.0
+     ],
+     "zoom": 1.0
+    }
+   ]
+  },
+  "m_ur_dusus": {
+   "taban": "dunya",
+   "bounds": {
+    "west": 41.75,
+    "east": 48.25,
+    "south": 30.4719,
+    "north": 34.1281
+   },
+   "durationSec": 28.2,
+   "title": "Ur'un Düşüşü",
+   "subtitle": "MÖ ~2004",
+   "rivers": [
+    {
+     "points": [
+      [
+       39.3,
+       38.5
+      ],
+      [
+       40.2,
+       37.9
+      ],
+      [
+       41.5,
+       37.2
+      ],
+      [
+       43.1,
+       36.3
+      ],
+      [
+       43.7,
+       35.0
+      ],
+      [
+       44.4,
+       33.3
+      ],
+      [
+       45.8,
+       32.5
+      ],
+      [
+       46.7,
+       31.6
+      ],
+      [
+       47.4,
+       31.0
+      ],
+      [
+       47.8,
+       30.5
+      ],
+      [
+       48.5,
+       29.95
+      ]
+     ],
+     "name": "Dicle",
+     "start": 0.65,
+     "labelAt": [
+      43.9,
+      35.9
+     ]
+    },
+    {
+     "points": [
+      [
+       38.8,
+       38.8
+      ],
+      [
+       38.3,
+       37.5
+      ],
+      [
+       38.0,
+       36.7
+      ],
+      [
+       39.0,
+       35.95
+      ],
+      [
+       40.1,
+       35.3
+      ],
+      [
+       41.0,
+       34.5
+      ],
+      [
+       42.2,
+       33.6
+      ],
+      [
+       43.8,
+       33.35
+      ],
+      [
+       44.4,
+       32.5
+      ],
+      [
+       45.3,
+       31.3
+      ],
+      [
+       46.25,
+       31.05
+      ],
+      [
+       47.4,
+       31.0
+      ]
+     ],
+     "name": "Fırat",
+     "start": 2.39,
+     "labelAt": [
+      40.3,
+      34.7
+     ]
+    }
+   ],
+   "routes": [
+    {
+     "points": [
+      [
+       40.5,
+       33.5
+      ],
+      [
+       42.5,
+       33.0
+      ],
+      [
+       44.2,
+       32.6
+      ]
+     ],
+     "color": "#8a6a3a",
+     "start": 2.17,
+     "duration": 8.68,
+     "label": "Amurru göçleri",
+     "dashed": true
+    },
+    {
+     "points": [
+      [
+       48.26,
+       32.19
+      ],
+      [
+       47.4,
+       31.8
+      ],
+      [
+       46.6,
+       31.2
+      ],
+      [
+       46.1,
+       30.96
+      ]
+     ],
+     "color": "#6b4f8f",
+     "start": 11.93,
+     "duration": 8.68,
+     "label": "Elam ordusu",
+     "dashed": false
+    }
+   ],
+   "clashes": [
+    {
+     "at": [
+      46.1,
+      30.96
+     ],
+     "start": 20.83
+    }
+   ],
+   "cities": [
+    {
+     "at": [
+      46.1,
+      30.96
+     ],
+     "label": "Ur",
+     "start": 1.08,
+     "major": true,
+     "side": "left"
+    },
+    {
+     "at": [
+      48.26,
+      32.19
+     ],
+     "label": "Susa",
+     "start": 10.42,
+     "major": true,
+     "side": "right"
+    },
+    {
+     "at": [
+      45.23,
+      32.13
+     ],
+     "label": "Nippur",
+     "start": 1.95,
+     "side": "left"
+    }
+   ],
+   "years": [
+    {
+     "t": 1.08,
+     "text": "MÖ ~2004"
+    }
+   ],
+   "note": "Güzergâh yaklaşıktır",
+   "camera": [
+    {
+     "t": 0.0,
+     "center": [
+      45.0,
+      32.3
+     ],
+     "zoom": 1.0
+    }
+   ]
+  }
+ },
  "chapters": [
   {
    "title": "Giriş",
@@ -148,7 +1807,16 @@
      "text": "[sakin] Güney Irak'ta, Fırat'ın eski yatağından birkaç kilometre uzakta, düz bir çölün ortasında kerpiçten dev bir yapı yükselir. Dört bin yıldan fazladır orada duruyor. Bu, Ur şehrinin zigguratı. Ve bu topraklar, bildiğimiz anlamda tarihin başladığı yer.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "image": "zig1",
+       "move": "in",
+       "label": {
+        "title": "UR",
+        "subtitle": "IRAK"
+       }
+      },
+      {
+       "image": "zig2",
+       "move": "left"
       }
      ]
     },
@@ -156,7 +1824,16 @@
      "text": "Çünkü tarih, yazıyla başlar. Yazıdan önceki her şeyi kazı çukurlarındaki çanak çömleklerden, kemiklerden tahmin ederiz. Ama bir gün, burada yaşayan insanlar ıslak kile kamış bir kalemle işaretler bastı. [duraksama 0.8] Ve ilk kez, insanlar ölmüş birinin sözlerini, yüzyıllar sonra okuyabilir hâle geldi.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "image": "tab1",
+       "move": "in"
+      },
+      {
+       "image": "tab2",
+       "move": "right"
+      },
+      {
+       "image": "tab3",
+       "move": "out"
       }
      ]
     },
@@ -164,7 +1841,20 @@
      "text": "Bu insanlar kendilerine \"kara başlılar\" diyordu. Biz onlara Sümerliler diyoruz. [hayret] İlk şehirleri kurdular, ilk yazıyı geliştirdiler, ilk yazılı yasaları, ilk okulları, ilk destanı bize bıraktılar. Bir saati neden altmış dakikaya böldüğümüzü merak ettiyseniz, cevabın bir kısmı da onlarda.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "image": "puabi1",
+       "move": "in",
+       "label": {
+        "title": "PUABİ'NİN BAŞLIĞI",
+        "subtitle": "PENN MÜZESİ"
+       }
+      },
+      {
+       "image": "sancak_on",
+       "move": "left"
+      },
+      {
+       "image": "heykelcik",
+       "move": "in"
       }
      ]
     },
@@ -172,7 +1862,20 @@
      "text": "Bu yolculukta, bir kraliçenin altınlarla dolu mezarına gireceğiz. Ölümsüzlüğü arayan bir kralın destanını dinleyeceğiz. Tarihte adını bildiğimiz ilk yazarla tanışacağız. Ve İstanbul'da bir müzede duran, dünyanın en eski yasalarından birine bakacağız. [ağır] Ama önce, her şeyin başladığı yere gidelim. İki nehrin arasına.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "image": "tufan1",
+       "move": "in"
+      },
+      {
+       "image": "puabi2",
+       "move": "out"
+      },
+      {
+       "image": "lir",
+       "move": "right"
+      },
+      {
+       "stock": "nehir_gunbatimi",
+       "start": 6.0
       }
      ]
     }
@@ -186,7 +1889,8 @@
      "text": "[sakin] Dicle ve Fırat, Anadolu'nun dağlarından, Doğu Anadolu'nun karlı zirvelerinden doğar. Güneye doğru yüzlerce kilometre akar ve sonunda Basra Körfezi'nde denize kavuşur. Yunanlılar bu iki nehir arasındaki topraklara \"Mezopotamya\" dedi: nehirlerin arasındaki ülke.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "map": "m_mezopotamya",
+       "transition": "dissolve"
       }
      ]
     },
@@ -194,7 +1898,17 @@
      "text": "Bugün burası büyük ölçüde kurak bir ova. Ama yedi bin yıl önce, güneyde, nehirlerin denize döküldüğü yerde geniş bataklıklar, kamışlıklar ve balık dolu sular vardı. Kuzeyde yağmur yeterince yağıyordu. Güneyde ise yağmur neredeyse hiç yağmıyordu. [duraksama 0.6] Burada tarım yapmanın tek yolu, nehirlerin suyunu kanallarla tarlalara taşımaktı.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "stock": "nehir_kamis",
+       "start": 0.0,
+       "transition": "dissolve"
+      },
+      {
+       "image": "bataklik2",
+       "move": "left"
+      },
+      {
+       "image": "bataklik1",
+       "move": "in"
       }
      ]
     },
@@ -202,7 +1916,12 @@
      "text": "Bunu tek bir aile yapamazdı. Kanal kazmak, onu her yıl temizlemek, suyu adilce paylaştırmak için onlarca, yüzlerce insanın birlikte çalışması gerekiyordu. İşte bu ihtiyaç, köyleri büyüttü. İnsanları bir araya getirdi. Ve sonunda, dünyanın ilk şehirlerini doğurdu.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "stock": "sulama_kanali",
+       "start": 4.0
+      },
+      {
+       "image": "uydu_irak",
+       "move": "in"
       }
      ]
     },
@@ -210,7 +1929,20 @@
      "text": "Sümerlerin kendi anlatısına göre, ilk şehir Eridu'ydu. Bir efsaneye göre \"krallık gökten indiğinde\" önce Eridu'ya inmişti. Arkeologlar da burada, birbirinin üzerine defalarca yeniden yapılmış küçük bir tapınağın kalıntılarını buldu. En alttaki katman, yedi bin yıldan daha eskiydi. [duraksama 0.8] Bir köy tapınağıyla başlayan bu yer, yüzyıllar içinde koca bir kutsal merkeze dönüştü.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "image": "ubeyd1",
+       "move": "in",
+       "label": {
+        "title": "UBEYD ÇANAĞI",
+        "subtitle": "MÖ 5300–4700"
+       }
+      },
+      {
+       "image": "ubeyd2",
+       "move": "right"
+      },
+      {
+       "stock": "harabe_gunbatimi",
+       "start": 0.0
       }
      ]
     },
@@ -218,14 +1950,28 @@
      "text": "Bataklıkların kenarında yaşayan insanlar, evlerini kamıştan yaptı. Kalın kamış demetlerini kemer gibi bükerek uzun, tonoz çatılı evler kurdular. [hayret] Güney Irak'ın bataklıklarında, bugün bile aynı yöntemle yapılmış kamış evler görebilirsiniz. Bazı gelenekler, yedi bin yıl boyunca neredeyse hiç değişmeden yaşadı.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "image": "mudhif",
+       "move": "in",
+       "label": {
+        "title": "MUDHİF",
+        "subtitle": "KAMIŞ EV, GÜNÜMÜZ"
+       }
+      },
+      {
+       "image": "bataklik4",
+       "move": "left"
+      },
+      {
+       "image": "bataklik3",
+       "move": "out"
       }
      ]
     }
    ],
    "card": {
     "kicker": "BÖLÜM I",
-    "date": "MÖ 5000–3500 · Mezopotamya"
+    "date": "MÖ 5000–3500 · Mezopotamya",
+    "image": "bataklik2"
    },
    "music": "derin"
   },
@@ -236,7 +1982,16 @@
      "text": "[sakin] MÖ dördüncü binyılın ikinci yarısında, güneyde bir şehir diğerlerinden çok daha hızlı büyüdü. Adı Uruk'tu. Bugün Irak'taki Warka kazı alanında, onun kalıntıları hâlâ toprağın altında yatıyor. [duraksama 0.6] Uruk'un nüfusunun, MÖ üç bin yılı civarında, kaynaklara göre kırk bin kişiye ulaşmış olabileceği tahmin ediliyor. O çağ için inanılmaz bir kalabalık.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "map": "m_sumer_sehirler",
+       "transition": "dissolve"
+      },
+      {
+       "image": "uruk_1930",
+       "move": "in",
+       "label": {
+        "title": "URUK (WARKA)",
+        "subtitle": "1930'LAR"
+       }
       }
      ]
     },
@@ -244,7 +1999,12 @@
      "text": "Şehrin ortasında, yüksek bir platformun üzerinde tapınaklar vardı. Bunlardan biri, duvarları beyaz badanalı olduğu için bugün \"Beyaz Tapınak\" diye anılıyor. Uzaktan, düz ovanın üzerinde parlayan bu yapı, kilometrelerce öteden görülebiliyordu. Şehrin tanrısına adanmıştı ve şehrin kalbiydi.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "image": "beyaz_tapinak",
+       "move": "left"
+      },
+      {
+       "image": "beyaz_cizim",
+       "move": "in"
       }
      ]
     },
@@ -252,7 +2012,32 @@
      "text": "Bu dönemden bize kalan en güzel eserlerden biri, Uruk Vazosu'dur. Bir metreden uzun bu taş vazonun üzerinde, aşağıdan yukarıya doğru bir hikâye anlatılır. En altta su ve ekinler, üstünde koyunlar, onun üstünde ellerinde sepetlerle yürüyen çıplak insanlar. Ve en tepede, tanrıçaya sunulan hediyeler. [duraksama 1.0] Bu, dünyanın düzenini anlatan bir resimdi: Su ekini, ekin hayvanı, hayvan insanı besler; insanlar da her şeyi tanrılara borçludur.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "image": "vazo_tam",
+       "move": "out",
+       "focus": [
+        0.5,
+        0.75
+       ],
+       "label": {
+        "title": "URUK VAZOSU",
+        "subtitle": "IRAK MÜZESİ"
+       }
+      },
+      {
+       "image": "vazo_ust",
+       "move": "in"
+      },
+      {
+       "image": "vazo_yakin",
+       "move": "right"
+      },
+      {
+       "image": "vazo_ust2",
+       "move": "in",
+       "focus": [
+        0.5,
+        0.35
+       ]
       }
      ]
     },
@@ -260,7 +2045,24 @@
      "text": "Uruk'tan kalan bir başka eser, bir kadın yüzü. Beş bin yıl önce mermerden oyulmuş, doğal boyutta bir yüz. Gözleri ve kaşları bir zamanlar renkli taşlarla kakılıydı. Bugün yalnızca boşlukları kaldı. [ağır] Kim olduğunu bilmiyoruz. Bir tanrıça mı, bir rahibe mi? Ama bu yüz, insanlık tarihinin en eski gerçekçi portrelerinden biri sayılıyor.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "image": "maske",
+       "move": "in",
+       "label": {
+        "title": "URUK'UN HANIMI",
+        "subtitle": "MÖ ~3100"
+       }
+      },
+      {
+       "image": "maske_profil",
+       "move": "left"
+      },
+      {
+       "image": "maske",
+       "move": "out",
+       "focus": [
+        0.45,
+        0.4
+       ]
       }
      ]
     },
@@ -268,14 +2070,24 @@
      "text": "Şehir büyüdükçe, yönetilmesi de zorlaştı. Tapınağa gelen buğdayı, koyunları, kumaşları kim kaydedecekti? Kime ne kadar arpa verilecekti? [duraksama 0.8] Bu sorular, insanlık tarihinin en büyük icatlarından birine yol açtı. Ve bu icat, bir şiirle değil, bir hesap pusulasıyla başladı.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "image": "muhur1",
+       "move": "right"
+      },
+      {
+       "image": "muhur2",
+       "move": "in"
+      },
+      {
+       "stock": "kil_eller",
+       "start": 3.0
       }
      ]
     }
    ],
    "card": {
     "kicker": "BÖLÜM II",
-    "date": "MÖ 3500–3000 · Uruk"
+    "date": "MÖ 3500–3000 · Uruk",
+    "image": "vazo_ust"
    },
    "music": "gizem"
   },
@@ -286,7 +2098,21 @@
      "text": "[sakin] Yazıdan önce, Mezopotamya'da insanlar mal saymak için küçük kil jetonlar kullanıyordu. Küçük bir koni bir ölçek arpa, bir küre başka bir ölçü, bir silindir bir koyun demekti. Bazen bu jetonlar, bir kil zarfın içine konup mühürlenirdi. Zarfın üzerine de içindeki jetonların izi bastırılırdı.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "image": "proto3",
+       "move": "in",
+       "transition": "dissolve"
+      },
+      {
+       "image": "tab4",
+       "move": "left"
+      },
+      {
+       "image": "tab5",
+       "move": "in",
+       "focus": [
+        0.4,
+        0.5
+       ]
       }
      ]
     },
@@ -294,7 +2120,20 @@
      "text": "Bir noktada biri şunu fark etti: Eğer işaretler zaten zarfın yüzeyinde duruyorsa, jetonlara gerek var mı? [duraksama 0.6] Böylece işaretler doğrudan düz bir kil levhanın üzerine çizilmeye başlandı. Uruk'ta bulunan en eski tabletler, MÖ üç bin iki yüz yılı civarına tarihleniyor. Ve neredeyse hepsi aynı şeyi anlatıyor: arpa, koyun, ekmek, bira. Kime ne verildiği, kimden ne alındığı.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "image": "proto1",
+       "move": "in",
+       "label": {
+        "title": "İLK TABLETLER",
+        "subtitle": "MÖ 3300–3100"
+       }
+      },
+      {
+       "image": "proto2",
+       "move": "right"
+      },
+      {
+       "image": "tab5",
+       "move": "out"
       }
      ]
     },
@@ -302,7 +2141,24 @@
      "text": "[hayret] Bu ilk tabletlerden birinde, bir kişinin adı geçiyor gibi görünüyor: Kuşim. Tabletler, büyük miktarda arpanın bu kişinin sorumluluğunda olduğunu anlatıyor. Kuşim'in bir kâtip mi, bir yönetici mi olduğunu bilmiyoruz. Ama bazı tarihçiler bu adı, tarihte yazıyla kaydedilmiş en eski kişi adlarından biri olarak anar. Yani insanlığın hatırladığı ilk isimlerden biri, belki de bir muhasebeciye aitti.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "image": "proto_bira",
+       "move": "in"
+      },
+      {
+       "image": "proto2",
+       "move": "left",
+       "focus": [
+        0.35,
+        0.5
+       ]
+      },
+      {
+       "image": "proto1",
+       "move": "out",
+       "focus": [
+        0.6,
+        0.5
+       ]
       }
      ]
     },
@@ -310,7 +2166,20 @@
      "text": "Başlangıçta işaretler küçük resimlerdi. Bir başak, bir baş, bir ayak. Ama kile resim çizmek zordu. Kâtipler zamanla kamış kalemin ucunu kile bastırarak çizgiler oluşturmaya başladı. Bu çizgiler, ucu kalın, sonu ince küçük çivilere benziyordu. Bugün bu yazıya bu yüzden \"çivi yazısı\" diyoruz.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "stock": "kil_eller",
+       "start": 10.0
+      },
+      {
+       "image": "tab1",
+       "move": "in",
+       "focus": [
+        0.4,
+        0.45
+       ]
+      },
+      {
+       "image": "okul3",
+       "move": "right"
       }
      ]
     },
@@ -318,7 +2187,28 @@
      "text": "En büyük adım ise işaretlerin sesleri göstermeye başlamasıydı. Artık bir işaret yalnızca \"ok\" anlamına gelmiyor, \"ti\" sesini de gösterebiliyordu. Bu sayede isimler, fiiller, duygular, dualar yazılabildi. [duraksama 0.8] Yazıyı öğrenmek için okullar kuruldu. Sümerler okula \"tablet evi\" diyordu. Öğrenciler yıllarca yüzlerce işareti ezberler, öğretmenin yazdığı satırları kilin öbür yüzüne tekrar tekrar kopyalardı.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "image": "okul1",
+       "move": "in"
+      },
+      {
+       "image": "okul2",
+       "move": "left"
+      },
+      {
+       "image": "tab2",
+       "move": "in",
+       "focus": [
+        0.6,
+        0.5
+       ]
+      },
+      {
+       "image": "okul3",
+       "move": "out",
+       "focus": [
+        0.5,
+        0.4
+       ]
       }
      ]
     },
@@ -326,14 +2216,36 @@
      "text": "Bu okullardan kalan tabletlerin bazılarında öğrencilerin yakınmaları bile var. Bir metinde, okula geç kaldığı, derste konuştuğu ve yazısı kötü olduğu için azar işiten bir öğrenci anlatılır. [hayret] Dört bin yıl önce yazılmış bu metin, bugün herhangi bir okul sırasında da yaşanabilecek bir gün gibi okunuyor.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "image": "okul2",
+       "move": "in",
+       "focus": [
+        0.5,
+        0.6
+       ]
+      },
+      {
+       "image": "okul1",
+       "move": "right",
+       "focus": [
+        0.4,
+        0.5
+       ]
+      },
+      {
+       "image": "okul3",
+       "move": "in",
+       "focus": [
+        0.6,
+        0.5
+       ]
       }
      ]
     }
    ],
    "card": {
     "kicker": "BÖLÜM III",
-    "date": "MÖ 3300–2600 · Uruk"
+    "date": "MÖ 3300–2600 · Uruk",
+    "image": "proto2"
    },
    "music": "tapinak"
   },
@@ -344,7 +2256,8 @@
      "text": "[sakin] Sümer hiçbir zaman tek bir ülke değildi. Ur, Uruk, Lagaş, Umma, Kiş, Nippur… Her biri kendi tanrısına, kendi krallığına, kendi kanallarına sahip ayrı bir şehir devletiydi. Aynı dili konuşuyor, aynı tanrılara tapıyorlardı. Ama su ve toprak söz konusu olduğunda, birbirlerinin en büyük rakibiydiler.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "map": "m_sehir_devletleri",
+       "transition": "dissolve"
       }
      ]
     },
@@ -352,7 +2265,24 @@
      "text": "Sümerler, kendi tarihlerini de yazdı. Bugün \"Sümer Kral Listesi\" diye bilinen metinde, krallığın şehirden şehre nasıl geçtiği anlatılır. [hayret] Ama bu listede bazı krallara binlerce yıl süren saltanatlar yazılmıştır. Tufandan önceki krallar için ise rakamlar on binlerce yılı bulur. Tarihçiler bu listeyi efsaneyle gerçeğin karıştığı bir metin olarak okur.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "image": "kral_listesi",
+       "move": "in",
+       "label": {
+        "title": "SÜMER KRAL LİSTESİ",
+        "subtitle": "ASHMOLEAN MÜZESİ"
+       }
+      },
+      {
+       "image": "kral_prizma",
+       "move": "left"
+      },
+      {
+       "image": "kral_listesi",
+       "move": "out",
+       "focus": [
+        0.5,
+        0.3
+       ]
       }
      ]
     },
@@ -360,7 +2290,28 @@
      "text": "Lagaş ile Umma arasında, verimli bir sınır toprağı yüzünden kuşaklar boyu süren bir çatışma vardı. MÖ yirmi beşinci yüzyılın ortalarında Lagaş kralı Eannatum, Umma'yı yendi ve bu zaferi taş bir anıtın üzerine işletti. Bugün Paris'teki Louvre Müzesi'nde duran bu anıta \"Akbabalar Steli\" denir. [ağır] Bir yüzünde, kalkanlarını birleştirip sık bir sıra hâlinde yürüyen mızraklı askerler görünür. Diğer yüzünde ise savaş alanının üzerinde dönen akbabalar.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "image": "akbaba",
+       "move": "out",
+       "label": {
+        "title": "AKBABALAR STELİ",
+        "subtitle": "LOUVRE"
+       }
+      },
+      {
+       "image": "akbaba_savas",
+       "move": "in"
+      },
+      {
+       "image": "akbaba_akbaba",
+       "move": "right"
+      },
+      {
+       "image": "akbaba",
+       "move": "in",
+       "focus": [
+        0.3,
+        0.5
+       ]
       }
      ]
     },
@@ -368,7 +2319,24 @@
      "text": "Bu taş, yalnızca bir zafer anıtı değil, aynı zamanda bir sınır antlaşmasının kaydıydı. Üzerindeki yazı, iki şehir arasındaki sınırın nereden geçeceğini ve yemine uymayanın başına neler geleceğini anlatır. Tarihçiler onu, yazılı olarak kayda geçmiş en eski sınır anlaşmazlıklarından birinin belgesi olarak görür.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "image": "akbaba_yazi",
+       "move": "in"
+      },
+      {
+       "image": "akbaba_savas",
+       "move": "left",
+       "focus": [
+        0.5,
+        0.6
+       ]
+      },
+      {
+       "image": "akbaba",
+       "move": "out",
+       "focus": [
+        0.7,
+        0.5
+       ]
       }
      ]
     },
@@ -376,14 +2344,32 @@
      "text": "Lagaş'ta yaklaşık yüz yıl sonra başka bir kral, Urukagina, farklı bir iş yaptı. Yazıtlarında, rahiplerin ve memurların halktan aldığı haksız vergileri kaldırdığını, borç yüzünden köle olanları serbest bıraktığını, yetimleri ve dulları güçlülere karşı koruduğunu anlatır. [duraksama 1.0] Bu yazıtlarda \"amagi\" diye bir kelime geçer. Kelime kelime \"anneye dönüş\" demektir; yani borçlu birinin serbest kalıp ailesine geri dönmesi. Pek çok tarihçi bunu, bilinen en eski \"özgürlük\" kelimesi olarak anar.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "image": "urukagina",
+       "move": "in",
+       "label": {
+        "title": "URUKAGİNA",
+        "subtitle": "LOUVRE"
+       }
+      },
+      {
+       "image": "tab3",
+       "move": "right",
+       "focus": [
+        0.4,
+        0.5
+       ]
+      },
+      {
+       "stock": "bugday_ruzgar",
+       "start": 0.0
       }
      ]
     }
    ],
    "card": {
     "kicker": "BÖLÜM IV",
-    "date": "MÖ 2900–2350 · Lagaş, Umma, Kiş"
+    "date": "MÖ 2900–2350 · Lagaş, Umma, Kiş",
+    "image": "akbaba"
    },
    "music": "karanlik"
   },
@@ -394,7 +2380,17 @@
      "text": "[sakin] Bin dokuz yüz yirmili yıllarda, İngiliz arkeolog Leonard Woolley, Ur'da büyük bir kazı başlattı. Yıllar süren çalışmanın sonunda ekibi, şehrin eski mezarlığında yaklaşık iki bin mezar buldu. Çoğu sıradan insanlara aitti. Ama bunların arasında on altı mezar diğerlerinden çok farklıydı. [duraksama 0.8] Woolley onlara \"kraliyet mezarları\" adını verdi.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "image": "zig4",
+       "move": "in",
+       "transition": "dissolve"
+      },
+      {
+       "image": "zig3",
+       "move": "left"
+      },
+      {
+       "stock": "harabe_gunbatimi",
+       "start": 8.0
       }
      ]
     },
@@ -402,7 +2398,24 @@
      "text": "Bunlardan birinde, mühür silindirindeki yazıya göre Puabi adında bir kadın yatıyordu. Muhtemelen bir kraliçeydi. Başında altın yapraklardan, lapis lazuli ve akik boncuklardan yapılmış göz alıcı bir başlık vardı. Kulaklarında iri altın küpeler, boynunda kat kat kolyeler. [hayret] Lapis lazuli, bugünkü Afganistan'ın dağlarından, binlerce kilometre öteden getirilmişti. Akik taşları ise muhtemelen İndus Vadisi'nden geliyordu.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "image": "puabi1",
+       "move": "in",
+       "focus": [
+        0.5,
+        0.4
+       ]
+      },
+      {
+       "image": "puabi2",
+       "move": "out"
+      },
+      {
+       "image": "puabi4",
+       "move": "right"
+      },
+      {
+       "image": "geyik_kolye",
+       "move": "in"
       }
      ]
     },
@@ -410,7 +2423,32 @@
      "text": "Bu mezarlıktan çıkan en ünlü eserlerden biri, bugün Londra'daki British Museum'da duran ve \"Ur Sancağı\" diye anılan küçük bir kutudur. Lapis lazuli, kırmızı taş ve deniz kabuğuyla süslenmiştir. Bir yüzünde savaş arabaları, askerler ve tutsaklar görülür. Diğer yüzünde ise bir şölen: hayvanlar, armağanlar, lir çalan bir müzisyen ve kadeh kaldıran bir kral. [duraksama 0.6] Bu nesnenin ne işe yaradığını hâlâ bilmiyoruz. Bir sancak mı, bir müzik aletinin parçası mı, yoksa bir sandık mı? Adı, Woolley'nin ilk tahmininden geliyor.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "image": "sancak_savas",
+       "move": "right",
+       "label": {
+        "title": "UR SANCAĞI",
+        "subtitle": "BRITISH MUSEUM"
+       }
+      },
+      {
+       "image": "sancak_araba",
+       "move": "in"
+      },
+      {
+       "image": "sancak_baris",
+       "move": "left"
+      },
+      {
+       "image": "sancak_on",
+       "move": "in",
+       "focus": [
+        0.6,
+        0.5
+       ]
+      },
+      {
+       "image": "aslan_kutu",
+       "move": "out"
       }
      ]
     },
@@ -418,7 +2456,20 @@
      "text": "Mezarlarda liler de bulundu. Bunlardan birinin ön yüzünde altın ve lapis lazuliden yapılmış sakallı bir boğa başı vardı. Dört bin beş yüz yıl önce bu telli çalgılar mezarın içinde çalınmış olabilir. Bir başka mezardan ise altın ve lapis lazuliden yapılmış, arka ayakları üzerinde dikilip bir ağacın dallarına uzanan bir keçi heykelciği çıktı. Woolley ona, bir hikâyeden esinlenerek \"Çalılıktaki Koç\" adını verdi.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "image": "lir",
+       "move": "in"
+      },
+      {
+       "image": "lir_boga",
+       "move": "out"
+      },
+      {
+       "image": "koc",
+       "move": "in",
+       "label": {
+        "title": "ÇALILIKTAKİ KOÇ",
+        "subtitle": "PENN MÜZESİ"
+       }
       }
      ]
     },
@@ -426,7 +2477,20 @@
      "text": "[ağır] Ama bu mezarlarda Woolley'yi asıl şaşırtan, altınlar değildi. Bazı mezarların girişinde, düzgün sıralar hâlinde yatan onlarca insanın kalıntısı vardı: askerler, hizmetkârlar, müzisyenler, takılarını takmış kadınlar. [duraksama 1.5] Bu insanların, efendileriyle birlikte öbür dünyaya gitmek üzere mezara eşlik ettiği düşünülüyor. Nasıl öldükleri uzun süre tartışıldı. Yakın zamanda yapılan incelemeler, en azından bazılarının şiddetle öldürülmüş olabileceğini gösteriyor.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "image": "migfer",
+       "move": "in"
+      },
+      {
+       "image": "olum_diadem",
+       "move": "right"
+      },
+      {
+       "image": "olum_mucevher",
+       "move": "out"
+      },
+      {
+       "stock": "mum_isigi",
+       "start": 0.0
       }
      ]
     },
@@ -434,14 +2498,20 @@
      "text": "Bu uygulama Mezopotamya'da çok kısa bir dönemde ve yalnızca Ur'da bu ölçekte görülür. Sonra tamamen ortadan kalkar. [duraksama 0.8] Ur'un kraliyet mezarları bu yüzden hem Sümer zenginliğinin en parlak tanığı, hem de bu uygarlığın en karanlık sırlarından biri olarak kaldı.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "image": "puabi3",
+       "move": "left"
+      },
+      {
+       "image": "lir_altin",
+       "move": "in"
       }
      ]
     }
    ],
    "card": {
     "kicker": "BÖLÜM V",
-    "date": "MÖ 2600 · Ur"
+    "date": "MÖ 2600 · Ur",
+    "image": "puabi1"
    },
    "music": "agir"
   },
@@ -452,7 +2522,21 @@
      "text": "[sakin] Sümer Kral Listesi'nde Uruk'un krallarından biri olarak Gılgamış adında biri geçer. Tarihçilerin çoğu, onun MÖ yirmi yedinci yüzyıl civarında yaşamış gerçek bir kral olabileceğini düşünüyor. [duraksama 0.6] Ama Gılgamış asıl ününü, yüzyıllar boyunca onun hakkında anlatılan hikâyelere borçlu. Bu hikâyeler zamanla birleşti ve insanlık tarihinin bilinen en eski büyük edebi eseri ortaya çıktı: Gılgamış Destanı.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "image": "tufan1",
+       "move": "in",
+       "focus": [
+        0.5,
+        0.45
+       ],
+       "transition": "dissolve"
+      },
+      {
+       "image": "tufan2",
+       "move": "out"
+      },
+      {
+       "image": "uruk_1930",
+       "move": "right"
       }
      ]
     },
@@ -460,7 +2544,20 @@
      "text": "Destanda Gılgamış, yarı tanrı, yarı insan, güçlü ama kibirli bir kraldır. Tanrılar onu dizginlemek için vahşi bir adam yaratır: Enkidu. İkisi önce dövüşür, sonra ayrılmaz dost olur. Birlikte uzak sedir ormanına gider, canavarları yener. [duraksama 1.0] Ama Enkidu hastalanır ve ölür. Ve Gılgamış, hayatında ilk kez, kendisinin de bir gün öleceği gerçeğiyle yüzleşir.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "image": "gilgamis",
+       "move": "in"
+      },
+      {
+       "image": "heykelcik2",
+       "move": "left"
+      },
+      {
+       "image": "gilgamis",
+       "move": "out",
+       "focus": [
+        0.5,
+        0.35
+       ]
       }
      ]
     },
@@ -468,7 +2565,16 @@
      "text": "[hüzün] Ölüm korkusuyla, ölümsüzlüğün sırrını aramak için dünyanın öbür ucuna yola çıkar. Orada, tufandan sağ kurtulan ve tanrıların ölümsüzlük bahşettiği yaşlı bir adamla karşılaşır. Adam ona, tanrıların bir zamanlar bütün insanlığı büyük bir tufanla yok etmeye karar verdiğini anlatır. Kendisinin ise bir gemi yapıp ailesini ve hayvanları kurtardığını.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "stock": "col_ruzgar",
+       "start": 0.0
+      },
+      {
+       "image": "tufan2",
+       "move": "in"
+      },
+      {
+       "stock": "nehir_gunbatimi",
+       "start": 20.0
       }
      ]
     },
@@ -476,7 +2582,20 @@
      "text": "[hayret] Bin sekiz yüz yetmiş iki yılında, Londra'daki British Museum'da çalışan George Smith adında genç bir araştırmacı, kırık bir tableti okurken bu tufan hikâyesini fark etti. Anlatılana göre heyecandan yerinden fırlayıp odada dolaşmaya başlamıştı. [duraksama 0.8] Çünkü bu hikâye, çok daha sonra yazılmış başka tufan anlatılarına şaşırtıcı biçimde benziyordu. Bu keşif, eski Mezopotamya'ya olan ilgiyi bir anda patlattı.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "image": "smith",
+       "move": "in",
+       "label": {
+        "title": "GEORGE SMITH",
+        "subtitle": "1840–1876"
+       }
+      },
+      {
+       "image": "smith2",
+       "move": "right"
+      },
+      {
+       "image": "tufan1",
+       "move": "out"
       }
      ]
     },
@@ -484,14 +2603,32 @@
      "text": "Destanın sonunda Gılgamış ölümsüzlüğü bulamaz. Eli boş, Uruk'a döner. Şehrin surlarına bakar ve yol arkadaşına onları gösterir: tuğlalarına, temellerine, bahçelerine bakmasını söyler. [ağır] Belki de destanın bize söylediği budur. İnsan sonsuza kadar yaşayamaz. Ama geride bıraktığı eserlerle, yaptıklarıyla hatırlanır.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "image": "zig5",
+       "move": "left"
+      },
+      {
+       "image": "uruk_1930",
+       "move": "in",
+       "focus": [
+        0.4,
+        0.5
+       ]
+      },
+      {
+       "image": "gilgamis",
+       "move": "in",
+       "focus": [
+        0.5,
+        0.6
+       ]
       }
      ]
     }
    ],
    "card": {
     "kicker": "BÖLÜM VI",
-    "date": "MÖ 2700 · Uruk"
+    "date": "MÖ 2700 · Uruk",
+    "image": "tufan2"
    },
    "music": "ses"
   },
@@ -502,7 +2639,20 @@
      "text": "[sakin] MÖ yirmi dördüncü yüzyılda, Sümer şehirlerinin hepsini tek bir yönetim altında toplayan bir adam ortaya çıktı. Adı Sargon'du. Sümerce değil, Sami dillerinden biri olan Akadca konuşuyordu. Kurduğu başkentin adı Akad'dı. [hayret] Bu şehrin nerede olduğu bugün bile tam olarak bilinmiyor.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "image": "akad_bas",
+       "move": "in",
+       "label": {
+        "title": "AKADLI BİR HÜKÜMDAR",
+        "subtitle": "IRAK MÜZESİ"
+       }
+      },
+      {
+       "image": "akad_bas",
+       "move": "out",
+       "focus": [
+        0.5,
+        0.35
+       ]
       }
      ]
     },
@@ -510,7 +2660,24 @@
      "text": "Sonraki çağlarda anlatılan bir efsaneye göre, Sargon'un annesi onu doğurduktan sonra kamıştan bir sepete koyup nehre bırakmıştı. Sepeti bulan bir bahçıvan onu büyüttü. Sargon önce Kiş kralının sakisi oldu, sonra tahtı ele geçirdi. [duraksama 0.6] Bu hikâyenin ne kadarının gerçek olduğunu bilmiyoruz. Ama Sargon'un kurduğu devlet, pek çok tarihçiye göre tarihteki ilk imparatorluk sayılır.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "stock": "nehir_kamis",
+       "start": 3.0
+      },
+      {
+       "image": "tab4",
+       "move": "in",
+       "focus": [
+        0.5,
+        0.4
+       ]
+      },
+      {
+       "image": "akad_bas",
+       "move": "left",
+       "focus": [
+        0.5,
+        0.5
+       ]
       }
      ]
     },
@@ -518,7 +2685,8 @@
      "text": "Sargon'un orduları Basra Körfezi'nden Akdeniz kıyılarına kadar yürüdü. Yazıtlarında Sedir Ormanı'na ve Gümüş Dağları'na ulaştığını anlatır. Bunların bugünkü Lübnan ve Toros Dağları olduğu düşünülüyor. [duraksama 0.8] Anadolu ile bu bağlantı da ilginçtir: Sonraki çağlarda anlatılan bir hikâyede Sargon'un, Anadolu'daki tüccarları korumak için Puruşhanda adlı bir şehre sefer yaptığı anlatılır.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "map": "m_akad",
+       "transition": "dissolve"
       }
      ]
     },
@@ -526,7 +2694,24 @@
      "text": "Sargon, kızını Ur'daki Ay tanrısı Nanna'nın tapınağına baş rahibe olarak atadı. Bu kadının adı Enheduanna'ydı. [hayret] Enheduanna, tanrıça İnanna için ilahiler yazdı ve bu ilahilerde kendi adını da kullandı. Bu yüzden pek çok araştırmacı onu, tarihte adıyla bildiğimiz ilk yazar olarak anar. Yani adı bilinen ilk yazar, dört bin üç yüz yıl önce yaşamış bir kadındı.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "image": "enheduanna",
+       "move": "in",
+       "label": {
+        "title": "ENHEDUANNA DİSKİ",
+        "subtitle": "PENN MÜZESİ"
+       }
+      },
+      {
+       "image": "enheduanna",
+       "move": "right",
+       "focus": [
+        0.4,
+        0.5
+       ]
+      },
+      {
+       "image": "zig2",
+       "move": "out"
       }
      ]
     },
@@ -534,14 +2719,36 @@
      "text": "Sargon'un torunu Naram-Sin döneminde imparatorluk en geniş hâline ulaştı. Naram-Sin, kendini tanrı ilan eden ilk Mezopotamya kralı oldu. Paris'teki Louvre'da duran zafer stelinde, boynuzlu bir miğferle, yani tanrı işaretiyle, askerlerinin önünde bir dağa tırmanırken görülür. [duraksama 1.0] Ama imparatorluk ondan sonra uzun yaşamadı. İsyanlar, kuraklık ve dağlardan inen Guti adlı kavmin baskınları, Akad'ı yaklaşık iki yüzyıl sonra çökertti.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "image": "naram",
+       "move": "in",
+       "focus": [
+        0.5,
+        0.6
+       ],
+       "label": {
+        "title": "NARAM-SİN STELİ",
+        "subtitle": "LOUVRE"
+       }
+      },
+      {
+       "image": "naram2",
+       "move": "left"
+      },
+      {
+       "image": "naram",
+       "move": "out",
+       "focus": [
+        0.5,
+        0.3
+       ]
       }
      ]
     }
    ],
    "card": {
     "kicker": "BÖLÜM VII",
-    "date": "MÖ 2334–2154 · Akad"
+    "date": "MÖ 2334–2154 · Akad",
+    "image": "naram"
    },
    "music": "agir"
   },
@@ -552,7 +2759,25 @@
      "text": "[sakin] Akad'ın çöküşünden sonraki karışık yıllarda, Lagaş şehrinde Gudea adında bir yönetici öne çıktı. Gudea savaşlarıyla değil, yaptırdığı tapınaklarla ve heykelleriyle tanınır. Bugün dünyanın birçok müzesinde onun heykelleri durur. [duraksama 0.6] Neredeyse hepsi aynı duruşla: sert, siyah bir taştan oyulmuş, elleri göğsünde kavuşturulmuş, sakin ve dindar bir yönetici.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "image": "gudea1",
+       "move": "in",
+       "transition": "dissolve",
+       "label": {
+        "title": "GUDEA",
+        "subtitle": "LAGAŞ"
+       }
+      },
+      {
+       "image": "gudea2",
+       "move": "left"
+      },
+      {
+       "image": "gudea1",
+       "move": "out",
+       "focus": [
+        0.5,
+        0.3
+       ]
       }
      ]
     },
@@ -560,7 +2785,16 @@
      "text": "Kısa süre sonra Ur, yeniden güneyin en güçlü şehri oldu. MÖ yirmi birinci yüzyılın sonlarında Ur-Nammu adında bir kral, Ur'un Üçüncü Hanedanı diye anılan yeni bir krallık kurdu. Ur'un o dev zigurratı, onun döneminde inşa edildi. Milyonlarca kerpiçten yapılmış, basamak basamak yükselen bu yapının tepesinde Ay tanrısı Nanna'nın tapınağı vardı.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "image": "zig1",
+       "move": "right"
+      },
+      {
+       "image": "zig3",
+       "move": "in"
+      },
+      {
+       "image": "zig5",
+       "move": "out"
       }
      ]
     },
@@ -568,7 +2802,24 @@
      "text": "[hayret] Ur-Nammu'nun adı, bir şeyle daha anılır: dünyanın bilinen en eski yasa metinlerinden biriyle. Çok daha ünlü olan Hammurabi Yasaları'ndan yaklaşık üç yüz yıl önce yazılmış bu yasaların bir kopyası, bugün İstanbul Arkeoloji Müzeleri'nde duruyor. [duraksama 0.8] Bu yasalarda dikkat çeken bir şey var: Bazı suçlar için \"göze göz\" türünden bir ceza yerine para cezası öngörülmüştü. Örneğin birinin dişini kıran, belli miktarda gümüş ödemek zorundaydı.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "image": "urnammu_yasa",
+       "move": "in",
+       "label": {
+        "title": "UR-NAMMU YASALARI",
+        "subtitle": "İSTANBUL ARKEOLOJİ MÜZELERİ"
+       }
+      },
+      {
+       "image": "istanbul_muze",
+       "move": "left"
+      },
+      {
+       "image": "urnammu_yasa",
+       "move": "out",
+       "focus": [
+        0.5,
+        0.4
+       ]
       }
      ]
     },
@@ -576,7 +2827,20 @@
      "text": "İstanbul'daki aynı müzede, bu döneme ait başka bir tablet daha var. Bir rahibenin Ur kralı Şu-Sin için yazdığı bir aşk şiiri. \"Damadım, gönlümün sevgilisi\" diye başlayan bu şiir, bilinen en eski aşk şiirlerinden biri olarak anılır. [duraksama 1.0] Sümerlerin en değerli hatıralarından bazıları, bu yüzden Irak'tan binlerce kilometre uzakta, İstanbul'un ortasında saklanıyor.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "image": "istanbul_muze2",
+       "move": "in"
+      },
+      {
+       "image": "ask_siiri",
+       "move": "right",
+       "label": {
+        "title": "EN ESKİ AŞK ŞİİRİ",
+        "subtitle": "İSTANBUL"
+       }
+      },
+      {
+       "image": "ask_siiri_etiket",
+       "move": "in"
       }
      ]
     },
@@ -584,14 +2848,32 @@
      "text": "Ur'un bu son parlak döneminde devlet, bir kâtipler ordusuyla yönetiliyordu. Bu dönemden on binlerce idari tablet günümüze ulaştı: maaş listeleri, hayvan sayımları, işçi kayıtları, posta hesapları. [duraksama 0.6] Belki de tarihin ilk büyük bürokrasisi, Ur'un kerpiç ofislerinde doğdu.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "image": "ur_tablet_hesap",
+       "move": "in"
+      },
+      {
+       "image": "tab5",
+       "move": "left",
+       "focus": [
+        0.5,
+        0.4
+       ]
+      },
+      {
+       "image": "tab3",
+       "move": "in"
+      },
+      {
+       "image": "muhur3",
+       "move": "right"
       }
      ]
     }
    ],
    "card": {
     "kicker": "BÖLÜM VIII",
-    "date": "MÖ 2112–2004 · Ur, Lagaş"
+    "date": "MÖ 2112–2004 · Ur, Lagaş",
+    "image": "gudea1"
    },
    "music": "tapinak"
   },
@@ -602,7 +2884,8 @@
      "text": "[sakin] Ama bu parlak dönem de uzun sürmedi. Batıdan, çölün kenarlarından gelen Amurru göçebeleri giderek çoğaldı. Devlet onları durdurmak için uzun bir sur bile inşa etti. Bir yandan da kıtlık ve ekonomik sıkıntılar başladı. [duraksama 0.8] MÖ iki bin dört yılı civarında, doğudaki Elam ordusu Ur'a girdi. Şehir yağmalandı ve son kral İbbi-Sin tutsak olarak Elam'a götürüldü.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "map": "m_ur_dusus",
+       "transition": "dissolve"
       }
      ]
     },
@@ -610,7 +2893,20 @@
      "text": "Bu yıkımın ardından Sümer şairleri, şehirlerinin yok oluşu için ağıtlar yazdı. \"Ur İçin Ağıt\" bunlardan biridir. [hüzün] Şiirde, Ay tanrısının şehrini terk edişi, boş kalan sokaklar, yıkılan evler ve sevdiklerini kaybeden insanlar anlatılır. Bir şehrin ölümünü anlatan, insanlık tarihinin en eski şiirlerinden biri.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "stock": "col_ruzgar",
+       "start": 20.0
+      },
+      {
+       "image": "zig4",
+       "move": "in",
+       "focus": [
+        0.4,
+        0.5
+       ]
+      },
+      {
+       "stock": "harabe_gunbatimi",
+       "start": 4.0
       }
      ]
     },
@@ -618,14 +2914,40 @@
      "text": "Sümerler bir halk olarak yavaş yavaş Akadca konuşan komşularının arasında eridi. Birkaç yüzyıl sonra Babil yükseldi ve Hammurabi gibi krallar Mezopotamya'yı yeniden birleştirdi. [duraksama 0.8] Sümerce artık sokakta konuşulmayan bir dil oldu. Ama tamamen ölmedi. Avrupa'da yüzyıllarca Latince nasıl din ve bilim dili olarak yaşadıysa, Sümerce de tapınaklarda, okullarda ve ilahilerde iki bin yıl boyunca okunmaya, yazılmaya devam etti.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "image": "hammurabi",
+       "move": "in",
+       "label": {
+        "title": "HAMMURABİ STELİ",
+        "subtitle": "LOUVRE"
+       }
+      },
+      {
+       "image": "tab2",
+       "move": "right",
+       "focus": [
+        0.4,
+        0.4
+       ]
+      },
+      {
+       "image": "okul1",
+       "move": "out"
+      },
+      {
+       "image": "tab4",
+       "move": "in",
+       "focus": [
+        0.6,
+        0.5
+       ]
       }
      ]
     }
    ],
    "card": {
     "kicker": "BÖLÜM IX",
-    "date": "MÖ 2004 · Ur"
+    "date": "MÖ 2004 · Ur",
+    "image": "zig4"
    },
    "music": "huzun"
   },
@@ -636,7 +2958,20 @@
      "text": "[sakin] Sümerlerin hayatımıza bıraktığı bazı şeyleri her gün, farkında bile olmadan kullanıyoruz. Sümerler saymak için on yerine altmışı temel alan bir sistem kullanıyordu. Bu sistem Babillilere, onlardan Yunanlılara geçti. [hayret] Bugün bir saati altmış dakikaya, bir dakikayı altmış saniyeye, bir daireyi üç yüz altmış dereceye bölüyorsak, bunun kökleri Mezopotamya'ya uzanır.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "image": "ybc",
+       "move": "in",
+       "label": {
+        "title": "YBC 7289",
+        "subtitle": "YALE"
+       }
+      },
+      {
+       "image": "plimpton",
+       "move": "left"
+      },
+      {
+       "stock": "saat_yelkovan",
+       "start": 0.0
       }
      ]
     },
@@ -644,7 +2979,20 @@
      "text": "Ur Sancağı'ndaki savaş arabalarının tahta tekerleklerine dikkat edin. Tekerleği kimin ilk icat ettiği tartışmalıdır. Ama Mezopotamya, tekerleğin en erken kullanıldığı yerlerden biridir. Toprağı sürerken aynı anda tohum ekebilen saban, çömlekçi çarkı ve geniş sulama kanalları da bu topraklarda gelişti.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "image": "sancak_araba",
+       "move": "in",
+       "focus": [
+        0.3,
+        0.6
+       ]
+      },
+      {
+       "image": "muhur4",
+       "move": "right"
+      },
+      {
+       "image": "muhur3",
+       "move": "in"
       }
      ]
     },
@@ -652,7 +3000,24 @@
      "text": "[sakin] Sümerler biraya da çok düşkündü. İşçilere maaşın bir kısmı ekmek ve bira olarak verilirdi. Silindir mühürlerde, büyük bir küpün etrafına oturup uzun kamış pipetlerle bira içen insanlar görülür. Bira tanrıçası Ninkasi için yazılmış bir ilahi, aslında bira yapımının aşamalarını anlatan bir tarif gibidir. Bu metin, bilinen en eski \"yemek tarifi\" sayılabilecek yazılardan biridir.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "image": "proto_bira",
+       "move": "in",
+       "focus": [
+        0.6,
+        0.5
+       ]
+      },
+      {
+       "image": "muhur1",
+       "move": "left",
+       "focus": [
+        0.4,
+        0.5
+       ]
+      },
+      {
+       "stock": "bugday_ruzgar",
+       "start": 6.0
       }
      ]
     },
@@ -660,14 +3025,24 @@
      "text": "[ağır] Sümerlerin dünyası dört bin yıl önce sona erdi. Şehirleri kuma gömüldü, dilleri unutuldu, adları bile tarihten silindi. Bin sekiz yüzlü yıllarda çivi yazısını yeniden okumaya başlayan bilim insanları, Babil ve Asur'dan daha eski bir halkın izlerine rastladıklarında, bu halkın adını bile bilmiyorlardı. [duraksama 1.5] Sümerleri, onların kendi yazdıkları sayesinde, yeniden keşfettik.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "stock": "nehir_gunbatimi",
+       "start": 30.0
+      },
+      {
+       "image": "bataklik4",
+       "move": "in"
+      },
+      {
+       "image": "zig4",
+       "move": "out"
       }
      ]
     }
    ],
    "card": {
     "kicker": "BÖLÜM X",
-    "date": "Bugün"
+    "date": "Bugün",
+    "image": "tab1"
    },
    "music": "derin"
   },
@@ -678,7 +3053,25 @@
      "text": "[sakin] Bir avuç kil, bir kamış kalem ve birkaç işaret. Belki de insanlığın en büyük icadı buydu. Çünkü yazı sayesinde bir insan, öldükten binlerce yıl sonra bile bizimle konuşabiliyor. Bir kâtibin arpa hesabını, bir kralın yasalarını, bir rahibenin ilahisini, bir öğrencinin azar işittiği günü okuyabiliyoruz.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "image": "tab1",
+       "move": "in",
+       "focus": [
+        0.5,
+        0.5
+       ],
+       "transition": "dissolve"
+      },
+      {
+       "image": "tab3",
+       "move": "left",
+       "focus": [
+        0.6,
+        0.4
+       ]
+      },
+      {
+       "image": "zig1",
+       "move": "out"
       }
      ]
     },
@@ -686,7 +3079,12 @@
      "text": "Bugün sizinle konuşan bu ses, ekrandaki yazılar, cebinizdeki telefon… Hepsi, beş bin yıl önce Uruk'ta ıslak bir kilin üzerine basılan o ilk işaretlerden doğan uzun bir yolun devamı. [duraksama 1.0] Ve o yol, iki nehrin arasında başladı.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "stock": "yildizli_gece",
+       "start": 0.0
+      },
+      {
+       "image": "zig2",
+       "move": "in"
       }
      ]
     },
@@ -694,7 +3092,12 @@
      "text": "Tarih Dosyaları'nın bir sonraki bölümünde görüşmek üzere. Kanalımıza abone olmayı unutmayın.",
      "shots": [
       {
-       "clip": "klipler/TBD.mp4"
+       "image": "zig1",
+       "move": "out",
+       "focus": [
+        0.5,
+        0.45
+       ]
       }
      ]
     }
