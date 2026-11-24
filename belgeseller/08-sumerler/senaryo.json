@@ -1,0 +1,655 @@
+{
+ "slug": "08-sumerler",
+ "title": "Sümerler: Yazıyı İcat Eden İnsanlar | Uruk'tan Ur'a İlk Uygarlığın Tam Hikâyesi",
+ "description": "Tarih, yazıyla başlar. Ve yazı, beş bin yıl önce Dicle ile Fırat'ın arasında, Sümerlerin şehirlerinde doğdu.\n\nBu belgeselde ilk şehir Uruk'tan yazının bir hesap pusulasıyla başlayan hikâyesine, Lagaş ile Umma'nın savaşından Ur'un altın dolu kraliyet mezarlarına, Gılgamış Destanı ve tufan tabletinden ilk imparatorluk Akad'a, adı bilinen ilk yazar Enheduanna'dan İstanbul Arkeoloji Müzeleri'nde duran Ur-Nammu yasalarına kadar Sümerlerin tam hikâyesini, gerçek müze eserleri eşliğinde anlatıyoruz. Tartışmalı bilgiler anlatımda öyle belirtilmiştir.\n\nSerinin önceki bölümleri: Antik Mısır → https://youtu.be/Ns-ozDX_Y6g · Hititler → https://youtu.be/ibuMFDr7rmI",
+ "tags": [
+  "sümerler",
+  "sümer",
+  "mezopotamya",
+  "yazının icadı",
+  "çivi yazısı",
+  "gılgamış destanı",
+  "ur",
+  "uruk",
+  "akad",
+  "sargon",
+  "enheduanna",
+  "ur-nammu",
+  "antik tarih",
+  "ilk uygarlık",
+  "tarih belgeseli",
+  "belgesel",
+  "türkçe belgesel"
+ ],
+ "hashtags": [
+  "#Sümerler",
+  "#Mezopotamya",
+  "#AntikTarih",
+  "#Belgesel",
+  "#Tarih"
+ ],
+ "ai_disclosure": "",
+ "sources": [
+  "Samuel Noah Kramer, The Sumerians: Their History, Culture, and Character; History Begins at Sumer",
+  "J. N. Postgate, Early Mesopotamia: Society and Economy at the Dawn of History",
+  "Michael Roaf, Cultural Atlas of Mesopotamia and the Ancient Near East",
+  "Andrew George, The Epic of Gilgamesh (Penguin, 2003)",
+  "Martha Roth, Law Collections from Mesopotamia and Asia Minor",
+  "Electronic Text Corpus of Sumerian Literature (ETCSL), Oxford"
+ ],
+ "tts_model": "eleven_v4",
+ "voice_id": "mF7tIc9VLrznhGooGjaT",
+ "voice_settings": {
+  "stability": 0.55,
+  "similarity_boost": 0.8,
+  "style": 0.1,
+  "use_speaker_boost": true
+ },
+ "pronunciations": {
+  "Woolley": "Vuli",
+  "Woolley'nin": "Vuli'nin",
+  "Woolley'yi": "Vuli'yi",
+  "George": "Corc",
+  "Smith": "Smit",
+  "Louvre": "Luvr",
+  "Louvre'da": "Luvr'da",
+  "Louvre'daki": "Luvr'daki"
+ },
+ "ilk_yorum": "Sizce Sümerlerin en büyük icadı hangisiydi: yazı mı, şehir mi, yoksa yasalar mı? Yorumlarda konuşalım.\n\n🔔 Serinin sıradaki bölümü için kanala abone olun.",
+ "kurgu": {
+  "gecis": "dissolve",
+  "ton_esitle": 0.5,
+  "bolum_sonu": 3.5,
+  "bolum_karartma": 2.0
+ },
+ "music_sources": {
+  "gizem": {
+   "commons": "File:Heart of Nowhere (MacLeod, Kevin) (ISRC USUAN1400045).oga"
+  },
+  "agir": {
+   "commons": "File:Earth Prelude (MacLeod, Kevin) (ISRC USUAN1100247).oga"
+  },
+  "karanlik": {
+   "commons": "File:Kevin MacLeod - Ritual.ogg"
+  },
+  "huzun": {
+   "commons": "File:Kevin MacLeod - 06 - Impact Lento.ogg"
+  },
+  "tapinak": {
+   "commons": "File:Kevin MacLeod - Temple of the Manes.ogg"
+  },
+  "ses": {
+   "commons": "File:The Voices (MacLeod, Kevin) (ISRC USUAN1100046).oga"
+  },
+  "derin": {
+   "commons": "File:Kevin MacLeod - Silver Blue Light.ogg"
+  }
+ },
+ "images": {},
+ "thumbnails": [],
+ "stock": {},
+ "films": {},
+ "maps": {},
+ "chapters": [
+  {
+   "title": "Giriş",
+   "paragraphs": [
+    {
+     "text": "[sakin] Güney Irak'ta, Fırat'ın eski yatağından birkaç kilometre uzakta, düz bir çölün ortasında kerpiçten dev bir yapı yükselir. Dört bin yıldan fazladır orada duruyor. Bu, Ur şehrinin zigguratı. Ve bu topraklar, bildiğimiz anlamda tarihin başladığı yer.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "Çünkü tarih, yazıyla başlar. Yazıdan önceki her şeyi kazı çukurlarındaki çanak çömleklerden, kemiklerden tahmin ederiz. Ama bir gün, burada yaşayan insanlar ıslak kile kamış bir kalemle işaretler bastı. [duraksama 0.8] Ve ilk kez, insanlar ölmüş birinin sözlerini, yüzyıllar sonra okuyabilir hâle geldi.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "Bu insanlar kendilerine \"kara başlılar\" diyordu. Biz onlara Sümerliler diyoruz. [hayret] İlk şehirleri kurdular, ilk yazıyı geliştirdiler, ilk yazılı yasaları, ilk okulları, ilk destanı bize bıraktılar. Bir saati neden altmış dakikaya böldüğümüzü merak ettiyseniz, cevabın bir kısmı da onlarda.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "Bu yolculukta, bir kraliçenin altınlarla dolu mezarına gireceğiz. Ölümsüzlüğü arayan bir kralın destanını dinleyeceğiz. Tarihte adını bildiğimiz ilk yazarla tanışacağız. Ve İstanbul'da bir müzede duran, dünyanın en eski yasalarından birine bakacağız. [ağır] Ama önce, her şeyin başladığı yere gidelim. İki nehrin arasına.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    }
+   ],
+   "music": "gizem"
+  },
+  {
+   "title": "İki Nehrin Arası",
+   "paragraphs": [
+    {
+     "text": "[sakin] Dicle ve Fırat, Anadolu'nun dağlarından, Doğu Anadolu'nun karlı zirvelerinden doğar. Güneye doğru yüzlerce kilometre akar ve sonunda Basra Körfezi'nde denize kavuşur. Yunanlılar bu iki nehir arasındaki topraklara \"Mezopotamya\" dedi: nehirlerin arasındaki ülke.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "Bugün burası büyük ölçüde kurak bir ova. Ama yedi bin yıl önce, güneyde, nehirlerin denize döküldüğü yerde geniş bataklıklar, kamışlıklar ve balık dolu sular vardı. Kuzeyde yağmur yeterince yağıyordu. Güneyde ise yağmur neredeyse hiç yağmıyordu. [duraksama 0.6] Burada tarım yapmanın tek yolu, nehirlerin suyunu kanallarla tarlalara taşımaktı.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "Bunu tek bir aile yapamazdı. Kanal kazmak, onu her yıl temizlemek, suyu adilce paylaştırmak için onlarca, yüzlerce insanın birlikte çalışması gerekiyordu. İşte bu ihtiyaç, köyleri büyüttü. İnsanları bir araya getirdi. Ve sonunda, dünyanın ilk şehirlerini doğurdu.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "Sümerlerin kendi anlatısına göre, ilk şehir Eridu'ydu. Bir efsaneye göre \"krallık gökten indiğinde\" önce Eridu'ya inmişti. Arkeologlar da burada, birbirinin üzerine defalarca yeniden yapılmış küçük bir tapınağın kalıntılarını buldu. En alttaki katman, yedi bin yıldan daha eskiydi. [duraksama 0.8] Bir köy tapınağıyla başlayan bu yer, yüzyıllar içinde koca bir kutsal merkeze dönüştü.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "Bataklıkların kenarında yaşayan insanlar, evlerini kamıştan yaptı. Kalın kamış demetlerini kemer gibi bükerek uzun, tonoz çatılı evler kurdular. [hayret] Güney Irak'ın bataklıklarında, bugün bile aynı yöntemle yapılmış kamış evler görebilirsiniz. Bazı gelenekler, yedi bin yıl boyunca neredeyse hiç değişmeden yaşadı.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    }
+   ],
+   "card": {
+    "kicker": "BÖLÜM I",
+    "date": "MÖ 5000–3500 · Mezopotamya"
+   },
+   "music": "derin"
+  },
+  {
+   "title": "İlk Şehir: Uruk",
+   "paragraphs": [
+    {
+     "text": "[sakin] MÖ dördüncü binyılın ikinci yarısında, güneyde bir şehir diğerlerinden çok daha hızlı büyüdü. Adı Uruk'tu. Bugün Irak'taki Warka kazı alanında, onun kalıntıları hâlâ toprağın altında yatıyor. [duraksama 0.6] Uruk'un nüfusunun, MÖ üç bin yılı civarında, kaynaklara göre kırk bin kişiye ulaşmış olabileceği tahmin ediliyor. O çağ için inanılmaz bir kalabalık.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "Şehrin ortasında, yüksek bir platformun üzerinde tapınaklar vardı. Bunlardan biri, duvarları beyaz badanalı olduğu için bugün \"Beyaz Tapınak\" diye anılıyor. Uzaktan, düz ovanın üzerinde parlayan bu yapı, kilometrelerce öteden görülebiliyordu. Şehrin tanrısına adanmıştı ve şehrin kalbiydi.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "Bu dönemden bize kalan en güzel eserlerden biri, Uruk Vazosu'dur. Bir metreden uzun bu taş vazonun üzerinde, aşağıdan yukarıya doğru bir hikâye anlatılır. En altta su ve ekinler, üstünde koyunlar, onun üstünde ellerinde sepetlerle yürüyen çıplak insanlar. Ve en tepede, tanrıçaya sunulan hediyeler. [duraksama 1.0] Bu, dünyanın düzenini anlatan bir resimdi: Su ekini, ekin hayvanı, hayvan insanı besler; insanlar da her şeyi tanrılara borçludur.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "Uruk'tan kalan bir başka eser, bir kadın yüzü. Beş bin yıl önce mermerden oyulmuş, doğal boyutta bir yüz. Gözleri ve kaşları bir zamanlar renkli taşlarla kakılıydı. Bugün yalnızca boşlukları kaldı. [ağır] Kim olduğunu bilmiyoruz. Bir tanrıça mı, bir rahibe mi? Ama bu yüz, insanlık tarihinin en eski gerçekçi portrelerinden biri sayılıyor.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "Şehir büyüdükçe, yönetilmesi de zorlaştı. Tapınağa gelen buğdayı, koyunları, kumaşları kim kaydedecekti? Kime ne kadar arpa verilecekti? [duraksama 0.8] Bu sorular, insanlık tarihinin en büyük icatlarından birine yol açtı. Ve bu icat, bir şiirle değil, bir hesap pusulasıyla başladı.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    }
+   ],
+   "card": {
+    "kicker": "BÖLÜM II",
+    "date": "MÖ 3500–3000 · Uruk"
+   },
+   "music": "gizem"
+  },
+  {
+   "title": "Yazının Doğuşu",
+   "paragraphs": [
+    {
+     "text": "[sakin] Yazıdan önce, Mezopotamya'da insanlar mal saymak için küçük kil jetonlar kullanıyordu. Küçük bir koni bir ölçek arpa, bir küre başka bir ölçü, bir silindir bir koyun demekti. Bazen bu jetonlar, bir kil zarfın içine konup mühürlenirdi. Zarfın üzerine de içindeki jetonların izi bastırılırdı.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "Bir noktada biri şunu fark etti: Eğer işaretler zaten zarfın yüzeyinde duruyorsa, jetonlara gerek var mı? [duraksama 0.6] Böylece işaretler doğrudan düz bir kil levhanın üzerine çizilmeye başlandı. Uruk'ta bulunan en eski tabletler, MÖ üç bin iki yüz yılı civarına tarihleniyor. Ve neredeyse hepsi aynı şeyi anlatıyor: arpa, koyun, ekmek, bira. Kime ne verildiği, kimden ne alındığı.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "[hayret] Bu ilk tabletlerden birinde, bir kişinin adı geçiyor gibi görünüyor: Kuşim. Tabletler, büyük miktarda arpanın bu kişinin sorumluluğunda olduğunu anlatıyor. Kuşim'in bir kâtip mi, bir yönetici mi olduğunu bilmiyoruz. Ama bazı tarihçiler bu adı, tarihte yazıyla kaydedilmiş en eski kişi adlarından biri olarak anar. Yani insanlığın hatırladığı ilk isimlerden biri, belki de bir muhasebeciye aitti.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "Başlangıçta işaretler küçük resimlerdi. Bir başak, bir baş, bir ayak. Ama kile resim çizmek zordu. Kâtipler zamanla kamış kalemin ucunu kile bastırarak çizgiler oluşturmaya başladı. Bu çizgiler, ucu kalın, sonu ince küçük çivilere benziyordu. Bugün bu yazıya bu yüzden \"çivi yazısı\" diyoruz.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "En büyük adım ise işaretlerin sesleri göstermeye başlamasıydı. Artık bir işaret yalnızca \"ok\" anlamına gelmiyor, \"ti\" sesini de gösterebiliyordu. Bu sayede isimler, fiiller, duygular, dualar yazılabildi. [duraksama 0.8] Yazıyı öğrenmek için okullar kuruldu. Sümerler okula \"tablet evi\" diyordu. Öğrenciler yıllarca yüzlerce işareti ezberler, öğretmenin yazdığı satırları kilin öbür yüzüne tekrar tekrar kopyalardı.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "Bu okullardan kalan tabletlerin bazılarında öğrencilerin yakınmaları bile var. Bir metinde, okula geç kaldığı, derste konuştuğu ve yazısı kötü olduğu için azar işiten bir öğrenci anlatılır. [hayret] Dört bin yıl önce yazılmış bu metin, bugün herhangi bir okul sırasında da yaşanabilecek bir gün gibi okunuyor.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    }
+   ],
+   "card": {
+    "kicker": "BÖLÜM III",
+    "date": "MÖ 3300–2600 · Uruk"
+   },
+   "music": "tapinak"
+  },
+  {
+   "title": "Şehirler Savaşıyor",
+   "paragraphs": [
+    {
+     "text": "[sakin] Sümer hiçbir zaman tek bir ülke değildi. Ur, Uruk, Lagaş, Umma, Kiş, Nippur… Her biri kendi tanrısına, kendi krallığına, kendi kanallarına sahip ayrı bir şehir devletiydi. Aynı dili konuşuyor, aynı tanrılara tapıyorlardı. Ama su ve toprak söz konusu olduğunda, birbirlerinin en büyük rakibiydiler.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "Sümerler, kendi tarihlerini de yazdı. Bugün \"Sümer Kral Listesi\" diye bilinen metinde, krallığın şehirden şehre nasıl geçtiği anlatılır. [hayret] Ama bu listede bazı krallara binlerce yıl süren saltanatlar yazılmıştır. Tufandan önceki krallar için ise rakamlar on binlerce yılı bulur. Tarihçiler bu listeyi efsaneyle gerçeğin karıştığı bir metin olarak okur.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "Lagaş ile Umma arasında, verimli bir sınır toprağı yüzünden kuşaklar boyu süren bir çatışma vardı. MÖ yirmi beşinci yüzyılın ortalarında Lagaş kralı Eannatum, Umma'yı yendi ve bu zaferi taş bir anıtın üzerine işletti. Bugün Paris'teki Louvre Müzesi'nde duran bu anıta \"Akbabalar Steli\" denir. [ağır] Bir yüzünde, kalkanlarını birleştirip sık bir sıra hâlinde yürüyen mızraklı askerler görünür. Diğer yüzünde ise savaş alanının üzerinde dönen akbabalar.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "Bu taş, yalnızca bir zafer anıtı değil, aynı zamanda bir sınır antlaşmasının kaydıydı. Üzerindeki yazı, iki şehir arasındaki sınırın nereden geçeceğini ve yemine uymayanın başına neler geleceğini anlatır. Tarihçiler onu, yazılı olarak kayda geçmiş en eski sınır anlaşmazlıklarından birinin belgesi olarak görür.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "Lagaş'ta yaklaşık yüz yıl sonra başka bir kral, Urukagina, farklı bir iş yaptı. Yazıtlarında, rahiplerin ve memurların halktan aldığı haksız vergileri kaldırdığını, borç yüzünden köle olanları serbest bıraktığını, yetimleri ve dulları güçlülere karşı koruduğunu anlatır. [duraksama 1.0] Bu yazıtlarda \"amagi\" diye bir kelime geçer. Kelime kelime \"anneye dönüş\" demektir; yani borçlu birinin serbest kalıp ailesine geri dönmesi. Pek çok tarihçi bunu, bilinen en eski \"özgürlük\" kelimesi olarak anar.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    }
+   ],
+   "card": {
+    "kicker": "BÖLÜM IV",
+    "date": "MÖ 2900–2350 · Lagaş, Umma, Kiş"
+   },
+   "music": "karanlik"
+  },
+  {
+   "title": "Ur'un Kraliyet Mezarları",
+   "paragraphs": [
+    {
+     "text": "[sakin] Bin dokuz yüz yirmili yıllarda, İngiliz arkeolog Leonard Woolley, Ur'da büyük bir kazı başlattı. Yıllar süren çalışmanın sonunda ekibi, şehrin eski mezarlığında yaklaşık iki bin mezar buldu. Çoğu sıradan insanlara aitti. Ama bunların arasında on altı mezar diğerlerinden çok farklıydı. [duraksama 0.8] Woolley onlara \"kraliyet mezarları\" adını verdi.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "Bunlardan birinde, mühür silindirindeki yazıya göre Puabi adında bir kadın yatıyordu. Muhtemelen bir kraliçeydi. Başında altın yapraklardan, lapis lazuli ve akik boncuklardan yapılmış göz alıcı bir başlık vardı. Kulaklarında iri altın küpeler, boynunda kat kat kolyeler. [hayret] Lapis lazuli, bugünkü Afganistan'ın dağlarından, binlerce kilometre öteden getirilmişti. Akik taşları ise muhtemelen İndus Vadisi'nden geliyordu.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "Bu mezarlıktan çıkan en ünlü eserlerden biri, bugün Londra'daki British Museum'da duran ve \"Ur Sancağı\" diye anılan küçük bir kutudur. Lapis lazuli, kırmızı taş ve deniz kabuğuyla süslenmiştir. Bir yüzünde savaş arabaları, askerler ve tutsaklar görülür. Diğer yüzünde ise bir şölen: hayvanlar, armağanlar, lir çalan bir müzisyen ve kadeh kaldıran bir kral. [duraksama 0.6] Bu nesnenin ne işe yaradığını hâlâ bilmiyoruz. Bir sancak mı, bir müzik aletinin parçası mı, yoksa bir sandık mı? Adı, Woolley'nin ilk tahmininden geliyor.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "Mezarlarda liler de bulundu. Bunlardan birinin ön yüzünde altın ve lapis lazuliden yapılmış sakallı bir boğa başı vardı. Dört bin beş yüz yıl önce bu telli çalgılar mezarın içinde çalınmış olabilir. Bir başka mezardan ise altın ve lapis lazuliden yapılmış, arka ayakları üzerinde dikilip bir ağacın dallarına uzanan bir keçi heykelciği çıktı. Woolley ona, bir hikâyeden esinlenerek \"Çalılıktaki Koç\" adını verdi.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "[ağır] Ama bu mezarlarda Woolley'yi asıl şaşırtan, altınlar değildi. Bazı mezarların girişinde, düzgün sıralar hâlinde yatan onlarca insanın kalıntısı vardı: askerler, hizmetkârlar, müzisyenler, takılarını takmış kadınlar. [duraksama 1.5] Bu insanların, efendileriyle birlikte öbür dünyaya gitmek üzere mezara eşlik ettiği düşünülüyor. Nasıl öldükleri uzun süre tartışıldı. Yakın zamanda yapılan incelemeler, en azından bazılarının şiddetle öldürülmüş olabileceğini gösteriyor.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "Bu uygulama Mezopotamya'da çok kısa bir dönemde ve yalnızca Ur'da bu ölçekte görülür. Sonra tamamen ortadan kalkar. [duraksama 0.8] Ur'un kraliyet mezarları bu yüzden hem Sümer zenginliğinin en parlak tanığı, hem de bu uygarlığın en karanlık sırlarından biri olarak kaldı.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    }
+   ],
+   "card": {
+    "kicker": "BÖLÜM V",
+    "date": "MÖ 2600 · Ur"
+   },
+   "music": "agir"
+  },
+  {
+   "title": "Gılgamış",
+   "paragraphs": [
+    {
+     "text": "[sakin] Sümer Kral Listesi'nde Uruk'un krallarından biri olarak Gılgamış adında biri geçer. Tarihçilerin çoğu, onun MÖ yirmi yedinci yüzyıl civarında yaşamış gerçek bir kral olabileceğini düşünüyor. [duraksama 0.6] Ama Gılgamış asıl ününü, yüzyıllar boyunca onun hakkında anlatılan hikâyelere borçlu. Bu hikâyeler zamanla birleşti ve insanlık tarihinin bilinen en eski büyük edebi eseri ortaya çıktı: Gılgamış Destanı.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "Destanda Gılgamış, yarı tanrı, yarı insan, güçlü ama kibirli bir kraldır. Tanrılar onu dizginlemek için vahşi bir adam yaratır: Enkidu. İkisi önce dövüşür, sonra ayrılmaz dost olur. Birlikte uzak sedir ormanına gider, canavarları yener. [duraksama 1.0] Ama Enkidu hastalanır ve ölür. Ve Gılgamış, hayatında ilk kez, kendisinin de bir gün öleceği gerçeğiyle yüzleşir.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "[hüzün] Ölüm korkusuyla, ölümsüzlüğün sırrını aramak için dünyanın öbür ucuna yola çıkar. Orada, tufandan sağ kurtulan ve tanrıların ölümsüzlük bahşettiği yaşlı bir adamla karşılaşır. Adam ona, tanrıların bir zamanlar bütün insanlığı büyük bir tufanla yok etmeye karar verdiğini anlatır. Kendisinin ise bir gemi yapıp ailesini ve hayvanları kurtardığını.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "[hayret] Bin sekiz yüz yetmiş iki yılında, Londra'daki British Museum'da çalışan George Smith adında genç bir araştırmacı, kırık bir tableti okurken bu tufan hikâyesini fark etti. Anlatılana göre heyecandan yerinden fırlayıp odada dolaşmaya başlamıştı. [duraksama 0.8] Çünkü bu hikâye, çok daha sonra yazılmış başka tufan anlatılarına şaşırtıcı biçimde benziyordu. Bu keşif, eski Mezopotamya'ya olan ilgiyi bir anda patlattı.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "Destanın sonunda Gılgamış ölümsüzlüğü bulamaz. Eli boş, Uruk'a döner. Şehrin surlarına bakar ve yol arkadaşına onları gösterir: tuğlalarına, temellerine, bahçelerine bakmasını söyler. [ağır] Belki de destanın bize söylediği budur. İnsan sonsuza kadar yaşayamaz. Ama geride bıraktığı eserlerle, yaptıklarıyla hatırlanır.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    }
+   ],
+   "card": {
+    "kicker": "BÖLÜM VI",
+    "date": "MÖ 2700 · Uruk"
+   },
+   "music": "ses"
+  },
+  {
+   "title": "İlk İmparatorluk: Akad",
+   "paragraphs": [
+    {
+     "text": "[sakin] MÖ yirmi dördüncü yüzyılda, Sümer şehirlerinin hepsini tek bir yönetim altında toplayan bir adam ortaya çıktı. Adı Sargon'du. Sümerce değil, Sami dillerinden biri olan Akadca konuşuyordu. Kurduğu başkentin adı Akad'dı. [hayret] Bu şehrin nerede olduğu bugün bile tam olarak bilinmiyor.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "Sonraki çağlarda anlatılan bir efsaneye göre, Sargon'un annesi onu doğurduktan sonra kamıştan bir sepete koyup nehre bırakmıştı. Sepeti bulan bir bahçıvan onu büyüttü. Sargon önce Kiş kralının sakisi oldu, sonra tahtı ele geçirdi. [duraksama 0.6] Bu hikâyenin ne kadarının gerçek olduğunu bilmiyoruz. Ama Sargon'un kurduğu devlet, pek çok tarihçiye göre tarihteki ilk imparatorluk sayılır.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "Sargon'un orduları Basra Körfezi'nden Akdeniz kıyılarına kadar yürüdü. Yazıtlarında Sedir Ormanı'na ve Gümüş Dağları'na ulaştığını anlatır. Bunların bugünkü Lübnan ve Toros Dağları olduğu düşünülüyor. [duraksama 0.8] Anadolu ile bu bağlantı da ilginçtir: Sonraki çağlarda anlatılan bir hikâyede Sargon'un, Anadolu'daki tüccarları korumak için Puruşhanda adlı bir şehre sefer yaptığı anlatılır.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "Sargon, kızını Ur'daki Ay tanrısı Nanna'nın tapınağına baş rahibe olarak atadı. Bu kadının adı Enheduanna'ydı. [hayret] Enheduanna, tanrıça İnanna için ilahiler yazdı ve bu ilahilerde kendi adını da kullandı. Bu yüzden pek çok araştırmacı onu, tarihte adıyla bildiğimiz ilk yazar olarak anar. Yani adı bilinen ilk yazar, dört bin üç yüz yıl önce yaşamış bir kadındı.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "Sargon'un torunu Naram-Sin döneminde imparatorluk en geniş hâline ulaştı. Naram-Sin, kendini tanrı ilan eden ilk Mezopotamya kralı oldu. Paris'teki Louvre'da duran zafer stelinde, boynuzlu bir miğferle, yani tanrı işaretiyle, askerlerinin önünde bir dağa tırmanırken görülür. [duraksama 1.0] Ama imparatorluk ondan sonra uzun yaşamadı. İsyanlar, kuraklık ve dağlardan inen Guti adlı kavmin baskınları, Akad'ı yaklaşık iki yüzyıl sonra çökertti.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    }
+   ],
+   "card": {
+    "kicker": "BÖLÜM VII",
+    "date": "MÖ 2334–2154 · Akad"
+   },
+   "music": "agir"
+  },
+  {
+   "title": "Ur'un Yeniden Yükselişi",
+   "paragraphs": [
+    {
+     "text": "[sakin] Akad'ın çöküşünden sonraki karışık yıllarda, Lagaş şehrinde Gudea adında bir yönetici öne çıktı. Gudea savaşlarıyla değil, yaptırdığı tapınaklarla ve heykelleriyle tanınır. Bugün dünyanın birçok müzesinde onun heykelleri durur. [duraksama 0.6] Neredeyse hepsi aynı duruşla: sert, siyah bir taştan oyulmuş, elleri göğsünde kavuşturulmuş, sakin ve dindar bir yönetici.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "Kısa süre sonra Ur, yeniden güneyin en güçlü şehri oldu. MÖ yirmi birinci yüzyılın sonlarında Ur-Nammu adında bir kral, Ur'un Üçüncü Hanedanı diye anılan yeni bir krallık kurdu. Ur'un o dev zigurratı, onun döneminde inşa edildi. Milyonlarca kerpiçten yapılmış, basamak basamak yükselen bu yapının tepesinde Ay tanrısı Nanna'nın tapınağı vardı.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "[hayret] Ur-Nammu'nun adı, bir şeyle daha anılır: dünyanın bilinen en eski yasa metinlerinden biriyle. Çok daha ünlü olan Hammurabi Yasaları'ndan yaklaşık üç yüz yıl önce yazılmış bu yasaların bir kopyası, bugün İstanbul Arkeoloji Müzeleri'nde duruyor. [duraksama 0.8] Bu yasalarda dikkat çeken bir şey var: Bazı suçlar için \"göze göz\" türünden bir ceza yerine para cezası öngörülmüştü. Örneğin birinin dişini kıran, belli miktarda gümüş ödemek zorundaydı.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "İstanbul'daki aynı müzede, bu döneme ait başka bir tablet daha var. Bir rahibenin Ur kralı Şu-Sin için yazdığı bir aşk şiiri. \"Damadım, gönlümün sevgilisi\" diye başlayan bu şiir, bilinen en eski aşk şiirlerinden biri olarak anılır. [duraksama 1.0] Sümerlerin en değerli hatıralarından bazıları, bu yüzden Irak'tan binlerce kilometre uzakta, İstanbul'un ortasında saklanıyor.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "Ur'un bu son parlak döneminde devlet, bir kâtipler ordusuyla yönetiliyordu. Bu dönemden on binlerce idari tablet günümüze ulaştı: maaş listeleri, hayvan sayımları, işçi kayıtları, posta hesapları. [duraksama 0.6] Belki de tarihin ilk büyük bürokrasisi, Ur'un kerpiç ofislerinde doğdu.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    }
+   ],
+   "card": {
+    "kicker": "BÖLÜM VIII",
+    "date": "MÖ 2112–2004 · Ur, Lagaş"
+   },
+   "music": "tapinak"
+  },
+  {
+   "title": "Ur İçin Ağıt",
+   "paragraphs": [
+    {
+     "text": "[sakin] Ama bu parlak dönem de uzun sürmedi. Batıdan, çölün kenarlarından gelen Amurru göçebeleri giderek çoğaldı. Devlet onları durdurmak için uzun bir sur bile inşa etti. Bir yandan da kıtlık ve ekonomik sıkıntılar başladı. [duraksama 0.8] MÖ iki bin dört yılı civarında, doğudaki Elam ordusu Ur'a girdi. Şehir yağmalandı ve son kral İbbi-Sin tutsak olarak Elam'a götürüldü.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "Bu yıkımın ardından Sümer şairleri, şehirlerinin yok oluşu için ağıtlar yazdı. \"Ur İçin Ağıt\" bunlardan biridir. [hüzün] Şiirde, Ay tanrısının şehrini terk edişi, boş kalan sokaklar, yıkılan evler ve sevdiklerini kaybeden insanlar anlatılır. Bir şehrin ölümünü anlatan, insanlık tarihinin en eski şiirlerinden biri.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "Sümerler bir halk olarak yavaş yavaş Akadca konuşan komşularının arasında eridi. Birkaç yüzyıl sonra Babil yükseldi ve Hammurabi gibi krallar Mezopotamya'yı yeniden birleştirdi. [duraksama 0.8] Sümerce artık sokakta konuşulmayan bir dil oldu. Ama tamamen ölmedi. Avrupa'da yüzyıllarca Latince nasıl din ve bilim dili olarak yaşadıysa, Sümerce de tapınaklarda, okullarda ve ilahilerde iki bin yıl boyunca okunmaya, yazılmaya devam etti.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    }
+   ],
+   "card": {
+    "kicker": "BÖLÜM IX",
+    "date": "MÖ 2004 · Ur"
+   },
+   "music": "huzun"
+  },
+  {
+   "title": "Sümerlerden Kalanlar",
+   "paragraphs": [
+    {
+     "text": "[sakin] Sümerlerin hayatımıza bıraktığı bazı şeyleri her gün, farkında bile olmadan kullanıyoruz. Sümerler saymak için on yerine altmışı temel alan bir sistem kullanıyordu. Bu sistem Babillilere, onlardan Yunanlılara geçti. [hayret] Bugün bir saati altmış dakikaya, bir dakikayı altmış saniyeye, bir daireyi üç yüz altmış dereceye bölüyorsak, bunun kökleri Mezopotamya'ya uzanır.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "Ur Sancağı'ndaki savaş arabalarının tahta tekerleklerine dikkat edin. Tekerleği kimin ilk icat ettiği tartışmalıdır. Ama Mezopotamya, tekerleğin en erken kullanıldığı yerlerden biridir. Toprağı sürerken aynı anda tohum ekebilen saban, çömlekçi çarkı ve geniş sulama kanalları da bu topraklarda gelişti.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "[sakin] Sümerler biraya da çok düşkündü. İşçilere maaşın bir kısmı ekmek ve bira olarak verilirdi. Silindir mühürlerde, büyük bir küpün etrafına oturup uzun kamış pipetlerle bira içen insanlar görülür. Bira tanrıçası Ninkasi için yazılmış bir ilahi, aslında bira yapımının aşamalarını anlatan bir tarif gibidir. Bu metin, bilinen en eski \"yemek tarifi\" sayılabilecek yazılardan biridir.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "[ağır] Sümerlerin dünyası dört bin yıl önce sona erdi. Şehirleri kuma gömüldü, dilleri unutuldu, adları bile tarihten silindi. Bin sekiz yüzlü yıllarda çivi yazısını yeniden okumaya başlayan bilim insanları, Babil ve Asur'dan daha eski bir halkın izlerine rastladıklarında, bu halkın adını bile bilmiyorlardı. [duraksama 1.5] Sümerleri, onların kendi yazdıkları sayesinde, yeniden keşfettik.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    }
+   ],
+   "card": {
+    "kicker": "BÖLÜM X",
+    "date": "Bugün"
+   },
+   "music": "derin"
+  },
+  {
+   "title": "Kapanış",
+   "paragraphs": [
+    {
+     "text": "[sakin] Bir avuç kil, bir kamış kalem ve birkaç işaret. Belki de insanlığın en büyük icadı buydu. Çünkü yazı sayesinde bir insan, öldükten binlerce yıl sonra bile bizimle konuşabiliyor. Bir kâtibin arpa hesabını, bir kralın yasalarını, bir rahibenin ilahisini, bir öğrencinin azar işittiği günü okuyabiliyoruz.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "Bugün sizinle konuşan bu ses, ekrandaki yazılar, cebinizdeki telefon… Hepsi, beş bin yıl önce Uruk'ta ıslak bir kilin üzerine basılan o ilk işaretlerden doğan uzun bir yolun devamı. [duraksama 1.0] Ve o yol, iki nehrin arasında başladı.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    },
+    {
+     "text": "Tarih Dosyaları'nın bir sonraki bölümünde görüşmek üzere. Kanalımıza abone olmayı unutmayın.",
+     "shots": [
+      {
+       "clip": "klipler/TBD.mp4"
+      }
+     ]
+    }
+   ],
+   "music": "huzun"
+  }
+ ]
+}
