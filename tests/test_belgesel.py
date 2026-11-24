@@ -927,3 +927,22 @@ def test_validate_sleep_thumbnail_needs_big_label():
     good = dict(base, thumbnails=[{"sablon": "v2", "line1": "Uyku", "line2": "belgeseli"}])
     assert any("uyku belgeselinde" in p for p in dt.validate(bad))
     assert not any("uyku belgeselinde" in p for p in dt.validate(good))
+
+
+def test_commons_sheets_filters_license_and_size(tmp_path, monkeypatch):
+    from scripts import doc_review, archive_images as ai
+    monkeypatch.setattr(ai, "search_commons", lambda q, limit=20, session=None: ["File:A.jpg", "File:B.jpg", "File:C.jpg"])
+    monkeypatch.setattr(ai, "file_infos", lambda titles, session=None: {
+        "File:A.jpg": {"title": "File:A.jpg", "width": 3000, "height": 2000, "mime": "image/jpeg", "license": "CC BY-SA 4.0"},
+        "File:B.jpg": {"title": "File:B.jpg", "width": 3000, "height": 2000, "mime": "image/jpeg", "license": "CC BY-NC 2.0"},
+        "File:C.jpg": {"title": "File:C.jpg", "width": 600, "height": 400, "mime": "image/jpeg", "license": "Public domain"}})
+
+    class S:
+        def get(self, url, timeout=0):
+            raise RuntimeError("ağ yok")
+    monkeypatch.setattr(ai, "_session", lambda: S())
+    monkeypatch.setattr("time.sleep", lambda s: None)
+    sheets = doc_review.commons_sheets({"x": "q"}, tmp_path)
+    rep = json.loads((tmp_path / "commons_adaylar.json").read_text(encoding="utf-8"))
+    assert [a["title"] for a in rep["x"]["adaylar"]] == ["File:A.jpg"]
+    assert len(sheets) == 1

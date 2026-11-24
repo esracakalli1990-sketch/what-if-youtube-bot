@@ -18,10 +18,16 @@ sys.path.insert(0, str(HERE))
 
 try:
     from cekimler import SHOTS, CARDS  # noqa: E402
-    from gorseller import IMAGES, STOCK  # noqa: E402
-    from haritalar import M as MAPS  # noqa: E402
 except ImportError:          # taslak (yalnızca ses) aşaması
-    SHOTS, CARDS, IMAGES, STOCK, MAPS = {}, {}, {}, {}, {}
+    SHOTS, CARDS = {}, {}
+try:
+    from gorseller import IMAGES, STOCK  # noqa: E402
+except ImportError:
+    IMAGES, STOCK = {}, {}
+try:
+    from haritalar import M as MAPS  # noqa: E402
+except ImportError:
+    MAPS = {}
 
 SEYFULLAH_KARTAL = "mF7tIc9VLrznhGooGjaT"
 MUZIK = ["gizem", "derin", "gizem", "tapinak", "karanlik", "agir", "ses", "agir", "tapinak", "huzun", "derin", "huzun"]
