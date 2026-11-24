@@ -129,7 +129,13 @@ def main():
         "kurgu": {"gecis": "dissolve", "ton_esitle": 0.5, "bolum_sonu": 3.5, "bolum_karartma": 2.0},
         "music_sources": {k: v for k, v in yavuz["music_sources"].items() if k != "isik"},  # "isik" telif talebi aldı
         "images": dict(IMAGES),
-        "thumbnails": [],
+        "thumbnails": [
+            {"sablon": "v2", "arka_plan": "tab1", "arka_plan_kadraj": "60% 50%", "hale": "transparent",
+             "line1": "İlk", "line2": "yazı", "vurgu": "#FFC83D"},
+            {"sablon": "v2", "arka_plan": "puabi1", "arka_plan_kadraj": "50% 40%", "hale": "transparent",
+             "line1": "4500 yıllık", "line2": "mezar", "vurgu": "#FFC83D"},
+            {"sablon": "v2", "arka_plan": "tufan2", "arka_plan_kadraj": "50% 50%", "hale": "transparent",
+             "line1": "Tufanı ilk", "line2": "onlar yazdı", "vurgu": "#FFC83D"}],
         "stock": dict(STOCK),
         "films": {},
         "maps": dict(MAPS),
