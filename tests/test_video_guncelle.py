@@ -24,3 +24,12 @@ def test_plan_skips_unchanged_and_flags_long_title():
     bad = plan_changes([{"id": "a", "baslik": "x" * 101}], videos)
     assert "hata" in bad[0]
     assert plan_changes([{"id": "z"}], videos)[0]["hata"] == "video bulunamadı"
+
+
+def test_long_description_gets_short_line():
+    videos = {"a": {"title": "A", "description": "x" * 4950}, "b": {"title": "B" * 80, "description": ""}}
+    c = plan_changes([{"id": "a", "siradaki": "b"}], videos)[0]
+    assert len(c["snippet"]["description"]) <= 5000
+    assert c["siradaki"] == f"{SIRADAKI} https://youtu.be/b"
+    too_long = plan_changes([{"id": "a", "siradaki": "b"}], {**videos, "a": {"title": "A", "description": "x" * 4990}})
+    assert "hata" in too_long[0]
