@@ -1,0 +1,13 @@
+{
+ "not": "28 Kasım analizi: en iyi iki video (Mısır, Hitit) 'X'in Tam Hikâyesi' kalıbında. Kapak testlerinde tüm kapaklar eşit çıktı; değişken başlık. Açıklamaların başına sıradaki belgesel bağlantısı.",
+ "videolar": [
+  {"id": "ibuMFDr7rmI", "siradaki": "Ns-ozDX_Y6g"},
+  {"id": "Ns-ozDX_Y6g", "siradaki": "VvycZragKNw"},
+  {"id": "VvycZragKNw", "siradaki": "ibuMFDr7rmI"},
+  {"id": "AI-RfRzQfos", "baslik": "İstanbul'un Fethi: 53 Günlük Kuşatmanın Tam Hikâyesi | 1453", "siradaki": "J0DGI9Kqlqc"},
+  {"id": "J0DGI9Kqlqc", "baslik": "Yavuz Sultan Selim'in Tam Hikâyesi | 8 Yılda Bir Dünya İmparatorluğu", "siradaki": "6V9KWu2zO8Y"},
+  {"id": "6V9KWu2zO8Y", "baslik": "Kanuni Sultan Süleyman'ın Tam Hikâyesi | 46 Yıllık Saltanat, Mohaç'tan Zigetvar'a", "siradaki": "AI-RfRzQfos"},
+  {"id": "1WkEFLoVnWQ", "baslik": "Uyku Belgeseli: Cem Sultan'ın Tam Hikâyesi | Kardeşine Yenilen Şehzade", "siradaki": "6tq1fTQGEJ0"},
+  {"id": "6tq1fTQGEJ0", "baslik": "Uyku Belgeseli: Kösem Sultan'ın Tam Hikâyesi | Altı Padişah Gören Kadın", "siradaki": "1WkEFLoVnWQ"}
+ ]
+}
