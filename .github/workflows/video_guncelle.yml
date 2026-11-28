@@ -1,0 +1,47 @@
+name: Video Başlık ve Açıklama Güncelle
+
+# Yayınlanmış videoların başlığını ve "Sıradaki belgesel" satırını günceller. YALNIZCA elle tetiklenir.
+#   uygula=false : kuru çalışma, ne değişeceğini Telegram'a yazar
+#   uygula=true  : değişiklikleri YouTube'a uygular
+
+on:
+  workflow_dispatch:
+    inputs:
+      dosya:
+        description: "Güncelleme listesi (JSON)"
+        default: belgeseller/kanal_kimligi/video_guncellemeleri.json
+      uygula:
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: kanal
+  cancel-in-progress: false
+
+jobs:
+  guncelle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: YouTube kimlik dosyalarını hazırla
+        env:
+          CLIENT_SECRETS_B64: ${{ secrets.YOUTUBE_CLIENT_SECRETS_B64 }}
+          TOKEN_B64: ${{ secrets.YOUTUBE_TOKEN_B64 }}
+        run: |
+          echo "$CLIENT_SECRETS_B64" | base64 -d > client_secrets.json
+          echo "$TOKEN_B64" | base64 -d > youtube_token.pickle
+      - name: Güncelle
+        run: |
+          python -m scripts.video_guncelle "${{ inputs.dosya }}" ${{ inputs.uygula && '--uygula' || '' }}
