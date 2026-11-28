@@ -13,6 +13,7 @@ import sys
 from pathlib import Path
 
 SIRADAKI = "▶ Sıradaki belgesel:"
+MAX_DESC = 5000  # YouTube açıklama sınırı (karakter)
 
 
 def next_line(title: str, video_id: str) -> str:
@@ -44,6 +45,12 @@ def plan_changes(items: list[dict], videos: dict[str, dict]) -> list[dict]:
             out.append({"id": it["id"], "hata": f"başlık 100 karakteri aşıyor ({len(title)})"})
             continue
         desc = new_description(snip.get("description", ""), line)
+        if line and len(desc) > MAX_DESC:  # uzun açıklamada başlıksız kısa satır
+            line = f"{SIRADAKI} https://youtu.be/{nxt}"
+            desc = new_description(snip.get("description", ""), line)
+        if len(desc) > MAX_DESC:
+            out.append({"id": it["id"], "hata": f"açıklama {MAX_DESC} karakteri aşıyor ({len(desc)})"})
+            continue
         if title == snip["title"] and desc == snip.get("description", ""):
             continue
         body = {k: snip[k] for k in ("categoryId", "tags", "defaultLanguage", "defaultAudioLanguage")
@@ -69,6 +76,9 @@ def main(argv=None) -> int:
 
     changes = plan_changes(items, videos)
     rapor = []
+    if a.uygula and any("hata" in c for c in changes):
+        a.uygula = False  # bir sorun varsa hiçbir şeyi değiştirme
+        rapor.append("⚠️ Sorun bulundu; hiçbir video değiştirilmedi.")
     for c in changes:
         if "hata" in c:
             rapor.append(f"⚠️ {c['id']}: {c['hata']}")
